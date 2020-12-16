@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "downlevelIteration": true,
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "pretty": true,
+    "esModuleInterop": true,
+    "target": "esnext",
+    "removeComments": true,
+    "outDir": "dist/package",
+    "declaration": true,
+  },
+  "include": [
+    "src"
+  ]
+}

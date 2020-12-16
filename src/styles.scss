@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Bravura Text BB';
+  src: url('../assets/fonts/BravuraTextBB.woff') format('woff'),
+  url('../assets/fonts/BravuraTextBB.otf') format('opentype');
+}
+
+.staff-code div {
+  font-size: 40px;
+  margin: 1em 0;
+  font-family: 'Bravura Text BB';
+  white-space: pre;
+}

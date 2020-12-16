@@ -1,0 +1,45 @@
+{
+  "name": "staff-code",
+  "version": "1.0.4",
+  "main": "dist/package/index.js",
+  "types": "dist/package/index.d.ts",
+  "description": "converts simple text codes into Unicode which in the Bravura Text font displays as sheet music",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sagittal/staff-code.git"
+  },
+  "scripts": {
+    "deploy": "sh bin/deploy.sh",
+    "profile": "node --prof -r ts-node/register/transpile-only --max-old-space-size=131072 [[script.ts]] && node --prof-process isolate-*.log > processed.txt && rm isolate-*.log",
+    "lint": "tslint \"src/**/*.ts\" --fix && tslint \"spec/**/*.ts\" --fix",
+    "test": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine",
+    "test-names": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine --ci=false --names=true",
+    "test-ci": "node -r ts-node/register node_modules/jasmine/bin/jasmine --ci=true",
+    "test-ci-names": "node -r ts-node/register node_modules/jasmine/bin/jasmine --ci=true --names=true",
+    "tmp": "node -r ts-node/register/transpile-only --max-old-space-size=131072 spec/helpers/shared/tmp/tmp.ts"
+  },
+  "devDependencies": {
+    "@sagittal/general": "^1.0.37",
+    "@types/jasmine": "^3.6.2",
+    "@types/node": "^14.14.13",
+    "@types/vexflow": "^3.0.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "buffer": "^6.0.3",
+    "css-loader": "^5.0.1",
+    "jasmine": "^3.6.3",
+    "jasmine-spec-reporter": "^5.0.2",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0",
+    "style-loader": "^2.0.0",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.3",
+    "typescript": "^4.1.3",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

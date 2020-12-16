@@ -1,0 +1,85 @@
+{
+  "rulesDirectory": [
+    "./lint"
+  ],
+  "rules": {
+    "arrow-parens": [
+      true,
+      "ban-single-arg-parens"
+    ],
+    "ban": [
+      true,
+      "fit",
+      "fdescribe",
+      "xit",
+      "xdescribe"
+    ],
+    "ban-ts-ignore": false,
+    "ban-types": false,
+    "comment-format": [
+      true,
+      "check-uppercase"
+    ],
+    "completed-docs": false,
+    "cyclomatic-complexity": [
+      false,
+      5
+    ],
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "invalid-void": false,
+    "max-file-line-count": [
+      false,
+      100
+    ],
+    "max-line-length": [
+      true,
+      120
+    ],
+    "no-console": true,
+    "no-dynamic-delete": false,
+    "no-duplicate-imports": true,
+    "no-implicit-dependencies": [
+      true,
+      "dev"
+    ],
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter",
+      "arrow-parameter",
+      "arrow-call-signature"
+    ],
+    "no-import-paths-without-names": true,
+    "no-inferrable-types": false,
+    "no-misleading-array-reverse": false,
+    "no-namespace": false,
+    "no-reaching-imports": true,
+    "no-type-definitions-outside-types-modules": true,
+    "no-unbound-method": false,
+    "no-unnecessary-initializer": false,
+    "no-unsafe-any": false,
+    "no-unused-variable": false,
+    "no-use-before-declare": false,
+    "one-line": false,
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": false
+      }
+    ],
+    "prefer-method-signature": false,
+    "quotemark": [
+      true,
+      "double"
+    ],
+    "restrict-plus-operands": false,
+    "semicolon": false,
+    "strict-comparisons": false,
+    "strict-boolean-expressions": false,
+    "type-literal-delimiter": false,
+    "use-primitive-type": false
+  }
+}

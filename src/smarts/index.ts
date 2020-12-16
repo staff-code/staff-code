@@ -1,0 +1,5 @@
+export {smarts} from "./globals"
+export {computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmarts} from "./advanceAndStave"
+export {INITIAL_SMARTS} from "./constants"
+export {computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts} from "./positionAndClef"
+export {shouldNotBeDisplayed} from "./shouldNotBeDisplayed"
