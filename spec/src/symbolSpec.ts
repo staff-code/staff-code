@@ -18,20 +18,20 @@ describe("computeSymbol", (): void => {
 
         const actual = computeSymbol(inputWord)
 
-        const expected = CODE_MAP[Code["nt4"]]
+        const expected = CODE_MAP[Code[`nt4`]]
         expect(actual).toEqual(expected)
     })
 
     it("works for different clefs", (): void => {
         smarts.codeMap = TREBLE_POSITION_MAP
-        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP[Code["tbd4"]])
+        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP[Code[`tbd4`]])
         smarts.codeMap = BASS_POSITION_MAP
-        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP[Code["bsd4"]])
+        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP[Code[`bsd4`]])
     })
 
     it("can handle uppercase codes", (): void => {
-        expect(computeSymbol("/X" as Io)).toEqual(CODE_MAP[Code["/X"]])
-        expect(computeSymbol(".LL" as Io)).toEqual(CODE_MAP[Code[".LL"]])
+        expect(computeSymbol("/X" as Io)).toEqual(CODE_MAP[Code[`/X`]])
+        expect(computeSymbol(".LL" as Io)).toEqual(CODE_MAP[Code[`.LL`]])
     })
 
     it("takes a symbol in its Unicode literal form and converts it to Unicode, and assumes its width is 0                   ", (): void => {

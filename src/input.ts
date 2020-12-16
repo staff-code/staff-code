@@ -38,11 +38,11 @@ import {computeUnicode} from "./unicode"
 // TODO: NEW FEATURE, BLOCKED: DON'T RENDER CODES UNTIL SPACE IS TYPED
 //  Blocked because we're still discussing on the forum
 //  - But then you have to remember to add a space to the forum version at the end or it won't render the last codeword
-//  But make sure that plays well with the terminal Smart Advance `inputWords.push(Code[Code[";"]])` below
+//  But make sure that plays well with the terminal Smart Advance `inputWords.push(Code[Code[`;`]])` below
 
 // TODO: NEW FEATURE, BLOCKED: SMART BARLINES
 //  It's currently not possible to end with a barline
-//  This might be related to the terminal Smart Advance `inputWords.push(Code[Code[";"]])` below
+//  This might be related to the terminal Smart Advance `inputWords.push(Code[Code[`;`]])` below
 //  Blocked because waiting on Dave's thoughts about how much work to put into it
 
 // TODO: PERFORMANCE, BLOCKED: DON'T RE-RUN ON CODES YOU ALREADY CONVERTED, ONLY NEW STUFF
@@ -63,7 +63,7 @@ const computeInputUnicode = (inputSentence: Io): Unicode => {
     setAllPropertiesOfObjectOnAnother({objectToChange: smarts, objectWithProperties: INITIAL_SMARTS})
 
     const inputWords = collapseAllWhitespacesToSingleSpaces(inputSentence).split(SPACE)
-    inputWords.push(Code[Code[";"]])
+    inputWords.push(Code[Code[`;`]])
 
     return inputWords
         .map((inputWord: Io): Unicode => {
