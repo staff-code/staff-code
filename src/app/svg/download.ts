@@ -1,4 +1,4 @@
-import {vectorizeBravuraTextSvg} from "@sagittal/general"
+import {BLANK, vectorizeBravuraTextSvg} from "@sagittal/general"
 import {HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT} from "../constants"
 import {svg} from "../dom"
 import {display} from "../dom/display"
@@ -14,7 +14,7 @@ const DOWNLOAD_FILENAME: string = "staffCode.svg"
 //  Displays on the DOM and what vectorize-text renders
 
 const downloadSvg = (): void => {
-    const unicodeSentence = display.textContent || ""
+    const unicodeSentence = display.textContent || BLANK
     vectorizeBravuraTextSvg(unicodeSentence, svg, {height: HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT})
 
     const outerHTML = svg.outerHTML

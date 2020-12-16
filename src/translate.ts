@@ -1,11 +1,11 @@
+import {Io} from "@sagittal/general"
 import {computeInputUnicode} from "./input"
-import {Input} from "./types"
 
 const translateInputToDisplay = (root: Element): void => {
     const input = root.querySelector("textarea")!
     const display = root.querySelector("div")!
 
-    display.textContent = computeInputUnicode(input.value as Input)
+    display.textContent = computeInputUnicode(input.value as Io)
 }
 
 export {

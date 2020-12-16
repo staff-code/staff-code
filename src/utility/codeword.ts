@@ -1,3 +1,4 @@
+import {BLANK} from "@sagittal/general"
 import {Code, Codeword, CODE_MAP, Symbol, Unicode} from "../symbols"
 
 const CODE_MAP_ENTRIES = Object.entries(CODE_MAP) as Array<[unknown, Symbol]> as Array<[Code, Symbol]>
@@ -21,7 +22,7 @@ const computeCodewordFromUnicode = (unicodeWord: Unicode): Codeword => {
 }
 
 const computeCodewordsFromUnicode = (unicodeSentence: Unicode): Codeword[] => {
-    const unicodeWords = unicodeSentence.split("") as Unicode[]
+    const unicodeWords = unicodeSentence.split(BLANK) as Unicode[]
 
     return unicodeWords.map(computeCodewordFromUnicode)
 }
