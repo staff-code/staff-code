@@ -1,12 +1,11 @@
-import {BLANK, Io, setAllPropertiesOfObjectOnAnother, SPACE, sumTexts} from "@sagittal/general"
 import {
     computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmarts,
     computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts,
-    INITIAL_SMARTS,
-    smarts,
+    resetSmarts,
 } from "./smarts"
 import {computeSymbol} from "./symbol"
 import {Code, Unicode} from "./symbols"
+import {Input} from "./types"
 import {computeUnicode} from "./unicode"
 
 // TODO: NEW FEATURE, READY TO GO: INLINE COMMENTS
@@ -38,11 +37,11 @@ import {computeUnicode} from "./unicode"
 // TODO: NEW FEATURE, BLOCKED: DON'T RENDER CODES UNTIL SPACE IS TYPED
 //  Blocked because we're still discussing on the forum
 //  - But then you have to remember to add a space to the forum version at the end or it won't render the last codeword
-//  But make sure that plays well with the terminal Smart Advance `inputWords.push(Code[Code[";"]])` below
+//  But make sure that plays well with the terminal Smart Advance `inputWords.push(Code[Code[`;`]])` below
 
 // TODO: NEW FEATURE, BLOCKED: SMART BARLINES
 //  It's currently not possible to end with a barline
-//  This might be related to the terminal Smart Advance `inputWords.push(Code[Code[";"]])` below
+//  This might be related to the terminal Smart Advance `inputWords.push(Code[Code[`;`]])` below
 //  Blocked because waiting on Dave's thoughts about how much work to put into it
 
 // TODO: PERFORMANCE, BLOCKED: DON'T RE-RUN ON CODES YOU ALREADY CONVERTED, ONLY NEW STUFF
@@ -53,20 +52,20 @@ import {computeUnicode} from "./unicode"
 //  That or only compile the word once you type a space
 //  Let's see what he says. Yes this is different and totally complimentary to the don't render codes until space typed
 
-const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
+const collapseAllWhitespacesToSingleSpaces = (inputSentence: Input): Input =>
     inputSentence
-        .replace(/<br>/g, SPACE)
-        .replace(/\n/g, SPACE)
-        .replace(/\t/g, SPACE)
+        .replace(/<br>/g, " ")
+        .replace(/\n/g, " ")
+        .replace(/\t/g, " ")
 
-const computeInputUnicode = (inputSentence: Io): Unicode => {
-    setAllPropertiesOfObjectOnAnother({objectToChange: smarts, objectWithProperties: INITIAL_SMARTS})
+const computeInputUnicode = (inputSentence: Input): Unicode => {
+    resetSmarts()
 
-    const inputWords = collapseAllWhitespacesToSingleSpaces(inputSentence).split(SPACE)
-    inputWords.push(Code[Code[";"]])
+    const inputWords = collapseAllWhitespacesToSingleSpaces(inputSentence).split(" ")
+    inputWords.push(Code[Code[`;`]])
 
     return inputWords
-        .map((inputWord: Io): Unicode => {
+        .map((inputWord: Input): Unicode => {
             const symbol = computeSymbol(inputWord)
 
             const smartAdvanceAndSmartStavePrefixUnicode =
@@ -75,9 +74,9 @@ const computeInputUnicode = (inputSentence: Io): Unicode => {
                 computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts(symbol)
             const unicode = computeUnicode(symbol)
 
-            return sumTexts(smartAdvanceAndSmartStavePrefixUnicode, smartPositionAndSmartClefPrefixUnicode, unicode)
+            return smartAdvanceAndSmartStavePrefixUnicode + smartPositionAndSmartClefPrefixUnicode + unicode as Unicode
         })
-        .join(BLANK) as Unicode
+        .join("") as Unicode
 }
 
 export {

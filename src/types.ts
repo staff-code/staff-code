@@ -8,6 +8,9 @@
 
 type UnicodeLiteral = string & {_UnicodeLiteralBrand: boolean}
 
+type Input = string & {_InputBrand?: boolean}
+
 export {
     UnicodeLiteral,
+    Input,
 }

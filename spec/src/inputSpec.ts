@@ -1,18 +1,18 @@
-import {Io, SPACE} from "@sagittal/general"
 import {computeInputUnicode} from "../../src/input"
 import {Unicode} from "../../src/symbols"
+import {Input} from "../../src/types"
 import {computeCodewordsFromUnicode} from "../../src/utility/codeword"
 
-const codewordFailMessage = (actualUnicodeSentence: Unicode, expectedUnicodeSentence: Unicode): Io => {
+const codewordFailMessage = (actualUnicodeSentence: Unicode, expectedUnicodeSentence: Unicode): Input => {
     const actualCodewords = computeCodewordsFromUnicode(actualUnicodeSentence)
     const expectedCodewords = computeCodewordsFromUnicode(expectedUnicodeSentence)
 
-    return `expected "${actualCodewords.join(SPACE)}" to be "${expectedCodewords.join(SPACE)}"`
+    return `expected "${actualCodewords.join(" ")}" to be "${expectedCodewords.join(" ")}"`
 }
 
 describe("computeInputUnicode", (): void => {
     it("basically works", (): void => {
-        const inputSentence = "d5 /|\\ d5 nt" as Io
+        const inputSentence = "d5 /|\\ d5 nt" as Input
 
         const actual = computeInputUnicode(inputSentence)
 
@@ -23,7 +23,7 @@ describe("computeInputUnicode", (): void => {
 
     describe("Smart Position", (): void => {
         it("the most recently used position is automatically applied if none is specified", (): void => {
-            const inputSentence = "d5 /|\\ nt" as Io
+            const inputSentence = "d5 /|\\ nt" as Input
 
             const actual = computeInputUnicode(inputSentence)
 
@@ -33,7 +33,7 @@ describe("computeInputUnicode", (): void => {
         })
 
         it("don't manifest until they are needed (only apply to symbols with ligatures to be vertically shifted by them)", (): void => {
-            const inputSentence = "d5 st /|\\ ad13 nt" as Io
+            const inputSentence = "d5 st /|\\ ad13 nt" as Input
 
             const actual = computeInputUnicode(inputSentence)
 
@@ -43,7 +43,7 @@ describe("computeInputUnicode", (): void => {
         })
 
         it("persist until a new one is used", (): void => {
-            const inputSentence = "d5 st /|\\ ad13 nt ad13 g4 \\! ad7 nt" as Io
+            const inputSentence = "d5 st /|\\ ad13 nt ad13 g4 \\! ad7 nt" as Input
 
             const actual = computeInputUnicode(inputSentence)
 
@@ -53,7 +53,7 @@ describe("computeInputUnicode", (): void => {
         })
 
         it("does not actually put the middle position on the stave, because it is a temporary / made up unicode since no zero position glyph is in SMuFL", (): void => {
-            const inputSentence = "d5 nt ; b4 /|\\ nt" as Io
+            const inputSentence = "d5 nt ; b4 /|\\ nt" as Input
 
             const actual = computeInputUnicode(inputSentence)
 
@@ -65,7 +65,7 @@ describe("computeInputUnicode", (): void => {
 
     describe("Smart Clef", (): void => {
         it("assume treble clef even if no clef has been provided", (): void => {
-            const inputSentence = "d4 nt" as Io
+            const inputSentence = "d4 nt" as Input
 
             const actual = computeInputUnicode(inputSentence)
 
@@ -75,7 +75,7 @@ describe("computeInputUnicode", (): void => {
         })
 
         it("change depending on the clef", (): void => {
-            const inputSentence = "bscf ; d4 nt" as Io
+            const inputSentence = "bscf ; d4 nt" as Input
 
             const actual = computeInputUnicode(inputSentence)
 
@@ -85,7 +85,7 @@ describe("computeInputUnicode", (): void => {
         })
 
         it("clefs are smart and they stick until you change them (you can change from one to the other)", (): void => {
-            const inputSentence = "bscf ; d4 nt ; c4 nt ; tbcf ; d4 nt ; c4 nt" as Io
+            const inputSentence = "bscf ; d4 nt ; c4 nt ; tbcf ; d4 nt ; c4 nt" as Input
 
             const actual = computeInputUnicode(inputSentence)
 
@@ -100,57 +100,57 @@ describe("computeInputUnicode", (): void => {
             let actual
             let expected
 
-            actual = computeInputUnicode("lgln" as Io)
+            actual = computeInputUnicode("lgln" as Input)
             expected = "　 " as Unicode     // Codewords: lgln ad13
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("tbcf" as Io)
+            actual = computeInputUnicode("tbcf" as Input)
             expected = "  " as Unicode     // Codewords: tbcf ad16 ad8
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("ntdb" as Io)
+            actual = computeInputUnicode("ntdb" as Input)
             expected = "   " as Unicode    // Codewords: ntdb ad16 ad7
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("nt1" as Io)
+            actual = computeInputUnicode("nt1" as Input)
             expected = "　 " as Unicode     // Codewords: nt1 ad13
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("nt2" as Io)
+            actual = computeInputUnicode("nt2" as Input)
             expected = "　 " as Unicode     // Codewords: nt2 ad13
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("nt4" as Io)
+            actual = computeInputUnicode("nt4" as Input)
             expected = "　 " as Unicode     // Codewords: nt4 ad13
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("nt8" as Io)
+            actual = computeInputUnicode("nt8" as Input)
             expected = "   " as Unicode    // Codewords: nt8 ad16 ad5
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("nt16" as Io)
+            actual = computeInputUnicode("nt16" as Input)
             expected = "   " as Unicode    // Codewords: nt16 ad16 ad5
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("nt2dn" as Io)
+            actual = computeInputUnicode("nt2dn" as Input)
             expected = "　 " as Unicode     // Codewords: nt2dn ad13
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("nt4dn" as Io)
+            actual = computeInputUnicode("nt4dn" as Input)
             expected = "　 " as Unicode     // Codewords: nt4dn ad13
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("nt8dn" as Io)
+            actual = computeInputUnicode("nt8dn" as Input)
             expected = "　 " as Unicode     // Codewords: nt8dn ad13
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
 
-            actual = computeInputUnicode("nt16dn" as Io)
+            actual = computeInputUnicode("nt16dn" as Input)
             expected = "　 " as Unicode     // Codewords: nt16dn ad13
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
         })
 
         it("if more than one symbol has occurred since the previous advance, uses the width of the symbol with the max width", (): void => {
-            const inputSentence = "lgln nt16" as Io
+            const inputSentence = "lgln nt16" as Input
 
             const actual = computeInputUnicode(inputSentence)
 
@@ -160,7 +160,7 @@ describe("computeInputUnicode", (): void => {
         })
 
         it("resets the advance amount after each application", (): void => {
-            const inputSentence = "lgln nt16 ; nt4" as Io
+            const inputSentence = "lgln nt16 ; nt4" as Input
 
             const actual = computeInputUnicode(inputSentence)
 

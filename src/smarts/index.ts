@@ -3,3 +3,4 @@ export {computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmarts} from "./ad
 export {INITIAL_SMARTS} from "./constants"
 export {computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts} from "./positionAndClef"
 export {shouldNotBeDisplayed} from "./shouldNotBeDisplayed"
+export {resetSmarts} from "./reset"

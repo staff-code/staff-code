@@ -1,4 +1,3 @@
-import {Io} from "@sagittal/general"
 import {smarts} from "../../src/smarts"
 import {computeSymbol} from "../../src/symbol"
 import {
@@ -10,28 +9,28 @@ import {
     Unicode,
     Width,
 } from "../../src/symbols"
-import {UnicodeLiteral} from "../../src/types"
+import {Input, UnicodeLiteral} from "../../src/types"
 
 describe("computeSymbol", (): void => {
     it("gets you the symbol (unicode, width, and description) for the given word", (): void => {
-        const inputWord = "nt4" as Io
+        const inputWord = "nt4" as Input
 
         const actual = computeSymbol(inputWord)
 
-        const expected = CODE_MAP[Code["nt4"]]
+        const expected = CODE_MAP[Code[`nt4`]]
         expect(actual).toEqual(expected)
     })
 
     it("works for different clefs", (): void => {
         smarts.codeMap = TREBLE_POSITION_MAP
-        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP[Code["tbd4"]])
+        expect(computeSymbol("d4" as Input)).toEqual(CODE_MAP[Code[`tbd4`]])
         smarts.codeMap = BASS_POSITION_MAP
-        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP[Code["bsd4"]])
+        expect(computeSymbol("d4" as Input)).toEqual(CODE_MAP[Code[`bsd4`]])
     })
 
     it("can handle uppercase codes", (): void => {
-        expect(computeSymbol("/X" as Io)).toEqual(CODE_MAP[Code["/X"]])
-        expect(computeSymbol(".LL" as Io)).toEqual(CODE_MAP[Code[".LL"]])
+        expect(computeSymbol("/X" as Input)).toEqual(CODE_MAP[Code[`/X`]])
+        expect(computeSymbol(".LL" as Input)).toEqual(CODE_MAP[Code[`.LL`]])
     })
 
     it("takes a symbol in its Unicode literal form and converts it to Unicode, and assumes its width is 0                   ", (): void => {

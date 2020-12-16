@@ -1,4 +1,4 @@
-import {max, subtract, sumTexts} from "@sagittal/general"
+import {stringify} from "@sagittal/general"
 import {
     Code,
     EMPTY_UNICODE,
@@ -34,27 +34,27 @@ const computeAdvanceUnicode = (width: Width): Unicode => {
 
     let unicodePhrase = EMPTY_UNICODE
     while (remainingWidth >= MAX_ADVANCE_WIDTH) {
-        remainingWidth = subtract(remainingWidth, MAX_ADVANCE_WIDTH)
-        unicodePhrase = sumTexts(unicodePhrase, MAX_ADVANCE_UNICODE)
+        remainingWidth = remainingWidth - MAX_ADVANCE_WIDTH as Width
+        unicodePhrase = unicodePhrase + MAX_ADVANCE_UNICODE as Unicode
     }
 
-    return sumTexts(unicodePhrase, WIDTH_TO_ADVANCE_UNICODE_ARRAY[remainingWidth])
+    return [unicodePhrase, WIDTH_TO_ADVANCE_UNICODE_ARRAY[remainingWidth]].join("") as Unicode
 }
 
 const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmartStave = (width: Width): Unicode => {
     let advancePrefixUnicode
     if (smarts.staveWidth >= width || !smarts.staveOn) {
-        smarts.staveWidth = subtract(smarts.staveWidth, width)
+        smarts.staveWidth = smarts.staveWidth - width as Width
 
         advancePrefixUnicode = computeAdvanceUnicode(width)
     } else {
         const useUpExistingStaffAdvanceUnicode: Unicode = computeAdvanceUnicode(smarts.staveWidth)
-        const remainingWidthWeStillNeedToApply: Width = subtract(width, smarts.staveWidth)
+        const remainingWidthWeStillNeedToApply: Width = width - smarts.staveWidth as Width
         const remainingStaffAdvanceUnicode = computeAdvanceUnicode(remainingWidthWeStillNeedToApply)
 
-        smarts.staveWidth = subtract(MAX_STAVE_WIDTH, remainingWidthWeStillNeedToApply)
+        smarts.staveWidth = MAX_STAVE_WIDTH - remainingWidthWeStillNeedToApply as Width
 
-        advancePrefixUnicode = sumTexts(useUpExistingStaffAdvanceUnicode, ST24_UNICODE, remainingStaffAdvanceUnicode)
+        advancePrefixUnicode = useUpExistingStaffAdvanceUnicode + ST24_UNICODE + remainingStaffAdvanceUnicode as Unicode
     }
 
     smarts.advanceWidth = 0 as Width
@@ -73,7 +73,7 @@ const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmarts = (symbol: Sy
     } else {
         updateSmartStave(symbol)
 
-        const maxSymbolWidthSinceLastAdvance = max(smarts.advanceWidth, computeSymbolWidth(symbol))
+        const maxSymbolWidthSinceLastAdvance = Math.max(smarts.advanceWidth, computeSymbolWidth(symbol)) as Width
         smarts.advanceWidth = maxSymbolWidthSinceLastAdvance
 
         smartAdvanceAndSmartStavePrefixUnicode = EMPTY_UNICODE
