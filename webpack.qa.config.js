@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const IgnoreNotFoundExportPlugin = require('ignore-not-found-export-webpack-plugin')
 
 // TODO: should DRY these two webpacks up
 
@@ -55,5 +56,6 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({title: "StaffCode QA"}),
+        new IgnoreNotFoundExportPlugin(),
     ],
 }

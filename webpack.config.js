@@ -1,5 +1,5 @@
 const path = require("path")
-const IgnoreNotFoundExportPlugin = require('ignore-not-found-export-webpack-plugin');
+const IgnoreNotFoundExportPlugin = require('ignore-not-found-export-webpack-plugin')
 
 module.exports = {
     entry: "./src/bbCode/index.ts",
