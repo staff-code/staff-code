@@ -9,6 +9,11 @@ import {computeSymbol} from "./symbol"
 import {Code, Unicode} from "./symbols"
 import {computeUnicode} from "./unicode"
 
+// TODO: DEMO, OR QA SERVER
+//  I may have another to-do for this which ended up in the wrong place
+//  But basically I need to be able to see what I'm doing here before I ship
+//  So I'll need to recreate a webpack config for just that, since that's all @sagittal/app really is for now
+
 // TODO: NEW FEATURE, READY TO GO: INLINE COMMENTS
 //  Use { }. ready to go
 //  Details here, bottom of this post: http://forum.sagittal.org/viewtopic.php?p=3100#p3100
