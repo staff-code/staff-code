@@ -1,4 +1,5 @@
 const path = require("path")
+const IgnoreNotFoundExportPlugin = require('ignore-not-found-export-webpack-plugin');
 
 module.exports = {
     entry: "./src/bbCode/index.ts",
@@ -34,8 +35,6 @@ module.exports = {
                 loader: "ts-loader",
                 options: {
                     compilerOptions: {
-                        // TODO: solve export 'Unicode' (reexported as 'Unicode') was not found in './types' (possible exports: Code)
-                        //  I'm pretty sure it's related to actually switching to esnext modules, not to ts-loader vs awesome-ts-loader
                         module: "esnext",
                     },
                     transpileOnly: true,
@@ -60,4 +59,11 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        // The alternative is to switch all types, besides enums, to use `export type {}` and `import type {}`
+        // instead of `export {}` and `import {}`. This might ignore some things I want. But I just don't feel like
+        // doing all that work right now. And I feel like I should be able to just use `import {}` and `export {}`.
+        // Maybe it's just an issue that `webpack` will fix eventually.
+        new IgnoreNotFoundExportPlugin(),
+    ],
 }
