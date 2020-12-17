@@ -17,17 +17,6 @@ module.exports = {
         watchContentBase: true,
         contentBase: "dist",
     },
-    // TODO: Oh, do I still need all these externals now that I achieved tree-shaking? try remove them everywhere
-    externals: {
-        "fs": "{}",
-        "jasmine-spec-reporter": "{}",
-        "child_process": "{}",
-        "perf_hooks": "{}",
-        "path": "{}",
-        "os": "{}",
-        "util": "{}",
-        "colors": "{}",
-    },
     module: {
         rules: [
             {
