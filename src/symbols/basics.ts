@@ -7,8 +7,7 @@ const LEGER_LINE_MAP: Record<Code, Symbol> = {
     /*U+E022*/[Code[`lgln`]]: {unicode: "", width: 13, description: "leger line"},
 } as Record<Code, Symbol>
 
-// TODO: BAR_LINE_MAP
-const BAR_MAP: Record<Code, Symbol> = {
+const BAR_LINE_MAP: Record<Code, Symbol> = {
     /*U+E030*/[Code[`brln`]]: {unicode: "", width: 4, description: "bar line (single)"},
     /*U+E031*/[Code[`brlndb`]]: {unicode: "", width: 7, description: "bar line double"},
 } as Record<Code, Symbol>
@@ -74,7 +73,7 @@ const BREAKS_MAP: Record<Code, Symbol> = {
 
 export {
     LEGER_LINE_MAP,
-    BAR_MAP,
+    BAR_LINE_MAP,
     TIME_SIGNATURE_MAP,
     NOTE_MAP,
     REST_MAP,

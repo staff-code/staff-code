@@ -20,7 +20,7 @@ import {processStaffCode} from "./process"
 
 document.querySelectorAll(".staff-code").forEach(processStaffCode)
 
-// TODO: BUG, LOW PRIORITY: NO "FLASH OF UNSTYLED CONTENT" ON THE FORUM
+// TODO: BUG, LOW PRIORITY: WAIT FOR FONTS TO LOAD, SO NO "FLASH OF UNSTYLED CONTENT" ON THE FORUM
 //  We need to know when a font has finished loading before doing the above replacement
 //  In order to do that, either use a library like this: https://www.npmjs.com/package/jquery-fontspy
 //  Or `document.fonts`: https://makandracards.com/makandra/31499-detecting-when-fonts-are-loaded-via-javascript
