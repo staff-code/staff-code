@@ -9,16 +9,12 @@ import {computeSymbol} from "./symbol"
 import {Code, Unicode} from "./symbols"
 import {computeUnicode} from "./unicode"
 
-// TODO: DEMO, OR QA SERVER
-//  I may have another to-do for this which ended up in the wrong place
-//  But basically I need to be able to see what I'm doing here before I ship
-//  So I'll need to recreate a webpack config for just that, since that's all @sagittal/app really is for now
-
 // TODO: NEW FEATURE, READY TO GO: INLINE COMMENTS
 //  Use { }. ready to go
 //  Details here, bottom of this post: http://forum.sagittal.org/viewtopic.php?p=3100#p3100
 
 // TODO: NEW FEATURE, READY TO GO: COPY IMAGE BUTTON
+//  This will be intertwined with the to-do re: improving the interface for the package version
 
 // TODO: NEW FEATURE, LOW PRIORITY: MULTI-LINE STAVES
 //  I've already implemented the "br" code which causes the display to work
@@ -50,6 +46,7 @@ import {computeUnicode} from "./unicode"
 //  This might be related to the terminal Smart Advance `inputWords.push(Code[Code[`;`]])` below
 //  Blocked because waiting on Dave's thoughts about how much work to put into it
 //  Latest thoughts here: http://forum.sagittal.org/viewtopic.php?p=3131#p3131
+//  - We do at least know that we can change Smart Stave to do only st8 at a time, not st24, for finer resolution
 
 // TODO: PERFORMANCE, BLOCKED: DON'T RE-RUN ON CODES YOU ALREADY CONVERTED, ONLY NEW STUFF
 //  Check the diff with the previous sentence
@@ -58,6 +55,7 @@ import {computeUnicode} from "./unicode"
 //  Then he says it is getting slow for him now.
 //  That or only compile the word once you type a space
 //  Let's see what he says. Yes this is different and totally complimentary to the don't render codes until space typed
+//  - But this will conflict with Smart Chords / Right Alignment: http://forum.sagittal.org/viewtopic.php?p=3134#p3134
 
 const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
     inputSentence
