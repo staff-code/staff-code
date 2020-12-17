@@ -1,2 +1,2 @@
 export {translateInputToDisplay} from "./translate"
-export {buildStaffCode, downloadSvg} from "./app"
+export {buildStaffCode, downloadSvg} from "./package"

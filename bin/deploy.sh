@@ -1,6 +1,6 @@
 set -e
 
-# release bbCode version
+# publish bbCode version
 
 rm -r dist/bbCode/* > /dev/null 2>&1 || true
 webpack
@@ -10,7 +10,7 @@ cp src/bbCode/acp/* dist/bbCode
 # To create the release, then upload assets to it, the assets being the contents of dist/bbCode
 #  (should these all be called "release" instead of "deploy"?
 
-# publish npm package version
+# publish package version
 
 npm version patch
 rm -r dist/package/* > /dev/null 2>&1 || true
