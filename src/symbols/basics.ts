@@ -1,5 +1,8 @@
 import {Code, Symbol} from "./types"
 
+// TODO: FORMAT STAFF CODES IN A MORE HUMAN READABLE WAY
+//  - Either put the codes back in hexadecimal, or turn off removeComments
+//  Unless Dave says to completely forget about making the bundle human-readable
 const LEGER_LINE_MAP: Record<Code, Symbol> = {
     /*U+E022*/[Code[`lgln`]]: {unicode: "", width: 13, description: "leger line"},
 } as Record<Code, Symbol>

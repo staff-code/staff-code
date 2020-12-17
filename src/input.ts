@@ -44,6 +44,7 @@ import {computeUnicode} from "./unicode"
 //  It's currently not possible to end with a barline
 //  This might be related to the terminal Smart Advance `inputWords.push(Code[Code[`;`]])` below
 //  Blocked because waiting on Dave's thoughts about how much work to put into it
+//  Latest thoughts here: http://forum.sagittal.org/viewtopic.php?p=3131#p3131
 
 // TODO: PERFORMANCE, BLOCKED: DON'T RE-RUN ON CODES YOU ALREADY CONVERTED, ONLY NEW STUFF
 //  Check the diff with the previous sentence

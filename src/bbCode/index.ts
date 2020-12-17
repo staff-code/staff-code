@@ -30,7 +30,7 @@ document.querySelectorAll(".staff-code").forEach(processStaffCode)
 //  `document.fonts.ready.then(()` did not work btw
 //  It's only a problem the first time someone loads a page on the forum, so low priority
 
-// TODO: NEW FEATURE, BLOCKED: ALLOW FOR USERS TO CONFIGURE WHICH FONT IT USES
-//  Probably in the HTML replacement somehow
-//  Although maybe in a config file, along with custom codewords
-//  Blocked because I'm waiting for Dave's thoughts on providing it through HTML replacement vs. a config file
+// TODO: NEW FEATURE, READY TO GO: ALLOW FOR USERS TO CONFIGURE WHICH FONT IT USES
+//  Probably in the HTML replacement somehow, yes, as we discussed, just give it the inline style there
+//  Maybe provide a demo where you unnecessarily assign it to Bravura Text BB
+//  Or intertwine this with the to-do about styles
