@@ -31,12 +31,13 @@ module.exports = {
         rules: [
             {
                 test: /\.ts$/,
-                loader: "awesome-typescript-loader",
+                loader: "ts-loader",
                 options: {
-                    // TODO: solve export 'Unicode' (reexported as 'Unicode') was not found in './types' (possible exports: Code)
-                    //  I'm pretty sure it's related to actually switching to esnext modules, not to ts-loader or awesome-ts-loader
-                    //  which might mean you should switch back to ts-loader, if it's the one that's actually maintained
-                    module: "esnext",
+                    compilerOptions: {
+                        // TODO: solve export 'Unicode' (reexported as 'Unicode') was not found in './types' (possible exports: Code)
+                        //  I'm pretty sure it's related to actually switching to esnext modules, not to ts-loader vs awesome-ts-loader
+                        module: "esnext",
+                    },
                     transpileOnly: true,
                 },
             },

@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
+// TODO: should DRY these two webpacks up
+
 module.exports = {
     mode: "development",
     entry: "./qa/index.ts",
@@ -29,9 +31,11 @@ module.exports = {
         rules: [
             {
                 test: /\.ts$/,
-                loader: "awesome-typescript-loader",
+                loader: "ts-loader",
                 options: {
-                    module: "esnext",
+                    compilerOptions: {
+                        module: "esnext",
+                    },
                     transpileOnly: true,
                 },
             },
