@@ -2,12 +2,6 @@
 
 import {Code, Symbol} from "../types"
 
-// TODO: REPO ORGANIZATION, BLOCKED: SHOULD I USE @SAGITTAL/SYSTEM'S UNICODES?
-//  I considered pulling these unicodes in from @sagittal/system, but decided not to bloat it for the forum
-//  Probably revisit this decision after extracting staffCode to its own repo
-//  Now I've got tree-shaking working, so I could pull in @sagittal/system without bloating the bundled file much
-//  Now I'm just waiting on Dave's reaction to whether we should try to have the bundle be human readable or not
-
 const SAGITTAL_ACCIDENTAL_MAP: Record<Code, Symbol> = {
     /*U+E300*/[Code[`|(`]]: {unicode: "", width: 7, description: "5:7 kleisma up, (5:7k, ~11:13k, 7C less 5C)"},
     /*U+E301*/[Code[`!(`]]: {unicode: "", width: 7, description: "5:7 kleisma down"},

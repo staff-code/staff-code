@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "target": "esnext",
     "downlevelIteration": true,
     "lib": [
       "esnext",
@@ -14,8 +15,6 @@
     "noImplicitAny": true,
     "pretty": true,
     "esModuleInterop": true,
-    "target": "esnext",
-    "removeComments": true,
     "outDir": "dist/package",
     "declaration": true,
   },

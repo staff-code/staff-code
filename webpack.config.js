@@ -6,7 +6,6 @@ module.exports = {
     ...common,
     mode: "production",
     entry: "./src/bbCode/index.ts",
-    // TODO: and i can still look into the hyperoptimization of within a module excluding stuff i don't need
     optimization: {
         minimize: false,
     },

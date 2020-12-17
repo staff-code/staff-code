@@ -1,6 +1,6 @@
 {
   "name": "staff-code",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "dist/package/index.js",
   "types": "dist/package/index.d.ts",
   "description": "converts simple text codes into Unicode which in the Bravura Text font displays as sheet music",
@@ -11,6 +11,9 @@
   },
   "scripts": {
     "start": "webpack serve --config webpack.qa.config.js",
+    "build": "npm run build-bbcode && npm run build-package",
+    "build-bbcode": "webpack",
+    "build-package": "tsc",
     "deploy": "sh bin/deploy.sh",
     "profile": "node --prof -r ts-node/register/transpile-only --max-old-space-size=131072 [[script.ts]] && node --prof-process isolate-*.log > processed.txt && rm isolate-*.log",
     "lint": "tslint \"src/**/*.ts\" --fix && tslint \"spec/**/*.ts\" --fix",

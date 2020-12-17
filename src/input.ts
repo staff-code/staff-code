@@ -23,7 +23,7 @@ import {computeUnicode} from "./unicode"
 //  What displays in the DOM to what vectorize-text needs to render
 //  See: http://forum.sagittal.org/viewtopic.php?p=3122#p3122
 
-// TODO: NEW FEATURE, BLOCKED: CUSTOM CODEWORDS
+// TODO: NEW FEATURE, BLOCKED: CUSTOM CODEWORDS / HUMAN READABLE BUNDLE
 //  - User can provide a tsv with custom codes
 //  - It should support arbitrary whitespace between each field on each line
 //  - I'm not quite sure yet how this is going to work w/r/t clefs and positions, if they'll be able to modify those
@@ -31,6 +31,14 @@ import {computeUnicode} from "./unicode"
 //  - We're still sorting out how this relates to providing of custom font potentially via the same single config file
 //  As well as whether we can have the examples in the README or if he wants me to pull out all the built-in codes from
 //  TypeScript modules and into some flat config file and lose typing and all that jazz
+//  - I considered pulling these unicodes in from @sagittal/system, but decided not to bloat it for the forum
+//  Probably revisit this decision after extracting staffCode to its own repo
+//  Now I've got tree-shaking working, so I could pull in @sagittal/system without bloating the bundled file much
+//  Now I'm just waiting on Dave's reaction to whether we should try to have the bundle be human readable or not
+//  That will relate to result of the custom codeword config file
+//  Whether to format the codes in a more human-readable way or not, or just turn minification back on
+//  - Either put the codes back in hexadecimal, or turn off removeComments
+//  Unless Dave says to completely forget about making the bundle human-readable
 
 // TODO: NEW FEATURE, BLOCKED: SMART CHORDS, OR RIGHT ALIGNMENT FOR CHORDS
 //  See: http://forum.sagittal.org/viewtopic.php?p=3117#p3117

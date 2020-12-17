@@ -5,7 +5,7 @@ import {root} from "./root"
 
 // TODO: BBCODE VS PACKAGE, INTERFACE:
 //  I feel like this should be a class, so you can say `const staffCode = new StaffCode()`
-//  - constructor options: which font, initial text, callback to translating, custom codewords
+//  - constructor options: which font it uses, initial text, callback to translating, custom codewords
 //  - it also shouldn't need to pass root to `translateInputToDisplay`; have it fallback to the internal root
 //  - and also expose something to allow the EDO script to write the SVG to file, related to Copy Image button
 //  - it also shouldn't force you use browser stuff (document) if you don't want to
@@ -13,6 +13,10 @@ import {root} from "./root"
 //  Replacement for the bbCode
 //  - and you probably shouldn't have to kick translateInputToDisplay off once. It should do it automatically
 //  And then update the README accordingly for all of this
+//  - Re: custom font, for bbCode, probably in the HTML replacement somehow, yes,
+//  As we discussed, just give it the inline style there
+//  Maybe provide a demo where you unnecessarily assign it to Bravura Text BB
+//  Or intertwine this with the to-do about styles
 
 const buildStaffCode = (): HTMLDivElement => {
     root.appendChild(input)
