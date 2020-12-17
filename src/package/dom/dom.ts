@@ -3,7 +3,7 @@ import {downloadButton} from "./downloadButton"
 import {input} from "./input"
 import {root} from "./root"
 
-// TODO: PACKAGE INTERFACE
+// TODO: BBCODE VS PACKAGE, INTERFACE:
 //  I feel like this should be a class, so you can say `const staffCode = new StaffCode()`
 //  - constructor options: which font, initial text, callback to translating, custom codewords
 //  - it also shouldn't need to pass root to `translateInputToDisplay`; have it fallback to the internal root
@@ -11,6 +11,8 @@ import {root} from "./root"
 //  - it also shouldn't force you use browser stuff (document) if you don't want to
 //  - and maybe the script should add all the subdivs of the root, but not here, I mean, so we can simplify the HTML
 //  Replacement for the bbCode
+//  - and you probably shouldn't have to kick translateInputToDisplay off once. It should do it automatically
+//  And then update the README accordingly for all of this
 
 const buildStaffCode = (): HTMLDivElement => {
     root.appendChild(input)

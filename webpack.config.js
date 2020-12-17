@@ -1,9 +1,11 @@
 const path = require("path")
 const IgnoreNotFoundExportPlugin = require('ignore-not-found-export-webpack-plugin')
+const common = require("./webpack.common.config")
 
 module.exports = {
-    entry: "./src/bbCode/index.ts",
+    ...common,
     mode: "production",
+    entry: "./src/bbCode/index.ts",
     // TODO: and i can still look into the hyperoptimization of within a module excluding stuff i don't need
     optimization: {
         minimize: false,
@@ -11,43 +13,6 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist/bbCode"),
         filename: "staffCode.js",
-    },
-    resolve: {
-        extensions: [".ts", ".scss", ".js"],
-        alias: {
-            buffer: "buffer",
-        },
-    },
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                loader: "ts-loader",
-                options: {
-                    compilerOptions: {
-                        module: "esnext",
-                    },
-                    transpileOnly: true,
-                },
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    "style-loader",
-                    {
-                        loader: "css-loader",
-                        options: {
-                            url: false,
-                        },
-                    },
-                    "sass-loader",
-                ],
-            },
-            {
-                test: /\.(otf|woff)$/,
-                loader: "url-loader",
-            },
-        ],
     },
     plugins: [
         // The alternative is to switch all types, besides enums, to use `export type {}` and `import type {}`
