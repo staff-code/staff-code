@@ -5,8 +5,7 @@ const CLEF_MAP: Record<Code, Symbol> = {
     /*U+E05C*/[Code[`alcf`]]: {unicode: "", width: 24, description: "alto"},
     /*U+E062*/[Code[`bscf`]]: {unicode: "", width: 24, description: "bass"},
     /*U+E512*/[Code[`8va`]]: {unicode: "", width: 24, description: "octave above"},
-    // TODO: add a test that for every enum key (Code) there is a CODES[] to fix the 8va thing
-    /*U+E51C*/[Code[`8va`]]: {unicode: "", width: 24, description: "octave below"},
+    /*U+E51C*/[Code[`8vb`]]: {unicode: "", width: 24, description: "octave below"},
 } as Record<Code, Symbol>
 
 const GENERIC_POSITION_MAP: Record<Code, Symbol> = {

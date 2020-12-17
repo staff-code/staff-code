@@ -1,7 +1,9 @@
-import {Code, Codeword} from "../../../src/symbols"
+import {isNumber, isUndefined} from "@sagittal/general"
+import {Code, CODE_MAP, Codeword} from "../../../src/symbols"
+import {computeCodewordFromCode} from "../../../src/utility/codeword"
 
-describe("no duplicate codewords", (): void => {
-    it("verifies that no two codewords, when put in lower case, are the same", (): void => {
+describe("code verifications", (): void => {
+    it("no two codewords, when put in lower case, are the same", (): void => {
         const seenLowercaseCodewords = [] as Codeword[]
 
         const codewords = Object.keys(Code) as Codeword[]
@@ -12,6 +14,19 @@ describe("no duplicate codewords", (): void => {
                 fail(`duplicate codeword: ${codeword}`)
             }
             seenLowercaseCodewords.push(lowercaseCodeword)
+        })
+    })
+
+    it("every codeword maps to a symbol", (): void => {
+        const codes = Object.values(Code) as Code[]
+
+        codes.forEach((code: Code): void => {
+            // Object.entries returns, for an enum, both its string keys to its numeric indices *and* vice versa!
+            if (!isNumber(code)) return
+
+            if (isUndefined(CODE_MAP[ code ])) {
+                fail(`unmapped codeword: ${computeCodewordFromCode(code)}`)
+            }
         })
     })
 })
