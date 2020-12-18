@@ -10,10 +10,10 @@ import {root} from "./root"
 //  - and also expose something to allow the EDO script to write the SVG to file, related to Copy Image button
 //  - it also shouldn't force you use browser stuff (document) if you don't want to
 //  - and maybe the script should add all the subdivs of the root, but not here, I mean, so we can simplify the HTML
-//  Replacement for the bbCode
+//  Replacement for the BBCode
 //  - and you probably shouldn't have to kick translateInputToDisplay off once. It should do it automatically
 //  And then update the README accordingly for all of this
-//  - Re: custom font, for bbCode, probably in the HTML replacement somehow, yes,
+//  - Re: custom font, for BBCode, probably in the HTML replacement somehow, yes,
 //  As we discussed, just give it the inline style there
 //  Maybe provide a demo where you unnecessarily assign it to Bravura Text BB
 //  Or intertwine this with the to-do about styles

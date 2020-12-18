@@ -7,15 +7,15 @@ converts simple text codes into Unicode which in the Bravura Text font displays 
 ## use
 
 StaffCode can be used in two ways:
-- on `phpBB` forums with a `bbCode`
+- on `phpBB` forums with `BBCode`
 - an `npm` package, e.g. in a web application
 
-### bbCode
+### BBCode
 
 - Download the `.zip` file from GitHub release page.
 - Drag `BravuraTextBB.otf` and `BravuraTextBB.woff` to your `assets/fonts` folder.
 - Drag `staffCode.js` to your `assets/javascripts` folder.
-- In ACP, fill in the "bbCode Usage" field with the contents of the `bbCodeUsage.txt` file.
+- In ACP, fill in the "BBCode Usage" field with the contents of the `bbCodeUsage.txt` file.
 - In ACP, fill in the "HTML Replacement" field with the contents of the `htmlReplacement.txt` file.
 
 ### package
@@ -36,7 +36,7 @@ translateInputToDisplay(root)
 
 `npm run deploy` builds both versions of StaffCode.
 
-It uses `webpack` to bundle the `staffCode.js` file to be used for `bbCode` into `dist/bbCode`.
+It uses `webpack` to bundle the `staffCode.js` file to be used for `BBCode` into `dist/bbCode`.
 
 It uses `tsc` to transpile the library for `npm` into `dist/package`.
 
