@@ -1,6 +1,6 @@
 import {Io} from "@sagittal/general"
-import {smarts} from "../../src/smarts"
-import {computeSymbol} from "../../src/symbol"
+import {smarts} from "../../../src/translate/smarts"
+import {computeSymbol} from "../../../src/translate/symbol"
 import {
     BASS_POSITION_MAP,
     Code,
@@ -9,8 +9,8 @@ import {
     TREBLE_POSITION_MAP,
     Unicode,
     Width,
-} from "../../src/symbols"
-import {UnicodeLiteral} from "../../src/types"
+} from "../../../src/translate/symbols"
+import {UnicodeLiteral} from "../../../src/translate/types"
 
 describe("computeSymbol", (): void => {
     it("gets you the symbol (unicode, width, and description) for the given word", (): void => {

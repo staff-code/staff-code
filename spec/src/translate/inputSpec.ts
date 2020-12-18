@@ -1,7 +1,7 @@
 import {Io, SPACE} from "@sagittal/general"
-import {computeInputUnicode} from "../../src/input"
-import {Unicode} from "../../src/symbols"
-import {computeCodewordsFromUnicode} from "../../src/utility/codeword"
+import {computeInputUnicode} from "../../../src"
+import {Unicode} from "../../../src/translate/symbols"
+import {computeCodewordsFromUnicode} from "../../../src/translate/utility/codeword"
 
 const codewordFailMessage = (actualUnicodeSentence: Unicode, expectedUnicodeSentence: Unicode): Io => {
     const actualCodewords = computeCodewordsFromUnicode(actualUnicodeSentence)

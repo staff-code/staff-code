@@ -1,4 +1,4 @@
-import {buildDisplay} from "../dom"
+import {buildDisplay} from "../../display"
 import {processStaffCode} from "./process"
 
 // TODO: weirdly similar to package/dom#buildStaffCode

@@ -30,16 +30,16 @@ import {doPackage, loadFontsThen} from "staff-code"
 loadFontsThen(doPackage)
 ```
 
-The WOFF and OTF versions of teh Bravura Text BB font are included in the package. You should serve them at `assets/fonts/*` for them to be automatically picked up.
+The WOFF and OTF variants of teh Bravura Text BB font are included in the package. You should serve them at `assets/fonts/*` for them to be automatically picked up.
 
 ## development
 
-`npm run deploy` builds both versions of StaffCode.
+`npm run deploy` builds both variants of StaffCode.
 
 It uses `webpack` to bundle the `staffCode.js` file to be used for `BBCode` into `dist/bbCode`.
 
 It uses `tsc` to transpile the library for `npm` into `dist/package`.
 
-Use `npm start` to run a local server with a minimal demo of the package version of StaffCode, for QA purposes.
+Use `npm start` to run a local server with a minimal demo of the package variant of StaffCode, for QA purposes.
 
-The BBCode version is published to GitHub as a release, with the contents of the `dist/bbCode` folder compressed and uploaded as an asset thereof. You'll need to install `jq` (e.g. with Chocolatey) in order to perform such programmatic releasing.
+The BBCode variant is published to GitHub as a release, with the contents of the `dist/bbCode` folder compressed and uploaded as an asset thereof. You'll need to install `jq` (e.g. with Chocolatey) in order to perform such programmatic releasing.

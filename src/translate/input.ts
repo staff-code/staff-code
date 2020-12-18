@@ -14,7 +14,7 @@ import {computeUnicode} from "./unicode"
 //  Details here, bottom of this post: http://forum.sagittal.org/viewtopic.php?p=3100#p3100
 
 // TODO: NEW FEATURE, READY TO GO: COPY IMAGE BUTTON
-//  This will be intertwined with the to-do re: improving the interface for the package version
+//  This will be intertwined with the to-do re: improving the interface for the package variant
 
 // TODO: NEW FEATURE, LOW PRIORITY: MULTI-LINE STAVES
 //  I've already implemented the "br" code which causes the display to work
@@ -46,7 +46,7 @@ import {computeUnicode} from "./unicode"
 
 // TODO: NEW FEATURE, BLOCKED: DON'T RENDER CODES UNTIL SPACE IS TYPED
 //  Blocked because we're still discussing on the forum
-//  - But then you have to remember to add a space to the forum version at the end or it won't render the last codeword
+//  - But then you have to remember to add a space to the BBCode variant at the end or it won't render the last codeword
 //  But make sure that plays well with the terminal Smart Advance `inputWords.push(Code[Code[`;`]])` below
 
 // TODO: NEW FEATURE, BLOCKED: SMART BARLINES

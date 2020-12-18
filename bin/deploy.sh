@@ -3,12 +3,12 @@ set -e
 npm version patch
 NEW_VERSION=$(< package.json grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')
 
-# publish BBCode version
+# publish BBCode variant
 
 rm -r dist/bbCode/* > /dev/null 2>&1 || true
 
 npm run build-bbcode
-cp src/bbCode/acp/* dist/bbCode
+cp src/ui/variants/bbCode/acp/* dist/bbCode
 cp assets/fonts/* dist/bbCode
 
 pushd dist/bbCode
@@ -35,7 +35,7 @@ curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
 
 echo BBCode published.
 
-# publish package version
+# publish package variant
 
 rm -r dist/package/* > /dev/null 2>&1 || true
 npm run build-package

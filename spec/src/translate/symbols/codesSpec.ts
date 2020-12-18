@@ -1,6 +1,6 @@
 import {isNumber, isUndefined} from "@sagittal/general"
-import {Code, CODE_MAP, Codeword} from "../../../src/symbols"
-import {computeCodewordFromCode} from "../../../src/utility/codeword"
+import {Code, Codeword, CODE_MAP} from "../../../../src/translate/symbols"
+import {computeCodewordFromCode} from "../../../../src/translate/utility/codeword"
 
 describe("code verifications", (): void => {
     it("no two codewords, when put in lower case, are the same", (): void => {

@@ -1,5 +1,5 @@
 import {Io} from "@sagittal/general"
-import {Code} from "../symbols"
+import {Code} from "../../../translate"
 
 const INITIAL_STAFF_CODE_INPUT_VALUE = `${Code[Code[`st`]]} ${Code[Code[`tbcf`]]} ${Code[Code[`;`]]} ` as Io
 

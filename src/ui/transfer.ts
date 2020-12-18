@@ -1,7 +1,7 @@
 import {Io} from "@sagittal/general"
-import {computeInputUnicode} from "./input"
+import {computeInputUnicode} from "../translate"
 
-const translateInputToDisplay = (root: Element): void => {
+const transferInputToDisplay = (root: Element): void => {
     const input = root.querySelector("textarea")!
     const display = root.querySelector("div")!
 
@@ -9,5 +9,5 @@ const translateInputToDisplay = (root: Element): void => {
 }
 
 export {
-    translateInputToDisplay,
+    transferInputToDisplay,
 }

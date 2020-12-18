@@ -1,5 +1,2 @@
-export {computeInputUnicode} from "./input"
-export {translateInputToDisplay} from "./translate"
-export {doPackage} from "./package"
-export {downloadSvg} from "./svg"
-export {loadFontsThen} from "./dom"
+export {transferInputToDisplay, doPackage, loadFontsThen, downloadSvg} from "./ui"
+export {computeInputUnicode} from "./translate"

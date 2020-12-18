@@ -1,4 +1,4 @@
-import {HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT} from "../svg"
+import {HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT} from "./constants"
 
 const buildSvg = (): SVGElement => {
     const svg = document.createElement("svg") as Element as SVGElement

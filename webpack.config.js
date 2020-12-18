@@ -5,7 +5,7 @@ const common = require("./webpack.common.config")
 module.exports = {
     ...common,
     mode: "production",
-    entry: "./src/bbCode/index.ts",
+    entry: "./src/ui/variants/bbCode/index.ts",
     optimization: {
         minimize: false,
     },

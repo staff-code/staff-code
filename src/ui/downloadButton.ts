@@ -1,4 +1,4 @@
-import {downloadSvg} from "../svg"
+import {downloadSvg} from "./download"
 
 const buildDownloadButton = (display: HTMLDivElement, svg: SVGElement): HTMLButtonElement => {
     const downloadButton = document.createElement("button")

@@ -1,6 +1,6 @@
-import {Code} from "../../../src/symbols"
-import {computeUnicodeForCode} from "../../../src/utility"
-import {computeUnicodeLiteral} from "../../../src/utility/literal"
+import {Code} from "../../../../src/translate"
+import {computeUnicodeForCode} from "../../../../src/translate/utility"
+import {computeUnicodeLiteral} from "../../../../src/translate/utility/literal"
 
 describe("computeUnicodeLiteral", (): void => {
     it("can get you the codepoint of a given Unicode char, using lowercase", (): void => {

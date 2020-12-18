@@ -1,10 +1,10 @@
-import {translateInputToDisplay} from "../translate"
+import {transferInputToDisplay} from "../../transfer"
 
 const processStaffCode = (root: Element): void => {
     if (root.classList.contains("processed")) return
     root.classList.add("processed")
 
-    translateInputToDisplay(root)
+    transferInputToDisplay(root)
 }
 
 
