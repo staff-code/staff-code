@@ -1,2 +1,5 @@
+export {computeInputUnicode} from "./input"
 export {translateInputToDisplay} from "./translate"
-export {buildStaffCode, downloadSvg} from "./package"
+export {doPackage} from "./package"
+export {downloadSvg} from "./svg"
+export {loadFontsThen} from "./dom"

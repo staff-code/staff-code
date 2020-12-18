@@ -15,10 +15,10 @@ music notation. This project would not have been possible without the great work
 Text, and its precursors Bravura and SMuFL. For more information see https://www.smufl.org/fonts/.
 */
 
-import "../styles"
-import {processStaffCode} from "./process"
+import {loadFontsThen} from "../dom"
+import {doBBCode} from "./do"
 
-document.querySelectorAll(".staff-code").forEach(processStaffCode)
+loadFontsThen(doBBCode)
 
 // TODO: BUG, LOW PRIORITY: WAIT FOR FONTS TO LOAD, SO NO "FLASH OF UNSTYLED CONTENT" ON THE FORUM
 //  We need to know when a font has finished loading before doing the above replacement
@@ -29,4 +29,3 @@ document.querySelectorAll(".staff-code").forEach(processStaffCode)
 //  Or this: https://developer.mozilla.org/en-US/docs/Web/API/FontFaceSet/load
 //  `document.fonts.ready.then(()` did not work btw
 //  It's only a problem the first time someone loads a page on the forum, so low priority
-

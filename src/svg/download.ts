@@ -1,7 +1,5 @@
 import {BLANK, vectorizeBravuraTextSvg} from "@sagittal/general"
-import {HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT} from "../constants"
-import {svg} from "../dom"
-import {display} from "../dom/display"
+import {HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT} from "./constants"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
@@ -13,7 +11,7 @@ const DOWNLOAD_FILENAME: string = "staffCode.svg"
 //  Which may be intertwined with the other to-do re: line breaks, since you'll need to add a layer between what
 //  Displays on the DOM and what vectorize-text renders
 
-const downloadSvg = (): void => {
+const downloadSvg = (display: HTMLDivElement, svg: SVGElement): void => {
     const unicodeSentence = display.textContent || BLANK
     vectorizeBravuraTextSvg(unicodeSentence, svg, {height: HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT})
 

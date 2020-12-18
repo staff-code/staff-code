@@ -1,2 +1,1 @@
-export {buildStaffCode} from "./dom"
-export {downloadSvg} from "./svg"
+export {doPackage} from "./do"

@@ -1,7 +1,6 @@
-import {display} from "./display"
-import {downloadButton} from "./downloadButton"
-import {input} from "./input"
-import {root} from "./root"
+import {buildDisplay, buildDownloadButton, buildSvg} from "../dom"
+import {buildInput} from "./input"
+import {buildRoot} from "./root"
 
 // TODO: BBCODE VS PACKAGE, INTERFACE:
 //  I feel like this should be a class, so you can say `const staffCode = new StaffCode()`
@@ -9,19 +8,21 @@ import {root} from "./root"
 //  - it also shouldn't need to pass root to `translateInputToDisplay`; have it fallback to the internal root
 //  - and also expose something to allow the EDO script to write the SVG to file, related to Copy Image button
 //  - it also shouldn't force you use browser stuff (document) if you don't want to
-//  - and maybe the script should add all the subdivs of the root, but not here, I mean, so we can simplify the HTML
-//  Replacement for the BBCode
-//  - and you probably shouldn't have to kick translateInputToDisplay off once. It should do it automatically
-//  And then update the README accordingly for all of this
+//  - And keep updating the README accordingly for all of this
 //  - Re: custom font, for BBCode, probably in the HTML replacement somehow, yes,
 //  As we discussed, just give it the inline style there
+//  Well it will have to override what automatically gets put there
 //  Maybe provide a demo where you unnecessarily assign it to Bravura Text BB
-//  Or intertwine this with the to-do about styles
 
 const buildStaffCode = (): HTMLDivElement => {
+    const root = buildRoot()
+
+    const input = buildInput(root)
     root.appendChild(input)
+    const display = buildDisplay()
     root.appendChild(display)
-    root.appendChild(downloadButton)
+    const svg = buildSvg()
+    root.appendChild(buildDownloadButton(display, svg))
 
     return root
 }

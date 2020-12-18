@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-const IgnoreNotFoundExportPlugin = require('ignore-not-found-export-webpack-plugin')
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const IgnoreNotFoundExportPlugin = require("ignore-not-found-export-webpack-plugin")
 const common = require("./webpack.common.config")
 
 module.exports = {
@@ -14,5 +15,6 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({title: "StaffCode QA"}),
         new IgnoreNotFoundExportPlugin(),
+        new CopyWebpackPlugin({patterns: [{from: "assets", to: "assets"}]}),
     ],
 }

@@ -39,6 +39,7 @@ echo BBCode published.
 
 rm -r dist/package/* > /dev/null 2>&1 || true
 npm run build-package
+cp -r assets/fonts* dist/package
 npm publish --access public
 echo Package published.
 

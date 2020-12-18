@@ -1,1 +1,0 @@
-export {downloadSvg} from "./download"

@@ -17,23 +17,6 @@ module.exports = {
                     transpileOnly: true,
                 },
             },
-            {
-                test: /\.scss$/,
-                use: [
-                    "style-loader",
-                    {
-                        loader: "css-loader",
-                        options: {
-                            url: false,
-                        },
-                    },
-                    "sass-loader",
-                ],
-            },
-            {
-                test: /\.(otf|woff)$/,
-                loader: "url-loader",
-            },
         ],
     },
 }

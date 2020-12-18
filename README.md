@@ -25,12 +25,12 @@ npm install staff-code
 ```
 
 ```js
-const root = buildStaffCode()
-document.body.appendChild(root)
+import {doPackage, loadFontsThen} from "staff-code"
 
-// kick it off once
-translateInputToDisplay(root)
+loadFontsThen(doPackage)
 ```
+
+The WOFF and OTF versions of teh Bravura Text BB font are included in the package. You should serve them at `assets/fonts/*` for them to be automatically picked up.
 
 ## development
 
