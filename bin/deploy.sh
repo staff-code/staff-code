@@ -21,7 +21,7 @@ UPLOAD_URL=$(curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
   -X POST \
   -H "Accept: application/vnd.github.v3+json" \
   https://api.github.com/repos/Sagittal/staff-code/releases \
-  -d "{\"tag_name\":\"v${NEW_VERSION}-beta\",\"prerelease\":true}" \
+  -d "{\"tag_name\":\"v${NEW_VERSION}-beta\"}" \
   | jq -r '.upload_url'
 )
 UPLOAD_URL=${UPLOAD_URL/"{?name,label}"/"?name=StaffCodeBBCode.tar.gz"}
