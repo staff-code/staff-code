@@ -4,6 +4,7 @@ const LEGER_LINE_MAP: Record<Code, Symbol> = {
     /*U+E022*/[Code[`lgln`]]: {unicode: "", width: 13, description: "leger line"},
 } as Record<Code, Symbol>
 
+// TODO: change widths to 2 and 5
 const BAR_LINE_MAP: Record<Code, Symbol> = {
     /*U+E030*/[Code[`brln`]]: {unicode: "", width: 4, description: "bar line (single)"},
     /*U+E031*/[Code[`brlndb`]]: {unicode: "", width: 7, description: "bar line double"},
@@ -65,8 +66,11 @@ const BEAMS_MAP: Record<Code, Symbol> = {
 } as Record<Code, Symbol>
 
 const BREAKS_MAP: Record<Code, Symbol> = {
+    // TODO: rename to br;
     /*U+000D*/[Code[`br`]]: {unicode: "\n", description: "stave break"},
 } as Record<Code, Symbol>
+
+// TODO: figure out why br looks wrong on the forum but okay in the app
 
 export {
     LEGER_LINE_MAP,

@@ -13,9 +13,6 @@ import {computeUnicode} from "./unicode"
 //  Use { }. ready to go
 //  Details here, bottom of this post: http://forum.sagittal.org/viewtopic.php?p=3100#p3100
 
-// TODO: NEW FEATURE, READY TO GO: COPY IMAGE BUTTON
-//  This will be intertwined with the to-do re: improving the interface for the package variant
-
 // TODO: NEW FEATURE, LOW PRIORITY: MULTI-LINE STAVES
 //  I've already implemented the "br" code which causes the display to work
 //  - But it doesn't play well with Smart Stave or Smart Advance. waiting on Dave's research on how it could work
@@ -40,7 +37,7 @@ import {computeUnicode} from "./unicode"
 //  - Either put the codes back in hexadecimal, or turn off removeComments
 //  Unless Dave says to completely forget about making the bundle human-readable
 
-// TODO: NEW FEATURE, BLOCKED: SMART CHORDS, OR RIGHT ALIGNMENT FOR CHORDS
+// TODO: NEW FEATURE, BLOCKED: RIGHT & CENTER ALIGNMENT
 //  See: http://forum.sagittal.org/viewtopic.php?p=3117#p3117
 //  Blocked because it's still in development.
 
@@ -64,6 +61,10 @@ import {computeUnicode} from "./unicode"
 //  That or only compile the word once you type a space
 //  Let's see what he says. Yes this is different and totally complimentary to the don't render codes until space typed
 //  - But this will conflict with Smart Chords / Right Alignment: http://forum.sagittal.org/viewtopic.php?p=3134#p3134
+
+// TODO: FEATURE IMPROVE, BLOCKED: MAKE INPUT TALL AND SKINNY TO THE LEFT OF THE DISPLAY
+//  Waiting to see what is thought of the wild proposition to not be whitespace agnostic and each line has own CSP
+//  Or even crazier, input becomes a table
 
 const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
     inputSentence

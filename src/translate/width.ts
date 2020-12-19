@@ -1,6 +1,7 @@
 import {isUndefined} from "@sagittal/general"
 import {Symbol, Width} from "./symbols"
 
+// TODO: change to 12
 const DEFAULT_SYMBOL_WIDTH = 11 as Width
 
 const computeSymbolWidth = ({width}: Symbol): Width =>

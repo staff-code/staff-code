@@ -1,5 +1,6 @@
 import {Code, Symbol} from "./types"
 
+// TODO: rename these to 1; 2; etc.
 const MANUAL_ADVANCE_MAP: Record<Code, Symbol> = {
     /*U+200A              */[Code[`ad1`]]: {unicode: " ", width: 1, description: "HAIR SPACE"},
     /*U+2009              */[Code[`ad2`]]: {unicode: " ", width: 2, description: "THIN SPACE"},

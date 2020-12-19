@@ -24,7 +24,8 @@ const buildStaffCode = (): HTMLDivElement => {
     const display = buildDisplay()
     root.appendChild(display)
     const svg = buildSvg()
-    root.appendChild(buildDownloadButton(display, svg))
+    const downloadButton = buildDownloadButton(display, svg)
+    root.appendChild(downloadButton)
 
     return root
 }
