@@ -17,7 +17,7 @@ const SMART_ADVANCE_UNICODES = computeMapUnicodes(SMART_ADVANCE_MAP)
 const MANUAL_ADVANCE_UNICODES = computeMapUnicodes(MANUAL_ADVANCE_MAP)
 const WIDTH_TO_ADVANCE_UNICODE_ARRAY: Unicode[] = [EMPTY_UNICODE, ...MANUAL_ADVANCE_UNICODES]
 
-const MAX_ADVANCE_UNICODE = computeUnicodeForCode(Code["ad16"])
+const MAX_ADVANCE_UNICODE = computeUnicodeForCode(Code["16;"])
 const MAX_ADVANCE_WIDTH: Width = 16 as Width
 
 const ST8_UNICODE = computeUnicodeForCode(Code["st8"])
