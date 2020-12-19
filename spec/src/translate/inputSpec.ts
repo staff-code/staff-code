@@ -1,14 +1,7 @@
 import {Io, SPACE} from "@sagittal/general"
 import {computeInputUnicode} from "../../../src"
 import {Unicode} from "../../../src/translate/symbols"
-import {computeCodewordsFromUnicode} from "../../../src/translate/utility/codeword"
-
-const codewordFailMessage = (actualUnicodeSentence: Unicode, expectedUnicodeSentence: Unicode): Io => {
-    const actualCodewords = computeCodewordsFromUnicode(actualUnicodeSentence)
-    const expectedCodewords = computeCodewordsFromUnicode(expectedUnicodeSentence)
-
-    return `expected "${actualCodewords.join(SPACE)}" to be "${expectedCodewords.join(SPACE)}"`
-}
+import {codewordFailMessage} from "../../helpers/src/message"
 
 describe("computeInputUnicode", (): void => {
     it("basically works", (): void => {
@@ -18,6 +11,16 @@ describe("computeInputUnicode", (): void => {
 
         // Codewords: d5 /|\ d5 nt ad13
         const expected = "　 " as Unicode
+        expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+    })
+
+    it("supports multiple staves with a newline", (): void => {
+        const inputSentence = "st tbcf ; nt br; nt" as Io
+
+        const actual = computeInputUnicode(inputSentence)
+
+        // Codewords: tbcf st24 ad16 ad8 nt4 br nt4 st24 ad12 ad1
+        const expected = "  \n　 " as Unicode
         expect(actual).toBe(expected, codewordFailMessage(actual, expected))
     })
 

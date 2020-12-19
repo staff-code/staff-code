@@ -66,8 +66,7 @@ const BEAMS_MAP: Record<Code, Symbol> = {
 } as Record<Code, Symbol>
 
 const BREAKS_MAP: Record<Code, Symbol> = {
-    // TODO: rename to br;
-    /*U+000D*/[Code[`br`]]: {unicode: "\n", description: "stave break"},
+    /*U+000D*/[Code[`br;`]]: {unicode: "\n", description: "stave break"},
 } as Record<Code, Symbol>
 
 // TODO: figure out why br looks wrong on the forum but okay in the app
