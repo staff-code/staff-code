@@ -1,4 +1,4 @@
-import {BLANK, vectorizeBravuraTextSvg} from "@sagittal/general"
+import {BLANK, FontName, vectorizeText} from "@sagittal/general"
 import {HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT} from "./constants"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
@@ -13,7 +13,7 @@ const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
 const downloadSvg = (display: HTMLDivElement, svg: SVGElement): void => {
     const unicodeSentence = display.textContent || BLANK
-    vectorizeBravuraTextSvg(unicodeSentence, svg, {height: HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT})
+    svg.innerHTML = vectorizeText(unicodeSentence, {height: HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT, font: "Bravura Text BB" as FontName})
 
     const outerHTML = svg.outerHTML
     const blob = new Blob([outerHTML], {type: "image/svg+xml;charset=utf-8"})
