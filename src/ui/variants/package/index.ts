@@ -1,1 +1,1 @@
-export {doPackage} from "./do"
+export {setupPackageRoot} from "./root"

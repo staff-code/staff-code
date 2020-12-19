@@ -24,10 +24,15 @@ StaffCode can be used in two ways:
 npm install staff-code
 ```
 
-```js
-import {doPackage, loadFontsThen} from "staff-code"
+Recommended usage:
 
-loadFontsThen(doPackage)
+```ts
+import {setupPackageRoot, loadFontsThen} from "staff-code"
+
+loadFontsThen((): void => {
+    const root: HTMLDivElement = setupPackageRoot()
+    document.body.appendChild(root)
+})
 ```
 
 The WOFF and OTF variants of teh Bravura Text BB font are included in the package. You should serve them at `assets/fonts/*` for them to be automatically picked up.
