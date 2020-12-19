@@ -152,6 +152,26 @@ describe("computeInputUnicode", (): void => {
             expect(actual).toBe(expected, codewordFailMessage(actual, expected))
         })
 
+        it("gives a default width of 12 to known codes with undefined widths", (): void => {
+            const inputSentence = "^" as Io
+
+            const actual = computeInputUnicode(inputSentence)
+
+            // Codewords: ^ 12;
+            const expected = "　" as Unicode
+            expect(actual).toBe(expected)
+        })
+
+        it("gives a default width of 0 to unknown codes", (): void => {
+            const inputSentence = "u+5e78" as Io
+
+            const actual = computeInputUnicode(inputSentence)
+
+            // Codewords: (unknown)
+            const expected = "幸" as Unicode
+            expect(actual).toBe(expected)
+        })
+
         it("if more than one symbol has occurred since the previous advance, uses the width of the symbol with the max width", (): void => {
             const inputSentence = "lgln nt16" as Io
 
