@@ -4,7 +4,7 @@ import {buildSvg} from "../../svg"
 import {transferInputToDisplay} from "../../transfer"
 import {buildPackageInput} from "./input"
 
-// TODO: BBCODE VS PACKAGE, INTERFACE:
+// TODO: CLEAN, READY TO GO: BBCODE VS PACKAGE INTERFACE:
 //  I feel like this should be a class, so you can say `const staffCode = new StaffCode()`
 //  - constructor options: which font it uses, initial text, callback to translating
 //  - And keep updating the README accordingly for all of this

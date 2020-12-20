@@ -68,8 +68,6 @@ const BREAKS_MAP: Record<Code, Symbol> = {
     /*U+000D*/[Code[`br;`]]: {unicode: "\n", description: "stave break"},
 } as Record<Code, Symbol>
 
-// TODO: figure out why br looks wrong on the forum but okay in the app
-
 export {
     LEGER_LINE_MAP,
     BAR_LINE_MAP,

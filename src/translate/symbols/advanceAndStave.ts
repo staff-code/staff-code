@@ -17,6 +17,14 @@ const MANUAL_ADVANCE_MAP: Record<Code, Symbol> = {
     /*U+3000 U+2009       */[Code[`14;`]]: {unicode: "　 ", width: 14}, // *
     /*U+3000 U+2009 U+200A*/[Code[`15;`]]: {unicode: "　  ", width: 15}, // *
     /*U+2003              */[Code[`16;`]]: {unicode: " ", width: 16, description: "EM SPACE"},
+    /*U+2003 U+200A       */[Code[`17;`]]: {unicode: "  ", width: 17},
+    /*U+2003 U+2009       */[Code[`18;`]]: {unicode: "  ", width: 18},
+    /*U+2003 U+2009 U+200A*/[Code[`19;`]]: {unicode: "   ", width: 19},
+    /*U+2003 U+2005       */[Code[`20;`]]: {unicode: "  ", width: 20},
+    /*U+2003 U+2005 U+200A*/[Code[`21;`]]: {unicode: "   ", width: 21},
+    /*U+2003 U+2004       */[Code[`22;`]]: {unicode: "  ", width: 22},
+    /*U+2003 U+2004 U+200A*/[Code[`23;`]]: {unicode: "   ", width: 23},
+    /*U+2003 U+2002       */[Code[`24;`]]: {unicode: "  ", width: 24},
 } as Record<Code, Symbol>
 
 const SMART_ADVANCE_MAP: Record<Code, Symbol> = {

@@ -1,2 +1,2 @@
-export {computeInputUnicode} from "./input"
+export {computeInputSentenceUnicode} from "./sentence"
 export {Code} from "./symbols"

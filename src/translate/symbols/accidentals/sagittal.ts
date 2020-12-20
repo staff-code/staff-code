@@ -1,5 +1,9 @@
 // tslint:disable max-line-length
 
+// TODO: FEATURE IMPROVE, READY TO GO: DON'T DUPLICATE SAGITTAL UNICODES
+//  Pull these unicodes in from @sagittal/system
+//  Now I've got tree-shaking working, so I could pull in @sagittal/system without bloating the bundled file much
+
 import {Code, Symbol} from "../types"
 
 const SAGITTAL_ACCIDENTAL_MAP: Record<Code, Symbol> = {
