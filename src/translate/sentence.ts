@@ -7,33 +7,15 @@ import {computeInputWordUnicode} from "./word"
 //  Use { }. ready to go
 //  Details here, bottom of this post: http://forum.sagittal.org/viewtopic.php?p=3100#p3100
 
-// TODO: NEW FEATURE, LOW PRIORITY: MULTI-LINE STAVES
-//  I've already implemented the "br" code which causes the display to work
-//  - But it doesn't play well with Smart Stave or Smart Advance. waiting on Dave's research on how it could work
-//  - And it may relate to SVG WIDTH determination, insofar as it's related to things we need to compute when handing
-//  What displays in the DOM to what vectorize-text needs to render
-//  See: http://forum.sagittal.org/viewtopic.php?p=3122#p3122
-//  There has been more discussion about this since though
-//  And figure out why br looks wrong on the forum but okay in the app
-
-// TODO: NEW FEATURE, BLOCKED: DON'T RENDER CODES UNTIL SPACE IS TYPED
-//  Blocked because I didn't hear back a response from Dave
+// TODO: NEW FEATURE, READY TO GO: DON'T RENDER CODES UNTIL SPACE IS TYPED
 //  - But then you have to remember to add a space to the BBCode variant at the end or it won't render the last codeword
 //  But make sure that plays well with the terminal Smart Advance `inputWords.push(Code[Code[`;`]])` below
 
-// TODO: FEATURE IMPROVE, BLOCKED: MAKE INPUT TALL AND SKINNY TO THE LEFT OF THE DISPLAY
-//  Waiting to see what is thought of the wild proposition to not be whitespace agnostic and each line has own CSP
-//  Or even crazier, input becomes a table
-
-// TODO: NEW FEATURE, PROBABLY DON'T DO THIS ITERATION: RIGHT & CENTER ALIGNMENT (rt; ct;)
-//  See: http://forum.sagittal.org/viewtopic.php?p=3117#p3117
-//  Blocked because it's still in development. And maybe won't even do it until much later.
-
-// TODO: NEW FEATURE, PROBABLY DON'T DO THIS ITERATION: SMART BARLINES (en;)
-//  It's currently not possible to end with a barline
-//  This might be related to the terminal Smart Advance `inputWords.push(Code[Code[`;`]])` below
-//  Latest thoughts here: http://forum.sagittal.org/viewtopic.php?p=3131#p3131
-//  Blocked because it's still in development. And maybe won't even do it until much later.
+// TODO: FEATURE IMPROVE, READY TO GO: MAKE INPUT TALL AND SKINNY TO THE LEFT OF THE DISPLAY
+//  Thanks to vertical scrolling, it doesn't really need to be tall and skinny, just not so short as it is now.
+//  I suggest the input field initially be 32 to 40 characters wide and 20 to 30 lines high.
+//  And I wasn't thinking about phone screens when I suggested putting the staff and download button to the right.
+//  I think they are fine where they are now.
 
 const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
     inputSentence

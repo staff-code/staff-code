@@ -8,12 +8,6 @@ const setupBBCodeRoot = (root: Element): void => {
     const display = buildDisplay()
     root.appendChild(display)
 
-    // TODO: FEATURE IMPROVE, BLOCKED: DOWNLOAD BUTTON FOR BBCODE TOO
-    //  Could offer download button on forum. increases bundle to 500 KB. and of course impacts human-readability
-    //  Blocked because waiting for Dave's response on whether to keep it
-    // const svg = buildSvg()
-    // root.appendChild(buildDownloadButton(display, svg))
-
     transferInputToDisplay(root)
 }
 

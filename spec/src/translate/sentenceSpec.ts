@@ -46,8 +46,15 @@ describe("computeInputSentenceUnicode", (): void => {
             const expectedUnicode = "       " as Unicode
             expect(actual).toBe(expectedUnicode)
             const expectedCodewords = "up2 /|\\ st8 8; st8 5; up2 nt4 3; st8 8; st8 2;"
-            // TODO: type the above line as CodewordSentence?
+            // TODO: CLEAN, READY TO GO: SYMBOL CODES AND SMART CODES
+            //  Add a type to the above line as CodewordSentence?
             //  Or is this just Codeword just like Unicode is for both the sentence and the word
+            //  There's definitely some concept we haven't totally got here about the difference between input words
+            //  And codewords
+            //  I think maybe we just want two enums, and they go back to being string enums
+            //  One for symbol codewords and one for smart codewords, which together are just codewords
+            //  And input words get mapped to lowercase codewords so they can match to codewords, then mapped to unicode
+            //  But when debugging and we pull back out of unicode, we can only go to symbol codewords, unambiguously
             expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 

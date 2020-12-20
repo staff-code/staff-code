@@ -7,9 +7,6 @@ module.exports = {
     mode: "production",
     entry: "./src/ui/variants/bbCode/index.ts",
     optimization: {
-        // TODO: CLEAN, READY TO GO: BBCODE BUNDLE
-        //  Take this off, since we don't care about human readability, and then I think we can go back to
-        //  ES5 target for tsconfig, or just take it off altogether (and also strip out comments again)
         minimize: false,
     },
     output: {

@@ -2,6 +2,9 @@ import {doOnNextEventLoop, Io, Ms} from "@sagittal/general"
 import {Code} from "../../../translate"
 import {transferInputToDisplay} from "../../transfer"
 
+// TODO: FEATURE IMPROVE, BLOCKED: OPEN OR CLOSED INITIAL STAFF?
+//  Should include a barline before the clef
+//  Waiting for Dave's reply
 const INITIAL_STAFF_CODE_INPUT_VALUE = `${Code[Code[`st`]]} ${Code[Code[`tbcf`]]} ${Code[Code[`;`]]} ` as Io
 
 const buildPackageInput = (root: HTMLDivElement): HTMLTextAreaElement => {

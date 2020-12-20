@@ -1,5 +1,7 @@
 import {Code, Symbol} from "./types"
 
+// TODO: NEW FEATURE, READY TO GO: SMART LEGER LINES
+//  So you'd need a function isNoteOrNotehead() to check if a symbol is in one of the appropriate unicode ranges.
 const LEGER_LINE_MAP: Record<Code, Symbol> = {
     /*U+E022*/[Code[`lgln`]]: {unicode: "", width: 13, description: "leger line"},
 } as Record<Code, Symbol>
@@ -65,6 +67,15 @@ const BEAMS_MAP: Record<Code, Symbol> = {
 } as Record<Code, Symbol>
 
 const BREAKS_MAP: Record<Code, Symbol> = {
+    // TODO: FEATURE IMPROVE, READY TO GO: MULTI-LINE STAVES
+    //  I've already implemented the "br" code which causes the display to work
+    //  - But it doesn't play well with Smart Stave or Smart Advance. waiting on Dave's research on how it could work
+    //  I think we may have had it zero them out already
+    //  - And it may relate to SVG WIDTH determination, as it's related to things we need to compute when handing
+    //  What displays in the DOM to what vectorize-text needs to render
+    //  See: http://forum.sagittal.org/viewtopic.php?p=3122#p3122
+    //  There has been more discussion about this since though
+    //  And figure out why br looks wrong on the forum but okay in the app
     /*U+000D*/[Code[`br;`]]: {unicode: "\n", description: "stave break"},
 } as Record<Code, Symbol>
 

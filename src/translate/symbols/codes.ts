@@ -19,8 +19,6 @@ import {
 } from "./positionAndClef"
 import {Code, Symbol} from "./types"
 
-// TODO: there's definitely some concept we haven't totally calcified here about the difference between input words
-//  And codewords
 const CODE_MAP: Record<Code, Symbol> = {
     ...MANUAL_ADVANCE_MAP,
     ...MANUAL_STAVE_MAP,
@@ -48,9 +46,6 @@ const CODE_MAP_PLUS_SMART_CODES: Record<Code, Symbol> = {
     ...TREBLE_POSITION_MAP,
     ...BASS_POSITION_MAP,
     ...MANUAL_POSITION_MAP,
-    // TODO: what happened to adding alto? is that just in Asana or something?
-    //  Here it is: two other encodings of the sagittals: sagispeak, comma name
-    //  And add staff=alto and staff=tenor
 }
 
 export {

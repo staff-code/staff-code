@@ -8,11 +8,15 @@ NEW_VERSION=$(< package.json grep version | head -1 | awk -F: '{ print $2 }' | s
 rm -r dist/bbCode/* > /dev/null 2>&1 || true
 
 npm run build-bbcode
+# TODO: FEATURE IMPROVE, READY TO GO: README.TXT FOR ADMINS
+#  Dave needs a README.txt to be assembled out of these assets
 cp src/ui/variants/bbCode/acp/* dist/bbCode
 cp assets/fonts/* dist/bbCode
 
 pushd dist/bbCode
   touch StaffCodeBBCode.tar.gz
+  # TODO: FEATURE IMPROVE, READY TO GO: ZIP INSTEAD OF TAR.GZ
+  #  Dave needs this to be zip, not tar (and you'll have to fix it on the scripts/forum receiving end too)
   tar --exclude=StaffCodeBBCode.tar.gz -czvf StaffCodeBBCode.tar.gz .
 popd
 

@@ -3,9 +3,6 @@ import {HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT} from "./constants"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
-// TODO: BUG, LOW PRIORITY: BOUNDING BOXES IN SVG IF DOWNLOAD RIGHT AWAY
-//  It doesn't affect Dave's needs for EDO staff notation; but important to solve before unveiling to wide audience
-
 // TODO: FEATURE IMPROVE, LOW PRIORITY: SVG WIDTH
 //  Do whatever it takes to make the SVGs width match its contents
 //  Which may be intertwined with the other to-do re: line breaks, since you'll need to add a layer between what
