@@ -1,7 +1,7 @@
-import {Io, SPACE} from "@sagittal/general"
+import {Io} from "@sagittal/general"
 import {computeInputSentenceUnicode} from "../../../src"
 import {Unicode} from "../../../src/translate/symbols"
-import {codewordFailMessage} from "../../helpers/src/message"
+import {computeCodewordsFromUnicode} from "../../../src/translate/utility"
 
 describe("computeInputSentenceUnicode", (): void => {
     it("basically works", (): void => {
@@ -9,9 +9,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        // Codewords: d5 /|\ d5 nt4 13;
-        const expected = "　 " as Unicode
-        expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+        const expectedUnicode = "　 " as Unicode
+        expect(actual).toBe(expectedUnicode)
+        const expectedCodewords = "up2 /|\\ up2 nt4 13;"
+        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
     })
 
     it("supports multiple staves with a newline", (): void => {
@@ -19,9 +20,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        // Codewords: tbcf st16 16; st8 8; nt4 br; nt4 st8 8; st8 5;
-        const expected = "  \n   " as Unicode
-        expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+        const expectedUnicode = "  \n   " as Unicode
+        expect(actual).toBe(expectedUnicode)
+        const expectedCodewords = "tbcf st16 16; st8 8; nt4 br; nt4 st8 8; st8 5;"
+        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
     })
 
     describe("Smart Position", (): void => {
@@ -30,9 +32,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: d5 /|\ d5 nt4 13;
-            const expected = "　 " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "up2 /|\\ up2 nt4 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
         it("don't manifest until they are needed (only apply to symbols with ligatures to be vertically shifted by them)", (): void => {
@@ -40,9 +43,12 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: d5 /|\ st8 8; st8 5; d5 nt4 3; st8 8; st8 2;
-            const expected = "       " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "       " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "up2 /|\\ st8 8; st8 5; up2 nt4 3; st8 8; st8 2;"
+            // TODO: type the above line as CodewordSentence?
+            //  Or is this just Codeword just like Unicode is for both the sentence and the word
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
         it("persist until a new one is used", (): void => {
@@ -50,9 +56,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: d5 /|\ st8 8; st8 5; d5 nt4 3; st8 8; st8 2; g4 \! 6; st8 1 ; g4 nt4 7; st8 6;
-            const expected = "            " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "            " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "up2 /|\\ st8 8; st8 5; up2 nt4 3; st8 8; st8 2; dn2 \\! 6; st8 1; dn2 nt4 7; st8 6;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
         it("does not actually put the middle position on the stave, because it is a temporary / made up unicode since no zero position glyph is in SMuFL", (): void => {
@@ -60,9 +67,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: d5 nt4 ; /|\ nt4 13;
-            const expected = "　 　 " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "　 　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "up2 nt4 13; /|\\ nt4 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
     })
 
@@ -72,9 +80,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: trd4 nt4 13;
-            const expected = "　 " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "dn5 nt4 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
         it("change depending on the clef", (): void => {
@@ -82,9 +91,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: bscf 24; b5 nt4 13;
-            const expected = "  　 " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "  　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "bscf 24; up7 nt4 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
         it("clefs are smart and they stick until you change them (you can change from one to the other)", (): void => {
@@ -92,74 +102,102 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: bscf 24; bsd4 nt4 13; bsc4 nt4 13; tbcf 24; tbd4 nt4 13; tbc4 nt4 13;
-            const expected = "  　 　   　 　 " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "  　 　   　 　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "bscf 24; up7 nt4 13; up6 nt4 13; tbcf 24; dn5 nt4 13; dn6 nt4 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
     })
 
     describe("Smart Advance", (): void => {
         it("advances by the width given by each symbol", (): void => {
             let actual
-            let expected
+            let expectedUnicode
+            let expectedCodewords
 
             actual = computeInputSentenceUnicode("lgln" as Io)
-            expected = "　 " as Unicode     // Codewords: lgln 13;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "lgln 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("tbcf" as Io)
-            expected = "  " as Unicode     // Codewords: tbcf 24;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "  " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "tbcf 24;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("ntdb" as Io)
-            expected = "   " as Unicode    // Codewords: ntdb 23;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "   " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "ntdb 23;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("nt1" as Io)
-            expected = "　 " as Unicode     // Codewords: nt1 13;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "nt1 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("nt2" as Io)
-            expected = "　 " as Unicode     // Codewords: nt2 13;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "nt2 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("nt4" as Io)
-            expected = "　 " as Unicode     // Codewords: nt4 13;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "nt4 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("nt8" as Io)
-            expected = "   " as Unicode    // Codewords: nt8 21;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "   " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "nt8 21;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("nt16" as Io)
-            expected = "   " as Unicode    // Codewords: nt16 21;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "   " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "nt16 21;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("nt2dn" as Io)
-            expected = "　 " as Unicode     // Codewords: nt2dn 13;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "nt2dn 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("nt4dn" as Io)
-            expected = "　 " as Unicode     // Codewords: nt4dn 13;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "nt4dn 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("nt8dn" as Io)
-            expected = "　 " as Unicode     // Codewords: nt8dn 13;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "nt8dn 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
 
             actual = computeInputSentenceUnicode("nt16dn" as Io)
-            expected = "　 " as Unicode     // Codewords: nt16dn 13;
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            expectedUnicode = "　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            expectedCodewords = "nt16dn 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
+
 
         it("gives a default width of 12 to known codes with undefined widths", (): void => {
             const inputSentence = "^" as Io
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: ^ 12;
-            const expected = "　" as Unicode
-            expect(actual).toBe(expected)
+            const expectedUnicode = "　" as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "^ 12;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
         it("gives a default width of 0 to unknown codes", (): void => {
@@ -167,9 +205,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: (unknown)
-            const expected = "幸" as Unicode
-            expect(actual).toBe(expected)
+            const expectedUnicode = "幸" as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "(unknown)"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
         it("if more than one symbol has occurred since the previous advance, uses the width of the symbol with the max width", (): void => {
@@ -177,9 +216,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: lgln nt16 21;
-            const expected = "   " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "   " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "lgln nt16 21;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
         it("resets the advance amount after each application", (): void => {
@@ -187,9 +227,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: lgln nt16 21; nt4 13;
-            const expected = "   　 " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "   　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "lgln nt16 21; nt4 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
     })
 
@@ -199,13 +240,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: nt8 st16 16; st8 5; nt4 3; st8 8; st8 2;
-            const expected = "       " as Unicode
-            // TODO: CLEAN, READY TO GO, BETTER TESTING:
-            //  Use a "d" at the end of each of these tests to double check codewords
-            //  Now that you have the nicer function for it
-            //  Or better yet, check them against the comment using the helper
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "       " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "nt8 st16 16; st8 5; nt4 3; st8 8; st8 2;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
         it("does not adds additional lines as needed, if only a manual stave has been asked for", (): void => {
@@ -213,9 +251,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: st24 nt8 21; nt4 13;
-            const expected = "   　 " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "   　 " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "st24 nt8 21; nt4 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
         it("can be turned off and on", (): void => {
@@ -223,9 +262,10 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            // Codewords: tbcf st16 16; st8 8; nt4 st8 8; st8 5; nt4 13; nt4 13; nt4 st8 8; st8 5;
-            const expected = "     　 　    " as Unicode
-            expect(actual).toBe(expected, codewordFailMessage(actual, expected))
+            const expectedUnicode = "     　 　    " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "tbcf st16 16; st8 8; nt4 st8 8; st8 5; nt4 13; nt4 13; nt4 st8 8; st8 5;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
     })
 })

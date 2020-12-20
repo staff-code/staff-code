@@ -1,7 +1,7 @@
 import {
     BASS_POSITION_MAP,
     Code,
-    CODE_MAP,
+    CODE_MAP_PLUS_SMART_CODES,
     EMPTY_UNICODE,
     POSITION_MAP,
     Symbol,
@@ -14,8 +14,8 @@ import {smarts} from "./globals"
 const TREBLE_UNICODE = computeUnicodeForCode(Code["tbcf"])
 const BASS_UNICODE = computeUnicodeForCode(Code["bscf"])
 
-const BASS_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP, ...BASS_POSITION_MAP} as Record<Code, Symbol>
-const TREBLE_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP, ...TREBLE_POSITION_MAP} as Record<Code, Symbol>
+const BASS_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP_PLUS_SMART_CODES, ...BASS_POSITION_MAP} as Record<Code, Symbol>
+const TREBLE_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP_PLUS_SMART_CODES, ...TREBLE_POSITION_MAP} as Record<Code, Symbol>
 
 const POSITION_UNICODES = computeMapUnicodes(POSITION_MAP)
 const FAKE_TEMP_MIDDLE_POSITION_UNICODE = computeUnicodeForCode(Code["md0"])

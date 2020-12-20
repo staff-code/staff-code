@@ -1,5 +1,5 @@
 import {isNumber, isUndefined} from "@sagittal/general"
-import {Code, Codeword, CODE_MAP} from "../../../../src/translate/symbols"
+import {Code, Codeword, CODE_MAP_PLUS_SMART_CODES} from "../../../../src/translate/symbols"
 import {computeCodewordFromCode} from "../../../../src/translate/utility/codeword"
 
 describe("code verifications", (): void => {
@@ -24,7 +24,7 @@ describe("code verifications", (): void => {
             // Object.entries returns, for an enum, both its string keys to its numeric indices *and* vice versa!
             if (!isNumber(code)) return
 
-            if (isUndefined(CODE_MAP[ code ])) {
+            if (isUndefined(CODE_MAP_PLUS_SMART_CODES[ code ])) {
                 fail(`unmapped codeword: ${computeCodewordFromCode(code)}`)
             }
         })
