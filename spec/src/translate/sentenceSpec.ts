@@ -20,9 +20,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "  \n   " as Unicode
+        const expectedUnicode = "     \n   " as Unicode
         expect(actual).toBe(expectedUnicode)
-        const expectedCodewords = "tbcf st16 16; st8 8; nt4 br; nt4 st8 8; st8 5;"
+        const expectedCodewords = "tbcf st16 16; st8 8; nt4 st8 8; st8 5; br; nt4 st8 8; st8 5;"
         expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
     })
 

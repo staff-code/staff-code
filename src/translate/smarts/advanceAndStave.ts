@@ -40,6 +40,8 @@ const SMART_STAVE_ON_UNICODE = computeUnicodeForCode(Code["st"])
 const SMART_STAVE_OFF_UNICODE = computeUnicodeForCode(Code["stof"])
 const SMART_STAVE_UNICODES = computeMapUnicodes(SMART_STAVE_MAP)
 
+const BREAK_UNICODE = computeUnicodeForCode(Code["br;"])
+
 const computeAdvanceUnicode = (width: Width): Unicode => {
     let remainingWidth = width
 
@@ -106,6 +108,10 @@ const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmarts = (symbol: Sy
     } else if (isManualAdvanceUnicode(symbol.unicode)) {
         smartAdvanceAndSmartStavePrefixUnicode =
             computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmartStave(symbol.width!)
+    } else if (symbol.unicode === BREAK_UNICODE) {
+        smartAdvanceAndSmartStavePrefixUnicode =
+            computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmartStave(smarts.advanceWidth)
+        smarts.staveWidth = 0 as Width
     } else {
         updateSmartStave(symbol)
 
@@ -128,7 +134,6 @@ const updateSmartStave = ({unicode}: Symbol): void => {
     if (unicode === SMART_STAVE_ON_UNICODE) smarts.staveOn = true
     if (unicode === SMART_STAVE_OFF_UNICODE) {
         smarts.staveWidth = 0 as Width
-        // smarts.advanceWidth = 0 as Width
         smarts.staveOn = false
     }
 

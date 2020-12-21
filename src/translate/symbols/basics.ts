@@ -67,15 +67,19 @@ const BEAMS_MAP: Record<Code, Symbol> = {
 } as Record<Code, Symbol>
 
 const BREAKS_MAP: Record<Code, Symbol> = {
-    // TODO: FEATURE IMPROVE, READY TO GO: MULTI-LINE STAVES
-    //  I've already implemented the "br" code which causes the display to work
-    //  - But it doesn't play well with Smart Stave or Smart Advance. waiting on Dave's research on how it could work
-    //  I think we may have had it zero them out already
+    // TODO: FEATURE IMPROVE, READY TO GO: LINE BREAKS / MULTI-LINE STAVES
     //  - And it may relate to SVG WIDTH determination, as it's related to things we need to compute when handing
-    //  What displays in the DOM to what vectorize-text needs to render
-    //  See: http://forum.sagittal.org/viewtopic.php?p=3122#p3122
-    //  There has been more discussion about this since though
-    //  And figure out why br looks wrong on the forum but okay in the app
+    //  What displays in the DOM to what vectorize-text needs to render, and the height you need to pass to it
+    //  - And there's another problem. It looks alright on the page, but then the SVG doesn't look right.
+    //  It's just straight up missing the breaks. I revisited vectorize-text's docs and it turns out you need to
+    //  Provide a custom code that it will interpret as line breaks, as "options.styletags.breaklines".
+    //  So I'll just have to add a translation layer to what text gets sent from the display to the SVG generator
+    //  To replace the \n's with some code contracted with vectorize-text. Which... it looks like I was going to need
+    //  Something like that anyway, because another problem is that it then squishes the SVG twice as small as before,
+    //  So I would need to calculate how many staves there are and recalculate the height to tell it to make things.
+    //  So this will probably be intertwined with whatever I have to do to make the width calculation necessary
+    //  For these SVGs to not just have crazy wide widths.
+    //  - And figure out why br looks wrong on the forum but okay in the app
     /*U+000D*/[Code[`br;`]]: {unicode: "\n", description: "stave break"},
 } as Record<Code, Symbol>
 
