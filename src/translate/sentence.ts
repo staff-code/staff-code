@@ -8,12 +8,6 @@ import {computeInputWordUnicode} from "./word"
 //  Details here, bottom of this post: http://forum.sagittal.org/viewtopic.php?p=3100#p3100
 //  Also { and } can be considered aliases for cmon and cmof (commentOn and commentOff)
 
-// TODO: FEATURE IMPROVE, READY TO GO: MAKE INPUT TALL AND SKINNY TO THE LEFT OF THE DISPLAY
-//  Thanks to vertical scrolling, it doesn't really need to be tall and skinny, just not so short as it is now.
-//  I suggest the input field initially be 32 to 40 characters wide and 20 to 30 lines high.
-//  And I wasn't thinking about phone screens when I suggested putting the staff and download button to the right.
-//  I think they are fine where they are now.
-
 const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
     inputSentence
         .replace(/<br>/g, SPACE)

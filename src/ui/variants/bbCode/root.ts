@@ -1,4 +1,5 @@
 import {buildDisplay} from "../../display"
+import {setupInput} from "../../input"
 import {transferInputToDisplay} from "../../transfer"
 
 const setupBBCodeRoot = (root: Element): void => {
@@ -7,6 +8,9 @@ const setupBBCodeRoot = (root: Element): void => {
 
     const display = buildDisplay()
     root.appendChild(display)
+
+    const input: HTMLTextAreaElement = root.querySelector("textarea")!
+    setupInput(input)
 
     transferInputToDisplay(root)
 }
