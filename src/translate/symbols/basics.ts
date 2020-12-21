@@ -7,45 +7,41 @@ import {Code, Symbol} from "./types"
 //  They should be able to temporarily turn auto-staff off and use a manual staff piece. e.g.
 //  "stof st8 dn6 nt ston"
 const LEGER_LINE_MAP: Record<Code, Symbol> = {
-    /*U+E022*/[Code[`lgln`]]: {unicode: "", width: 13, description: "leger line"},
+    /*U+E022*/[Code[`lgln`]]: {unicode: "", width: 11, description: "leger line"},
 } as Record<Code, Symbol>
 
 const BAR_LINE_MAP: Record<Code, Symbol> = {
-    /*U+E030*/[Code[`brln`]]: {unicode: "", width: 2, description: "bar line (single)"},
-    /*U+E031*/[Code[`brlndb`]]: {unicode: "", width: 5, description: "bar line double"},
+    /*U+E030*/[Code[`brln`]]: {unicode: "", width: 0, description: "bar line (single)"},
+    /*U+E031*/[Code[`brlndb`]]: {unicode: "", width: 3, description: "bar line double"},
 } as Record<Code, Symbol>
 
-// TODO: NEW FEATURE, READY TO GO, DYNAMIC SPACINGS:
-//  Remove side-bearing from every character, i.e. reduce all widths by 2,
-//  The right sidebearing should be a variable, which gets added to the width of every character at runtime,
-//  And defaults to 2 but can be set by the user with codewords of the form sp<n> where "sp" stands for spacing.
 const TIME_SIGNATURE_MAP: Record<Code, Symbol> = {
-    /*U+E080*/[Code[`tm0`]]: {unicode: "", width: 17, description: "time signature digit 0"},
-    /*U+E081*/[Code[`tm1`]]: {unicode: "", width: 17, description: "time signature digit 1"},
-    /*U+E082*/[Code[`tm2`]]: {unicode: "", width: 17, description: "time signature digit 2"},
-    /*U+E083*/[Code[`tm3`]]: {unicode: "", width: 17, description: "time signature digit 3"},
-    /*U+E084*/[Code[`tm4`]]: {unicode: "", width: 17, description: "time signature digit 4"},
-    /*U+E085*/[Code[`tm5`]]: {unicode: "", width: 17, description: "time signature digit 5"},
-    /*U+E086*/[Code[`tm6`]]: {unicode: "", width: 17, description: "time signature digit 6"},
-    /*U+E087*/[Code[`tm7`]]: {unicode: "", width: 17, description: "time signature digit 7"},
-    /*U+E088*/[Code[`tm8`]]: {unicode: "", width: 17, description: "time signature digit 8"},
-    /*U+E089*/[Code[`tm9`]]: {unicode: "", width: 17, description: "time signature digit 9"},
-    /*U+E08A*/[Code[`tmcm`]]: {unicode: "", width: 17, description: "common time"},
+    /*U+E080*/[Code[`tm0`]]: {unicode: "", width: 15, description: "time signature digit 0"},
+    /*U+E081*/[Code[`tm1`]]: {unicode: "", width: 15, description: "time signature digit 1"},
+    /*U+E082*/[Code[`tm2`]]: {unicode: "", width: 15, description: "time signature digit 2"},
+    /*U+E083*/[Code[`tm3`]]: {unicode: "", width: 15, description: "time signature digit 3"},
+    /*U+E084*/[Code[`tm4`]]: {unicode: "", width: 15, description: "time signature digit 4"},
+    /*U+E085*/[Code[`tm5`]]: {unicode: "", width: 15, description: "time signature digit 5"},
+    /*U+E086*/[Code[`tm6`]]: {unicode: "", width: 15, description: "time signature digit 6"},
+    /*U+E087*/[Code[`tm7`]]: {unicode: "", width: 15, description: "time signature digit 7"},
+    /*U+E088*/[Code[`tm8`]]: {unicode: "", width: 15, description: "time signature digit 8"},
+    /*U+E089*/[Code[`tm9`]]: {unicode: "", width: 15, description: "time signature digit 9"},
+    /*U+E08A*/[Code[`tmcm`]]: {unicode: "", width: 15, description: "common time"},
     /*U+E09E*/[Code[`tmnm`]]: {unicode: "", width: 0, description: "time signature combining numerator position"},
     /*U+E09F*/[Code[`tmdn`]]: {unicode: "", width: 0, description: "time signature combining denominator position"},
 } as Record<Code, Symbol>
 
 const NOTE_MAP: Record<Code, Symbol> = {
-    /*U+E1D0*/[Code[`ntdb`]]: {unicode: "", width: 23, description: "double whole note"},
-    /*U+E1D2*/[Code[`nt1`]]: {unicode: "", width: 13, description: "whole note"},
-    /*U+E1D3*/[Code[`nt2`]]: {unicode: "", width: 13, description: "half note stem up"},
-    /*U+E1D4*/[Code[`nt2dn`]]: {unicode: "", width: 13, description: "half note stem down"},
-    /*U+E1D5*/[Code[`nt4`]]: {unicode: "", width: 13, description: "quarter note stem up"},
-    /*U+E1D6*/[Code[`nt4dn`]]: {unicode: "", width: 13, description: "quarter note stem down"},
-    /*U+E1D7*/[Code[`nt8`]]: {unicode: "", width: 21, description: "quarter note stem up"},
-    /*U+E1D8*/[Code[`nt8dn`]]: {unicode: "", width: 13, description: "quarter note stem down"},
-    /*U+E1D9*/[Code[`nt16`]]: {unicode: "", width: 21, description: "sixteenth note stem up"},
-    /*U+E1DA*/[Code[`nt16dn`]]: {unicode: "", width: 13, description: "sixteenth note stem down"},
+    /*U+E1D0*/[Code[`ntdb`]]: {unicode: "", width: 21, description: "double whole note"},
+    /*U+E1D2*/[Code[`nt1`]]: {unicode: "", width: 11, description: "whole note"},
+    /*U+E1D3*/[Code[`nt2`]]: {unicode: "", width: 11, description: "half note stem up"},
+    /*U+E1D4*/[Code[`nt2dn`]]: {unicode: "", width: 11, description: "half note stem down"},
+    /*U+E1D5*/[Code[`nt4`]]: {unicode: "", width: 11, description: "quarter note stem up"},
+    /*U+E1D6*/[Code[`nt4dn`]]: {unicode: "", width: 11, description: "quarter note stem down"},
+    /*U+E1D7*/[Code[`nt8`]]: {unicode: "", width: 19, description: "quarter note stem up"},
+    /*U+E1D8*/[Code[`nt8dn`]]: {unicode: "", width: 11, description: "quarter note stem down"},
+    /*U+E1D9*/[Code[`nt16`]]: {unicode: "", width: 19, description: "sixteenth note stem up"},
+    /*U+E1DA*/[Code[`nt16dn`]]: {unicode: "", width: 11, description: "sixteenth note stem down"},
 } as Record<Code, Symbol>
 NOTE_MAP[Code[`nt`]] = NOTE_MAP[Code[`nt4`]]
 
@@ -60,7 +56,7 @@ const REST_MAP: Record<Code, Symbol> = {
 REST_MAP[Code[`rs`]] = REST_MAP[Code[`rs4`]]
 
 const DOT_MAP: Record<Code, Symbol> = {
-    /*U+E1E7*/[Code[`dt`]]: {unicode: "", width: 6, description: "augmentation dot"},
+    /*U+E1E7*/[Code[`dt`]]: {unicode: "", width: 4, description: "augmentation dot"},
 } as Record<Code, Symbol>
 DOT_MAP[Code[`agdt`]] = DOT_MAP[Code[`dt`]]
 

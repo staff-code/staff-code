@@ -71,7 +71,7 @@ const EHEJIPN_ACCIDENTAL_MAP: Record<Code, Symbol> = {
     [Code[`.b`]]: CONVENTIONAL_ACCIDENTAL_MAP[Code[`b`]],
     [Code[`.n`]]: CONVENTIONAL_ACCIDENTAL_MAP[Code[`n`]],
     [Code[`.#`]]: CONVENTIONAL_ACCIDENTAL_MAP[Code[`#`]],
-    /*U+E263*/[Code[`.x`]]: {unicode: "", width: 10, description: "Double sharp"}, // *
+    /*U+E263*/[Code[`.x`]]: {unicode: "", width: 8, description: "Double sharp"}, // *
     /*U+E281*/[Code[`.<b`]]: {unicode: "", description: "Reversed flat and flat (three-quarter-tones flat) (Zimmermann)"},
     [Code[`.>#`]]: UNCONVENTIONAL_ACCIDENTAL_MAP[Code[`>#`]],
 } as Record<Code, Symbol>

@@ -5,6 +5,7 @@ import {Smarts} from "./types"
 const INITIAL_SMARTS: Smarts = {
     advanceWidth: 0 as Width,
     staveWidth: 0 as Width,
+    spacing: 2 as Width,
     staveOn: false,
     position: EMPTY_UNICODE,
     codeMap: TREBLE_CODE_MAP,
