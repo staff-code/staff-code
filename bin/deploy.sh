@@ -8,9 +8,14 @@ NEW_VERSION=$(< package.json grep version | head -1 | awk -F: '{ print $2 }' | s
 rm -r dist/bbCode/* > /dev/null 2>&1 || true
 
 npm run build-bbcode
-# TODO: FEATURE IMPROVE, READY TO GO: README.TXT FOR ADMINS
-#  Dave needs a README.txt to be assembled out of these assets
-cp src/ui/variants/bbCode/acp/* dist/bbCode
+
+cp src/ui/variants/bbCode/acp/README.txt dist/bbCode
+BBCODE_USAGE=$(<src/ui/variants/bbCode/acp/bbCodeUsage.txt)
+sed -i "s|{{BBCODE_USAGE}}|${BBCODE_USAGE}|g" dist/bbCode/README.txt
+HTML_REPLACEMENT=$(<src/ui/variants/bbCode/acp/htmlReplacement.html)
+sed -i "s|{{HTML_REPLACEMENT}}|${HTML_REPLACEMENT//$'\n'/'\\\n'}|g" dist/bbCode/README.txt
+HELP_LINE=$(<src/ui/variants/bbCode/acp/helpLine.txt)
+sed -i "s|{{HELP_LINE}}|${HELP_LINE}|g" dist/bbCode/README.txt
 cp assets/fonts/* dist/bbCode
 
 pushd dist/bbCode
