@@ -87,7 +87,6 @@ const BREAKS_MAP: Record<Code, Symbol> = {
     //  So I would need to calculate how many staves there are and recalculate the height to tell it to make things.
     //  So this will probably be intertwined with whatever I have to do to make the width calculation necessary
     //  For these SVGs to not just have crazy wide widths.
-    //  - And figure out why br looks wrong on the forum but okay in the app
     /*U+000D*/[Code[`br;`]]: {unicode: "\n", description: "break"},
 } as Record<Code, Symbol>
 
