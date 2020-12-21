@@ -45,13 +45,13 @@ const BREAK_UNICODE = computeUnicodeForCode(Code["br;"])
 const computeAdvanceUnicode = (width: Width): Unicode => {
     let remainingWidth = width
 
-    let unicodePhrase = EMPTY_UNICODE
+    let unicodeClause = EMPTY_UNICODE
     while (remainingWidth >= MAX_ADVANCE_WIDTH) {
         remainingWidth = subtract(remainingWidth, MAX_ADVANCE_WIDTH)
-        unicodePhrase = sumTexts(unicodePhrase, MAX_ADVANCE_UNICODE)
+        unicodeClause = sumTexts(unicodeClause, MAX_ADVANCE_UNICODE)
     }
 
-    return sumTexts(unicodePhrase, WIDTH_TO_ADVANCE_UNICODE_ARRAY[remainingWidth])
+    return sumTexts(unicodeClause, WIDTH_TO_ADVANCE_UNICODE_ARRAY[remainingWidth])
 }
 
 const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmartStave = (width: Width): Unicode => {

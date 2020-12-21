@@ -55,6 +55,9 @@ describe("computeInputSentenceUnicode", (): void => {
             //  One for symbol codewords and one for smart codewords, which together are just codewords
             //  And input words get mapped to lowercase codewords so they can match to codewords, then mapped to unicode
             //  But when debugging and we pull back out of unicode, we can only go to symbol codewords, unambiguously
+            //  - Dave also suggests that it should be two words "code word", which might connect with my desire to have
+            //  A matrix with one dimension for word/clause/sentence/doc and one for input/code/lowercasecode/etc.
+            //  Some stuff here: http://forum.sagittal.org/viewtopic.php?p=3172#p3172
             expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 

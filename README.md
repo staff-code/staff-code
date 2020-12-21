@@ -35,7 +35,7 @@ loadFontsThen((): void => {
 })
 ```
 
-The WOFF and OTF variants of teh Bravura Text BB font are included in the package. You should serve them at `assets/fonts/*` for them to be automatically picked up.
+The WOFF and OTF variants of the Bravura Text BB font are included in the package. You should serve them at `assets/fonts/*` for them to be automatically picked up.
 
 ## development
 

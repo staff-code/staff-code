@@ -2,6 +2,10 @@ import {Code, Symbol} from "./types"
 
 // TODO: NEW FEATURE, READY TO GO: SMART LEGER LINES
 //  So you'd need a function isNoteOrNotehead() to check if a symbol is in one of the appropriate unicode ranges.
+//  Automatic leger lines, when notes or noteheads are positioned outside ±5, should not prevent someone from placing
+//  A note [i]without [/i]a leger line if they really need to, for some strange reason.
+//  They should be able to temporarily turn auto-staff off and use a manual staff piece. e.g.
+//  "stof st8 dn6 nt ston"
 const LEGER_LINE_MAP: Record<Code, Symbol> = {
     /*U+E022*/[Code[`lgln`]]: {unicode: "", width: 13, description: "leger line"},
 } as Record<Code, Symbol>
@@ -11,6 +15,10 @@ const BAR_LINE_MAP: Record<Code, Symbol> = {
     /*U+E031*/[Code[`brlndb`]]: {unicode: "", width: 5, description: "bar line double"},
 } as Record<Code, Symbol>
 
+// TODO: NEW FEATURE, READY TO GO, DYNAMIC SPACINGS:
+//  Remove side-bearing from every character, i.e. reduce all widths by 2,
+//  The right sidebearing should be a variable, which gets added to the width of every character at runtime,
+//  And defaults to 2 but can be set by the user with codewords of the form sp<n> where "sp" stands for spacing.
 const TIME_SIGNATURE_MAP: Record<Code, Symbol> = {
     /*U+E080*/[Code[`tm0`]]: {unicode: "", width: 17, description: "time signature digit 0"},
     /*U+E081*/[Code[`tm1`]]: {unicode: "", width: 17, description: "time signature digit 1"},

@@ -43,6 +43,11 @@ enum Code {                                                         // Just a nu
     "st16",
     "st24",
     "st",
+    // TODO: FEATURE ADJUST, READY TO GO: STAFF ON / OFF DEFINITIONS REVISE
+    //  I think we should change "st" to "ston" so we have consistent abbreviations of staffOn and staffOff.
+    //  Also { and } can be considered aliases for cmon and cmof (commentOn and commentOff) and [ and ] as aliases for
+    //  "dfon and dfof (definitionOn and definitionOff). I'll add these smart codes to my codeword generator spreadsheet
+    //  I'll give them unused Sagittal code points, since they are the only ones we control.
     "stof",
     "lgln",
     "brln",
