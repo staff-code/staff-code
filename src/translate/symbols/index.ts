@@ -8,5 +8,6 @@ export {Code, Unicode, Symbol, Codeword, LowercaseCodeword, Width} from "./types
 //  Add in Dave's new set of codes
 //  Replace any existing staffCode with the new automatically generated code
 //  When this is no more than 2 characters longer.
+//  (i.e., e.g., keep all the Sagittal and EHEJIPN ones we defined)
 //  Also need to update EHEJIPN and ups&down's unicodes to SMuFL 1.4 per the spreadsheet
-//  Only blocked because I'm not certain about some things like Gcl over tbcf
+//  Only blocked now because Dave caught some mistakes in 3-digit numbers etc. that he wants to fix

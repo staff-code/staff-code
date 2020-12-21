@@ -162,6 +162,7 @@ enum Code {                                                         // Just a nu
     "up3",
     "up2",
     "up1",
+    // TODO: this should be up0
     "md0",
     "dn1",
     "dn2",

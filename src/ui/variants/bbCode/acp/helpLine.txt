@@ -1,1 +1,1 @@
-Convert staffCodes into music notation: [_]staff]st blsn ; Gcl ; F4 nt ;[/staff]
+Convert staffCodes into music notation: [_]staff]st Gcl ; F4 nt ;[/staff]
