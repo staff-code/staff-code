@@ -7,10 +7,13 @@ import {transferInputToDisplay} from "../../transfer"
 //  Waiting for Dave's reply
 const INITIAL_STAFF_CODE_INPUT_VALUE = `${Code[Code[`st`]]} ${Code[Code[`tbcf`]]} ${Code[Code[`;`]]} ` as Io
 
+let keydown = false
+
 const buildPackageInput = (root: HTMLDivElement): HTMLTextAreaElement => {
     const input = document.createElement("textarea")
     input.value = INITIAL_STAFF_CODE_INPUT_VALUE
     input.addEventListener("keydown", (): void => {
+        keydown = true
         doOnNextEventLoop((): void => {
             // TODO: BUG, READY TO GO: THIS SHOULD NOT FIRE IF YOU'RE HOLDING DOWN CTRL, ABOUT TO PASTE
             //  I think it should only fire if it's any character that might possibly be a code
@@ -22,6 +25,9 @@ const buildPackageInput = (root: HTMLDivElement): HTMLTextAreaElement => {
             //  - Oh yeah, and it ought to be space, tab, or return, since all whitespace really should trigger it
             transferInputToDisplay(root)
         }, 100 as Ms).then()
+    })
+    input.addEventListener("keyup", (): void => {
+        keydown = false
     })
     input.addEventListener("paste", (): void => {
         doOnNextEventLoop((): void => transferInputToDisplay(root), 100 as Ms).then()
