@@ -26,6 +26,17 @@ describe("computeInputSentenceUnicode", (): void => {
         expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
     })
 
+    it("supports inline comments", (): void => {
+        const inputSentence = "ston tbcf ; {check this out} nt br; nt" as Io
+
+        const actual = computeInputSentenceUnicode(inputSentence)
+
+        const expectedUnicode = "     \n   " as Unicode
+        expect(actual).toBe(expectedUnicode)
+        const expectedCodewords = "tbcf st16 16; st8 8; nt4 st8 8; st8 5; br; nt4 st8 8; st8 5;"
+        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+    })
+
     describe("Smart Position", (): void => {
         it("the most recently used position is automatically applied if none is specified", (): void => {
             const inputSentence = "d5 /|\\ nt" as Io
