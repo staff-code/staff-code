@@ -14,10 +14,7 @@ cp src/ui/variants/bbCode/acp/* dist/bbCode
 cp assets/fonts/* dist/bbCode
 
 pushd dist/bbCode
-  touch StaffCodeBBCode.tar.gz
-  # TODO: FEATURE IMPROVE, READY TO GO: ZIP INSTEAD OF TAR.GZ
-  #  Dave needs this to be zip, not tar (and you'll have to fix it on the scripts/forum receiving end too)
-  tar --exclude=StaffCodeBBCode.tar.gz -czvf StaffCodeBBCode.tar.gz .
+  7z a StaffCodeBBCode.zip .
 popd
 
 UPLOAD_URL=$(curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
@@ -28,11 +25,11 @@ UPLOAD_URL=$(curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
   -d "{\"tag_name\":\"v${NEW_VERSION}-beta\"}" \
   | jq -r '.upload_url'
 )
-UPLOAD_URL=${UPLOAD_URL/"{?name,label}"/"?name=StaffCodeBBCode.tar.gz"}
+UPLOAD_URL=${UPLOAD_URL/"{?name,label}"/"?name=StaffCodeBBCode.zip"}
 
 curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
 -X POST \
---data-binary @"dist/bbCode/StaffCodeBBCode.tar.gz" \
+--data-binary @"dist/bbCode/StaffCodeBBCode.zip" \
 -H "Accept: application/vnd.github.v3+json" \
 -H "Content-Type: application/octet-stream" \
 "${UPLOAD_URL}"

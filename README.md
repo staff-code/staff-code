@@ -47,4 +47,6 @@ It uses `tsc` to transpile the library for `npm` into `dist/package`.
 
 Use `npm start` to run a local server with a minimal demo of the package variant of StaffCode, for QA purposes.
 
-The BBCode variant is published to GitHub as a release, with the contents of the `dist/bbCode` folder compressed and uploaded as an asset thereof. You'll need to install `jq` (e.g. with Chocolatey) in order to perform such programmatic releasing.
+The BBCode variant is published to GitHub as a release, with the contents of the `dist/bbCode` folder archived and uploaded as an asset thereof. You'll need to install `jq` (e.g. with Chocolatey) in order to perform such programmatic releasing.
+
+You may need to install 7-zip in order to deploy, since it is used to archive the asset as a .zip file. I used `choco install 7zip` while running my terminal as an administrator.
