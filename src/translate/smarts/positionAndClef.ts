@@ -19,7 +19,7 @@ const TREBLE_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP_PLUS_SMART_CODES, ...
 // TODO, FEATURE IMPROVE, READY TO GO: ALTO AND TENOR STAFF
 
 const POSITION_UNICODES = computeMapUnicodes(POSITION_MAP)
-const FAKE_TEMP_MIDDLE_POSITION_UNICODE = computeUnicodeForCode(Code["md0"])
+const FAKE_TEMP_MIDDLE_POSITION_UNICODE = computeUnicodeForCode(Code["up0"])
 
 const canBePositioned = (unicodeWord: Unicode): boolean =>
     (unicodeWord >= "\uE022" && unicodeWord <= "\uE024")    // Leger lines
