@@ -6,6 +6,7 @@ import {computeInputWordUnicode} from "./word"
 // TODO: NEW FEATURE, READY TO GO: INLINE COMMENTS
 //  Use { }. ready to go
 //  Details here, bottom of this post: http://forum.sagittal.org/viewtopic.php?p=3100#p3100
+//  Also { and } can be considered aliases for cmon and cmof (commentOn and commentOff)
 
 // TODO: FEATURE IMPROVE, READY TO GO: MAKE INPUT TALL AND SKINNY TO THE LEFT OF THE DISPLAY
 //  Thanks to vertical scrolling, it doesn't really need to be tall and skinny, just not so short as it is now.

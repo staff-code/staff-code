@@ -16,7 +16,7 @@ describe("computeInputSentenceUnicode", (): void => {
     })
 
     it("supports multiple staves with a newline", (): void => {
-        const inputSentence = "st tbcf ; nt br; nt" as Io
+        const inputSentence = "ston tbcf ; nt br; nt" as Io
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -39,7 +39,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("don't manifest until they are needed (only apply to symbols with ligatures to be vertically shifted by them)", (): void => {
-            const inputSentence = "d5 st /|\\ 13; nt" as Io
+            const inputSentence = "d5 ston /|\\ 13; nt" as Io
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -62,7 +62,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("persist until a new one is used", (): void => {
-            const inputSentence = "d5 st /|\\ 13; nt 13; g4 \\! 7; nt" as Io
+            const inputSentence = "d5 ston /|\\ 13; nt 13; g4 \\! 7; nt" as Io
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -246,7 +246,7 @@ describe("computeInputSentenceUnicode", (): void => {
 
     describe("Smart Stave", (): void => {
         it("automatically adds stave lines as needed, if smart stave has been asked for", (): void => {
-            const inputSentence = "st nt8 ; nt4"
+            const inputSentence = "ston nt8 ; nt4"
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -268,7 +268,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("can be turned off and on", (): void => {
-            const inputSentence = "st tbcf ; nt ; stof nt ; nt ; st nt"
+            const inputSentence = "ston tbcf ; nt ; stof nt ; nt ; ston nt"
 
             const actual = computeInputSentenceUnicode(inputSentence)
 

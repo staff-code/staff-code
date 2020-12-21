@@ -40,7 +40,7 @@ const MANUAL_STAVE_MAP: Record<Code, Symbol> = {
 } as Record<Code, Symbol>
 
 const SMART_STAVE_MAP: Record<Code, Symbol> = {
-    /*U+E02E*/[Code[`st`]]: {unicode: "", width: 0},
+    /*U+E02E*/[Code[`ston`]]: {unicode: "", width: 0},
     /*U+E02F*/[Code[`stof`]]: {unicode: "", width: 0},
 } as Record<Code, Symbol>
 

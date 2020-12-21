@@ -36,7 +36,7 @@ const MAX_STAVE_WIDTH = 24 as Width
 const MAX_STAVE_UNICODE = ST24_UNICODE
 const MAX_STAVE_WIDTH_ADVANCE = computeUnicodeForCode(Code["24;"])
 
-const SMART_STAVE_ON_UNICODE = computeUnicodeForCode(Code["st"])
+const SMART_STAVE_ON_UNICODE = computeUnicodeForCode(Code["ston"])
 const SMART_STAVE_OFF_UNICODE = computeUnicodeForCode(Code["stof"])
 const SMART_STAVE_UNICODES = computeMapUnicodes(SMART_STAVE_MAP)
 

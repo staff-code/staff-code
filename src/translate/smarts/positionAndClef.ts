@@ -21,12 +21,27 @@ const TREBLE_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP_PLUS_SMART_CODES, ...
 const POSITION_UNICODES = computeMapUnicodes(POSITION_MAP)
 const FAKE_TEMP_MIDDLE_POSITION_UNICODE = computeUnicodeForCode(Code["up0"])
 
+const isInLegerLineRange = (unicodeWord: Unicode): boolean =>
+    unicodeWord >= "\uE022" && unicodeWord <= "\uE024"
+
+const isInNoteheadNoteStemOrBeamedGroupsOfNotesRange = (unicodeWord: Unicode): boolean =>
+    unicodeWord >= "\uE0A0" && unicodeWord <= "\uE21F"
+
+const isInFlagsAccidentalsArticulationHoldsPausesOrRestsRange = (unicodeWord: Unicode): boolean =>
+    unicodeWord >= "\uE240" && unicodeWord <= "\uE4FF"
+
+const isInMedievalAndRenaissanceRange = (unicodeWord: Unicode): boolean =>
+    unicodeWord >= "\uE900" && unicodeWord <= "\uEA1F"
+
+const isInKievanSquareNotationRange = (unicodeWord: Unicode): boolean =>
+    unicodeWord >= "\uEC30" && unicodeWord <= "\uEC3F"
+
 const canBePositioned = (unicodeWord: Unicode): boolean =>
-    (unicodeWord >= "\uE022" && unicodeWord <= "\uE024")    // Leger lines
-    || (unicodeWord >= "\uE0A0" && unicodeWord <= "\uE21F") // Noteheads, notes, stems, beamed groups of notes
-    || (unicodeWord >= "\uE240" && unicodeWord <= "\uE4FF") // Flags, accidentals, articulation, holds, pauses, rests
-    || (unicodeWord >= "\uE900" && unicodeWord <= "\uEA1F") // Medieval & Renaissance
-    || (unicodeWord >= "\uEC30" && unicodeWord <= "\uEC3F") // Kievan square notation
+    isInLegerLineRange(unicodeWord)
+    || isInNoteheadNoteStemOrBeamedGroupsOfNotesRange(unicodeWord)
+    || isInFlagsAccidentalsArticulationHoldsPausesOrRestsRange(unicodeWord)
+    || isInMedievalAndRenaissanceRange(unicodeWord)
+    || isInKievanSquareNotationRange(unicodeWord)
 
 const isPositionUnicode = (unicodeWord: Unicode): boolean =>
     POSITION_UNICODES.includes(unicodeWord)
