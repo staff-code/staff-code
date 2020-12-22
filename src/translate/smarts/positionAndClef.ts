@@ -27,8 +27,16 @@ const isInLegerLineRange = (unicodeWord: Unicode): boolean =>
 const isInNoteheadNoteStemOrBeamedGroupsOfNotesRange = (unicodeWord: Unicode): boolean =>
     unicodeWord >= "\uE0A0" && unicodeWord <= "\uE21F"
 
+const isInSpacingRange = (unicodeWord: Unicode): boolean =>
+    unicodeWord >= "\uE388" && unicodeWord <= "\uE38F"
+
+const isInOtherSagittalControlledNowForStaffCodeFeaturesRange = (unicodeWord: Unicode): boolean =>
+    unicodeWord >= "\uE40C" && unicodeWord <= "\uE41F"
+
 const isInFlagsAccidentalsArticulationHoldsPausesOrRestsRange = (unicodeWord: Unicode): boolean =>
     unicodeWord >= "\uE240" && unicodeWord <= "\uE4FF"
+    && !isInSpacingRange(unicodeWord)
+    && !isInOtherSagittalControlledNowForStaffCodeFeaturesRange(unicodeWord)
 
 const isInMedievalAndRenaissanceRange = (unicodeWord: Unicode): boolean =>
     unicodeWord >= "\uE900" && unicodeWord <= "\uEA1F"

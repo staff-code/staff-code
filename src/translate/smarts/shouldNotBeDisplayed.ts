@@ -1,5 +1,5 @@
 import {Unicode} from "../symbols"
-import {isManualAdvanceUnicode, isSmartAdvanceUnicode, isSmartStaveUnicode} from "./advanceAndStave"
+import {isManualAdvanceUnicode, isSmartAdvanceUnicode, isSmartStaveUnicode, isSpacingUnicode} from "./advanceAndStave"
 import {isPositionUnicode} from "./positionAndClef"
 
 const shouldNotBeDisplayed = (unicodeWord: Unicode): boolean =>
@@ -7,6 +7,7 @@ const shouldNotBeDisplayed = (unicodeWord: Unicode): boolean =>
     || isSmartStaveUnicode(unicodeWord)
     || isSmartAdvanceUnicode(unicodeWord)
     || isManualAdvanceUnicode(unicodeWord)
+    || isSpacingUnicode(unicodeWord)
 
 export {
     shouldNotBeDisplayed,

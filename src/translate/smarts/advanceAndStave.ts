@@ -9,6 +9,7 @@ import {
     Unicode,
     Width,
 } from "../symbols"
+import {SPACING_MAP} from "../symbols/advanceAndStave"
 import {computeMapUnicodes, computeUnicodeForCode} from "../utility"
 import {computeSymbolWidth} from "../width"
 import {smarts} from "./globals"
@@ -41,6 +42,8 @@ const SMART_STAVE_OFF_UNICODE = computeUnicodeForCode(Code["stof"])
 const SMART_STAVE_UNICODES = computeMapUnicodes(SMART_STAVE_MAP)
 
 const BREAK_UNICODE = computeUnicodeForCode(Code["br;"])
+
+const SPACING_UNICODES = computeMapUnicodes(SPACING_MAP)
 
 const computeAdvanceUnicode = (width: Width): Unicode => {
     let remainingWidth = width
@@ -102,16 +105,20 @@ const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmart
 
 const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmarts = (symbol: Symbol): Unicode => {
     let smartAdvanceAndSmartStavePrefixUnicode
-    if (isSmartAdvanceUnicode(symbol.unicode)) {
+    const unicode = symbol.unicode
+    if (isSmartAdvanceUnicode(unicode)) {
         smartAdvanceAndSmartStavePrefixUnicode =
             computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmartStave(smarts.advanceWidth)
-    } else if (isManualAdvanceUnicode(symbol.unicode)) {
+    } else if (isManualAdvanceUnicode(unicode)) {
         smartAdvanceAndSmartStavePrefixUnicode =
             computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmartStave(symbol.width!)
-    } else if (symbol.unicode === BREAK_UNICODE) {
+    } else if (unicode === BREAK_UNICODE) {
         smartAdvanceAndSmartStavePrefixUnicode =
             computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmartStave(smarts.advanceWidth)
         smarts.staveWidth = 0 as Width
+    } else if (isSpacingUnicode(unicode)) {
+        smarts.spacing = symbol.width!
+        smartAdvanceAndSmartStavePrefixUnicode = EMPTY_UNICODE
     } else {
         updateSmartStave(symbol)
 
@@ -129,6 +136,9 @@ const isSmartAdvanceUnicode = (unicodeWord: Unicode): boolean =>
 
 const isManualAdvanceUnicode = (unicodeWord: Unicode): boolean =>
     MANUAL_ADVANCE_UNICODES.includes(unicodeWord)
+
+const isSpacingUnicode = (unicodeWord: Unicode): boolean =>
+    SPACING_UNICODES.includes(unicodeWord)
 
 const updateSmartStave = ({unicode}: Symbol): void => {
     if (unicode === SMART_STAVE_ON_UNICODE) smarts.staveOn = true
@@ -151,4 +161,5 @@ export {
     isManualAdvanceUnicode,
     updateSmartStave,
     isSmartStaveUnicode,
+    isSpacingUnicode,
 }

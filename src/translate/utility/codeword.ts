@@ -26,6 +26,13 @@ const computeCodewordsFromUnicode = (unicodeSentence: Unicode): string => {
 
     return unicodeWords.map(computeCodewordFromUnicode)
         .join(SPACE)
+        .replace(/24; 6; 1;/g, "31;")
+        .replace(/24; 6;/g, "30;")
+        .replace(/24; 4; 1;/g, "29;")
+        .replace(/24; 4;/g, "28;")
+        .replace(/24; 2; 1;/g, "27;")
+        .replace(/24; 2;/g, "26;")
+        .replace(/24; 1;/g, "25;")
         .replace(/16; 8;/g, "24;")
         .replace(/16; 6; 1;/g, "23;")
         .replace(/16; 6;/g, "22;")

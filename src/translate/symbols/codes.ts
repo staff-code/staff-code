@@ -1,5 +1,5 @@
 import {ACCIDENTAL_MAP} from "./accidentals"
-import {MANUAL_ADVANCE_MAP, MANUAL_STAVE_MAP, SMART_ADVANCE_MAP, SMART_STAVE_MAP} from "./advanceAndStave"
+import {MANUAL_ADVANCE_MAP, MANUAL_STAVE_MAP, SMART_ADVANCE_MAP, SMART_STAVE_MAP, SPACING_MAP} from "./advanceAndStave"
 import {
     BAR_LINE_MAP,
     BEAMS_MAP,
@@ -42,6 +42,7 @@ const CODE_MAP_PLUS_SMART_CODES: Record<Code, Symbol> = {
     ...CODE_MAP,
     ...SMART_ADVANCE_MAP,
     ...SMART_STAVE_MAP,
+    ...SPACING_MAP,
 
     ...TREBLE_POSITION_MAP,
     ...BASS_POSITION_MAP,

@@ -209,7 +209,6 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
-
         it("gives a default width of 12 to known codes with undefined widths", (): void => {
             const inputSentence = "^" as Io
 
@@ -221,17 +220,14 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
-        // TODO: figure out what Dave wants for unknown code widths w/r/t spacing, and also finish sp<n> feature with
-        //  Whatever he says to do it like
-        // tslint:disable-next-line:ban
-        xit("gives a default width of 0 to unknown codes", (): void => {
+        it("gives a default width of 0 to unknown codes", (): void => {
             const inputSentence = "u+5e78" as Io
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "幸" as Unicode
+            const expectedUnicode = "幸 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "(unknown)"
+            const expectedCodewords = "(unknown) 2;"
             expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
@@ -254,6 +250,17 @@ describe("computeInputSentenceUnicode", (): void => {
             const expectedUnicode = "   　 " as Unicode
             expect(actual).toBe(expectedUnicode)
             const expectedCodewords = "lgln nt16 21; nt4 13;"
+            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+        })
+
+        it("can have the spacing adjusted from the default of 2", (): void => {
+            const inputSentence = "sp7 nt16" as Io
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "   " as Unicode
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodewords = "nt16 24; 2;"
             expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
     })
