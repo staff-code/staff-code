@@ -8,8 +8,12 @@ const INITIAL_STAFF_CODE_INPUT_VALUE = `${Code[Code[`ston`]]} ${Code[Code[`tbcf`
 
 const buildPackageInput = (root: HTMLDivElement): HTMLTextAreaElement => {
     const input = document.createElement("textarea")
+
     input.value = INITIAL_STAFF_CODE_INPUT_VALUE
+    input.style.display = "block"
+
     setupInput(input)
+
     input.addEventListener("keydown", (event: KeyboardEvent): void => handleKeydown(event, root, input))
     input.addEventListener("keyup", handleKeyup)
     input.addEventListener("paste", (): void => {
