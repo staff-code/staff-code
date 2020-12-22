@@ -40,9 +40,8 @@ const MANUAL_STAVE_MAP: Record<Code, Symbol> = {
 } as Record<Code, Symbol>
 
 const SMART_STAVE_MAP: Record<Code, Symbol> = {
-    // TODO: I have changed ston and stof to use E40C and E40D.
-    /*U+E02E*/[Code[`ston`]]: {unicode: "", width: 0},
-    /*U+E02F*/[Code[`stof`]]: {unicode: "", width: 0},
+    /*U+E40C*/[Code[`ston`]]: {unicode: "", width: 0},
+    /*U+E40D*/[Code[`stof`]]: {unicode: "", width: 0},
 } as Record<Code, Symbol>
 
 const SPACING_MAP: Record<Code, Symbol> = {
