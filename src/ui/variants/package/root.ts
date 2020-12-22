@@ -18,11 +18,12 @@ const setupPackageRoot = (): HTMLDivElement => {
     const root = document.createElement("div")
     root.classList.add("staff-code")
 
-    const input = buildPackageInput(root)
-    root.appendChild(input)
+    const svg = buildSvg()
+
     const display = buildDisplay()
     root.appendChild(display)
-    const svg = buildSvg()
+    const input = buildPackageInput(root)
+    root.appendChild(input)
     const downloadButton = buildDownloadButton(display, svg)
     root.appendChild(downloadButton)
 

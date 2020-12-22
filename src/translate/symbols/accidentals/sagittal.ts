@@ -12,7 +12,7 @@
 //  Pull these unicodes in from @sagittal/system
 //  Now I've got tree-shaking working, so I could pull in @sagittal/system without bloating the bundled file much
 
-// TODO, FEATURE IMPROVE, READY TO GO: MORE SAGITTAL ENCODINGS
+// TODO: FEATURE IMPROVE, READY TO GO: MORE SAGITTAL ENCODINGS
 //  Two other encodings of the sagittals: sagispeak, comma name
 
 import {Code, Symbol} from "../types"
