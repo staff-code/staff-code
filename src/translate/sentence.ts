@@ -11,7 +11,7 @@ const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
 
 const removeComments = (inputSentence: Io): Io =>
     inputSentence
-        .replace(/{.*}/g, BLANK)
+        .replace(/{[^}]*}/g, BLANK)
 
 const computeInputSentenceUnicode = (inputSentence: Io): Unicode => {
     // tslint:disable-next-line

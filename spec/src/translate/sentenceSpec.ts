@@ -27,7 +27,7 @@ describe("computeInputSentenceUnicode", (): void => {
     })
 
     it("supports inline comments", (): void => {
-        const inputSentence = "ston tbcf ; {check this out} nt br; nt" as Io
+        const inputSentence = "ston tbcf ; {check this out} nt br; { and you can do a 2nd comment too } nt" as Io
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
