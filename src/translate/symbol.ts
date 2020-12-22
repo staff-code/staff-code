@@ -26,12 +26,18 @@ const LOWERCASE_CODEWORD_TO_CODE_MAP: Record<RecordKey<LowercaseCodeword>, Code>
         {} as Record<LowercaseCodeword, Symbol>,
     )
 
-// TODO: FEATURE IMPROVE, LOW PRIORITY: PROGRAMMATICALLY DETERMINE WIDTH FOR UNICODE LITERAL SYMBOLS
+// TODO: FEATURE IMPROVE, TOUGH AND LOW PRIORITY: PROGRAMMATICALLY DETERMINE WIDTH OF UNICODE LITERAL SYMBOLS
 //  Dave suggests use JS to calculate width of character to estimate its width
 //  Preliminary research suggests there is a way to do it, but it's likely pretty tricky
 //  A problem is that we'd need to pull Bravura Text in to do it, since it doesn't have everything's advances 0'ed out
 //  To solve the missing zero CSP bug in Bravura Text.
 //  See: http://forum.sagittal.org/viewtopic.php?p=3172#p3172
+//  - In the end, the widths should not be mixed up with the mapping of code to unicode. Different width per font!
+//  Have a different config file for each font, and just do the computation once all up front, instead of on the fly.
+//  See: http://forum.sagittal.org/viewtopic.php?p=3181#p3181
+//  - Good news. The advance width info for Bravura already exists in JSON,
+//  As part of this file: https://github.com/steinbergmedia/bravura/blob/master/redist/bravura_metadata.json
+//  Its structure is described here: https://w3c.github.io/smufl/gitbook/specification/glyphadvancewidths.html
 const computeUnicodeLiteralSymbol = (inputWord: Io): Symbol =>
     ({
         unicode: String.fromCharCode(parseInt(inputWord.replace(/^u\+(.*)/, "0x$1"))) as Unicode,

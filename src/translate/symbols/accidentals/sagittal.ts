@@ -1,5 +1,13 @@
 // tslint:disable max-line-length
 
+// TODO: FEATURE IMPROVE, BLOCKED: NEW CODES FOR ALL 2932 SMuFL GLYPHS
+//  Add in Dave's new set of codes
+//  Replace any existing staffCode with the new automatically generated code
+//  When this is no more than 2 characters longer.
+//  (i.e., e.g., keep all the Sagittal and EHEJIPN ones we defined)
+//  Also need to update EHEJIPN and ups&down's unicodes to SMuFL 1.4 per the spreadsheet
+//  Only blocked now because Dave caught some mistakes in 3-digit numbers etc. that he wants to fix
+
 // TODO: FEATURE IMPROVE, READY TO GO: DON'T DUPLICATE SAGITTAL UNICODES
 //  Pull these unicodes in from @sagittal/system
 //  Now I've got tree-shaking working, so I could pull in @sagittal/system without bloating the bundled file much
@@ -57,7 +65,7 @@ const SAGITTAL_ACCIDENTAL_MAP: Record<Code, Symbol> = {
     /*U+E32D*/[Code[`)Y(`]]: {unicode: "", description: "Double flat 25S-up, 8°down [53-EDO]"},
     /*U+E32E*/[Code[`X)`]]: {unicode: "", description: "Double sharp 7C-down, 5°[43] 10°[72] up, 5/6-tone up"},
     /*U+E32F*/[Code[`Y)`]]: {unicode: "", description: "Double flat 7C-up, 5° down [43-EDO], 10° down [72-EDO], 5/6-tone down"},
-    // TODO: CLEAN, BLOCKED, DOUBLE QUOTE CODES
+    // TODO: CLEAN, BLOCKED ON WEBPACK RELEASE INCLUDING FIX, DOUBLE QUOTE CODES
     //  When webpack releases their fix to the bug, change these back to double quotes
     /*U+E330*/[Code[`X\\`]]: {unicode: "", description: "Double sharp 5C-down, 5°[22 29] 7°[34 41] 9°53 up, 11/12 tone up"},
     /*U+E331*/[Code[`Y/`]]: {unicode: "", description: "Double flat 5C-up, 5°[22 29] 7°[34 41] 9°53 down, 11/12 tone down"},

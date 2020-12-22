@@ -5,7 +5,7 @@ import {computeSvgHeight} from "./svgHeight"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
-// TODO: FEATURE IMPROVE, LOW PRIORITY: SVG WIDTH
+// TODO: FEATURE IMPROVE, TOUGH AND LOW PRIORITY: PROGRAMMATICALLY DETERMINE WIDTH OF SVG
 //  - Do whatever it takes to make the SVGs width match its contents, rather than just be something safe but huge
 
 const downloadSvg = (display: HTMLDivElement, svg: SVGElement): void => {

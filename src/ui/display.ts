@@ -7,6 +7,10 @@ const buildDisplay = (): HTMLDivElement => {
     display.style.margin = "1em 0"
     // TODO: FEATURE ADJUST, READY TO GO: BRAVURA TEXT SC
     //  Rename the font to Bravura Text SC, "SC" for "StaffCode".
+    //  But you'll have to run it through the https://onlinefontconverter.com/]online font converter afterwards,
+    //  To make it work on the web, and to generate the .woff.
+    //  Old stuff here too: http://forum.sagittal.org/viewtopic.php?p=2811#p2811
+    //  - And update the names
     display.style.fontFamily = "Bravura Text BB"
     display.style.whiteSpace = "pre"
 

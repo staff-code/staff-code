@@ -58,6 +58,13 @@ const updateSmartPosition = ({unicode}: Symbol): void => {
     if (isPositionUnicode(unicode)) smarts.position = unicode
 }
 
+// TODO: FEATURE ADJUST, READY TO GO: CLEFS CAN BE CSP'D AND THE MIDDLE C WILL BE ADJUSTED
+//  This will be blocked on adding the ligatures to the font, though
+//  That part is introduced here: http://forum.sagittal.org/viewtopic.php?p=3163#p3163
+//  Dave says "So in future, someone who wanted a tenor clef would write "up2 Ccl ;" or "[ tncl up2 Ccl ] tncl ;"."
+//  Then see: http://forum.sagittal.org/viewtopic.php?p=3166#p3166
+//  For an explanation of how instead you should just start tracking where middle C is
+
 const computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts = (symbol: Symbol): Unicode => {
     updateSmartClef(symbol)
     updateSmartPosition(symbol)
