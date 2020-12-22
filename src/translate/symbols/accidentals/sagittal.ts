@@ -3,7 +3,7 @@
 // TODO: FEATURE IMPROVE, BLOCKED: NEW CODES FOR ALL 2932 SMuFL GLYPHS
 //  Add in Dave's new set of codes
 //  Replace any existing staffCode with the new automatically generated code
-//  When this is no more than 2 characters longer.
+//  When this is no more than 2 chars longer.
 //  (i.e., e.g., keep all the Sagittal and EHEJIPN ones we defined)
 //  Also need to update EHEJIPN and ups&down's unicodes to SMuFL 1.4 per the spreadsheet
 //  Only blocked now because Dave caught some mistakes in 3-digit numbers etc. that he wants to fix

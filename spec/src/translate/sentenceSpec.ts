@@ -1,6 +1,6 @@
 import {Io} from "@sagittal/general"
 import {computeInputSentenceUnicode} from "../../../src"
-import {Unicode} from "../../../src/translate/symbols"
+import {Unicode} from "../../../src/translate"
 import {computeCodewordsFromUnicode} from "../../../src/translate/utility"
 
 describe("computeInputSentenceUnicode", (): void => {
@@ -15,7 +15,7 @@ describe("computeInputSentenceUnicode", (): void => {
         expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
     })
 
-    it("supports multiple staves with a newline", (): void => {
+    it("supports multiple staves with a break", (): void => {
         const inputSentence = "ston tbcf ; nt br; nt" as Io
 
         const actual = computeInputSentenceUnicode(inputSentence)
@@ -23,6 +23,17 @@ describe("computeInputSentenceUnicode", (): void => {
         const expectedUnicode = "     \n   " as Unicode
         expect(actual).toBe(expectedUnicode)
         const expectedCodewords = "tbcf st16 16; st8 8; nt4 st8 8; st8 5; br; nt4 st8 8; st8 5;"
+        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+    })
+
+    it("adds a space at the end if the last word is a break", (): void => {
+        const inputSentence = "ston tbcf ; nt br;" as Io
+
+        const actual = computeInputSentenceUnicode(inputSentence)
+
+        const expectedUnicode = "     \n " as Unicode
+        expect(actual).toBe(expectedUnicode)
+        const expectedCodewords = "tbcf st16 16; st8 8; nt4 st8 8; st8 5; br; (unknown)"
         expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
     })
 
@@ -37,7 +48,7 @@ describe("computeInputSentenceUnicode", (): void => {
         expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
     })
 
-    it("still supports symbols with curlies, despite those being comment characters", (): void => {
+    it("still supports symbols with curlies, despite those being comment chars", (): void => {
         const inputSentence = "tbcf ; .{ ; nt ; .} ; nt" as Io
 
         const actual = computeInputSentenceUnicode(inputSentence)
