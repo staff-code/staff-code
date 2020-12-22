@@ -12,6 +12,7 @@ import {buildPackageInput} from "./input"
 //  As we discussed, just give it the inline style there
 //  Well it will have to override what automatically gets put there
 //  Maybe provide a demo where you unnecessarily assign it to Bravura Text BB
+//  - (the current 2x) space between staves seems good. I suppose we may want to let the user control that in future.
 
 const setupPackageRoot = (): HTMLDivElement => {
     const root = document.createElement("div")

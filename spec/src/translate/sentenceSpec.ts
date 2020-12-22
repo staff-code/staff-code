@@ -27,13 +27,24 @@ describe("computeInputSentenceUnicode", (): void => {
     })
 
     it("supports inline comments", (): void => {
-        const inputSentence = "ston tbcf ; {check this out} nt br; { and you can do a 2nd comment too } nt" as Io
+        const inputSentence = "ston tbcf ; {check this out} nt zj}xv; br; { and you can do a 2nd comment too } nt" as Io
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "     \n   " as Unicode
+        const expectedUnicode = "  zj}xv;   \n   " as Unicode
         expect(actual).toBe(expectedUnicode)
-        const expectedCodewords = "tbcf st16 16; st8 8; nt4 st8 8; st8 5; br; nt4 st8 8; st8 5;"
+        const expectedCodewords = "tbcf st16 16; st8 8; nt4 (unknown) (unknown) (unknown) (unknown) (unknown) (unknown) st8 8; st8 5; br; nt4 st8 8; st8 5;"
+        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+    })
+
+    it("still supports symbols with curlies, despite those being comment characters", (): void => {
+        const inputSentence = "tbcf ; .{ ; nt ; .} ; nt" as Io
+
+        const actual = computeInputSentenceUnicode(inputSentence)
+
+        const expectedUnicode = "  　　 　　 " as Unicode
+        expect(actual).toBe(expectedUnicode)
+        const expectedCodewords = "tbcf 24; .{ 12; nt4 13; .} 12; nt4 13;"
         expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
     })
 

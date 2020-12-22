@@ -9,20 +9,13 @@ const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
         .replace(/\n/g, SPACE)
         .replace(/\t/g, SPACE)
 
-const removeComments = (inputSentence: Io): Io =>
-    inputSentence
-        .replace(/{[^}]*}/g, BLANK)
-
 const computeInputSentenceUnicode = (inputSentence: Io): Unicode => {
     // tslint:disable-next-line
     // console.warn("NEW SENTENCE -----------------------------------------------------")
 
     setAllPropertiesOfObjectOnAnother({objectToChange: smarts, objectWithProperties: INITIAL_SMARTS})
 
-    const inputWords = removeComments(
-        collapseAllWhitespacesToSingleSpaces(inputSentence),
-    )
-        .split(SPACE)
+    const inputWords = collapseAllWhitespacesToSingleSpaces(inputSentence).split(SPACE)
     inputWords.push(Code[Code[`;`]])
 
     return inputWords

@@ -7,6 +7,7 @@ const INITIAL_SMARTS: Smarts = {
     staveWidth: 0 as Width,
     spacing: 2 as Width,
     staveOn: false,
+    commenting: false,
     position: EMPTY_UNICODE,
     codeMap: TREBLE_CODE_MAP,
 }

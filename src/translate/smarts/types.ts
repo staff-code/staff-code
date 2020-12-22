@@ -5,6 +5,7 @@ interface Smarts {
     staveWidth: Width,
     spacing: Width,
     staveOn: boolean,
+    commenting: boolean,
     position: Unicode,
     codeMap: Record<Code, Symbol>
 }
