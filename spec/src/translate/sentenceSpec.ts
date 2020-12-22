@@ -26,13 +26,8 @@ describe("computeInputSentenceUnicode", (): void => {
         expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
     })
 
-    // TODO: BUG, READY TO GO: ONE WORD COMMENTS
-    //  Comments still have a problem.
-    //  Try {test} nt. Nothing appears until you put a space somewhere between the comment braces.
-    //  To deal with it at the character level, you need to include the leading and trailing whitespace as part of
-    //  The pattern, and replace with a space, not a blank.
     it("supports inline comments", (): void => {
-        const inputSentence = "ston tbcf ; {check this out} nt zj}xv; br; { and you can do a 2nd comment too } nt" as Io
+        const inputSentence = "ston tbcf ; {check this out} { and you can do a 2nd comment in a row too } nt zj}xv; br; {comment} nt" as Io
 
         const actual = computeInputSentenceUnicode(inputSentence)
 

@@ -5,7 +5,11 @@ const isCommenting = (inputWord: Io): boolean => {
     const wasCommenting = smarts.commenting
 
     if (inputWord.match(/^{/)) {
-        smarts.commenting = true
+        if (inputWord.match(/}$/)) {
+            return true
+        } else {
+            smarts.commenting = true
+        }
     } else if (inputWord.match(/}$/)) {
         smarts.commenting = false
     }
