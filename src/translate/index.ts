@@ -1,2 +1,2 @@
 export {computeInputSentenceUnicode} from "./sentence"
-export {Code} from "./symbols"
+export {Code, Unicode} from "./symbols"

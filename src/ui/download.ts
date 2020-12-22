@@ -1,16 +1,26 @@
 import {BLANK, FontName, vectorizeText} from "@sagittal/general"
-import {HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT} from "./constants"
+import {Unicode} from "../translate"
+import {LINE_HEIGHT} from "./display"
+import {computeSvgHeight} from "./svgHeight"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
 // TODO: FEATURE IMPROVE, LOW PRIORITY: SVG WIDTH
-//  Do whatever it takes to make the SVGs width match its contents
-//  Which may be intertwined with the other to-do re: line breaks, since you'll need to add a layer between what
-//  Displays on the DOM and what vectorize-text renders
+//  - Do whatever it takes to make the SVGs width match its contents, rather than just be something safe but huge
 
 const downloadSvg = (display: HTMLDivElement, svg: SVGElement): void => {
-    const unicodeSentence = display.textContent || BLANK
-    svg.innerHTML = vectorizeText(unicodeSentence, {height: HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT, font: "Bravura Text BB" as FontName})
+    const unicodeSentence: Unicode = (display.textContent || BLANK) as Unicode
+
+    const height = computeSvgHeight(unicodeSentence)
+    svg.setAttribute("height", `${height}`)
+
+    const options = {
+        height,
+        font: "Bravura Text BB" as FontName,
+        lineSpacing: LINE_HEIGHT,
+        styletags: {breaklines: true},
+    }
+    svg.innerHTML = vectorizeText(unicodeSentence, options)
 
     const outerHTML = svg.outerHTML
     const blob = new Blob([outerHTML], {type: "image/svg+xml;charset=utf-8"})
