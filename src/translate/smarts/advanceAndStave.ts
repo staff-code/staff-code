@@ -1,21 +1,23 @@
 import {max, subtract, sumTexts} from "@sagittal/general"
 import {
     Code,
-    EMPTY_UNICODE,
-    MANUAL_ADVANCE_MAP,
-    SMART_ADVANCE_MAP,
-    SMART_STAVE_MAP,
+    NOT_SMuFL_MANUAL_ADVANCE_MAP,
+    NOT_SMuFL_SMART_ADVANCE_MAP,
+    NOT_SMuFL_SMART_SPACING_MAP,
+    NOT_SMuFL_SMART_STAVE_MAP,
     Symbol,
     Unicode,
     Width,
-} from "../symbols"
-import {SPACING_MAP} from "../symbols/advanceAndStave"
+} from "../codes"
+import {EMPTY_UNICODE} from "../constants"
 import {computeMapUnicodes, computeUnicodeForCode} from "../utility"
 import {computeSymbolWidth} from "../width"
 import {smarts} from "./globals"
 
-const SMART_ADVANCE_UNICODES = computeMapUnicodes(SMART_ADVANCE_MAP)
-const MANUAL_ADVANCE_UNICODES = computeMapUnicodes(MANUAL_ADVANCE_MAP)
+// TODO: CLEAN, BREAK DOWN ADVANCE AND STAVE AND POSITION AND CLEF INTO MODULES WITHIN SMARTS
+
+const SMART_ADVANCE_UNICODES = computeMapUnicodes(NOT_SMuFL_SMART_ADVANCE_MAP)
+const MANUAL_ADVANCE_UNICODES = computeMapUnicodes(NOT_SMuFL_MANUAL_ADVANCE_MAP)
 const WIDTH_TO_ADVANCE_UNICODE_ARRAY: Unicode[] = [EMPTY_UNICODE, ...MANUAL_ADVANCE_UNICODES]
 
 const MAX_ADVANCE_UNICODE = computeUnicodeForCode(Code["24;"])
@@ -39,11 +41,11 @@ const MAX_STAVE_WIDTH_ADVANCE = computeUnicodeForCode(Code["24;"])
 
 const SMART_STAVE_ON_UNICODE = computeUnicodeForCode(Code["ston"])
 const SMART_STAVE_OFF_UNICODE = computeUnicodeForCode(Code["stof"])
-const SMART_STAVE_UNICODES = computeMapUnicodes(SMART_STAVE_MAP)
+const SMART_STAVE_UNICODES = computeMapUnicodes(NOT_SMuFL_SMART_STAVE_MAP)
 
 const BREAK_UNICODE = computeUnicodeForCode(Code["br;"])
 
-const SPACING_UNICODES = computeMapUnicodes(SPACING_MAP)
+const SPACING_UNICODES = computeMapUnicodes(NOT_SMuFL_SMART_SPACING_MAP)
 
 const computeAdvanceUnicode = (width: Width): Unicode => {
     let remainingWidth = width

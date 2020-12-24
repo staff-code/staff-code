@@ -2,36 +2,45 @@ import {Io} from "@sagittal/general"
 import {smarts} from "../../../src/translate/smarts"
 import {computeSymbol} from "../../../src/translate/symbol"
 import {
-    BASS_POSITION_MAP,
+    BASS_POSITION_ALIASES_MAP,
     Code,
-    CODE_MAP_PLUS_SMART_CODES,
+    CODE_MAP,
     Symbol,
-    TREBLE_POSITION_MAP,
+    TREBLE_POSITION_ALIASES_MAP,
     Unicode,
     Width,
-} from "../../../src/translate/symbols"
+} from "../../../src/translate/codes"
 import {UnicodeLiteral} from "../../../src/translate/types"
 
 describe("computeSymbol", (): void => {
-    it("gets you the symbol (unicode, width, and description) for the given word", (): void => {
+    it("gets you the symbol (unicode and width) for a given base word", (): void => {
+        const inputWord = "ntqrup" as Io
+
+        const actual = computeSymbol(inputWord)
+
+        const expected = CODE_MAP[Code[`ntqrup`]]
+        expect(actual).toEqual(expected)
+    })
+
+    it("gets you the symbol (unicode and width) for a given alias word", (): void => {
         const inputWord = "nt4" as Io
 
         const actual = computeSymbol(inputWord)
 
-        const expected = CODE_MAP_PLUS_SMART_CODES[Code[`nt4`]]
+        const expected = CODE_MAP[Code[`nt4`]]
         expect(actual).toEqual(expected)
     })
 
     it("works for different clefs", (): void => {
-        smarts.codeMap = TREBLE_POSITION_MAP
-        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP_PLUS_SMART_CODES[Code[`tbd4`]])
-        smarts.codeMap = BASS_POSITION_MAP
-        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP_PLUS_SMART_CODES[Code[`bsd4`]])
+        smarts.codeMap = TREBLE_POSITION_ALIASES_MAP
+        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP[Code[`dn5`]])
+        smarts.codeMap = BASS_POSITION_ALIASES_MAP
+        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP[Code[`up7`]])
     })
 
     it("can handle uppercase codes", (): void => {
-        expect(computeSymbol("/X" as Io)).toEqual(CODE_MAP_PLUS_SMART_CODES[Code[`/X`]])
-        expect(computeSymbol(".LL" as Io)).toEqual(CODE_MAP_PLUS_SMART_CODES[Code[`.LL`]])
+        expect(computeSymbol("/X" as Io)).toEqual(CODE_MAP[Code[`/X`]])
+        expect(computeSymbol(".LL" as Io)).toEqual(CODE_MAP[Code[`.LL`]])
     })
 
     it("takes a symbol in its Unicode literal form and converts it to Unicode, and assumes its width is 0                   ", (): void => {

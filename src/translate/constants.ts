@@ -1,4 +1,4 @@
-import {Unicode} from "./types"
+import {Unicode} from "./codes"
 
 const EMPTY_UNICODE: Unicode = "" as Unicode
 

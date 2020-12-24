@@ -1,4 +1,4 @@
-import {Unicode} from "../symbols"
+import {Unicode} from "../codes"
 import {isManualAdvanceUnicode, isSmartAdvanceUnicode, isSmartStaveUnicode, isSpacingUnicode} from "./advanceAndStave"
 import {isPositionUnicode} from "./positionAndClef"
 

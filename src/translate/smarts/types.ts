@@ -1,4 +1,4 @@
-import {Code, Symbol, Unicode, Width} from "../symbols"
+import {Code, Symbol, Unicode, Width} from "../codes"
 
 interface Smarts {
     advanceWidth: Width,

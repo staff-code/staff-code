@@ -1,25 +1,45 @@
 import {
-    BASS_POSITION_MAP,
+    BASS_POSITION_ALIASES_MAP,
     Code,
-    CODE_MAP_PLUS_SMART_CODES,
-    EMPTY_UNICODE,
-    POSITION_MAP,
+    CODE_MAP,
+    GENERIC_POSITION_ALIASES_MAP,
+    NOT_SMuFL_ZERO_POSITION_MAP,
     Symbol,
-    TREBLE_POSITION_MAP,
+    TREBLE_POSITION_ALIASES_MAP,
     Unicode,
-} from "../symbols"
+} from "../codes"
+import {EMPTY_UNICODE} from "../constants"
 import {computeMapUnicodes, computeUnicodeForCode} from "../utility"
 import {smarts} from "./globals"
 
-const TREBLE_UNICODE = computeUnicodeForCode(Code["tbcf"])
-const BASS_UNICODE = computeUnicodeForCode(Code["bscf"])
+const TREBLE_UNICODE = computeUnicodeForCode(Code["Gcl"])
+const BASS_UNICODE = computeUnicodeForCode(Code["Fcl"])
 
-const BASS_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP_PLUS_SMART_CODES, ...BASS_POSITION_MAP} as Record<Code, Symbol>
-const TREBLE_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP_PLUS_SMART_CODES, ...TREBLE_POSITION_MAP} as Record<Code, Symbol>
+const BASS_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP, ...BASS_POSITION_ALIASES_MAP} as Record<Code, Symbol>
+const TREBLE_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP, ...TREBLE_POSITION_ALIASES_MAP} as Record<Code, Symbol>
+
 // TODO: FEATURE IMPROVE, READY TO GO: ALTO AND TENOR STAFF
 
-const POSITION_UNICODES = computeMapUnicodes(POSITION_MAP)
-const FAKE_TEMP_MIDDLE_POSITION_UNICODE = computeUnicodeForCode(Code["up0"])
+// TODO: NEW FEATURE, READY TO GO: SMART LEGER LINES
+//  So you'd need a function isNoteOrNotehead() to check if a symbol is in one of the appropriate unicode ranges.
+//  Automatic leger lines, when notes or noteheads are positioned outside ±5, should not prevent someone from placing
+//  A note [i]without [/i]a leger line if they really need to, for some strange reason.
+//  They should be able to temporarily turn auto-staff off and use a manual staff piece. e.g.
+//  "stof st8 dn6 nt ston"
+
+// TODO: FEATURE IMPROVE, BLOCKED: CLEFS CAN BE CSP'D AND THE MIDDLE C WILL BE SHIFTED
+//  This will be blocked on adding the ligatures to the font, though
+//  That part is introduced here: http://forum.sagittal.org/viewtopic.php?p=3163#p3163
+//  Dave says "So in future, someone who wanted a tenor clef would write "up2 Ccl ;" or "[ tncl up2 Ccl ] tncl ;"."
+//  Then see: http://forum.sagittal.org/viewtopic.php?p=3166#p3166
+//  For an explanation of how instead you should just start tracking where middle C is
+//  - Blocked on understanding what changes Dave already made to Bravura Text BB from Bravura Text
+//  Because if I add ligatures for the clefs, I'll want to do it in a FontForge script
+//  And I know I asked him at some point if he was keeping track of all of those changes, and I think he replied
+//  But for the life of me I cannot find it
+
+const POSITION_UNICODES = computeMapUnicodes({...GENERIC_POSITION_ALIASES_MAP, ...NOT_SMuFL_ZERO_POSITION_MAP})
+const NOT_SMuFL_ZERO_POSITION_UNICODE = computeUnicodeForCode(Code["up0"])
 
 const isInLegerLineRange = (unicodeWord: Unicode): boolean =>
     unicodeWord >= "\uE022" && unicodeWord <= "\uE024"
@@ -58,18 +78,11 @@ const updateSmartPosition = ({unicode}: Symbol): void => {
     if (isPositionUnicode(unicode)) smarts.position = unicode
 }
 
-// TODO: FEATURE ADJUST, READY TO GO: CLEFS CAN BE CSP'D AND THE MIDDLE C WILL BE ADJUSTED
-//  This will be blocked on adding the ligatures to the font, though
-//  That part is introduced here: http://forum.sagittal.org/viewtopic.php?p=3163#p3163
-//  Dave says "So in future, someone who wanted a tenor clef would write "up2 Ccl ;" or "[ tncl up2 Ccl ] tncl ;"."
-//  Then see: http://forum.sagittal.org/viewtopic.php?p=3166#p3166
-//  For an explanation of how instead you should just start tracking where middle C is
-
 const computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts = (symbol: Symbol): Unicode => {
     updateSmartClef(symbol)
     updateSmartPosition(symbol)
 
-    return canBePositioned(symbol.unicode) && smarts.position !== FAKE_TEMP_MIDDLE_POSITION_UNICODE ?
+    return canBePositioned(symbol.unicode) && smarts.position !== NOT_SMuFL_ZERO_POSITION_UNICODE ?
         smarts.position :
         EMPTY_UNICODE
 }

@@ -1,6 +1,6 @@
 import {Io, isNumber, isUndefined, RecordKey} from "@sagittal/general"
 import {smarts} from "./smarts"
-import {Code, Codeword, LowercaseCodeword, Symbol, Unicode, Width} from "./symbols"
+import {Code, Codeword, LowercaseCodeword, Symbol, Unicode, Width} from "./codes"
 import {isUnicodeLiteral} from "./utility"
 
 const computeLowercaseCodewordFromInput = (inputWord: Io): LowercaseCodeword =>
@@ -38,6 +38,7 @@ const LOWERCASE_CODEWORD_TO_CODE_MAP: Record<RecordKey<LowercaseCodeword>, Code>
 //  - Good news. The advance width info for Bravura already exists in JSON,
 //  As part of this file: https://github.com/steinbergmedia/bravura/blob/master/redist/bravura_metadata.json
 //  Its structure is described here: https://w3c.github.io/smufl/gitbook/specification/glyphadvancewidths.html
+//  Although now I see that is not actually included in Bravura yet...
 const computeUnicodeLiteralSymbol = (inputWord: Io): Symbol =>
     ({
         unicode: String.fromCharCode(parseInt(inputWord.replace(/^u\+(.*)/, "0x$1"))) as Unicode,
@@ -53,6 +54,10 @@ const computeFallbackToInputAsFailedSymbol = (inputWord: Io): Symbol =>
 const computeSymbol = (inputWord: Io): Symbol => {
     const lowercaseCodeword: LowercaseCodeword = computeLowercaseCodewordFromInput(inputWord)
     const code: Code = LOWERCASE_CODEWORD_TO_CODE_MAP[lowercaseCodeword]
+    // TODO: CLEAN, READY TO GO: UNDO REFACTOR RE: SMARTS DOT CODE_MAP VS SMARTS DOT CLEF
+    //  The problem with this refactor is that now it's hard to debug the smarts state
+    //  Because it's got this huge array on it when all you really want to know is which clef is it set to
+    //  - It's also kind of troubling how you export that TREBLE_CODE_MAP from smarts/positionAndClef
     const symbol = smarts.codeMap[code]
 
     if (!isUndefined(symbol)) return symbol

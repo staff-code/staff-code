@@ -1,6 +1,6 @@
-import {BLANK, finalChar, finalElement, Io, setAllPropertiesOfObjectOnAnother, SPACE} from "@sagittal/general"
+import {BLANK, finalChar, finalElement, Io, NEWLINE, setAllPropertiesOfObjectOnAnother, SPACE} from "@sagittal/general"
 import {INITIAL_SMARTS, smarts} from "./smarts"
-import {Code, Unicode} from "./symbols"
+import {Code, Unicode} from "./codes"
 import {computeInputWordUnicode} from "./word"
 
 const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
@@ -11,7 +11,7 @@ const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
         .trim()
 
 const ensureLineBreaksImmediatelyDisplay = (unicodeSentence: Unicode): Unicode =>
-    finalChar(unicodeSentence) === "\n" ?
+    finalChar(unicodeSentence) === NEWLINE ?
         `${unicodeSentence} ` as Unicode :
         unicodeSentence
 

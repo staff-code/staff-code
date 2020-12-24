@@ -1,11 +1,12 @@
 import {Io, sumTexts} from "@sagittal/general"
+import {Unicode} from "./codes"
+import {EMPTY_UNICODE} from "./constants"
 import {
     computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmarts,
     computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts,
     isCommenting,
 } from "./smarts"
 import {computeSymbol} from "./symbol"
-import {EMPTY_UNICODE, Unicode} from "./symbols"
 import {computeUnicode} from "./unicode"
 
 const computeInputWordUnicode = (inputWord: Io): Unicode => {

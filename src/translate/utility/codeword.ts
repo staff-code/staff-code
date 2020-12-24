@@ -1,18 +1,38 @@
-import {BLANK, SPACE} from "@sagittal/general"
-import {Code, Codeword, CODE_MAP, Symbol, Unicode} from "../symbols"
+import {BLANK, join, SPACE} from "@sagittal/general"
+import {
+    ACCIDENTAL_ALIASES_MAP,
+    BASE_SYMBOL_MAP,
+    Code,
+    Codeword,
+    GENERIC_POSITION_ALIASES_MAP,
+    LINE_BREAK_ALIASES_MAP,
+    MANUAL_STAVE_ALIASES_MAP,
+    Symbol,
+    Unicode,
+} from "../codes"
 
-const CODE_MAP_ENTRIES = Object.entries(CODE_MAP) as Array<[unknown, Symbol]> as Array<[Code, Symbol]>
+const BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP = {
+    ...BASE_SYMBOL_MAP,
+    ...ACCIDENTAL_ALIASES_MAP,
+    ...GENERIC_POSITION_ALIASES_MAP,
+    ...LINE_BREAK_ALIASES_MAP,
+    ...MANUAL_STAVE_ALIASES_MAP,
+}
+const BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP_ENTRIES = Object.entries(
+    BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP,
+) as Array<[unknown, Symbol]> as Array<[Code, Symbol]>
 
 const computeCodewordFromCode = (code: Code): Codeword =>
     Code[code] as Codeword
 
 const computeCodewordFromUnicode = (unicodeWord: Unicode): Codeword => {
-    const codeEntry = CODE_MAP_ENTRIES.find((codeEntry: [Code, Symbol]): boolean => {
-        const [_, symbol] = codeEntry
-        const {unicode} = symbol
+    const codeEntry = BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP_ENTRIES
+        .find((codeEntry: [Code, Symbol]): boolean => {
+            const [_, symbol] = codeEntry
+            const {unicode} = symbol
 
-        return unicode === unicodeWord
-    })
+            return unicode === unicodeWord
+        })
 
     if (!codeEntry) return "(unknown)" as Codeword
 
@@ -21,11 +41,8 @@ const computeCodewordFromUnicode = (unicodeWord: Unicode): Codeword => {
     return computeCodewordFromCode(code)
 }
 
-const computeCodewordsFromUnicode = (unicodeSentence: Unicode): string => {
-    const unicodeWords = unicodeSentence.split(BLANK) as Unicode[]
-
-    return unicodeWords.map(computeCodewordFromUnicode)
-        .join(SPACE)
+const sumAdvancesForDebugging = (codewordSentence: Codeword): Codeword => {
+    return codewordSentence
         .replace(/24; 6; 1;/g, "31;")
         .replace(/24; 6;/g, "30;")
         .replace(/24; 4; 1;/g, "29;")
@@ -48,7 +65,17 @@ const computeCodewordsFromUnicode = (unicodeSentence: Unicode): string => {
         .replace(/8; 1;/g, "9;")
         .replace(/6; 1;/g, "7;")
         .replace(/4; 1;/g, "5;")
-        .replace(/2; 1;/g, "3;")
+        .replace(/2; 1;/g, "3;") as Codeword
+}
+
+const computeCodewordsFromUnicode = (unicodeSentence: Unicode): Codeword => {
+    const unicodeWords = unicodeSentence.split(BLANK) as Unicode[]
+
+    // TODO: CODE, YEAH SEE, WE'VE GOT CODEWORD WORDS. CODE SHOULD JUST BE THE ASPECT. WORD IS THE UNIT.
+    const codewordWords = unicodeWords.map(computeCodewordFromUnicode)
+    const codewordSentence = join(codewordWords, SPACE)
+
+    return sumAdvancesForDebugging(codewordSentence)
 }
 
 export {
