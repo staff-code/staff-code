@@ -1,5 +1,6 @@
 type Unicode = string & {_UniBrand: boolean}
 
+// TODO: CLEAN Rename to Octel
 type Width = number & {_WidthBrand: boolean}
 
 interface Symbol {

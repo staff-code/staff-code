@@ -1,5 +1,7 @@
 import {Code, Symbol} from "./types"
 
+// TODO: add descriptions back in as comments and strip comments when publishing
+
 const SMuFL_MAP: Record<Code, Symbol> = {
     /* 	 */[Code[`chtb`]]: {unicode: "\u0009"},
     /* \n */[Code[`lnfd`]]: {unicode: "\u000A"},

@@ -3450,6 +3450,28 @@ const LOWERCASE_CODEWORD_TO_CODE_MAP: Record<RecordKey<LowercaseCodeword>, Code>
 //  As part of this file: https://github.com/steinbergmedia/bravura/blob/master/redist/bravura_metadata.json
 //  Its structure is described here: https://w3c.github.io/smufl/gitbook/specification/glyphadvancewidths.html
 //  Although now I see that is not actually included in Bravura yet...
+// tslint:disable:max-line-length
+/*
+[quote="Dave Keenan" post_id=3203 time=1608776543 user_id=2]
+I've just realised that, since we are forced to add our own right-sidebearing anyway (according to our sp<n> setting), what we really want is the right coordinate of the bounding box of each symbol — not its advance-width, which contains right-sidebearing in the case of the sagittal accents, and presumably other things that can kern.
+
+The bounding box data should already be in that JSON file.
+[/quote]
+
+Yes, it is. Just checked. And I think you're right. It's what we want.
+
+[quote]https://w3c.github.io/smufl/gitbook/specification/glyphbboxes.html. We want the first coordinate of bBoxNE multiplied by 40 and bankers-rounded to the nearest integer.
+[/quote]
+
+Curious about the derivation of that 40 number, but also willing to blindly accept it.
+
+[quote]
+In case it hasn't occurred to you, I note that the ultimate would be to have dependencies on both
+[url=https://github.com/w3c/smufl/tree/gh-pages/metadata/glyphNames.json]https://github.com/w3c/smufl/tree/gh-pages/metadata/glyphNames.json[/url] and
+[url=https://github.com/steinbergmedia/bravura/blob/master/redist/bravura_metadata.json]https://github.com/steinbergmedia/bravura/blob/master/redist/bravura_metadata.json[/url]
+and make a javascript tool that does, at transpile time, what my spreadsheet does, to glyphNames.json. That way, it would automatically generate new codes and widths for every new release of SMuFL/Bravura. I'm not saying you should do this any time soon, or ever, but I thought I should mention the possibility. :)
+ */
+// So you'd want me to implement your naming scheme in the JavaScript too.
 const computeUnicodeLiteralSymbol = (inputWord: Io): Symbol =>
     ({
         unicode: String.fromCharCode(parseInt(inputWord.replace(/^u\+(.*)/, "0x$1"))) as Unicode,
@@ -3476,6 +3498,9 @@ const computeSymbol = (inputWord: Io): Symbol => {
 
     if (isUnicodeLiteral(inputWord)) return computeUnicodeLiteralSymbol(inputWord)
 
+    // TODO: It's not very important, but would it be easy to put out a space U+0020 after every bad code
+    //  Whose characters get sent out unchanged like the above?
+    //  See: http://forum.sagittal.org/viewtopic.php?p=3206#p3206
     return computeFallbackToInputAsFailedSymbol(inputWord)
 }
 
