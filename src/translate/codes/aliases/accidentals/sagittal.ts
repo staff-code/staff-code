@@ -8,8 +8,6 @@ import {Code, Symbol} from "../../types"
 // TODO: CLEAN, BLOCKED ON WEBPACK RELEASE INCLUDING FIX, DOUBLE QUOTE CODES
 //  When webpack releases their fix to the bug, change these back to double quotes (esp. `X\\`)
 
-// TODO: i think i wiped out the widths for the sagittals
-
 const SAGITTAL_ACCIDENTAL_ALIASES_MAP: Record<Code, Symbol> = {
     [Code[`|(`]]: SMuFL_MAP[Code[`acsg5V7klup`]],
     [Code[`!(`]]: SMuFL_MAP[Code[`acsg5V7kldn`]],
