@@ -1,9 +1,9 @@
-import {Code, Symbol, Unicode, Width} from "../codes"
+import {Code, Symbol, Unicode, Octels} from "../codes"
 
 interface Smarts {
-    advanceWidth: Width,
-    staveWidth: Width,
-    spacing: Width,
+    advanceWidth: Octels,
+    staveWidth: Octels,
+    spacing: Octels,
     staveOn: boolean,
     commenting: boolean,
     position: Unicode,

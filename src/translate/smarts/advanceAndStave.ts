@@ -7,7 +7,7 @@ import {
     NOT_SMuFL_SMART_STAVE_MAP,
     Symbol,
     Unicode,
-    Width,
+    Octels,
 } from "../codes"
 import {EMPTY_UNICODE} from "../constants"
 import {computeMapUnicodes, computeUnicodeForCode} from "../utility"
@@ -21,21 +21,21 @@ const MANUAL_ADVANCE_UNICODES = computeMapUnicodes(NOT_SMuFL_MANUAL_ADVANCE_MAP)
 const WIDTH_TO_ADVANCE_UNICODE_ARRAY: Unicode[] = [EMPTY_UNICODE, ...MANUAL_ADVANCE_UNICODES]
 
 const MAX_ADVANCE_UNICODE = computeUnicodeForCode(Code["24;"])
-const MAX_ADVANCE_WIDTH: Width = 24 as Width
+const MAX_ADVANCE_WIDTH: Octels = 24 as Octels
 
 const ST8_UNICODE = computeUnicodeForCode(Code["st8"])
 const ST16_UNICODE = computeUnicodeForCode(Code["st16"])
 const ST24_UNICODE = computeUnicodeForCode(Code["st24"])
 
-const MIN_STAVE_WIDTH = 8 as Width
+const MIN_STAVE_WIDTH = 8 as Octels
 const MIN_STAVE_UNICODE = ST8_UNICODE
 const MIN_STAVE_WIDTH_ADVANCE = computeUnicodeForCode(Code["8;"])
 
-const MED_STAVE_WIDTH = 16 as Width
+const MED_STAVE_WIDTH = 16 as Octels
 const MED_STAVE_UNICODE = ST16_UNICODE
 const MED_STAVE_WIDTH_ADVANCE = computeUnicodeForCode(Code["16;"])
 
-const MAX_STAVE_WIDTH = 24 as Width
+const MAX_STAVE_WIDTH = 24 as Octels
 const MAX_STAVE_UNICODE = ST24_UNICODE
 const MAX_STAVE_WIDTH_ADVANCE = computeUnicodeForCode(Code["24;"])
 
@@ -47,7 +47,7 @@ const BREAK_UNICODE = computeUnicodeForCode(Code["br;"])
 
 const SPACING_UNICODES = computeMapUnicodes(NOT_SMuFL_SMART_SPACING_MAP)
 
-const computeAdvanceUnicode = (width: Width): Unicode => {
+const computeAdvanceUnicode = (width: Octels): Unicode => {
     let remainingWidth = width
 
     let unicodeClause = EMPTY_UNICODE
@@ -59,7 +59,7 @@ const computeAdvanceUnicode = (width: Width): Unicode => {
     return sumTexts(unicodeClause, WIDTH_TO_ADVANCE_UNICODE_ARRAY[remainingWidth])
 }
 
-const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmartStave = (width: Width): Unicode => {
+const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmartStave = (width: Octels): Unicode => {
     let advancePrefixUnicode
     if (smarts.staveWidth >= width) {
         smarts.staveWidth = subtract(smarts.staveWidth, width)
@@ -69,7 +69,7 @@ const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmart
         advancePrefixUnicode = computeAdvanceUnicode(width)
     } else {
         const useUpExistingStaveAdvanceUnicode: Unicode = computeAdvanceUnicode(smarts.staveWidth)
-        let remainingAdvanceWidthWeStillNeedToApply: Width = subtract(width, smarts.staveWidth)
+        let remainingAdvanceWidthWeStillNeedToApply: Octels = subtract(width, smarts.staveWidth)
 
         let staveAndAdvanceUnicode = "" as Unicode
 
@@ -100,7 +100,7 @@ const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmart
         )
     }
 
-    smarts.advanceWidth = 0 as Width
+    smarts.advanceWidth = 0 as Octels
 
     return advancePrefixUnicode
 }
@@ -117,7 +117,7 @@ const computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmarts = (symbol: Sy
     } else if (unicode === BREAK_UNICODE) {
         smartAdvanceAndSmartStavePrefixUnicode =
             computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmartAdvanceAndSmartStave(smarts.advanceWidth)
-        smarts.staveWidth = 0 as Width
+        smarts.staveWidth = 0 as Octels
     } else if (isSpacingUnicode(unicode)) {
         smarts.spacing = symbol.width!
         smartAdvanceAndSmartStavePrefixUnicode = EMPTY_UNICODE
@@ -145,13 +145,13 @@ const isSpacingUnicode = (unicodeWord: Unicode): boolean =>
 const updateSmartStave = ({unicode}: Symbol): void => {
     if (unicode === SMART_STAVE_ON_UNICODE) smarts.staveOn = true
     if (unicode === SMART_STAVE_OFF_UNICODE) {
-        smarts.staveWidth = 0 as Width
+        smarts.staveWidth = 0 as Octels
         smarts.staveOn = false
     }
 
-    if (unicode === ST8_UNICODE) smarts.staveWidth = smarts.staveWidth + 8 as Width
-    if (unicode === ST16_UNICODE) smarts.staveWidth = smarts.staveWidth + 16 as Width
-    if (unicode === ST24_UNICODE) smarts.staveWidth = smarts.staveWidth + 24 as Width
+    if (unicode === ST8_UNICODE) smarts.staveWidth = smarts.staveWidth + 8 as Octels
+    if (unicode === ST16_UNICODE) smarts.staveWidth = smarts.staveWidth + 16 as Octels
+    if (unicode === ST24_UNICODE) smarts.staveWidth = smarts.staveWidth + 24 as Octels
 }
 
 const isSmartStaveUnicode = (unicodeWord: Unicode): boolean =>

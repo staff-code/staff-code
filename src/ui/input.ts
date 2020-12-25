@@ -1,5 +1,7 @@
-const ABOUT_FORTY_CHARS_WIDE_PX = 300
-const ABOUT_THIRTEEN_LINES_HIGH_PX = 200
+import {Px} from "@sagittal/general"
+
+const ABOUT_FORTY_CHARS_WIDE_PX: Px = 300 as Px
+const ABOUT_THIRTEEN_LINES_HIGH_PX: Px = 200 as Px
 
 const setupInput = (input: HTMLTextAreaElement): void => {
     input.style.width = `${ABOUT_FORTY_CHARS_WIDE_PX}px`

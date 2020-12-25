@@ -1,11 +1,12 @@
+import {Px} from "@sagittal/general"
+
 type Unicode = string & {_UniBrand: boolean}
 
-// TODO: CLEAN Rename to Octel
-type Width = number & {_WidthBrand: boolean}
+type Octels = Px & {_OctelsBrand: boolean}
 
 interface Symbol {
     unicode: Unicode,
-    width?: Width,
+    width?: Octels,
 }
 
 type Codeword = string & {_CodewordBrand: boolean}                  // String key; what input words become via "smarts"
@@ -3446,7 +3447,7 @@ enum Code {                                                         // Just a nu
 
 export {
     Unicode,
-    Width,
+    Octels,
     Code,
     Symbol,
     Codeword,

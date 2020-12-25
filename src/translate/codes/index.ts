@@ -14,4 +14,4 @@ export {
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
     NOT_SMuFL_SMART_ADVANCE_MAP,
 } from "./notSmufl"
-export {Code, Unicode, Symbol, Codeword, LowercaseCodeword, Width} from "./types"
+export {Code, Unicode, Symbol, Codeword, LowercaseCodeword, Octels} from "./types"

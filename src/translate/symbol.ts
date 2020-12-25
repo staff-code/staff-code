@@ -1,5 +1,5 @@
 import {Io, isUndefined, RecordKey} from "@sagittal/general"
-import {Code, LowercaseCodeword, Symbol, Unicode, Width} from "./codes"
+import {Code, LowercaseCodeword, Symbol, Unicode, Octels} from "./codes"
 import {smarts} from "./smarts"
 import {isUnicodeLiteral} from "./utility"
 
@@ -3475,13 +3475,13 @@ and make a javascript tool that does, at transpile time, what my spreadsheet doe
 const computeUnicodeLiteralSymbol = (inputWord: Io): Symbol =>
     ({
         unicode: String.fromCharCode(parseInt(inputWord.replace(/^u\+(.*)/, "0x$1"))) as Unicode,
-        width: 0 as Width,
+        width: 0 as Octels,
     })
 
 const computeFallbackToInputAsFailedSymbol = (inputWord: Io): Symbol =>
     ({
         unicode: inputWord as Unicode,
-        width: 0 as Width,
+        width: 0 as Octels,
     })
 
 const computeSymbol = (inputWord: Io): Symbol => {

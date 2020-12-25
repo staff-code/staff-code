@@ -8,7 +8,7 @@ import {
     Symbol,
     TREBLE_POSITION_ALIASES_MAP,
     Unicode,
-    Width,
+    Octels,
 } from "../../../src/translate/codes"
 import {UnicodeLiteral} from "../../../src/translate/types"
 
@@ -48,7 +48,7 @@ describe("computeSymbol", (): void => {
 
         const actual = computeSymbol(unicodeLiteral)
 
-        const expected = {unicode: "幸" as Unicode, width: 0 as Width} as Symbol
+        const expected = {unicode: "幸" as Unicode, width: 0 as Octels} as Symbol
         expect(actual).toEqual(expected)
     })
 
@@ -57,7 +57,7 @@ describe("computeSymbol", (): void => {
 
         const actual = computeSymbol(unicodeLiteral)
 
-        const expected = {unicode: "" as Unicode, width: 0 as Width} as Symbol
+        const expected = {unicode: "" as Unicode, width: 0 as Octels} as Symbol
         expect(actual).toEqual(expected)
     })
 })
