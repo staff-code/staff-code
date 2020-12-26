@@ -34,7 +34,7 @@ const computeCodewordFromUnicode = (unicodeWord: Unicode): Codeword => {
             return unicode === unicodeWord
         })
 
-    if (!codeEntry) return "(unknown)" as Codeword
+    if (!codeEntry) return "??" as Codeword
 
     const [code, _] = codeEntry
 

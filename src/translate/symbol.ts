@@ -3771,7 +3771,7 @@ const computeUnicodeLiteralSymbol = (inputWord: Io): Symbol =>
 
 const computeFallbackToInputAsFailedSymbol = (inputWord: Io): Symbol =>
     ({
-        unicode: inputWord as Unicode,
+        unicode: `${inputWord} ` as Unicode, // The space is important to separate multiple fallen back words in a row.
         width: 0 as Octels,
     })
 
@@ -3789,9 +3789,6 @@ const computeSymbol = (inputWord: Io): Symbol => {
 
     if (isUnicodeLiteral(inputWord)) return computeUnicodeLiteralSymbol(inputWord)
 
-    // TODO: It's not very important, but would it be easy to put out a space U+0020 after every bad code
-    //  Whose characters get sent out unchanged like the above?
-    //  See: http://forum.sagittal.org/viewtopic.php?p=3206#p3206
     return computeFallbackToInputAsFailedSymbol(inputWord)
 }
 

@@ -38,13 +38,24 @@ describe("computeInputSentenceUnicode", (): void => {
     })
 
     it("supports inline comments", (): void => {
-        const inputSentence = "ston Gcl ; {check this out} { and you can do a 2nd comment in a row too } nt zj}xv; br; {comment} nt" as Io
+        const inputSentence = "ston Gcl ; {check this out} { and you can do a 2nd comment in a row too } nt br; {comment} nt" as Io
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "  zj}xv;   \n   " as Unicode
+        const expectedUnicode = "     \n   " as Unicode
         expect(actual).toBe(expectedUnicode)
-        const expectedCodewords = "Gcl st16 16; st8 8; ntqrup (unknown) (unknown) (unknown) (unknown) (unknown) (unknown) st8 8; st8 5; br; ntqrup st8 8; st8 5;"
+        const expectedCodewords = "Gcl st16 16; st8 8; ntqrup st8 8; st8 5; br; ntqrup st8 8; st8 5;"
+        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+    })
+
+    it("includes a space after fallen back input words so that when you have multiple in a row you can distinguish them           ", (): void => {
+        const inputSentence = "don't know what i'm doing" as Io
+
+        const actual = computeInputSentenceUnicode(inputSentence)
+
+        const expectedUnicode = "don't know what i'm doing  " as Unicode
+        expect(actual).toBe(expectedUnicode)
+        const expectedCodewords = "?? ?? ?? ?? ?? sp ?? ?? ?? ?? sp ?? ?? ?? ?? sp ?? ?? ?? sp ?? ?? ?? ?? ?? sp 2;"
         expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
     })
 
@@ -242,7 +253,7 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "幸 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "(unknown) 2;"
+            const expectedCodewords = "?? 2;"
             expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
         })
 
