@@ -1,13 +1,13 @@
 import {max, subtract, sumTexts} from "@sagittal/general"
 import {
-    Code,
+    Codeword,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
     NOT_SMuFL_SMART_ADVANCE_MAP,
     NOT_SMuFL_SMART_SPACING_MAP,
     NOT_SMuFL_SMART_STAVE_MAP,
+    Octels,
     Symbol,
     Unicode,
-    Octels,
 } from "../codes"
 import {EMPTY_UNICODE} from "../constants"
 import {computeMapUnicodes, computeUnicodeForCode} from "../utility"
@@ -20,30 +20,30 @@ const SMART_ADVANCE_UNICODES = computeMapUnicodes(NOT_SMuFL_SMART_ADVANCE_MAP)
 const MANUAL_ADVANCE_UNICODES = computeMapUnicodes(NOT_SMuFL_MANUAL_ADVANCE_MAP)
 const WIDTH_TO_ADVANCE_UNICODE_ARRAY: Unicode[] = [EMPTY_UNICODE, ...MANUAL_ADVANCE_UNICODES]
 
-const MAX_ADVANCE_UNICODE = computeUnicodeForCode(Code["24;"])
+const MAX_ADVANCE_UNICODE = computeUnicodeForCode("24;" as Codeword)
 const MAX_ADVANCE_WIDTH: Octels = 24 as Octels
 
-const ST8_UNICODE = computeUnicodeForCode(Code["st8"])
-const ST16_UNICODE = computeUnicodeForCode(Code["st16"])
-const ST24_UNICODE = computeUnicodeForCode(Code["st24"])
+const ST8_UNICODE = computeUnicodeForCode("st8" as Codeword)
+const ST16_UNICODE = computeUnicodeForCode("st16" as Codeword)
+const ST24_UNICODE = computeUnicodeForCode("st24" as Codeword)
 
 const MIN_STAVE_WIDTH = 8 as Octels
 const MIN_STAVE_UNICODE = ST8_UNICODE
-const MIN_STAVE_WIDTH_ADVANCE = computeUnicodeForCode(Code["8;"])
+const MIN_STAVE_WIDTH_ADVANCE = computeUnicodeForCode("8;" as Codeword)
 
 const MED_STAVE_WIDTH = 16 as Octels
 const MED_STAVE_UNICODE = ST16_UNICODE
-const MED_STAVE_WIDTH_ADVANCE = computeUnicodeForCode(Code["16;"])
+const MED_STAVE_WIDTH_ADVANCE = computeUnicodeForCode("16;" as Codeword)
 
 const MAX_STAVE_WIDTH = 24 as Octels
 const MAX_STAVE_UNICODE = ST24_UNICODE
-const MAX_STAVE_WIDTH_ADVANCE = computeUnicodeForCode(Code["24;"])
+const MAX_STAVE_WIDTH_ADVANCE = computeUnicodeForCode("24;" as Codeword)
 
-const SMART_STAVE_ON_UNICODE = computeUnicodeForCode(Code["ston"])
-const SMART_STAVE_OFF_UNICODE = computeUnicodeForCode(Code["stof"])
+const SMART_STAVE_ON_UNICODE = computeUnicodeForCode("ston" as Codeword)
+const SMART_STAVE_OFF_UNICODE = computeUnicodeForCode("stof" as Codeword)
 const SMART_STAVE_UNICODES = computeMapUnicodes(NOT_SMuFL_SMART_STAVE_MAP)
 
-const BREAK_UNICODE = computeUnicodeForCode(Code["br;"])
+const BREAK_UNICODE = computeUnicodeForCode("br;" as Codeword)
 
 const SPACING_UNICODES = computeMapUnicodes(NOT_SMuFL_SMART_SPACING_MAP)
 

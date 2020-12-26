@@ -13,6 +13,7 @@ import {buildPackageInput} from "./input"
 //  Well it will have to override what automatically gets put there
 //  Maybe provide a demo where you unnecessarily assign it to Bravura Text BB
 //  - (the current 2x) space between staves seems good. I suppose we may want to let the user control that in future.
+//  - And I suggested to Dave that we could turn download button / input on/off for forum or package
 
 const setupPackageRoot = (): HTMLDivElement => {
     const root = document.createElement("div")

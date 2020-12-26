@@ -1,17 +1,18 @@
+import {RecordKey} from "@sagittal/general"
 import {SMuFL_MAP} from "../smufl"
-import {Code, Symbol} from "../types"
+import {Codeword, Symbol} from "../types"
 
-const MANUAL_STAVE_ALIASES_MAP: Record<Code, Symbol> = {
-    [Code[`st8`]]: SMuFL_MAP[Code[`st5lnnr`]],
-    [Code[`st16`]]: SMuFL_MAP[Code[`st5ln`]],
-    [Code[`st24`]]: SMuFL_MAP[Code[`st5lnwd`]],
-} as Record<Code, Symbol>
+const MANUAL_STAVE_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+    "st8": SMuFL_MAP["st5lnnr"],
+    "st16": SMuFL_MAP["st5ln"],
+    "st24": SMuFL_MAP["st5lnwd"],
+} as Record<Codeword, Symbol>
 
 // TODO: Can we count on what goes into a text field on the web when someone hits their "Enter"/"Return" key?
 //  Will it be the same in every browser and on every OS? Is that a web standard?
-const LINE_BREAK_ALIASES_MAP: Record<Code, Symbol> = {
-    [Code[`br;`]]: SMuFL_MAP[Code[`lnfd`]],
-} as Record<Code, Symbol>
+const LINE_BREAK_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+    "br;": SMuFL_MAP["lnfd"],
+} as Record<Codeword, Symbol>
 
 export {
     MANUAL_STAVE_ALIASES_MAP,

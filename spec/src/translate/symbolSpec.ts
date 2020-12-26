@@ -1,15 +1,14 @@
 import {Io} from "@sagittal/general"
-import {smarts} from "../../../src/translate/smarts"
-import {computeSymbol} from "../../../src/translate/symbol"
 import {
     BASS_POSITION_ALIASES_MAP,
-    Code,
-    CODE_MAP,
+    CODEWORD_MAP,
+    Octels,
     Symbol,
     TREBLE_POSITION_ALIASES_MAP,
     Unicode,
-    Octels,
 } from "../../../src/translate/codes"
+import {smarts} from "../../../src/translate/smarts"
+import {computeSymbol} from "../../../src/translate/symbol"
 import {UnicodeLiteral} from "../../../src/translate/types"
 
 describe("computeSymbol", (): void => {
@@ -18,7 +17,7 @@ describe("computeSymbol", (): void => {
 
         const actual = computeSymbol(inputWord)
 
-        const expected = CODE_MAP[Code[`ntqrup`]]
+        const expected = CODEWORD_MAP["ntqrup"]
         expect(actual).toEqual(expected)
     })
 
@@ -27,20 +26,20 @@ describe("computeSymbol", (): void => {
 
         const actual = computeSymbol(inputWord)
 
-        const expected = CODE_MAP[Code[`nt4`]]
+        const expected = CODEWORD_MAP["nt4"]
         expect(actual).toEqual(expected)
     })
 
     it("works for different clefs", (): void => {
-        smarts.codeMap = TREBLE_POSITION_ALIASES_MAP
-        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP[Code[`dn5`]])
-        smarts.codeMap = BASS_POSITION_ALIASES_MAP
-        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP[Code[`up7`]])
+        smarts.codewordMap = TREBLE_POSITION_ALIASES_MAP
+        expect(computeSymbol("d4" as Io)).toEqual(CODEWORD_MAP["dn5"])
+        smarts.codewordMap = BASS_POSITION_ALIASES_MAP
+        expect(computeSymbol("d4" as Io)).toEqual(CODEWORD_MAP["up7"])
     })
 
     it("can handle uppercase codes", (): void => {
-        expect(computeSymbol("/X" as Io)).toEqual(CODE_MAP[Code[`/X`]])
-        expect(computeSymbol(".LL" as Io)).toEqual(CODE_MAP[Code[`.LL`]])
+        expect(computeSymbol("/X" as Io)).toEqual(CODEWORD_MAP["/X"])
+        expect(computeSymbol(".LL" as Io)).toEqual(CODEWORD_MAP[".LL"])
     })
 
     it("takes a symbol in its Unicode literal form and converts it to Unicode, and assumes its width is 0                   ", (): void => {

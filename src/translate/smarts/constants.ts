@@ -1,6 +1,6 @@
 import {Octels} from "../codes"
 import {EMPTY_UNICODE} from "../constants"
-import {TREBLE_CODE_MAP} from "./positionAndClef"
+import {TREBLE_CODEWORD_MAP} from "./positionAndClef"
 import {Smarts} from "./types"
 
 const INITIAL_SMARTS: Smarts = {
@@ -10,7 +10,7 @@ const INITIAL_SMARTS: Smarts = {
     staveOn: false,
     commenting: false,
     position: EMPTY_UNICODE,
-    codeMap: TREBLE_CODE_MAP,
+    codewordMap: TREBLE_CODEWORD_MAP,
 }
 
 export {

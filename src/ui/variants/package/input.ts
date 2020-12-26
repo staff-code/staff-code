@@ -1,10 +1,9 @@
 import {doOnNextEventLoop, Io, Ms} from "@sagittal/general"
-import {Code} from "../../../translate"
 import {setupInput} from "../../input"
 import {transferInputToDisplay} from "../../transfer"
 import {handleKeydown, handleKeyup} from "./key"
 
-const INITIAL_STAFF_CODE_INPUT_VALUE = `${Code[Code[`ston`]]} ${Code[Code[`Gcl`]]} ${Code[Code[`;`]]} ` as Io
+const INITIAL_STAFF_CODE_INPUT_VALUE = "ston Gcl ; " as Io
 
 const buildPackageInput = (root: HTMLDivElement): HTMLTextAreaElement => {
     const input = document.createElement("textarea")

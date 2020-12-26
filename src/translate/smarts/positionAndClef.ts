@@ -1,7 +1,8 @@
+import {RecordKey} from "@sagittal/general"
 import {
     BASS_POSITION_ALIASES_MAP,
-    Code,
-    CODE_MAP,
+    Codeword,
+    CODEWORD_MAP,
     GENERIC_POSITION_ALIASES_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
     Symbol,
@@ -12,11 +13,13 @@ import {EMPTY_UNICODE} from "../constants"
 import {computeMapUnicodes, computeUnicodeForCode} from "../utility"
 import {smarts} from "./globals"
 
-const TREBLE_UNICODE = computeUnicodeForCode(Code["Gcl"])
-const BASS_UNICODE = computeUnicodeForCode(Code["Fcl"])
+const TREBLE_UNICODE = computeUnicodeForCode("Gcl" as Codeword)
+const BASS_UNICODE = computeUnicodeForCode("Fcl" as Codeword)
 
-const BASS_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP, ...BASS_POSITION_ALIASES_MAP} as Record<Code, Symbol>
-const TREBLE_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP, ...TREBLE_POSITION_ALIASES_MAP} as Record<Code, Symbol>
+const BASS_CODEWORD_MAP: Record<RecordKey<Codeword>, Symbol> =
+    {...CODEWORD_MAP, ...BASS_POSITION_ALIASES_MAP} as Record<Codeword, Symbol>
+const TREBLE_CODEWORD_MAP: Record<RecordKey<Codeword>, Symbol> =
+    {...CODEWORD_MAP, ...TREBLE_POSITION_ALIASES_MAP} as Record<Codeword, Symbol>
 
 // TODO: FEATURE IMPROVE, READY TO GO: ALTO AND TENOR STAFF
 
@@ -39,7 +42,7 @@ const TREBLE_CODE_MAP: Record<Code, Symbol> = {...CODE_MAP, ...TREBLE_POSITION_A
 //  But for the life of me I cannot find it
 
 const POSITION_UNICODES = computeMapUnicodes({...GENERIC_POSITION_ALIASES_MAP, ...NOT_SMuFL_ZERO_POSITION_MAP})
-const NOT_SMuFL_ZERO_POSITION_UNICODE = computeUnicodeForCode(Code["up0"])
+const NOT_SMuFL_ZERO_POSITION_UNICODE = computeUnicodeForCode("up0" as Codeword)
 
 const isInLegerLineRange = (unicodeWord: Unicode): boolean =>
     unicodeWord >= "\uE022" && unicodeWord <= "\uE024"
@@ -88,8 +91,8 @@ const computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts = (symbol: Sy
 }
 
 const updateSmartClef = ({unicode}: Symbol): void => {
-    if (unicode === TREBLE_UNICODE) smarts.codeMap = TREBLE_CODE_MAP
-    if (unicode === BASS_UNICODE) smarts.codeMap = BASS_CODE_MAP
+    if (unicode === TREBLE_UNICODE) smarts.codewordMap = TREBLE_CODEWORD_MAP
+    if (unicode === BASS_UNICODE) smarts.codewordMap = BASS_CODEWORD_MAP
 }
 
 export {
@@ -98,5 +101,5 @@ export {
     isPositionUnicode,
     computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts,
     updateSmartClef,
-    TREBLE_CODE_MAP,
+    TREBLE_CODEWORD_MAP,
 }

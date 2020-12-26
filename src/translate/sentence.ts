@@ -1,6 +1,6 @@
 import {BLANK, finalChar, finalElement, Io, NEWLINE, setAllPropertiesOfObjectOnAnother, SPACE} from "@sagittal/general"
 import {INITIAL_SMARTS, smarts} from "./smarts"
-import {Code, Unicode} from "./codes"
+import {Unicode} from "./codes"
 import {computeInputWordUnicode} from "./word"
 
 const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
@@ -16,8 +16,8 @@ const ensureLineBreaksImmediatelyDisplay = (unicodeSentence: Unicode): Unicode =
         unicodeSentence
 
 const ensureFinalSymbolHasStaveUnderneathIfSmartStaveIsOn = (inputWords: Io[]): void => {
-    if (finalElement(inputWords) !== Code[Code[`;`]]) {
-        inputWords.push(Code[Code[`;`]])
+    if (finalElement(inputWords) !== ";") {
+        inputWords.push(";")
     }
 }
 

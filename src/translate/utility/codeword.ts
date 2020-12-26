@@ -2,7 +2,6 @@ import {BLANK, join, SPACE} from "@sagittal/general"
 import {
     ACCIDENTAL_ALIASES_MAP,
     BASE_SYMBOL_MAP,
-    Code,
     Codeword,
     GENERIC_POSITION_ALIASES_MAP,
     LINE_BREAK_ALIASES_MAP,
@@ -12,33 +11,30 @@ import {
 } from "../codes"
 
 const BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP = {
-    ...BASE_SYMBOL_MAP,
     ...ACCIDENTAL_ALIASES_MAP,
     ...GENERIC_POSITION_ALIASES_MAP,
     ...LINE_BREAK_ALIASES_MAP,
     ...MANUAL_STAVE_ALIASES_MAP,
+    ...BASE_SYMBOL_MAP,
 }
 const BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP_ENTRIES = Object.entries(
     BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP,
-) as Array<[unknown, Symbol]> as Array<[Code, Symbol]>
-
-const computeCodewordFromCode = (code: Code): Codeword =>
-    Code[code] as Codeword
+) as Array<[unknown, Symbol]> as Array<[Codeword, Symbol]>
 
 const computeCodewordFromUnicode = (unicodeWord: Unicode): Codeword => {
-    const codeEntry = BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP_ENTRIES
-        .find((codeEntry: [Code, Symbol]): boolean => {
-            const [_, symbol] = codeEntry
+    const codewordEntry = BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP_ENTRIES
+        .find((codewordEntry: [Codeword, Symbol]): boolean => {
+            const [_, symbol] = codewordEntry
             const {unicode} = symbol
 
             return unicode === unicodeWord
         })
 
-    if (!codeEntry) return "??" as Codeword
+    if (!codewordEntry) return "??" as Codeword
 
-    const [code, _] = codeEntry
+    const [codeword, _] = codewordEntry
 
-    return computeCodewordFromCode(code)
+    return codeword
 }
 
 const sumAdvancesForDebugging = (codewordSentence: Codeword): Codeword => {
@@ -79,6 +75,5 @@ const computeCodewordsFromUnicode = (unicodeSentence: Unicode): Codeword => {
 }
 
 export {
-    computeCodewordFromCode,
     computeCodewordsFromUnicode,
 }
