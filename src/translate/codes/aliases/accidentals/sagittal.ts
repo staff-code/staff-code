@@ -1,8 +1,8 @@
 import {RecordKey} from "@sagittal/general"
 import {SMuFL_MAP} from "../../smufl"
-import {Codeword, Symbol} from "../../types"
+import {Code, Symbol} from "../../types"
 
-const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     "|(": SMuFL_MAP["acsg5V7klup"],
     "!(": SMuFL_MAP["acsg5V7kldn"],
     "/|": SMuFL_MAP["acsg5cmup"],
@@ -239,9 +239,9 @@ const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
     "l9": SMuFL_MAP["acsg9tndn"],
     "@.": SMuFL_MAP["acsgfrtnup"],
     "l.": SMuFL_MAP["acsgfrtndn"],
-} as Record<Codeword, Symbol>
+} as Record<Code, Symbol>
 
-const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     "nai": SMuFL_MAP["acsg5V7klup"],
     "nao": SMuFL_MAP["acsg5V7kldn"],
     "pai": SMuFL_MAP["acsg5cmup"],
@@ -478,9 +478,9 @@ const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
     "momomo": SMuFL_MAP["acsg9tndn"],
     "i": SMuFL_MAP["acsgfrtnup"],
     "o": SMuFL_MAP["acsgfrtndn"],
-} as Record<Codeword, Symbol>
+} as Record<Code, Symbol>
 
-const SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+const SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     "fai": SMuFL_MAP["acsg25smdsup"],
     "fao": SMuFL_MAP["acsg25smdsdn"],
     "gai": SMuFL_MAP["acsg35mddsup"],
@@ -529,9 +529,9 @@ const SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Codeword>, Symb
     "rachaofl": SMuFL_MAP["acsgfl5V13Ldn"],
     "slaodbsh": SMuFL_MAP["acsgdbsh143Cdn"],
     "slaidbfl": SMuFL_MAP["acsgdbfl143Cup"],
-} as Record<Codeword, Symbol>
+} as Record<Code, Symbol>
 
-const SAGITTAL_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+const SAGITTAL_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     ...SAGITTAL_LONG_ASCII_ALIASES_MAP,
     ...SAGITTAL_SAGISPEAK_ALIASES_MAP,
     ...SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP,

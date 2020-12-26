@@ -6,7 +6,7 @@ export {
     ACCIDENTAL_ALIASES_MAP,
     LINE_BREAK_ALIASES_MAP,
 } from "./aliases"
-export {CODEWORD_MAP, BASE_SYMBOL_MAP} from "./codes"
+export {CODE_MAP, BASE_SYMBOL_MAP} from "./codes"
 export {
     NOT_SMuFL_SMART_STAVE_MAP,
     NOT_SMuFL_SMART_SPACING_MAP,
@@ -14,4 +14,4 @@ export {
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
     NOT_SMuFL_SMART_ADVANCE_MAP,
 } from "./notSmufl"
-export {Unicode, Symbol, Codeword, LowercaseCodeword, Octels} from "./types"
+export {Unicode, Symbol, Code, LowercaseCode, Octels} from "./types"

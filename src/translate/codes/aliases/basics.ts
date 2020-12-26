@@ -1,13 +1,13 @@
 import {RecordKey} from "@sagittal/general"
 import {SMuFL_MAP} from "../smufl"
-import {Codeword, Symbol} from "../types"
+import {Code, Symbol} from "../types"
 
-const TIME_SIGNATURE_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+const TIME_SIGNATURE_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     "tmnm": SMuFL_MAP["tmsgcmnm"],
     "tmdn": SMuFL_MAP["tmsgcmdn"],
-} as Record<Codeword, Symbol>
+} as Record<Code, Symbol>
 
-const NOTE_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+const NOTE_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     "nt1": SMuFL_MAP["ntwh"],
     "nt2": SMuFL_MAP["nthfup"],
     "nt4": SMuFL_MAP["ntqrup"],
@@ -26,25 +26,25 @@ const NOTE_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
     "nt": SMuFL_MAP["ntqrup"],
     "ntdb": SMuFL_MAP["ntdbwh"],
     "ntdn": SMuFL_MAP["ntqrdn"],
-} as Record<Codeword, Symbol>
+} as Record<Code, Symbol>
 
-const REST_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+const REST_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     "rsdb": SMuFL_MAP["rsdbwh"],
     "rs1": SMuFL_MAP["rswh"],
     "rs2": SMuFL_MAP["rshf"],
     "rs4": SMuFL_MAP["rsqr"],
     "rs": SMuFL_MAP["rsqr"],
-} as Record<Codeword, Symbol>
+} as Record<Code, Symbol>
 
 // See: https://w3c.github.io/smufl/gitbook/tables/beamed-groups-of-notes.html
-const BEAMS_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+const BEAMS_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     "ntbmst": SMuFL_MAP["txblntshsm"],
     "ntbm8": SMuFL_MAP["txblntlnsm"],
     "ntbm16": SMuFL_MAP["txblntfr16shsm"],
     "bm8": SMuFL_MAP["txcn8bmshsm"],
     "bm16": SMuFL_MAP["txcn16bmshsm"],
     "txtp3": SMuFL_MAP["txtp3shsm"],
-} as Record<Codeword, Symbol>
+} as Record<Code, Symbol>
 
 export {
     TIME_SIGNATURE_ALIASES_MAP,

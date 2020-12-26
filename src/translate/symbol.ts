@@ -1,15 +1,15 @@
 import {Io, isUndefined, RecordKey} from "@sagittal/general"
-import {Codeword, LowercaseCodeword, Octels, Symbol, Unicode} from "./codes"
+import {Code, LowercaseCode, Octels, Symbol, Unicode} from "./codes"
 import {smarts} from "./smarts"
 import {isUnicodeLiteral} from "./utility"
 
-const computeLowercaseCodewordFromInput = (inputWord: Io): LowercaseCodeword =>
-    inputWord.toLowerCase() as LowercaseCodeword
+const computeLowercaseCodeFromInput = (inputWord: Io): LowercaseCode =>
+    inputWord.toLowerCase() as LowercaseCode
 
 // TODO: But if you're going to go this route, you'll definitely need a test to make sure they stay in sync
 //  It's either that, or maybe actually what I should do is just do that work once up front but in a non-blocking way
 // Hardcoding this, for whatever reason, massively improves performance.
-const LOWERCASE_CODEWORD_TO_CODEWORD_MAP: Record<RecordKey<LowercaseCodeword>, Codeword> = {
+const LOWERCASE_CODE_TO_CODE_MAP: Record<RecordKey<LowercaseCode>, Code> = {
     ";": ";",
     "1;": "1;",
     "2;": "2;",
@@ -3727,7 +3727,7 @@ const LOWERCASE_CODEWORD_TO_CODEWORD_MAP: Record<RecordKey<LowercaseCodeword>, C
     "rs2": "rs2",
     "rs4": "rs4",
     "rs": "rs",
-} as Record<LowercaseCodeword, Codeword>
+} as Record<LowercaseCode, Code>
 
 // TODO: FEATURE IMPROVE, TOUGH AND LOW PRIORITY: PROGRAMMATICALLY DETERMINE WIDTH OF UNICODE LITERAL SYMBOLS
 //  Dave suggests use JS to calculate width of char to estimate its width
@@ -3777,14 +3777,14 @@ const computeFallbackToInputAsFailedSymbol = (inputWord: Io): Symbol =>
     })
 
 const computeSymbol = (inputWord: Io): Symbol => {
-    const lowercaseCodeword: LowercaseCodeword = computeLowercaseCodewordFromInput(inputWord)
-    const codeword: Codeword = LOWERCASE_CODEWORD_TO_CODEWORD_MAP[lowercaseCodeword]
-    // TODO: CLEAN, READY TO GO: UNDO REFACTOR RE: SMARTS DOT CODEWORD_MAP VS SMARTS DOT CLEF
+    const lowercaseCode: LowercaseCode = computeLowercaseCodeFromInput(inputWord)
+    const code: Code = LOWERCASE_CODE_TO_CODE_MAP[lowercaseCode]
+    // TODO: CLEAN, READY TO GO: UNDO REFACTOR RE: SMARTS DOT CODE_MAP VS SMARTS DOT CLEF
     //  The problem with this refactor is that now it's hard to debug the smarts state
     //  Because it's got this huge array on it when all you really want to know is which clef is it set to
-    //  - It's also kind of troubling how you export that TREBLE_CODEWORD_MAP from smarts/positionAndClef
+    //  - It's also kind of troubling how you export that TREBLE_CODE_MAP from smarts/positionAndClef
     //  - And if you're constantly setAllPropertiesOfObjectOnAnother, the INITIAL_SMARTS, that's all of that!
-    const symbol = smarts.codewordMap[codeword]
+    const symbol = smarts.codeMap[code]
 
     if (!isUndefined(symbol)) return symbol
 

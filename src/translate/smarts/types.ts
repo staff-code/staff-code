@@ -1,5 +1,5 @@
 import {RecordKey} from "@sagittal/general"
-import {Codeword, Octels, Symbol, Unicode} from "../codes"
+import {Code, Octels, Symbol, Unicode} from "../codes"
 
 interface Smarts {
     advanceWidth: Octels,
@@ -8,7 +8,7 @@ interface Smarts {
     staveOn: boolean,
     commenting: boolean,
     position: Unicode,
-    codewordMap: Record<RecordKey<Codeword>, Symbol>
+    codeMap: Record<RecordKey<Code>, Symbol>
 }
 
 export {

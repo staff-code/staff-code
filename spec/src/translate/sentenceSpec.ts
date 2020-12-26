@@ -1,7 +1,7 @@
 import {Io} from "@sagittal/general"
 import {computeInputSentenceUnicode} from "../../../src"
 import {Unicode} from "../../../src/translate"
-import {computeCodewordsFromUnicode} from "../../../src/translate/utility"
+import {computeCodesFromUnicode} from "../../../src/translate/utility"
 
 describe("computeInputSentenceUnicode", (): void => {
     it("basically works", (): void => {
@@ -11,8 +11,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const expectedUnicode = "　 " as Unicode
         expect(actual).toBe(expectedUnicode)
-        const expectedCodewords = "up2 /|\\ up2 ntqrup 13;"
-        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+        const expectedCodes = "up2 /|\\ up2 ntqrup 13;"
+        expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
     })
 
     it("supports multiple staves with a break", (): void => {
@@ -22,8 +22,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const expectedUnicode = "     \n   " as Unicode
         expect(actual).toBe(expectedUnicode)
-        const expectedCodewords = "Gcl st16 16; st8 8; ntqrup st8 8; st8 5; br; ntqrup st8 8; st8 5;"
-        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+        const expectedCodes = "Gcl st16 16; st8 8; ntqrup st8 8; st8 5; br; ntqrup st8 8; st8 5;"
+        expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
     })
 
     it("adds a space at the end if the last word is a break", (): void => {
@@ -33,8 +33,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const expectedUnicode = "     \n " as Unicode
         expect(actual).toBe(expectedUnicode)
-        const expectedCodewords = "Gcl st16 16; st8 8; ntqrup st8 8; st8 5; br; sp"
-        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+        const expectedCodes = "Gcl st16 16; st8 8; ntqrup st8 8; st8 5; br; sp"
+        expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
     })
 
     it("supports inline comments", (): void => {
@@ -44,8 +44,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const expectedUnicode = "     \n   " as Unicode
         expect(actual).toBe(expectedUnicode)
-        const expectedCodewords = "Gcl st16 16; st8 8; ntqrup st8 8; st8 5; br; ntqrup st8 8; st8 5;"
-        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+        const expectedCodes = "Gcl st16 16; st8 8; ntqrup st8 8; st8 5; br; ntqrup st8 8; st8 5;"
+        expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
     })
 
     it("includes a space after fallen back input words so that when you have multiple in a row you can distinguish them           ", (): void => {
@@ -55,8 +55,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const expectedUnicode = "don't know what i'm doing  " as Unicode
         expect(actual).toBe(expectedUnicode)
-        const expectedCodewords = "?? ?? ?? ?? ?? sp ?? ?? ?? ?? sp ?? ?? ?? ?? sp ?? ?? ?? sp ?? ?? ?? ?? ?? sp 2;"
-        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+        const expectedCodes = "?? ?? ?? ?? ?? sp ?? ?? ?? ?? sp ?? ?? ?? ?? sp ?? ?? ?? sp ?? ?? ?? ?? ?? sp 2;"
+        expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
     })
 
     it("still supports symbols with curlies, despite those being comment chars", (): void => {
@@ -66,8 +66,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const expectedUnicode = "  　　 　　 " as Unicode
         expect(actual).toBe(expectedUnicode)
-        const expectedCodewords = "Gcl 24; .{ 12; ntqrup 13; .} 12; ntqrup 13;"
-        expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+        const expectedCodes = "Gcl 24; .{ 12; ntqrup 13; .} 12; ntqrup 13;"
+        expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
     })
 
     describe("Smart Position", (): void => {
@@ -78,8 +78,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "up2 /|\\ up2 ntqrup 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "up2 /|\\ up2 ntqrup 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("don't manifest until they are needed (only apply to symbols with ligatures to be vertically shifted by them)", (): void => {
@@ -89,13 +89,13 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "       " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "up2 /|\\ st8 8; st8 5; up2 ntqrup 3; st8 8; st8 2;"
+            const expectedCodes = "up2 /|\\ st8 8; st8 5; up2 ntqrup 3; st8 8; st8 2;"
             // TODO: CODES, VS WORD CLAUSE SLICE SENTENCE
-            //  Add a type to the above line as CodewordSentence?
-            //  Or is this just Codeword just like Unicode is for both the sentence and the word
+            //  Add a type to the above line as CodeSentence?
+            //  Or is this just Code just like Unicode is for both the sentence and the word
             //  - Dave also suggests that it should be two words "code word", which might connect with my desire to have
             //  A matrix with one dimension for word/clause/sentence/doc and one for input/code/lowercasecode/etc.
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("persist until a new one is used", (): void => {
@@ -105,8 +105,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "            " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "up2 /|\\ st8 8; st8 5; up2 ntqrup 3; st8 8; st8 2; dn2 \\! 6; st8 1; dn2 ntqrup 7; st8 6;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "up2 /|\\ st8 8; st8 5; up2 ntqrup 3; st8 8; st8 2; dn2 \\! 6; st8 1; dn2 ntqrup 7; st8 6;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("does not actually put the middle position on the stave; there is no zero position glyph in SMuFL, so we temporarily use a code point from the Sagittal range, but it has no actual effect so it shouldn't be emitted", (): void => {
@@ -116,8 +116,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "　 　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "up2 ntqrup 13; /|\\ ntqrup 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "up2 ntqrup 13; /|\\ ntqrup 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
     })
 
@@ -129,8 +129,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "dn5 ntqrup 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "dn5 ntqrup 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("change depending on the clef", (): void => {
@@ -140,8 +140,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "  　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "Fcl 24; up7 ntqrup 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "Fcl 24; up7 ntqrup 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("clefs are smart and they stick until you change them (you can change from one to the other)", (): void => {
@@ -151,8 +151,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "  　 　   　 　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "Fcl 24; up7 ntqrup 13; up6 ntqrup 13; Gcl 24; dn5 ntqrup 13; dn6 ntqrup 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "Fcl 24; up7 ntqrup 13; up6 ntqrup 13; Gcl 24; dn5 ntqrup 13; dn6 ntqrup 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
     })
 
@@ -160,79 +160,79 @@ describe("computeInputSentenceUnicode", (): void => {
         it("advances by the width given by each symbol", (): void => {
             let actual
             let expectedUnicode
-            let expectedCodewords
+            let expectedCodes
 
             actual = computeInputSentenceUnicode("lgln" as Io)
             expectedUnicode = "　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "lgln 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "lgln 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("Gcl" as Io)
             expectedUnicode = "  " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "Gcl 24;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "Gcl 24;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("ntdbwh" as Io)
             expectedUnicode = "   " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "ntdbwh 23;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "ntdbwh 23;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("ntwh" as Io)
             expectedUnicode = "　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "ntwh 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "ntwh 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("nt2" as Io)
             expectedUnicode = "　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "nthfup 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "nthfup 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("nt4" as Io)
             expectedUnicode = "　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "ntqrup 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "ntqrup 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("nt8up" as Io)
             expectedUnicode = "   " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "nt8up 21;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "nt8up 21;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("nt16up" as Io)
             expectedUnicode = "   " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "nt16up 21;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "nt16up 21;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("nthfdn" as Io)
             expectedUnicode = "　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "nthfdn 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "nthfdn 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("ntqrdn" as Io)
             expectedUnicode = "　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "ntqrdn 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "ntqrdn 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("nt8dn" as Io)
             expectedUnicode = "　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "nt8dn 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "nt8dn 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
 
             actual = computeInputSentenceUnicode("nt16dn" as Io)
             expectedUnicode = "　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            expectedCodewords = "nt16dn 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            expectedCodes = "nt16dn 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("gives a default width of 12 to known codes with undefined widths", (): void => {
@@ -242,8 +242,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "　" as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "^ 12;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "^ 12;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("gives a default width of 0 to unknown codes", (): void => {
@@ -253,8 +253,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "幸 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "?? 2;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "?? 2;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("if more than one symbol has occurred since the previous advance, uses the width of the symbol with the max width", (): void => {
@@ -264,8 +264,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "   " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "lgln nt16up 21;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "lgln nt16up 21;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("resets the advance amount after each application", (): void => {
@@ -275,8 +275,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "   　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "lgln nt16up 21; ntqrup 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "lgln nt16up 21; ntqrup 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("can have the spacing adjusted from the default of 2", (): void => {
@@ -286,8 +286,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "   " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "nt16up 24; 2;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "nt16up 24; 2;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
     })
 
@@ -299,8 +299,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "       " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "nt8up st16 16; st8 5; ntqrup 3; st8 8; st8 2;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "nt8up st16 16; st8 5; ntqrup 3; st8 8; st8 2;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("does not add additional lines as needed, if only a manual stave has been asked for", (): void => {
@@ -310,8 +310,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "   　 " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "st24 nt8up 21; ntqrup 13;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "st24 nt8up 21; ntqrup 13;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
 
         it("can be turned off and on", (): void => {
@@ -321,8 +321,8 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "     　 　    " as Unicode
             expect(actual).toBe(expectedUnicode)
-            const expectedCodewords = "Gcl st16 16; st8 8; ntqrup st8 8; st8 5; ntqrup 13; ntqrup 13; ntqrup st8 8; st8 5;"
-            expect(computeCodewordsFromUnicode(actual)).toBe(expectedCodewords)
+            const expectedCodes = "Gcl st16 16; st8 8; ntqrup st8 8; st8 5; ntqrup 13; ntqrup 13; ntqrup st8 8; st8 5;"
+            expect(computeCodesFromUnicode(actual)).toBe(expectedCodes)
         })
     })
 })

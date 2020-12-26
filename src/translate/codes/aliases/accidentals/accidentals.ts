@@ -1,12 +1,12 @@
 import {RecordKey} from "@sagittal/general"
-import {Codeword, Symbol} from "../../types"
+import {Code, Symbol} from "../../types"
 import {CONVENTIONAL_ACCIDENTAL_ALIASES_MAP} from "./conventional"
 import {EHEJIPN_ACCIDENTAL_ALIASES_MAP} from "./ehejipn"
 import {SAGITTAL_ACCIDENTAL_ALIASES_MAP} from "./sagittal"
 import {UNCONVENTIONAL_ACCIDENTAL_ALIASES_MAP} from "./unconventional"
 import {UPS_AND_DOWNS_ACCIDENTAL_ALIASES_MAP} from "./upsAndDowns"
 
-const ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Codeword>, Symbol> = {
+const ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     ...CONVENTIONAL_ACCIDENTAL_ALIASES_MAP,
     ...EHEJIPN_ACCIDENTAL_ALIASES_MAP,
     ...SAGITTAL_ACCIDENTAL_ALIASES_MAP,

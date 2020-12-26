@@ -24,7 +24,7 @@ const computeInputWordUnicode = (inputWord: Io): Unicode => {
         sumTexts(smartAdvanceAndSmartStavePrefixUnicode, smartPositionAndSmartClefPrefixUnicode, unicode)
 
     // tslint:disable-next-line
-    // console.warn(`${inputWord} → ${computeCodewordsFromUnicode(inputWordUnicode)}\nad${smarts.advanceWidth} st${smarts.staveWidth}\n`)
+    // console.warn(`${inputWord} → ${computeCodesFromUnicode(inputWordUnicode)}\nad${smarts.advanceWidth} st${smarts.staveWidth}\n`)
 
     return inputWordUnicode
 }

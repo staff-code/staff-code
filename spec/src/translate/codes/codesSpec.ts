@@ -1,17 +1,17 @@
-import {Codeword, CODEWORD_MAP} from "../../../../src/translate/codes"
+import {Code, CODE_MAP} from "../../../../src/translate/codes"
 
 describe("code verifications", (): void => {
-    it("no two codewords, when put in lower case, are the same", (): void => {
-        const seenLowercaseCodewords = [] as Codeword[]
+    it("no two codes, when put in lower case, are the same", (): void => {
+        const seenLowercaseCodes = [] as Code[]
 
-        const codewords = Object.keys(CODEWORD_MAP) as Codeword[]
+        const codes = Object.keys(CODE_MAP) as Code[]
 
-        codewords.forEach((codeword: Codeword): void => {
-            const lowercaseCodeword = codeword.toLowerCase() as Codeword
-            if (seenLowercaseCodewords.includes(lowercaseCodeword)) {
-                fail(`duplicate codeword: ${codeword}`)
+        codes.forEach((code: Code): void => {
+            const lowercaseCode = code.toLowerCase() as Code
+            if (seenLowercaseCodes.includes(lowercaseCode)) {
+                fail(`duplicate code: ${code}`)
             }
-            seenLowercaseCodewords.push(lowercaseCodeword)
+            seenLowercaseCodes.push(lowercaseCode)
         })
     })
 })

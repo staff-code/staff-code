@@ -1,17 +1,17 @@
 import {isUndefined, RecordKey, stringify} from "@sagittal/general"
-import {Codeword, Symbol} from "./types"
+import {Code, Symbol} from "./types"
 
-const mergeMaps = (...maps: Array<Record<RecordKey<Codeword>, Symbol>>): Record<RecordKey<Codeword>, Symbol> => {
-    const mergedMaps = {} as Record<RecordKey<Codeword>, Symbol>
+const mergeMaps = (...maps: Array<Record<RecordKey<Code>, Symbol>>): Record<RecordKey<Code>, Symbol> => {
+    const mergedMaps = {} as Record<RecordKey<Code>, Symbol>
 
-    maps.forEach((map: Record<RecordKey<Codeword>, Symbol>): void => {
-        const mapEntries = Object.entries(map) as Array<[unknown, Symbol]> as Array<[Codeword, Symbol]>
+    maps.forEach((map: Record<RecordKey<Code>, Symbol>): void => {
+        const mapEntries = Object.entries(map) as Array<[unknown, Symbol]> as Array<[Code, Symbol]>
 
-        mapEntries.forEach(([codeword, symbol]: [Codeword, Symbol]): void => {
-            if (!isUndefined(mergedMaps[codeword])) {
-                throw new Error(`duplicate codeword: ${codeword} maps to both ${stringify(mergedMaps[codeword])} and ${stringify(symbol)}.`)
+        mapEntries.forEach(([code, symbol]: [Code, Symbol]): void => {
+            if (!isUndefined(mergedMaps[code])) {
+                throw new Error(`duplicate code: ${code} maps to both ${stringify(mergedMaps[code])} and ${stringify(symbol)}.`)
             }
-            mergedMaps[codeword] = symbol
+            mergedMaps[code] = symbol
         })
     })
 

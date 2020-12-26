@@ -9,14 +9,14 @@ interface Symbol {
     width?: Octels,
 }
 
-type Codeword = string & {_CodewordBrand: boolean}
+type Code = string & {_CodeBrand: boolean}
 
-type LowercaseCodeword = string & {_LowercaseCodewordBrand: boolean}
+type LowercaseCode = string & {_LowercaseCodeBrand: boolean}
 
 export {
     Unicode,
     Octels,
     Symbol,
-    Codeword,
-    LowercaseCodeword,
+    Code,
+    LowercaseCode,
 }
