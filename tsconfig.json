@@ -17,6 +17,7 @@
     "esModuleInterop": true,
     "outDir": "dist/package",
     "declaration": true,
+    "removeComments": true
   },
   "include": [
     "src"

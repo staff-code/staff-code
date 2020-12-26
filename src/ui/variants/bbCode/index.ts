@@ -20,7 +20,7 @@ import {setupBBCodeStaffCode} from "./setup"
 
 loadFontsThen(setupBBCodeStaffCode)
 
-// TODO: inline
+// TODO: NEW FEATURE, READY TO GO: OFFER INLINE MODE FOR BBCODE
 // tslint:disable:max-line-length
 /*
 In writing further [url=http://forum.sagittal.org/viewtopic.php?p=3192#p3192]Intro-to-SC[/url] material, I have realised we need two different bbCodes — one for display, like we have now, and one for inline. This is like the two options we have for LaTeX/ASCIIMath. StaffCode could be called ASCIIMusic (but I like "StaffCode" better).
