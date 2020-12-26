@@ -1,5 +1,5 @@
 import {Io, isUndefined, RecordKey} from "@sagittal/general"
-import {Code, LowercaseCodeword, Symbol, Unicode, Octels} from "./codes"
+import {Code, LowercaseCodeword, Octels, Symbol, Unicode} from "./codes"
 import {smarts} from "./smarts"
 import {isUnicodeLiteral} from "./utility"
 
@@ -7,6 +7,7 @@ const computeLowercaseCodewordFromInput = (inputWord: Io): LowercaseCodeword =>
     inputWord.toLowerCase() as LowercaseCodeword
 
 // TODO: But if you're going to go this route, you'll definitely need a test to make sure they stay in sync
+//  It's either that, or maybe actually what I should do is just do that work once up front but in a non-blocking way
 // Hardcoding this, for whatever reason, massively improves performance.
 const LOWERCASE_CODEWORD_TO_CODE_MAP: Record<RecordKey<LowercaseCodeword>, Code> = {
     ";": 0,
