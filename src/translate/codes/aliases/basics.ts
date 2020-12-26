@@ -23,10 +23,17 @@ const NOTE_ALIASES_MAP: Record<Code, Symbol> = {
     [Code[`nt4up`]]: SMuFL_MAP[Code[`ntqrup`]],
     [Code[`nt4dn`]]: SMuFL_MAP[Code[`ntqrdn`]],
     [Code[`nt`]]: SMuFL_MAP[Code[`ntqrup`]],
+    [Code[`ntdb`]]: SMuFL_MAP[Code[`ntdbwh`]],
+    [Code[`ntdn`]]: SMuFL_MAP[Code[`ntqrdn`]],
 } as Record<Code, Symbol>
-// TODO: more aliases Can I please have these aliases. I hope their meaning is obvious.
-//  [_]staff] ntdb ; ntdn ; rs ; rsdb ; rs1 ; rs2 ; rs4 [/staff] :)
-//  [staff] ntdb ; ntdn ; rs ; rsdb ; rs1 ; rs2 ; rs4 [/staff]
+
+const REST_ALIASES_MAP: Record<Code, Symbol> = {
+    [Code[`rsdb`]]: SMuFL_MAP[Code[`rsdbwh`]],
+    [Code[`rs1`]]: SMuFL_MAP[Code[`rswh`]],
+    [Code[`rs2`]]: SMuFL_MAP[Code[`rshf`]],
+    [Code[`rs4`]]: SMuFL_MAP[Code[`rsqr`]],
+    [Code[`rs`]]: SMuFL_MAP[Code[`rsqr`]],
+} as Record<Code, Symbol>
 
 // See: https://w3c.github.io/smufl/gitbook/tables/beamed-groups-of-notes.html
 const BEAMS_ALIASES_MAP: Record<Code, Symbol> = {
@@ -42,4 +49,5 @@ export {
     TIME_SIGNATURE_ALIASES_MAP,
     NOTE_ALIASES_MAP,
     BEAMS_ALIASES_MAP,
+    REST_ALIASES_MAP,
 }
