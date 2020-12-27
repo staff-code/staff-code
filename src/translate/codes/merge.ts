@@ -1,23 +1,26 @@
 import {isUndefined, RecordKey, stringify, Word} from "@sagittal/general"
-import {Code, Symbol} from "./types"
+import {Code, LowercasedCode, Symbol} from "./types"
 
-const mergeMaps = (...maps: Array<Record<RecordKey<Code & Word>, Symbol>>): Record<RecordKey<Code & Word>, Symbol> => {
-    const mergedMaps = {} as Record<RecordKey<Code & Word>, Symbol>
+const mergeAllCodeMapsIntoLowercasedCodeMap = (
+    ...maps: Array<Record<RecordKey<Code & Word>, Symbol>>
+): Record<RecordKey<LowercasedCode & Word>, Symbol> => {
+    const mergedAndLowercasedMaps = {} as Record<RecordKey<LowercasedCode & Word>, Symbol>
 
     maps.forEach((map: Record<RecordKey<Code & Word>, Symbol>): void => {
         const mapEntries = Object.entries(map) as Array<[unknown, Symbol]> as Array<[Code & Word, Symbol]>
 
         mapEntries.forEach(([code, symbol]: [Code & Word, Symbol]): void => {
-            if (!isUndefined(mergedMaps[code])) {
-                throw new Error(`duplicate code: ${code} maps to both ${stringify(mergedMaps[code])} and ${stringify(symbol)}.`)
+            const lowercasedCode = code.toLowerCase() as LowercasedCode
+            if (!isUndefined(mergedAndLowercasedMaps[lowercasedCode])) {
+                throw new Error(`duplicate code: ${code} maps to both ${stringify(mergedAndLowercasedMaps[lowercasedCode])} and ${stringify(symbol)}.`)
             }
-            mergedMaps[code] = symbol
+            mergedAndLowercasedMaps[lowercasedCode] = symbol
         })
     })
 
-    return mergedMaps
+    return mergedAndLowercasedMaps
 }
 
 export {
-    mergeMaps,
+    mergeAllCodeMapsIntoLowercasedCodeMap,
 }

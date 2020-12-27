@@ -2,8 +2,9 @@ import {Clause, RecordKey, Word} from "@sagittal/general"
 import {
     BASS_POSITION_ALIASES_MAP,
     Code,
-    CODE_MAP,
     GENERIC_POSITION_ALIASES_MAP,
+    LowercasedCode,
+    LOWERCASED_CODE_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
     Symbol,
     TREBLE_POSITION_ALIASES_MAP,
@@ -16,10 +17,10 @@ import {smarts} from "./globals"
 const TREBLE_UNICODE = computeUnicodeForCode("Gcl" as Code & Word)
 const BASS_UNICODE = computeUnicodeForCode("Fcl" as Code & Word)
 
-const BASS_CODE_MAP: Record<RecordKey<Code & Word>, Symbol> =
-    {...CODE_MAP, ...BASS_POSITION_ALIASES_MAP} as Record<Code & Word, Symbol>
-const TREBLE_CODE_MAP: Record<RecordKey<Code & Word>, Symbol> =
-    {...CODE_MAP, ...TREBLE_POSITION_ALIASES_MAP} as Record<Code & Word, Symbol>
+const BASS_LOWERCASED_CODE_MAP: Record<RecordKey<LowercasedCode & Word>, Symbol> =
+    {...LOWERCASED_CODE_MAP, ...BASS_POSITION_ALIASES_MAP} as Record<LowercasedCode & Word, Symbol>
+const TREBLE_LOWERCASED_CODE_MAP: Record<RecordKey<LowercasedCode & Word>, Symbol> =
+    {...LOWERCASED_CODE_MAP, ...TREBLE_POSITION_ALIASES_MAP} as Record<LowercasedCode & Word, Symbol>
 
 // TODO: FEATURE IMPROVE, READY TO GO: ALTO AND TENOR STAFF
 
@@ -91,8 +92,8 @@ const computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts = (symbo
 }
 
 const updateSmartClef = ({unicode}: Symbol): void => {
-    if (unicode === TREBLE_UNICODE) smarts.codeMap = TREBLE_CODE_MAP
-    if (unicode === BASS_UNICODE) smarts.codeMap = BASS_CODE_MAP
+    if (unicode === TREBLE_UNICODE) smarts.lowercasedCodeMap = TREBLE_LOWERCASED_CODE_MAP
+    if (unicode === BASS_UNICODE) smarts.lowercasedCodeMap = BASS_LOWERCASED_CODE_MAP
 }
 
 export {
@@ -101,5 +102,5 @@ export {
     isPositionUnicode,
     computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
     updateSmartClef,
-    TREBLE_CODE_MAP,
+    TREBLE_LOWERCASED_CODE_MAP,
 }

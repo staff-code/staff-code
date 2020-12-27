@@ -1,7 +1,7 @@
 import {Io, Word} from "@sagittal/general"
 import {
     BASS_POSITION_ALIASES_MAP,
-    CODE_MAP,
+    LOWERCASED_CODE_MAP,
     Octels,
     Symbol,
     TREBLE_POSITION_ALIASES_MAP,
@@ -17,7 +17,7 @@ describe("computeSymbol", (): void => {
 
         const actual = computeSymbol(inputWord)
 
-        const expected = CODE_MAP["ntqrup"]
+        const expected = LOWERCASED_CODE_MAP["ntqrup"]
         expect(actual).toEqual(expected)
     })
 
@@ -26,20 +26,20 @@ describe("computeSymbol", (): void => {
 
         const actual = computeSymbol(inputWord)
 
-        const expected = CODE_MAP["nt4"]
+        const expected = LOWERCASED_CODE_MAP["nt4"]
         expect(actual).toEqual(expected)
     })
 
     it("works for different clefs", (): void => {
-        smarts.codeMap = TREBLE_POSITION_ALIASES_MAP
-        expect(computeSymbol("d4" as Io & Word)).toEqual(CODE_MAP["dn5"])
-        smarts.codeMap = BASS_POSITION_ALIASES_MAP
-        expect(computeSymbol("d4" as Io & Word)).toEqual(CODE_MAP["up7"])
+        smarts.lowercasedCodeMap = TREBLE_POSITION_ALIASES_MAP
+        expect(computeSymbol("d4" as Io & Word)).toEqual(LOWERCASED_CODE_MAP["dn5"])
+        smarts.lowercasedCodeMap = BASS_POSITION_ALIASES_MAP
+        expect(computeSymbol("d4" as Io & Word)).toEqual(LOWERCASED_CODE_MAP["up7"])
     })
 
     it("can handle uppercase codes", (): void => {
-        expect(computeSymbol("/X" as Io & Word)).toEqual(CODE_MAP["/X"])
-        expect(computeSymbol(".LL" as Io & Word)).toEqual(CODE_MAP[".LL"])
+        expect(computeSymbol("/X" as Io & Word)).toEqual(LOWERCASED_CODE_MAP["/x"])
+        expect(computeSymbol(".LL" as Io & Word)).toEqual(LOWERCASED_CODE_MAP[".ll"])
     })
 
     it("takes a symbol in its Unicode literal form and converts it to Unicode, and assumes its width is 0                   ", (): void => {

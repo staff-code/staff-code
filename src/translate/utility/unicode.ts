@@ -1,8 +1,9 @@
 import {isUndefined, Word} from "@sagittal/general"
-import {Code, CODE_MAP, Symbol, Unicode} from "../codes"
+import {Code, LowercasedCode, LOWERCASED_CODE_MAP, Symbol, Unicode} from "../codes"
 
 const computeUnicodeForCode = (code: Code & Word): Unicode & Word => {
-    const symbol = CODE_MAP[code]
+    const lowercasedCode = code.toLowerCase() as LowercasedCode
+    const symbol = LOWERCASED_CODE_MAP[lowercasedCode]
 
     if (isUndefined(symbol)) throw new Error(`Symbol not found for code ${code}`)
 

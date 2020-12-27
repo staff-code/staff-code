@@ -1,7 +1,7 @@
 import {Word} from "@sagittal/general"
 import {Octels, Unicode} from "../codes"
 import {EMPTY_UNICODE} from "../constants"
-import {TREBLE_CODE_MAP} from "./positionAndClef"
+import {TREBLE_LOWERCASED_CODE_MAP} from "./positionAndClef"
 import {Smarts} from "./types"
 
 const INITIAL_SMARTS: Smarts = {
@@ -11,7 +11,7 @@ const INITIAL_SMARTS: Smarts = {
     staveOn: false,
     commenting: false,
     position: EMPTY_UNICODE as Unicode & Word,
-    codeMap: TREBLE_CODE_MAP,
+    lowercasedCodeMap: TREBLE_LOWERCASED_CODE_MAP,
 }
 
 export {

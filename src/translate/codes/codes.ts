@@ -1,6 +1,6 @@
 import {RecordKey, Word} from "@sagittal/general"
 import {ALIAS_SYMBOL_MAP} from "./aliases"
-import {mergeMaps} from "./merge"
+import {mergeAllCodeMapsIntoLowercasedCodeMap} from "./merge"
 import {
     NOT_SMuFL_DEFINE_CUSTOM_MAP,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
@@ -11,7 +11,7 @@ import {
     NOT_SMuFL_ZERO_POSITION_MAP,
 } from "./notSmufl"
 import {SMuFL_MAP} from "./smufl"
-import {Code, Symbol} from "./types"
+import {Code, LowercasedCode, Symbol} from "./types"
 
 // See: http://forum.sagittal.org/viewtopic.php?f=17&t=436&p=3172#word-types
 
@@ -32,13 +32,13 @@ const NONSYMBOL_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     ...NOT_SMuFL_DEFINE_CUSTOM_MAP,
 }
 
-const CODE_MAP = mergeMaps(
+const LOWERCASED_CODE_MAP: Record<RecordKey<LowercasedCode & Word>, Symbol> = mergeAllCodeMapsIntoLowercasedCodeMap(
     BASE_SYMBOL_MAP,
     ALIAS_SYMBOL_MAP,
     NONSYMBOL_MAP,
 )
 
 export {
-    CODE_MAP,
+    LOWERCASED_CODE_MAP,
     BASE_SYMBOL_MAP,
 }

@@ -11,12 +11,12 @@ interface Symbol {
 
 type Code = string & {_CodeBrand: boolean}
 
-type LowercaseCode = string & {_LowercaseCodeBrand: boolean}
+type LowercasedCode = Code & {_LowercasedCodeBrand: boolean}
 
 export {
     Unicode,
     Octels,
     Symbol,
     Code,
-    LowercaseCode,
+    LowercasedCode,
 }
