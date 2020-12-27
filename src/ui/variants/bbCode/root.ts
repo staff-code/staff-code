@@ -11,7 +11,7 @@ const setupBBCodeRoot = (root: Element): void => {
     const display = buildDisplay(inline)
     root.appendChild(display)
 
-    const input: HTMLTextAreaElement = root.querySelector("textarea")!
+    const input: HTMLTextAreaElement = root.querySelector(".input") as HTMLTextAreaElement
     setupInput(input)
 
     transferInputToDisplay(root)

@@ -24,6 +24,7 @@ const buildDisplay = (inline: boolean = false): HTMLElement => {
     //  As well as ligatures for all the supplemental positions (which have otherwise been implemented here)
     display.style.fontFamily = "Bravura Text BB"
     display.style.whiteSpace = "pre"
+    display.classList.add("display")
 
     return display
 }
