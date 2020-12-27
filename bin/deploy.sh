@@ -11,8 +11,6 @@ cp -r assets/fonts* dist/package
 npm publish --access public
 echo Package published.
 
-echo Please commit.
-
 # publish BBCode variant
 
 rm -r dist/bbCode/* > /dev/null 2>&1 || true
@@ -56,3 +54,5 @@ curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
 "${UPLOAD_URL}"
 
 echo BBCode published.
+
+echo Please commit.
