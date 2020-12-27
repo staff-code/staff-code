@@ -21,6 +21,7 @@ const buildDisplay = (): HTMLDivElement => {
     //  Old stuff here too: http://forum.sagittal.org/viewtopic.php?p=2811#p2811
     //  - And update the names (Just change "BB" to "SC" wherever you find it.)
     //  - I think I want to wait on this until I figure out the other changes I need to make, like clef ligatures
+    //  As well as ligatures for all the supplemental positions (which have otherwise been implemented here)
     display.style.fontFamily = "Bravura Text BB"
     display.style.whiteSpace = "pre"
 

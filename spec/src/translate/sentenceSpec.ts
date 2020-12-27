@@ -116,6 +116,17 @@ describe("computeInputSentenceUnicode", (): void => {
             const expectedCodes = "up2 ntqrup 13; /|\\ ntqrup 13;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
+
+        it("works for the supplemental positions", (): void => {
+            const inputSentence = "c7 /|\\ nt" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "　 " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "up15 /|\\ up15 ntqrup 13;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
     })
 
     describe("Smart Clef", (): void => {
