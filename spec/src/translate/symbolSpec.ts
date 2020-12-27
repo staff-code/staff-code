@@ -1,4 +1,4 @@
-import {Io} from "@sagittal/general"
+import {Io, Word} from "@sagittal/general"
 import {
     BASS_POSITION_ALIASES_MAP,
     CODE_MAP,
@@ -13,7 +13,7 @@ import {UnicodeLiteral} from "../../../src/translate/types"
 
 describe("computeSymbol", (): void => {
     it("gets you the symbol (unicode and width) for a given base word", (): void => {
-        const inputWord = "ntqrup" as Io
+        const inputWord = "ntqrup" as Io & Word
 
         const actual = computeSymbol(inputWord)
 
@@ -22,7 +22,7 @@ describe("computeSymbol", (): void => {
     })
 
     it("gets you the symbol (unicode and width) for a given alias word", (): void => {
-        const inputWord = "nt4" as Io
+        const inputWord = "nt4" as Io & Word
 
         const actual = computeSymbol(inputWord)
 
@@ -32,18 +32,18 @@ describe("computeSymbol", (): void => {
 
     it("works for different clefs", (): void => {
         smarts.codeMap = TREBLE_POSITION_ALIASES_MAP
-        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP["dn5"])
+        expect(computeSymbol("d4" as Io & Word)).toEqual(CODE_MAP["dn5"])
         smarts.codeMap = BASS_POSITION_ALIASES_MAP
-        expect(computeSymbol("d4" as Io)).toEqual(CODE_MAP["up7"])
+        expect(computeSymbol("d4" as Io & Word)).toEqual(CODE_MAP["up7"])
     })
 
     it("can handle uppercase codes", (): void => {
-        expect(computeSymbol("/X" as Io)).toEqual(CODE_MAP["/X"])
-        expect(computeSymbol(".LL" as Io)).toEqual(CODE_MAP[".LL"])
+        expect(computeSymbol("/X" as Io & Word)).toEqual(CODE_MAP["/X"])
+        expect(computeSymbol(".LL" as Io & Word)).toEqual(CODE_MAP[".LL"])
     })
 
     it("takes a symbol in its Unicode literal form and converts it to Unicode, and assumes its width is 0                   ", (): void => {
-        const unicodeLiteral: UnicodeLiteral = "u+5e78" as UnicodeLiteral
+        const unicodeLiteral: UnicodeLiteral & Word = "u+5e78" as UnicodeLiteral & Word
 
         const actual = computeSymbol(unicodeLiteral)
 
@@ -52,7 +52,7 @@ describe("computeSymbol", (): void => {
     })
 
     it("let's do a realistic, known example", (): void => {
-        const unicodeLiteral: UnicodeLiteral = "u+e3f0" as UnicodeLiteral
+        const unicodeLiteral: UnicodeLiteral & Word = "u+e3f0" as UnicodeLiteral & Word
 
         const actual = computeSymbol(unicodeLiteral)
 

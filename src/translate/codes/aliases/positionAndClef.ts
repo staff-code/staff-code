@@ -1,14 +1,14 @@
-import {RecordKey} from "@sagittal/general"
+import {RecordKey, Word} from "@sagittal/general"
 import {NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP, NOT_SMuFL_ZERO_POSITION_MAP} from "../notSmufl"
 import {SMuFL_MAP} from "../smufl"
 import {Code, Symbol} from "../types"
 
-const CLEF_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
+const CLEF_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     "8va": SMuFL_MAP["otal"],
     "8vb": SMuFL_MAP["otbsvb"],
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
-const GENERIC_POSITION_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
+const GENERIC_POSITION_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     "up15": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpsrs15"],
     "up14": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpsrs14"],
     "up13": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpsrs13"],
@@ -40,9 +40,9 @@ const GENERIC_POSITION_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     "dn13": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpslw13"],
     "dn14": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpslw14"],
     "dn15": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpslw15"],
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
-const TREBLE_POSITION_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
+const TREBLE_POSITION_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     "c7": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpsrs15"],
     "b6": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpsrs14"],
     "a6": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpsrs13"],
@@ -74,9 +74,9 @@ const TREBLE_POSITION_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     "c3": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpslw13"],
     "b2": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpslw14"],
     "a2": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpslw15"],
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
-const BASS_POSITION_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
+const BASS_POSITION_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     "e5": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpsrs15"],
     "d5": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpsrs14"],
     "c5": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpsrs13"],
@@ -108,7 +108,7 @@ const BASS_POSITION_ALIASES_MAP: Record<RecordKey<Code>, Symbol> = {
     "e1": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpslw13"],
     "d1": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpslw14"],
     "c1": NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP["stpslw15"],
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
 export {
     CLEF_ALIASES_MAP,

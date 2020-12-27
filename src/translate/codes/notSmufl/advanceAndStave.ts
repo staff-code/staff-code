@@ -1,12 +1,12 @@
-import {RecordKey} from "@sagittal/general"
+import {RecordKey, Word} from "@sagittal/general"
 import {Code, Symbol} from "../types"
 
-const NOT_SMuFL_SMART_STAVE_MAP: Record<RecordKey<Code>, Symbol> = {
+const NOT_SMuFL_SMART_STAVE_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     /*U+E40C*/"ston": {unicode: "", width: 0},
     /*U+E40D*/"stof": {unicode: "", width: 0},
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
-const NOT_SMuFL_SMART_SPACING_MAP: Record<RecordKey<Code>, Symbol> = {
+const NOT_SMuFL_SMART_SPACING_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     /*U+E388*/"sp0": {unicode: "", width: 0},
     /*U+E389*/"sp1": {unicode: "", width: 1},
     /*U+E38A*/"sp2": {unicode: "", width: 2},
@@ -15,9 +15,9 @@ const NOT_SMuFL_SMART_SPACING_MAP: Record<RecordKey<Code>, Symbol> = {
     /*U+E38D*/"sp5": {unicode: "", width: 5},
     /*U+E38E*/"sp6": {unicode: "", width: 6},
     /*U+E38F*/"sp7": {unicode: "", width: 7},
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
-const NOT_SMuFL_MANUAL_ADVANCE_MAP: Record<RecordKey<Code>, Symbol> = {
+const NOT_SMuFL_MANUAL_ADVANCE_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     /*U+200A              */"1;": {unicode: " ", width: 1},
     /*U+2009              */"2;": {unicode: " ", width: 2},
     /*U+2009 U+200A       */"3;": {unicode: "  ", width: 3},
@@ -42,13 +42,13 @@ const NOT_SMuFL_MANUAL_ADVANCE_MAP: Record<RecordKey<Code>, Symbol> = {
     /*U+2003 U+2004       */"22;": {unicode: "  ", width: 22},
     /*U+2003 U+2004 U+200A*/"23;": {unicode: "   ", width: 23},
     /*U+2003 U+2002       */"24;": {unicode: "  ", width: 24},
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
 // * U+2001 EM QUAD, our desired "14;", is not in the font yet. Once it is, these should be replaced.
 
-const NOT_SMuFL_SMART_ADVANCE_MAP: Record<RecordKey<Code>, Symbol> = {
+const NOT_SMuFL_SMART_ADVANCE_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     /*U+2000*/";": {unicode: " ", width: 0},
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
 export {
     NOT_SMuFL_SMART_STAVE_MAP,

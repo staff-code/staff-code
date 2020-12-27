@@ -1,16 +1,16 @@
-import {Io} from "@sagittal/general"
+import {Io, Word} from "@sagittal/general"
 import {smarts} from "./globals"
 
-const isCommenting = (inputWord: Io): boolean => {
+const isCommenting = (input: Io & Word): boolean => {
     const wasCommenting = smarts.commenting
 
-    if (inputWord.match(/^{/)) {
-        if (inputWord.match(/}$/)) {
+    if (input.match(/^{/)) {
+        if (input.match(/}$/)) {
             return true
         } else {
             smarts.commenting = true
         }
-    } else if (inputWord.match(/}$/)) {
+    } else if (input.match(/}$/)) {
         smarts.commenting = false
     }
 

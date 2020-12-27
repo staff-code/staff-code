@@ -1,11 +1,11 @@
-import {Px} from "@sagittal/general"
+import {Px, Word} from "@sagittal/general"
 
 type Unicode = string & {_UniBrand: boolean}
 
 type Octels = Px & {_OctelsBrand: boolean}
 
 interface Symbol {
-    unicode: Unicode,
+    unicode: Unicode & Word,
     width?: Octels,
 }
 

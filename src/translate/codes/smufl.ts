@@ -1,9 +1,9 @@
 // tslint:disable
 
-import {RecordKey} from "@sagittal/general"
+import {RecordKey, Word} from "@sagittal/general"
 import {Code, Symbol} from "./types"
 
-const SMuFL_MAP: Record<RecordKey<Code>, Symbol> = {
+const SMuFL_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     /* 	 */"chtb": {unicode: "\u0009"}, // character tabulation
     /* \n */"lnfd": {unicode: "\u000A"},    // line feed
     /*  */"lntb": {unicode: "\u000B"}, // line tabulation
@@ -2945,7 +2945,7 @@ const SMuFL_MAP: Record<RecordKey<Code>, Symbol> = {
     /*  */"scdg7": {unicode: "\uEF06"}, // Scale degree 7
     /*  */"scdg8": {unicode: "\uEF07"}, // Scale degree 8
     /*  */"scdg9": {unicode: "\uEF08"}, // Scale degree 9
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
 export {
     SMuFL_MAP,

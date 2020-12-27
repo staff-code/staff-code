@@ -1,6 +1,6 @@
 import {add, isUndefined} from "@sagittal/general"
+import {Octels, Symbol} from "./codes"
 import {smarts} from "./smarts"
-import {Symbol, Octels} from "./codes"
 
 const DEFAULT_SYMBOL_WIDTH = 10 as Octels
 

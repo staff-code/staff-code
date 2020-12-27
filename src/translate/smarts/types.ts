@@ -1,4 +1,4 @@
-import {RecordKey} from "@sagittal/general"
+import {RecordKey, Word} from "@sagittal/general"
 import {Code, Octels, Symbol, Unicode} from "../codes"
 
 interface Smarts {
@@ -7,8 +7,8 @@ interface Smarts {
     spacing: Octels,
     staveOn: boolean,
     commenting: boolean,
-    position: Unicode,
-    codeMap: Record<RecordKey<Code>, Symbol>
+    position: Unicode & Word,
+    codeMap: Record<RecordKey<Code & Word>, Symbol>
 }
 
 export {

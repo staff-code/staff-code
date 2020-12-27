@@ -1,35 +1,38 @@
-import {Io, sumTexts} from "@sagittal/general"
+import {Clause, extendClause, Io, sumTexts, Word} from "@sagittal/general"
 import {Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
 import {
-    computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmarts,
-    computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts,
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
+    computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
     isCommenting,
 } from "./smarts"
 import {computeSymbol} from "./symbol"
 import {computeUnicode} from "./unicode"
 
-const computeInputWordUnicode = (inputWord: Io): Unicode => {
-    if (isCommenting(inputWord)) return EMPTY_UNICODE
+const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
+    if (isCommenting(input)) return EMPTY_UNICODE as Unicode & Clause
 
-    const symbol = computeSymbol(inputWord)
+    const symbol = computeSymbol(input)
 
-    const smartAdvanceAndSmartStavePrefixUnicode =
-        computeSmartAdvanceAndSmartStavePrefixUnicodeAndUpdateSmarts(symbol)
-    const smartPositionAndSmartClefPrefixUnicode =
-        computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts(symbol)
-    const unicode = computeUnicode(symbol)
+    const smartAdvanceAndSmartStavePrefixUnicodeClause: Unicode & Clause =
+        computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts(symbol)
+    const smartPositionAndSmartClefPrefixUnicode: Unicode & Clause =
+        computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts(symbol)
+    const introClauseUnicode = sumTexts(
+        smartAdvanceAndSmartStavePrefixUnicodeClause,
+        smartPositionAndSmartClefPrefixUnicode,
+    )
 
-    const inputWordUnicode =
-        sumTexts(smartAdvanceAndSmartStavePrefixUnicode, smartPositionAndSmartClefPrefixUnicode, unicode)
+    const symbolUnicode = computeUnicode(symbol)
+    const unicode = extendClause(introClauseUnicode, symbolUnicode)
 
     // tslint:disable-next-line
-    // console.warn(`${inputWord} → ${computeCodesFromUnicode(inputWordUnicode)}\nad${smarts.advanceWidth} st${smarts.staveWidth}\n`)
+    // console.warn(`${input} → ${computeCodeSentenceFromUnicodeSentence(unicode)}\nad${smarts.advanceWidth} st${smarts.staveWidth}\n`)
 
-    return inputWordUnicode
+    return unicode as Unicode & Clause
 }
 
 
 export {
-    computeInputWordUnicode,
+    computeInputUnicodeClause,
 }

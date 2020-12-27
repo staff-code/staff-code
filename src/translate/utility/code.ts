@@ -1,4 +1,4 @@
-import {BLANK, join, SPACE} from "@sagittal/general"
+import {BLANK, joinWords, Sentence, Word} from "@sagittal/general"
 import {
     ACCIDENTAL_ALIASES_MAP,
     BASE_SYMBOL_MAP,
@@ -10,34 +10,34 @@ import {
     Unicode,
 } from "../codes"
 
-const BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP = {
+const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {
     ...ACCIDENTAL_ALIASES_MAP,
     ...GENERIC_POSITION_ALIASES_MAP,
     ...LINE_BREAK_ALIASES_MAP,
     ...MANUAL_STAVE_ALIASES_MAP,
     ...BASE_SYMBOL_MAP,
 }
-const BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP_ENTRIES = Object.entries(
-    BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP,
-) as Array<[unknown, Symbol]> as Array<[Code, Symbol]>
+const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES = Object.entries(
+    BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING,
+) as Array<[unknown, Symbol]> as Array<[Code & Word, Symbol]>
 
-const computeCodeFromUnicode = (unicodeWord: Unicode): Code => {
-    const codeEntry = BASE_SYMBOL_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_MAP_ENTRIES
-        .find((codeEntry: [Code, Symbol]): boolean => {
+const computeDebugCodeFromUnicode = (unicode: Unicode & Word): Code & Word => {
+    const codeEntry = BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES
+        .find((codeEntry: [Code & Word, Symbol]): boolean => {
             const [_, symbol] = codeEntry
-            const {unicode} = symbol
+            const {unicode: symbolUnicode} = symbol
 
-            return unicode === unicodeWord
+            return symbolUnicode === unicode
         })
 
-    if (!codeEntry) return "??" as Code
+    if (!codeEntry) return "??" as Code & Word
 
     const [code, _] = codeEntry
 
     return code
 }
 
-const sumAdvancesForDebugging = (codeSentence: Code): Code => {
+const sumAdvancesForDebugging = (codeSentence: Code & Sentence): Code & Sentence => {
     return codeSentence
         .replace(/24; 6; 1;/g, "31;")
         .replace(/24; 6;/g, "30;")
@@ -61,19 +61,18 @@ const sumAdvancesForDebugging = (codeSentence: Code): Code => {
         .replace(/8; 1;/g, "9;")
         .replace(/6; 1;/g, "7;")
         .replace(/4; 1;/g, "5;")
-        .replace(/2; 1;/g, "3;") as Code
+        .replace(/2; 1;/g, "3;") as Code & Sentence
 }
 
-const computeCodesFromUnicode = (unicodeSentence: Unicode): Code => {
-    const unicodeWords = unicodeSentence.split(BLANK) as Unicode[]
+const computeCodeSentenceFromUnicodeSentence = (unicodeSentence: Unicode & Sentence): Code & Sentence => {
+    const unicodeWords = unicodeSentence.split(BLANK) as Array<Unicode & Word>
 
-    // TODO: CODE, YEAH SEE, WE'VE GOT CODE WORDS. CODE SHOULD JUST BE THE ASPECT. WORD IS THE UNIT.
-    const codeWords = unicodeWords.map(computeCodeFromUnicode)
-    const codeSentence = join(codeWords, SPACE)
+    const codeWords: Array<Code & Word> = unicodeWords.map(computeDebugCodeFromUnicode)
+    const codeSentence = joinWords(...codeWords)
 
     return sumAdvancesForDebugging(codeSentence)
 }
 
 export {
-    computeCodesFromUnicode,
+    computeCodeSentenceFromUnicodeSentence,
 }

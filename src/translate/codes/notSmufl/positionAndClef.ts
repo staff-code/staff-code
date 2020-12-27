@@ -1,12 +1,12 @@
-import {RecordKey} from "@sagittal/general"
+import {RecordKey, Word} from "@sagittal/general"
 import {Code, Symbol} from "../types"
 
-const NOT_SMuFL_ZERO_POSITION_MAP: Record<RecordKey<Code>, Symbol> = {
+const NOT_SMuFL_ZERO_POSITION_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     /*U+E410*/"stpsrs0": {unicode: "", width: 0},
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
 // TODO: FEATURE IMPROVE, READY TO GO: IMPLEMENT SUPPLEMENTAL POSITIONS
-const NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP: Record<RecordKey<Code>, Symbol> = {
+const NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     /*U+E411*/"stpsrs9": {unicode: ""},
     /*U+E412*/"stpsrs10": {unicode: ""},
     /*U+E413*/"stpsrs11": {unicode: ""},
@@ -21,7 +21,7 @@ const NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP: Record<RecordKey<Code>, Symbol> = {
     /*U+E41C*/"stpslw13": {unicode: ""},
     /*U+E41D*/"stpslw14": {unicode: ""},
     /*U+E41E*/"stpslw15": {unicode: ""},
-} as Record<Code, Symbol>
+} as Record<Code & Word, Symbol>
 
 export {
     NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP,

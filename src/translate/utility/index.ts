@@ -1,3 +1,3 @@
 export {isUnicodeLiteral} from "./literal"
-export {computeCodesFromUnicode} from "./code"
+export {computeCodeSentenceFromUnicodeSentence} from "./code"
 export {computeMapUnicodes, computeUnicodeForCode} from "./unicode"

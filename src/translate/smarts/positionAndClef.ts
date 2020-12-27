@@ -1,4 +1,4 @@
-import {RecordKey} from "@sagittal/general"
+import {Clause, RecordKey, Word} from "@sagittal/general"
 import {
     BASS_POSITION_ALIASES_MAP,
     Code,
@@ -13,13 +13,13 @@ import {EMPTY_UNICODE} from "../constants"
 import {computeMapUnicodes, computeUnicodeForCode} from "../utility"
 import {smarts} from "./globals"
 
-const TREBLE_UNICODE = computeUnicodeForCode("Gcl" as Code)
-const BASS_UNICODE = computeUnicodeForCode("Fcl" as Code)
+const TREBLE_UNICODE = computeUnicodeForCode("Gcl" as Code & Word)
+const BASS_UNICODE = computeUnicodeForCode("Fcl" as Code & Word)
 
-const BASS_CODE_MAP: Record<RecordKey<Code>, Symbol> =
-    {...CODE_MAP, ...BASS_POSITION_ALIASES_MAP} as Record<Code, Symbol>
-const TREBLE_CODE_MAP: Record<RecordKey<Code>, Symbol> =
-    {...CODE_MAP, ...TREBLE_POSITION_ALIASES_MAP} as Record<Code, Symbol>
+const BASS_CODE_MAP: Record<RecordKey<Code & Word>, Symbol> =
+    {...CODE_MAP, ...BASS_POSITION_ALIASES_MAP} as Record<Code & Word, Symbol>
+const TREBLE_CODE_MAP: Record<RecordKey<Code & Word>, Symbol> =
+    {...CODE_MAP, ...TREBLE_POSITION_ALIASES_MAP} as Record<Code & Word, Symbol>
 
 // TODO: FEATURE IMPROVE, READY TO GO: ALTO AND TENOR STAFF
 
@@ -42,52 +42,52 @@ const TREBLE_CODE_MAP: Record<RecordKey<Code>, Symbol> =
 //  But for the life of me I cannot find it
 
 const POSITION_UNICODES = computeMapUnicodes({...GENERIC_POSITION_ALIASES_MAP, ...NOT_SMuFL_ZERO_POSITION_MAP})
-const NOT_SMuFL_ZERO_POSITION_UNICODE = computeUnicodeForCode("up0" as Code)
+const NOT_SMuFL_ZERO_POSITION_UNICODE = computeUnicodeForCode("up0" as Code & Word)
 
-const isInLegerLineRange = (unicodeWord: Unicode): boolean =>
-    unicodeWord >= "\uE022" && unicodeWord <= "\uE024"
+const isInLegerLineRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE022" && unicode <= "\uE024"
 
-const isInNoteheadNoteStemOrBeamedGroupsOfNotesRange = (unicodeWord: Unicode): boolean =>
-    unicodeWord >= "\uE0A0" && unicodeWord <= "\uE21F"
+const isInNoteheadNoteStemOrBeamedGroupsOfNotesRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE0A0" && unicode <= "\uE21F"
 
-const isInSpacingRange = (unicodeWord: Unicode): boolean =>
-    unicodeWord >= "\uE388" && unicodeWord <= "\uE38F"
+const isInSpacingRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE388" && unicode <= "\uE38F"
 
-const isInOtherSagittalControlledNowForStaffCodeFeaturesRange = (unicodeWord: Unicode): boolean =>
-    unicodeWord >= "\uE40C" && unicodeWord <= "\uE41F"
+const isInOtherSagittalControlledNowForStaffCodeFeaturesRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE40C" && unicode <= "\uE41F"
 
-const isInFlagsAccidentalsArticulationHoldsPausesOrRestsRange = (unicodeWord: Unicode): boolean =>
-    unicodeWord >= "\uE240" && unicodeWord <= "\uE4FF"
-    && !isInSpacingRange(unicodeWord)
-    && !isInOtherSagittalControlledNowForStaffCodeFeaturesRange(unicodeWord)
+const isInFlagsAccidentalsArticulationHoldsPausesOrRestsRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE240" && unicode <= "\uE4FF"
+    && !isInSpacingRange(unicode)
+    && !isInOtherSagittalControlledNowForStaffCodeFeaturesRange(unicode)
 
-const isInMedievalAndRenaissanceRange = (unicodeWord: Unicode): boolean =>
-    unicodeWord >= "\uE900" && unicodeWord <= "\uEA1F"
+const isInMedievalAndRenaissanceRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE900" && unicode <= "\uEA1F"
 
-const isInKievanSquareNotationRange = (unicodeWord: Unicode): boolean =>
-    unicodeWord >= "\uEC30" && unicodeWord <= "\uEC3F"
+const isInKievanSquareNotationRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uEC30" && unicode <= "\uEC3F"
 
-const canBePositioned = (unicodeWord: Unicode): boolean =>
-    isInLegerLineRange(unicodeWord)
-    || isInNoteheadNoteStemOrBeamedGroupsOfNotesRange(unicodeWord)
-    || isInFlagsAccidentalsArticulationHoldsPausesOrRestsRange(unicodeWord)
-    || isInMedievalAndRenaissanceRange(unicodeWord)
-    || isInKievanSquareNotationRange(unicodeWord)
+const canBePositioned = (unicode: Unicode & Word): boolean =>
+    isInLegerLineRange(unicode)
+    || isInNoteheadNoteStemOrBeamedGroupsOfNotesRange(unicode)
+    || isInFlagsAccidentalsArticulationHoldsPausesOrRestsRange(unicode)
+    || isInMedievalAndRenaissanceRange(unicode)
+    || isInKievanSquareNotationRange(unicode)
 
-const isPositionUnicode = (unicodeWord: Unicode): boolean =>
-    POSITION_UNICODES.includes(unicodeWord)
+const isPositionUnicode = (unicode: Unicode & Word): boolean =>
+    POSITION_UNICODES.includes(unicode)
 
 const updateSmartPosition = ({unicode}: Symbol): void => {
     if (isPositionUnicode(unicode)) smarts.position = unicode
 }
 
-const computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts = (symbol: Symbol): Unicode => {
+const computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts = (symbol: Symbol): Unicode & Clause => {
     updateSmartClef(symbol)
     updateSmartPosition(symbol)
 
     return canBePositioned(symbol.unicode) && smarts.position !== NOT_SMuFL_ZERO_POSITION_UNICODE ?
-        smarts.position :
-        EMPTY_UNICODE
+        smarts.position as Unicode as Unicode & Clause :
+        EMPTY_UNICODE as Unicode & Clause
 }
 
 const updateSmartClef = ({unicode}: Symbol): void => {
@@ -99,7 +99,7 @@ export {
     canBePositioned,
     updateSmartPosition,
     isPositionUnicode,
-    computeSmartPositionAndSmartClefPrefixUnicodeAndUpdateSmarts,
+    computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
     updateSmartClef,
     TREBLE_CODE_MAP,
 }

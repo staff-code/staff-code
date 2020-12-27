@@ -53,7 +53,7 @@ beforeAll((): void => {
 })
 
 beforeEach((): void => {
-    setAllPropertiesOfObjectOnAnother({objectToChange: ioSettings, objectWithProperties:DEFAULT_IO_SETTINGS})
+    setAllPropertiesOfObjectOnAnother({objectToChange: ioSettings, objectWithProperties: DEFAULT_IO_SETTINGS})
     setAllPropertiesOfObjectOnAnother({
         objectToChange: scriptSettings,
         objectWithProperties: {

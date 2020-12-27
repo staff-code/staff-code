@@ -1,38 +1,48 @@
-import {BLANK, finalChar, finalElement, Io, NEWLINE, setAllPropertiesOfObjectOnAnother, SPACE} from "@sagittal/general"
-import {INITIAL_SMARTS, smarts} from "./smarts"
+import {
+    BLANK,
+    Clause,
+    finalChar,
+    finalElement,
+    Io,
+    NEWLINE,
+    Sentence,
+    setAllPropertiesOfObjectOnAnother,
+    SPACE,
+    Word,
+} from "@sagittal/general"
 import {Unicode} from "./codes"
-import {computeInputWordUnicode} from "./word"
+import {INITIAL_SMARTS, smarts} from "./smarts"
+import {computeInputUnicodeClause} from "./word"
 
-const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io): Io =>
+const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io & Sentence =>
     inputSentence
         .replace(/<br>/g, SPACE)
         .replace(/\n/g, SPACE)
         .replace(/\t/g, SPACE)
-        .trim()
+        .trim() as Io & Sentence
 
-const ensureLineBreaksImmediatelyDisplay = (unicodeSentence: Unicode): Unicode =>
+const ensureLineBreaksImmediatelyDisplay = (unicodeSentence: Unicode & Sentence): Unicode & Sentence =>
     finalChar(unicodeSentence) === NEWLINE ?
-        `${unicodeSentence} ` as Unicode :
+        `${unicodeSentence} ` as Unicode & Sentence :
         unicodeSentence
 
-const ensureFinalSymbolHasStaveUnderneathIfSmartStaveIsOn = (inputWords: Io[]): void => {
-    if (finalElement(inputWords) !== ";") {
-        inputWords.push(";")
+const ensureFinalSymbolHasStaveUnderneathIfSmartStaveIsOn = (inputs: Array<Io & Word>): void => {
+    if (finalElement(inputs) !== ";") {
+        inputs.push(";" as Io & Word)
     }
 }
 
-const computeInputSentenceUnicode = (inputSentence: Io): Unicode => {
+const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Sentence => {
     // tslint:disable-next-line
-    // console.log("NEW SENTENCE ------------------", inputSentence)
+    // console.warn("NEW SENTENCE ------------------", inputSentence)
 
     setAllPropertiesOfObjectOnAnother({objectToChange: smarts, objectWithProperties: INITIAL_SMARTS})
 
-    const inputWords = collapseAllWhitespacesToSingleSpaces(inputSentence).split(SPACE)
-    ensureFinalSymbolHasStaveUnderneathIfSmartStaveIsOn(inputWords)
+    const inputs = collapseAllWhitespacesToSingleSpaces(inputSentence).split(SPACE) as Array<Io & Word>
+    ensureFinalSymbolHasStaveUnderneathIfSmartStaveIsOn(inputs)
 
-    let unicodeSentence = inputWords
-        .map(computeInputWordUnicode)
-        .join(BLANK) as Unicode
+    const unicodeClauses: Array<Unicode & Clause> = inputs.map(computeInputUnicodeClause)
+    let unicodeSentence = unicodeClauses.join(BLANK) as Unicode & Sentence
     unicodeSentence = ensureLineBreaksImmediatelyDisplay(unicodeSentence)
 
     return unicodeSentence

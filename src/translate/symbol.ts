@@ -1,10 +1,10 @@
-import {Io, isUndefined, RecordKey} from "@sagittal/general"
+import {Io, isUndefined, RecordKey, Word} from "@sagittal/general"
 import {Code, LowercaseCode, Octels, Symbol, Unicode} from "./codes"
 import {smarts} from "./smarts"
 import {isUnicodeLiteral} from "./utility"
 
-const computeLowercaseCodeFromInput = (inputWord: Io): LowercaseCode =>
-    inputWord.toLowerCase() as LowercaseCode
+const computeLowercaseCodeFromInput = (input: Io): LowercaseCode =>
+    input.toLowerCase() as LowercaseCode
 
 // TODO: But if you're going to go this route, you'll definitely need a test to make sure they stay in sync
 //  It's either that, or maybe actually what I should do is just do that work once up front but in a non-blocking way
@@ -3764,20 +3764,20 @@ In case it hasn't occurred to you, I note that the ultimate would be to have dep
 and make a javascript tool that does, at transpile time, what my spreadsheet does, to glyphNames.json. That way, it would automatically generate new codes and widths for every new release of SMuFL/Bravura. I'm not saying you should do this any time soon, or ever, but I thought I should mention the possibility. :)
  */
 // So you'd want me to implement your naming scheme in the JavaScript too.
-const computeUnicodeLiteralSymbol = (inputWord: Io): Symbol =>
+const computeUnicodeLiteralSymbol = (input: Io & Word): Symbol =>
     ({
-        unicode: String.fromCharCode(parseInt(inputWord.replace(/^u\+(.*)/, "0x$1"))) as Unicode,
+        unicode: String.fromCharCode(parseInt(input.replace(/^u\+(.*)/, "0x$1"))) as Unicode & Word,
         width: 0 as Octels,
     })
 
-const computeFallbackToInputAsFailedSymbol = (inputWord: Io): Symbol =>
+const computeFallbackToInputAsFailedSymbol = (input: Io & Word): Symbol =>
     ({
-        unicode: `${inputWord} ` as Unicode, // The space is important to separate multiple fallen back words in a row.
+        unicode: `${input} ` as Unicode & Word, // The space is important to separate multiple fallen back words in a row.
         width: 0 as Octels,
     })
 
-const computeSymbol = (inputWord: Io): Symbol => {
-    const lowercaseCode: LowercaseCode = computeLowercaseCodeFromInput(inputWord)
+const computeSymbol = (input: Io & Word): Symbol => {
+    const lowercaseCode: LowercaseCode = computeLowercaseCodeFromInput(input)
     const code: Code = LOWERCASE_CODE_TO_CODE_MAP[lowercaseCode]
     // TODO: CLEAN, READY TO GO: UNDO REFACTOR RE: SMARTS DOT CODE_MAP VS SMARTS DOT CLEF
     //  The problem with this refactor is that now it's hard to debug the smarts state
@@ -3788,9 +3788,9 @@ const computeSymbol = (inputWord: Io): Symbol => {
 
     if (!isUndefined(symbol)) return symbol
 
-    if (isUnicodeLiteral(inputWord)) return computeUnicodeLiteralSymbol(inputWord)
+    if (isUnicodeLiteral(input)) return computeUnicodeLiteralSymbol(input)
 
-    return computeFallbackToInputAsFailedSymbol(inputWord)
+    return computeFallbackToInputAsFailedSymbol(input)
 }
 
 export {
