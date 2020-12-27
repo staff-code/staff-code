@@ -2,7 +2,7 @@ import {buildDisplay} from "../../display"
 import {setupInput} from "../../input"
 import {transferInputToDisplay} from "../../transfer"
 
-const setupBBCodeRoot = (root: Element): void => {
+const setupBBCodeRoot = (root: HTMLSpanElement): void => {
     if (root.classList.contains("processed")) return
     root.classList.add("processed")
 

@@ -23,7 +23,7 @@ const shouldTransfer = (event: KeyboardEvent, input: HTMLTextAreaElement, multiC
     || shouldPressedKeyTriggerTransfer(event)
     || isCursorNotAtEndOfInput(input)
 
-const handleKeydown = (event: KeyboardEvent, root: HTMLDivElement, input: HTMLTextAreaElement): void => {
+const handleKeydown = (event: KeyboardEvent, root: HTMLSpanElement, input: HTMLTextAreaElement): void => {
     if (keydown) return
     keydown = true
     const multiCharSelection = isSelectionLengthGreaterThanOneChar()

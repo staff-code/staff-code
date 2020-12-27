@@ -30,7 +30,7 @@ Recommended usage:
 import {setupPackageRoot, loadFontsThen} from "staff-code"
 
 loadFontsThen((): void => {
-    const root: HTMLDivElement = setupPackageRoot()
+    const root: HTMLSpanElement = setupPackageRoot()
     document.body.appendChild(root)
 })
 ```

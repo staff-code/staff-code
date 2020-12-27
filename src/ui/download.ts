@@ -1,6 +1,6 @@
 import {BLANK, FontName, vectorizeText} from "@sagittal/general"
 import {Unicode} from "../translate"
-import {LINE_HEIGHT} from "./display"
+import {LINE_HEIGHT_MULTIPLIER} from "./display"
 import {computeSvgHeight} from "./svgHeight"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
@@ -20,7 +20,7 @@ const downloadSvg = (display: HTMLElement, svg: SVGElement): void => {
     const options = {
         height,
         font: "Bravura Text BB" as FontName,
-        lineSpacing: LINE_HEIGHT,
+        lineSpacing: LINE_HEIGHT_MULTIPLIER,
         styletags: {breaklines: true},
     }
     svg.innerHTML = vectorizeText(unicodeSentence, options)

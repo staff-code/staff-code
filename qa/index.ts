@@ -1,6 +1,6 @@
 import {loadFontsThen, setupPackageRoot} from "../src"
 
 loadFontsThen((): void => {
-    const root: HTMLDivElement = setupPackageRoot()
+    const root: HTMLSpanElement = setupPackageRoot()
     document.body.appendChild(root)
 })

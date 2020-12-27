@@ -15,8 +15,8 @@ import {buildPackageInput} from "./input"
 //  - (the current 2x) space between staves seems good. I suppose we may want to let the user control that in future.
 //  - And I suggested to Dave that we could turn download button / input on/off for forum or package, and Dave likes it
 
-const setupPackageRoot = (): HTMLDivElement => {
-    const root = document.createElement("div")
+const setupPackageRoot = (): HTMLSpanElement => {
+    const root = document.createElement("span")
     root.classList.add("staff-code")
 
     const svg = buildSvg()

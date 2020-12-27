@@ -5,7 +5,7 @@ import {handleKeydown, handleKeyup} from "./key"
 
 const INITIAL_STAFF_CODE_INPUT_VALUE = "ston Gcl ; " as Io
 
-const buildPackageInput = (root: HTMLDivElement): HTMLTextAreaElement => {
+const buildPackageInput = (root: HTMLSpanElement): HTMLTextAreaElement => {
     const input = document.createElement("textarea")
 
     input.value = INITIAL_STAFF_CODE_INPUT_VALUE

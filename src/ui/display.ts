@@ -1,3 +1,10 @@
+import {Em, Multiplier} from "@sagittal/general"
+
+const FONT_SIZE = 2.5 as Em
+const INLINE_FONT_SIZE = 1 as Em
+const LINE_HEIGHT_MULTIPLIER = 2 as Multiplier<Em>
+const MARGIN_SIZE = 1 as Em
+
 // TODO: NEW FEATURE, READY TO GO: ADJUSTABLE LINE HEIGHT
 // tslint:disable:max-line-length
 /*
@@ -7,13 +14,12 @@ But then I thort maybe the space above the staff should be settable independentl
 
 Just thortz. No need to do or say anything about them.
  */
-const LINE_HEIGHT = 2
 
 const buildDisplay = (inline: boolean = false): HTMLElement => {
     const display = document.createElement(inline ? "span" : "div")
-    display.style.fontSize = "40px"
-    display.style.lineHeight = `${LINE_HEIGHT}em`
-    display.style.margin = "1em 0"
+    display.style.fontSize = `${inline ? INLINE_FONT_SIZE : FONT_SIZE}em`
+    display.style.lineHeight = `${LINE_HEIGHT_MULTIPLIER}`
+    display.style.margin = `${MARGIN_SIZE}em 0`
     // TODO: FEATURE IMPROVE, BLOCKED: BRAVURA TEXT SC
     //  Rename the font to Bravura Text SC, "SC" for "StaffCode".
     //  But you'll have to run it through the https://onlinefontconverter.com/]online font converter afterwards,
@@ -30,6 +36,6 @@ const buildDisplay = (inline: boolean = false): HTMLElement => {
 }
 
 export {
-    LINE_HEIGHT,
+    LINE_HEIGHT_MULTIPLIER,
     buildDisplay,
 }
