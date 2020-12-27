@@ -8,6 +8,9 @@ const DOWNLOAD_FILENAME: string = "staffCode.svg"
 // TODO: FEATURE IMPROVE, TOUGH AND LOW PRIORITY: PROGRAMMATICALLY DETERMINE WIDTH OF SVG
 //  - Do whatever it takes to make the SVGs width match its contents, rather than just be something safe but huge
 
+// TODO: BUG: SVG VERTICAL OUT OF BOUNDS HIGH AND LOW NOTES
+//  If you have a very low leger note, it gets cut off in the SVG
+
 const downloadSvg = (display: HTMLDivElement, svg: SVGElement): void => {
     const unicodeSentence: Unicode = (display.textContent || BLANK) as Unicode
 
