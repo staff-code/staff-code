@@ -54,7 +54,7 @@ const computeAdvanceUnicode = (width: Octels): Unicode & Clause => {
     let unicodeClause = EMPTY_UNICODE as Unicode & Clause
     while (remainingWidth >= MAX_ADVANCE_WIDTH) {
         remainingWidth = subtract(remainingWidth, MAX_ADVANCE_WIDTH)
-        unicodeClause = extendClause(unicodeClause, MAX_ADVANCE_UNICODE) as Unicode & Clause // todo: arg types work
+        unicodeClause = extendClause(unicodeClause, MAX_ADVANCE_UNICODE) as Unicode & Clause
     }
 
     return extendClause(unicodeClause, WIDTH_TO_ADVANCE_UNICODE_ARRAY[remainingWidth]) as Unicode & Clause
