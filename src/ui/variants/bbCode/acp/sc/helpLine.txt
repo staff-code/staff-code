@@ -1,0 +1,1 @@
+Convert staffCodes into inline music notation: [sc]\![/sc]

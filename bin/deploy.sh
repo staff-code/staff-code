@@ -20,12 +20,18 @@ rm -r dist/bbCode/* > /dev/null 2>&1 || true
 npm run build-bbcode
 
 cp src/ui/variants/bbCode/acp/README.txt dist/bbCode
-BBCODE_USAGE=$(<src/ui/variants/bbCode/acp/bbCodeUsage.txt)
-sed -i "s|{{BBCODE_USAGE}}|${BBCODE_USAGE}|g" dist/bbCode/README.txt
-HTML_REPLACEMENT=$(<src/ui/variants/bbCode/acp/htmlReplacement.html)
-sed -i "s|{{HTML_REPLACEMENT}}|${HTML_REPLACEMENT//$'\n'/'\\\n'}|g" dist/bbCode/README.txt
-HELP_LINE=$(<src/ui/variants/bbCode/acp/helpLine.txt)
-sed -i "s|{{HELP_LINE}}|${HELP_LINE}|g" dist/bbCode/README.txt
+STAFF_BBCODE_USAGE=$(<src/ui/variants/bbCode/acp/staff/bbCodeUsage.txt)
+sed -i "s|{{STAFF_BBCODE_USAGE}}|${STAFF_BBCODE_USAGE}|g" dist/bbCode/README.txt
+STAFF_HTML_REPLACEMENT=$(<src/ui/variants/bbCode/acp/staff/htmlReplacement.html)
+sed -i "s|{{STAFF_HTML_REPLACEMENT}}|${STAFF_HTML_REPLACEMENT//$'\n'/'\\\n'}|g" dist/bbCode/README.txt
+STAFF_HELP_LINE=$(<src/ui/variants/bbCode/acp/staff/helpLine.txt)
+sed -i "s|{{STAFF_HELP_LINE}}|${STAFF_HELP_LINE}|g" dist/bbCode/README.txt
+SC_BBCODE_USAGE=$(<src/ui/variants/bbCode/acp/sc/bbCodeUsage.txt)
+sed -i "s|{{SC_BBCODE_USAGE}}|${SC_BBCODE_USAGE}|g" dist/bbCode/README.txt
+SC_HTML_REPLACEMENT=$(<src/ui/variants/bbCode/acp/sc/htmlReplacement.html)
+sed -i "s|{{SC_HTML_REPLACEMENT}}|${SC_HTML_REPLACEMENT//$'\n'/'\\\n'}|g" dist/bbCode/README.txt
+SC_HELP_LINE=$(<src/ui/variants/bbCode/acp/sc/helpLine.txt)
+sed -i "s|{{SC_HELP_LINE}}|${SC_HELP_LINE}|g" dist/bbCode/README.txt
 cp assets/fonts/* dist/bbCode
 
 pushd dist/bbCode
