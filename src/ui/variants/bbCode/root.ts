@@ -6,7 +6,9 @@ const setupBBCodeRoot = (root: Element): void => {
     if (root.classList.contains("processed")) return
     root.classList.add("processed")
 
-    const display = buildDisplay()
+    const inline = root.classList.contains("inline")
+
+    const display = buildDisplay(inline)
     root.appendChild(display)
 
     const input: HTMLTextAreaElement = root.querySelector("textarea")!

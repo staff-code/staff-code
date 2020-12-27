@@ -9,8 +9,8 @@ Just thortz. No need to do or say anything about them.
  */
 const LINE_HEIGHT = 2
 
-const buildDisplay = (): HTMLDivElement => {
-    const display = document.createElement("div")
+const buildDisplay = (inline: boolean = false): HTMLElement => {
+    const display = document.createElement(inline ? "span" : "div")
     display.style.fontSize = "40px"
     display.style.lineHeight = `${LINE_HEIGHT}em`
     display.style.margin = "1em 0"

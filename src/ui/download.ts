@@ -11,7 +11,7 @@ const DOWNLOAD_FILENAME: string = "staffCode.svg"
 // TODO: BUG: SVG VERTICAL OUT OF BOUNDS HIGH AND LOW NOTES
 //  If you have a very low leger note, it gets cut off in the SVG
 
-const downloadSvg = (display: HTMLDivElement, svg: SVGElement): void => {
+const downloadSvg = (display: HTMLElement, svg: SVGElement): void => {
     const unicodeSentence: Unicode = (display.textContent || BLANK) as Unicode
 
     const height = computeSvgHeight(unicodeSentence)
