@@ -3,12 +3,6 @@ import {isUnicodeLiteral, LowercasedCode, Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
 import {shouldNotBeDisplayed, smarts} from "./smarts"
 
-// TODO: NEW FEATURE: STAFF CODE AUTOMATICALLY STAYS UP-TO-DATE WITH SMuFL
-//  "Make a javascript tool that does, at transpile time, what my spreadsheet does, to glyphNames.json.
-//  That way, it would automatically generate new codes and widths for every new release of SMuFL/Bravura.
-//  I'm not saying you should do this any time soon, or ever, but I thought I should mention the possibility. :)"
-//  - So, currently, in deploy.sh, we update the SMuFL/Bravura data in the repo, so widths will be updated.
-
 const computeMaybeNotDisplayedUnicode = (unicode: Unicode & Word): Unicode & Word =>
     shouldNotBeDisplayed(unicode) ?
         EMPTY_UNICODE as Unicode & Word :

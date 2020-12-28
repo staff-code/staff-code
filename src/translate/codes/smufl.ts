@@ -3,6 +3,13 @@
 import {RecordKey, Word} from "@sagittal/general"
 import {Code, Unicode} from "./types"
 
+// TODO: NEW FEATURE: STAFF CODE AUTOMATICALLY STAYS UP-TO-DATE WITH SMuFL
+//  "Make a javascript tool that does, at transpile time, what my spreadsheet does, to glyphNames.json.
+//  That way, it would automatically generate new codes and widths for every new release of SMuFL/Bravura.
+//  I'm not saying you should do this any time soon, or ever, but I thought I should mention the possibility. :)"
+//  - So, currently, in deploy.sh, we update the SMuFL/Bravura data in the repo, so widths will be updated.
+//  But we need this map here to be computable from glyphnames.json, using a JS impl of Dave's autogen'd naming scheme.
+
 const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /* 	 */"chtb": "\u0009", // character tabulation
     /* \n */"lnfd": "\u000A",    // line feed
