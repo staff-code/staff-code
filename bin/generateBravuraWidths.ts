@@ -1,6 +1,6 @@
-import {isUndefined, RecordKey, round, Word} from "@sagittal/general"
-import {bravuraMetadata, glyphNames} from "../../../../vendor"
-import {computeUnicodeLiteral, Octels, SMuFL_MAP, Unicode} from "../../codes"
+import {BLANK, isUndefined, RecordKey, round, Word} from "@sagittal/general"
+import * as fs from "fs"
+import {computeUnicodeLiteral, Octels, SMuFL_MAP, Unicode} from "../src"
 
 const computeBravuraWidth = ([_, {bBoxNE: [x, y]}]: [any, {bBoxNE: number[]}]): Octels =>
     round(x * 8) as Octels
@@ -13,10 +13,16 @@ const OVERRIDDEN_WIDTHS: Record<RecordKey<Unicode>, Octels> = {
     [SMuFL_MAP["bldb"]]: 3 as Octels,
 }
 
-// TODO: DO NOT FORCE THE VENDOR FILES TO BE INCLUDED IN THE BUNDLE
-//  There must be some other way to rig this so that only the widths get included, not the vendor files
+const generateBravuraWidths = (): void => {
+    const bravuraMetadata = JSON.parse(
+        fs.readFileSync("vendor/bravura_metadata.json", {encoding: "utf8"})
+            .replace(/\r/g, BLANK),
+    )
+    const glyphNames = JSON.parse(
+        fs.readFileSync("vendor/glyphnames.json", {encoding: "utf8"})
+            .replace(/\r/g, BLANK),
+    )
 
-const computeBravuraWidths = (): Record<RecordKey<Unicode>, Octels> => {
     const bravuraWidths = {} as Record<RecordKey<Unicode>, Octels>
     const boundingBoxEntries = Object.entries(bravuraMetadata.glyphBBoxes) as Array<[string, {bBoxNE: number[]}]>
     const glyphNameEntries = Object.entries(glyphNames) as Array<[string, {codepoint: string}]>
@@ -49,9 +55,10 @@ const computeBravuraWidths = (): Record<RecordKey<Unicode>, Octels> => {
         bravuraWidths[existingUnicode] = width
     })
 
-    return bravuraWidths
+    fs.writeFileSync(
+        "src/translate/smarts/advanceAndStave/bravuraWidths.json",
+        JSON.stringify(bravuraWidths, undefined, 2),
+    )
 }
 
-export {
-    computeBravuraWidths,
-}
+generateBravuraWidths()

@@ -1,6 +1,6 @@
 {
   "name": "staff-code",
-  "version": "1.0.43",
+  "version": "1.0.45",
   "main": "dist/package/src/index.js",
   "types": "dist/package/src/index.d.ts",
   "description": "converts simple text codes into Unicode which in the Bravura Text font displays as sheet music",
@@ -21,7 +21,8 @@
     "test-names": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine --ci=false --names=true",
     "test-ci": "node -r ts-node/register node_modules/jasmine/bin/jasmine --ci=true",
     "test-ci-names": "node -r ts-node/register node_modules/jasmine/bin/jasmine --ci=true --names=true",
-    "tmp": "node -r ts-node/register/transpile-only --max-old-space-size=131072 spec/helpers/shared/tmp/tmp.ts"
+    "tmp": "node -r ts-node/register/transpile-only --max-old-space-size=131072 spec/helpers/shared/tmp/tmp.ts",
+    "generate-bravura-widths": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/generateBravuraWidths.ts"
   },
   "devDependencies": {
     "@sagittal/general": "^1.0.68",
