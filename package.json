@@ -1,8 +1,8 @@
 {
   "name": "staff-code",
-  "version": "1.0.42",
-  "main": "dist/package/index.js",
-  "types": "dist/package/index.d.ts",
+  "version": "1.0.43",
+  "main": "dist/package/src/index.js",
+  "types": "dist/package/src/index.d.ts",
   "description": "converts simple text codes into Unicode which in the Bravura Text font displays as sheet music",
   "license": "MIT",
   "repository": {
