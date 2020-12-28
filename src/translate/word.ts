@@ -6,30 +6,29 @@ import {
     computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
     isCommenting,
 } from "./smarts"
-import {computeSymbol} from "./symbol"
-import {computeUnicode} from "./unicode"
+import {computeMaybeNotDisplayedUnicode, getUnicode} from "./unicode"
 
 const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
     if (isCommenting(input)) return EMPTY_UNICODE as Unicode & Clause
 
-    const symbol = computeSymbol(input)
+    const unicode = getUnicode(input)
 
     const smartAdvanceAndSmartStaveUnicodeIntroClause: Unicode & Clause =
-        computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStave(symbol)
+        computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStave(unicode)
     const smartPositionAndSmartClefUnicodeIntroClause: Unicode & Clause =
-        computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts(symbol)
+        computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts(unicode)
     const introClauseUnicode = sumTexts(
         smartAdvanceAndSmartStaveUnicodeIntroClause,
         smartPositionAndSmartClefUnicodeIntroClause,
     )
 
-    const symbolUnicode = computeUnicode(symbol)
-    const unicode = extendClause(introClauseUnicode, symbolUnicode)
+    const displayUnicode = computeMaybeNotDisplayedUnicode(unicode)
+    const inputUnicodeClause = extendClause(introClauseUnicode, displayUnicode)
 
     // tslint:disable-next-line
     // console.warn(`${input} → ${computeCodeSentenceFromUnicodeSentence(unicode)}\nad${smarts.advanceWidth} st${smarts.staveWidth}\n`)
 
-    return unicode as Unicode & Clause
+    return inputUnicodeClause as Unicode & Clause
 }
 
 

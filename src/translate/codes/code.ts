@@ -1,14 +1,12 @@
 import {BLANK, joinWords, Sentence, Word} from "@sagittal/general"
 import {
     ACCIDENTAL_ALIASES_MAP,
-    BASE_SYMBOL_MAP,
-    Code,
     GENERIC_POSITION_ALIASES_MAP,
     LINE_BREAK_ALIASES_MAP,
     MANUAL_STAVE_ALIASES_MAP,
-    Symbol,
-    Unicode,
-} from "../codes"
+} from "./aliases"
+import {BASE_SYMBOL_MAP} from "./codes"
+import {Code, Unicode} from "./types"
 
 const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {
     ...ACCIDENTAL_ALIASES_MAP,
@@ -19,13 +17,12 @@ const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {
 }
 const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES = Object.entries(
     BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING,
-) as Array<[unknown, Symbol]> as Array<[Code & Word, Symbol]>
+) as Array<[unknown, Unicode & Word]> as Array<[Code & Word, Unicode & Word]>
 
 const computeDebugCodeFromUnicode = (unicode: Unicode & Word): Code & Word => {
     const codeEntry = BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES
-        .find((codeEntry: [Code & Word, Symbol]): boolean => {
-            const [_, symbol] = codeEntry
-            const {unicode: symbolUnicode} = symbol
+        .find((codeEntry: [Code & Word, Unicode & Word]): boolean => {
+            const [_, symbolUnicode] = codeEntry
 
             return symbolUnicode === unicode
         })
@@ -74,5 +71,6 @@ const computeCodeSentenceFromUnicodeSentence = (unicodeSentence: Unicode & Sente
 }
 
 export {
+    computeDebugCodeFromUnicode,
     computeCodeSentenceFromUnicodeSentence,
 }

@@ -1,20 +1,22 @@
-import {isUndefined, RecordKey, stringify, Word} from "@sagittal/general"
-import {Code, LowercasedCode, Symbol} from "./types"
+import {isUndefined, RecordKey, Word} from "@sagittal/general"
+import {computeUnicodeLiteral} from "./literal"
+import {Code, LowercasedCode, Unicode} from "./types"
 
 const mergeAllCodeMapsIntoLowercasedCodeMap = (
-    ...maps: Array<Record<RecordKey<Code & Word>, Symbol>>
-): Record<RecordKey<LowercasedCode & Word>, Symbol> => {
-    const mergedAndLowercasedMaps = {} as Record<RecordKey<LowercasedCode & Word>, Symbol>
+    ...maps: Array<Record<RecordKey<Code & Word>, Unicode & Word>>
+): Record<RecordKey<LowercasedCode & Word>, Unicode & Word> => {
+    const mergedAndLowercasedMaps = {} as Record<RecordKey<LowercasedCode & Word>, Unicode & Word>
 
-    maps.forEach((map: Record<RecordKey<Code & Word>, Symbol>): void => {
-        const mapEntries = Object.entries(map) as Array<[unknown, Symbol]> as Array<[Code & Word, Symbol]>
+    maps.forEach((map: Record<RecordKey<Code & Word>, Unicode & Word>): void => {
+        const mapEntries = Object.entries(map) as Array<[unknown, Unicode & Word]> as
+            Array<[Code & Word, Unicode & Word]>
 
-        mapEntries.forEach(([code, symbol]: [Code & Word, Symbol]): void => {
+        mapEntries.forEach(([code, unicode]: [Code & Word, Unicode & Word]): void => {
             const lowercasedCode = code.toLowerCase() as LowercasedCode
             if (!isUndefined(mergedAndLowercasedMaps[lowercasedCode])) {
-                throw new Error(`duplicate code: ${code} maps to both ${stringify(mergedAndLowercasedMaps[lowercasedCode])} and ${stringify(symbol)}.`)
+                throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteral(mergedAndLowercasedMaps[lowercasedCode])} and code point ${computeUnicodeLiteral(unicode)}.`)
             }
-            mergedAndLowercasedMaps[lowercasedCode] = symbol
+            mergedAndLowercasedMaps[lowercasedCode] = unicode
         })
     })
 

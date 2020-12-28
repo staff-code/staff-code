@@ -1,5 +1,5 @@
 import {RecordKey, Word} from "@sagittal/general"
-import {LowercasedCode, Octels, Symbol, Unicode} from "../codes"
+import {LowercasedCode, Octels, Unicode} from "../codes"
 
 interface Smarts {
     advanceWidth: Octels,
@@ -8,7 +8,7 @@ interface Smarts {
     staveOn: boolean,
     commenting: boolean,
     position: Unicode & Word,
-    lowercasedCodeMap: Record<RecordKey<LowercasedCode & Word>, Symbol>
+    lowercasedCodeMap: Record<RecordKey<LowercasedCode & Word>, Unicode & Word>
 }
 
 export {

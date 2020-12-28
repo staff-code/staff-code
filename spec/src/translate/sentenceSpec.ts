@@ -4,7 +4,7 @@ import {Io, Sentence} from "@sagittal/general"
 import {computeInputSentenceUnicode} from "../../../src"
 import {Unicode} from "../../../src/translate"
 import {Code} from "../../../src/translate/codes"
-import {computeCodeSentenceFromUnicodeSentence} from "../../../src/translate/utility"
+import {computeCodeSentenceFromUnicodeSentence} from "../../../src/translate/codes/code"
 
 describe("computeInputSentenceUnicode", (): void => {
     it("basically works", (): void => {
@@ -87,7 +87,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("don't manifest until they are needed (only apply to symbols with ligatures to be vertically shifted by them)", (): void => {
-            const inputSentence = "d5 ston /|\\ 13; nt" as Io & Sentence
+            const inputSentence = "d5 ston /|\\ ; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -97,8 +97,8 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("persist until a new one is used", (): void => {
-            const inputSentence = "d5 ston /|\\ 13; nt 13; g4 \\! 7; nt" as Io & Sentence
+        it("persists until a new position is used (is 'sticky')", (): void => {
+            const inputSentence = "d5 ston /|\\ ; nt ; g4 \\! ; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -167,7 +167,6 @@ describe("computeInputSentenceUnicode", (): void => {
     })
 
     describe("Smart Advance", (): void => {
-        // todo: remove all references to symbol
         it("advances by the width computed for each glyph from the Bravura font", (): void => {
             let actual
             let expectedUnicode
@@ -257,7 +256,7 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("if more than one symbol has occurred since the previous advance, uses the width of the symbol with the max width", (): void => {
+        it("if more than one unicode has occurred since the previous advance, uses the width of the unicode with the max width", (): void => {
             const inputSentence = "lgln nt16up" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
@@ -287,6 +286,17 @@ describe("computeInputSentenceUnicode", (): void => {
             const expectedUnicode = "   " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "nt16up 24; 2;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("supports manual advance amounts", (): void => {
+            const inputSentence = "ston d5 /|\\ 14; nt 17;" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "      " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "up2 /|\\ st8 8; st8 6; up2 ntqrup 2; st8 8; st8 7;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
     })

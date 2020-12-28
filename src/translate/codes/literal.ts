@@ -1,6 +1,5 @@
 import {Io, Word} from "@sagittal/general"
-import {Unicode} from "../codes"
-import {UnicodeLiteral} from "../types"
+import {Unicode, UnicodeLiteral} from "./types"
 
 const isUnicodeLiteral = (candidateUnicodeLiteral: Io & Word): candidateUnicodeLiteral is UnicodeLiteral & Word =>
     !!candidateUnicodeLiteral.match(/^U\+/)

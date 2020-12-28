@@ -2,25 +2,24 @@ import {Clause, RecordKey, Word} from "@sagittal/general"
 import {
     BASS_POSITION_ALIASES_MAP,
     Code,
+    computeUnicodeForCode,
     GENERIC_POSITION_ALIASES_MAP,
     LowercasedCode,
     LOWERCASED_CODE_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
-    Symbol,
     TREBLE_POSITION_ALIASES_MAP,
     Unicode,
 } from "../codes"
 import {EMPTY_UNICODE} from "../constants"
-import {computeMapUnicodes, computeUnicodeForCode} from "../utility"
 import {smarts} from "./globals"
 
 const TREBLE_UNICODE = computeUnicodeForCode("Gcl" as Code & Word)
 const BASS_UNICODE = computeUnicodeForCode("Fcl" as Code & Word)
 
-const BASS_LOWERCASED_CODE_MAP: Record<RecordKey<LowercasedCode & Word>, Symbol> =
-    {...LOWERCASED_CODE_MAP, ...BASS_POSITION_ALIASES_MAP} as Record<LowercasedCode & Word, Symbol>
-const TREBLE_LOWERCASED_CODE_MAP: Record<RecordKey<LowercasedCode & Word>, Symbol> =
-    {...LOWERCASED_CODE_MAP, ...TREBLE_POSITION_ALIASES_MAP} as Record<LowercasedCode & Word, Symbol>
+const BASS_LOWERCASED_CODE_MAP: Record<RecordKey<LowercasedCode & Word>, Unicode & Word> =
+    {...LOWERCASED_CODE_MAP, ...BASS_POSITION_ALIASES_MAP} as Record<LowercasedCode & Word, Unicode & Word>
+const TREBLE_LOWERCASED_CODE_MAP: Record<RecordKey<LowercasedCode & Word>, Unicode & Word> =
+    {...LOWERCASED_CODE_MAP, ...TREBLE_POSITION_ALIASES_MAP} as Record<LowercasedCode & Word, Unicode & Word>
 
 // TODO: FEATURE IMPROVE, READY TO GO: ALTO AND TENOR STAFF
 
@@ -42,7 +41,7 @@ const TREBLE_LOWERCASED_CODE_MAP: Record<RecordKey<LowercasedCode & Word>, Symbo
 //  And I know I asked him at some point if he was keeping track of all of those changes, and I think he replied
 //  But for the life of me I cannot find it
 
-const POSITION_UNICODES = computeMapUnicodes({...GENERIC_POSITION_ALIASES_MAP, ...NOT_SMuFL_ZERO_POSITION_MAP})
+const POSITION_UNICODES = Object.values({...GENERIC_POSITION_ALIASES_MAP, ...NOT_SMuFL_ZERO_POSITION_MAP})
 const NOT_SMuFL_ZERO_POSITION_UNICODE = computeUnicodeForCode("up0" as Code & Word)
 
 const isInLegerLineRange = (unicode: Unicode & Word): boolean =>
@@ -78,20 +77,22 @@ const canBePositioned = (unicode: Unicode & Word): boolean =>
 const isPositionUnicode = (unicode: Unicode & Word): boolean =>
     POSITION_UNICODES.includes(unicode)
 
-const updateSmartPosition = ({unicode}: Symbol): void => {
+const updateSmartPosition = (unicode: Unicode & Word): void => {
     if (isPositionUnicode(unicode)) smarts.position = unicode
 }
 
-const computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts = (symbol: Symbol): Unicode & Clause => {
-    updateSmartClef(symbol)
-    updateSmartPosition(symbol)
+const computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts = (
+    unicode: Unicode & Word,
+): Unicode & Clause => {
+    updateSmartClef(unicode)
+    updateSmartPosition(unicode)
 
-    return canBePositioned(symbol.unicode) && smarts.position !== NOT_SMuFL_ZERO_POSITION_UNICODE ?
+    return canBePositioned(unicode) && smarts.position !== NOT_SMuFL_ZERO_POSITION_UNICODE ?
         smarts.position as Unicode as Unicode & Clause :
         EMPTY_UNICODE as Unicode & Clause
 }
 
-const updateSmartClef = ({unicode}: Symbol): void => {
+const updateSmartClef = (unicode: Unicode & Word): void => {
     if (unicode === TREBLE_UNICODE) smarts.lowercasedCodeMap = TREBLE_LOWERCASED_CODE_MAP
     if (unicode === BASS_UNICODE) smarts.lowercasedCodeMap = BASS_LOWERCASED_CODE_MAP
 }

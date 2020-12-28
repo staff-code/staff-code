@@ -1,11 +1,11 @@
 import {RecordKey, Word} from "@sagittal/general"
 import {SMuFL_MAP} from "../../smufl"
-import {Code, Symbol} from "../../types"
+import {Code, Unicode} from "../../types"
 
 // See: https://w3c.github.io/smufl/gitbook/tables/extended-helmholtz-ellis-accidentals-just-intonation.html
 // All EHEJIPN staffCodes start with a dot (full-stop). Unicodes are successive below.
 
-const EHEJIPN_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
+const EHEJIPN_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ".bbv": SMuFL_MAP["acdbflonardn"],
     ".bv": SMuFL_MAP["acflonardn"],
     ".nv": SMuFL_MAP["acntonardn"],
@@ -86,7 +86,7 @@ const EHEJIPN_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     ".x": SMuFL_MAP["acdbsh"], // *
     ".<b": SMuFL_MAP["acthqrtnflzm"], // **
     ".>#": SMuFL_MAP["acthqrtnshst"],
-} as Record<Code & Word, Symbol>
+} as Record<Code & Word, Unicode & Word>
 
 // * Not the same as "x", the (Sagittal-compatible) large double-sharp.
 // ** Not the same as "<b", the (Sagittal-compatible) sesquiflat.

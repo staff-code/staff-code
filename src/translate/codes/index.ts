@@ -7,6 +7,9 @@ export {
     LINE_BREAK_ALIASES_MAP,
 } from "./aliases"
 export {LOWERCASED_CODE_MAP, BASE_SYMBOL_MAP} from "./codes"
+export {computeDebugCodeFromUnicode} from "./code"
+export {computeUnicodeForCode} from "./unicode"
+export {computeUnicodeLiteral} from "./literal"
 export {SMuFL_MAP} from "./smufl"
 export {
     NOT_SMuFL_SMART_STAVE_MAP,
@@ -15,4 +18,4 @@ export {
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
     NOT_SMuFL_SMART_ADVANCE_MAP,
 } from "./notSmufl"
-export {Unicode, Symbol, Code, LowercasedCode, Octels} from "./types"
+export {Unicode, Code, LowercasedCode, Octels} from "./types"

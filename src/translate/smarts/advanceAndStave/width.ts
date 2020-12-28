@@ -1,8 +1,8 @@
-import {add, isUndefined} from "@sagittal/general"
-import {Octels, Symbol} from "../../codes"
+import {add, isUndefined, Word} from "@sagittal/general"
+import {computeDebugCodeFromUnicode, Octels, Unicode} from "../../codes"
 import {bravuraWidths, smarts} from "../globals"
 
-const computeSymbolWidth = ({unicode}: Symbol): Octels => {
+const computeUnicodeWidth = (unicode: Unicode & Word): Octels => {
     const bravuraWidth = bravuraWidths[unicode]
     const width = isUndefined(bravuraWidth) ? 0 as Octels : bravuraWidth
 
@@ -10,5 +10,5 @@ const computeSymbolWidth = ({unicode}: Symbol): Octels => {
 }
 
 export {
-    computeSymbolWidth,
+    computeUnicodeWidth,
 }

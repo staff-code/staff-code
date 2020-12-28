@@ -1,6 +1,6 @@
 import {Word} from "@sagittal/general"
-import {Code} from "../../../../src/translate/codes"
-import {computeUnicodeForCode, computeUnicodeLiteral} from "../../../../src/translate/utility"
+import {Code, computeUnicodeForCode} from "../../../../src/translate/codes"
+import {computeUnicodeLiteral} from "../../../../src/translate/codes/literal"
 
 describe("computeUnicodeLiteral", (): void => {
     it("can get you the codepoint of a given Unicode char, using lowercase", (): void => {

@@ -1,12 +1,12 @@
 import {RecordKey, Word} from "@sagittal/general"
 import {SMuFL_MAP} from "../../smufl"
-import {Code, Symbol} from "../../types"
+import {Code, Unicode} from "../../types"
 
 // TODO: FEATURE IMPROVE: COMMA NAME ALIASES FOR SAGITTAL
 //  I think we still need the short-form comma based names.
 //  Use "^" for powers and "*" or full-stop for multiply. Use the standard factorisation rules we agreed.
 
-const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
+const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "|(": SMuFL_MAP["acsg5V7klup"],
     "!(": SMuFL_MAP["acsg5V7kldn"],
     "/|": SMuFL_MAP["acsg5cmup"],
@@ -243,9 +243,9 @@ const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = 
     "l9": SMuFL_MAP["acsg9tndn"],
     "@.": SMuFL_MAP["acsgfrtnup"],
     "l.": SMuFL_MAP["acsgfrtndn"],
-} as Record<Code & Word, Symbol>
+} as Record<Code & Word, Unicode & Word>
 
-const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
+const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "nai": SMuFL_MAP["acsg5V7klup"],
     "nao": SMuFL_MAP["acsg5V7kldn"],
     "pai": SMuFL_MAP["acsg5cmup"],
@@ -482,9 +482,9 @@ const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
     "momomo": SMuFL_MAP["acsg9tndn"],
     "i": SMuFL_MAP["acsgfrtnup"],
     "o": SMuFL_MAP["acsgfrtndn"],
-} as Record<Code & Word, Symbol>
+} as Record<Code & Word, Unicode & Word>
 
-const SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
+const SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "fai": SMuFL_MAP["acsg25smdsup"],
     "fao": SMuFL_MAP["acsg25smdsdn"],
     "gai": SMuFL_MAP["acsg35mddsup"],
@@ -533,9 +533,9 @@ const SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, S
     "rachaoflt": SMuFL_MAP["acsgfl5V13Ldn"],
     "slaodblshp": SMuFL_MAP["acsgdbsh143Cdn"],
     "slaidblflt": SMuFL_MAP["acsgdbfl143Cup"],
-} as Record<Code & Word, Symbol>
+} as Record<Code & Word, Unicode & Word>
 
-const SAGITTAL_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Symbol> = {
+const SAGITTAL_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ...SAGITTAL_LONG_ASCII_ALIASES_MAP,
     ...SAGITTAL_SAGISPEAK_ALIASES_MAP,
     ...SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP,
