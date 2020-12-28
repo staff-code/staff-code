@@ -6,7 +6,7 @@ const LINE_HEIGHT_MULTIPLIER = 2 as Multiplier<Em>
 const MARGIN_SIZE = 1 as Em
 
 // TODO: NEW FEATURE, READY TO GO: ADJUSTABLE LINE HEIGHT
-// tslint:disable:max-line-length
+// tslint:disable max-line-length
 /*
 Had the thort that if we give users control of the vertical spacing between staves, and hence (after adding some constant) the height of the output field when it consists of a single staff, then the units should be staff-spaces, not octels. The minimum would normally be 2 spaces. That's enough room for one leger line between the staves. You currently have 6 spaces between staves — enough for 5 leger lines. That seems like the most anyone should want. But I suppose we could allow from 1 to 8. The codes could be of the form "stsp<n>".
 

@@ -1,7 +1,6 @@
 import {Word} from "@sagittal/general"
 import {Code} from "../../../../src/translate/codes"
-import {computeUnicodeForCode} from "../../../../src/translate/utility"
-import {computeUnicodeLiteral} from "../../../../src/translate/utility/literal"
+import {computeUnicodeForCode, computeUnicodeLiteral} from "../../../../src/translate/utility"
 
 describe("computeUnicodeLiteral", (): void => {
     it("can get you the codepoint of a given Unicode char, using lowercase", (): void => {
@@ -9,7 +8,7 @@ describe("computeUnicodeLiteral", (): void => {
 
         const actual = computeUnicodeLiteral(unicode)
 
-        const expected = "u+e08a"
+        const expected = "U+E08A"
         expect(actual).toBe(expected)
     })
 })

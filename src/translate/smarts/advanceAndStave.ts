@@ -11,10 +11,11 @@ import {
 } from "../codes"
 import {EMPTY_UNICODE} from "../constants"
 import {computeMapUnicodes, computeUnicodeForCode} from "../utility"
-import {computeSymbolWidth} from "../width"
 import {smarts} from "./globals"
+import {computeSymbolWidth} from "./width"
 
 // TODO: CLEAN, BREAK DOWN ADVANCE AND STAVE AND POSITION AND CLEF INTO MODULES WITHIN SMARTS
+//  And it should include width stuff
 
 const SMART_ADVANCE_UNICODES = computeMapUnicodes(NOT_SMuFL_SMART_ADVANCE_MAP)
 const MANUAL_ADVANCE_UNICODES = computeMapUnicodes(NOT_SMuFL_MANUAL_ADVANCE_MAP)

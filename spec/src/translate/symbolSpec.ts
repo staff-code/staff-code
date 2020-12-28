@@ -43,7 +43,7 @@ describe("computeSymbol", (): void => {
     })
 
     it("takes a symbol in its Unicode literal form and converts it to Unicode, and assumes its width is 0                   ", (): void => {
-        const unicodeLiteral: UnicodeLiteral & Word = "u+5e78" as UnicodeLiteral & Word
+        const unicodeLiteral: UnicodeLiteral & Word = "U+5E78" as UnicodeLiteral & Word
 
         const actual = computeSymbol(unicodeLiteral)
 
@@ -52,7 +52,7 @@ describe("computeSymbol", (): void => {
     })
 
     it("let's do a realistic, known example", (): void => {
-        const unicodeLiteral: UnicodeLiteral & Word = "u+e3f0" as UnicodeLiteral & Word
+        const unicodeLiteral: UnicodeLiteral & Word = "U+E3F0" as UnicodeLiteral & Word
 
         const actual = computeSymbol(unicodeLiteral)
 

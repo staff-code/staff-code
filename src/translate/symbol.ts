@@ -16,7 +16,7 @@ import {isUnicodeLiteral} from "./utility"
 //  As part of this file: https://github.com/steinbergmedia/bravura/blob/master/redist/bravura_metadata.json
 //  Its structure is described here: https://w3c.github.io/smufl/gitbook/specification/glyphadvancewidths.html
 //  Although now I see that is not actually included in Bravura yet...
-// tslint:disable:max-line-length
+// tslint:disable max-line-length
 /*
 [quote="Dave Keenan" post_id=3203 time=1608776543 user_id=2]
 I've just realised that, since we are forced to add our own right-sidebearing anyway (according to our sp<n> setting), what we really want is the right coordinate of the bounding box of each symbol — not its advance-width, which contains right-sidebearing in the case of the sagittal accents, and presumably other things that can kern.
@@ -40,7 +40,7 @@ and make a javascript tool that does, at transpile time, what my spreadsheet doe
 // So you'd want me to implement your naming scheme in the JavaScript too.
 const computeUnicodeLiteralSymbol = (input: Io & Word): Symbol =>
     ({
-        unicode: String.fromCharCode(parseInt(input.replace(/^u\+(.*)/, "0x$1"))) as Unicode & Word,
+        unicode: String.fromCharCode(parseInt(input.replace(/^U\+(.*)/, "0x$1"))) as Unicode & Word,
         width: 0 as Octels,
     })
 

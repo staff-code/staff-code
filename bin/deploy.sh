@@ -1,5 +1,11 @@
 set -e
 
+# todo this does not work, it downloads the HTML for these pages, not the raw JSON
+#rm vendor/glyphnames.json
+#wget -P vendor https://github.com/w3c/smufl/blob/gh-pages/metadata/glyphnames.json
+#rm vendor/bravura_metadata.json
+#wget -P vendor https://github.com/steinbergmedia/bravura/blob/master/redist/bravura_metadata.json
+
 npm version patch
 NEW_VERSION=$(< package.json grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')
 

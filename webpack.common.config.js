@@ -1,6 +1,6 @@
 module.exports = {
     resolve: {
-        extensions: [".ts", ".scss", ".js"],
+        extensions: [".ts", ".scss", ".js", ".json"],
         alias: {
             buffer: "buffer",
         },

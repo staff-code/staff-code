@@ -7,6 +7,7 @@ export {
     LINE_BREAK_ALIASES_MAP,
 } from "./aliases"
 export {LOWERCASED_CODE_MAP, BASE_SYMBOL_MAP} from "./codes"
+export {SMuFL_MAP} from "./smufl"
 export {
     NOT_SMuFL_SMART_STAVE_MAP,
     NOT_SMuFL_SMART_SPACING_MAP,
