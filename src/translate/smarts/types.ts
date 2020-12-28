@@ -1,5 +1,10 @@
-import {RecordKey, Word} from "@sagittal/general"
-import {LowercasedCode, Octels, Unicode} from "../codes"
+import {Word} from "@sagittal/general"
+import {Octels, Unicode} from "../codes"
+
+enum Clef {
+    TREBLE,
+    BASS,
+}
 
 interface Smarts {
     advanceWidth: Octels,
@@ -8,9 +13,10 @@ interface Smarts {
     staveOn: boolean,
     commenting: boolean,
     position: Unicode & Word,
-    lowercasedCodeMap: Record<RecordKey<LowercasedCode & Word>, Unicode & Word>
+    clef: Clef,
 }
 
 export {
     Smarts,
+    Clef,
 }

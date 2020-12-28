@@ -12,7 +12,7 @@ const mergeAllCodeMapsIntoLowercasedCodeMap = (
             Array<[Code & Word, Unicode & Word]>
 
         mapEntries.forEach(([code, unicode]: [Code & Word, Unicode & Word]): void => {
-            const lowercasedCode = code.toLowerCase() as LowercasedCode
+            const lowercasedCode = code.toLowerCase() as LowercasedCode & Word
             if (!isUndefined(mergedAndLowercasedMaps[lowercasedCode])) {
                 throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteral(mergedAndLowercasedMaps[lowercasedCode])} and code point ${computeUnicodeLiteral(unicode)}.`)
             }

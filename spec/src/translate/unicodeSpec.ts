@@ -1,12 +1,8 @@
 import {Io, Word} from "@sagittal/general"
-import {
-    BASS_POSITION_ALIASES_MAP,
-    LOWERCASED_CODE_MAP,
-    TREBLE_POSITION_ALIASES_MAP,
-    Unicode,
-} from "../../../src/translate/codes"
+import {LOWERCASED_CODE_MAP, Unicode} from "../../../src/translate/codes"
 import {UnicodeLiteral} from "../../../src/translate/codes/types"
 import {smarts} from "../../../src/translate/smarts"
+import {Clef} from "../../../src/translate/smarts/types"
 import {getUnicode} from "../../../src/translate/unicode"
 
 describe("getUnicode", (): void => {
@@ -29,9 +25,9 @@ describe("getUnicode", (): void => {
     })
 
     it("works for different clefs", (): void => {
-        smarts.lowercasedCodeMap = TREBLE_POSITION_ALIASES_MAP
+        smarts.clef = Clef.TREBLE
         expect(getUnicode("d4" as Io & Word)).toEqual(LOWERCASED_CODE_MAP["dn5"])
-        smarts.lowercasedCodeMap = BASS_POSITION_ALIASES_MAP
+        smarts.clef = Clef.BASS
         expect(getUnicode("d4" as Io & Word)).toEqual(LOWERCASED_CODE_MAP["up7"])
     })
 
