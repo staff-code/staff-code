@@ -9,7 +9,7 @@ export {
 export {LOWERCASED_CODE_MAP, BASE_SYMBOL_MAP} from "./codes"
 export {computeDebugCodeFromUnicode} from "./code"
 export {computeUnicodeForCode} from "./unicode"
-export {computeUnicodeLiteral} from "./literal"
+export {computeUnicodeLiteral, isUnicodeLiteral} from "./literal"
 export {SMuFL_MAP} from "./smufl"
 export {
     NOT_SMuFL_SMART_STAVE_MAP,

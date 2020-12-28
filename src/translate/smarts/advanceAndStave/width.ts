@@ -1,5 +1,5 @@
 import {add, isUndefined, Word} from "@sagittal/general"
-import {computeDebugCodeFromUnicode, Octels, Unicode} from "../../codes"
+import {Octels, Unicode} from "../../codes"
 import {bravuraWidths, smarts} from "../globals"
 
 const computeUnicodeWidth = (unicode: Unicode & Word): Octels => {
