@@ -13,6 +13,9 @@ const OVERRIDDEN_WIDTHS: Record<RecordKey<Unicode>, Octels> = {
     [SMuFL_MAP["bldb"]]: 3 as Octels,
 }
 
+// TODO: DO NOT FORCE THE VENDOR FILES TO BE INCLUDED IN THE BUNDLE
+//  There must be some other way to rig this so that only the widths get included, not the vendor files
+
 const computeBravuraWidths = (): Record<RecordKey<Unicode>, Octels> => {
     const bravuraWidths = {} as Record<RecordKey<Unicode>, Octels>
     const boundingBoxEntries = Object.entries(bravuraMetadata.glyphBBoxes) as Array<[string, {bBoxNE: number[]}]>
