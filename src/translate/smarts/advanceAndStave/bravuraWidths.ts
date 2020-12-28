@@ -1,9 +1,7 @@
 import {isUndefined, Maybe, RecordKey, round} from "@sagittal/general"
-import {bravuraMetadata, glyphNames} from "../../../vendor"
-import {Octels, SMuFL_MAP, Symbol, Unicode} from "../codes"
-import {computeUnicodeLiteral} from "../utility"
-
-// todo when you find the home for this, clean up all the stuff you unnecessarily exported
+import {bravuraMetadata, glyphNames} from "../../../../vendor"
+import {Octels, SMuFL_MAP, Symbol, Unicode} from "../../codes"
+import {computeUnicodeLiteral} from "../../utility"
 
 const computeBravuraWidth = ([_, {bBoxNE: [x, y]}]: [any, {bBoxNE: number[]}]): Octels =>
     round(x * 8) as Octels

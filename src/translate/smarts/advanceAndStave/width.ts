@@ -1,6 +1,6 @@
 import {add, isUndefined} from "@sagittal/general"
-import {Octels, Symbol} from "../codes"
-import {bravuraWidths, smarts} from "./globals"
+import {Octels, Symbol} from "../../codes"
+import {bravuraWidths, smarts} from "../globals"
 
 const computeSymbolWidth = ({unicode}: Symbol): Octels => {
     const bravuraWidth = bravuraWidths[unicode]

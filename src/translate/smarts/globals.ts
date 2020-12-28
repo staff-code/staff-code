@@ -1,6 +1,6 @@
 import {RecordKey} from "@sagittal/general"
 import {Octels, Unicode} from "../codes"
-import {computeBravuraWidths} from "./bravuraWidths"
+import {computeBravuraWidths} from "./advanceAndStave"
 import {INITIAL_SMARTS} from "./constants"
 import {Smarts} from "./types"
 
