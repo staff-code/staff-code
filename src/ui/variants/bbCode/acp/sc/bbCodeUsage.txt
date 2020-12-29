@@ -1,1 +1,1 @@
-[sc]{TEXT}[/sc]
+[sc font={SIMPLETEXT;optional} line-height={NUMBER;optional}]{TEXT}[/sc]

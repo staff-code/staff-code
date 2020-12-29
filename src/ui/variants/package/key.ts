@@ -1,5 +1,6 @@
 import {BLANK, doOnNextEventLoop, Ms} from "@sagittal/general"
 import {transferInputToDisplay} from "../../transfer"
+import {StaffCodeCallback} from "../../types"
 
 let keydown = false
 
@@ -23,13 +24,18 @@ const shouldTransfer = (event: KeyboardEvent, input: HTMLTextAreaElement, multiC
     || shouldPressedKeyTriggerTransfer(event)
     || isCursorNotAtEndOfInput(input)
 
-const handleKeydown = (event: KeyboardEvent, root: HTMLSpanElement, input: HTMLTextAreaElement): void => {
+const handleKeydown = (
+    event: KeyboardEvent,
+    root: HTMLSpanElement,
+    input: HTMLTextAreaElement,
+    callback?: StaffCodeCallback,
+): void => {
     if (keydown) return
     keydown = true
     const multiCharSelection = isSelectionLengthGreaterThanOneChar()
     doOnNextEventLoop((): void => {
         if (shouldTransfer(event, input, multiCharSelection)) {
-            transferInputToDisplay(root)
+            transferInputToDisplay(root, {callback})
         }
     }, 100 as Ms).then()
 }

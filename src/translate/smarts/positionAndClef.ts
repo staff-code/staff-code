@@ -25,9 +25,8 @@ const CLEF_LOWERCASED_CODE_MAPS: Record<Clef, Record<RecordKey<LowercasedCode & 
     [Clef.BASS]: {...LOWERCASED_CODE_MAP, ...BASS_POSITION_ALIASES_MAP},
 }
 
-// TODO: FEATURE IMPROVE, READY TO GO: ALTO AND TENOR STAFF
-
-// TODO: FEATURE IMPROVE, BLOCKED: CLEFS CAN BE CSP'D AND THE MIDDLE C WILL BE SHIFTED
+// TODO: FEATURE IMPROVE, BLOCKED: CLEFS
+//  Clefs can be CSP'd and middle C will be shifted
 //  This will be blocked on adding the ligatures to the font, though
 //  That part is introduced here: http://forum.sagittal.org/viewtopic.php?p=3163#p3163
 //  Dave says "So in future, someone who wanted a tenor clef would write "up2 Ccl ;" or "[ tncl up2 Ccl ] tncl ;"."
@@ -37,6 +36,15 @@ const CLEF_LOWERCASED_CODE_MAPS: Record<Clef, Record<RecordKey<LowercasedCode & 
 //  Because if I add ligatures for the clefs, I'll want to do it in a FontForge script
 //  And I know I asked him at some point if he was keeping track of all of those changes, and I think he replied
 //  But for the life of me I cannot find it
+//  - This should also involve adding alto and tenor clefs
+//  - There's also the matter of renaming the font to Bravura Text SC, "SC" for "StaffCode".
+//  But you'll have to run it through the https://onlinefontconverter.com/]online font converter afterwards,
+//  To make it work on the web, and to generate the .woff.
+//  Old stuff here too: http://forum.sagittal.org/viewtopic.php?p=2811#p2811
+//  - And update the names (Just change "BB" to "SC" wherever you find it.)
+//  - I think I want to wait on this until I figure out the other changes I need to make, like clef ligatures
+//  As well as ligatures for all the supplemental positions (which have otherwise been implemented here)
+//  That's why I'm combining these to-dos here
 
 const POSITION_UNICODES = Object.values(GENERIC_POSITION_ALIASES_MAP)
 const NOT_SMuFL_ZERO_POSITION_UNICODE = computeUnicodeForCode("up0" as Code & Word)

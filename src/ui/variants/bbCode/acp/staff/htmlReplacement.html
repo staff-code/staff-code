@@ -1,4 +1,5 @@
-<span class="staff-code">
+<span class="staff-code" sc-interactive="{CHOICE1}" sc-download="{CHOICE2}" sc-inline="{CHOICE3}" sc-font="{SIMPLETEXT}" sc-line-height="{NUMBER}">
     <textarea class="input" style="display: none;">{TEXT}</textarea>
 </span>
+<!--TODO: this line is an experiment only. delete ASAP--><script>global.staffCodeCallback = (inputSentence, unicodeSentence) => {console.log(unicodeSentence, inputSentence)}</script>
 <script src='assets/javascript/staffCode.js'></script>

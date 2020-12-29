@@ -13,10 +13,7 @@ StaffCode can be used in two ways:
 ### BBCode
 
 - Download the `.zip` file from GitHub release page.
-- Drag `BravuraTextBB.otf` and `BravuraTextBB.woff` to your `assets/fonts` folder.
-- Drag `staffCode.js` to your `assets/javascripts` folder.
-- In ACP, fill in the "BBCode Usage" field with the contents of the `bbCodeUsage.txt` file.
-- In ACP, fill in the "HTML Replacement" field with the contents of the `htmlReplacement.txt` file.
+- Follow the instructions in the `README.txt` file contained there.
 
 ### package
 
@@ -27,10 +24,24 @@ npm install staff-code
 Recommended usage:
 
 ```ts
-import {setupPackageRoot, loadFontsThen} from "staff-code"
+import {setupPackageRoot, loadFontsThen, StaffCodeOptions} from "staff-code"
+
+const callback = (inputSentence: string, unicodeSentence: string): any => {
+    console.log("user input:", inputSentence, "output unicode:", unicodeSentence)
+}
+
+const options: StaffCodeOptions = {
+    interactive: false,         // default: true (whether a textarea input for instantly changing the display appears)
+    download: false,            // default: true (whether a download button for a vectorized SVG appears)
+    inline: false,              // default: true (whether the display appears as a <span> or a <div>
+    lineHeight: 1.5,            // default: 2 (affects the spacing of staves)
+    initialText: "ston Fcl",    // default: "ston Gcl ; "
+    font: "Petaluma",           // default: "Bravura Text BB" (you'll have to move a custom font to assets/fonts)
+    callback,                   // default: undefined
+}
 
 loadFontsThen((): void => {
-    const root: HTMLSpanElement = setupPackageRoot()
+    const root: HTMLSpanElement = setupPackageRoot(options)
     document.body.appendChild(root)
 })
 ```
