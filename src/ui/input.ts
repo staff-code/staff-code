@@ -12,7 +12,7 @@ const setupInput = (
     {interactive, initialText = BLANK, callback}: StaffCodeOptions = {},
 ): void => {
     input.classList.add("input")
-    input.value = initialText
+    input.value = `${initialText}${input.value}`
 
     if (!interactive) {
         input.style.display = "none"

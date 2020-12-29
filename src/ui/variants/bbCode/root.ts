@@ -14,7 +14,7 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
     root.prepend(display)
 
     const input: HTMLTextAreaElement = root.querySelector(".input") as HTMLTextAreaElement
-    setupInput(input, root, {interactive, initialText})
+    setupInput(input, root, {interactive, initialText, callback})
 
     if (download) {
         const downloadButton = buildDownloadButton(display)
