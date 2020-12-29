@@ -1,6 +1,6 @@
 import {BLANK, doOnNextEventLoop, Ms} from "@sagittal/general"
-import {transferInputToDisplay} from "../../transfer"
-import {StaffCodeCallback} from "../../types"
+import {transferInputToDisplay} from "./transfer"
+import {StaffCodeOptions} from "./types"
 
 let keydown = false
 
@@ -26,9 +26,9 @@ const shouldTransfer = (event: KeyboardEvent, input: HTMLTextAreaElement, multiC
 
 const handleKeydown = (
     event: KeyboardEvent,
-    root: HTMLSpanElement,
     input: HTMLTextAreaElement,
-    callback?: StaffCodeCallback,
+    root: HTMLSpanElement,
+    {callback}: StaffCodeOptions,
 ): void => {
     if (keydown) return
     keydown = true

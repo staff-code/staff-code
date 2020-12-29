@@ -11,10 +11,10 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
     root.classList.add("processed")
 
     const display = buildDisplay(inline, {font, lineHeight})
-    root.appendChild(display)
+    root.prepend(display)
 
     const input: HTMLTextAreaElement = root.querySelector(".input") as HTMLTextAreaElement
-    setupInput(input, {interactive, initialText})
+    setupInput(input, root, {interactive, initialText})
 
     if (download) {
         const downloadButton = buildDownloadButton(display)
