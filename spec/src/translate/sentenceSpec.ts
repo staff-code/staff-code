@@ -334,5 +334,27 @@ describe("computeInputSentenceUnicode", (): void => {
             const expectedCodes = "Gcl st16 16; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 13; ntqrup 13; ntqrup st8 8; st8 5;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
+
+        it("provides leger lines automatically for notes and noteheads beyond ±5 staff positions", (): void => {
+            const inputSentence = "ston a5 /|\\ ; nt" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "       " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "up6 /|\\ st8 8; st8 5; up6 lgln up6 ntqrup 3; st8 8; st8 4;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("turns off leger lines when smart stave is off", (): void => {
+            const inputSentence = "stof st8 dn6 nt ston ; dn6 nt" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "       " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "st8 dn6 ntqrup 8; st8 5; dn6 lgln dn6 ntqrup 3; st8 8; st8 4;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
     })
 })

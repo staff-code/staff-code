@@ -1,4 +1,4 @@
-import {Clause, RecordKey, Word} from "@sagittal/general"
+import {Clause, extendClause, max, RecordKey, Word} from "@sagittal/general"
 import {
     BASS_POSITION_ALIASES_MAP,
     Code,
@@ -6,16 +6,19 @@ import {
     GENERIC_POSITION_ALIASES_MAP,
     LowercasedCode,
     LOWERCASED_CODE_MAP,
-    NOT_SMuFL_ZERO_POSITION_MAP,
     TREBLE_POSITION_ALIASES_MAP,
     Unicode,
 } from "../codes"
 import {EMPTY_UNICODE} from "../constants"
+import {computeUnicodeWidth} from "./advanceAndStave"
 import {smarts} from "./globals"
 import {Clef} from "./types"
 
 const TREBLE_UNICODE = computeUnicodeForCode("Gcl" as Code & Word)
 const BASS_UNICODE = computeUnicodeForCode("Fcl" as Code & Word)
+
+const LEGER_LINE_UNICODE = computeUnicodeForCode("lgln" as Code & Word)
+const LEGER_LINE_WIDTH = computeUnicodeWidth(LEGER_LINE_UNICODE)
 
 const CLEF_LOWERCASED_CODE_MAPS: Record<Clef, Record<RecordKey<LowercasedCode & Word>, Unicode & Word>> = {
     [Clef.TREBLE]: {...LOWERCASED_CODE_MAP, ...TREBLE_POSITION_ALIASES_MAP},
@@ -23,13 +26,6 @@ const CLEF_LOWERCASED_CODE_MAPS: Record<Clef, Record<RecordKey<LowercasedCode & 
 }
 
 // TODO: FEATURE IMPROVE, READY TO GO: ALTO AND TENOR STAFF
-
-// TODO: NEW FEATURE, READY TO GO: SMART LEGER LINES
-//  So you'd need a function isNoteOrNotehead() to check if a symbol is in one of the appropriate unicode ranges.
-//  Automatic leger lines, when notes or noteheads are positioned outside ±5, should not prevent someone from placing
-//  A note [i]without [/i]a leger line if they really need to, for some strange reason.
-//  They should be able to temporarily turn auto-staff off and use a manual staff piece. e.g.
-//  "stof st8 dn6 nt ston"
 
 // TODO: FEATURE IMPROVE, BLOCKED: CLEFS CAN BE CSP'D AND THE MIDDLE C WILL BE SHIFTED
 //  This will be blocked on adding the ligatures to the font, though
@@ -42,7 +38,7 @@ const CLEF_LOWERCASED_CODE_MAPS: Record<Clef, Record<RecordKey<LowercasedCode & 
 //  And I know I asked him at some point if he was keeping track of all of those changes, and I think he replied
 //  But for the life of me I cannot find it
 
-const POSITION_UNICODES = Object.values({...GENERIC_POSITION_ALIASES_MAP, ...NOT_SMuFL_ZERO_POSITION_MAP})
+const POSITION_UNICODES = Object.values(GENERIC_POSITION_ALIASES_MAP)
 const NOT_SMuFL_ZERO_POSITION_UNICODE = computeUnicodeForCode("up0" as Code & Word)
 
 const isInLegerLineRange = (unicode: Unicode & Word): boolean =>
@@ -82,15 +78,44 @@ const updateSmartPosition = (unicode: Unicode & Word): void => {
     if (isPositionUnicode(unicode)) smarts.position = unicode
 }
 
+const computeStaffPosition = (): number =>
+    smarts.position === EMPTY_UNICODE ?
+        0 :
+        15 - POSITION_UNICODES.indexOf(smarts.position)
+
+const aboveOrBelowStave = (): boolean => {
+    const position = computeStaffPosition()
+
+    return position > 5 || position < -5
+}
+
+// todo it's probably time to break this module down too
+const needsLegerLine = (unicode: Unicode & Word): boolean =>
+    smarts.staveOn && isInNoteheadNoteStemOrBeamedGroupsOfNotesRange(unicode) && aboveOrBelowStave()
+
 const computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts = (
     unicode: Unicode & Word,
 ): Unicode & Clause => {
     updateSmartClef(unicode)
     updateSmartPosition(unicode)
 
-    return canBePositioned(unicode) && smarts.position !== NOT_SMuFL_ZERO_POSITION_UNICODE ?
-        smarts.position as Unicode as Unicode & Clause :
-        EMPTY_UNICODE as Unicode & Clause
+    let smartPositionAndSmartClefUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
+    if (needsLegerLine(unicode)) {
+        smartPositionAndSmartClefUnicodeIntroClause = extendClause(
+            smartPositionAndSmartClefUnicodeIntroClause,
+            `${smarts.position}${LEGER_LINE_UNICODE}` as Unicode & Word,
+        ) as Unicode & Clause
+        smarts.advanceWidth = max(smarts.advanceWidth, LEGER_LINE_WIDTH)
+    }
+
+    if (canBePositioned(unicode) && smarts.position !== NOT_SMuFL_ZERO_POSITION_UNICODE) {
+        smartPositionAndSmartClefUnicodeIntroClause = extendClause(
+            smartPositionAndSmartClefUnicodeIntroClause,
+            smarts.position,
+        ) as Unicode & Clause
+    }
+
+    return smartPositionAndSmartClefUnicodeIntroClause
 }
 
 const updateSmartClef = (unicode: Unicode & Word): void => {
