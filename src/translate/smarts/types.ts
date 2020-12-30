@@ -1,10 +1,6 @@
 import {Word} from "@sagittal/general"
 import {Octels, Unicode} from "../codes"
-
-enum Clef {
-    TREBLE,
-    BASS,
-}
+import {Clef} from "./advanceAndStave"
 
 interface Smarts {
     advanceWidth: Octels,
@@ -12,11 +8,10 @@ interface Smarts {
     spacing: Octels,
     staveOn: boolean,
     commenting: boolean,
-    position: Unicode & Word,
+    positionUnicode: Unicode & Word,
     clef: Clef,
 }
 
 export {
     Smarts,
-    Clef,
 }

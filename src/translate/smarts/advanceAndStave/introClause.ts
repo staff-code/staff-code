@@ -7,7 +7,7 @@ import {BREAK_UNICODE} from "./constants"
 import {isManualAdvanceUnicode, isSmartAdvanceUnicode, isSpacingUnicode} from "./isUnicode"
 import {computeManualAdvanceWidth} from "./manualAdvance"
 import {computeSpacing} from "./spacing"
-import {updateSmartStave} from "./updateSmartStave"
+import {updateSmartStave} from "./stave"
 import {computeUnicodeWidth} from "./width"
 
 const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStave = (

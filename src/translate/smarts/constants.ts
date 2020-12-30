@@ -1,7 +1,8 @@
 import {Word} from "@sagittal/general"
 import {Octels, Unicode} from "../codes"
 import {EMPTY_UNICODE} from "../constants"
-import {Clef, Smarts} from "./types"
+import {Clef} from "./positionAndClef"
+import {Smarts} from "./types"
 
 const INITIAL_SMARTS: Smarts = {
     advanceWidth: 0 as Octels,
@@ -9,7 +10,7 @@ const INITIAL_SMARTS: Smarts = {
     spacing: 2 as Octels,
     staveOn: false,
     commenting: false,
-    position: EMPTY_UNICODE as Unicode & Word,
+    positionUnicode: EMPTY_UNICODE as Unicode & Word,
     clef: Clef.TREBLE,
 }
 

@@ -2,7 +2,7 @@ import {Io, Word} from "@sagittal/general"
 import {LOWERCASED_CODE_MAP, Unicode} from "../../../src/translate/codes"
 import {UnicodeLiteral} from "../../../src/translate/codes/types"
 import {smarts} from "../../../src/translate/smarts"
-import {Clef} from "../../../src/translate/smarts/types"
+import {Clef} from "../../../src/translate/smarts/positionAndClef"
 import {getUnicode} from "../../../src/translate/unicode"
 
 describe("getUnicode", (): void => {
