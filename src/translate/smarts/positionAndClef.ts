@@ -1,4 +1,4 @@
-import {Clause, extendClause, max, RecordKey, Word} from "@sagittal/general"
+import {BLANK, Clause, extendClause, isUndefined, max, RecordKey, sumTexts, Word} from "@sagittal/general"
 import {
     BASS_POSITION_ALIASES_MAP,
     Code,
@@ -91,15 +91,34 @@ const computeStaffPosition = (): number =>
         0 :
         15 - POSITION_UNICODES.indexOf(smarts.position)
 
-const aboveOrBelowStave = (): boolean => {
-    const position = computeStaffPosition()
+const computePositionUnicode = (position: number): Unicode & Word =>
+    POSITION_UNICODES[15 - position] // todo const this 15
+
+// todo Position type
+const aboveOrBelowStave = (positionArgument?: number): boolean => {
+    const position = isUndefined(positionArgument) ? computeStaffPosition() : positionArgument
 
     return position > 5 || position < -5
 }
 
-// todo it's probably time to break this module down too
+// todo: it's probably time to break this module down too
 const needsLegerLine = (unicode: Unicode & Word): boolean =>
     smarts.staveOn && isInNoteheadNoteStemOrBeamedGroupsOfNotesRange(unicode) && aboveOrBelowStave()
+
+const computeSmartLegerUnicodeIntroClause = (): Unicode & Clause => {
+    let smartLegerUnicodeIntroClause = BLANK as Unicode & Clause
+
+    let position = computeStaffPosition()
+    while (aboveOrBelowStave(position)) {
+        smartLegerUnicodeIntroClause = sumTexts(
+            smartLegerUnicodeIntroClause,
+            `${computePositionUnicode(position)}${LEGER_LINE_UNICODE}` as Unicode & Clause
+        )
+        position = position > 0 ? position - 2 : position + 2
+    }
+
+    return smartLegerUnicodeIntroClause
+}
 
 const computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts = (
     unicode: Unicode & Word,
@@ -109,9 +128,9 @@ const computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts = (
 
     let smartPositionAndSmartClefUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
     if (needsLegerLine(unicode)) {
-        smartPositionAndSmartClefUnicodeIntroClause = extendClause(
+        smartPositionAndSmartClefUnicodeIntroClause = sumTexts(
             smartPositionAndSmartClefUnicodeIntroClause,
-            `${smarts.position}${LEGER_LINE_UNICODE}` as Unicode & Word,
+            computeSmartLegerUnicodeIntroClause(),
         ) as Unicode & Clause
         smarts.advanceWidth = max(smarts.advanceWidth, LEGER_LINE_WIDTH)
     }
