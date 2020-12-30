@@ -8,6 +8,8 @@ import {Code, Unicode} from "../../types"
 //  `npm run analyze-ji-pitches -- --ordered-fields commaClass,name` to get comma names for StaffCode from script group
 //  Then this below is the list to put in ji-pitches.txt, with bare shafts as 1/1 and spaces deleted, and no Magratheans
 //  So you'll have to do the Magratheans yourself because there's no way I'm building those into the script group yet
+//  - Oh wait, actually though, what you really want is just macros for all of the Olympian commas
+//  Waiting on Dave's thoughts on which exactly to do (super and sub, up to largest single shaft? or Evo vs Revo stuff?)
 /*
 |(
 !(
