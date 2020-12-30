@@ -2,14 +2,6 @@ import {BLANK, computeLineCount, FontName, Px, vectorizeText} from "@sagittal/ge
 import {Unicode} from "../translate"
 import {DEFAULT_LINE_HEIGHT_MULTIPLIER} from "./display"
 
-// TODO: FEATURE IMPROVE, BLOCKED: SVG SIZE
-//  If you have a very low leger note, it gets cut off in the SVG
-//  Okay, weird, for some reason now it's not cutting off anymore, but it is shrinking everything...
-//  Or maybe it's just Chrome randomly scaling things.
-//  Probably I should pause this until I finish debugging opentype.js with injected debug helpers for
-//  Converting their decimal unicode code points to hexadecimal. (see the edoStaves repo)
-//  In case we end up going with it and it has its own mysterious SVG rendering issues
-
 const HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT: Px = 57 as Px
 const APPARENT_SCALING_EXPONENT = 1.16
 
