@@ -246,7 +246,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("gives a default width of 0 to unknown codes", (): void => {
-            const inputSentence = "U+5E78" as Io & Sentence // todo I think it should support upper or lowercase
+            const inputSentence = "U+5E78" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -254,6 +254,15 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "?? 2;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("accepts unknown codes in other reasonable formats", (): void => {
+            expect(computeInputSentenceUnicode("U+5E78" as Io & Sentence)).toBe("幸 " as Unicode & Sentence)
+            expect(computeInputSentenceUnicode("u+5e78" as Io & Sentence)).toBe("幸 " as Unicode & Sentence)
+            expect(computeInputSentenceUnicode("U5E78" as Io & Sentence)).toBe("幸 " as Unicode & Sentence)
+            expect(computeInputSentenceUnicode("u5e78" as Io & Sentence)).toBe("幸 " as Unicode & Sentence)
+            expect(computeInputSentenceUnicode("\\u+5E78" as Io & Sentence)).toBe("幸 " as Unicode & Sentence)
+            expect(computeInputSentenceUnicode("\\u+5e78" as Io & Sentence)).toBe("幸 " as Unicode & Sentence)
         })
 
         it("if more than one unicode has occurred since the previous advance, uses the width of the unicode with the max width", (): void => {

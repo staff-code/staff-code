@@ -1,8 +1,6 @@
 import {Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
 
-// todo these hsoudl be made compound within the others if it works out that way
-
 const isInLegerLineRange = (unicode: Unicode & Word): boolean =>
     unicode >= "\uE022" && unicode <= "\uE024"
 
