@@ -1,8 +1,28 @@
 import {Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
 
+// todo these hsoudl be made compound within the others if it works out that way
+
 const isInLegerLineRange = (unicode: Unicode & Word): boolean =>
     unicode >= "\uE022" && unicode <= "\uE024"
+
+const isInNoteheadOrNoteClusterRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE0A0" && unicode <= "\uE14F"
+
+const isInShapeNoteNoteheadIndividualNotesOrBeamedGroupsOfNotesRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE1B0" && unicode <= "\uE1F6"
+
+const isInSimplifiedMusicNotationNoteheadsRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uEC50" && unicode <= "\uEC53"
+
+const isInMoreSimplifiedMusicNotationNoteheadsRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uEC59" && unicode <= "\uEC5A"
+
+const isInShapeNoteNoteheadsSupplementRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uECD0" && unicode <= "\uECDF"
+
+const isInNoteheadsSupplementRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uEE70" && unicode <= "\uEE7F"
 
 const isInNoteheadNoteStemOrBeamedGroupsOfNotesRange = (unicode: Unicode & Word): boolean =>
     unicode >= "\uE0A0" && unicode <= "\uE21F"
@@ -30,4 +50,10 @@ export {
     isInKievanSquareNotationRange,
     isInLegerLineRange,
     isInMedievalAndRenaissanceRange,
+    isInNoteheadOrNoteClusterRange,
+    isInShapeNoteNoteheadIndividualNotesOrBeamedGroupsOfNotesRange,
+    isInSimplifiedMusicNotationNoteheadsRange,
+    isInMoreSimplifiedMusicNotationNoteheadsRange,
+    isInShapeNoteNoteheadsSupplementRange,
+    isInNoteheadsSupplementRange,
 }

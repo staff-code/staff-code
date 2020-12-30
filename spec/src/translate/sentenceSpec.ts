@@ -246,7 +246,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("gives a default width of 0 to unknown codes", (): void => {
-            const inputSentence = "U+5E78" as Io & Sentence
+            const inputSentence = "U+5E78" as Io & Sentence // todo I think it should support upper or lowercase
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
