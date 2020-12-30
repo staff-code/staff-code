@@ -1,9 +1,9 @@
 import {Word} from "@sagittal/general"
-import {Octels, Unicode} from "../../codes"
+import {Octals, Unicode} from "../../codes"
 import {SPACING_UNICODES} from "./constants"
 
-const computeSpacing = (unicode: Unicode & Word): Octels =>
-    SPACING_UNICODES.indexOf(unicode) as Octels
+const computeSpacing = (unicode: Unicode & Word): Octals =>
+    SPACING_UNICODES.indexOf(unicode) as Octals
 
 export {
     computeSpacing,

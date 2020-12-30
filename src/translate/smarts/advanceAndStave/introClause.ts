@@ -1,5 +1,5 @@
 import {Clause, max, Word} from "@sagittal/general"
-import {Octels, Unicode} from "../../codes"
+import {Octals, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
@@ -33,7 +33,7 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
                 smarts.advanceWidth,
             )
-        smarts.staveWidth = 0 as Octels
+        smarts.staveWidth = 0 as Octals
     } else if (isSpacingUnicode(unicode)) {
         smarts.spacing = computeSpacing(unicode)
         smartAdvanceAndSmartStaveUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause

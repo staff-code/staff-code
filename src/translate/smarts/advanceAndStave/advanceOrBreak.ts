@@ -1,5 +1,5 @@
 import {Clause, subtract, sumTexts} from "@sagittal/general"
-import {Octels, Unicode} from "../../codes"
+import {Octals, Unicode} from "../../codes"
 import {smarts} from "../globals"
 import {computeAdvanceUnicode} from "./advance"
 import {
@@ -15,7 +15,7 @@ import {
 } from "./constants"
 
 const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak = (
-    width: Octels,
+    width: Octals,
 ): Unicode & Clause => {
     let advanceUnicodeIntroClause: Unicode & Clause
     if (smarts.staveWidth >= width) {
@@ -26,7 +26,7 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
         advanceUnicodeIntroClause = computeAdvanceUnicode(width)
     } else {
         const useUpExistingStaveAdvanceUnicode: Unicode = computeAdvanceUnicode(smarts.staveWidth)
-        let remainingAdvanceWidthWeStillNeedToApply: Octels = subtract(width, smarts.staveWidth)
+        let remainingAdvanceWidthWeStillNeedToApply: Octals = subtract(width, smarts.staveWidth)
 
         let staveAndAdvanceUnicode = "" as Unicode
 
@@ -57,7 +57,7 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
         ) as Unicode & Clause
     }
 
-    smarts.advanceWidth = 0 as Octels
+    smarts.advanceWidth = 0 as Octals
 
     return advanceUnicodeIntroClause
 }

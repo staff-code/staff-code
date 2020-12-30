@@ -1,16 +1,16 @@
 import {BLANK, isUndefined, RecordKey, round, Word} from "@sagittal/general"
 import * as fs from "fs"
-import {computeUnicodeLiteral, Octels, SMuFL_MAP, Unicode} from "../src"
+import {computeUnicodeLiteral, Octals, SMuFL_MAP, Unicode} from "../src"
 
-const computeBravuraWidth = ([_, {bBoxNE: [x, y]}]: [any, {bBoxNE: number[]}]): Octels =>
-    round(x * 8) as Octels
+const computeBravuraWidth = ([_, {bBoxNE: [x, y]}]: [any, {bBoxNE: number[]}]): Octals =>
+    round(x * 8) as Octals
 
-const OVERRIDDEN_WIDTHS: Record<RecordKey<Unicode>, Octels> = {
-    [SMuFL_MAP["st5ln"]]: 0 as Octels,
-    [SMuFL_MAP["st5lnwd"]]: 0 as Octels,
-    [SMuFL_MAP["st5lnnr"]]: 0 as Octels,
-    [SMuFL_MAP["blsn"]]: 0 as Octels,
-    [SMuFL_MAP["bldb"]]: 3 as Octels,
+const OVERRIDDEN_WIDTHS: Record<RecordKey<Unicode>, Octals> = {
+    [SMuFL_MAP["st5ln"]]: 0 as Octals,
+    [SMuFL_MAP["st5lnwd"]]: 0 as Octals,
+    [SMuFL_MAP["st5lnnr"]]: 0 as Octals,
+    [SMuFL_MAP["blsn"]]: 0 as Octals,
+    [SMuFL_MAP["bldb"]]: 3 as Octals,
 }
 
 const generateBravuraWidths = (): void => {
@@ -23,7 +23,7 @@ const generateBravuraWidths = (): void => {
             .replace(/\r/g, BLANK),
     )
 
-    const bravuraWidths = {} as Record<RecordKey<Unicode>, Octels>
+    const bravuraWidths = {} as Record<RecordKey<Unicode>, Octals>
     const boundingBoxEntries = Object.entries(bravuraMetadata.glyphBBoxes) as Array<[string, {bBoxNE: number[]}]>
     const glyphNameEntries = Object.entries(glyphNames) as Array<[string, {codepoint: string}]>
     const smuflUnicodes = Object.values(SMuFL_MAP) as Array<Unicode & Word>
@@ -44,10 +44,10 @@ const generateBravuraWidths = (): void => {
             // console.warn(`Did not find existing width in Bravura metadata for glyph name ${glyphName} with ${stringify(glyphData)} `)
             return
         }
-        const computedWidth: Octels = computeBravuraWidth(bravuraDatum)
+        const computedWidth: Octals = computeBravuraWidth(bravuraDatum)
 
         const overriddenWidth = OVERRIDDEN_WIDTHS[existingUnicode]
-        const width: Octels = isUndefined(overriddenWidth) ? computedWidth : overriddenWidth
+        const width: Octals = isUndefined(overriddenWidth) ? computedWidth : overriddenWidth
 
         // tslint:disable-next-line
         // console.warn(`################### ${glyphName}: ${computedWidth} vs ${existingWidth} (Δ ${abs(computedWidth - existingWidth)})`)

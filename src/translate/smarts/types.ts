@@ -1,11 +1,11 @@
 import {Word} from "@sagittal/general"
-import {Octels, Unicode} from "../codes"
+import {Octals, Unicode} from "../codes"
 import {Clef} from "./positionAndClef"
 
 interface Smarts {
-    advanceWidth: Octels,
-    staveWidth: Octels,
-    spacing: Octels,
+    advanceWidth: Octals,
+    staveWidth: Octals,
+    spacing: Octals,
     staveOn: boolean,
     commenting: boolean,
     positionUnicode: Unicode & Word,

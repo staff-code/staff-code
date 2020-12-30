@@ -2,7 +2,7 @@ import {RecordKey, Word} from "@sagittal/general"
 import {SMuFL_MAP} from "../../smufl"
 import {Code, Unicode} from "../../types"
 
-// TODO: FEATURE IMPROVE, TOUGH AND LOW PRIORITY: COMMA NAME ALIASES FOR SAGITTAL
+// TODO: FEATURE IMPROVE, BLOCKED: COMMA NAME ALIASES FOR SAGITTAL
 //  I think we still need the short-form comma based names.
 //  Use "^" for powers and "*" or full-stop for multiply. Use the standard factorisation rules we agreed.
 //  `npm run analyze-ji-pitches -- --ordered-fields commaClass,name` to get comma names for StaffCode from script group

@@ -2,7 +2,7 @@ import {Px} from "@sagittal/general"
 
 type Unicode = string & {_UniBrand: boolean}
 
-type Octels = Px & {_OctelsBrand: boolean}
+type Octals = Px & {_OctalsBrand: boolean}
 
 type Code = string & {_CodeBrand: boolean}
 
@@ -12,7 +12,7 @@ type UnicodeLiteral = string & {_UnicodeLiteralBrand: boolean}
 
 export {
     Unicode,
-    Octels,
+    Octals,
     Code,
     LowercasedCode,
     UnicodeLiteral,

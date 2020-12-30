@@ -1,2 +1,2 @@
 export {computeInputSentenceUnicode} from "./sentence"
-export {Unicode, computeUnicodeLiteral, Octels, SMuFL_MAP} from "./codes"
+export {Unicode, computeUnicodeLiteral, Octals, SMuFL_MAP} from "./codes"

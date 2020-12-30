@@ -6,7 +6,7 @@ import {
     NOT_SMuFL_SMART_ADVANCE_MAP,
     NOT_SMuFL_SMART_SPACING_MAP,
     NOT_SMuFL_SMART_STAVE_MAP,
-    Octels,
+    Octals,
     Unicode,
 } from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
@@ -29,17 +29,17 @@ const SMART_STAVE_UNICODES = Object.values(NOT_SMuFL_SMART_STAVE_MAP)
 const SPACING_UNICODES = Object.values(NOT_SMuFL_SMART_SPACING_MAP)
 
 const MAX_ADVANCE_UNICODE = computeUnicodeForCode("24;" as Code & Word)
-const MAX_ADVANCE_WIDTH: Octels = 24 as Octels
+const MAX_ADVANCE_WIDTH: Octals = 24 as Octals
 
-const MIN_STAVE_WIDTH = 8 as Octels
+const MIN_STAVE_WIDTH = 8 as Octals
 const MIN_STAVE_UNICODE = ST8_UNICODE
 const MIN_STAVE_WIDTH_ADVANCE = computeUnicodeForCode("8;" as Code & Word)
 
-const MED_STAVE_WIDTH = 16 as Octels
+const MED_STAVE_WIDTH = 16 as Octals
 const MED_STAVE_UNICODE = ST16_UNICODE
 const MED_STAVE_WIDTH_ADVANCE = computeUnicodeForCode("16;" as Code & Word)
 
-const MAX_STAVE_WIDTH = 24 as Octels
+const MAX_STAVE_WIDTH = 24 as Octals
 const MAX_STAVE_UNICODE = ST24_UNICODE
 const MAX_STAVE_WIDTH_ADVANCE = computeUnicodeForCode("24;" as Code & Word)
 

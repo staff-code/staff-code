@@ -6,7 +6,7 @@ export {getUnicodeGivenClef} from "./unicode"
 export {isPositionUnicode} from "./isPositionUnicode"
 export {Clef} from "./types"
 
-// TODO: FEATURE IMPROVE, BLOCKED: CLEFS
+// TODO: FEATURE IMPROVE, BLOCKED: CLEFS (FONT FORGE SCRIPT FOR BRAVURA TEXT SC FROM BRAVURA TEXT)
 //  Clefs can be CSP'd and middle C will be shifted
 //  This will be blocked on adding the ligatures to the font, though
 //  That part is introduced here: http://forum.sagittal.org/viewtopic.php?p=3163#p3163
