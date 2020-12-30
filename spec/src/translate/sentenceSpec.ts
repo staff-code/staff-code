@@ -346,6 +346,17 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
+        it("only puts leger lines on every other position (the ones that would have been lines)", (): void => {
+            const inputSentence = "ston b5 nt ;" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "   " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "up6 lgln up7 ntqrup st8 8; st8 7;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
         it("provides multiple ledger lines if the note is very beyond the staff", (): void => {
             const inputSentence = "ston a3 nt" as Io & Sentence
 

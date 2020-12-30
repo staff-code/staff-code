@@ -1,6 +1,6 @@
 import {Word} from "@sagittal/general"
 import {Octels, Unicode} from "../codes"
-import {Clef} from "./advanceAndStave"
+import {Clef} from "./positionAndClef"
 
 interface Smarts {
     advanceWidth: Octels,

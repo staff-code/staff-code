@@ -1,4 +1,4 @@
-import {BLANK, Clause, isUndefined, sumTexts, Word} from "@sagittal/general"
+import {BLANK, Clause, decrement, increment, isEven, isUndefined, sumTexts, Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
@@ -28,11 +28,13 @@ const computeSmartLegerUnicodeIntroClause = (): Unicode & Clause => {
 
     let position = computeStaffPosition()
     while (aboveOrBelowStave(position)) {
-        smartLegerUnicodeIntroClause = sumTexts(
-            smartLegerUnicodeIntroClause,
-            `${computePositionUnicode(position)}${LEGER_LINE_UNICODE}` as Unicode & Clause,
-        )
-        position = position > 0 ? position - 2 as Position : position + 2 as Position
+        if (isEven(position)) {
+            smartLegerUnicodeIntroClause = sumTexts(
+                smartLegerUnicodeIntroClause,
+                `${computePositionUnicode(position)}${LEGER_LINE_UNICODE}` as Unicode & Clause,
+            )
+        }
+        position = position > 0 ? decrement(position) : increment(position)
     }
 
     return smartLegerUnicodeIntroClause
