@@ -4,11 +4,8 @@ import {Unicode} from "../../codes"
 const isInLegerLineRange = (unicode: Unicode & Word): boolean =>
     unicode >= "\uE022" && unicode <= "\uE024"
 
-const isInNoteheadOrNoteClusterRange = (unicode: Unicode & Word): boolean =>
-    unicode >= "\uE0A0" && unicode <= "\uE14F"
-
-const isInShapeNoteNoteheadIndividualNotesOrBeamedGroupsOfNotesRange = (unicode: Unicode & Word): boolean =>
-    unicode >= "\uE1B0" && unicode <= "\uE1F6"
+const isInNoteheadNoteClusterIndividualNotesOrBeamedGroupsOfNotesRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE0A0" && unicode <= "\uE1F6"
 
 const isInSimplifiedMusicNotationNoteheadsRange = (unicode: Unicode & Word): boolean =>
     unicode >= "\uEC50" && unicode <= "\uEC53"
@@ -16,8 +13,20 @@ const isInSimplifiedMusicNotationNoteheadsRange = (unicode: Unicode & Word): boo
 const isInMoreSimplifiedMusicNotationNoteheadsRange = (unicode: Unicode & Word): boolean =>
     unicode >= "\uEC59" && unicode <= "\uEC5A"
 
+const isInMedievalRenaissanceMensuralNoteheadsRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE930" && unicode <= "\uE93D"
+
+const isInMedievalRenaissanceMensuralIndividualNotesRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE950" && unicode <= "\uE96F"
+
+const isInMedievalRenaissanceMensuralObliqueFormsPlainchantSingleNoteFormsRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE970" && unicode <= "\uE9AF"
+
 const isInShapeNoteNoteheadsSupplementRange = (unicode: Unicode & Word): boolean =>
     unicode >= "\uECD0" && unicode <= "\uECDF"
+
+const isInTechniquesNoteheadsRange = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uEE70" && unicode <= "\uEE7F"
 
 const isInNoteheadsSupplementRange = (unicode: Unicode & Word): boolean =>
     unicode >= "\uEE70" && unicode <= "\uEE7F"
@@ -48,8 +57,11 @@ export {
     isInKievanSquareNotationRange,
     isInLegerLineRange,
     isInMedievalAndRenaissanceRange,
-    isInNoteheadOrNoteClusterRange,
-    isInShapeNoteNoteheadIndividualNotesOrBeamedGroupsOfNotesRange,
+    isInNoteheadNoteClusterIndividualNotesOrBeamedGroupsOfNotesRange,
+    isInMedievalRenaissanceMensuralNoteheadsRange,
+    isInMedievalRenaissanceMensuralIndividualNotesRange,
+    isInMedievalRenaissanceMensuralObliqueFormsPlainchantSingleNoteFormsRange,
+    isInTechniquesNoteheadsRange,
     isInSimplifiedMusicNotationNoteheadsRange,
     isInMoreSimplifiedMusicNotationNoteheadsRange,
     isInShapeNoteNoteheadsSupplementRange,

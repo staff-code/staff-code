@@ -4,12 +4,15 @@ import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {LEGER_LINE_UNICODE, MAX_POSITIONS_AWAY_FROM_MIDDLE_STAVE_LINE, POSITION_UNICODES} from "./constants"
 import {
+    isInMedievalRenaissanceMensuralIndividualNotesRange,
+    isInMedievalRenaissanceMensuralNoteheadsRange,
+    isInMedievalRenaissanceMensuralObliqueFormsPlainchantSingleNoteFormsRange,
     isInMoreSimplifiedMusicNotationNoteheadsRange,
-    isInNoteheadOrNoteClusterRange,
+    isInNoteheadNoteClusterIndividualNotesOrBeamedGroupsOfNotesRange,
     isInNoteheadsSupplementRange,
-    isInShapeNoteNoteheadIndividualNotesOrBeamedGroupsOfNotesRange,
     isInShapeNoteNoteheadsSupplementRange,
     isInSimplifiedMusicNotationNoteheadsRange,
+    isInTechniquesNoteheadsRange,
 } from "./ranges"
 import {Position} from "./types"
 
@@ -28,12 +31,15 @@ const aboveOrBelowStave = (positionArgument?: Position): boolean => {
 }
 
 const takesLegerLine = (unicode: Unicode & Word): boolean =>
-    isInNoteheadOrNoteClusterRange(unicode)
-    || isInShapeNoteNoteheadIndividualNotesOrBeamedGroupsOfNotesRange(unicode)
+    isInNoteheadNoteClusterIndividualNotesOrBeamedGroupsOfNotesRange(unicode)
     || isInSimplifiedMusicNotationNoteheadsRange(unicode)
     || isInMoreSimplifiedMusicNotationNoteheadsRange(unicode)
     || isInShapeNoteNoteheadsSupplementRange(unicode)
     || isInNoteheadsSupplementRange(unicode)
+    || isInTechniquesNoteheadsRange(unicode)
+    || isInMedievalRenaissanceMensuralIndividualNotesRange(unicode)
+    || isInMedievalRenaissanceMensuralNoteheadsRange(unicode)
+    || isInMedievalRenaissanceMensuralObliqueFormsPlainchantSingleNoteFormsRange(unicode)
 
 const needsLegerLine = (unicode: Unicode & Word): boolean =>
     smarts.staveOn && takesLegerLine(unicode) && aboveOrBelowStave()
