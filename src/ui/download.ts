@@ -7,8 +7,6 @@ const APPARENT_SCALING_EXPONENT = 1.16
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
-// TODO: download button should not be int eh bundle for teh bbCode version
-
 const computeSvgHeight = (unicodeSentence: Unicode): Px =>
     HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT * (computeLineCount(unicodeSentence) ** APPARENT_SCALING_EXPONENT) as Px
 

@@ -22,9 +22,6 @@ const ST8_UNICODE = computeUnicodeForCode("st8" as Code & Word)
 const ST16_UNICODE = computeUnicodeForCode("st16" as Code & Word)
 const ST24_UNICODE = computeUnicodeForCode("st24" as Code & Word)
 
-// TODO: bug, "ston" should display nothing, not a big of staff
-//  See: http://forum.sagittal.org/viewtopic.php?p=3229#p3229
-
 const SMART_STAVE_ON_UNICODE = computeUnicodeForCode("ston" as Code & Word)
 const SMART_STAVE_OFF_UNICODE = computeUnicodeForCode("stof" as Code & Word)
 const SMART_STAVE_UNICODES = Object.values(NOT_SMuFL_SMART_STAVE_MAP)
