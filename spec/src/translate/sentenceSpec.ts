@@ -387,5 +387,27 @@ describe("computeInputSentenceUnicode", (): void => {
             const expectedCodes = "st8 dn6 ntqrup 8; st8 5; dn6 lgln dn6 ntqrup 3; st8 8; st8 4;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
+
+        // TODO: smart type of stave
+        /*
+        I came up with a way of doing it that has zero-added-sugar (syntactic sugar, that is).
+        If you already have auto-staff turned on, and you give the code for a piece of staff,
+        that would normally be a completely pointless thing to do,
+        but we should interpret it as changing the character that should be used for auto-staffing from then on.
+        Here are the ranges that correspond to pieces of staff.
+
+        isStaff()
+        E010 to E021 // Staves, 1 line thru 6 line
+        E8F0 to E8F2 // Plainchant staff
+        EBA0 to EBA2 // Lute tablature staff, 6 courses
+
+        And we should do the same with the character used for auto leger lines,
+        to give auto-staffers access to narrow and wide leger lines.
+
+        isLegerLine()
+        E022 to E024
+
+        Of course the defaults for these two auto characters would remain E020 and E022.
+        */
     })
 })
