@@ -388,6 +388,17 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
+        it("should not display anything when you've only entered 'ston'", (): void => {
+            const inputSentence = "ston" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "" as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
         // TODO: smart type of stave
         /*
         I came up with a way of doing it that has zero-added-sugar (syntactic sugar, that is).
