@@ -26,3 +26,12 @@ export {Clef} from "./types"
 //  - I think I want to wait on this until I figure out the other changes I need to make, like clef ligatures
 //  As well as ligatures for all the supplemental positions (which have otherwise been implemented here)
 //  That's why I'm combining these to-dos here
+//  - Okay, so Dave does want me to implement the middle C shifting stuff now, even though they won't actually display
+//  Correctly yet.
+
+// TODO: en;
+/*
+I'd appreciate it if you could implement "en;" which is the auto-advance that advances by the remaining staff width minus the width of the next character (or minus zero if there is no next character). If the remaining staff width is less than the width of the next character, you will need to add more staff before advancing. "en;" doesn't need to cater for characters wider than 16 octals. (The widest barline in the font now, is 12 octals). You can treat characters wider than 16 in whatever way is most convenient to code. You don't need to check if the next character is a barline. It should work with any character.
+
+I'd like it before I start on the EDO Notations, so I don't have to change their codes later when you do implement it. It doesn't sound too difficult (compared to "rt;" and "[ ... ]" which are quite scary and can wait).
+ */
