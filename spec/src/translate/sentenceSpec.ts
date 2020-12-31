@@ -408,6 +408,20 @@ describe("computeInputSentenceUnicode", (): void => {
         E022 to E024
 
         Of course the defaults for these two auto characters would remain E020 and E022.
+
+        I just remembered that you minimise the number of staff-piece characters
+        while also minimising the amount of extra staff at the end.
+        So when the user gives a literal staff piece character when auto-staff is on, you need to update 3 characters,
+        the narrow, the medium and the wide (8, 16 and 24 octals).
+
+        It turns out, if the user gives a staff character less than E030 then
+        staff8 = 0xE01C + userStaff % 6
+        staff16 = 0xE010 + userStaff % 6
+        staff24 = 0xE016 + userStaff % 6
+        else
+        staff8 = userStaff & 0xFFFC + 2
+        staff16 = userStaff & 0xFFFC + 0
+        staff24 = userStaff & 0xFFFC + 1
         */
     })
 })
