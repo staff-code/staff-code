@@ -2,7 +2,11 @@
 
 converts simple text codes into Unicode which in the Bravura Text font displays as sheet music
 
-(give an example here)
+```
+ston Gcl ; d5 /|\ ; nt ;
+```
+
+<img src="/github/readme.svg"/>
 
 ## use
 
@@ -61,3 +65,7 @@ Use `npm start` to run a local server with a minimal demo of the package variant
 The BBCode variant is published to GitHub as a release, with the contents of the `dist/bbCode` folder archived and uploaded as an asset thereof. You'll need to install `jq` (e.g. with Chocolatey) in order to perform such programmatic releasing.
 
 You may need to install 7-zip in order to deploy, since it is used to archive the asset as a .zip file. I used `choco install 7zip` while running my terminal as an administrator.
+
+After deploying, you can use the `npm run update-staff-code` script in the `scripts/forum` script group to update the Sagittal forum.
+
+And to update the Sagittal web app, in the `app` repo, run `npm upgrade` and confirm you pull in the npm package you just published. Then run `npm run deploy` there (don't forget to commit afterwards).
