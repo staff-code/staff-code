@@ -6,228 +6,8 @@ import {Code, Unicode} from "../../types"
 //  I think we still need the short-form comma based names.
 //  Use "^" for powers and "*" or full-stop for multiply. Use the standard factorisation rules we agreed.
 //  `npm run analyze-ji-pitches -- --ordered-fields commaClass,name` to get comma names for StaffCode from script group
-//  Then this below is the list to put in ji-pitches.txt, with bare shafts as 1/1 and spaces deleted, and no Magratheans
-//  So you'll have to do the Magratheans yourself because there's no way I'm building those into the script group yet
-//  - Oh wait, actually though, what you really want is just macros for all of the Olympian commas
-//  Waiting on Dave's thoughts on which exactly to do (super and sub, up to largest single shaft? or Evo vs Revo stuff?)
-/*
-|(
-!(
-/|
-\!
-|)
-!)
-//|
-\\!
-/|)
-\!)
-/|\
-\!/
-(|)
-(!)
-(|\
-(!/
-)||(
-)!!(
-||)
-!!)
-||\
-!!/
-/||)
-\!!)
-/||\
-\!!/
-|||(
-!!!(
-/|||
-\!!!
-|||)
-!!!)
-//|||
-\\!!!
-/|||)
-\!!!)
-/|||\
-\!!!/
-(|||)
-(!!!)
-(|||\
-(!!!/
-)X(
-)Y(
-X)
-Y)
-X\
-Y/
-/X)
-\Y)
-/X\
-\Y/
-)|(
-)!(
-~|(
-~!(
-|\
-!/
-(|
-(!
-(|(
-(!(
-~||(
-~!!(
-)||~
-)!!~
-/||
-\!!
-(||(
-(!!(
-//||
-\\!!
-)|||(
-)!!!(
-~|||(
-~!!!(
-|||\
-!!!/
-(|||
-(!!!
-(|||(
-(!!!(
-~X(
-~Y(
-)X~
-)Y~
-/X
-\Y
-(X(
-(Y(
-//X
-\\Y
-|~
-!~
-)/|
-)\!
-/|~
-\!~
-||~
-!!~
-)||)
-)!!)
-/||~
-\!!~
-|||~
-!!!~
-)/|||
-)\!!!
-/|||~
-\!!!~
-X~
-Y~
-)X)
-)Y)
-/X~
-\Y~
-)|
-)!
-~|
-~!
-)~|
-)~!
-~~|
-~~!
-)|~
-)!~
-)|)
-)!)
-~|)
-~!)
-~|\
-~!/
-)//|
-)\\!
-(|~
-(!~
-(/|
-(\!
-)/|\
-)\!/
-|\)
-!/)
-|\\
-!//
-)|\\
-)!//
-)~||
-)~!!
-~~||
-~~!!
-)/||
-)\!!
-(||
-(!!
-~||)
-~!!)
-~||\
-~!!/
-)//||
-)\\!!
-(||~
-(!!~
-)|||
-)!!!
-~|||
-~!!!
-)~|||
-)~!!!
-~~|||
-~~!!!
-)|||~
-)!!!~
-)|||)
-)!!!)
-~|||)
-~!!!)
-~|||\
-~!!!/
-)//|||
-)\\!!!
-(|||~
-(!!!~
-(/|||
-(\!!!
-)/|||\
-)\!!!/
-|||\)
-!!!/)
-|||\\
-!!!//
-)|||\\
-)!!!//
-)~X
-)~Y
-~~X
-~~Y
-)/X
-)\Y
-(X
-(Y
-~X)
-~Y)
-~X\
-~Y/
-)//X
-)\\Y
-(X~
-(Y~
-1
-1
-'
-.
-`
-,
-``
-,,
- */
+//  What we want is just macros for all of the Olympian commas, up to largest single shaft, super and sub.
+//  So this is blocked on finishing comma name parsing stuff in @sagittal/system.
 
 const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "|(": SMuFL_MAP["acsg5V7klup"],
@@ -485,41 +265,41 @@ const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & W
     "jatao": SMuFL_MAP["acsg11lgdsdn"],
     "jakai": SMuFL_MAP["acsg35lgdsup"],
     "jakao": SMuFL_MAP["acsg35lgdsdn"],
-    "phaoshp": SMuFL_MAP["acsgsh25Sdn"],
+    "phaoshr": SMuFL_MAP["acsgsh25Sdn"],
     "phaiflt": SMuFL_MAP["acsgfl25Sup"],
-    "taoshp": SMuFL_MAP["acsgsh7Cdn"],
+    "taoshr": SMuFL_MAP["acsgsh7Cdn"],
     "taiflt": SMuFL_MAP["acsgfl7Cup"],
-    "paoshp": SMuFL_MAP["acsgsh5Cdn"],
+    "paoshr": SMuFL_MAP["acsgsh5Cdn"],
     "paiflt": SMuFL_MAP["acsgfl5Cup"],
-    "naoshp": SMuFL_MAP["acsgsh5V7Kdn"],
+    "naoshr": SMuFL_MAP["acsgsh5V7Kdn"],
     "naiflt": SMuFL_MAP["acsgfl5V7Kup"],
-    "shp": SMuFL_MAP["acsgsh"],
+    "shr": SMuFL_MAP["acsgsh"],
     "flt": SMuFL_MAP["acsgfl"],
-    "naishp": SMuFL_MAP["acsgsh5V7Kup"],
+    "naishr": SMuFL_MAP["acsgsh5V7Kup"],
     "naoflt": SMuFL_MAP["acsgfl5V7Kdn"],
-    "paishp": SMuFL_MAP["acsgsh5Cup"],
+    "paishr": SMuFL_MAP["acsgsh5Cup"],
     "paoflt": SMuFL_MAP["acsgfl5Cdn"],
-    "taishp": SMuFL_MAP["acsgsh7Cup"],
+    "taishr": SMuFL_MAP["acsgsh7Cup"],
     "taoflt": SMuFL_MAP["acsgfl7Cdn"],
-    "phaishp": SMuFL_MAP["acsgsh25Sup"],
+    "phaishr": SMuFL_MAP["acsgsh25Sup"],
     "phaoflt": SMuFL_MAP["acsgfl25Sdn"],
-    "pataishp": SMuFL_MAP["acsgsh35Mup"],
+    "pataishr": SMuFL_MAP["acsgsh35Mup"],
     "pataoflt": SMuFL_MAP["acsgfl35Mdn"],
-    "pakaishp": SMuFL_MAP["acsgsh11Mup"],
+    "pakaishr": SMuFL_MAP["acsgsh11Mup"],
     "pakaoflt": SMuFL_MAP["acsgfl11Mdn"],
-    "jataishp": SMuFL_MAP["acsgsh11Lup"],
+    "jataishr": SMuFL_MAP["acsgsh11Lup"],
     "jataoflt": SMuFL_MAP["acsgfl11Ldn"],
-    "jakaishp": SMuFL_MAP["acsgsh35Lup"],
+    "jakaishr": SMuFL_MAP["acsgsh35Lup"],
     "jakaoflt": SMuFL_MAP["acsgfl35Ldn"],
-    "phaodblshp": SMuFL_MAP["acsgdbsh25Sdn"],
+    "phaodblshr": SMuFL_MAP["acsgdbsh25Sdn"],
     "phaidblflt": SMuFL_MAP["acsgdbfl25Sup"],
-    "taodblshp": SMuFL_MAP["acsgdbsh7Cdn"],
+    "taodblshr": SMuFL_MAP["acsgdbsh7Cdn"],
     "taidblflt": SMuFL_MAP["acsgdbfl7Cup"],
-    "paodblshp": SMuFL_MAP["acsgdbsh5Cdn"],
+    "paodblshr": SMuFL_MAP["acsgdbsh5Cdn"],
     "paidblflt": SMuFL_MAP["acsgdbfl5Cup"],
-    "naodblshp": SMuFL_MAP["acsgdbsh5V7Kdn"],
+    "naodblshr": SMuFL_MAP["acsgdbsh5V7Kdn"],
     "naidblflt": SMuFL_MAP["acsgdbfl5V7Kup"],
-    "dblshp": SMuFL_MAP["acsgdbsh"],
+    "dblshr": SMuFL_MAP["acsgdbsh"],
     "dblflt": SMuFL_MAP["acsgdbfl"],
     "ranai": SMuFL_MAP["acsg7V11klup"],
     "ranao": SMuFL_MAP["acsg7V11kldn"],
@@ -531,35 +311,35 @@ const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & W
     "jao": SMuFL_MAP["acsg7V11cmdn"],
     "janai": SMuFL_MAP["acsg5V11smdsup"],
     "janao": SMuFL_MAP["acsg5V11smdsdn"],
-    "janaoshp": SMuFL_MAP["acsgsh5V11Sdn"],
+    "janaoshr": SMuFL_MAP["acsgsh5V11Sdn"],
     "janaiflt": SMuFL_MAP["acsgfl5V11Sup"],
-    "jaoshp": SMuFL_MAP["acsgsh7V11Cdn"],
+    "jaoshr": SMuFL_MAP["acsgsh7V11Cdn"],
     "jaiflt": SMuFL_MAP["acsgfl7V11Cup"],
-    "kaoshp": SMuFL_MAP["acsgsh55Cdn"],
+    "kaoshr": SMuFL_MAP["acsgsh55Cdn"],
     "kaiflt": SMuFL_MAP["acsgfl55Cup"],
-    "sanaoshp": SMuFL_MAP["acsgsh17Cdn"],
+    "sanaoshr": SMuFL_MAP["acsgsh17Cdn"],
     "sanaiflt": SMuFL_MAP["acsgfl17Cup"],
-    "ranaoshp": SMuFL_MAP["acsgsh7V11Kdn"],
+    "ranaoshr": SMuFL_MAP["acsgsh7V11Kdn"],
     "ranaiflt": SMuFL_MAP["acsgfl7V11Kup"],
-    "ranaishp": SMuFL_MAP["acsgsh7V11Kup"],
+    "ranaishr": SMuFL_MAP["acsgsh7V11Kup"],
     "ranaoflt": SMuFL_MAP["acsgfl7V11Kdn"],
-    "sanaishp": SMuFL_MAP["acsgsh17Cup"],
+    "sanaishr": SMuFL_MAP["acsgsh17Cup"],
     "sanaoflt": SMuFL_MAP["acsgfl17Cdn"],
-    "kaishp": SMuFL_MAP["acsgsh55Cup"],
+    "kaishr": SMuFL_MAP["acsgsh55Cup"],
     "kaoflt": SMuFL_MAP["acsgfl55Cdn"],
-    "jaishp": SMuFL_MAP["acsgsh7V11Cup"],
+    "jaishr": SMuFL_MAP["acsgsh7V11Cup"],
     "jaoflt": SMuFL_MAP["acsgfl7V11Cdn"],
-    "janaishp": SMuFL_MAP["acsgsh5V11Sup"],
+    "janaishr": SMuFL_MAP["acsgsh5V11Sup"],
     "janaoflt": SMuFL_MAP["acsgfl5V11Sdn"],
-    "janaodblshp": SMuFL_MAP["acsgdbsh5V11Sdn"],
+    "janaodblshr": SMuFL_MAP["acsgdbsh5V11Sdn"],
     "janaidblflt": SMuFL_MAP["acsgdbfl5V11Sup"],
-    "jaodblshp": SMuFL_MAP["acsgdbsh7V11Cdn"],
+    "jaodblshr": SMuFL_MAP["acsgdbsh7V11Cdn"],
     "jaidblflt": SMuFL_MAP["acsgdbfl7V11Cup"],
-    "kaodblshp": SMuFL_MAP["acsgdbsh55Cdn"],
+    "kaodblshr": SMuFL_MAP["acsgdbsh55Cdn"],
     "kaidblflt": SMuFL_MAP["acsgdbfl55Cup"],
-    "sanaodblshp": SMuFL_MAP["acsgdbsh17Cdn"],
+    "sanaodblshr": SMuFL_MAP["acsgdbsh17Cdn"],
     "sanaidblflt": SMuFL_MAP["acsgdbfl17Cup"],
-    "ranaodblshp": SMuFL_MAP["acsgdbsh7V11Kdn"],
+    "ranaodblshr": SMuFL_MAP["acsgdbsh7V11Kdn"],
     "ranaidblflt": SMuFL_MAP["acsgdbfl7V11Kup"],
     "zai": SMuFL_MAP["acsg23cmup"],
     "zao": SMuFL_MAP["acsg23cmdn"],
@@ -567,23 +347,23 @@ const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & W
     "prao": SMuFL_MAP["acsg5V19cmdn"],
     "pazai": SMuFL_MAP["acsg5V23smdsup"],
     "pazao": SMuFL_MAP["acsg5V23smdsdn"],
-    "pazaoshp": SMuFL_MAP["acsgsh5V23Sdn"],
+    "pazaoshr": SMuFL_MAP["acsgsh5V23Sdn"],
     "pazaiflt": SMuFL_MAP["acsgfl5V23Sup"],
-    "praoshp": SMuFL_MAP["acsgsh5V19Cdn"],
+    "praoshr": SMuFL_MAP["acsgsh5V19Cdn"],
     "praiflt": SMuFL_MAP["acsgfl5V19Cup"],
-    "zaoshp": SMuFL_MAP["acsgsh23Cdn"],
+    "zaoshr": SMuFL_MAP["acsgsh23Cdn"],
     "zaiflt": SMuFL_MAP["acsgfl23Cup"],
-    "zaishp": SMuFL_MAP["acsgsh23Cup"],
+    "zaishr": SMuFL_MAP["acsgsh23Cup"],
     "zaoflt": SMuFL_MAP["acsgfl23Cdn"],
-    "praishp": SMuFL_MAP["acsgsh5V19Cup"],
+    "praishr": SMuFL_MAP["acsgsh5V19Cup"],
     "praoflt": SMuFL_MAP["acsgfl5V19Cdn"],
-    "pazaishp": SMuFL_MAP["acsgsh5V23Sup"],
+    "pazaishr": SMuFL_MAP["acsgsh5V23Sup"],
     "pazaoflt": SMuFL_MAP["acsgfl5V23Sdn"],
-    "pazaodblshp": SMuFL_MAP["acsgdbsh5V23Sdn"],
+    "pazaodblshr": SMuFL_MAP["acsgdbsh5V23Sdn"],
     "pazaidblflt": SMuFL_MAP["acsgdbfl5V23Sup"],
-    "praodblshp": SMuFL_MAP["acsgdbsh5V19Cdn"],
+    "praodblshr": SMuFL_MAP["acsgdbsh5V19Cdn"],
     "praidblflt": SMuFL_MAP["acsgdbfl5V19Cup"],
-    "zaodblshp": SMuFL_MAP["acsgdbsh23Cdn"],
+    "zaodblshr": SMuFL_MAP["acsgdbsh23Cdn"],
     "zaidblflt": SMuFL_MAP["acsgdbfl23Cup"],
     "rai": SMuFL_MAP["acsg19scup"],
     "rao": SMuFL_MAP["acsg19scdn"],
@@ -615,67 +395,67 @@ const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & W
     "khao": SMuFL_MAP["acsg11V19lgdsdn"],
     "rakhai": SMuFL_MAP["acsg5V13lgdsup"],
     "rakhao": SMuFL_MAP["acsg5V13lgdsdn"],
-    "sakaoshp": SMuFL_MAP["acsgsh23Sdn"],
+    "sakaoshr": SMuFL_MAP["acsgsh23Sdn"],
     "sakaiflt": SMuFL_MAP["acsgfl23Sup"],
-    "sataoshp": SMuFL_MAP["acsgsh49Sdn"],
+    "sataoshr": SMuFL_MAP["acsgsh49Sdn"],
     "sataiflt": SMuFL_MAP["acsgfl49Sup"],
-    "rataoshp": SMuFL_MAP["acsgsh7V19Cdn"],
+    "rataoshr": SMuFL_MAP["acsgsh7V19Cdn"],
     "rataiflt": SMuFL_MAP["acsgfl7V19Cup"],
-    "razaoshp": SMuFL_MAP["acsgsh19Cdn"],
+    "razaoshr": SMuFL_MAP["acsgsh19Cdn"],
     "razaiflt": SMuFL_MAP["acsgfl19Cup"],
-    "shaoshp": SMuFL_MAP["acsgsh11V49Cdn"],
+    "shaoshr": SMuFL_MAP["acsgsh11V49Cdn"],
     "shaiflt": SMuFL_MAP["acsgfl11V49Cup"],
-    "sraoshp": SMuFL_MAP["acsgsh143Cdn"],
+    "sraoshr": SMuFL_MAP["acsgsh143Cdn"],
     "sraiflt": SMuFL_MAP["acsgfl143Cup"],
-    "saoshp": SMuFL_MAP["acsgsh17Kdn"],
+    "saoshr": SMuFL_MAP["acsgsh17Kdn"],
     "saiflt": SMuFL_MAP["acsgfl17Kup"],
-    "raoshp": SMuFL_MAP["acsgsh19Sdn"],
+    "raoshr": SMuFL_MAP["acsgsh19Sdn"],
     "raiflt": SMuFL_MAP["acsgfl19Sup"],
-    "raishp": SMuFL_MAP["acsgsh19Sup"],
+    "raishr": SMuFL_MAP["acsgsh19Sup"],
     "raoflt": SMuFL_MAP["acsgfl19Sdn"],
-    "saishp": SMuFL_MAP["acsgsh17Kup"],
+    "saishr": SMuFL_MAP["acsgsh17Kup"],
     "saoflt": SMuFL_MAP["acsgfl17Kdn"],
-    "sraishp": SMuFL_MAP["acsgsh143Cup"],
+    "sraishr": SMuFL_MAP["acsgsh143Cup"],
     "sraoflt": SMuFL_MAP["acsgfl143Cdn"],
-    "shaishp": SMuFL_MAP["acsgsh11V49Cup"],
+    "shaishr": SMuFL_MAP["acsgsh11V49Cup"],
     "shaoflt": SMuFL_MAP["acsgfl11V49Cdn"],
-    "razaishp": SMuFL_MAP["acsgsh19Cup"],
+    "razaishr": SMuFL_MAP["acsgsh19Cup"],
     "razaoflt": SMuFL_MAP["acsgfl19Cdn"],
-    "rataishp": SMuFL_MAP["acsgsh7V19Cup"],
+    "rataishr": SMuFL_MAP["acsgsh7V19Cup"],
     "rataoflt": SMuFL_MAP["acsgfl7V19Cdn"],
-    "sataishp": SMuFL_MAP["acsgsh49Sup"],
+    "sataishr": SMuFL_MAP["acsgsh49Sup"],
     "sataoflt": SMuFL_MAP["acsgfl49Sdn"],
-    "sakaishp": SMuFL_MAP["acsgsh23Sup"],
+    "sakaishr": SMuFL_MAP["acsgsh23Sup"],
     "sakaoflt": SMuFL_MAP["acsgfl23Sdn"],
-    "phraishp": SMuFL_MAP["acsgsh5V13Mup"],
+    "phraishr": SMuFL_MAP["acsgsh5V13Mup"],
     "phraoflt": SMuFL_MAP["acsgfl5V13Mdn"],
-    "jazaishp": SMuFL_MAP["acsgsh11V19Mup"],
+    "jazaishr": SMuFL_MAP["acsgsh11V19Mup"],
     "jazaoflt": SMuFL_MAP["acsgfl11V19Mdn"],
-    "jpaishp": SMuFL_MAP["acsgsh49Mup"],
+    "jpaishr": SMuFL_MAP["acsgsh49Mup"],
     "jpaoflt": SMuFL_MAP["acsgfl49Mdn"],
-    "prakaishp": SMuFL_MAP["acsgsh5V49Mup"],
+    "prakaishr": SMuFL_MAP["acsgsh5V49Mup"],
     "prakaoflt": SMuFL_MAP["acsgfl5V49Mdn"],
-    "ktaishp": SMuFL_MAP["acsgsh49Lup"],
+    "ktaishr": SMuFL_MAP["acsgsh49Lup"],
     "ktaoflt": SMuFL_MAP["acsgfl49Ldn"],
-    "khaishp": SMuFL_MAP["acsgsh11V19Lup"],
+    "khaishr": SMuFL_MAP["acsgsh11V19Lup"],
     "khaoflt": SMuFL_MAP["acsgfl11V19Ldn"],
-    "rakhaishp": SMuFL_MAP["acsgsh5V13Lup"],
+    "rakhaishr": SMuFL_MAP["acsgsh5V13Lup"],
     "rakhaoflt": SMuFL_MAP["acsgfl5V13Ldn"],
-    "sakaodblshp": SMuFL_MAP["acsgdbsh23Sdn"],
+    "sakaodblshr": SMuFL_MAP["acsgdbsh23Sdn"],
     "sakaidblflt": SMuFL_MAP["acsgdbfl23Sup"],
-    "sataodblshp": SMuFL_MAP["acsgdbsh49Sdn"],
+    "sataodblshr": SMuFL_MAP["acsgdbsh49Sdn"],
     "sataidblflt": SMuFL_MAP["acsgdbfl49Sup"],
-    "rataodblshp": SMuFL_MAP["acsgdbsh7V19Cdn"],
+    "rataodblshr": SMuFL_MAP["acsgdbsh7V19Cdn"],
     "rataidblflt": SMuFL_MAP["acsgdbfl7V19Cup"],
-    "razaodblshp": SMuFL_MAP["acsgdbsh19Cdn"],
+    "razaodblshr": SMuFL_MAP["acsgdbsh19Cdn"],
     "razaidblflt": SMuFL_MAP["acsgdbfl19Cup"],
-    "shaodblshp": SMuFL_MAP["acsgdbsh11V49Cdn"],
+    "shaodblshr": SMuFL_MAP["acsgdbsh11V49Cdn"],
     "shaidblflt": SMuFL_MAP["acsgdbfl11V49Cup"],
-    "sraodblshp": SMuFL_MAP["acsgdbsh143Cdn"],
+    "sraodblshr": SMuFL_MAP["acsgdbsh143Cdn"],
     "sraidblflt": SMuFL_MAP["acsgdbfl143Cup"],
-    "saodblshp": SMuFL_MAP["acsgdbsh17Kdn"],
+    "saodblshr": SMuFL_MAP["acsgdbsh17Kdn"],
     "saidblflt": SMuFL_MAP["acsgdbfl17Kup"],
-    "raodblshp": SMuFL_MAP["acsgdbsh19Sdn"],
+    "raodblshr": SMuFL_MAP["acsgdbsh19Sdn"],
     "raidblflt": SMuFL_MAP["acsgdbfl19Sup"],
     "ai": SMuFL_MAP["acsgshup"],
     "ao": SMuFL_MAP["acsgshdn"],
@@ -718,19 +498,19 @@ const SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, U
     "wao": SMuFL_MAP["acsg11lgdsdn"],
     "dai": SMuFL_MAP["acsg35lgdsup"],
     "dao": SMuFL_MAP["acsg35lgdsdn"],
-    "faoshp": SMuFL_MAP["acsgsh25Sdn"],
+    "faoshr": SMuFL_MAP["acsgsh25Sdn"],
     "faiflt": SMuFL_MAP["acsgfl25Sup"],
-    "faishp": SMuFL_MAP["acsgsh25Sup"],
+    "faishr": SMuFL_MAP["acsgsh25Sup"],
     "faoflt": SMuFL_MAP["acsgfl25Sdn"],
-    "gaishp": SMuFL_MAP["acsgsh35Mup"],
+    "gaishr": SMuFL_MAP["acsgsh35Mup"],
     "gaoflt": SMuFL_MAP["acsgfl35Mdn"],
-    "vaishp": SMuFL_MAP["acsgsh11Mup"],
+    "vaishr": SMuFL_MAP["acsgsh11Mup"],
     "vaoflt": SMuFL_MAP["acsgfl11Mdn"],
-    "waishp": SMuFL_MAP["acsgsh11Lup"],
+    "waishr": SMuFL_MAP["acsgsh11Lup"],
     "waoflt": SMuFL_MAP["acsgfl11Ldn"],
-    "daishp": SMuFL_MAP["acsgsh35Lup"],
+    "daishr": SMuFL_MAP["acsgsh35Lup"],
     "daoflt": SMuFL_MAP["acsgfl35Ldn"],
-    "faodblshp": SMuFL_MAP["acsgdbsh25Sdn"], // todo shp -> shr
+    "faodblshr": SMuFL_MAP["acsgdbsh25Sdn"],
     "faidblflt": SMuFL_MAP["acsgdbfl25Sup"],
     "slai": SMuFL_MAP["acsg143cmup"],
     "slao": SMuFL_MAP["acsg143cmdn"],
@@ -742,19 +522,19 @@ const SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, U
     "chao": SMuFL_MAP["acsg11V19lgdsdn"],
     "rachai": SMuFL_MAP["acsg5V13lgdsup"],
     "rachao": SMuFL_MAP["acsg5V13lgdsdn"],
-    "slaoshp": SMuFL_MAP["acsgsh143Cdn"],
+    "slaoshr": SMuFL_MAP["acsgsh143Cdn"],
     "slaiflt": SMuFL_MAP["acsgfl143Cup"],
-    "slaishp": SMuFL_MAP["acsgsh143Cup"],
+    "slaishr": SMuFL_MAP["acsgsh143Cup"],
     "slaoflt": SMuFL_MAP["acsgfl143Cdn"],
-    "fraishp": SMuFL_MAP["acsgsh5V13Mup"],
+    "fraishr": SMuFL_MAP["acsgsh5V13Mup"],
     "fraoflt": SMuFL_MAP["acsgfl5V13Mdn"],
-    "vraishp": SMuFL_MAP["acsgsh5V49Mup"],
+    "vraishr": SMuFL_MAP["acsgsh5V49Mup"],
     "vraoflt": SMuFL_MAP["acsgfl5V49Mdn"],
-    "chaishp": SMuFL_MAP["acsgsh11V19Lup"],
+    "chaishr": SMuFL_MAP["acsgsh11V19Lup"],
     "chaoflt": SMuFL_MAP["acsgfl11V19Ldn"],
-    "rachaishp": SMuFL_MAP["acsgsh5V13Lup"],
+    "rachaishr": SMuFL_MAP["acsgsh5V13Lup"],
     "rachaoflt": SMuFL_MAP["acsgfl5V13Ldn"],
-    "slaodblshp": SMuFL_MAP["acsgdbsh143Cdn"],
+    "slaodblshr": SMuFL_MAP["acsgdbsh143Cdn"],
     "slaidblflt": SMuFL_MAP["acsgdbfl143Cup"],
 } as Record<Code & Word, Unicode & Word>
 
