@@ -401,6 +401,9 @@ describe("computeInputSentenceUnicode", (): void => {
         it("should not display anything when you've only entered 'ston'", (): void => {
             const inputSentence = "ston" as Io & Sentence
 
+            // todo: still a bug with ston, Regarding the changes of staff when auto-staff is on: I don't think the translated staff piece codes should be passed through to the output. They should only set what staff pieces will be used when they are next required by the auto-staff algorithm. e.g. "ston st5ln" should have exactly the same effect as "ston" alone, namely nothing visible.
+            // That was my understanding and my intention, but I see it is not the case. A very similar bug to the one I just extinguished earlier yesterday. Probably again to do with the spacing. That was the fiddliest part of my work yesterday. Spent probably an hour agonizing over the exact conditions here are there for when to treat a symbol as real for what and when not to. I'll add a test or two more to make it right.
+
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = "" as Unicode & Sentence
