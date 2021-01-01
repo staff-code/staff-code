@@ -5,12 +5,12 @@ import {StaffCodeOptions} from "../../types"
 import {buildPackageInput} from "./input"
 
 const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
-    const {download = true, interactive = true, inline = false, initialText, font, lineHeight, callback} = options
+    const {download = true, interactive = true, inline = false, initialText, font, lineHeight, callback, size} = options
 
     const root = document.createElement("span")
     root.classList.add("staff-code")
 
-    const display = buildDisplay(inline, {font, lineHeight})
+    const display = buildDisplay( {font, inline, lineHeight, size})
     root.appendChild(display)
 
     const input = buildPackageInput(root, {initialText, interactive, callback})
