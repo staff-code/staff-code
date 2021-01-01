@@ -730,7 +730,7 @@ const SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, U
     "waoflt": SMuFL_MAP["acsgfl11Ldn"],
     "daishp": SMuFL_MAP["acsgsh35Lup"],
     "daoflt": SMuFL_MAP["acsgfl35Ldn"],
-    "faodblshp": SMuFL_MAP["acsgdbsh25Sdn"],
+    "faodblshp": SMuFL_MAP["acsgdbsh25Sdn"], // todo shp -> shr
     "faidblflt": SMuFL_MAP["acsgdbfl25Sup"],
     "slai": SMuFL_MAP["acsg143cmup"],
     "slao": SMuFL_MAP["acsg143cmdn"],

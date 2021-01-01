@@ -6,7 +6,6 @@ const MANUAL_STAVE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> =
     "st8": SMuFL_MAP["st5lnnr"],
     "st16": SMuFL_MAP["st5ln"],
     "st24": SMuFL_MAP["st5lnwd"],
-    "st": SMuFL_MAP["st5lnnr"],
 } as Record<Code & Word, Unicode & Word>
 
 const LINE_BREAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
