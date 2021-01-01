@@ -16,3 +16,5 @@ export {
 
 // TODO: FEATURE IMPROVE, BLOCKED: LEGER LINE CENTERING
 //  It doesn't look like notes center on the leger lines
+// So now Dave wants to have the leger lines just be the next biggest one than the width of the tghing being legered
+// Having played around with it for a while, with different staves and different leger lines, I have changed my mind about letting the user choose the leger line width in auto-staff mode. The leger line width should be based on the width of the note or notehead that triggers it. The 3 widths of leger line are a bit like the 3 widths of staff-pieces. I think you should use the smallest leger line that is wider than the note or notehead, even if only by 1 octal. In the worst case it may be 8 octals wider.

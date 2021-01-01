@@ -424,7 +424,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("manual stave of the same type as the automated type has no effect (including if it's the default type)", (): void => {
-            const inputSentence = "ston st nt8up ; nt4" as Io & Sentence
+            const inputSentence = "ston st5ln nt8up ; nt4" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
