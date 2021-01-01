@@ -1,1 +1,1 @@
-[sc={NUMBER;optional} font={SIMPLETEXT;optional}]{TEXT}[/sc]
+[sc={INTTEXT;optional} font={SIMPLETEXT;optional}]{TEXT}[/sc]
