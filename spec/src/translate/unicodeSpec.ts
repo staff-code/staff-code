@@ -1,9 +1,9 @@
 import {Io, Word} from "@sagittal/general"
-import {LOWERCASED_CODE_MAP, Unicode} from "../../../src/translate/codes"
+import {Code, computeUnicodeForCode, LOWERCASED_CODE_MAP, Unicode} from "../../../src/translate/codes"
 import {UnicodeLiteral} from "../../../src/translate/codes/types"
 import {smarts} from "../../../src/translate/smarts"
 import {Clef} from "../../../src/translate/smarts/positionAndClef"
-import {getUnicode} from "../../../src/translate/unicode"
+import {getUnicode, shouldNotBeDisplayed} from "../../../src/translate/unicode"
 
 describe("getUnicode", (): void => {
     it("gets you the unicode for a given base word", (): void => {
@@ -52,5 +52,19 @@ describe("getUnicode", (): void => {
 
         const expected = "" as Unicode & Word
         expect(actual).toEqual(expected)
+    })
+})
+
+describe("shouldNotBeDisplayed", (): void => {
+    it("returns true for positions, because smart position takes care of putting the position character down                  ", (): void => {
+        const unicode = computeUnicodeForCode("up1" as Code & Word)
+
+        expect(shouldNotBeDisplayed(unicode)).toBeTruthy()
+    })
+
+    it("returns true for position supplements too", (): void => {
+        const unicode = computeUnicodeForCode("up15" as Code & Word)
+
+        expect(shouldNotBeDisplayed(unicode)).toBeTruthy()
     })
 })

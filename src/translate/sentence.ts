@@ -14,11 +14,13 @@ import {Unicode} from "./codes"
 import {INITIAL_SMARTS, smarts} from "./smarts"
 import {computeInputUnicodeClause} from "./word"
 
+// TODO: BUG, WHITESPACE COLLAPSING NOT WORKING?
+//  It looks like if you type a bunch of spaces they don't get collapsed anymore
+
 const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io & Sentence =>
     inputSentence
         .replace(/<br>/g, SPACE)
-        .replace(/\n/g, SPACE)
-        .replace(/\t/g, SPACE)
+        .replace(/\s/g, SPACE)
         .trim() as Io & Sentence
 
 const ensureLineBreaksImmediatelyDisplay = (unicodeSentence: Unicode & Sentence): Unicode & Sentence =>

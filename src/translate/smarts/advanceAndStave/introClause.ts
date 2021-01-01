@@ -1,21 +1,20 @@
-import {Clause, max, Word} from "@sagittal/general"
+import {Clause, Word} from "@sagittal/general"
 import {Octals, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
+import {isManualLegerLineUnicode, updateSmartLeger} from "../leger"
+import {updateSmartAdvance} from "./advance"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
 import {BREAK_UNICODE} from "./constants"
 import {isManualAdvanceUnicode, isSmartAdvanceUnicode, isSpacingUnicode} from "./isUnicode"
 import {computeManualAdvanceWidth} from "./manualAdvance"
 import {computeSpacing} from "./spacing"
 import {updateSmartStave} from "./stave"
-import {computeUnicodeWidth} from "./width"
 
-const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStave = (
+const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
     unicode: Unicode & Word,
 ): Unicode & Clause => {
     let smartAdvanceAndSmartStaveUnicodeIntroClause: Unicode & Clause
-
-    const width = computeUnicodeWidth(unicode)
 
     if (isSmartAdvanceUnicode(unicode)) {
         smartAdvanceAndSmartStaveUnicodeIntroClause =
@@ -37,11 +36,17 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
     } else if (isSpacingUnicode(unicode)) {
         smarts.spacing = computeSpacing(unicode)
         smartAdvanceAndSmartStaveUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
+    } else if (isManualLegerLineUnicode(unicode)) {
+        if (smarts.staveOn) {
+            updateSmartLeger(unicode)
+        } else {
+            updateSmartAdvance(unicode)
+        }
+
+        smartAdvanceAndSmartStaveUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
     } else {
         updateSmartStave(unicode)
-
-        const maxSymbolWidthSinceLastAdvance = max(smarts.advanceWidth, width)
-        smarts.advanceWidth = maxSymbolWidthSinceLastAdvance
+        updateSmartAdvance(unicode)
 
         smartAdvanceAndSmartStaveUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
     }
@@ -50,5 +55,5 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
 }
 
 export {
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStave,
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
 }

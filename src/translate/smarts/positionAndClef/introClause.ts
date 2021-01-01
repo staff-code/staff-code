@@ -1,11 +1,9 @@
-import {Clause, extendClause, max, sumTexts, Word} from "@sagittal/general"
+import {Clause, extendClause, Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
-import {EMPTY_UNICODE} from "../../constants"
-import {computeUnicodeWidth} from "../advanceAndStave"
 import {smarts} from "../globals"
+import {computeSmartLegerUnicodeIntroClauseAndUpdateSmarts} from "../leger"
 import {canBePositioned, updateSmartClef, updateSmartPosition} from "../positionAndClef"
-import {LEGER_LINE_UNICODE, NOT_SMuFL_ZERO_POSITION_UNICODE} from "./constants"
-import {computeSmartLegerUnicodeIntroClause, needsLegerLine} from "./leger"
+import {NOT_SMuFL_ZERO_POSITION_UNICODE} from "./constants"
 
 const computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts = (
     unicode: Unicode & Word,
@@ -13,14 +11,7 @@ const computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts = (
     updateSmartClef(unicode)
     updateSmartPosition(unicode)
 
-    let smartPositionAndSmartClefUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
-    if (needsLegerLine(unicode)) {
-        smartPositionAndSmartClefUnicodeIntroClause = sumTexts(
-            smartPositionAndSmartClefUnicodeIntroClause,
-            computeSmartLegerUnicodeIntroClause(),
-        ) as Unicode & Clause
-        smarts.advanceWidth = max(smarts.advanceWidth, computeUnicodeWidth(LEGER_LINE_UNICODE))
-    }
+    let smartPositionAndSmartClefUnicodeIntroClause = computeSmartLegerUnicodeIntroClauseAndUpdateSmarts(unicode)
 
     if (canBePositioned(unicode) && smarts.positionUnicode !== NOT_SMuFL_ZERO_POSITION_UNICODE) {
         smartPositionAndSmartClefUnicodeIntroClause = extendClause(

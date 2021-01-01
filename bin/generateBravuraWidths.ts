@@ -6,9 +6,30 @@ const computeBravuraWidth = ([_, {bBoxNE: [x, y]}]: [any, {bBoxNE: number[]}]): 
     round(x * 8) as Octals
 
 const OVERRIDDEN_WIDTHS: Record<RecordKey<Unicode>, Octals> = {
+    [SMuFL_MAP["st6ln"]]: 0 as Octals,
+    [SMuFL_MAP["st6lnwd"]]: 0 as Octals,
+    [SMuFL_MAP["st6lnnr"]]: 0 as Octals,
     [SMuFL_MAP["st5ln"]]: 0 as Octals,
     [SMuFL_MAP["st5lnwd"]]: 0 as Octals,
     [SMuFL_MAP["st5lnnr"]]: 0 as Octals,
+    [SMuFL_MAP["st4ln"]]: 0 as Octals,
+    [SMuFL_MAP["st4lnwd"]]: 0 as Octals,
+    [SMuFL_MAP["st4lnnr"]]: 0 as Octals,
+    [SMuFL_MAP["st3ln"]]: 0 as Octals,
+    [SMuFL_MAP["st3lnwd"]]: 0 as Octals,
+    [SMuFL_MAP["st3lnnr"]]: 0 as Octals,
+    [SMuFL_MAP["st2ln"]]: 0 as Octals,
+    [SMuFL_MAP["st2lnwd"]]: 0 as Octals,
+    [SMuFL_MAP["st2lnnr"]]: 0 as Octals,
+    [SMuFL_MAP["st1ln"]]: 0 as Octals,
+    [SMuFL_MAP["st1lnwd"]]: 0 as Octals,
+    [SMuFL_MAP["st1lnnr"]]: 0 as Octals,
+    [SMuFL_MAP["chst"]]: 0 as Octals, // Plainchant staff
+    [SMuFL_MAP["chstwd"]]: 0 as Octals, // Plainchant staff (wide)
+    [SMuFL_MAP["chstnr"]]: 0 as Octals, // Plainchant staff (narrow)
+    [SMuFL_MAP["ltst6ln"]]: 0 as Octals, // Lute tablature staff, 6 courses
+    [SMuFL_MAP["ltst6lnwd"]]: 0 as Octals, // Lute tablature staff, 6 courses (wide)
+    [SMuFL_MAP["ltst6lnnr"]]: 0 as Octals, // Lute tablature staff, 6 courses (narrow)
     [SMuFL_MAP["blsn"]]: 0 as Octals,
     [SMuFL_MAP["bldb"]]: 3 as Octals,
 }

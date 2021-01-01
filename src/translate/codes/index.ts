@@ -6,7 +6,7 @@ export {
     ACCIDENTAL_ALIASES_MAP,
     LINE_BREAK_ALIASES_MAP,
 } from "./aliases"
-export {LOWERCASED_CODE_MAP, BASE_SYMBOL_MAP} from "./codes"
+export {LOWERCASED_CODE_MAP, BASE_SYMBOL_MAP, NONSYMBOL_MAP} from "./codes"
 export {computeDebugCodeFromUnicode} from "./code"
 export {computeUnicodeForCode} from "./unicode"
 export {computeUnicodeLiteral, isUnicodeLiteral, computeUnicodeFromUnicodeLiteral} from "./literal"

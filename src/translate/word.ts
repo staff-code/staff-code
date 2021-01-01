@@ -2,7 +2,7 @@ import {Clause, extendClause, Io, sumTexts, Word} from "@sagittal/general"
 import {Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
 import {
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStave,
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
     computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
     isCommenting,
 } from "./smarts"
@@ -14,7 +14,7 @@ const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
     const unicode = getUnicode(input)
 
     const smartAdvanceAndSmartStaveUnicodeIntroClause: Unicode & Clause =
-        computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStave(unicode)
+        computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts(unicode)
     const smartPositionAndSmartClefUnicodeIntroClause: Unicode & Clause =
         computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts(unicode)
     const introClauseUnicode = sumTexts(
@@ -23,12 +23,12 @@ const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
     )
 
     const displayUnicode = computeMaybeNotDisplayedUnicode(unicode)
-    const inputUnicodeClause = extendClause(introClauseUnicode, displayUnicode)
+    const inputUnicodeClause = extendClause(introClauseUnicode, displayUnicode) as Unicode & Clause
 
     // tslint:disable-next-line
-    // console.warn(`${input} → ${computeCodeSentenceFromUnicodeSentence(unicode)}\nsmarts: ${stringify(smarts)}\n`)
+    // console.warn(`${input} → ${computeCodeSentenceFromUnicodeSentence(inputUnicodeClause as Unicode as Unicode & Sentence)}\nsmarts: ${stringify(smarts)}\n`)
 
-    return inputUnicodeClause as Unicode & Clause
+    return inputUnicodeClause
 }
 
 

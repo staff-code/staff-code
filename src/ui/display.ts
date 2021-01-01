@@ -5,7 +5,7 @@ const FONT_SIZE = 2.5 as Em
 const INLINE_FONT_SIZE = 1 as Em
 const DEFAULT_LINE_HEIGHT_MULTIPLIER = 2 as Multiplier<Em>
 const MARGIN_SIZE = 1 as Em
-const HORIZONTAL_MARGIN_MULTIPLIER = 1/8 as Multiplier<Em>
+const HORIZONTAL_MARGIN_MULTIPLIER = 1 / 8 as Multiplier<Em>
 
 const buildDisplay = (inline: boolean = false, {font, lineHeight}: StaffCodeOptions = {}): HTMLElement => {
     const display = document.createElement(inline ? "span" : "div")

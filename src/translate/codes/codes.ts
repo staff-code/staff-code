@@ -42,4 +42,5 @@ const LOWERCASED_CODE_MAP: Record<RecordKey<LowercasedCode & Word>, Unicode & Wo
 export {
     LOWERCASED_CODE_MAP,
     BASE_SYMBOL_MAP,
+    NONSYMBOL_MAP,
 }

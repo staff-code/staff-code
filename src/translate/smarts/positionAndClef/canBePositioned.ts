@@ -1,19 +1,19 @@
 import {Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
 import {
-    isInFlagsAccidentalsArticulationHoldsPausesOrRestsRange,
-    isInKievanSquareNotationRange,
-    isInLegerLineRange,
-    isInMedievalAndRenaissanceRange,
-    isInNoteheadNoteStemOrBeamedGroupsOfNotesRange,
-} from "./ranges"
+    isFlagsAccidentalsArticulationHoldsPausesOrRestsUnicode,
+    isKievanSquareNotationUnicode,
+    isMedievalAndRenaissanceUnicode,
+    isNoteheadNoteStemOrBeamedGroupsOfNotesUnicode,
+} from "../isUnicode"
+import {isManualLegerLineUnicode} from "../leger"
 
 const canBePositioned = (unicode: Unicode & Word): boolean =>
-    isInLegerLineRange(unicode)
-    || isInNoteheadNoteStemOrBeamedGroupsOfNotesRange(unicode)
-    || isInFlagsAccidentalsArticulationHoldsPausesOrRestsRange(unicode)
-    || isInMedievalAndRenaissanceRange(unicode)
-    || isInKievanSquareNotationRange(unicode)
+    isManualLegerLineUnicode(unicode)
+    || isNoteheadNoteStemOrBeamedGroupsOfNotesUnicode(unicode)
+    || isFlagsAccidentalsArticulationHoldsPausesOrRestsUnicode(unicode)
+    || isMedievalAndRenaissanceUnicode(unicode)
+    || isKievanSquareNotationUnicode(unicode)
 
 export {
     canBePositioned,

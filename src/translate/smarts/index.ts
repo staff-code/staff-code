@@ -1,6 +1,10 @@
 export {smarts} from "./globals"
-export {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStave} from "./advanceAndStave"
+export {
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts, isManualAdvanceUnicode,
+} from "./advanceAndStave"
 export {INITIAL_SMARTS} from "./constants"
 export {isCommenting} from "./comments"
-export {computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts, getUnicodeGivenClef} from "./positionAndClef"
-export {shouldNotBeDisplayed} from "./shouldNotBeDisplayed"
+export {
+    computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts, getUnicodeGivenClef, isPositionUnicode,
+} from "./positionAndClef"
+export {isNonsymbolifiedLegerLineUnicode, isNonsymbolifiedStaffUnicode} from "./nonsymbolified"

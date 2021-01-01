@@ -1,8 +1,7 @@
 // tslint:disable max-line-length
 
 import {Io, Sentence} from "@sagittal/general"
-import {computeInputSentenceUnicode} from "../../../src"
-import {Unicode} from "../../../src/translate"
+import {computeInputSentenceUnicode, Unicode} from "../../../src"
 import {Code} from "../../../src/translate/codes"
 import {computeCodeSentenceFromUnicodeSentence} from "../../../src/translate/codes/code"
 
@@ -366,7 +365,7 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("provides multiple ledger lines if the note is very beyond the staff", (): void => {
+        it("provides multiple leger lines if the note is very beyond the staff", (): void => {
             const inputSentence = "ston a3 nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
@@ -382,9 +381,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "       " as Unicode & Sentence
+            const expectedUnicode = "       " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "st8 dn6 ntqrup 8; st8 5; dn6 lgln dn6 ntqrup 3; st8 8; st8 4;" as Code & Sentence
+            const expectedCodes = "st8 dn6 ntqrup st8 8; st8 5; dn6 lgln dn6 ntqrup 3; st8 8; st8 4;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -399,40 +398,37 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
-        // TODO: smart type of stave
-        /*
-        I came up with a way of doing it that has zero-added-sugar (syntactic sugar, that is).
-        If you already have auto-staff turned on, and you give the code for a piece of staff,
-        that would normally be a completely pointless thing to do,
-        but we should interpret it as changing the character that should be used for auto-staffing from then on.
-        Here are the ranges that correspond to pieces of staff.
+        it("can be configured to automate different types of staves, by providing one stave of that kind", (): void => {
+            const inputSentence = "ston st4ln nt8up ; nt4" as Io & Sentence
 
-        isStaff()
-        E010 to E021 // Staves, 1 line thru 6 line
-        E8F0 to E8F2 // Plainchant staff
-        EBA0 to EBA2 // Lute tablature staff, 6 courses
+            const actual = computeInputSentenceUnicode(inputSentence)
 
-        And we should do the same with the character used for auto leger lines,
-        to give auto-staffers access to narrow and wide leger lines.
+            const expectedUnicode = "     " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "nt8up st4ln 16; st4lnnr 4; ntqrup 4; st4lnnr 8; st4lnnr 1;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
 
-        isLegerLine()
-        E022 to E024
+        it("manual stave of the same type as the automated type has no effect (including if it's the default type)", (): void => {
+            const inputSentence = "ston st nt8up ; nt4" as Io & Sentence
 
-        Of course the defaults for these two auto characters would remain E020 and E022.
+            const actual = computeInputSentenceUnicode(inputSentence)
 
-        I just remembered that you minimise the number of staff-piece characters
-        while also minimising the amount of extra staff at the end.
-        So when the user gives a literal staff piece character when auto-staff is on, you need to update 3 characters,
-        the narrow, the medium and the wide (8, 16 and 24 octals).
+            const expectedUnicode = "     " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "nt8up st16 16; st8 4; ntqrup 4; st8 8; st8 1;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
 
-        It turns out, if the user gives a staff character less than E030 then
-        staff8 = 0xE01C + userStaff % 6
-        staff16 = 0xE010 + userStaff % 6
-        staff24 = 0xE016 + userStaff % 6
-        else
-        staff8 = userStaff & 0xFFFC + 2
-        staff16 = userStaff & 0xFFFC + 0
-        staff24 = userStaff & 0xFFFC + 1
-        */
+        it("can be configured to automate different widths of leger lines, by providing one of that kind", (): void => {
+            const inputSentence = "ston lglnwd a5 /|\\ ; nt" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "        " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "up6 /|\\ st8 8; st8 5; up6 lglnwd up6 ntqrup 3; st16 16; st8 3;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
     })
 })
