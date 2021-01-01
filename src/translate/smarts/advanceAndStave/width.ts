@@ -14,4 +14,5 @@ export {
     computeUnicodeWidth,
 }
 
-// TODO: FEATURE IMPROVE, BLOCKED: LEGER LINE CENTERING it doesn't look like notes center on the leger lines
+// TODO: FEATURE IMPROVE, BLOCKED: LEGER LINE CENTERING
+//  It doesn't look like notes center on the leger lines

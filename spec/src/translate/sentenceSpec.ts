@@ -73,6 +73,17 @@ describe("computeInputSentenceUnicode", (): void => {
         expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
     })
 
+    it("is whitespace agnostic", (): void => {
+        const inputSentence = "d5           /|\\     \n  d5    \t     nt" as Io & Sentence
+
+        const actual = computeInputSentenceUnicode(inputSentence)
+
+        const expectedUnicode = "　 " as Unicode & Sentence
+        expect(actual).toBe(expectedUnicode)
+        const expectedCodes = "up2 /|\\ up2 ntqrup 13;" as Code & Sentence
+        expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+    })
+
     describe("Smart Position", (): void => {
         it("the most recently used position is automatically applied if none is specified", (): void => {
             const inputSentence = "d5 /|\\ nt" as Io & Sentence
