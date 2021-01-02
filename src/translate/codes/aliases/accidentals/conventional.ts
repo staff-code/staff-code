@@ -6,9 +6,13 @@ const CONVENTIONAL_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicod
     "h": SMuFL_MAP["acnt"],
     "n": SMuFL_MAP["acnt"],
     "#": SMuFL_MAP["acsh"],
-    "b": SMuFL_MAP["acfl"], // todo: add nt, sh, fl, dbsh, and dbfl
+    "b": SMuFL_MAP["acfl"],
     "x": SMuFL_MAP["aclgdbsh"],
     "bb": SMuFL_MAP["acdbfl"],
+    "sh": SMuFL_MAP["acsh"],
+    "fl": SMuFL_MAP["acfl"],
+    "dbsh": SMuFL_MAP["aclgdbsh"],
+    "dbfl": SMuFL_MAP["acdbfl"],
 } as Record<Code & Word, Unicode & Word>
 
 export {

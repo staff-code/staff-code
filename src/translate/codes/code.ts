@@ -1,10 +1,5 @@
 import {BLANK, joinWords, Sentence, Word} from "@sagittal/general"
-import {
-    ACCIDENTAL_ALIASES_MAP,
-    GENERIC_POSITION_ALIASES_MAP,
-    LINE_BREAK_ALIASES_MAP,
-    MANUAL_STAVE_ALIASES_MAP,
-} from "./aliases"
+import {ACCIDENTAL_ALIASES_MAP, GENERIC_POSITION_ALIASES_MAP, LINE_BREAK_ALIASES_MAP} from "./aliases"
 import {BASE_SYMBOL_MAP} from "./codes"
 import {Code, Unicode} from "./types"
 
@@ -12,7 +7,6 @@ const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {
     ...ACCIDENTAL_ALIASES_MAP,
     ...GENERIC_POSITION_ALIASES_MAP,
     ...LINE_BREAK_ALIASES_MAP,
-    ...MANUAL_STAVE_ALIASES_MAP,
     ...BASE_SYMBOL_MAP,
 }
 const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES = Object.entries(
@@ -34,8 +28,8 @@ const computeDebugCodeFromUnicode = (unicode: Unicode & Word): Code & Word => {
     return code
 }
 
-const sumAdvancesForDebugging = (codeSentence: Code & Sentence): Code & Sentence => {
-    return codeSentence
+const sumAdvancesForDebugging = (codeSentence: Code & Sentence): Code & Sentence =>
+    codeSentence
         .replace(/24; 6; 1;/g, "31;")
         .replace(/24; 6;/g, "30;")
         .replace(/24; 4; 1;/g, "29;")
@@ -59,7 +53,13 @@ const sumAdvancesForDebugging = (codeSentence: Code & Sentence): Code & Sentence
         .replace(/6; 1;/g, "7;")
         .replace(/4; 1;/g, "5;")
         .replace(/2; 1;/g, "3;") as Code & Sentence
-}
+
+const expressStavesAsWidthsForDebugging = (codeSentence: Code & Sentence): Code & Sentence =>
+    codeSentence
+        .replace(/st5lnnr/g, "st8")
+        .replace(/st5ln\b/g, "st16")
+        .replace(/st5lnwd/g, "st24") as Code & Sentence
+
 
 const computeCodeSentenceFromUnicodeSentence = (unicodeSentence: Unicode & Sentence): Code & Sentence => {
     const unicodeWords = unicodeSentence.split(BLANK) as Array<Unicode & Word>
@@ -67,7 +67,7 @@ const computeCodeSentenceFromUnicodeSentence = (unicodeSentence: Unicode & Sente
     const codeWords: Array<Code & Word> = unicodeWords.map(computeDebugCodeFromUnicode)
     const codeSentence = joinWords(...codeWords)
 
-    return sumAdvancesForDebugging(codeSentence)
+    return expressStavesAsWidthsForDebugging(sumAdvancesForDebugging(codeSentence))
 }
 
 export {

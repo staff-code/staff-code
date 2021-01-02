@@ -333,7 +333,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("does not add additional lines as needed, if only a manual stave has been asked for", (): void => {
-            const inputSentence = "st24 nt8up ; nt4" as Io & Sentence
+            const inputSentence = "st5lnwd nt8up ; nt4" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -388,7 +388,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("turns off leger lines when smart stave is off", (): void => {
-            const inputSentence = "stof st8 dn6 nt ston ; dn6 nt" as Io & Sentence
+            const inputSentence = "stof st5lnnr dn6 nt ston ; dn6 nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 

@@ -19,7 +19,7 @@ export {
     computeUnicodeWidth,
 }
 
-// TODO: FEATURE IMPROVE, BLOCKED: LEGER LINE CENTERING
+// TODO: FEATURE IMPROVE, READY TO GO: LEGER LINE CENTERING
 //  It doesn't look like notes center on the leger lines
 //  So now Dave wants to have the leger lines just be the next biggest one than the width of the thing being leger-ed
 //  Instead of whatever leger line you provide changing which one gets automatically placed
@@ -29,4 +29,11 @@ export {
 //  The 3 widths of leger line are a bit like the 3 widths of staff-pieces.
 //  I think you should use the smallest leger line that is wider than the note or notehead, even if only by 1 octal.
 //  In the worst case it may be 8 octals wider."
-//  - Only blocked because waiting on absolute confirmation of the behavior for pass-through stuff when auto stave is on
+//  "Special treatment will need to be given to upward eighth-notes and smaller,
+//  Because we only care about the width of their notehead, not the entire note including flags.
+//  They should be assumed to be the same width as the quarter notes in the same group."
+//  By which he means:
+//  - Upward not downward, because the flags are always on the right, but the stem switches sides, so the flag only adds
+//  Width to upward notes
+//  - Smaller meaning 16th notes, 32nd notes, 64th notes, etc.
+//  - And "same group" he thought there was more than one group, but there's just the one, so don't worry about it
