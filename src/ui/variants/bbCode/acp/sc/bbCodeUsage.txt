@@ -1,1 +1,1 @@
-[sc={INTTEXT;optional} font={SIMPLETEXT;optional} size={NUMBER;optional}]{TEXT}[/sc]
+[sc={SIMPLETEXT1;defaultValue=0.54} font={SIMPLETEXT2;optional} size={NUMBER;defaultValue=280}]{TEXT}[/sc]
