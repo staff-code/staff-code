@@ -4,19 +4,6 @@ import {RecordKey, Word} from "@sagittal/general"
 import {Code, Unicode} from "./types"
 
 const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    /* 	 */"chtb": "\u0009", // character tabulation
-    /* \n */"lnfd": "\u000A",    // line feed
-    /*  */"lntb": "\u000B", // line tabulation
-    /*  */"frfd": "\u000C", // form feed
-    /*  */"crrt": "\u000D",  // carriage return
-    /*  */"sp": "\u0020",    // space
-    /*  */"nxln": "\u0085", // next line
-    /*   */"nobrsp": "\u00A0",   // no-break space
-    /*   */"ogspmr": "\u1680",   // ogham space mark
-    /*   */"lnsp": "\u2028", // line separator
-    /*   */"prsp": "\u2029", // paragraph separator
-    /*   */"nrnobrsp": "\u202F", // narrow no-break space
-    /*   */"mdmtsp": "\u205F",   // medium mathematical space
     /*  */"br": "\uE000",   // Brace
     /*  */"rvbr": "\uE001", // Reversed brace
     /*  */"bk": "\uE002",   // Bracket
@@ -689,6 +676,8 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acsgfl5V7Kup": "\uE317", // Flat 5:7k-up
     /*  */"acsgsh": "\uE318",   // Sharp, (apotome up)[almost all EDOs], 1/2-tone up
     /*  */"acsgfl": "\uE319",   // Flat, (apotome down)[almost all EDOs], 1/2-tone down
+    /*  */"acsgun1": "\uE31A",   // Unused
+    /*  */"acsgun2": "\uE31B",   // Unused
     /*  */"acsgsh5V7Kup": "\uE31C", // Sharp 5:7k-up
     /*  */"acsgfl5V7Kdn": "\uE31D", // Flat 5:7k-down
     /*  */"acsgsh5Cup": "\uE31E",   // Sharp 5C-up, 4\u00b0[22 29] 5\u00b0[27 34 41] 6\u00b0[39 46 53] up, 7/12-tone up
@@ -855,6 +844,8 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acsgfl11V19Ldn": "\uE3DB",   // Flat 11:19L-down
     /*  */"acsgsh5V13Lup": "\uE3DC",    // Sharp 5:13L-up
     /*  */"acsgfl5V13Ldn": "\uE3DD",    // Flat 5:13L-down
+    /*  */"acsgun3": "\uE3DE",    //	Unused
+    /*  */"acsgun4": "\uE3DF",    //	Unused
     /*  */"acsgdbsh23Sdn": "\uE3E0",    // Double sharp 23S-down
     /*  */"acsgdbfl23Sup": "\uE3E1",    // Double flat 23S-up
     /*  */"acsgdbsh49Sdn": "\uE3E2",    // Double sharp 49S-down

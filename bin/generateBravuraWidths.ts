@@ -1,6 +1,6 @@
-import {BLANK, isUndefined, RecordKey, round, Word} from "@sagittal/general"
+import {BLANK, isUndefined, Name, RecordKey, round, Word} from "@sagittal/general"
 import * as fs from "fs"
-import {computeUnicodeLiteral, Octals, SMuFL_MAP, Unicode} from "../src"
+import {computeUnicodeLiteral, Octals, SMuFL_MAP, Unicode, UnicodeLiteral} from "../src"
 
 const computeBravuraWidth = ([_, {bBoxNE: [x, y]}]: [any, {bBoxNE: number[]}]): Octals =>
     round(x * 8) as Octals
@@ -45,11 +45,11 @@ const generateBravuraWidths = (): void => {
     )
 
     const bravuraWidths = {} as Record<RecordKey<Unicode>, Octals>
-    const boundingBoxEntries = Object.entries(bravuraMetadata.glyphBBoxes) as Array<[string, {bBoxNE: number[]}]>
-    const glyphNameEntries = Object.entries(glyphNames) as Array<[string, {codepoint: string}]>
+    const boundingBoxEntries = Object.entries(bravuraMetadata.glyphBBoxes) as Array<[Name<Unicode>, {bBoxNE: number[]}]>
+    const glyphNameEntries = Object.entries(glyphNames) as Array<[Name<Unicode>, {codepoint: UnicodeLiteral & Word}]>
     const smuflUnicodes = Object.values(SMuFL_MAP) as Array<Unicode & Word>
 
-    glyphNameEntries.forEach(([glyphName, glyphDatum]: [string, {codepoint: string}]): void => {
+    glyphNameEntries.forEach(([glyphName, glyphDatum]: [Name<Unicode>, {codepoint: UnicodeLiteral & Word}]): void => {
         const existingUnicode = smuflUnicodes.find((unicode: Unicode & Word): boolean =>
             computeUnicodeLiteral(unicode) === glyphDatum.codepoint)
         if (isUndefined(existingUnicode)) {
@@ -58,8 +58,9 @@ const generateBravuraWidths = (): void => {
             return
         }
 
-        const bravuraDatum = boundingBoxEntries.find(([bBoxGlyphName, _]: [string, {bBoxNE: number[]}]): boolean =>
-            glyphName === bBoxGlyphName)
+        const bravuraDatum = boundingBoxEntries.find(
+            ([bBoxGlyphName, _]: [Name<Unicode>, {bBoxNE: number[]}]): boolean => glyphName === bBoxGlyphName,
+        )
         if (isUndefined(bravuraDatum)) {
             // tslint:disable-next-line
             // console.warn(`Did not find existing width in Bravura metadata for glyph name ${glyphName} with ${stringify(glyphData)} `)

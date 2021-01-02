@@ -1,4 +1,5 @@
 import {RecordKey, Word} from "@sagittal/general"
+import {NOT_SMuFL_OTHER_WHITESPACE_AND_BREAKS} from "../notSmufl"
 import {SMuFL_MAP} from "../smufl"
 import {Code, Unicode} from "../types"
 
@@ -9,7 +10,7 @@ const MANUAL_STAVE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> =
 } as Record<Code & Word, Unicode & Word>
 
 const LINE_BREAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    "br;": SMuFL_MAP["lnfd"],
+    "br;": NOT_SMuFL_OTHER_WHITESPACE_AND_BREAKS["lnfd"],
 } as Record<Code & Word, Unicode & Word>
 
 export {

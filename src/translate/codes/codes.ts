@@ -4,6 +4,7 @@ import {mergeAllCodeMapsIntoLowercasedCodeMap} from "./merge"
 import {
     NOT_SMuFL_DEFINE_CUSTOM_MAP,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
+    NOT_SMuFL_OTHER_WHITESPACE_AND_BREAKS,
     NOT_SMuFL_SMART_ADVANCE_MAP,
     NOT_SMuFL_SMART_SPACING_MAP,
     NOT_SMuFL_SMART_STAVE_MAP,
@@ -18,6 +19,7 @@ import {Code, LowercasedCode, Unicode} from "./types"
 // Base symbols means not aliased symbols.
 const BASE_SYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ...SMuFL_MAP,
+    ...NOT_SMuFL_OTHER_WHITESPACE_AND_BREAKS,
     ...NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP,
     ...NOT_SMuFL_ZERO_POSITION_MAP,
     ...NOT_SMuFL_MANUAL_ADVANCE_MAP,
