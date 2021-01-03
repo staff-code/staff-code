@@ -3,6 +3,13 @@ import {generateSmuflMap} from "../../../bin/codes/generateSmuflMap"
 import {Code, computeUnicodeLiteral, SMuFL_MAP, Unicode} from "../../../src"
 
 // TODO: only thing I have to do left is figure out how exact I want to handle the generation of JSON/hardcode/whatever
+//  Like... now that I pulled this in, and used it to prove out the generation, do I even need to keep it?
+//  I could keep it as a test expectation, and it would fail whenever they changed SMuFL on us.
+//  That's probably fine. Just rename everything accordingly. You can even keep all the formatting and comments and such
+//  But just in the test.
+//  And then just make sure that the generate script writes to file, like the other script does, and puts it where the
+//  Original file used to be.
+//  Then make a package.json script for it and make sure that runs the same time the other script runs.
 
 describe("generateSmuflMap", (): void => {
     it("matches the hardcoded map", (): void => {
