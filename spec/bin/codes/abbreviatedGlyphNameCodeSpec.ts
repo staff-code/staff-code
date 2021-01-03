@@ -1,6 +1,6 @@
 import {Name} from "@sagittal/general"
-import {computeAbbreviatedGlyphNameCode} from "../../bin/abbreviatedGlyphNameCode"
-import {Unicode} from "../../src"
+import {computeAbbreviatedGlyphNameCode} from "../../../bin/codes/abbreviatedGlyphNameCode"
+import {Unicode} from "../../../src"
 
 describe("computeAbbreviatedGlyphNameCode", (): void => {
     it("follows Dave's scheme for abbreviating the SMuFL glyph name to mostly 2-letter chunks", (): void => {

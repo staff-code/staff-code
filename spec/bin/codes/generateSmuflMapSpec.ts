@@ -1,6 +1,6 @@
 import {isUndefined, onlyRunInCi, Word} from "@sagittal/general"
-import {generateSmuflMap} from "../../bin/generateSmuflMap"
-import {Code, computeUnicodeLiteral, SMuFL_MAP, Unicode} from "../../src"
+import {generateSmuflMap} from "../../../bin/codes/generateSmuflMap"
+import {Code, computeUnicodeLiteral, SMuFL_MAP, Unicode} from "../../../src"
 
 // TODO: only thing I have to do left is figure out how exact I want to handle the generation of JSON/hardcode/whatever
 

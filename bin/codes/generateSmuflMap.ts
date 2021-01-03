@@ -1,6 +1,6 @@
 import {BLANK, Name, RecordKey, Word} from "@sagittal/general"
 import * as fs from "fs"
-import {Code, computeUnicodeFromUnicodeLiteral, Unicode, UnicodeLiteral} from "../src"
+import {Code, computeUnicodeFromUnicodeLiteral, Unicode, UnicodeLiteral} from "../../src"
 import {computeAbbreviatedGlyphNameCode} from "./abbreviatedGlyphNameCode"
 
 const generateSmuflMap = (): Record<RecordKey<Code & Word>, Unicode & Word> => {

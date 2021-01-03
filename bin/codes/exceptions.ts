@@ -1,18 +1,7 @@
-import {BLANK, isUndefined, Name, SPACE, Word} from "@sagittal/general"
-import {Code, Unicode} from "../src"
+import {Name, Word} from "@sagittal/general"
+import {Unicode} from "../../src"
 
-// todo: clean up all this stuf
-
-const removeVowels = (string: string): string => {
-    const replaced = string
-        .slice(1)
-        .replace(/igh/g, BLANK)         // 100x right, 3x tight, 2x eight, 6x high, 3x higher, 2x highest
-        .replace(/[aeiou]/g, BLANK)
-
-    return `${string[0]}${replaced}`
-}
-
-const EXCEPTION_WORDS: Record<string, string> = {
+const EXCEPTION_WORDS: Record<Name<Unicode> & Word, Name<Unicode> & Word> = {
     arrowhead: "ah",    // Arrow	ar	27x
     barline: "bl",      // Brace, brass, bracket	br, br, br	13x
     bow: "bo",          // Vowel digraph	ow	25x
@@ -99,72 +88,8 @@ const EXCEPTION_WORDS: Record<string, string> = {
     zank: "za",         // Zink	zn	1x
     zink: "zi",         // Zank	zn	1x
 }
-const EXCEPTION_WORD_ENTRIES = Object.entries(EXCEPTION_WORDS)
-
-const computeAbbreviatedGlyphNameCode = (glyphName: Name<Unicode>): Code & Word => {
-    const words = glyphName
-        // Manually corrected glyph names "wiggleVIbratoLargestSlower" and "wiggleVIbratoMediumSlower"
-        // (uppercase "I" to lowercase "i") so they would generate sensible staffCodes,
-        // Despite the fact that this can never be fixed in SMuFL. See https://github.com/w3c/smufl/issues/167
-        .replace(/wiggleVIbrato/, "wiggleVibrato")
-        .replace(/1st/, "1")
-        .replace(/2nd/, "2")
-        .replace(/3rd/, "3")
-        .replace(/(\d)th/, "$1")
-        .replace(/([A-Z])/g, " $1")
-        .replace(/(\d)/g, " $1 ")
-        .replace(/\s+/g, SPACE)
-        .trim()
-        .split(SPACE)
-
-    const lowercasedWords = words.map((word: string): string => word.toLowerCase())
-
-    return lowercasedWords.map((lowercasedWord: string): string => {
-        // first possibility
-        if (lowercasedWord.length === 1) return lowercasedWord.toUpperCase()
-
-        // second possibility
-        if (lowercasedWord.length === 2) return lowercasedWord
-
-        // third possibility
-        let maybeException = undefined
-        // todo: this could be improved
-        EXCEPTION_WORD_ENTRIES.forEach(([exception, replacement]: [string, string]): void => {
-            // if (lowercasedWord.match(new RegExp("^" + exception))) {
-            if (lowercasedWord === exception) {
-                maybeException = replacement
-            }
-        })
-        if (!isUndefined(maybeException)) return maybeException as string
-
-        // fourth possibility
-        const removedVowelsWord = removeVowels(lowercasedWord)
-        if (removedVowelsWord.length < 2) return lowercasedWord.slice(0, 2)//removedVowelsWord.toUpperCase()
-
-        // fifth possibility
-        return removedVowelsWord.slice(0, 2)
-    }).join(BLANK) as Code & Word
-
-
-    // const noVowelWords = lowercaseWords
-    // const twoLetterWords = noVowelWords.map((word: string): string => {
-    //     if (word.length === 1) return word.toUpperCase()
-    //
-    //     let specialCased = word
-    //     EXCEPTION_WORD_ENTRIES.forEach(([exception, replacement]: [string, string]): void => {
-    //         specialCased = word.replace(new RegExp("^" + exception), replacement)
-    //         console.log("word is", word)
-    //         if (word === "large") {
-    //             console.log("exception", exception, "replacement", replacement, "specialCased", word.replace(new RegExp("^" + exception), replacement))
-    //         }
-    //     })
-    //
-    //     return specialCased.slice(0, 2)
-    // })
-    //
-    // return twoLetterWords.join(BLANK) as Code & Word
-}
+const EXCEPTION_WORD_ENTRIES = Object.entries(EXCEPTION_WORDS) as Array<[Name<Unicode> & Word, Name<Unicode> & Word]>
 
 export {
-    computeAbbreviatedGlyphNameCode,
+    EXCEPTION_WORD_ENTRIES,
 }
