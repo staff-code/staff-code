@@ -2,7 +2,6 @@
 
 import {RecordKey, Word} from "@sagittal/general"
 import {Code, Unicode} from "./types"
-
 const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"br": "\uE000",   // Brace
     /*  */"rvbr": "\uE001", // Reversed brace
@@ -94,15 +93,15 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"smprcl2": "\uE06C",  // Semi-pitched percussion clef 2
     /*  */"6sttbcl": "\uE06D",  // 6-string tab clef
     /*  */"4sttbcl": "\uE06E",  // 4-string tab clef
-    /*  */"sccl": "\uE06F", // Sch\u00e4ffer clef
-    /*  */"scprcl": "\uE070",   // Sch\u00e4ffer previous clef
-    /*  */"scGcltoFcl": "\uE071",   // Sch\u00e4ffer G clef to F clef change
-    /*  */"scFcltoGcl": "\uE072",   // Sch\u00e4ffer F clef to G clef change
+    /*  */"sccl": "\uE06F", // Schäffer clef
+    /*  */"scprcl": "\uE070",   // Schäffer previous clef
+    /*  */"scGcltoFcl": "\uE071",   // Schäffer G clef to F clef change
+    /*  */"scFcltoGcl": "\uE072",   // Schäffer F clef to G clef change
     /*  */"Gclrv": "\uE073",    // Reversed G clef
-    /*  */"Gcltr": "\uE074",    // Turned G clef
+    /*  */"Gcltn": "\uE074",    // Turned G clef
     /*  */"Cclrv": "\uE075",    // Reversed C clef
     /*  */"Fclrv": "\uE076",    // Reversed F clef
-    /*  */"Fcltr": "\uE077",    // Turned F clef
+    /*  */"Fcltn": "\uE077",    // Turned F clef
     /*  */"brcl": "\uE078", // Bridge clef
     /*  */"acdtcl": "\uE079",   // Diatonic accordion clef
     /*  */"Gclch": "\uE07A",    // G clef change
@@ -134,11 +133,11 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"tmsgprlf": "\uE094", // Left parenthesis for whole time signature
     /*  */"tmsgprrt": "\uE095", // Right parenthesis for whole time signature
     /*  */"tmsgcm": "\uE096",   // Time signature comma
-    /*  */"tmsgfrqr": "\uE097", // Time signature fraction \u00bc
-    /*  */"tmsgfrhf": "\uE098", // Time signature fraction \u00bd
-    /*  */"tmsgfrthqr": "\uE099",   // Time signature fraction \u00be
-    /*  */"tmsgfronth": "\uE09A",   // Time signature fraction \u2153
-    /*  */"tmsgfrtwth": "\uE09B",   // Time signature fraction \u2154
+    /*  */"tmsgfrqr": "\uE097", // Time signature fraction ¼
+    /*  */"tmsgfrhf": "\uE098", // Time signature fraction ½
+    /*  */"tmsgfrthqr": "\uE099",   // Time signature fraction ¾
+    /*  */"tmsgfronth": "\uE09A",   // Time signature fraction ⅓
+    /*  */"tmsgfrtwth": "\uE09B",   // Time signature fraction ⅔
     /*  */"tmsgX": "\uE09C",    // Open time signature
     /*  */"tmsgoppn": "\uE09D", // Open time signature (Penderecki)
     /*  */"tmsgcmnm": "\uE09E",   // Control character for numerator digit
@@ -481,8 +480,8 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"smsw": "\uE212", // Combining swished stem
     /*  */"smpntr": "\uE213",   // Combining Penderecki unmeasured tremolo stem
     /*  */"smslpn": "\uE214",   // Combining sul ponticello (bow behind bridge) stem
-    /*  */"smbwonbr": "\uE215", // Combining bow on bridge stem
-    /*  */"smbwontl": "\uE216", // Combining bow on tailpiece stem
+    /*  */"smboonbr": "\uE215", // Combining bow on bridge stem
+    /*  */"smboontl": "\uE216", // Combining bow on tailpiece stem
     /*  */"smbzrl": "\uE217",   // Combining buzz roll stem
     /*  */"smdm": "\uE218", // Combining damp stem
     /*  */"smvbpl": "\uE219",   // Combining vibrato pulse accent (Saunders) stem
@@ -620,21 +619,21 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acnttharup": "\uE2DB",   // Natural raised by three syntonic commas
     /*  */"acshtharup": "\uE2DC",   // Sharp raised by three syntonic commas
     /*  */"acdbshtharup": "\uE2DD", // Double sharp raised by three syntonic commas
-    /*  */"aclwonspcm": "\uE2DE",   // Lower by one septimal comma
+    /*  */"aclronspcm": "\uE2DE",   // Lower by one septimal comma
     /*  */"acrsonspcm": "\uE2DF",   // Raise by one septimal comma
-    /*  */"aclwtwspcm": "\uE2E0",   // Lower by two septimal commas
+    /*  */"aclrtwspcm": "\uE2E0",   // Lower by two septimal commas
     /*  */"acrstwspcm": "\uE2E1",   // Raise by two septimal commas
-    /*  */"aclwonunqr": "\uE2E2",   // Lower by one undecimal quartertone
+    /*  */"aclronunqr": "\uE2E2",   // Lower by one undecimal quartertone
     /*  */"acrsonunqr": "\uE2E3",   // Raise by one undecimal quartertone
-    /*  */"aclwontrqr": "\uE2E4",   // Lower by one tridecimal quartertone
+    /*  */"aclrontrqr": "\uE2E4",   // Lower by one tridecimal quartertone
     /*  */"acrsontrqr": "\uE2E5",   // Raise by one tridecimal quartertone
-    /*  */"accmlw17sc": "\uE2E6",   // Combining lower by one 17-limit schisma
+    /*  */"accmlr17sc": "\uE2E6",   // Combining lower by one 17-limit schisma
     /*  */"accmrs17sc": "\uE2E7",   // Combining raise by one 17-limit schisma
-    /*  */"accmlw19sc": "\uE2E8",   // Combining lower by one 19-limit schisma
+    /*  */"accmlr19sc": "\uE2E8",   // Combining lower by one 19-limit schisma
     /*  */"accmrs19sc": "\uE2E9",   // Combining raise by one 19-limit schisma
-    /*  */"accmlw23lm29lmcm": "\uE2EA", // Combining lower by one 23-limit comma
+    /*  */"accmlr23lm29lmcm": "\uE2EA", // Combining lower by one 23-limit comma
     /*  */"accmrs23lm29lmcm": "\uE2EB", // Combining raise by one 23-limit comma
-    /*  */"accmlw31sc": "\uE2EC",   // Combining lower by one 31-limit schisma
+    /*  */"accmlr31sc": "\uE2EC",   // Combining lower by one 31-limit schisma
     /*  */"accmrs31sc": "\uE2ED",   // Combining raise by one 31-limit schisma
     /*  */"accmopcrbr": "\uE2EE",   // Combining open curly brace
     /*  */"accmclcrbr": "\uE2EF",   // Combining close curly brace
@@ -645,33 +644,33 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acdbsheqtm": "\uE2F4",   // Double sharp equal tempered semitone
     /*  */"acqrfleqtm": "\uE2F5",   // Lower by one equal tempered quarter-tone
     /*  */"acqrsheqtm": "\uE2F6",   // Raise by one equal tempered quarter tone
-    /*  */"accmlw53lmcm": "\uE2F7", // Combining lower by one 53-limit comma
+    /*  */"accmlr53lmcm": "\uE2F7", // Combining lower by one 53-limit comma
     /*  */"accmrs53lmcm": "\uE2F8", // Combining raise by one 53-limit comma
     /*  */"acentl": "\uE2F9",   // Enharmonically reinterpret accidental tilde
     /*  */"acenaleqto": "\uE2FA",   // Enharmonically reinterpret accidental almost equal to
     /*  */"aceneq": "\uE2FB",   // Enharmonically reinterpret accidental equals
-    /*  */"acsg5V7klup": "\uE300",    // 5:7 kleisma up, (5:7k, ~11:13k, 7C\u00a0less\u00a05C)
+    /*  */"acsg5V7klup": "\uE300",    // 5:7 kleisma up, (5:7k, ~11:13k, 7C less 5C)
     /*  */"acsg5V7kldn": "\uE301",    // 5:7 kleisma down
-    /*  */"acsg5cmup": "\uE302",  // 5 comma up, (5C), 1\u00b0 up [22 27 29 34 41 46 53 96 EDOs], 1/12-tone up
-    /*  */"acsg5cmdn": "\uE303",  // 5 comma down, 1\u00b0 down [22 27 29 34 41 46 53 96 EDOs], 1/12-tone down
-    /*  */"acsg7cmup": "\uE304",  // 7 comma up, (7C), 1\u00b0 up [43 EDO], 2\u00b0 up [72 EDO], 1/6-tone up
-    /*  */"acsg7cmdn": "\uE305",  // 7 comma down, 1\u00b0 down [43 EDO], 2\u00b0 down [72 EDO], 1/6-tone down
-    /*  */"acsg25smdsup": "\uE306",   // 25 small diesis up, (25S, ~5:13S, ~37S, 5C\u00a0plus\u00a05C), 2\u00b0 up [53 EDO]
-    /*  */"acsg25smdsdn": "\uE307",   // 25 small diesis down, 2\u00b0 down [53 EDO]
-    /*  */"acsg35mddsup": "\uE308",   // 35 medium diesis up, (35M, ~13M, ~125M, 5C\u00a0plus\u00a07C), 2/9-tone up
-    /*  */"acsg35mddsdn": "\uE309",   // 35 medium diesis down, 1\u00b0[50] 2\u00b0[27] down, 2/9-tone down
-    /*  */"acsg11mddsup": "\uE30A",  // 11 medium diesis up, (11M), 1\u00b0[17 31] 2\u00b046 up, 1/4-tone up
-    /*  */"acsg11mddsdn": "\uE30B",  // 11 medium diesis down, 1\u00b0[17 31] 2\u00b046 down, 1/4-tone down
-    /*  */"acsg11lgdsup": "\uE30C",  // 11 large diesis up, (11L), (sharp less 11M), 3\u00b0 up [46 EDO]
-    /*  */"acsg11lgdsdn": "\uE30D",  // 11 large diesis down, 3\u00b0 down [46 EDO]
-    /*  */"acsg35lgdsup": "\uE30E",  // 35 large diesis up, (35L, ~13L, ~125L,  sharp less 35M), 2\u00b050 up
-    /*  */"acsg35lgdsdn": "\uE30F",  // 35 large diesis down, 2\u00b0 down [50 EDO], 5/18-tone down
-    /*  */"acsgsh25Sdn": "\uE310",  // Sharp 25S-down, 3\u00b0 up [53 EDO]
-    /*  */"acsgfl25Sup": "\uE311",  // Flat 25S-up, 3\u00b0 down [53 EDO]
-    /*  */"acsgsh7Cdn": "\uE312",   // Sharp 7C-down, 2\u00b0 up [43 EDO], 4\u00b0 up [72 EDO], 1/3-tone up
-    /*  */"acsgfl7Cup": "\uE313",   // Flat 7C-up, 2\u00b0 down [43 EDO], 4\u00b0 down [72 EDO], 1/3-tone down
-    /*  */"acsgsh5Cdn": "\uE314",   // Sharp 5C-down, 2\u00b0[22 29] 3\u00b0[27 34 41] 4\u00b0[39 46 53] 5\u00b0[72] 7\u00b0[96] up, 5/12-tone up
-    /*  */"acsgfl5Cup": "\uE315",   // Flat 5C-up, 2\u00b0[22 29] 3\u00b0[27 34 41] 4\u00b0[39 46 53] 5\u00b072 7\u00b0[96] down, 5/12-tone down
+    /*  */"acsg5cmup": "\uE302",  // 5 comma up, (5C), 1° up [22 27 29 34 41 46 53 96 EDOs], 1/12-tone up
+    /*  */"acsg5cmdn": "\uE303",  // 5 comma down, 1° down [22 27 29 34 41 46 53 96 EDOs], 1/12-tone down
+    /*  */"acsg7cmup": "\uE304",  // 7 comma up, (7C), 1° up [43 EDO], 2° up [72 EDO], 1/6-tone up
+    /*  */"acsg7cmdn": "\uE305",  // 7 comma down, 1° down [43 EDO], 2° down [72 EDO], 1/6-tone down
+    /*  */"acsg25smdsup": "\uE306",   // 25 small diesis up, (25S, ~5:13S, ~37S, 5C plus 5C), 2° up [53 EDO]
+    /*  */"acsg25smdsdn": "\uE307",   // 25 small diesis down, 2° down [53 EDO]
+    /*  */"acsg35mddsup": "\uE308",   // 35 medium diesis up, (35M, ~13M, ~125M, 5C plus 7C), 2/9-tone up
+    /*  */"acsg35mddsdn": "\uE309",   // 35 medium diesis down, 1°[50] 2°[27] down, 2/9-tone down
+    /*  */"acsg11mddsup": "\uE30A",  // 11 medium diesis up, (11M), 1°[17 31] 2°46 up, 1/4-tone up
+    /*  */"acsg11mddsdn": "\uE30B",  // 11 medium diesis down, 1°[17 31] 2°46 down, 1/4-tone down
+    /*  */"acsg11lgdsup": "\uE30C",  // 11 large diesis up, (11L), (sharp less 11M), 3° up [46 EDO]
+    /*  */"acsg11lgdsdn": "\uE30D",  // 11 large diesis down, 3° down [46 EDO]
+    /*  */"acsg35lgdsup": "\uE30E",  // 35 large diesis up, (35L, ~13L, ~125L,  sharp less 35M), 2°50 up
+    /*  */"acsg35lgdsdn": "\uE30F",  // 35 large diesis down, 2° down [50 EDO], 5/18-tone down
+    /*  */"acsgsh25Sdn": "\uE310",  // Sharp 25S-down, 3° up [53 EDO]
+    /*  */"acsgfl25Sup": "\uE311",  // Flat 25S-up, 3° down [53 EDO]
+    /*  */"acsgsh7Cdn": "\uE312",   // Sharp 7C-down, 2° up [43 EDO], 4° up [72 EDO], 1/3-tone up
+    /*  */"acsgfl7Cup": "\uE313",   // Flat 7C-up, 2° down [43 EDO], 4° down [72 EDO], 1/3-tone down
+    /*  */"acsgsh5Cdn": "\uE314",   // Sharp 5C-down, 2°[22 29] 3°[27 34 41] 4°[39 46 53] 5°[72] 7°[96] up, 5/12-tone up
+    /*  */"acsgfl5Cup": "\uE315",   // Flat 5C-up, 2°[22 29] 3°[27 34 41] 4°[39 46 53] 5°72 7°[96] down, 5/12-tone down
     /*  */"acsgsh5V7Kdn": "\uE316", // Sharp 5:7k-down
     /*  */"acsgfl5V7Kup": "\uE317", // Flat 5:7k-up
     /*  */"acsgsh": "\uE318",   // Sharp, (apotome up)[almost all EDOs], 1/2-tone up
@@ -680,26 +679,26 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acsgun2": "\uE31B",   // Unused
     /*  */"acsgsh5V7Kup": "\uE31C", // Sharp 5:7k-up
     /*  */"acsgfl5V7Kdn": "\uE31D", // Flat 5:7k-down
-    /*  */"acsgsh5Cup": "\uE31E",   // Sharp 5C-up, 4\u00b0[22 29] 5\u00b0[27 34 41] 6\u00b0[39 46 53] up, 7/12-tone up
-    /*  */"acsgfl5Cdn": "\uE31F",   // Flat 5C-down, 4\u00b0[22 29] 5\u00b0[27 34 41] 6\u00b0[39 46 53] down, 7/12-tone down
-    /*  */"acsgsh7Cup": "\uE320",   // Sharp 7C-up, 4\u00b0 up [43 EDO], 8\u00b0 up [72 EDO], 2/3-tone up
-    /*  */"acsgfl7Cdn": "\uE321",   // Flat 7C-down, 4\u00b0 down [43 EDO], 8\u00b0 down [72 EDO], 2/3-tone down
-    /*  */"acsgsh25Sup": "\uE322",  // Sharp 25S-up, 7\u00b0 up [53 EDO]
-    /*  */"acsgfl25Sdn": "\uE323",  // Flat 25S-down, 7\u00b0 down [53 EDO]
-    /*  */"acsgsh35Mup": "\uE324",  // Sharp 35M-up, 4\u00b0 up [50 EDO], 6\u00b0 up [27 EDO], 13/18-tone up
-    /*  */"acsgfl35Mdn": "\uE325",  // Flat 35M-down, 4\u00b0 down [50 EDO], 6\u00b0 down [27 EDO], 13/18-tone down
-    /*  */"acsgsh11Mup": "\uE326",  // Sharp 11M-up, 3\u00b0 up [17 31 EDOs], 7\u00b0 up [46 EDO], 3/4-tone up
-    /*  */"acsgfl11Mdn": "\uE327",  // Flat 11M-down, 3\u00b0 down [17 31 EDOs], 7\u00b0 down [46 EDO], 3/4-tone down
-    /*  */"acsgsh11Lup": "\uE328",  // Sharp 11L-up, 8\u00b0 up [46 EDO]
-    /*  */"acsgfl11Ldn": "\uE329",  // Flat 11L-down, 8\u00b0 up [46 EDO]
-    /*  */"acsgsh35Lup": "\uE32A",  // Sharp 35L-up, 5\u00b0 up [50 EDO]
-    /*  */"acsgfl35Ldn": "\uE32B",  // Flat 35L-down, 5\u00b0 down [50 EDO]
-    /*  */"acsgdbsh25Sdn": "\uE32C",    // Double sharp 25S-down, 8\u00b0up [53 EDO]
-    /*  */"acsgdbfl25Sup": "\uE32D",    // Double flat 25S-up, 8\u00b0down [53 EDO]
-    /*  */"acsgdbsh7Cdn": "\uE32E", // Double sharp 7C-down, 5\u00b0[43] 10\u00b0[72] up, 5/6-tone up
-    /*  */"acsgdbfl7Cup": "\uE32F", // Double flat 7C-up, 5\u00b0 down [43 EDO], 10\u00b0 down [72 EDO], 5/6-tone down
-    /*  */"acsgdbsh5Cdn": "\uE330", // Double sharp 5C-down, 5\u00b0[22 29] 7\u00b0[34 41] 9\u00b053 up, 11/12 tone up
-    /*  */"acsgdbfl5Cup": "\uE331", // Double flat 5C-up, 5\u00b0[22 29] 7\u00b0[34 41] 9\u00b053 down, 11/12 tone down
+    /*  */"acsgsh5Cup": "\uE31E",   // Sharp 5C-up, 4°[22 29] 5°[27 34 41] 6°[39 46 53] up, 7/12-tone up
+    /*  */"acsgfl5Cdn": "\uE31F",   // Flat 5C-down, 4°[22 29] 5°[27 34 41] 6°[39 46 53] down, 7/12-tone down
+    /*  */"acsgsh7Cup": "\uE320",   // Sharp 7C-up, 4° up [43 EDO], 8° up [72 EDO], 2/3-tone up
+    /*  */"acsgfl7Cdn": "\uE321",   // Flat 7C-down, 4° down [43 EDO], 8° down [72 EDO], 2/3-tone down
+    /*  */"acsgsh25Sup": "\uE322",  // Sharp 25S-up, 7° up [53 EDO]
+    /*  */"acsgfl25Sdn": "\uE323",  // Flat 25S-down, 7° down [53 EDO]
+    /*  */"acsgsh35Mup": "\uE324",  // Sharp 35M-up, 4° up [50 EDO], 6° up [27 EDO], 13/18-tone up
+    /*  */"acsgfl35Mdn": "\uE325",  // Flat 35M-down, 4° down [50 EDO], 6° down [27 EDO], 13/18-tone down
+    /*  */"acsgsh11Mup": "\uE326",  // Sharp 11M-up, 3° up [17 31 EDOs], 7° up [46 EDO], 3/4-tone up
+    /*  */"acsgfl11Mdn": "\uE327",  // Flat 11M-down, 3° down [17 31 EDOs], 7° down [46 EDO], 3/4-tone down
+    /*  */"acsgsh11Lup": "\uE328",  // Sharp 11L-up, 8° up [46 EDO]
+    /*  */"acsgfl11Ldn": "\uE329",  // Flat 11L-down, 8° up [46 EDO]
+    /*  */"acsgsh35Lup": "\uE32A",  // Sharp 35L-up, 5° up [50 EDO]
+    /*  */"acsgfl35Ldn": "\uE32B",  // Flat 35L-down, 5° down [50 EDO]
+    /*  */"acsgdbsh25Sdn": "\uE32C",    // Double sharp 25S-down, 8°up [53 EDO]
+    /*  */"acsgdbfl25Sup": "\uE32D",    // Double flat 25S-up, 8°down [53 EDO]
+    /*  */"acsgdbsh7Cdn": "\uE32E", // Double sharp 7C-down, 5°[43] 10°[72] up, 5/6-tone up
+    /*  */"acsgdbfl7Cup": "\uE32F", // Double flat 7C-up, 5° down [43 EDO], 10° down [72 EDO], 5/6-tone down
+    /*  */"acsgdbsh5Cdn": "\uE330", // Double sharp 5C-down, 5°[22 29] 7°[34 41] 9°53 up, 11/12 tone up
+    /*  */"acsgdbfl5Cup": "\uE331", // Double flat 5C-up, 5°[22 29] 7°[34 41] 9°53 down, 11/12 tone down
     /*  */"acsgdbsh5V7Kdn": "\uE332",   // Double sharp 5:7k-down
     /*  */"acsgdbfl5V7Kup": "\uE333",   // Double flat 5:7k-up
     /*  */"acsgdbsh": "\uE334", // Double sharp, (2 apotomes up)[almost all EDOs], whole-tone up
@@ -708,18 +707,18 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acsg7V11kldn": "\uE341", // 7:11 kleisma down
     /*  */"acsg17cmup": "\uE342",   // 17 comma up, (17C)
     /*  */"acsg17cmdn": "\uE343",   // 17 comma down
-    /*  */"acsg55cmup": "\uE344",   // 55 comma up, (55C, 11M less 5C), 3\u00b0up [96 EDO], 3/16-tone up
-    /*  */"acsg55cmdn": "\uE345",   // 55 comma down, 3\u00b0 down [96 EDO], 3/16-tone down
-    /*  */"acsg7V11cmup": "\uE346", // 7:11 comma up, (7:11C, ~13:17S, ~29S, 11L less 7C), 1\u00b0 up [60 EDO]
-    /*  */"acsg7V11cmdn": "\uE347", // 7:11 comma down, 1\u00b0 down [60 EDO], 1/10-tone down
+    /*  */"acsg55cmup": "\uE344",   // 55 comma up, (55C, 11M less 5C), 3°up [96 EDO], 3/16-tone up
+    /*  */"acsg55cmdn": "\uE345",   // 55 comma down, 3° down [96 EDO], 3/16-tone down
+    /*  */"acsg7V11cmup": "\uE346", // 7:11 comma up, (7:11C, ~13:17S, ~29S, 11L less 7C), 1° up [60 EDO]
+    /*  */"acsg7V11cmdn": "\uE347", // 7:11 comma down, 1° down [60 EDO], 1/10-tone down
     /*  */"acsg5V11smdsup": "\uE348",   // 5:11 small diesis up, (5:11S, ~7:13S, ~11:17S, 5:7k plus 7:11C)
     /*  */"acsg5V11smdsdn": "\uE349",   // 5:11 small diesis down
     /*  */"acsgsh5V11Sdn": "\uE34A",    // Sharp 5:11S-down
     /*  */"acsgfl5V11Sup": "\uE34B",    // Flat 5:11S-up
-    /*  */"acsgsh7V11Cdn": "\uE34C",    // Sharp 7:11C-down, 4\u00b0 up [60 EDO], 2/5-tone up
-    /*  */"acsgfl7V11Cup": "\uE34D",    // Flat 7:11C-up, 4\u00b0 down [60 EDO], 2/5-tone down
-    /*  */"acsgsh55Cdn": "\uE34E",  // Sharp 55C-down, 5\u00b0 up [96 EDO], 5/16-tone up
-    /*  */"acsgfl55Cup": "\uE34F",  // Flat 55C-up, 5\u00b0 down [96 EDO], 5/16-tone down
+    /*  */"acsgsh7V11Cdn": "\uE34C",    // Sharp 7:11C-down, 4° up [60 EDO], 2/5-tone up
+    /*  */"acsgfl7V11Cup": "\uE34D",    // Flat 7:11C-up, 4° down [60 EDO], 2/5-tone down
+    /*  */"acsgsh55Cdn": "\uE34E",  // Sharp 55C-down, 5° up [96 EDO], 5/16-tone up
+    /*  */"acsgfl55Cup": "\uE34F",  // Flat 55C-up, 5° down [96 EDO], 5/16-tone down
     /*  */"acsgsh17Cdn": "\uE350",  // Sharp 17C-down
     /*  */"acsgfl17Cup": "\uE351",  // Flat 17C-up
     /*  */"acsgsh7V11Kdn": "\uE352",    // Sharp 7:11k-down
@@ -728,46 +727,46 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acsgfl7V11Kdn": "\uE355",    // Flat 7:11k-down
     /*  */"acsgsh17Cup": "\uE356",  // Sharp 17C-up
     /*  */"acsgfl17Cdn": "\uE357",  // Flat 17C-down
-    /*  */"acsgsh55Cup": "\uE358",  // Sharp 55C-up, 11\u00b0 up [96 EDO], 11/16-tone up
-    /*  */"acsgfl55Cdn": "\uE359",  // Flat 55C-down, 11\u00b0 down [96 EDO], 11/16-tone down
-    /*  */"acsgsh7V11Cup": "\uE35A",    // Sharp 7:11C-up, 6\u00b0 up [60 EDO], 3/5- tone up
-    /*  */"acsgfl7V11Cdn": "\uE35B",    // Flat 7:11C-down, 6\u00b0 down [60 EDO], 3/5- tone down
+    /*  */"acsgsh55Cup": "\uE358",  // Sharp 55C-up, 11° up [96 EDO], 11/16-tone up
+    /*  */"acsgfl55Cdn": "\uE359",  // Flat 55C-down, 11° down [96 EDO], 11/16-tone down
+    /*  */"acsgsh7V11Cup": "\uE35A",    // Sharp 7:11C-up, 6° up [60 EDO], 3/5- tone up
+    /*  */"acsgfl7V11Cdn": "\uE35B",    // Flat 7:11C-down, 6° down [60 EDO], 3/5- tone down
     /*  */"acsgsh5V11Sup": "\uE35C",    // Sharp 5:11S-up
     /*  */"acsgfl5V11Sdn": "\uE35D",    // Flat 5:11S-down
     /*  */"acsgdbsh5V11Sdn": "\uE35E",  // Double sharp 5:11S-down
     /*  */"acsgdbfl5V11Sup": "\uE35F",  // Double flat 5:11S-up
-    /*  */"acsgdbsh7V11Cdn": "\uE360",  // Double sharp 7:11C-down, 9\u00b0 up [60 EDO], 9/10-tone up
-    /*  */"acsgdbfl7V11Cup": "\uE361",  // Double flat 7:11C-up, 9\u00b0 down [60 EDO], 9/10-tone down
-    /*  */"acsgdbsh55Cdn": "\uE362",    // Double sharp 55C-down, 13\u00b0 up [96 EDO], 13/16-tone up
-    /*  */"acsgdbfl55Cup": "\uE363",    // Double flat 55C-up, 13\u00b0 down [96 EDO], 13/16-tone down
+    /*  */"acsgdbsh7V11Cdn": "\uE360",  // Double sharp 7:11C-down, 9° up [60 EDO], 9/10-tone up
+    /*  */"acsgdbfl7V11Cup": "\uE361",  // Double flat 7:11C-up, 9° down [60 EDO], 9/10-tone down
+    /*  */"acsgdbsh55Cdn": "\uE362",    // Double sharp 55C-down, 13° up [96 EDO], 13/16-tone up
+    /*  */"acsgdbfl55Cup": "\uE363",    // Double flat 55C-up, 13° down [96 EDO], 13/16-tone down
     /*  */"acsgdbsh17Cdn": "\uE364",    // Double sharp 17C-down
     /*  */"acsgdbfl17Cup": "\uE365",    // Double flat 17C-up
     /*  */"acsgdbsh7V11Kdn": "\uE366",  // Double sharp 7:11k-down
     /*  */"acsgdbfl7V11Kup": "\uE367",  // Double flat 7:11k-up
-    /*  */"acsg23cmup": "\uE370",   // 23 comma up, (23C), 2\u00b0 up [96 EDO], 1/8-tone up
-    /*  */"acsg23cmdn": "\uE371",   // 23 comma down, 2\u00b0 down [96 EDO], 1/8-tone down
+    /*  */"acsg23cmup": "\uE370",   // 23 comma up, (23C), 2° up [96 EDO], 1/8-tone up
+    /*  */"acsg23cmdn": "\uE371",   // 23 comma down, 2° down [96 EDO], 1/8-tone down
     /*  */"acsg5V19cmup": "\uE372", // 5:19 comma up, (5:19C, 5C plus 19s), 1/20-tone up
     /*  */"acsg5V19cmdn": "\uE373", // 5:19 comma down, 1/20-tone down
-    /*  */"acsg5V23smdsup": "\uE374",   // 5:23 small diesis up, (5:23S, 5C plus 23C), 2\u00b0 up [60 EDO], 1/5-tone up
-    /*  */"acsg5V23smdsdn": "\uE375",   // 5:23 small diesis down, 2\u00b0 down [60 EDO], 1/5-tone down
-    /*  */"acsgsh5V23Sdn": "\uE376",    // Sharp 5:23S-down, 3\u00b0 up [60 EDO], 3/10-tone up
-    /*  */"acsgfl5V23Sup": "\uE377",    // Flat 5:23S-up, 3\u00b0 down [60 EDO], 3/10-tone down
+    /*  */"acsg5V23smdsup": "\uE374",   // 5:23 small diesis up, (5:23S, 5C plus 23C), 2° up [60 EDO], 1/5-tone up
+    /*  */"acsg5V23smdsdn": "\uE375",   // 5:23 small diesis down, 2° down [60 EDO], 1/5-tone down
+    /*  */"acsgsh5V23Sdn": "\uE376",    // Sharp 5:23S-down, 3° up [60 EDO], 3/10-tone up
+    /*  */"acsgfl5V23Sup": "\uE377",    // Flat 5:23S-up, 3° down [60 EDO], 3/10-tone down
     /*  */"acsgsh5V19Cdn": "\uE378",    // Sharp 5:19C-down, 9/20-tone up
     /*  */"acsgfl5V19Cup": "\uE379",    // Flat 5:19C-up, 9/20-tone down
-    /*  */"acsgsh23Cdn": "\uE37A",  // Sharp 23C-down, 6\u00b0 up [96 EDO], 3/8-tone up
-    /*  */"acsgfl23Cup": "\uE37B",  // Flat 23C-up, 6\u00b0 down [96 EDO], 3/8-tone down
-    /*  */"acsgsh23Cup": "\uE37C",  // Sharp 23C-up, 10\u00b0 up [96 EDO], 5/8-tone up
-    /*  */"acsgfl23Cdn": "\uE37D",  // Flat 23C-down, 10\u00b0 down [96 EDO], 5/8-tone down
+    /*  */"acsgsh23Cdn": "\uE37A",  // Sharp 23C-down, 6° up [96 EDO], 3/8-tone up
+    /*  */"acsgfl23Cup": "\uE37B",  // Flat 23C-up, 6° down [96 EDO], 3/8-tone down
+    /*  */"acsgsh23Cup": "\uE37C",  // Sharp 23C-up, 10° up [96 EDO], 5/8-tone up
+    /*  */"acsgfl23Cdn": "\uE37D",  // Flat 23C-down, 10° down [96 EDO], 5/8-tone down
     /*  */"acsgsh5V19Cup": "\uE37E",    // Sharp 5:19C-up, 11/20-tone up
     /*  */"acsgfl5V19Cdn": "\uE37F",    // Flat 5:19C-down, 11/20-tone down
-    /*  */"acsgsh5V23Sup": "\uE380",    // Sharp 5:23S-up, 7\u00b0 up [60 EDO], 7/10-tone up
-    /*  */"acsgfl5V23Sdn": "\uE381",    // Flat 5:23S-down, 7\u00b0 down [60 EDO], 7/10-tone down
-    /*  */"acsgdbsh5V23Sdn": "\uE382",  // Double sharp 5:23S-down, 8\u00b0 up [60 EDO], 4/5-tone up
-    /*  */"acsgdbfl5V23Sup": "\uE383",  // Double flat 5:23S-up, 8\u00b0 down  [60 EDO], 4/5-tone down
+    /*  */"acsgsh5V23Sup": "\uE380",    // Sharp 5:23S-up, 7° up [60 EDO], 7/10-tone up
+    /*  */"acsgfl5V23Sdn": "\uE381",    // Flat 5:23S-down, 7° down [60 EDO], 7/10-tone down
+    /*  */"acsgdbsh5V23Sdn": "\uE382",  // Double sharp 5:23S-down, 8° up [60 EDO], 4/5-tone up
+    /*  */"acsgdbfl5V23Sup": "\uE383",  // Double flat 5:23S-up, 8° down  [60 EDO], 4/5-tone down
     /*  */"acsgdbsh5V19Cdn": "\uE384",  // Double sharp 5:19C-down, 19/20-tone up
     /*  */"acsgdbfl5V19Cup": "\uE385",  // Double flat 5:19C-up, 19/20-tone down
-    /*  */"acsgdbsh23Cdn": "\uE386",    // Double sharp 23C-down, 14\u00b0up [96 EDO], 7/8-tone up
-    /*  */"acsgdbfl23Cup": "\uE387",    // Double flat 23C-up, 14\u00b0 down [96 EDO], 7/8-tone down
+    /*  */"acsgdbsh23Cdn": "\uE386",    // Double sharp 23C-down, 14°up [96 EDO], 7/8-tone up
+    /*  */"acsgdbfl23Cup": "\uE387",    // Double flat 23C-up, 14° down [96 EDO], 7/8-tone down
     /*  */"acsg19scup": "\uE390",   // 19 schisma up, (19s)
     /*  */"acsg19scdn": "\uE391",   // 19 schisma down
     /*  */"acsg17klup": "\uE392",   // 17 kleisma up, (17k)
@@ -866,30 +865,30 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acsgshdn": "\uE3F1", // Shaft down, (natural for use with only diacritics down)
     /*  */"acsgac": "\uE3F2",   // Acute, 5 schisma up (5s), 2 cents up
     /*  */"acsggr": "\uE3F3",   // Grave, 5 schisma down, 2 cents down
-    /*  */"acsg1mnup": "\uE3F4",    // 1 mina up, 1/(5\u22c57\u22c513)-schismina up, 0.42 cents up
-    /*  */"acsg1mndn": "\uE3F5",    // 1 mina down, 1/(5\u22c57\u22c513)-schismina down, 0.42 cents down
+    /*  */"acsg1mnup": "\uE3F4",    // 1 mina up, 1/(5⋅7⋅13)-schismina up, 0.42 cents up
+    /*  */"acsg1mndn": "\uE3F5",    // 1 mina down, 1/(5⋅7⋅13)-schismina down, 0.42 cents down
     /*  */"acsg2mnup": "\uE3F6",    // 2 minas up, 65/77-schismina up, 0.83 cents up
     /*  */"acsg2mndn": "\uE3F7",    // 2 minas down, 65/77-schismina down, 0.83 cents down
-    /*  */"acsg1tnup": "\uE3F8",    // 1 tina up, 7\u00b2\u22c511\u22c519/5-schismina up, 0.17 cents up
-    /*  */"acsg1tndn": "\uE3F9",    // 1 tina down, 7\u00b2\u22c511\u22c519/5-schismina down, 0.17 cents down
-    /*  */"acsg2tnup": "\uE3FA",    // 2 tinas up, 1/(7\u00b3\u22c517)-schismina up, 0.30 cents up
-    /*  */"acsg2tndn": "\uE3FB",    // 2 tinas down, 1/(7\u00b3\u22c517)-schismina down, 0.30 cents down
-    /*  */"acsg3tnup": "\uE3FC",    // 3 tinas up, 1 mina up, 1/(5\u22c57\u22c513)-schismina up, 0.42 cents up
-    /*  */"acsg3tndn": "\uE3FD",    // 3 tinas down, 1 mina down, 1/(5\u22c57\u22c513)-schismina down, 0.42 cents down
-    /*  */"acsg4tnup": "\uE3FE",    // 4 tinas up, 5\u00b2\u22c511\u00b2/7-schismina up, 0.57 cents up
-    /*  */"acsg4tndn": "\uE3FF",    // 4 tinas down, 5\u00b2\u22c511\u00b2/7-schismina down, 0.57 cents down
-    /*  */"acsg5tnup": "\uE400",    // 5 tinas up, 7\u2074/25-schismina up, 0.72 cents up
-    /*  */"acsg5tndn": "\uE401",    // 5 tinas down, 7\u2074/25-schismina down, 0.72 cents down
+    /*  */"acsg1tnup": "\uE3F8",    // 1 tina up, 7²⋅11⋅19/5-schismina up, 0.17 cents up
+    /*  */"acsg1tndn": "\uE3F9",    // 1 tina down, 7²⋅11⋅19/5-schismina down, 0.17 cents down
+    /*  */"acsg2tnup": "\uE3FA",    // 2 tinas up, 1/(7³⋅17)-schismina up, 0.30 cents up
+    /*  */"acsg2tndn": "\uE3FB",    // 2 tinas down, 1/(7³⋅17)-schismina down, 0.30 cents down
+    /*  */"acsg3tnup": "\uE3FC",    // 3 tinas up, 1 mina up, 1/(5⋅7⋅13)-schismina up, 0.42 cents up
+    /*  */"acsg3tndn": "\uE3FD",    // 3 tinas down, 1 mina down, 1/(5⋅7⋅13)-schismina down, 0.42 cents down
+    /*  */"acsg4tnup": "\uE3FE",    // 4 tinas up, 5²⋅11²/7-schismina up, 0.57 cents up
+    /*  */"acsg4tndn": "\uE3FF",    // 4 tinas down, 5²⋅11²/7-schismina down, 0.57 cents down
+    /*  */"acsg5tnup": "\uE400",    // 5 tinas up, 7⁴/25-schismina up, 0.72 cents up
+    /*  */"acsg5tndn": "\uE401",    // 5 tinas down, 7⁴/25-schismina down, 0.72 cents down
     /*  */"acsg6tnup": "\uE402",    // 6 tinas up, 2 minas up, 65/77-schismina up, 0.83 cents up
     /*  */"acsg6tndn": "\uE403",    // 6 tinas down, 2 minas down, 65/77-schismina down, 0.83 cents down
-    /*  */"acsg7tnup": "\uE404",    // 7 tinas up, 7/(5\u00b2\u22c517)-schismina up, 1.02 cents up
-    /*  */"acsg7tndn": "\uE405",    // 7 tinas down, 7/(5\u00b2\u22c517)-schismina down, 1.02 cents down
-    /*  */"acsg8tnup": "\uE406",    // 8 tinas up, 11\u22c517/(5\u00b2\u22c57)-schismina up, 1.14 cents up
-    /*  */"acsg8tndn": "\uE407",    // 8 tinas down, 11\u22c517/(5\u00b2\u22c57)-schismina down, 1.14 cents down
-    /*  */"acsg9tnup": "\uE408",    // 9 tinas up, 1/(7\u00b2\u22c511)-schismina up, 1.26 cents up
-    /*  */"acsg9tndn": "\uE409",    // 9 tinas down, 1/(7\u00b2\u22c511)-schismina down, 1.26 cents down
-    /*  */"acsgfrtnup": "\uE40A",   // Fractional tina up, 77/(5\u22c537)-schismina up, 0.08 cents up
-    /*  */"acsgfrtndn": "\uE40B",   // Fractional tina down, 77/(5\u22c537)-schismina down, 0.08 cents down
+    /*  */"acsg7tnup": "\uE404",    // 7 tinas up, 7/(5²⋅17)-schismina up, 1.02 cents up
+    /*  */"acsg7tndn": "\uE405",    // 7 tinas down, 7/(5²⋅17)-schismina down, 1.02 cents down
+    /*  */"acsg8tnup": "\uE406",    // 8 tinas up, 11⋅17/(5²⋅7)-schismina up, 1.14 cents up
+    /*  */"acsg8tndn": "\uE407",    // 8 tinas down, 11⋅17/(5²⋅7)-schismina down, 1.14 cents down
+    /*  */"acsg9tnup": "\uE408",    // 9 tinas up, 1/(7²⋅11)-schismina up, 1.26 cents up
+    /*  */"acsg9tndn": "\uE409",    // 9 tinas down, 1/(7²⋅11)-schismina down, 1.26 cents down
+    /*  */"acsgfrtnup": "\uE40A",   // Fractional tina up, 77/(5⋅37)-schismina up, 0.08 cents up
+    /*  */"acsgfrtndn": "\uE40B",   // Fractional tina down, 77/(5⋅37)-schismina down, 0.08 cents down
     /*  */"acwy1twsh": "\uE420",    // 1/12 tone sharp
     /*  */"acwy2twsh": "\uE421",    // 1/6 tone sharp
     /*  */"acwy3twsh": "\uE422",    // 1/4 tone sharp
@@ -912,14 +911,14 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acwy9twfl": "\uE433",    // 3/4 tone flat
     /*  */"acwy10twfl": "\uE434",   // 5/6 tone flat
     /*  */"acwy11twfl": "\uE435",   // 11/12 tone flat
-    /*  */"acbymcfl": "\uE440", // B\u00fcy\u00fck m\u00fccenneb (flat)
-    /*  */"ackcmcfl": "\uE441", // K\u00fc\u00e7\u00fck m\u00fccenneb (flat)
+    /*  */"acbymcfl": "\uE440", // Büyük mücenneb (flat)
+    /*  */"ackcmcfl": "\uE441", // Küçük mücenneb (flat)
     /*  */"acbkfl": "\uE442",   // Bakiye (flat)
     /*  */"ackmfl": "\uE443",   // Koma (flat)
     /*  */"ackmsh": "\uE444",   // Koma (sharp)
     /*  */"acbksh": "\uE445",   // Bakiye (sharp)
-    /*  */"ackcmcsh": "\uE446", // K\u00fc\u00e7\u00fck m\u00fccenneb (sharp)
-    /*  */"acbymcsh": "\uE447", // B\u00fcy\u00fck m\u00fccenneb (sharp)
+    /*  */"ackcmcsh": "\uE446", // Küçük mücenneb (sharp)
+    /*  */"acbymcsh": "\uE447", // Büyük mücenneb (sharp)
     /*  */"ac1cmsh": "\uE450",  // 1-comma sharp
     /*  */"ac2cmsh": "\uE451",  // 2-comma sharp
     /*  */"ac3cmsh": "\uE452",  // 3-comma sharp
@@ -936,7 +935,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acshonhrst": "\uE473",   // One or three quarter tones sharp
     /*  */"acthqrtnshbs": "\uE474", // Three quarter tones sharp (Bussotti)
     /*  */"acqrtnshwg": "\uE475",   // Quarter tone sharp with wiggly tail
-    /*  */"actvsh": "\uE476",   // Byzantine-style Bu\u0308yu\u0308k mu\u0308cenneb sharp (Tavener)
+    /*  */"actvsh": "\uE476",   // Byzantine-style Büyuük muücenneb sharp (Tavener)
     /*  */"actvfl": "\uE477",   // Byzantine-style Bakiye flat (Tavener)
     /*  */"acqrtnflpn": "\uE478",   // Quarter tone flat (Penderecki)
     /*  */"accmslup": "\uE479", // Syntonic/Didymus comma (80:81) up (Bosanquet)
@@ -950,8 +949,8 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acshrv": "\uE481",   // Reversed sharp
     /*  */"acntrv": "\uE482",   // Reversed natural
     /*  */"acdbflrv": "\uE483", // Reversed double flat
-    /*  */"acfltr": "\uE484",   // Turned flat
-    /*  */"acdbfltr": "\uE485", // Turned double flat
+    /*  */"acfltn": "\uE484",   // Turned flat
+    /*  */"acdbfltn": "\uE485", // Turned double flat
     /*  */"acthqrtnflgr": "\uE486", // Three-quarter-tones flat (Grisey)
     /*  */"acthqrtnfltr": "\uE487", // Three-quarter-tones flat (Tartini)
     /*  */"acqrtnflvnbl": "\uE488", // Quarter-tone flat (van Blankenburg)
@@ -980,12 +979,12 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"armrstbl": "\uE4AF", // Marcato-staccato below
     /*  */"aracstab": "\uE4B0", // Accent-staccato above
     /*  */"aracstbl": "\uE4B1", // Accent-staccato below
-    /*  */"artnstab": "\uE4B2", // Lour\u00e9 (tenuto-staccato) above
-    /*  */"artnstbl": "\uE4B3", // Lour\u00e9 (tenuto-staccato) below
+    /*  */"artnstab": "\uE4B2", // Louré (tenuto-staccato) above
+    /*  */"artnstbl": "\uE4B3", // Louré (tenuto-staccato) below
     /*  */"artnacab": "\uE4B4", // Tenuto-accent above
     /*  */"artnacbl": "\uE4B5", // Tenuto-accent below
-    /*  */"ariab": "\uE4B6",    // Stress above
-    /*  */"aribl": "\uE4B7",    // Stress below
+    /*  */"arsrab": "\uE4B6",    // Stress above
+    /*  */"arsrbl": "\uE4B7",    // Stress below
     /*  */"arunab": "\uE4B8",   // Unstress above
     /*  */"arunbl": "\uE4B9",   // Unstress below
     /*  */"arlsvbab": "\uE4BA", // Laissez vibrer (l.v.) above
@@ -1044,7 +1043,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"rp4br": "\uE502", // Repeat last four bars
     /*  */"rpbrupdt": "\uE503", // Repeat bar upper dot
     /*  */"rpbrsl": "\uE504", // Repeat bar slash
-    /*  */"rpbrlwdt": "\uE505", // Repeat bar lower dot
+    /*  */"rpbrlrdt": "\uE505", // Repeat bar lower dot
     /*  */"ot": "\uE510", // Ottava
     /*  */"otal": "\uE511", // Ottava alta
     /*  */"otbs": "\uE512", // Ottava bassa
@@ -1149,18 +1148,18 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"glup": "\uE585", // Glissando up
     /*  */"gldn": "\uE586", // Glissando down
     /*  */"orsc": "\uE587", // Schleifer (long mordent)
-    /*  */"orpncp": "\uE588", // Pinc\u00e9 (Couperin)
-    /*  */"ortmcp": "\uE589", // Tremblement appuy\u00e9 (Couperin)
+    /*  */"orpncp": "\uE588", // Pincé (Couperin)
+    /*  */"ortmcp": "\uE589", // Tremblement appuyé (Couperin)
     /*  */"ortplfccst": "\uE590", // Ornament top left concave stroke
     /*  */"ortplfcvst": "\uE591", // Ornament top left convex stroke
-    /*  */"orhglfccst": "\uE592", // Ornament high left concave stroke
-    /*  */"orhglfcvst": "\uE593", // Ornament high left convex stroke
+    /*  */"orhilfccst": "\uE592", // Ornament high left concave stroke
+    /*  */"orhilfcvst": "\uE593", // Ornament high left convex stroke
     /*  */"orlfvrst": "\uE594", // Ornament left vertical stroke
     /*  */"orlfvrstwtcr": "\uE595", // Ornament left vertical stroke with cross (+)
     /*  */"orlfshT": "\uE596", // Ornament left shake t
     /*  */"orlfpl": "\uE597", // Ornament left +
-    /*  */"orlwlfccst": "\uE598", // Ornament low left concave stroke
-    /*  */"orlwlfcvst": "\uE599", // Ornament low left convex stroke
+    /*  */"orlolfccst": "\uE598", // Ornament low left concave stroke
+    /*  */"orlolfcvst": "\uE599", // Ornament low left convex stroke
     /*  */"orbtlfccst": "\uE59A", // Ornament bottom left concave stroke
     /*  */"orbtlfccstlg": "\uE59B", // Ornament bottom left concave stroke, large
     /*  */"orbtlfcvst": "\uE59C", // Ornament bottom left convex stroke
@@ -1169,11 +1168,11 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"ormdvrst": "\uE59F", // Ornament middle vertical stroke
     /*  */"ortprtccst": "\uE5A0", // Ornament top right concave stroke
     /*  */"ortprtcvst": "\uE5A1", // Ornament top right convex stroke
-    /*  */"orhgrtccst": "\uE5A2", // Ornament high right concave stroke
-    /*  */"orhgrtcvst": "\uE5A3", // Ornament high right convex stroke
+    /*  */"orhirtccst": "\uE5A2", // Ornament high right concave stroke
+    /*  */"orhirtcvst": "\uE5A3", // Ornament high right convex stroke
     /*  */"orrtvrst": "\uE5A4", // Ornament right vertical stroke
-    /*  */"orlwrtccst": "\uE5A5", // Ornament low right concave stroke
-    /*  */"orlwrtcvst": "\uE5A6", // Ornament low right convex stroke
+    /*  */"orlortccst": "\uE5A5", // Ornament low right concave stroke
+    /*  */"orlortcvst": "\uE5A6", // Ornament low right convex stroke
     /*  */"orbtrtccst": "\uE5A7", // Ornament bottom right concave stroke
     /*  */"orbtrtcvst": "\uE5A8", // Ornament bottom right convex stroke
     /*  */"orprsl": "\uE5B0", // Slide
@@ -1192,7 +1191,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"orprtrwtmr": "\uE5BD", // Trill with mordent
     /*  */"orprcd": "\uE5BE", // Cadence
     /*  */"orprcdwttn": "\uE5BF", // Cadence with turn
-    /*  */"orprdbcdlwpr": "\uE5C0", // Double cadence with lower prefix
+    /*  */"orprdbcdlrpr": "\uE5C0", // Double cadence with lower prefix
     /*  */"orprcduppr": "\uE5C1", // Cadence with upper prefix
     /*  */"orprcdupprtn": "\uE5C2", // Cadence with upper prefix and turn
     /*  */"orprdbcduppr": "\uE5C3", // Double cadence with upper prefix
@@ -1200,7 +1199,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"orprmrrl": "\uE5C5", // Mordent with release
     /*  */"orprmruppr": "\uE5C6", // Mordent with upper prefix
     /*  */"orprinmruppr": "\uE5C7", // Inverted mordent with upper prefix
-    /*  */"orprtrlwsf": "\uE5C8", // Trill with lower suffix
+    /*  */"orprtrlrsf": "\uE5C8", // Trill with lower suffix
     /*  */"brsc": "\uE5D0", // Scoop
     /*  */"brlfsh": "\uE5D1", // Lift, short
     /*  */"brlfmd": "\uE5D2", // Lift, medium
@@ -1261,33 +1260,33 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"wnmlblwtsm": "\uE609", // Combining multiphonics (black and white) for stem
     /*  */"wnmtpp": "\uE60A", // Mouthpiece or hand pop
     /*  */"wnrmon": "\uE60B", // Rim only
-    /*  */"srdnbw": "\uE610", // Down bow
-    /*  */"srdnbwtr": "\uE611", // Turned down bow
-    /*  */"srupbw": "\uE612", // Up bow
-    /*  */"srupbwtr": "\uE613", // Turned up bow
+    /*  */"srdnbo": "\uE610", // Down bow
+    /*  */"srdnbotn": "\uE611", // Turned down bow
+    /*  */"srupbo": "\uE612", // Up bow
+    /*  */"srupbotn": "\uE613", // Turned up bow
     /*  */"srhr": "\uE614", // Harmonic
     /*  */"srhfhr": "\uE615", // Half-harmonic
     /*  */"srmton": "\uE616", // Mute on
     /*  */"srmtof": "\uE617", // Mute off
-    /*  */"srbwbhbr": "\uE618", // Bow behind bridge (sul ponticello)
-    /*  */"srbwonbr": "\uE619", // Bow on top of bridge
-    /*  */"srbwontl": "\uE61A", // Bow on tailpiece
-    /*  */"srovdnbw": "\uE61B", // Overpressure, down bow
-    /*  */"srovupbw": "\uE61C", // Overpressure, up bow
-    /*  */"srovpsdnbw": "\uE61D", // Overpressure possibile, down bow
-    /*  */"srovpsupbw": "\uE61E", // Overpressure possibile, up bow
+    /*  */"srbobhbr": "\uE618", // Bow behind bridge (sul ponticello)
+    /*  */"srboonbr": "\uE619", // Bow on top of bridge
+    /*  */"srboontl": "\uE61A", // Bow on tailpiece
+    /*  */"srovdnbo": "\uE61B", // Overpressure, down bow
+    /*  */"srovupbo": "\uE61C", // Overpressure, up bow
+    /*  */"srovpsdnbo": "\uE61D", // Overpressure possibile, down bow
+    /*  */"srovpsupbo": "\uE61E", // Overpressure possibile, up bow
     /*  */"srovnodr": "\uE61F", // Overpressure, no bow direction
-    /*  */"srjtab": "\uE620", // Jet\u00e9 (gettato) above
-    /*  */"srjtbl": "\uE621", // Jet\u00e9 (gettato) below
-    /*  */"srft": "\uE622", // Fouett\u00e9
+    /*  */"srjtab": "\uE620", // Jeté (gettato) above
+    /*  */"srjtbl": "\uE621", // Jeté (gettato) below
+    /*  */"srft": "\uE622", // Fouetté
     /*  */"srvbpl": "\uE623", // Vibrato pulse accent (Saunders) for stem
     /*  */"srtmps": "\uE624", // Thumb position
-    /*  */"srtmpstr": "\uE625", // Turned thumb position
-    /*  */"srchbwdr": "\uE626", // Change bow direction, indeterminate
-    /*  */"srbwbhbronst": "\uE627", // Bow behind bridge on one string
-    /*  */"srbwbhbrtwsr": "\uE628", // Bow behind bridge on two strings
-    /*  */"srbwbhbrthsr": "\uE629", // Bow behind bridge on three strings
-    /*  */"srbwbhbrfrsr": "\uE62A", // Bow behind bridge on four strings
+    /*  */"srtmpstn": "\uE625", // Turned thumb position
+    /*  */"srchbodr": "\uE626", // Change bow direction, indeterminate
+    /*  */"srbobhbronst": "\uE627", // Bow behind bridge on one string
+    /*  */"srbobhbrtwsr": "\uE628", // Bow behind bridge on two strings
+    /*  */"srbobhbrthsr": "\uE629", // Bow behind bridge on three strings
+    /*  */"srbobhbrfrsr": "\uE62A", // Bow behind bridge on four strings
     /*  */"plsnpzbl": "\uE630", // Snap pizzicato below
     /*  */"plsnpzab": "\uE631", // Snap pizzicato above
     /*  */"plbzpz": "\uE632", // Buzz pizzicato
@@ -1355,7 +1354,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"kbpdprrt": "\uE677", // Right parenthesis for pedal marking
     /*  */"hppdrs": "\uE680", // Harp pedal raised (flat)
     /*  */"hppdcn": "\uE681", // Harp pedal centered (natural)
-    /*  */"hppdlw": "\uE682", // Harp pedal lowered (sharp)
+    /*  */"hppdlr": "\uE682", // Harp pedal lowered (sharp)
     /*  */"hppddv": "\uE683", // Harp pedal divider
     /*  */"hpslslwtsp": "\uE684", // Slide with suppleness (Salzedo)
     /*  */"hpslobfl": "\uE685", // Oboic flux (Salzedo)
@@ -1376,7 +1375,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"hpstnssm": "\uE694", // Combining string noise for stem
     /*  */"hpslalas": "\uE695", // Ascending aeolian chords (Salzedo)
     /*  */"hpslalds": "\uE696", // Descending aeolian chords (Salzedo)
-    /*  */"hpsldmlwsr": "\uE697", // Damp only low strings (Salzedo)
+    /*  */"hpsldmlosr": "\uE697", // Damp only low strings (Salzedo)
     /*  */"hpsldmbthn": "\uE698", // Damp with both hands (Salzedo)
     /*  */"hpsldmbl": "\uE699", // Damp below (Salzedo)
     /*  */"hpsldmab": "\uE69A", // Damp above (Salzedo)
@@ -1612,7 +1611,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"pcbtsfxy": "\uE7DB", // Soft xylophone beaters
     /*  */"pcbtspwdml": "\uE7DC", // Spoon-shaped wooden mallet
     /*  */"pcbtgrsc": "\uE7DD", // Guiro scraper
-    /*  */"pcbtbw": "\uE7DE", // Bow
+    /*  */"pcbtbo": "\uE7DE", // Bow
     /*  */"pcbtml": "\uE7DF", // Chime hammer up
     /*  */"pcbtmthm": "\uE7E0", // Metal hammer
     /*  */"pcbthm": "\uE7E1", // Hammer
@@ -1703,8 +1702,8 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"gtvlsw": "\uE845", // Volume swell
     /*  */"gtstup": "\uE846", // Strum direction up
     /*  */"gtstdn": "\uE847", // Strum direction down
-    /*  */"gtbrfl": "\uE848", // Full barr\u00e9
-    /*  */"gtbrhf": "\uE849", // Half barr\u00e9
+    /*  */"gtbrfl": "\uE848", // Full barré
+    /*  */"gtbrhf": "\uE849", // Half barré
     /*  */"gtst10": "\uE84A", // String number 10
     /*  */"gtst11": "\uE84B", // String number 11
     /*  */"gtst12": "\uE84C", // String number 12
@@ -1770,7 +1769,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acRH3rnpc": "\uE8A0", // Right hand, 3 ranks, 4' stop (piccolo)
     /*  */"acRH3rncl": "\uE8A1", // Right hand, 3 ranks, 8' stop (clarinet)
     /*  */"acRH3rnuptr8": "\uE8A2", // Right hand, 3 ranks, upper tremolo 8' stop
-    /*  */"acRH3rnlwtr8": "\uE8A3", // Right hand, 3 ranks, lower tremolo 8' stop
+    /*  */"acRH3rnlrtr8": "\uE8A3", // Right hand, 3 ranks, lower tremolo 8' stop
     /*  */"acRH3rnbs": "\uE8A4", // Right hand, 3 ranks, 16' stop (bassoon)
     /*  */"acRH3rnob": "\uE8A5", // Right hand, 3 ranks, 4' stop + 8' stop (oboe)
     /*  */"acRH3rnvl": "\uE8A6", // Right hand, 3 ranks, 8' stop + upper tremolo 8' stop (violin)
@@ -1778,13 +1777,13 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"acRH3rnatms": "\uE8A8", // Right hand, 3 ranks, lower tremolo 8' stop + 8' stop + upper tremolo 8' stop (authentic musette)
     /*  */"acRH3rnor": "\uE8A9", // Right hand, 3 ranks, 4' stop + 16' stop (organ)
     /*  */"acRH3rnhr": "\uE8AA", // Right hand, 3 ranks, 4' stop + 8' stop + 16' stop (harmonium)
-    /*  */"acRH3rnbn": "\uE8AB", // Right hand, 3 ranks, 8' stop + 16' stop (bandone\u00f3n)
+    /*  */"acRH3rnbn": "\uE8AB", // Right hand, 3 ranks, 8' stop + 16' stop (bandoneón)
     /*  */"acRH3rnac": "\uE8AC", // Right hand, 3 ranks, 8' stop + upper tremolo 8' stop + 16' stop (accordion)
     /*  */"acRH3rnms": "\uE8AD", // Right hand, 3 ranks, 4' stop + lower tremolo 8' stop + upper tremolo 8' stop + 16' stop (master)
     /*  */"acRH3rntwch": "\uE8AE", // Right hand, 3 ranks, lower tremolo 8' stop + upper tremolo 8' stop
-    /*  */"acRH3rntrlw8ve": "\uE8AF", // Right hand, 3 ranks, lower tremolo 8' stop + upper tremolo 8' stop + 16' stop
+    /*  */"acRH3rntrlr8ve": "\uE8AF", // Right hand, 3 ranks, lower tremolo 8' stop + upper tremolo 8' stop + 16' stop
     /*  */"acRH3rntrup8ve": "\uE8B0", // Right hand, 3 ranks, 4' stop + lower tremolo 8' stop + upper tremolo 8' stop
-    /*  */"acRH3rndbtrlw8ve": "\uE8B1", // Right hand, 3 ranks, lower tremolo 8' stop + 8' stop + upper tremolo 8' stop + 16' stop
+    /*  */"acRH3rndbtrlr8ve": "\uE8B1", // Right hand, 3 ranks, lower tremolo 8' stop + 8' stop + upper tremolo 8' stop + 16' stop
     /*  */"acRH3rndbtrup8ve": "\uE8B2", // Right hand, 3 ranks, 4' stop + lower tremolo 8' stop + 8' stop + upper tremolo 8' stop
     /*  */"acRH3rnflfc": "\uE8B3", // Right hand, 3 ranks, 4' stop + lower tremolo 8' stop + 8' stop + upper tremolo 8' stop + 16' stop
     /*  */"acRH4rnsp": "\uE8B4", // Right hand, 4 ranks, soprano
@@ -1847,9 +1846,9 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"mncc": "\uE905", // Mensural C clef
     /*  */"chcc": "\uE906", // Plainchant C clef
     /*  */"mnccptpsls": "\uE907", // Petrucci C clef, lowest position
-    /*  */"mnccptpslw": "\uE908", // Petrucci C clef, low position
+    /*  */"mnccptpslo": "\uE908", // Petrucci C clef, low position
     /*  */"mnccptpsmd": "\uE909", // Petrucci C clef, middle position
-    /*  */"mnccptpshg": "\uE90A", // Petrucci C clef, high position
+    /*  */"mnccptpshi": "\uE90A", // Petrucci C clef, high position
     /*  */"mnccptpshs": "\uE90B", // Petrucci C clef, highest position
     /*  */"mnpl1": "\uE910", // Tempus perfectum cum prolatione perfecta (9/8)
     /*  */"mnpl2": "\uE911", // Tempus perfectum cum prolatione imperfecta (3/4)
@@ -1894,7 +1893,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"mnnhsbbl": "\uE938", // Semibrevis notehead, black
     /*  */"mnnhsbvd": "\uE939", // Semibrevis notehead, void
     /*  */"mnnhsbblvd": "\uE93A", // Semibrevis notehead, black and void
-    /*  */"mnnhsbblvdtr": "\uE93B", // Semibrevis notehead, black and void (turned)
+    /*  */"mnnhsbblvdtn": "\uE93B", // Semibrevis notehead, black and void (turned)
     /*  */"mnnhmnwt": "\uE93C", // Minima notehead, white
     /*  */"mnnhsmwt": "\uE93D", // Semiminima/fusa notehead, white
     /*  */"mncmsmup": "\uE93E", // Combining stem up
@@ -1981,10 +1980,10 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"chsp": "\uE99F", // Strophicus
     /*  */"chspac": "\uE9A0", // Strophicus auctus
     /*  */"chpndm": "\uE9A1", // Punctum deminutum
-    /*  */"chpdlw": "\uE9B0", // Podatus, lower
+    /*  */"chpdlr": "\uE9B0", // Podatus, lower
     /*  */"chpdup": "\uE9B1", // Podatus, upper
     /*  */"chdmup": "\uE9B2", // Punctum deminutum, upper
-    /*  */"chdmlw": "\uE9B3", // Punctum deminutum, lower
+    /*  */"chdmlr": "\uE9B3", // Punctum deminutum, lower
     /*  */"chenlnas2": "\uE9B4", // Entry line, ascending 2nd
     /*  */"chenlnas3": "\uE9B5", // Entry line, ascending 3rd
     /*  */"chenlnas4": "\uE9B6", // Entry line, ascending 4th
@@ -2033,10 +2032,10 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"mncsup": "\uEA02", // Mensural custos up
     /*  */"mncsdn": "\uEA03", // Mensural custos down
     /*  */"chcssmuppsls": "\uEA04", // Plainchant custos, stem up, lowest position
-    /*  */"chcssmuppslw": "\uEA05", // Plainchant custos, stem up, low position
+    /*  */"chcssmuppslo": "\uEA05", // Plainchant custos, stem up, low position
     /*  */"chcssmuppsmd": "\uEA06", // Plainchant custos, stem up, middle position
     /*  */"chcssmdnpsmd": "\uEA07", // Plainchant custos, stem down, middle position
-    /*  */"chcssmdnpshg": "\uEA08", // Plainchant custos, stem down, high position
+    /*  */"chcssmdnpshi": "\uEA08", // Plainchant custos, stem down, high position
     /*  */"chcssmdnpshs": "\uEA09", // Plainchant custos, stem down, highest position
     /*  */"mncsch": "\uEA0A", // Checkmark custos
     /*  */"mncstn": "\uEA0B", // Turn-like custos
@@ -2104,7 +2103,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"fgprrt": "\uEA6B", // Figured bass )
     /*  */"fgpl": "\uEA6C", // Figured bass +
     /*  */"fgcmrs": "\uEA6D", // Combining raise
-    /*  */"fgcmlw": "\uEA6E", // Combining lower
+    /*  */"fgcmlr": "\uEA6E", // Combining lower
     /*  */"fg6rs2": "\uEA6F", // Figured bass 6 raised by half-step 2
     /*  */"fnzr": "\uEA70", // Function theory 0
     /*  */"fnon": "\uEA71", // Function theory 1
@@ -2120,23 +2119,23 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"fnmn": "\uEA7B", // Function theory minus
     /*  */"fngrth": "\uEA7C", // Function theory greater than
     /*  */"fnSSup": "\uEA7D", // Function theory major subdominant of subdominant
-    /*  */"fnSSlw": "\uEA7E", // Function theory minor subdominant of subdominant
+    /*  */"fnSSlr": "\uEA7E", // Function theory minor subdominant of subdominant
     /*  */"fnDup": "\uEA7F", // Function theory major dominant
-    /*  */"fnDlw": "\uEA80", // Function theory minor dominant
+    /*  */"fnDlr": "\uEA80", // Function theory minor dominant
     /*  */"fnDD": "\uEA81", // Function theory dominant of dominant
     /*  */"fnslDD": "\uEA82", // Function theory double dominant seventh
     /*  */"fnGup": "\uEA83", // Function theory G
-    /*  */"fnGlw": "\uEA84", // Function theory g
+    /*  */"fnGlr": "\uEA84", // Function theory g
     /*  */"fnNup": "\uEA85", // Function theory N
-    /*  */"fnNlw": "\uEA86", // Function theory n
+    /*  */"fnNlr": "\uEA86", // Function theory n
     /*  */"fnPup": "\uEA87", // Function theory P
-    /*  */"fnPlw": "\uEA88", // Function theory p
+    /*  */"fnPlr": "\uEA88", // Function theory p
     /*  */"fnSup": "\uEA89", // Function theory major subdominant
-    /*  */"fnSlw": "\uEA8A", // Function theory minor subdominant
+    /*  */"fnSlr": "\uEA8A", // Function theory minor subdominant
     /*  */"fnTup": "\uEA8B", // Function theory tonic
-    /*  */"fnTlw": "\uEA8C", // Function theory minor tonic
+    /*  */"fnTlr": "\uEA8C", // Function theory minor tonic
     /*  */"fnVup": "\uEA8D", // Function theory V
-    /*  */"fnVlw": "\uEA8E", // Function theory v
+    /*  */"fnVlr": "\uEA8E", // Function theory v
     /*  */"fnbklf": "\uEA8F", // Function theory bracket left
     /*  */"fnbkrt": "\uEA90", // Function theory bracket right
     /*  */"fnprlf": "\uEA91", // Function theory parenthesis left
@@ -2149,11 +2148,11 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"fnpl": "\uEA98", // Function theory prefix plus
     /*  */"fnFup": "\uEA99", // Function theory F
     /*  */"fnIup": "\uEA9A", // Function theory I
-    /*  */"fnIlw": "\uEA9B", // Function theory i
+    /*  */"fnIlr": "\uEA9B", // Function theory i
     /*  */"fnKup": "\uEA9C", // Function theory K
-    /*  */"fnKlw": "\uEA9D", // Function theory k
+    /*  */"fnKlr": "\uEA9D", // Function theory k
     /*  */"fnLup": "\uEA9E", // Function theory L
-    /*  */"fnLlw": "\uEA9F", // Function theory l
+    /*  */"fnLlr": "\uEA9F", // Function theory l
     /*  */"wgtrfs": "\uEAA0", // Trill wiggle segment, fastest
     /*  */"wgtrfrst": "\uEAA1", // Trill wiggle segment, faster still
     /*  */"wgtrfr": "\uEAA2", // Trill wiggle segment, faster
@@ -2317,7 +2316,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"elvdot": "\uEB4C", // Video out
     /*  */"eldtin": "\uEB4D", // Data in
     /*  */"eldtot": "\uEB4E", // Data out
-    /*  */"eldw": "\uEB4F", // Download
+    /*  */"eldn": "\uEB4F", // Download
     /*  */"elup": "\uEB50", // Upload
     /*  */"arblup": "\uEB60", // Black arrow up (N)
     /*  */"arbluprt": "\uEB61", // Black arrow up-right (NE)
@@ -2375,14 +2374,14 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"stpsrs6": "\uEB95", // Raise 6 staff positions
     /*  */"stpsrs7": "\uEB96", // Raise 7 staff positions
     /*  */"stpsrs8": "\uEB97", // Raise 8 staff positions
-    /*  */"stpslw1": "\uEB98", // Lower 1 staff position
-    /*  */"stpslw2": "\uEB99", // Lower 2 staff positions
-    /*  */"stpslw3": "\uEB9A", // Lower 3 staff positions
-    /*  */"stpslw4": "\uEB9B", // Lower 4 staff positions
-    /*  */"stpslw5": "\uEB9C", // Lower 5 staff positions
-    /*  */"stpslw6": "\uEB9D", // Lower 6 staff positions
-    /*  */"stpslw7": "\uEB9E", // Lower 7 staff positions
-    /*  */"stpslw8": "\uEB9F", // Lower 8 staff positions
+    /*  */"stpslr1": "\uEB98", // Lower 1 staff position
+    /*  */"stpslr2": "\uEB99", // Lower 2 staff positions
+    /*  */"stpslr3": "\uEB9A", // Lower 3 staff positions
+    /*  */"stpslr4": "\uEB9B", // Lower 4 staff positions
+    /*  */"stpslr5": "\uEB9C", // Lower 5 staff positions
+    /*  */"stpslr6": "\uEB9D", // Lower 6 staff positions
+    /*  */"stpslr7": "\uEB9E", // Lower 7 staff positions
+    /*  */"stpslr8": "\uEB9F", // Lower 8 staff positions
     /*  */"ltst6ln": "\uEBA0", // Lute tablature staff, 6 courses
     /*  */"ltst6lnwd": "\uEBA1", // Lute tablature staff, 6 courses (wide)
     /*  */"ltst6lnnr": "\uEBA2", // Lute tablature staff, 6 courses (narrow)
@@ -2418,7 +2417,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"ltfr9cr": "\uEBCF", // Ninth course (diapason)
     /*  */"ltfr10cr": "\uEBD0", // 10th course (diapason)
     /*  */"ltfrmrup": "\uEBD1", // Mordent with upper auxiliary
-    /*  */"ltfrmrlw": "\uEBD2", // Mordent with lower auxiliary
+    /*  */"ltfrmrlr": "\uEBD2", // Mordent with lower auxiliary
     /*  */"ltfrmrin": "\uEBD3", // Inverted mordent
     /*  */"ltfrapbl": "\uEBD4", // Appoggiatura from below
     /*  */"ltfrapab": "\uEBD5", // Appoggiatura from above
@@ -2444,30 +2443,30 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"ltithlnt": "\uEBF3", // Hold note
     /*  */"ltithlfi": "\uEBF4", // Hold finger in place
     /*  */"ltitrlfi": "\uEBF5", // Release finger
-    /*  */"ltitvb": "\uEBF6", // Vibrato (verre cass\u00e9)
-    /*  */"ltgrAlw": "\uEC00", // 5th course, 1st fret (a)
-    /*  */"ltgrBlw": "\uEC01", // 4th course, 1st fret (b)
-    /*  */"ltgrClw": "\uEC02", // 3rd course, 1st fret (c)
-    /*  */"ltgrDlw": "\uEC03", // 2nd course, 1st fret (d)
-    /*  */"ltgrElw": "\uEC04", // 1st course, 1st fret (e)
-    /*  */"ltgrFlw": "\uEC05", // 5th course, 2nd fret (f)
-    /*  */"ltgrGlw": "\uEC06", // 4th course, 2nd fret (g)
-    /*  */"ltgrHlw": "\uEC07", // 3rd course, 2nd fret (h)
-    /*  */"ltgrIlw": "\uEC08", // 2nd course, 2nd fret (i)
-    /*  */"ltgrKlw": "\uEC09", // 1st course, 2nd fret (k)
-    /*  */"ltgrLlw": "\uEC0A", // 5th course, 3rd fret (l)
-    /*  */"ltgrMlw": "\uEC0B", // 4th course, 3rd fret (m)
-    /*  */"ltgrNlw": "\uEC0C", // 3rd course, 3rd fret (n)
-    /*  */"ltgrOlw": "\uEC0D", // 2nd course, 3rd fret (o)
-    /*  */"ltgrPlw": "\uEC0E", // 1st course, 3rd fret (p)
-    /*  */"ltgrQlw": "\uEC0F", // 5th course, 4th fret (q)
-    /*  */"ltgrRlw": "\uEC10", // 4th course, 4th fret (r)
-    /*  */"ltgrSlw": "\uEC11", // 3rd course, 4th fret (s)
-    /*  */"ltgrTlw": "\uEC12", // 2nd course, 4th fret (t)
-    /*  */"ltgrVlw": "\uEC13", // 1st course, 4th fret (v)
-    /*  */"ltgrXlw": "\uEC14", // 5th course, 5th fret (x)
-    /*  */"ltgrYlw": "\uEC15", // 4th course, 5th fret (y)
-    /*  */"ltgrZlw": "\uEC16", // 3rd course, 5th fret (z)
+    /*  */"ltitvb": "\uEBF6", // Vibrato (verre cassé)
+    /*  */"ltgrAlr": "\uEC00", // 5th course, 1st fret (a)
+    /*  */"ltgrBlr": "\uEC01", // 4th course, 1st fret (b)
+    /*  */"ltgrClr": "\uEC02", // 3rd course, 1st fret (c)
+    /*  */"ltgrDlr": "\uEC03", // 2nd course, 1st fret (d)
+    /*  */"ltgrElr": "\uEC04", // 1st course, 1st fret (e)
+    /*  */"ltgrFlr": "\uEC05", // 5th course, 2nd fret (f)
+    /*  */"ltgrGlr": "\uEC06", // 4th course, 2nd fret (g)
+    /*  */"ltgrHlr": "\uEC07", // 3rd course, 2nd fret (h)
+    /*  */"ltgrIlr": "\uEC08", // 2nd course, 2nd fret (i)
+    /*  */"ltgrKlr": "\uEC09", // 1st course, 2nd fret (k)
+    /*  */"ltgrLlr": "\uEC0A", // 5th course, 3rd fret (l)
+    /*  */"ltgrMlr": "\uEC0B", // 4th course, 3rd fret (m)
+    /*  */"ltgrNlr": "\uEC0C", // 3rd course, 3rd fret (n)
+    /*  */"ltgrOlr": "\uEC0D", // 2nd course, 3rd fret (o)
+    /*  */"ltgrPlr": "\uEC0E", // 1st course, 3rd fret (p)
+    /*  */"ltgrQlr": "\uEC0F", // 5th course, 4th fret (q)
+    /*  */"ltgrRlr": "\uEC10", // 4th course, 4th fret (r)
+    /*  */"ltgrSlr": "\uEC11", // 3rd course, 4th fret (s)
+    /*  */"ltgrTlr": "\uEC12", // 2nd course, 4th fret (t)
+    /*  */"ltgrVlr": "\uEC13", // 1st course, 4th fret (v)
+    /*  */"ltgrXlr": "\uEC14", // 5th course, 5th fret (x)
+    /*  */"ltgrYlr": "\uEC15", // 4th course, 5th fret (y)
+    /*  */"ltgrZlr": "\uEC16", // 3rd course, 5th fret (z)
     /*  */"ltgrAup": "\uEC17", // 6th course, 1st fret (A)
     /*  */"ltgrBup": "\uEC18", // 6th course, 2nd fret (B)
     /*  */"ltgrCup": "\uEC19", // 6th course, 3rd fret (C)
@@ -2576,18 +2575,18 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"ntshmnlfdbwh": "\uECDB", // Moon left double whole (Funk 7-shape do)
     /*  */"ntshahlfdbwh": "\uECDC", // Arrowhead left double whole (Funk 7-shape re)
     /*  */"ntshtrrnlfdbwh": "\uECDD", // Triangle-round left double whole (Funk 7-shape ti)
-    /*  */"tmsg0tr": "\uECE0", // Turned time signature 0
-    /*  */"tmsg1tr": "\uECE1", // Turned time signature 1
-    /*  */"tmsg2tr": "\uECE2", // Turned time signature 2
-    /*  */"tmsg3tr": "\uECE3", // Turned time signature 3
-    /*  */"tmsg4tr": "\uECE4", // Turned time signature 4
-    /*  */"tmsg5tr": "\uECE5", // Turned time signature 5
-    /*  */"tmsg6tr": "\uECE6", // Turned time signature 6
-    /*  */"tmsg7tr": "\uECE7", // Turned time signature 7
-    /*  */"tmsg8tr": "\uECE8", // Turned time signature 8
-    /*  */"tmsg9tr": "\uECE9", // Turned time signature 9
-    /*  */"tmsgcntr": "\uECEA", // Turned common time
-    /*  */"tmsgctcntr": "\uECEB", // Turned cut time
+    /*  */"tmsg0tn": "\uECE0", // Turned time signature 0
+    /*  */"tmsg1tn": "\uECE1", // Turned time signature 1
+    /*  */"tmsg2tn": "\uECE2", // Turned time signature 2
+    /*  */"tmsg3tn": "\uECE3", // Turned time signature 3
+    /*  */"tmsg4tn": "\uECE4", // Turned time signature 4
+    /*  */"tmsg5tn": "\uECE5", // Turned time signature 5
+    /*  */"tmsg6tn": "\uECE6", // Turned time signature 6
+    /*  */"tmsg7tn": "\uECE7", // Turned time signature 7
+    /*  */"tmsg8tn": "\uECE8", // Turned time signature 8
+    /*  */"tmsg9tn": "\uECE9", // Turned time signature 9
+    /*  */"tmsgcntn": "\uECEA", // Turned common time
+    /*  */"tmsgctcntn": "\uECEB", // Turned cut time
     /*  */"tmsg0rv": "\uECF0", // Reversed time signature 0
     /*  */"tmsg1rv": "\uECF1", // Reversed time signature 1
     /*  */"tmsg2rv": "\uECF2", // Reversed time signature 2
@@ -2601,9 +2600,9 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"tmsgcnrv": "\uECFA", // Reversed common time
     /*  */"tmsgctcnrv": "\uECFB", // Reversed cut time
     /*  */"fnMup": "\uED00", // Function theory M
-    /*  */"fnMlw": "\uED01", // Function theory m
+    /*  */"fnMlr": "\uED01", // Function theory m
     /*  */"fnNupsp": "\uED02", // Function theory superscript N
-    /*  */"fnRlw": "\uED03", // Function theory r
+    /*  */"fnRlr": "\uED03", // Function theory r
     /*  */"fi0": "\uED10", // Fingering 0 (open string)
     /*  */"fi1": "\uED11", // Fingering 1 (thumb)
     /*  */"fi2": "\uED12", // Fingering 2 (index finger)
@@ -2611,15 +2610,15 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"fi4": "\uED14", // Fingering 4 (ring finger)
     /*  */"fi5": "\uED15", // Fingering 5 (little finger)
     /*  */"fiTup": "\uED16", // Fingering T (left-hand thumb for guitar)
-    /*  */"fiPlw": "\uED17", // Fingering p (pulgar; right-hand thumb for guitar)
-    /*  */"fiTlw": "\uED18", // Fingering t (right-hand thumb for guitar)
-    /*  */"fiIlw": "\uED19", // Fingering i (indicio; right-hand index finger for guitar)
-    /*  */"fiMlw": "\uED1A", // Fingering m (medio; right-hand middle finger for guitar)
-    /*  */"fiAlw": "\uED1B", // Fingering a (anular; right-hand ring finger for guitar)
-    /*  */"fiClw": "\uED1C", // Fingering c (right-hand little finger for guitar)
-    /*  */"fiXlw": "\uED1D", // Fingering x (right-hand little finger for guitar)
-    /*  */"fiElw": "\uED1E", // Fingering e (right-hand little finger for guitar)
-    /*  */"fiOlw": "\uED1F", // Fingering o (right-hand little finger for guitar)
+    /*  */"fiPlr": "\uED17", // Fingering p (pulgar; right-hand thumb for guitar)
+    /*  */"fiTlr": "\uED18", // Fingering t (right-hand thumb for guitar)
+    /*  */"fiIlr": "\uED19", // Fingering i (indicio; right-hand index finger for guitar)
+    /*  */"fiMlr": "\uED1A", // Fingering m (medio; right-hand middle finger for guitar)
+    /*  */"fiAlr": "\uED1B", // Fingering a (anular; right-hand ring finger for guitar)
+    /*  */"fiClr": "\uED1C", // Fingering c (right-hand little finger for guitar)
+    /*  */"fiXlr": "\uED1D", // Fingering x (right-hand little finger for guitar)
+    /*  */"fiElr": "\uED1E", // Fingering e (right-hand little finger for guitar)
+    /*  */"fiOlr": "\uED1F", // Fingering o (right-hand little finger for guitar)
     /*  */"fisbab": "\uED20", // Finger substitution above
     /*  */"fisbbl": "\uED21", // Finger substitution below
     /*  */"fisbds": "\uED22", // Finger substitution dash
@@ -2653,13 +2652,13 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"arsfactnstab": "\uED46", // Soft accent-tenuto-staccato above
     /*  */"arsfactnstbl": "\uED47", // Soft accent-tenuto-staccato below
     /*  */"acrssh": "\uED50", // Raised (Stockhausen)
-    /*  */"aclwsh": "\uED51", // Lowered (Stockhausen)
+    /*  */"aclrsh": "\uED51", // Lowered (Stockhausen)
     /*  */"acflrssh": "\uED52", // Raised flat (Stockhausen)
-    /*  */"acfllwsh": "\uED53", // Lowered flat (Stockhausen)
+    /*  */"acfllrsh": "\uED53", // Lowered flat (Stockhausen)
     /*  */"acntrssh": "\uED54", // Raised natural (Stockhausen)
-    /*  */"acntlwsh": "\uED55", // Lowered natural (Stockhausen)
+    /*  */"acntlrsh": "\uED55", // Lowered natural (Stockhausen)
     /*  */"acshrssh": "\uED56", // Raised sharp (Stockhausen)
-    /*  */"acshlwsh": "\uED57", // Lowered sharp (Stockhausen)
+    /*  */"acshlrsh": "\uED57", // Lowered sharp (Stockhausen)
     /*  */"aconqrtnshsh": "\uED58", // One-quarter-tone sharp (Stockhausen)
     /*  */"aconqrtnflsh": "\uED59", // One-quarter-tone flat (Stockhausen)
     /*  */"acthqrtnshsh": "\uED5A", // Three-quarter-tones sharp (Stockhausen)
@@ -2689,8 +2688,8 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"firtprit": "\uED8B", // Fingering right parenthesis italic
     /*  */"filfbkit": "\uED8C", // Fingering left bracket italic
     /*  */"firtbkit": "\uED8D", // Fingering right bracket italic
-    /*  */"fiQlw": "\uED8E", // Fingering q (right-hand little finger for guitar)
-    /*  */"fiSlw": "\uED8F", // Fingering s (right-hand little finger for guitar)
+    /*  */"fiQlr": "\uED8E", // Fingering q (right-hand little finger for guitar)
+    /*  */"fiSlr": "\uED8F", // Fingering s (right-hand little finger for guitar)
     /*  */"knst": "\uEDA0", // Step
     /*  */"kntp": "\uEDA1", // Tap
     /*  */"knhp": "\uEDA2", // Hop
@@ -2785,18 +2784,18 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"orgrAup": "\uEE09", // German organ tablature great A
     /*  */"orgrBup": "\uEE0A", // German organ tablature great B
     /*  */"orgrHup": "\uEE0B", // German organ tablature great H
-    /*  */"orgrClw": "\uEE0C", // German organ tablature small C
-    /*  */"orgrcslw": "\uEE0D", // German organ tablature small Cis
-    /*  */"orgrDlw": "\uEE0E", // German organ tablature small D
-    /*  */"orgrdslw": "\uEE0F", // German organ tablature small Dis
-    /*  */"orgrElw": "\uEE10", // German organ tablature small E
-    /*  */"orgrFlw": "\uEE11", // German organ tablature small F
-    /*  */"orgrfslw": "\uEE12", // German organ tablature small Fis
-    /*  */"orgrGlw": "\uEE13", // German organ tablature small G
-    /*  */"orgrgslw": "\uEE14", // German organ tablature small Gis
-    /*  */"orgrAlw": "\uEE15", // German organ tablature small A
-    /*  */"orgrBlw": "\uEE16", // German organ tablature small B
-    /*  */"orgrHlw": "\uEE17", // German organ tablature small H
+    /*  */"orgrClr": "\uEE0C", // German organ tablature small C
+    /*  */"orgrcslr": "\uEE0D", // German organ tablature small Cis
+    /*  */"orgrDlr": "\uEE0E", // German organ tablature small D
+    /*  */"orgrdslr": "\uEE0F", // German organ tablature small Dis
+    /*  */"orgrElr": "\uEE10", // German organ tablature small E
+    /*  */"orgrFlr": "\uEE11", // German organ tablature small F
+    /*  */"orgrfslr": "\uEE12", // German organ tablature small Fis
+    /*  */"orgrGlr": "\uEE13", // German organ tablature small G
+    /*  */"orgrgslr": "\uEE14", // German organ tablature small Gis
+    /*  */"orgrAlr": "\uEE15", // German organ tablature small A
+    /*  */"orgrBlr": "\uEE16", // German organ tablature small B
+    /*  */"orgrHlr": "\uEE17", // German organ tablature small H
     /*  */"orgrocup": "\uEE18", // Combining single octave line above
     /*  */"orgr2ocup": "\uEE19", // Combining double octave line above
     /*  */"orgrocdn": "\uEE1A", // Combining single octave line below
@@ -2837,36 +2836,36 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"orgr6sm": "\uEE3D", // Six Semiminimae
     /*  */"orgr6fs": "\uEE3E", // Six Fusae
     /*  */"orgr6sf": "\uEE3F", // Six Semifusae
-    /*  */"accmlw29lmcm": "\uEE50", // Combining lower by one 29-limit comma
+    /*  */"accmlr29lmcm": "\uEE50", // Combining lower by one 29-limit comma
     /*  */"accmrs29lmcm": "\uEE51", // Combining raise by one 29-limit comma
-    /*  */"accmlw37qr": "\uEE52", // Combining lower by one 37-limit quartertone
+    /*  */"accmlr37qr": "\uEE52", // Combining lower by one 37-limit quartertone
     /*  */"accmrs37qr": "\uEE53", // Combining raise by one 37-limit quartertone
-    /*  */"accmlw41cm": "\uEE54", // Combining lower by one 41-limit comma
+    /*  */"accmlr41cm": "\uEE54", // Combining lower by one 41-limit comma
     /*  */"accmrs41cm": "\uEE55", // Combining raise by one 41-limit comma
-    /*  */"accmlw43cm": "\uEE56", // Combining lower by one 43-limit comma
+    /*  */"accmlr43cm": "\uEE56", // Combining lower by one 43-limit comma
     /*  */"accmrs43cm": "\uEE57", // Combining raise by one 43-limit comma
-    /*  */"accmlw47qr": "\uEE58", // Combining lower by one 47-limit quartertone
+    /*  */"accmlr47qr": "\uEE58", // Combining lower by one 47-limit quartertone
     /*  */"accmrs47qr": "\uEE59", // Combining raise by one 47-limit quartertone
     /*  */"acupandnup": "\uEE60", // Accidental up
     /*  */"acupandndn": "\uEE61", // Accidental down
     /*  */"acupandnmr": "\uEE62", // Accidental more
     /*  */"acupandnls": "\uEE63", // Accidental less
-    /*  */"achbqrtnhg": "\uEE64", // Quarter-tone higher (Alois H\u00e1ba)
-    /*  */"achbflqrtnhg": "\uEE65", // Quarter-tone higher (Alois H\u00e1ba)
-    /*  */"achbshthqrtnhg": "\uEE66", // Three quarter-tones higher (Alois H\u00e1ba)
-    /*  */"achbqrtnlw": "\uEE67", // Quarter-tone lower (Alois H\u00e1ba)
-    /*  */"achbshqrtnlw": "\uEE68", // Quarter-tone lower (Alois H\u00e1ba)
-    /*  */"achbflthqrtnlw": "\uEE69", // Three quarter-tones lower (Alois H\u00e1ba)
+    /*  */"achbqrtnhr": "\uEE64", // Quarter-tone higher (Alois Hába)
+    /*  */"achbflqrtnhr": "\uEE65", // Quarter-tone higher (Alois Hába)
+    /*  */"achbshthqrtnhr": "\uEE66", // Three quarter-tones higher (Alois Hába)
+    /*  */"achbqrtnlr": "\uEE67", // Quarter-tone lower (Alois Hába)
+    /*  */"achbshqrtnlr": "\uEE68", // Quarter-tone lower (Alois Hába)
+    /*  */"achbflthqrtnlr": "\uEE69", // Three quarter-tones lower (Alois Hába)
     /*  */"swrdnhblfm": "\uEE70", // Swiss rudiments flam black notehead
     /*  */"swrdnhhffm": "\uEE71", // Swiss rudiments flam half (minim) notehead
-    /*  */"swrdnhbldb": "\uEE72", // Swiss rudiments doubl\u00e9 black notehead
-    /*  */"swrdnhhfdb": "\uEE73", // Swiss rudiments doubl\u00e9 half (minim) notehead
-    /*  */"srdnbwtwbd": "\uEE80", // Down bow, towards body
-    /*  */"srupbwtwbd": "\uEE81", // Up bow, towards body
-    /*  */"srdnbwawfrbd": "\uEE82", // Down bow, away from body
-    /*  */"srupbwawfrbd": "\uEE83", // Up bow, away from body
-    /*  */"srdnbwbybr": "\uEE84", // Down bow, beyond bridge
-    /*  */"srupbwbybr": "\uEE85", // Up bow, beyond bridge
+    /*  */"swrdnhbldb": "\uEE72", // Swiss rudiments doublé black notehead
+    /*  */"swrdnhhfdb": "\uEE73", // Swiss rudiments doublé half (minim) notehead
+    /*  */"srdnbotwbd": "\uEE80", // Down bow, towards body
+    /*  */"srupbotwbd": "\uEE81", // Up bow, towards body
+    /*  */"srdnboawfrbd": "\uEE82", // Down bow, away from body
+    /*  */"srupboawfrbd": "\uEE83", // Up bow, away from body
+    /*  */"srdnbobybr": "\uEE84", // Down bow, beyond bridge
+    /*  */"srupbobybr": "\uEE85", // Up bow, beyond bridge
     /*  */"srscprin": "\uEE86", // Scrape, parallel inward
     /*  */"srscprot": "\uEE87", // Scrape, parallel outward
     /*  */"srsccrcl": "\uEE88", // Scrape, circular clockwise

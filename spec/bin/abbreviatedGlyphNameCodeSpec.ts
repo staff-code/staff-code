@@ -8,7 +8,7 @@ describe("computeAbbreviatedGlyphNameCode", (): void => {
 
         const actual = computeAbbreviatedGlyphNameCode(glyphName)
 
-        const expected = "acdbfltr"
+        const expected = "acdbfltn"
         expect(actual).toBe(expected)
     })
 
