@@ -5,7 +5,6 @@ import {
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
     NOT_SMuFL_SMART_ADVANCE_MAP,
     NOT_SMuFL_SMART_SPACING_MAP,
-    NOT_SMuFL_SMART_STAVE_MAP,
     Octals,
     Unicode,
 } from "../../codes"
@@ -20,7 +19,6 @@ const WIDTH_TO_ADVANCE_UNICODE_ARRAY: Array<Unicode & Word> =
 
 const SMART_STAVE_ON_UNICODE = computeUnicodeForCode("ston" as Code & Word)
 const SMART_STAVE_OFF_UNICODE = computeUnicodeForCode("stof" as Code & Word)
-const SMART_STAVE_UNICODES = Object.values(NOT_SMuFL_SMART_STAVE_MAP)
 
 const SPACING_UNICODES = Object.values(NOT_SMuFL_SMART_SPACING_MAP)
 
@@ -43,7 +41,6 @@ export {
     MANUAL_ADVANCE_UNICODES,
     SMART_STAVE_ON_UNICODE,
     SMART_STAVE_OFF_UNICODE,
-    SMART_STAVE_UNICODES,
     SPACING_UNICODES,
     MAX_ADVANCE_UNICODE,
     MAX_ADVANCE_WIDTH,

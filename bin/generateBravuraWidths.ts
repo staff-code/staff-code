@@ -2,36 +2,38 @@ import {BLANK, isUndefined, Name, RecordKey, round, Word} from "@sagittal/genera
 import * as fs from "fs"
 import {computeUnicodeLiteral, Octals, SMuFL_MAP, Unicode, UnicodeLiteral} from "../src"
 
+// todo: I should probably break this thing down too, into a widths module
+
 const computeBravuraWidth = ([_, {bBoxNE: [x, y]}]: [any, {bBoxNE: number[]}]): Octals =>
     round(x * 8) as Octals
 
 const OVERRIDDEN_WIDTHS: Record<RecordKey<Unicode>, Octals> = {
-    [SMuFL_MAP["st6ln"]]: 0 as Octals,
-    [SMuFL_MAP["st6lnwd"]]: 0 as Octals,
-    [SMuFL_MAP["st6lnnr"]]: 0 as Octals,
-    [SMuFL_MAP["st5ln"]]: 0 as Octals,
-    [SMuFL_MAP["st5lnwd"]]: 0 as Octals,
-    [SMuFL_MAP["st5lnnr"]]: 0 as Octals,
-    [SMuFL_MAP["st4ln"]]: 0 as Octals,
-    [SMuFL_MAP["st4lnwd"]]: 0 as Octals,
-    [SMuFL_MAP["st4lnnr"]]: 0 as Octals,
-    [SMuFL_MAP["st3ln"]]: 0 as Octals,
-    [SMuFL_MAP["st3lnwd"]]: 0 as Octals,
-    [SMuFL_MAP["st3lnnr"]]: 0 as Octals,
-    [SMuFL_MAP["st2ln"]]: 0 as Octals,
-    [SMuFL_MAP["st2lnwd"]]: 0 as Octals,
-    [SMuFL_MAP["st2lnnr"]]: 0 as Octals,
-    [SMuFL_MAP["st1ln"]]: 0 as Octals,
-    [SMuFL_MAP["st1lnwd"]]: 0 as Octals,
-    [SMuFL_MAP["st1lnnr"]]: 0 as Octals,
-    [SMuFL_MAP["chst"]]: 0 as Octals, // Plainchant staff
-    [SMuFL_MAP["chstwd"]]: 0 as Octals, // Plainchant staff (wide)
-    [SMuFL_MAP["chstnr"]]: 0 as Octals, // Plainchant staff (narrow)
-    [SMuFL_MAP["ltst6ln"]]: 0 as Octals, // Lute tablature staff, 6 courses
-    [SMuFL_MAP["ltst6lnwd"]]: 0 as Octals, // Lute tablature staff, 6 courses (wide)
-    [SMuFL_MAP["ltst6lnnr"]]: 0 as Octals, // Lute tablature staff, 6 courses (narrow)
-    [SMuFL_MAP["blsn"]]: 0 as Octals,
-    [SMuFL_MAP["bldb"]]: 3 as Octals,
+    [SMuFL_MAP["staff6Lines"]]: 0 as Octals,
+    [SMuFL_MAP["staff6LinesWide"]]: 0 as Octals,
+    [SMuFL_MAP["staff6LinesNarrow"]]: 0 as Octals,
+    [SMuFL_MAP["staff5Lines"]]: 0 as Octals,
+    [SMuFL_MAP["staff5LinesWide"]]: 0 as Octals,
+    [SMuFL_MAP["staff5LinesNarrow"]]: 0 as Octals,
+    [SMuFL_MAP["staff4Lines"]]: 0 as Octals,
+    [SMuFL_MAP["staff4LinesWide"]]: 0 as Octals,
+    [SMuFL_MAP["staff4LinesNarrow"]]: 0 as Octals,
+    [SMuFL_MAP["staff3Lines"]]: 0 as Octals,
+    [SMuFL_MAP["staff3LinesWide"]]: 0 as Octals,
+    [SMuFL_MAP["staff3LinesNarrow"]]: 0 as Octals,
+    [SMuFL_MAP["staff2Lines"]]: 0 as Octals,
+    [SMuFL_MAP["staff2LinesWide"]]: 0 as Octals,
+    [SMuFL_MAP["staff2LinesNarrow"]]: 0 as Octals,
+    [SMuFL_MAP["staff1Line"]]: 0 as Octals,
+    [SMuFL_MAP["staff1LineWide"]]: 0 as Octals,
+    [SMuFL_MAP["staff1LineNarrow"]]: 0 as Octals,
+    [SMuFL_MAP["chantStaff"]]: 0 as Octals,
+    [SMuFL_MAP["chantStaffWide"]]: 0 as Octals,
+    [SMuFL_MAP["chantStaffNarrow"]]: 0 as Octals,
+    [SMuFL_MAP["luteStaff6Lines"]]: 0 as Octals,
+    [SMuFL_MAP["luteStaff6LinesWide"]]: 0 as Octals,
+    [SMuFL_MAP["luteStaff6LinesNarrow"]]: 0 as Octals,
+    [SMuFL_MAP["barlineSingle"]]: 0 as Octals,
+    [SMuFL_MAP["barlineDouble"]]: 3 as Octals,
 }
 
 const generateBravuraWidths = (): void => {

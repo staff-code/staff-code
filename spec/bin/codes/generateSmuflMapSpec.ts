@@ -1,8 +1,10 @@
 import {isUndefined, onlyRunInCi, Word} from "@sagittal/general"
 import {generateSmuflMap} from "../../../bin/codes/generateSmuflMap"
-import {Code, computeUnicodeLiteral, SMuFL_MAP, Unicode} from "../../../src"
+import {Code, computeUnicodeLiteral, Unicode} from "../../../src"
+import {SMuFL_ABBREVIATION_ALIASES_MAP} from "../../../src/translate/codes/aliases"
 
-// TODO: only thing I have to do left is figure out how exact I want to handle the generation of JSON/hardcode/whatever
+// TODO: CLEAN, READY TO GO: ABBREVIATED CODES INFRASTRUCTURE
+//  THe only thing I have to do left is figure out how exact I want to handle the generation of JSON/hardcode/whatever
 //  Like... now that I pulled this in, and used it to prove out the generation, do I even need to keep it?
 //  I could keep it as a test expectation, and it would fail whenever they changed SMuFL on us.
 //  That's probably fine. Just rename everything accordingly. You can even keep all the formatting and comments and such
@@ -20,7 +22,8 @@ describe("generateSmuflMap", (): void => {
         let totalFailureCount = 0
 
         const actualEntries = Object.entries(actual) as Array<[Code & Word, Unicode & Word]>
-        const hardcodedSmuflMapEntries = Object.entries(SMuFL_MAP) as Array<[Code & Word, Unicode & Word]>
+        const hardcodedSmuflMapEntries =
+            Object.entries(SMuFL_ABBREVIATION_ALIASES_MAP) as Array<[Code & Word, Unicode & Word]>
         expect(actualEntries.length).toBe(hardcodedSmuflMapEntries.length)
 
         if (hardcodedSmuflMapEntries.length > actualEntries.length) {
@@ -35,7 +38,7 @@ describe("generateSmuflMap", (): void => {
         }
 
         actualEntries.forEach(([actualCode, actualUnicode]: [Code & Word, Unicode & Word]): void => {
-            const expectedUnicode = SMuFL_MAP[actualCode]
+            const expectedUnicode = SMuFL_ABBREVIATION_ALIASES_MAP[actualCode]
 
             if (isUndefined(expectedUnicode)) {
                 fail(`${actualCode} was not defined in the hardcoded SMuFL map.`)

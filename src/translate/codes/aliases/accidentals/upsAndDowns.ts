@@ -5,10 +5,10 @@ import {Code, Unicode} from "../../types"
 // See: https://w3c.github.io/smufl/gitbook/tables/arrows-and-arrowheads.html
 
 const UPS_AND_DOWNS_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    "^": SMuFL_MAP["acupandnup"],
-    "v": SMuFL_MAP["acupandndn"],
-    "/": SMuFL_MAP["acupandnmr"], // *
-    "\\": SMuFL_MAP["acupandnls"], // *
+    "^": SMuFL_MAP["accidentalUpsAndDownsUp"],
+    "v": SMuFL_MAP["accidentalUpsAndDownsDown"],
+    "/": SMuFL_MAP["accidentalUpsAndDownsMore"], // *
+    "\\": SMuFL_MAP["accidentalUpsAndDownsLess"], // *
 } as Record<Code & Word, Unicode & Word>
 
 // * Probably the same as lift and drop (https://en.xen.wiki/w/Ups_and_Downs_Notation#Extremely_Large_EDOs)

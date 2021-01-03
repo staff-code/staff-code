@@ -11,7 +11,6 @@ export {computeUnicodeForCode} from "./unicode"
 export {computeUnicodeLiteral, isUnicodeLiteral, computeUnicodeFromUnicodeLiteral} from "./literal"
 export {SMuFL_MAP} from "./smufl"
 export {
-    NOT_SMuFL_SMART_STAVE_MAP,
     NOT_SMuFL_SMART_SPACING_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,

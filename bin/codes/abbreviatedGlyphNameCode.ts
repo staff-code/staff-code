@@ -2,6 +2,9 @@ import {BLANK, Name, SPACE, Word} from "@sagittal/general"
 import {Code, Unicode} from "../../src"
 import {computeGlyphNameWordAbbreviation} from "./glyphNameWordAbbreviation"
 
+// todo I think i should add more tests to the abbreviated name spec covering all the things it does
+//  as part of the yanking out of the hardcoded stuff
+
 const replaceOrdinals = (glyphName: Name<Unicode>): Name<Unicode> =>
     glyphName
         .replace(/1st/, "1")
@@ -16,7 +19,7 @@ const separateWordsBySpaces = (glyphName: Name<Unicode>): Name<Unicode> =>
         .replace(/\s+/g, SPACE)
         .trim() as Name<Unicode>
 
-const fixSmuflCapitalizationIssue = (glyphName: Name<Unicode>): Name<Unicode> =>
+const fixSmuflCapitalizationIssue = (glyphName: Name<Unicode>): Name<Unicode> => // todo abbreviation type from general?
     glyphName
         // Manually corrected glyph names "wiggleVIbratoLargestSlower" and "wiggleVIbratoMediumSlower"
         // (uppercase "I" to lowercase "i") so they would generate sensible staffCodes,
