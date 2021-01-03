@@ -10,7 +10,7 @@ const TIME_SIGNATURE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word>
 const NOTE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "nt1": SMuFL_MAP["ntwh"],
     "nt2": SMuFL_MAP["nthfup"],
-    "nt4": SMuFL_MAP["ntqrup"],
+    "nt4": SMuFL_MAP["ntqrup"], // todo: nt w/o up/dn should autoorient (middle pos is up) (don't worry about chords)
     "nt8": SMuFL_MAP["nt8up"],
     "nt16": SMuFL_MAP["nt16up"],
     "nt32": SMuFL_MAP["nt32up"],

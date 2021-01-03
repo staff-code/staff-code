@@ -2,6 +2,9 @@
 
 import {RecordKey, Word} from "@sagittal/general"
 import {Code, Unicode} from "./types"
+
+// todo: pull in all the full codes too
+
 const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"br": "\uE000",   // Brace
     /*  */"rvbr": "\uE001", // Reversed brace
