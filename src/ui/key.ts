@@ -24,6 +24,10 @@ const shouldTransfer = (event: KeyboardEvent, input: HTMLTextAreaElement, multiC
     || shouldPressedKeyTriggerTransfer(event)
     || isCursorNotAtEndOfInput(input)
 
+// todo: FYI, I've noticed that the rule for triggering a translation when you change the text by more than 1 character
+//  somehow went away. So if I, e.g., drag to select a "/||\" somewhere in the middle and type "#" over it,
+//  the display does not immediately update. I'll fix that soon.
+
 const handleKeydown = (
     event: KeyboardEvent,
     input: HTMLTextAreaElement,
