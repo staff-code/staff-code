@@ -1,8 +1,8 @@
-import {BLANK, doOnNextEventLoop, Ms} from "@sagittal/general"
+import {BLANK, doOnNextEventLoop, Maybe, Ms} from "@sagittal/general"
 import {transferInputToDisplay} from "./transfer"
 import {StaffCodeOptions} from "./types"
 
-let keydown = false
+let keycodeWhichIsDown: Maybe<string> = undefined
 
 const TRANSFER_TRIGGER_CODES = ["Space", "Enter", "Tab", "Semicolon", "Backspace"]
 
@@ -24,18 +24,14 @@ const shouldTransfer = (event: KeyboardEvent, input: HTMLTextAreaElement, multiC
     || shouldPressedKeyTriggerTransfer(event)
     || isCursorNotAtEndOfInput(input)
 
-// todo: FYI, I've noticed that the rule for triggering a translation when you change the text by more than 1 character
-//  somehow went away. So if I, e.g., drag to select a "/||\" somewhere in the middle and type "#" over it,
-//  the display does not immediately update. I'll fix that soon.
-
 const handleKeydown = (
     event: KeyboardEvent,
     input: HTMLTextAreaElement,
     root: HTMLSpanElement,
     {callback}: StaffCodeOptions,
 ): void => {
-    if (keydown) return
-    keydown = true
+    if (event.code === keycodeWhichIsDown) return
+    keycodeWhichIsDown = event.code
     const multiCharSelection = isSelectionLengthGreaterThanOneChar()
     doOnNextEventLoop((): void => {
         if (shouldTransfer(event, input, multiCharSelection)) {
@@ -45,7 +41,7 @@ const handleKeydown = (
 }
 
 const handleKeyup = (): void => {
-    keydown = false
+    keycodeWhichIsDown = undefined
 }
 
 export {
