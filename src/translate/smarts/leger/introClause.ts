@@ -1,15 +1,14 @@
-import {BLANK, Clause, decrement, increment, isEven, max, sumTexts, Word} from "@sagittal/general"
-import {computeDebugCodeFromUnicode, Unicode} from "../../codes"
+import {BLANK, Clause, decrement, increment, isEven, sumTexts, Word} from "@sagittal/general"
+import {Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
-import {computeUnicodeWidth} from "../advanceAndStave"
-import {smarts} from "../globals"
 import {computeLegerLineUnicode} from "./leger"
 import {aboveOrBelowStave, computeStaffPosition, needsLegerLine} from "./needs"
 import {computePositionUnicode} from "./position"
 
-const computeSmartLegerUnicodeIntroClause = (legerLineUnicode: Unicode & Word): Unicode & Clause => {
-    let smartLegerUnicodeIntroClause = BLANK as Unicode & Clause
+const computeSmartLegerUnicodeIntroClause = (unicode: Unicode & Word): Unicode & Clause => {
+    const legerLineUnicode = computeLegerLineUnicode(unicode)
 
+    let smartLegerUnicodeIntroClause = BLANK as Unicode & Clause
     let position = computeStaffPosition()
     while (aboveOrBelowStave(position)) {
         if (isEven(position)) {
@@ -24,17 +23,10 @@ const computeSmartLegerUnicodeIntroClause = (legerLineUnicode: Unicode & Word): 
     return smartLegerUnicodeIntroClause
 }
 
-const computeSmartLegerUnicodeIntroClauseAndUpdateSmarts = (unicode: Unicode & Word): Unicode & Clause => {
-    if (needsLegerLine(unicode)) {
-        const legerLineUnicode = computeLegerLineUnicode(unicode)
-        // todo: the leger width should not affect the advance width
-        smarts.advanceWidth = max(smarts.advanceWidth, computeUnicodeWidth(legerLineUnicode))
-
-        return computeSmartLegerUnicodeIntroClause(legerLineUnicode)
-    }
-
-    return EMPTY_UNICODE as Unicode & Clause
-}
+const computeSmartLegerUnicodeIntroClauseAndUpdateSmarts = (unicode: Unicode & Word): Unicode & Clause =>
+    needsLegerLine(unicode) ?
+        computeSmartLegerUnicodeIntroClause(unicode) :
+        EMPTY_UNICODE as Unicode & Clause
 
 export {
     computeSmartLegerUnicodeIntroClauseAndUpdateSmarts,

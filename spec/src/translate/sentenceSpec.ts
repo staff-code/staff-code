@@ -359,9 +359,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "       " as Unicode & Sentence
+            const expectedUnicode = "       " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "up6 /|\\ st8 8; st8 5; up6 lgln up6 ntqrup 3; st8 8; st8 4;" as Code & Sentence
+            const expectedCodes = "up6 /|\\ st8 8; st8 5; up6 lgln up6 ntqrup 3; st8 8; st8 2;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -370,9 +370,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "   " as Unicode & Sentence
+            const expectedUnicode = "   " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "up6 lgln up7 ntqrup st8 8; st8 7;" as Code & Sentence
+            const expectedCodes = "up6 lgln up7 ntqrup st8 8; st8 5;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -381,9 +381,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "   " as Unicode & Sentence
+            const expectedUnicode = "   " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "dn8 lgln dn6 lgln dn8 ntqrup st8 8; st8 7;" as Code & Sentence
+            const expectedCodes = "dn8 lgln dn6 lgln dn8 ntqrup st8 8; st8 5;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -392,9 +392,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "       " as Unicode & Sentence
+            const expectedUnicode = "       " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "st8 dn6 ntqrup st8 8; st8 5; dn6 lgln dn6 ntqrup 3; st8 8; st8 4;" as Code & Sentence
+            const expectedCodes = "st8 dn6 ntqrup st8 8; st8 5; dn6 lgln dn6 ntqrup 3; st8 8; st8 2;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -404,24 +404,25 @@ describe("computeInputSentenceUnicode", (): void => {
             let expectedCodes
 
             // Width 3; gets leger line with width 7
-            actual = computeInputSentenceUnicode("ston a5 nhprlf" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
-            expect(actual).toBe(expectedUnicode)
-            expectedCodes = "up6 lglnnr up6 nhprlf st8 8; st8 1;"
-            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+            // todo: waiting on the one example
+            // actual = computeInputSentenceUnicode("ston a5 nhprlf" as Io & Sentence)
+            // expectedUnicode = "  " as Unicode & Sentence
+            // expect(actual).toBe(expectedUnicode)
+            // expectedCodes = "up6 lglnnr up6 nhprlf st8 8; st8 1;"
+            // expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
 
             // Width 11; gets leger line with width 13
             actual = computeInputSentenceUnicode("ston a5 nt8dn" as Io & Sentence)
-            expectedUnicode = "   " as Unicode & Sentence
+            expectedUnicode = "   " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "up6 lgln up6 nt8dn st8 8; st8 7;"
+            expectedCodes = "up6 lgln up6 nt8dn st8 8; st8 5;"
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
 
             // Width 19; gets leger line with width 20
             actual = computeInputSentenceUnicode("ston a5 ntshqrmndbwh" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "up6 lglnwd up6 ntshqrmndbwh st16 16; st8 6;"
+            expectedCodes = "up6 lglnwd up6 ntshqrmndbwh st16 16; st8 1;"
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
 
             // Width 21; gets leger line with width 20, because that's as wide as we can go

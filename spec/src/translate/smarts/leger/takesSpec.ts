@@ -18,30 +18,6 @@ describe("takesLegerLine", (): void => {
         expect(actual).toBeTruthy()
     })
 
-    it("is not true for metronome marks", (): void => {
-        const unicode = computeUnicodeForCode("metNoteDoubleWhole" as Code & Word)
-
-        const actual = takesLegerLine(unicode)
-
-        expect(actual).toBeFalsy()
-    })
-
-    it("testing this one", (): void => {
-        const unicode = computeUnicodeForCode("noteheadParenthesisLeft" as Code & Word)
-
-        const actual = takesLegerLine(unicode)
-
-        expect(actual).toBeTruthy()
-    })
-
-    it("and this one", (): void => {
-        const unicode = computeUnicodeForCode("noteShapeQuarterMoonDoubleWhole" as Code & Word)
-
-        const actual = takesLegerLine(unicode)
-
-        expect(actual).toBeTruthy()
-    })
-
     it("every glyph which takes a leger line can be positioned", (): void => {
         const lowercasedCodeMapEntries =
             Object.entries(LOWERCASED_CODE_MAP) as Array<[LowercasedCode & Word, Unicode & Word]>
