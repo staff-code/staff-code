@@ -1,7 +1,7 @@
-import {Name, Word} from "@sagittal/general"
+import {Abbreviation, Name, Word} from "@sagittal/general"
 import {Unicode} from "../../src"
 
-const EXCEPTION_WORDS: Record<Name<Unicode> & Word, Name<Unicode> & Word> = {
+const EXCEPTION_WORDS: Record<Name<Unicode> & Word, Abbreviation<Unicode> & Word> = {
     arrowhead: "ah",    // Arrow	ar	27x
     barline: "bl",      // Brace, brass, bracket	br, br, br	13x
     bow: "bo",          // Vowel digraph	ow	25x
@@ -88,7 +88,9 @@ const EXCEPTION_WORDS: Record<Name<Unicode> & Word, Name<Unicode> & Word> = {
     zank: "za",         // Zink	zn	1x
     zink: "zi",         // Zank	zn	1x
 }
-const EXCEPTION_WORD_ENTRIES = Object.entries(EXCEPTION_WORDS) as Array<[Name<Unicode> & Word, Name<Unicode> & Word]>
+
+const EXCEPTION_WORD_ENTRIES =
+    Object.entries(EXCEPTION_WORDS) as Array<[Name<Unicode> & Word, Abbreviation<Unicode> & Word]>
 
 export {
     EXCEPTION_WORD_ENTRIES,

@@ -19,7 +19,7 @@ const separateWordsBySpaces = (glyphName: Name<Unicode>): Name<Unicode> =>
         .replace(/\s+/g, SPACE)
         .trim() as Name<Unicode>
 
-const fixSmuflCapitalizationIssue = (glyphName: Name<Unicode>): Name<Unicode> => // todo abbreviation type from general?
+const fixSmuflCapitalizationIssue = (glyphName: Name<Unicode>): Name<Unicode> =>
     glyphName
         // Manually corrected glyph names "wiggleVIbratoLargestSlower" and "wiggleVIbratoMediumSlower"
         // (uppercase "I" to lowercase "i") so they would generate sensible staffCodes,

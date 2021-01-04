@@ -1,6 +1,6 @@
-import {Name} from "@sagittal/general"
+import {Name, Word} from "@sagittal/general"
 import {computeAbbreviatedGlyphNameCode} from "../../../bin/codes/abbreviatedGlyphNameCode"
-import {Unicode} from "../../../src"
+import {Code, Unicode} from "../../../src"
 
 describe("computeAbbreviatedGlyphNameCode", (): void => {
     it("follows Dave's scheme for abbreviating the SMuFL glyph name to mostly 2-letter chunks", (): void => {
@@ -8,7 +8,7 @@ describe("computeAbbreviatedGlyphNameCode", (): void => {
 
         const actual = computeAbbreviatedGlyphNameCode(glyphName)
 
-        const expected = "acdbfltn"
+        const expected = "acdbfltn" as Code & Word
         expect(actual).toBe(expected)
     })
 
@@ -17,7 +17,7 @@ describe("computeAbbreviatedGlyphNameCode", (): void => {
 
         const actual = computeAbbreviatedGlyphNameCode(glyphName)
 
-        const expected = "wgvbmdsr"
+        const expected = "wgvbmdsr" as Code & Word
         expect(actual).toBe(expected)
     })
 })
