@@ -20,3 +20,7 @@ export {
     StaffCodeOptions,
     StaffCodeCallback,
 }
+
+// TODO: remote hosted fonts and staffCode.js so we could use it anywhere
+
+// TODO: an expandable resource of all the codes you can click into and copy
