@@ -9,6 +9,8 @@ type StaffCodeOptions = Partial<{
     inline: boolean,
     initialText: Io,
     font: FontName,
+    // TODO: FEATURE ADJUST, BLOCKED: SIZE VS LINE HEIGHT
+    //  Size should no longer be a percentage; SIMPLETEXT not number (wait on Dave to rename to "scale" potentially)
     size: Decimal<{integer: true}>,
     lineHeight: number,
     callback: StaffCodeCallback,
