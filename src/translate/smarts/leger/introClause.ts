@@ -1,8 +1,9 @@
 import {BLANK, Clause, decrement, increment, isEven, sumTexts, Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
+import {computeStaffPosition} from "../positionAndClef"
 import {computeLegerLineUnicode} from "./leger"
-import {aboveOrBelowStave, computeStaffPosition, needsLegerLine} from "./needs"
+import {aboveOrBelowStave, needsLegerLine} from "./needs"
 import {computePositionUnicode} from "./position"
 
 const computeSmartLegerUnicodeIntroClause = (unicode: Unicode & Word): Unicode & Clause => {
@@ -29,5 +30,6 @@ const computeSmartLegerUnicodeIntroClauseAndUpdateSmarts = (unicode: Unicode & W
         EMPTY_UNICODE as Unicode & Clause
 
 export {
+    computeSmartLegerUnicodeIntroClause,
     computeSmartLegerUnicodeIntroClauseAndUpdateSmarts,
 }

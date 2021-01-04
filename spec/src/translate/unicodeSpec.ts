@@ -1,6 +1,6 @@
 import {Io, Word} from "@sagittal/general"
+import {UnicodeLiteral} from "../../../src"
 import {Code, computeUnicodeForCode, LOWERCASED_CODE_MAP, Unicode} from "../../../src/translate/codes"
-import {UnicodeLiteral} from "../../../src/translate/codes/types"
 import {smarts} from "../../../src/translate/smarts"
 import {Clef} from "../../../src/translate/smarts/positionAndClef"
 import {getUnicode, shouldNotBeDisplayed} from "../../../src/translate/unicode"
@@ -16,11 +16,11 @@ describe("getUnicode", (): void => {
     })
 
     it("gets you the unicode for a given alias word", (): void => {
-        const inputWord = "nt4" as Io & Word
+        const inputWord = "8va" as Io & Word
 
         const actual = getUnicode(inputWord)
 
-        const expected = LOWERCASED_CODE_MAP["nt4"]
+        const expected = LOWERCASED_CODE_MAP["otal"]
         expect(actual).toEqual(expected)
     })
 

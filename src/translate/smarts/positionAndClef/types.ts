@@ -5,7 +5,13 @@ enum Clef {
     BASS,
 }
 
+enum StemZone {
+    ABOVE_MIDDLE_POSITION,
+    MIDDLE_POSITION_AND_BELOW,
+}
+
 export {
     Clef,
     Position,
+    StemZone,
 }

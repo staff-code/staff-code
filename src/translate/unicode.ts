@@ -1,7 +1,12 @@
 import {Io, isUndefined, Word} from "@sagittal/general"
 import {computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, LowercasedCode, NONSYMBOL_MAP, Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
-import {getUnicodeGivenClef, isManualAdvanceUnicode, isNonsymbolifiedStaffUnicode, isPositionUnicode} from "./smarts"
+import {
+    getUnicodeGivenClefAndPosition,
+    isManualAdvanceUnicode,
+    isNonsymbolifiedStaffUnicode,
+    isPositionUnicode,
+} from "./smarts"
 
 const NONSYMBOL_UNICODES = Object.values(NONSYMBOL_MAP)
 
@@ -24,7 +29,7 @@ const computeUnicodeAsFallbackToInput = (input: Io & Word): Unicode & Word =>
 
 const getUnicode = (input: Io & Word): Unicode & Word => {
     const lowercasedCode: LowercasedCode & Word = input.toLowerCase() as LowercasedCode & Word
-    const unicode = getUnicodeGivenClef(lowercasedCode)
+    const unicode = getUnicodeGivenClefAndPosition(lowercasedCode)
 
     if (!isUndefined(unicode)) return unicode
 

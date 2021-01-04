@@ -1,6 +1,6 @@
 {
   "name": "staff-code",
-  "version": "1.0.74",
+  "version": "1.0.75",
   "main": "dist/package/index.js",
   "types": "dist/package/index.d.ts",
   "description": "converts simple text codes into Unicode which in the Bravura Text font displays as sheet music",
@@ -25,10 +25,10 @@
     "generate-bravura-widths": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/widths/generateBravuraWidths.ts"
   },
   "devDependencies": {
-    "@sagittal/general": "^1.0.76",
+    "@sagittal/general": "^1.0.78",
     "@types/css-font-loading-module": "0.0.4",
     "@types/jasmine": "^3.6.2",
-    "@types/node": "^14.14.19",
+    "@types/node": "^14.14.20",
     "@types/vexflow": "^3.0.0",
     "buffer": "^6.0.3",
     "copy-webpack-plugin": "^7.0.0",

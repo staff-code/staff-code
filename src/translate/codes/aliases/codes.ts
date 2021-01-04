@@ -2,7 +2,8 @@ import {RecordKey, Word} from "@sagittal/general"
 import {Code, Unicode} from "../types"
 import {ACCIDENTAL_ALIASES_MAP} from "./accidentals"
 import {LINE_BREAK_ALIASES_MAP} from "./advanceAndStave"
-import {BEAMS_ALIASES_MAP, NOTE_ALIASES_MAP, REST_ALIASES_MAP, TIME_SIGNATURE_ALIASES_MAP} from "./basics"
+import {BEAMS_ALIASES_MAP, REST_ALIASES_MAP, TIME_SIGNATURE_ALIASES_MAP} from "./basics"
+import {NOTE_ALIASES_MAP} from "./notes"
 import {
     CLEF_ALIASES_MAP,
     GENERIC_POSITION_ALIASES_MAP,
@@ -11,6 +12,7 @@ import {
 } from "./positionAndClef"
 import {SMuFL_ABBREVIATION_ALIASES_MAP} from "./smufl"
 
+// Does not include the conditional clef-dependant aliases (e.g. "c4") or the position-dependent aliases (e.g. "nt4")
 const ALIAS_SYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ...SMuFL_ABBREVIATION_ALIASES_MAP,
     ...NOT_SMuFL_ZERO_POSITION_ALIASES_MAP,

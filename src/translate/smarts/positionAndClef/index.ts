@@ -1,11 +1,11 @@
 export {computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts} from "./introClause"
 export {canBePositioned} from "./canBePositioned"
 export {updateSmartClef} from "./clef"
-export {updateSmartPosition} from "./position"
+export {updateSmartPosition, computeStaffPosition} from "./position"
 export {isNonsymbolifiedStaffUnicode} from "./nonsymbolified"
-export {getUnicodeGivenClef} from "./unicode"
+export {getUnicodeGivenClefAndPosition} from "./unicode"
 export {isPositionUnicode} from "./isUnicode"
-export {POSITION_UNICODES} from "./constants"
+export {POSITION_UNICODES, MAX_POSITIONS_AWAY_FROM_MIDDLE_STAVE_LINE} from "./constants"
 export {Clef, Position} from "./types"
 
 // TODO: NEW FEATURE, READY TO GO, NEAT BARLINE STAVE ENDINGS (en;)
