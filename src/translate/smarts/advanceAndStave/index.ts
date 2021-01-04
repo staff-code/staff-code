@@ -2,7 +2,7 @@ export {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts} from 
 export {isSmartAdvanceUnicode, isManualAdvanceUnicode, isSpacingUnicode, isManualStaffUnicode} from "./isUnicode"
 export {updateSmartStave} from "./stave"
 export {computeUnicodeWidth} from "./width"
-export {AutoStave} from "./types"
+export {SmartStave} from "./types"
 
 import bravuraWidthsJson from "./bravuraWidths.json"
 

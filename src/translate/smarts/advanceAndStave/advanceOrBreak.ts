@@ -9,40 +9,40 @@ import {
     WIDE_STAVE_WIDTH,
     WIDE_STAVE_WIDTH_ADVANCE,
 } from "./constants"
-import {AutoStave} from "./types"
+import {SmartStave} from "./types"
 import {computeAdvanceUnicode} from "./unicode"
 
-const NARROW_STAVE_UNICODES: Record<AutoStave, Unicode & Word> = {
-    [AutoStave.LINES_1]: computeUnicodeForCode("st1lnnr" as Code & Word),
-    [AutoStave.LINES_2]: computeUnicodeForCode("st2lnnr" as Code & Word),
-    [AutoStave.LINES_3]: computeUnicodeForCode("st3lnnr" as Code & Word),
-    [AutoStave.LINES_4]: computeUnicodeForCode("st4lnnr" as Code & Word),
-    [AutoStave.LINES_5]: computeUnicodeForCode("st5lnnr" as Code & Word),
-    [AutoStave.LINES_6]: computeUnicodeForCode("st6lnnr" as Code & Word),
-    [AutoStave.LUTE]: computeUnicodeForCode("ltst6lnnr" as Code & Word),
-    [AutoStave.PLAINCHANT]: computeUnicodeForCode("chstnr" as Code & Word),
+const NARROW_STAVE_UNICODES: Record<SmartStave, Unicode & Word> = {
+    [SmartStave.LINES_1]: computeUnicodeForCode("st1lnnr" as Code & Word),
+    [SmartStave.LINES_2]: computeUnicodeForCode("st2lnnr" as Code & Word),
+    [SmartStave.LINES_3]: computeUnicodeForCode("st3lnnr" as Code & Word),
+    [SmartStave.LINES_4]: computeUnicodeForCode("st4lnnr" as Code & Word),
+    [SmartStave.LINES_5]: computeUnicodeForCode("st5lnnr" as Code & Word),
+    [SmartStave.LINES_6]: computeUnicodeForCode("st6lnnr" as Code & Word),
+    [SmartStave.LUTE]: computeUnicodeForCode("ltst6lnnr" as Code & Word),
+    [SmartStave.PLAINCHANT]: computeUnicodeForCode("chstnr" as Code & Word),
 }
 
-const MEDIUM_STAVE_UNICODES: Record<AutoStave, Unicode & Word> = {
-    [AutoStave.LINES_1]: computeUnicodeForCode("st1ln" as Code & Word),
-    [AutoStave.LINES_2]: computeUnicodeForCode("st2ln" as Code & Word),
-    [AutoStave.LINES_3]: computeUnicodeForCode("st3ln" as Code & Word),
-    [AutoStave.LINES_4]: computeUnicodeForCode("st4ln" as Code & Word),
-    [AutoStave.LINES_5]: computeUnicodeForCode("st5ln" as Code & Word),
-    [AutoStave.LINES_6]: computeUnicodeForCode("st6ln" as Code & Word),
-    [AutoStave.LUTE]: computeUnicodeForCode("ltst6ln" as Code & Word),
-    [AutoStave.PLAINCHANT]: computeUnicodeForCode("chst" as Code & Word),
+const MEDIUM_STAVE_UNICODES: Record<SmartStave, Unicode & Word> = {
+    [SmartStave.LINES_1]: computeUnicodeForCode("st1ln" as Code & Word),
+    [SmartStave.LINES_2]: computeUnicodeForCode("st2ln" as Code & Word),
+    [SmartStave.LINES_3]: computeUnicodeForCode("st3ln" as Code & Word),
+    [SmartStave.LINES_4]: computeUnicodeForCode("st4ln" as Code & Word),
+    [SmartStave.LINES_5]: computeUnicodeForCode("st5ln" as Code & Word),
+    [SmartStave.LINES_6]: computeUnicodeForCode("st6ln" as Code & Word),
+    [SmartStave.LUTE]: computeUnicodeForCode("ltst6ln" as Code & Word),
+    [SmartStave.PLAINCHANT]: computeUnicodeForCode("chst" as Code & Word),
 }
 
-const WIDE_STAVE_UNICODES: Record<AutoStave, Unicode & Word> = {
-    [AutoStave.LINES_1]: computeUnicodeForCode("st1lnwd" as Code & Word),
-    [AutoStave.LINES_2]: computeUnicodeForCode("st2lnwd" as Code & Word),
-    [AutoStave.LINES_3]: computeUnicodeForCode("st3lnwd" as Code & Word),
-    [AutoStave.LINES_4]: computeUnicodeForCode("st4lnwd" as Code & Word),
-    [AutoStave.LINES_5]: computeUnicodeForCode("st5lnwd" as Code & Word),
-    [AutoStave.LINES_6]: computeUnicodeForCode("st6lnwd" as Code & Word),
-    [AutoStave.LUTE]: computeUnicodeForCode("ltst6lnwd" as Code & Word),
-    [AutoStave.PLAINCHANT]: computeUnicodeForCode("chstwd" as Code & Word),
+const WIDE_STAVE_UNICODES: Record<SmartStave, Unicode & Word> = {
+    [SmartStave.LINES_1]: computeUnicodeForCode("st1lnwd" as Code & Word),
+    [SmartStave.LINES_2]: computeUnicodeForCode("st2lnwd" as Code & Word),
+    [SmartStave.LINES_3]: computeUnicodeForCode("st3lnwd" as Code & Word),
+    [SmartStave.LINES_4]: computeUnicodeForCode("st4lnwd" as Code & Word),
+    [SmartStave.LINES_5]: computeUnicodeForCode("st5lnwd" as Code & Word),
+    [SmartStave.LINES_6]: computeUnicodeForCode("st6lnwd" as Code & Word),
+    [SmartStave.LUTE]: computeUnicodeForCode("ltst6lnwd" as Code & Word),
+    [SmartStave.PLAINCHANT]: computeUnicodeForCode("chstwd" as Code & Word),
 }
 
 const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak = (

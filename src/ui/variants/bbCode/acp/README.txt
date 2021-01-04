@@ -9,7 +9,7 @@ StaffCode installation instructions
 
 {{STAFF_HTML_REPLACEMENT}}
 
-If you want the StaffCode your users provide to always be preceded by certain staff code (such as a particular clef and/or the Auto Stave code), you can put any StaffCode you like just before the {TEXT} token.
+If you want the StaffCode your users provide to always be preceded by certain staff code (such as a particular clef and/or code to turn on the staff), you can put any StaffCode you like just before the {TEXT} token.
 
 If you want to hook into StaffCode's translation with a callback, you can provide one. StaffCode will call your callback any time translation of input staff codes to Unicode occurs. The first argument to the callback is the input codes, and the second argument is the output Unicode. You must provide the callback by inserting a second script tag above the one sourcing staffCode.js, in this format:
 

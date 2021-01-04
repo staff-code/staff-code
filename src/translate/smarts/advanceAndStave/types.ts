@@ -1,4 +1,4 @@
-enum AutoStave {
+enum SmartStave {
     LINES_1 = "LINES_1",
     LINES_2 = "LINES_2",
     LINES_3 = "LINES_3",
@@ -10,5 +10,5 @@ enum AutoStave {
 }
 
 export {
-    AutoStave,
+    SmartStave,
 }

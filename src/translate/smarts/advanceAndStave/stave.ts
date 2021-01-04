@@ -2,7 +2,7 @@ import {Word} from "@sagittal/general"
 import {Code, computeUnicodeForCode, Octals, Unicode} from "../../codes"
 import {smarts} from "../globals"
 import {SMART_STAVE_OFF_UNICODE, SMART_STAVE_ON_UNICODE} from "./constants"
-import {AutoStave} from "./types"
+import {SmartStave} from "./types"
 
 const LINES_1_STAVE_UNICODES = [
     computeUnicodeForCode("st1lnnr" as Code & Word),
@@ -53,14 +53,14 @@ const updateSmartStave = (unicode: Unicode & Word): void => {
     }
 
     if (smarts.staveOn) {
-        if (LINES_1_STAVE_UNICODES.includes(unicode)) smarts.stave = AutoStave.LINES_1
-        if (LINES_2_STAVE_UNICODES.includes(unicode)) smarts.stave = AutoStave.LINES_2
-        if (LINES_3_STAVE_UNICODES.includes(unicode)) smarts.stave = AutoStave.LINES_3
-        if (LINES_4_STAVE_UNICODES.includes(unicode)) smarts.stave = AutoStave.LINES_4
-        if (LINES_5_STAVE_UNICODES.includes(unicode)) smarts.stave = AutoStave.LINES_5
-        if (LINES_6_STAVE_UNICODES.includes(unicode)) smarts.stave = AutoStave.LINES_6
-        if (LUTE_STAVE_UNICODES.includes(unicode)) smarts.stave = AutoStave.LUTE
-        if (PLAINCHANT_STAVE_UNICODES.includes(unicode)) smarts.stave = AutoStave.PLAINCHANT
+        if (LINES_1_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_1
+        if (LINES_2_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_2
+        if (LINES_3_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_3
+        if (LINES_4_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_4
+        if (LINES_5_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_5
+        if (LINES_6_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_6
+        if (LUTE_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LUTE
+        if (PLAINCHANT_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.PLAINCHANT
     }
 }
 

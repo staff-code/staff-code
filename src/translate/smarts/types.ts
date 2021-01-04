@@ -1,6 +1,6 @@
 import {Word} from "@sagittal/general"
 import {Octals, Unicode} from "../codes"
-import {AutoStave} from "./advanceAndStave"
+import {SmartStave} from "./advanceAndStave"
 import {Clef} from "./positionAndClef"
 
 interface Smarts {
@@ -8,7 +8,7 @@ interface Smarts {
     staveWidth: Octals,
     spacing: Octals,
     staveOn: boolean,
-    stave: AutoStave,
+    stave: SmartStave,
     commenting: boolean,
     positionUnicode: Unicode & Word,
     clef: Clef,
