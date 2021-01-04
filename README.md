@@ -16,8 +16,7 @@ StaffCode can be used in two ways:
 
 ### BBCode
 
-- Download the `.zip` file from GitHub release page.
-- Follow the instructions in the `README.txt` file contained there.
+- Follow the instructions at `https://sagittal.github.io/README.txt`.
 
 ### package
 

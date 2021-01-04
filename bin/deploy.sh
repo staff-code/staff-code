@@ -1,15 +1,19 @@
 set -e
 
+# update code with resources from SMuFL and Bravura
+
 rm vendor/glyphnames.json
 wget -P vendor https://raw.githubusercontent.com/w3c/smufl/gh-pages/metadata/glyphnames.json
 rm vendor/bravura_metadata.json
 wget -P vendor https://raw.githubusercontent.com/steinbergmedia/bravura/master/redist/bravura_metadata.json
 npm run generate-bravura-widths
 
+# rev version
+
 npm version patch
 NEW_VERSION=$(< package.json grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')
 
-# publish BBCode variant
+# include BBCode variant materials in dist/
 
 rm -r dist/bbCode/* > /dev/null 2>&1 || true
 
@@ -28,30 +32,6 @@ SC_HTML_REPLACEMENT=$(<src/ui/variants/bbCode/acp/sc/htmlReplacement.html)
 sed -i "s@{{SC_HTML_REPLACEMENT}}@${SC_HTML_REPLACEMENT//$'\n'/'\n'}@g" dist/bbCode/README.txt
 SC_HELP_LINE=$(<src/ui/variants/bbCode/acp/sc/helpLine.txt)
 sed -i "s@{{SC_HELP_LINE}}@${SC_HELP_LINE}@g" dist/bbCode/README.txt
-cp assets/fonts/* dist/bbCode
-
-pushd dist/bbCode
-  7z a StaffCodeBBCode.zip .
-popd
-
-UPLOAD_URL=$(curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
-  -s \
-  -X POST \
-  -H "Accept: application/vnd.github.v3+json" \
-  https://api.github.com/repos/Sagittal/staff-code/releases \
-  -d "{\"tag_name\":\"v${NEW_VERSION}-beta\"}" \
-  | jq -r '.upload_url'
-)
-UPLOAD_URL=${UPLOAD_URL/"{?name,label}"/"?name=StaffCodeBBCode.zip"}
-
-curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
--X POST \
---data-binary @"dist/bbCode/StaffCodeBBCode.zip" \
--H "Accept: application/vnd.github.v3+json" \
--H "Content-Type: application/octet-stream" \
-"${UPLOAD_URL}"
-
-echo BBCode published.
 
 # publish package variant
 
