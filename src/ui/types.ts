@@ -9,8 +9,8 @@ type StaffCodeOptions = Partial<{
     inline: boolean,
     initialText: Io,
     font: FontName,
-    // TODO: FEATURE ADJUST, BLOCKED: SIZE VS LINE HEIGHT
-    //  Size should no longer be a percentage; SIMPLETEXT not number (wait on Dave to rename to "scale" potentially)
+    // TODO: FEATURE ADJUST, READY TO GO: SIZE VS LINE HEIGHT
+    //  Size should no longer be a percentage; SIMPLETEXT not number (but still called "size")
     size: Decimal<{integer: true}>,
     lineHeight: number,
     callback: StaffCodeCallback,
@@ -21,6 +21,5 @@ export {
     StaffCodeCallback,
 }
 
-// TODO: remote hosted fonts and staffCode.js so we could use it anywhere
 
-// TODO: an expandable resource of all the codes you can click into and copy
+

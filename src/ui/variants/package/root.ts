@@ -10,7 +10,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     const root = document.createElement("span")
     root.classList.add("staff-code")
 
-    const display = buildDisplay( {font, inline, lineHeight, size})
+    const display = buildDisplay({font, inline, lineHeight, size})
     root.appendChild(display)
 
     const input = buildPackageInput(root, {initialText, interactive, callback})

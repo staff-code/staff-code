@@ -3,7 +3,7 @@ import {Unicode} from "../../src"
 import {EXCEPTION_WORD_ENTRIES} from "./exceptions"
 
 const removeVowelsAndVowelSoundCharSequencesBesidesFirstChar = (
-    lowercasedWord: Name<Unicode> & Word
+    lowercasedWord: Name<Unicode> & Word,
 ): Name<Unicode> & Word => {
     const firstLetterOfLowercasedWord = lowercasedWord[0]
     const remainingPartOfLowercasedWordWithVowelsRemoved = lowercasedWord

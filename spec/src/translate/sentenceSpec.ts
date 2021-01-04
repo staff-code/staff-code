@@ -404,7 +404,8 @@ describe("computeInputSentenceUnicode", (): void => {
             let expectedCodes
 
             // Width 3; gets leger line with width 7
-            // todo: waiting on the one example
+            // TODO: CLEAN, BLOCKED: UPDATE TEST EXAMPLE FOR NARROW LEGER LINE
+            //  Just waiting on Dave to get me the one example of notehead which takes it, since this paren doesn't
             // actual = computeInputSentenceUnicode("ston a5 nhprlf" as Io & Sentence)
             // expectedUnicode = "  " as Unicode & Sentence
             // expect(actual).toBe(expectedUnicode)
