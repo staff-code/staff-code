@@ -2,9 +2,6 @@ import {BLANK, Name, SPACE, Word} from "@sagittal/general"
 import {Code, Unicode} from "../../src"
 import {computeGlyphNameWordAbbreviation} from "./glyphNameWordAbbreviation"
 
-// todo I think i should add more tests to the abbreviated name spec covering all the things it does
-//  as part of the yanking out of the hardcoded stuff
-
 const replaceOrdinals = (glyphName: Name<Unicode>): Name<Unicode> =>
     glyphName
         .replace(/1st/, "1")
