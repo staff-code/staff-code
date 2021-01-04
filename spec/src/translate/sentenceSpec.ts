@@ -402,14 +402,12 @@ describe("computeInputSentenceUnicode", (): void => {
             let expectedUnicode
             let expectedCodes
 
-            // Width 3; gets leger line with width 7
-            // TODO: CLEAN, BLOCKED: UPDATE TEST EXAMPLE FOR NARROW LEGER LINE
-            //  Just waiting on Dave to get me the one example of notehead which takes it, since this paren doesn't
-            // actual = computeInputSentenceUnicode("ston a5 nhprlf" as Io & Sentence)
-            // expectedUnicode = "  " as Unicode & Sentence
-            // expect(actual).toBe(expectedUnicode)
-            // expectedCodes = "up6 lglnnr up6 nhprlf st8 8; st8 1;"
-            // expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+            // Width 6; gets leger line with width 7
+            actual = computeInputSentenceUnicode("ston a5 nhslvrensm" as Io & Sentence)
+            expectedUnicode = " " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            expectedCodes = "up6 lglnnr up6 nhslvrensm st8 8;"
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
 
             // Width 11; gets leger line with width 13
             actual = computeInputSentenceUnicode("ston a5 nt8dn" as Io & Sentence)

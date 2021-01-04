@@ -18,3 +18,5 @@ export {
 // TODO: FEATURE ADJUST, READY TO GO: REMOTE HOSTING
 //  So we could use SC anywhere (e.g. in GitBook)
 //  And forum admins don't have to install fonts or JS (update README.txt accordingly)
+
+// TODO: there might be some other thoughts I want to act on in that recent big forum post I made re: expandable section

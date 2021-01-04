@@ -27,7 +27,7 @@ const EXCEPTION_LEGER_LINE_WIDTHS = {
 
 const computeLegerLineUnicode = (unicode: Unicode & Word): Unicode & Word => {
     const maybeExceptionLegerLineWidth = EXCEPTION_LEGER_LINE_WIDTHS[unicode]
-    const width = maybeExceptionLegerLineWidth || computeUnicodeWidth(unicode)
+    const width = maybeExceptionLegerLineWidth || computeUnicodeWidth(unicode, {spacing: false})
 
     if (width > MEDIUM_LEGER_LINE_WIDTH) return WIDE_LEGER_LINE_UNICODE
     if (width > NARROW_LEGER_LINE_WIDTH) return MEDIUM_LEGER_LINE_UNICODE

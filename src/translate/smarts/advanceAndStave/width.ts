@@ -8,11 +8,11 @@ const shouldNotBeSpaced = (unicode: Unicode & Word): boolean =>
     isNonSymbolUnicode(unicode)
     || isNonsymbolifiedStaffUnicode(unicode)
 
-const computeUnicodeWidth = (unicode: Unicode & Word): Octals => {
+const computeUnicodeWidth = (unicode: Unicode & Word, {spacing = true}: {spacing?: boolean} = {}): Octals => {
     const bravuraWidth = bravuraWidths[unicode]
     const width = isUndefined(bravuraWidth) ? 0 as Octals : bravuraWidth
 
-    return shouldNotBeSpaced(unicode) ? width : add(width, smarts.spacing)
+    return !spacing || shouldNotBeSpaced(unicode) ? width : add(width, smarts.spacing)
 }
 
 export {
