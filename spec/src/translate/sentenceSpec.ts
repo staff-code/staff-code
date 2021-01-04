@@ -133,7 +133,7 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "　 " as Unicode & Sentence
+            const expectedUnicode = "　 " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "up15 /|\\ up15 ntqrdn 13;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
