@@ -1,2 +1,3 @@
 *
 !dist/package/**/*
+!dist/bbCode/staffCode.js

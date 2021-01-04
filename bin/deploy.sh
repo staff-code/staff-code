@@ -9,14 +9,6 @@ npm run generate-bravura-widths
 npm version patch
 NEW_VERSION=$(< package.json grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')
 
-# publish package variant
-
-rm -r dist/package/* > /dev/null 2>&1 || true
-npm run build-package
-cp -r assets/fonts* dist/package
-npm publish --access public
-echo Package published.
-
 # publish BBCode variant
 
 rm -r dist/bbCode/* > /dev/null 2>&1 || true
@@ -60,5 +52,13 @@ curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
 "${UPLOAD_URL}"
 
 echo BBCode published.
+
+# publish package variant
+
+rm -r dist/package/* > /dev/null 2>&1 || true
+npm run build-package
+cp -r assets/fonts* dist/package
+npm publish --access public
+echo Package published.
 
 echo Please commit.
