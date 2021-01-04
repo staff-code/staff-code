@@ -6,7 +6,7 @@ import {
     isMedievalAndRenaissanceUnicode,
     isNoteheadNoteStemOrBeamedGroupsOfNotesUnicode,
 } from "../isUnicode"
-import {isManualLegerLineUnicode} from "../leger"
+import {isManualLegerLineUnicode, takesLegerLine} from "../leger"
 
 const canBePositioned = (unicode: Unicode & Word): boolean =>
     isManualLegerLineUnicode(unicode)
@@ -14,6 +14,7 @@ const canBePositioned = (unicode: Unicode & Word): boolean =>
     || isFlagsAccidentalsArticulationHoldsPausesOrRestsUnicode(unicode)
     || isMedievalAndRenaissanceUnicode(unicode)
     || isKievanSquareNotationUnicode(unicode)
+    || takesLegerLine(unicode)
 
 export {
     canBePositioned,

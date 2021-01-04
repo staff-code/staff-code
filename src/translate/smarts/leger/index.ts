@@ -1,6 +1,5 @@
-export {AutoLeger} from "./types"
 export {isManualLegerLineUnicode} from "./isUnicode"
-export {updateSmartLeger} from "./leger"
 export {computeSmartLegerUnicodeIntroClauseAndUpdateSmarts} from "./introClause"
 export {needsLegerLine} from "./needs"
+export {takesLegerLine} from "./takes"
 export {NARROW_LEGER_LINE_UNICODE, MEDIUM_LEGER_LINE_UNICODE, WIDE_LEGER_LINE_UNICODE} from "./constants"

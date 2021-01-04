@@ -5,6 +5,8 @@ export {
 export {INITIAL_SMARTS} from "./constants"
 export {isCommenting} from "./comments"
 export {
-    computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts, getUnicodeGivenClef, isPositionUnicode,
+    computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
+    getUnicodeGivenClef,
+    isPositionUnicode,
+    isNonsymbolifiedStaffUnicode,
 } from "./positionAndClef"
-export {isNonsymbolifiedLegerLineUnicode, isNonsymbolifiedStaffUnicode} from "./nonsymbolified"

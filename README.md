@@ -31,7 +31,7 @@ Recommended usage:
 import {setupPackageRoot, loadFontsThen, StaffCodeOptions} from "staff-code"
 
 const callback = (inputSentence: string, unicodeSentence: string): any => {
-    console.log("user input:", inputSentence, "output unicode:", unicodeSentence)
+    console.warn("user input:", inputSentence, "output unicode:", unicodeSentence)
 }
 
 const options: StaffCodeOptions = {

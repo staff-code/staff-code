@@ -17,7 +17,7 @@ If you want to hook into StaffCode's translation with a callback, you can provid
 
 <script>
 globalThis.staffCodeCallback = (inputSentence, unicodeSentence) => {
-    console.log("testing 1, 2, 3...", unicodeSentence, inputSentence)
+    console.warn("testing 1, 2, 3...", unicodeSentence, inputSentence)
 }
 </script>
 

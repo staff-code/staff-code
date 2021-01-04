@@ -2,6 +2,7 @@ export {computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts} from 
 export {canBePositioned} from "./canBePositioned"
 export {updateSmartClef} from "./clef"
 export {updateSmartPosition} from "./position"
+export {isNonsymbolifiedStaffUnicode} from "./nonsymbolified"
 export {getUnicodeGivenClef} from "./unicode"
 export {isPositionUnicode} from "./isUnicode"
 export {POSITION_UNICODES} from "./constants"

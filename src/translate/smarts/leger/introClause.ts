@@ -1,12 +1,13 @@
 import {BLANK, Clause, decrement, increment, isEven, max, sumTexts, Word} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {computeDebugCodeFromUnicode, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {computeUnicodeWidth} from "../advanceAndStave"
 import {smarts} from "../globals"
+import {computeLegerLineUnicode} from "./leger"
 import {aboveOrBelowStave, computeStaffPosition, needsLegerLine} from "./needs"
-import {computeLegerUnicode, computePositionUnicode} from "./unicode"
+import {computePositionUnicode} from "./position"
 
-const computeSmartLegerUnicodeIntroClause = (): Unicode & Clause => {
+const computeSmartLegerUnicodeIntroClause = (legerLineUnicode: Unicode & Word): Unicode & Clause => {
     let smartLegerUnicodeIntroClause = BLANK as Unicode & Clause
 
     let position = computeStaffPosition()
@@ -14,7 +15,7 @@ const computeSmartLegerUnicodeIntroClause = (): Unicode & Clause => {
         if (isEven(position)) {
             smartLegerUnicodeIntroClause = sumTexts(
                 smartLegerUnicodeIntroClause,
-                `${computePositionUnicode(position)}${computeLegerUnicode()}` as Unicode & Clause,
+                `${computePositionUnicode(position)}${legerLineUnicode}` as Unicode & Clause,
             )
         }
         position = position > 0 ? decrement(position) : increment(position)
@@ -25,9 +26,10 @@ const computeSmartLegerUnicodeIntroClause = (): Unicode & Clause => {
 
 const computeSmartLegerUnicodeIntroClauseAndUpdateSmarts = (unicode: Unicode & Word): Unicode & Clause => {
     if (needsLegerLine(unicode)) {
-        smarts.advanceWidth = max(smarts.advanceWidth, computeUnicodeWidth(computeLegerUnicode()))
+        const legerLineUnicode = computeLegerLineUnicode(unicode)
+        smarts.advanceWidth = max(smarts.advanceWidth, computeUnicodeWidth(legerLineUnicode))
 
-        return computeSmartLegerUnicodeIntroClause()
+        return computeSmartLegerUnicodeIntroClause(legerLineUnicode)
     }
 
     return EMPTY_UNICODE as Unicode & Clause

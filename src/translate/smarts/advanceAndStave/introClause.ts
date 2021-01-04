@@ -2,7 +2,6 @@ import {Clause, Word} from "@sagittal/general"
 import {Octals, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
-import {isManualLegerLineUnicode, updateSmartLeger} from "../leger"
 import {updateSmartAdvance} from "./advance"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
 import {BREAK_UNICODE} from "./constants"
@@ -35,14 +34,6 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
         smarts.staveWidth = 0 as Octals
     } else if (isSpacingUnicode(unicode)) {
         smarts.spacing = computeSpacing(unicode)
-        smartAdvanceAndSmartStaveUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
-    } else if (isManualLegerLineUnicode(unicode)) {
-        if (smarts.staveOn) {
-            updateSmartLeger(unicode)
-        } else {
-            updateSmartAdvance(unicode)
-        }
-
         smartAdvanceAndSmartStaveUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
     } else {
         updateSmartStave(unicode)

@@ -1,15 +1,34 @@
 import {Word} from "@sagittal/general"
-import {Unicode} from "../../codes"
-import {smarts} from "../globals"
-import {MEDIUM_LEGER_LINE_UNICODE, NARROW_LEGER_LINE_UNICODE, WIDE_LEGER_LINE_UNICODE} from "./constants"
-import {AutoLeger} from "./types"
+import {Code, computeUnicodeForCode, Unicode} from "../../codes"
+import {computeUnicodeWidth} from "../advanceAndStave"
+import {
+    MEDIUM_LEGER_LINE_UNICODE,
+    MEDIUM_LEGER_LINE_WIDTH,
+    NARROW_LEGER_LINE_UNICODE,
+    NARROW_LEGER_LINE_WIDTH,
+    WIDE_LEGER_LINE_UNICODE,
+} from "./constants"
 
-const updateSmartLeger = (unicode: Unicode & Word): void => {
-    if (unicode === NARROW_LEGER_LINE_UNICODE) smarts.leger = AutoLeger.NARROW
-    if (unicode === MEDIUM_LEGER_LINE_UNICODE) smarts.leger = AutoLeger.MEDIUM
-    if (unicode === WIDE_LEGER_LINE_UNICODE) smarts.leger = AutoLeger.WIDE
+const EXCEPTION_LEGER_LINE_WIDTHS = {
+    [computeUnicodeForCode("nt8up" as Code & Word)]: 11,
+    [computeUnicodeForCode("nt16up" as Code & Word)]: 11,
+    [computeUnicodeForCode("nt32up" as Code & Word)]: 11,
+    [computeUnicodeForCode("nt64up" as Code & Word)]: 11,
+    [computeUnicodeForCode("nt128up" as Code & Word)]: 11,
+    [computeUnicodeForCode("nt256up" as Code & Word)]: 11,
+    [computeUnicodeForCode("nt512up" as Code & Word)]: 11,
+    [computeUnicodeForCode("nt1024up" as Code & Word)]: 11,
+}
+
+const computeLegerLineUnicode = (unicode: Unicode & Word): Unicode & Word => {
+    const maybeExceptionLegerLineWidth = EXCEPTION_LEGER_LINE_WIDTHS[unicode]
+    const width = maybeExceptionLegerLineWidth || computeUnicodeWidth(unicode)
+
+    if (width > MEDIUM_LEGER_LINE_WIDTH) return WIDE_LEGER_LINE_UNICODE
+    if (width > NARROW_LEGER_LINE_WIDTH) return MEDIUM_LEGER_LINE_UNICODE
+    return NARROW_LEGER_LINE_UNICODE
 }
 
 export {
-    updateSmartLeger,
+    computeLegerLineUnicode,
 }
