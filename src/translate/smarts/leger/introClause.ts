@@ -27,6 +27,7 @@ const computeSmartLegerUnicodeIntroClause = (legerLineUnicode: Unicode & Word): 
 const computeSmartLegerUnicodeIntroClauseAndUpdateSmarts = (unicode: Unicode & Word): Unicode & Clause => {
     if (needsLegerLine(unicode)) {
         const legerLineUnicode = computeLegerLineUnicode(unicode)
+        // todo: the leger width should not affect the advance width
         smarts.advanceWidth = max(smarts.advanceWidth, computeUnicodeWidth(legerLineUnicode))
 
         return computeSmartLegerUnicodeIntroClause(legerLineUnicode)

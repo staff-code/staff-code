@@ -1,19 +1,22 @@
 import {Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
 import {
+    isIndividualNotesOrBeamedGroupsOfNotesUnicode,
     isMedievalRenaissanceMensuralIndividualNotesUnicode,
     isMedievalRenaissanceMensuralNoteheadsUnicode,
-    isMedievalRenaissanceMensuralObliqueFormsPlainchantSingleNoteFormsUnicode,
+    isMedievalRenaissanceMensuralObliqueFormsUnicode,
     isMoreSimplifiedMusicNotationNoteheadsUnicode,
-    isNoteheadNoteClusterIndividualNotesOrBeamedGroupsOfNotesUnicode,
-    isNoteheadsSupplementUnicode,
+    isNoteheadNoteClusterOrIndividualNoteUnicode,
+    isNoteheadsSupplementUnicode, isNoteheadUnicode,
     isShapeNoteNoteheadsSupplementUnicode,
     isSimplifiedMusicNotationNoteheadsUnicode,
     isTechniquesNoteheadsUnicode,
 } from "../isUnicode"
 
 const takesLegerLine = (unicode: Unicode & Word): boolean =>
-    isNoteheadNoteClusterIndividualNotesOrBeamedGroupsOfNotesUnicode(unicode)
+    isNoteheadUnicode(unicode)
+    || isNoteheadNoteClusterOrIndividualNoteUnicode(unicode)
+    || isIndividualNotesOrBeamedGroupsOfNotesUnicode(unicode)
     || isSimplifiedMusicNotationNoteheadsUnicode(unicode)
     || isMoreSimplifiedMusicNotationNoteheadsUnicode(unicode)
     || isShapeNoteNoteheadsSupplementUnicode(unicode)
@@ -21,7 +24,7 @@ const takesLegerLine = (unicode: Unicode & Word): boolean =>
     || isTechniquesNoteheadsUnicode(unicode)
     || isMedievalRenaissanceMensuralIndividualNotesUnicode(unicode)
     || isMedievalRenaissanceMensuralNoteheadsUnicode(unicode)
-    || isMedievalRenaissanceMensuralObliqueFormsPlainchantSingleNoteFormsUnicode(unicode)
+    || isMedievalRenaissanceMensuralObliqueFormsUnicode(unicode)
 
 export {
     takesLegerLine,
