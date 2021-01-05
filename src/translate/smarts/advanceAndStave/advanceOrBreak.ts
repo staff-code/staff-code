@@ -1,5 +1,6 @@
 import {Clause, subtract, sumTexts, Word} from "@sagittal/general"
 import {Code, computeUnicodeForCode, Octals, Unicode} from "../../codes"
+import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {
     MEDIUM_STAVE_WIDTH,
@@ -59,9 +60,9 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
         const useUpExistingStaveAdvanceUnicode: Unicode = computeAdvanceUnicode(smarts.staveWidth)
         let remainingAdvanceWidthWeStillNeedToApply: Octals = subtract(width, smarts.staveWidth)
 
-        let staveAndAdvanceUnicode = "" as Unicode & Word
+        let staveAndAdvanceUnicode = EMPTY_UNICODE as Unicode & Word
 
-        while (remainingAdvanceWidthWeStillNeedToApply > WIDE_STAVE_WIDTH) {
+        while (remainingAdvanceWidthWeStillNeedToApply >= WIDE_STAVE_WIDTH) {
             staveAndAdvanceUnicode = sumTexts(
                 staveAndAdvanceUnicode,
                 WIDE_STAVE_UNICODES[smarts.stave],
@@ -73,27 +74,30 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
             )
         }
 
-        while (remainingAdvanceWidthWeStillNeedToApply > MEDIUM_STAVE_WIDTH) {
+        if (remainingAdvanceWidthWeStillNeedToApply > MEDIUM_STAVE_WIDTH) {
             staveAndAdvanceUnicode = sumTexts(
                 staveAndAdvanceUnicode,
-                MEDIUM_STAVE_UNICODES[smarts.stave],
+                WIDE_STAVE_UNICODES[smarts.stave],
                 MEDIUM_STAVE_WIDTH_ADVANCE,
             )
             remainingAdvanceWidthWeStillNeedToApply = subtract(
                 remainingAdvanceWidthWeStillNeedToApply,
                 MEDIUM_STAVE_WIDTH,
             )
-        }
-
-        while (remainingAdvanceWidthWeStillNeedToApply > NARROW_STAVE_WIDTH) {
+        } else if (remainingAdvanceWidthWeStillNeedToApply > NARROW_STAVE_WIDTH) {
             staveAndAdvanceUnicode = sumTexts(
                 staveAndAdvanceUnicode,
-                NARROW_STAVE_UNICODES[smarts.stave],
+                MEDIUM_STAVE_UNICODES[smarts.stave],
                 NARROW_STAVE_WIDTH_ADVANCE,
             )
             remainingAdvanceWidthWeStillNeedToApply = subtract(
                 remainingAdvanceWidthWeStillNeedToApply,
                 NARROW_STAVE_WIDTH,
+            )
+        } else {
+            staveAndAdvanceUnicode = sumTexts(
+                staveAndAdvanceUnicode,
+                NARROW_STAVE_UNICODES[smarts.stave],
             )
         }
 
@@ -104,7 +108,6 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
         advanceUnicodeIntroClause = sumTexts(
             useUpExistingStaveAdvanceUnicode,
             staveAndAdvanceUnicode,
-            NARROW_STAVE_UNICODES[smarts.stave],
             remainingStaveAdvanceUnicode,
         ) as Unicode & Clause
     }
