@@ -1,20 +1,8 @@
 import {RecordKey, Word} from "@sagittal/general"
 import {Code, Unicode} from "../types"
 
-const NOT_SMuFL_OTHER_WHITESPACE_AND_BREAKS: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    /*U+0009*/"chtb": "	",
+const NOT_SMuFL_LINE_BREAKS_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*U+000A*/"lnfd": "\n",
-    /*U+000B*/"lntb": "",
-    /*U+000C*/"frfd": "",
-    /*U+000D*/"crrt": "\u000d",
-    /*U+0020*/"sp": " ",
-    /*U+0085*/"nxln": "",
-    /*U+00A0*/"nobrsp": " ",
-    /*U+1680*/"ogspmr": " ",
-    /*U+2028*/"lnsp": "\u2028", /*   */
-    /*U+2029*/"prsp": "\u2029", /*   */
-    /*U+202F*/"nrnobrsp": " ",
-    /*U+205F*/"mdmtsp": " ",
 } as Record<Code & Word, Unicode & Word>
 
 const NOT_SMuFL_SMART_STAVE_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
@@ -70,7 +58,7 @@ const NOT_SMuFL_SMART_ADVANCE_MAP: Record<RecordKey<Code & Word>, Unicode & Word
 } as Record<Code & Word, Unicode & Word>
 
 export {
-    NOT_SMuFL_OTHER_WHITESPACE_AND_BREAKS,
+    NOT_SMuFL_LINE_BREAKS_MAP,
     NOT_SMuFL_SMART_STAVE_MAP,
     NOT_SMuFL_SMART_SPACING_MAP,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,

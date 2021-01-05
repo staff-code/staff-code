@@ -8,7 +8,12 @@ import {
 import {BASE_SYMBOL_MAP} from "./codes"
 import {Code, Unicode} from "./types"
 
+const DEBUGGING_ALIASES_MAP = {
+    "sp": " ",
+}
+
 const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {
+    ...DEBUGGING_ALIASES_MAP,
     ...ACCIDENTAL_ALIASES_MAP,
     ...GENERIC_POSITION_ALIASES_MAP,
     ...LINE_BREAK_ALIASES_MAP,
@@ -36,6 +41,10 @@ const computeDebugCodeFromUnicode = (unicode: Unicode & Word): Code & Word => {
 
 const sumAdvancesForDebugging = (codeSentence: Code & Sentence): Code & Sentence =>
     codeSentence
+        // todo: probably better than regex'ing would be to write a reverse advance computer,
+        //  that watches all advance unicodes in a row then sums their values
+        //  and then probably the other regex method below should take the form of a special here-only map of codes
+        //  which could also be the solution for mapping " " to "sp"
         .replace(/24; 6; 1;/g, "31;")
         .replace(/24; 6;/g, "30;")
         .replace(/24; 4; 1;/g, "29;")
@@ -65,7 +74,6 @@ const expressStavesAsWidthsForDebugging = (codeSentence: Code & Sentence): Code 
         .replace(/st5lnnr/g, "st8")
         .replace(/st5ln\b/g, "st16")
         .replace(/st5lnwd/g, "st24") as Code & Sentence
-
 
 const computeCodeSentenceFromUnicodeSentence = (unicodeSentence: Unicode & Sentence): Code & Sentence => {
     const unicodeWords = unicodeSentence.split(BLANK) as Array<Unicode & Word>
