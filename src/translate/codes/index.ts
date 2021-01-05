@@ -19,3 +19,4 @@ export {
     NOT_SMuFL_SMART_ADVANCE_NONSYMBOL_MAP,
 } from "./notSmufl"
 export {Unicode, Code, LowercasedCode, Octals, UnicodeLiteral} from "./types"
+export {mergeAllCodeMapsIntoLowercasedCodeMap} from "./merge"
