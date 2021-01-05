@@ -7,6 +7,7 @@ import {Smarts} from "./types"
 
 const INITIAL_SMARTS: Smarts = {
     advanceWidth: 0 as Octals,
+    advanceToEnd: false,
     staveWidth: 0 as Octals,
     spacing: 2 as Octals,
     staveOn: false,

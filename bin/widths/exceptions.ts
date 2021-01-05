@@ -26,8 +26,6 @@ const EXCEPTION_WIDTHS: Record<RecordKey<Unicode>, Octals> = {
     [SMuFL_MAP["luteStaff6Lines"]]: 0 as Octals,
     [SMuFL_MAP["luteStaff6LinesWide"]]: 0 as Octals,
     [SMuFL_MAP["luteStaff6LinesNarrow"]]: 0 as Octals,
-    [SMuFL_MAP["barlineSingle"]]: 0 as Octals,
-    [SMuFL_MAP["barlineDouble"]]: 3 as Octals,
 }
 
 export {

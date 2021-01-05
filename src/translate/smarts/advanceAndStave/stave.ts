@@ -45,6 +45,9 @@ const PLAINCHANT_STAVE_UNICODES = [
     computeUnicodeForCode("chstwd" as Code & Word),
 ]
 
+// TODO: CLEAN: SMART STAVE UNICODE MATCHING
+//  Since this is so similar, perhaps this should live back up in introClause, with the rest of the unicode switch
+
 const updateSmartStave = (unicode: Unicode & Word): void => {
     if (unicode === SMART_STAVE_ON_UNICODE) smarts.staveOn = true
     if (unicode === SMART_STAVE_OFF_UNICODE) {

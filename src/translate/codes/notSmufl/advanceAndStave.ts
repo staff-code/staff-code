@@ -23,14 +23,14 @@ const NOT_SMuFL_SMART_STAVE_MAP: Record<RecordKey<Code & Word>, Unicode & Word> 
 } as Record<Code & Word, Unicode & Word>
 
 const NOT_SMuFL_SMART_SPACING_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    /*U+F3E0*/"sp0": "",
-    /*U+F3E1*/"sp1": "",
-    /*U+F3E2*/"sp2": "",
-    /*U+F3E3*/"sp3": "",
-    /*U+F3E4*/"sp4": "",
-    /*U+F3E5*/"sp5": "",
-    /*U+F3E6*/"sp6": "",
-    /*U+F3E7*/"sp7": "",
+    /*U+F3D0*/"sp0": "",
+    /*U+F3D1*/"sp1": "",
+    /*U+F3D2*/"sp2": "",
+    /*U+F3D3*/"sp3": "",
+    /*U+F3D4*/"sp4": "",
+    /*U+F3D5*/"sp5": "",
+    /*U+F3D6*/"sp6": "",
+    /*U+F3D7*/"sp7": "",
 } as Record<Code & Word, Unicode & Word>
 
 const NOT_SMuFL_MANUAL_ADVANCE_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
@@ -64,6 +64,9 @@ const NOT_SMuFL_MANUAL_ADVANCE_MAP: Record<RecordKey<Code & Word>, Unicode & Wor
 
 const NOT_SMuFL_SMART_ADVANCE_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*U+F3EC*/";": "",
+    /*U+F3ED*/ "en;": "",
+    /*U+F3EE*/ "rt;": "",
+    /*U+F3EF*/ "cn;": "",
 } as Record<Code & Word, Unicode & Word>
 
 export {

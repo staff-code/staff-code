@@ -317,6 +317,99 @@ describe("computeInputSentenceUnicode", (): void => {
             const expectedCodes = "up2 /|\\ st8 8; st8 6; up2 ntqrdn 2; st8 8; st8 7;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
+
+        it("supports positioning the next glyph with its right edge against the right edge of the current line with the advance-to-end code", (): void => {
+            const inputSentence = `ston \
+nt ; en; blsn ; br; \
+nt ; nt ; en; blsn ; br; \
+nt ; nt ; nt ; en; blsn ; br; \
+nt ; nt ; nt ; nt ; en; blsn ; br; \
+nt ; nt ; nt ; nt ; nt ; en; blsn ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; en; blsn ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; nt ; en; blsn ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt ; en; blsn` as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = `\
+    
+         
+          
+               
+                 
+                    
+                        
+                            ` as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = `\
+ntqrup st8 8; st8 5; 2; blsn br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; 5; blsn br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; blsn br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; 3; blsn br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; 6; blsn br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 7; blsn br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 6; ntqrup 2; st8 8; st8 3; 4; blsn br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 6; ntqrup 2; st8 8; st8 3; ntqrup 5; st8 8; st8 7; blsn` as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("the advance-to-end code also works for the double barline", (): void => {
+            const inputSentence = `ston \
+nt ; en; bldb ; br; \
+nt ; nt ; en; bldb ; br; \
+nt ; nt ; nt ; en; bldb ; br; \
+nt ; nt ; nt ; nt ; en; bldb ; br; \
+nt ; nt ; nt ; nt ; nt ; en; bldb ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; en; bldb ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; nt ; en; bldb ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt ; en; bldb` as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = `\
+       
+        
+             
+                
+                 
+                      
+                       
+                            ` as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = `\
+ntqrup st8 8; st8 5; 3; st8 3; bldb br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 3; bldb br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; 1; st8 3; bldb br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; 4; st8 3; bldb br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; 2; bldb br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 6; 2; st8 3; bldb br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 6; ntqrup 2; st8 8; st8 3; bldb br; \
+ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 6; ntqrup 2; st8 8; st8 3; ntqrup 5; st8 8; st8 3; bldb` as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("the advance-to-end code has no effect when smart staff is not on", (): void => {
+            const inputSentence = "nt ; en; blsn" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "　   " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "ntqrup 13; blsn 3;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        // tslint:disable-next-line ban
+        xit("the advance-to-end code works for glyphs with larger widths", (): void => {
+            const inputSentence = "ston en; orprprdevxmr" as Io & Sentence // The code orprprdevxmr has 44 width
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "" as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "st8 4; orprprdevxmr 4; st24 24; st8 8;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
     })
 
     describe("Smart Stave", (): void => {

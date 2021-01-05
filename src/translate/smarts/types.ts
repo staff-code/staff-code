@@ -5,6 +5,7 @@ import {Clef} from "./positionAndClef"
 
 interface Smarts {
     advanceWidth: Octals,
+    advanceToEnd: boolean,
     staveWidth: Octals,
     spacing: Octals,
     staveOn: boolean,

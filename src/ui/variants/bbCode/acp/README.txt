@@ -37,3 +37,10 @@ See the HTML Replacement section for the [staff] code above for further details 
 - Fill in the "Help line" field with:
 
 {{SC_HELP_LINE}}
+
+// TODO: FEATURE IMPROVE, READY TO GO: PHPBB ADMINS CAN INSTALL STAFF CODE LOCALLY IF THEY WISH
+//  I'll just update the README.md to explain that if they really want to,
+//  They can grab those resources from such and such links and where to install them.
+//  But it won't be necessary for installation anymore.
+//  The fonts can easily handle fallback. Can JavaScripts? yes, using something like this:
+//  See: https://stackoverflow.com/questions/5257923/how-to-load-local-script-files-as-fallback-in-cases-where-cdn-are-blocked-unavai
