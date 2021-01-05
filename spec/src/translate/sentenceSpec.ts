@@ -320,14 +320,14 @@ describe("computeInputSentenceUnicode", (): void => {
 
         it("supports positioning the next glyph with its right edge against the right edge of the current line with the advance-to-end code", (): void => {
             const inputSentence = `ston \
-nt ; en; blsn ; br; \
-nt ; nt ; en; blsn ; br; \
-nt ; nt ; nt ; en; blsn ; br; \
-nt ; nt ; nt ; nt ; en; blsn ; br; \
-nt ; nt ; nt ; nt ; nt ; en; blsn ; br; \
-nt ; nt ; nt ; nt ; nt ; nt ; en; blsn ; br; \
-nt ; nt ; nt ; nt ; nt ; nt ; nt ; en; blsn ; br; \
-nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt ; en; blsn` as Io & Sentence
+nt en; blsn ; br; \
+nt ; nt en; blsn ; br; \
+nt ; nt ; nt en; blsn ; br; \
+nt ; nt ; nt ; nt en; blsn ; br; \
+nt ; nt ; nt ; nt ; nt en; blsn ; br; \
+nt ; nt ; nt ; nt ; nt ; nt en; blsn ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; nt en; blsn ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt en; blsn` as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -355,14 +355,14 @@ ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; s
 
         it("the advance-to-end code also works for the double barline", (): void => {
             const inputSentence = `ston \
-nt ; en; bldb ; br; \
-nt ; nt ; en; bldb ; br; \
-nt ; nt ; nt ; en; bldb ; br; \
-nt ; nt ; nt ; nt ; en; bldb ; br; \
-nt ; nt ; nt ; nt ; nt ; en; bldb ; br; \
-nt ; nt ; nt ; nt ; nt ; nt ; en; bldb ; br; \
-nt ; nt ; nt ; nt ; nt ; nt ; nt ; en; bldb ; br; \
-nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt ; en; bldb` as Io & Sentence
+nt en; bldb ; br; \
+nt ; nt en; bldb ; br; \
+nt ; nt ; nt en; bldb ; br; \
+nt ; nt ; nt ; nt en; bldb ; br; \
+nt ; nt ; nt ; nt ; nt en; bldb ; br; \
+nt ; nt ; nt ; nt ; nt ; nt en; bldb ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; nt en; bldb ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt en; bldb` as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -389,13 +389,13 @@ ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; s
         })
 
         it("the advance-to-end code has no effect when smart staff is not on", (): void => {
-            const inputSentence = "nt ; en; blsn" as Io & Sentence
+            const inputSentence = "nt en; blsn" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "　   " as Unicode & Sentence
+            const expectedUnicode = "　 " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "ntqrup 13; blsn 3;" as Code & Sentence
+            const expectedCodes = "ntqrup blsn 13;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
