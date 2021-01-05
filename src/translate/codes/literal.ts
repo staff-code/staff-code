@@ -7,6 +7,8 @@ const isUnicodeLiteral = (candidateUnicodeLiteral: Io & Word): candidateUnicodeL
     !!candidateUnicodeLiteral.match(UNICODE_LITERAL_MATCHER)
 
 const computeUnicodeLiteral = (unicode: Unicode & Word): UnicodeLiteral => {
+    if (unicode.length === 0) return "(BLANK)" as UnicodeLiteral
+
     let unicodeLiteral = unicode.charCodeAt(0).toString(16).toUpperCase()
     while (unicodeLiteral.length < 4) unicodeLiteral = "0" + unicodeLiteral
 

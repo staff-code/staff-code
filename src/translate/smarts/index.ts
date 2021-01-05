@@ -1,6 +1,9 @@
 export {smarts} from "./globals"
 export {
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts, isManualAdvanceUnicode,
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
+    isManualAdvanceUnicode,
+    computeNonsymbolUnicodeClauseAndUpdateSmarts,
+    isNonsymbolCode,
 } from "./advanceAndStave"
 export {INITIAL_SMARTS} from "./constants"
 export {isCommenting} from "./comments"

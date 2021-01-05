@@ -1,4 +1,5 @@
 import {isUndefined, RecordKey, Word} from "@sagittal/general"
+import {EMPTY_UNICODE} from "../constants"
 import {computeUnicodeLiteral} from "./literal"
 import {Code, LowercasedCode, Unicode} from "./types"
 
@@ -14,7 +15,7 @@ const mergeAllCodeMapsIntoLowercasedCodeMap = (
         mapEntries.forEach(([code, unicode]: [Code & Word, Unicode & Word]): void => {
             const lowercasedCode = code.toLowerCase() as LowercasedCode & Word
             if (!isUndefined(mergedAndLowercasedMaps[lowercasedCode])) {
-                throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteral(mergedAndLowercasedMaps[lowercasedCode])} and code point ${computeUnicodeLiteral(unicode)}.`)
+                throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteral(mergedAndLowercasedMaps[lowercasedCode])} and code point ${computeUnicodeLiteral(unicode)}. If ${computeUnicodeLiteral(EMPTY_UNICODE as Unicode & Word)}, it is probably a nonsymbol code used for smart StaffCode features.`)
             }
             mergedAndLowercasedMaps[lowercasedCode] = unicode
         })

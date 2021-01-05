@@ -1,5 +1,5 @@
 import {Io, isUndefined, Word} from "@sagittal/general"
-import {computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, LowercasedCode, NONSYMBOL_MAP, Unicode} from "./codes"
+import {computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, LowercasedCode, Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
 import {
     getUnicodeGivenClefAndPosition,
@@ -8,14 +8,8 @@ import {
     isPositionUnicode,
 } from "./smarts"
 
-const NONSYMBOL_UNICODES = Object.values(NONSYMBOL_MAP)
-
-const isNonSymbolUnicode = (unicode: Unicode & Word): boolean =>
-    NONSYMBOL_UNICODES.includes(unicode)
-
 const shouldNotBeDisplayed = (unicode: Unicode & Word): boolean =>
-    isNonSymbolUnicode(unicode)
-    || isPositionUnicode(unicode)
+    isPositionUnicode(unicode)
     || isManualAdvanceUnicode(unicode)
     || isNonsymbolifiedStaffUnicode(unicode)
 
@@ -39,7 +33,6 @@ const getUnicode = (input: Io & Word): Unicode & Word => {
 }
 
 export {
-    isNonSymbolUnicode,
     shouldNotBeDisplayed,
     computeMaybeNotDisplayedUnicode,
     getUnicode,

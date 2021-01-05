@@ -37,16 +37,8 @@ const isNoteheadsSupplementUnicode = (unicode: Unicode & Word): boolean =>
 const isNoteheadNoteStemOrBeamedGroupsOfNotesUnicode = (unicode: Unicode & Word): boolean =>
     unicode >= "\uE0A0" && unicode <= "\uE21F"
 
-const isSpacingUnicode = (unicode: Unicode & Word): boolean =>
-    unicode >= "\uE388" && unicode <= "\uE38F"
-
-const isOtherSagittalControlledNowForStaffCodeFeaturesUnicode = (unicode: Unicode & Word): boolean =>
-    unicode >= "\uE40C" && unicode <= "\uE41F"
-
 const isFlagsAccidentalsArticulationHoldsPausesOrRestsUnicode = (unicode: Unicode & Word): boolean =>
     unicode >= "\uE240" && unicode <= "\uE4FF"
-    && !isSpacingUnicode(unicode)
-    && !isOtherSagittalControlledNowForStaffCodeFeaturesUnicode(unicode)
 
 const isMedievalAndRenaissanceUnicode = (unicode: Unicode & Word): boolean =>
     unicode >= "\uE900" && unicode <= "\uEA1F"

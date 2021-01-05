@@ -1,10 +1,15 @@
 import {Word} from "@sagittal/general"
-import {Octals, Unicode} from "../../codes"
-import {SPACING_UNICODES} from "./constants"
+import {LowercasedCode, NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP, Octals} from "../../codes"
 
-const computeSpacing = (unicode: Unicode & Word): Octals =>
-    SPACING_UNICODES.indexOf(unicode) as Octals
+const SPACING_CODES = Object.keys(NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP)
+
+const isSpacingCode = (lowercasedCode: LowercasedCode & Word): boolean =>
+    SPACING_CODES.includes(lowercasedCode)
+
+const computeSpacing = (lowercasedCode: LowercasedCode & Word): Octals =>
+    SPACING_CODES.indexOf(lowercasedCode) as Octals
 
 export {
     computeSpacing,
+    isSpacingCode,
 }

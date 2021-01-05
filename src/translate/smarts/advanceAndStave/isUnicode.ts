@@ -1,15 +1,9 @@
 import {Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
-import {MANUAL_ADVANCE_UNICODES, SMART_ADVANCE_UNICODES, SPACING_UNICODES} from "./constants"
-
-const isSmartAdvanceUnicode = (unicode: Unicode & Word): boolean =>
-    SMART_ADVANCE_UNICODES.includes(unicode)
+import {MANUAL_ADVANCE_UNICODES} from "./constants"
 
 const isManualAdvanceUnicode = (unicode: Unicode & Word): boolean =>
     MANUAL_ADVANCE_UNICODES.includes(unicode)
-
-const isSpacingUnicode = (unicode: Unicode & Word): boolean =>
-    SPACING_UNICODES.includes(unicode)
 
 const isManualStaffUnicode = (unicode: Unicode & Word): boolean =>
     (unicode >= "\uE010" && unicode <= "\uE021")    // Staves, 1 line thru 6 line
@@ -18,7 +12,5 @@ const isManualStaffUnicode = (unicode: Unicode & Word): boolean =>
 
 export {
     isManualAdvanceUnicode,
-    isSmartAdvanceUnicode,
-    isSpacingUnicode,
     isManualStaffUnicode,
 }

@@ -4,17 +4,10 @@ import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {updateSmartAdvance} from "./advance"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
-import {
-    ADVANCE_TO_END_UNICODE,
-    BREAK_UNICODE,
-    SMART_ADVANCE_UNICODE,
-    SMART_STAVE_OFF_UNICODE,
-    SMART_STAVE_ON_UNICODE,
-} from "./constants"
+import {BREAK_UNICODE} from "./constants"
 import {computeAdvanceToEndIntroClauseAndUpdateSmarts} from "./end"
-import {isManualAdvanceUnicode, isSpacingUnicode} from "./isUnicode"
+import {isManualAdvanceUnicode} from "./isUnicode"
 import {computeManualAdvanceWidth} from "./manualAdvance"
-import {computeSpacing} from "./spacing"
 import {
     LINES_1_STAVE_UNICODES,
     LINES_2_STAVE_UNICODES,
@@ -32,15 +25,7 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
 ): Unicode & Clause => {
     let smartAdvanceAndSmartStaveUnicodeIntroClause: Unicode & Clause = EMPTY_UNICODE as Unicode & Clause
 
-    // TODO: CLEAN: IS IT REALLY INTRO CLAUSE HERE?
-    //  I don't think any of these are ever actually "intro clause" or "prefix" because whenever they happen
-    //  Nothing else comes afterwards
-    if (unicode === SMART_ADVANCE_UNICODE) {
-        smartAdvanceAndSmartStaveUnicodeIntroClause =
-            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-                smarts.advanceWidth,
-            )
-    } else if (isManualAdvanceUnicode(unicode)) {
+    if (isManualAdvanceUnicode(unicode)) {
         const manualAdvanceWidth = computeManualAdvanceWidth(unicode)
         smartAdvanceAndSmartStaveUnicodeIntroClause =
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
@@ -52,15 +37,6 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
                 smarts.advanceWidth,
             )
         smarts.staveWidth = 0 as Octals
-    } else if (isSpacingUnicode(unicode)) {
-        smarts.spacing = computeSpacing(unicode)
-    } else if (unicode === ADVANCE_TO_END_UNICODE) {
-        smarts.advanceToEnd = true
-    } else if (unicode === SMART_STAVE_ON_UNICODE) {
-        smarts.staveOn = true
-    } else if (unicode === SMART_STAVE_OFF_UNICODE) {
-        smarts.staveWidth = 0 as Octals
-        smarts.staveOn = false
     } else if (smarts.staveOn && LINES_1_STAVE_UNICODES.includes(unicode)) {
         smarts.stave = SmartStave.LINES_1
     } else if (smarts.staveOn && LINES_2_STAVE_UNICODES.includes(unicode)) {

@@ -2,14 +2,17 @@ import {Clause, extendClause, Io, sumTexts, Word} from "@sagittal/general"
 import {Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
 import {
+    computeNonsymbolUnicodeClauseAndUpdateSmarts,
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
     computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
     isCommenting,
+    isNonsymbolCode,
 } from "./smarts"
 import {computeMaybeNotDisplayedUnicode, getUnicode} from "./unicode"
 
 const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
     if (isCommenting(input)) return EMPTY_UNICODE as Unicode & Clause
+    if (isNonsymbolCode(input)) return computeNonsymbolUnicodeClauseAndUpdateSmarts(input)
 
     const unicode = getUnicode(input)
 

@@ -1,8 +1,8 @@
 export {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts} from "./introClause"
-export {isSmartAdvanceUnicode, isManualAdvanceUnicode, isSpacingUnicode, isManualStaffUnicode} from "./isUnicode"
-export {updateSmartStave} from "./stave"
+export {isManualAdvanceUnicode, isManualStaffUnicode} from "./isUnicode"
 export {computeUnicodeWidth} from "./width"
 export {SmartStave} from "./types"
+export {computeNonsymbolUnicodeClauseAndUpdateSmarts, isNonsymbolCode} from "./nonsymbol"
 
 import bravuraWidthsJson from "./bravuraWidths.json"
 
