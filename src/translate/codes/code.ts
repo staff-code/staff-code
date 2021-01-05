@@ -7,9 +7,13 @@ import {
 } from "./aliases"
 import {BASE_SYMBOL_MAP} from "./codes"
 import {Code, Unicode} from "./types"
+import {computeUnicodeForCode} from "./unicode"
 
 const DEBUGGING_ALIASES_MAP = {
     "sp": " ",
+    "st8": computeUnicodeForCode("st5lnnr" as Code & Word),
+    "st16": computeUnicodeForCode("st5ln" as Code & Word),
+    "st24": computeUnicodeForCode("st5lnwd" as Code & Word),
 }
 
 const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {
@@ -39,49 +43,36 @@ const computeDebugCodeFromUnicode = (unicode: Unicode & Word): Code & Word => {
     return code
 }
 
-const sumAdvancesForDebugging = (codeSentence: Code & Sentence): Code & Sentence =>
-    codeSentence
-        // todo: probably better than regex'ing would be to write a reverse advance computer,
-        //  that watches all advance unicodes in a row then sums their values
-        //  and then probably the other regex method below should take the form of a special here-only map of codes
-        //  which could also be the solution for mapping " " to "sp"
-        .replace(/24; 6; 1;/g, "31;")
-        .replace(/24; 6;/g, "30;")
-        .replace(/24; 4; 1;/g, "29;")
-        .replace(/24; 4;/g, "28;")
-        .replace(/24; 2; 1;/g, "27;")
-        .replace(/24; 2;/g, "26;")
-        .replace(/24; 1;/g, "25;")
-        .replace(/16; 8;/g, "24;")
-        .replace(/16; 6; 1;/g, "23;")
-        .replace(/16; 6;/g, "22;")
-        .replace(/16; 4; 1;/g, "21;")
-        .replace(/16; 4;/g, "20;")
-        .replace(/16; 2; 1;/g, "19;")
-        .replace(/16; 2;/g, "18;")
-        .replace(/16; 1;/g, "17;")
-        .replace(/12; 2; 1;/g, "15;")
-        .replace(/12; 2;/g, "14;")
-        .replace(/12; 1;/g, "13;")
-        .replace(/10; 1;/g, "11;")
-        .replace(/8; 1;/g, "9;")
-        .replace(/6; 1;/g, "7;")
-        .replace(/4; 1;/g, "5;")
-        .replace(/2; 1;/g, "3;") as Code & Sentence
+const collapseAdvancesForDebugging = (codes: Array<Code & Word>): Array<Code & Word> => {
+    const codesWithAdvancesCollapsed = [] as Array<Code & Word>
 
-const expressStavesAsWidthsForDebugging = (codeSentence: Code & Sentence): Code & Sentence =>
-    codeSentence
-        .replace(/st5lnnr/g, "st8")
-        .replace(/st5ln\b/g, "st16")
-        .replace(/st5lnwd/g, "st24") as Code & Sentence
+    let currentAdvance = 0
+    codes.forEach((code: Code & Word): void => {
+        const advanceMatch = code.match(/(\d+);/)
+        if (advanceMatch) {
+            currentAdvance = currentAdvance + parseInt(advanceMatch[1])
+        } else if (currentAdvance > 0) {
+            codesWithAdvancesCollapsed.push(`${currentAdvance};` as Code & Word)
+            currentAdvance = 0
+            codesWithAdvancesCollapsed.push(code)
+        } else {
+            codesWithAdvancesCollapsed.push(code)
+        }
+    })
+    if (currentAdvance > 0) {
+        codesWithAdvancesCollapsed.push(`${currentAdvance};` as Code & Word)
+    }
+
+    return codesWithAdvancesCollapsed
+}
 
 const computeCodeSentenceFromUnicodeSentence = (unicodeSentence: Unicode & Sentence): Code & Sentence => {
     const unicodeWords = unicodeSentence.split(BLANK) as Array<Unicode & Word>
 
-    const codeWords: Array<Code & Word> = unicodeWords.map(computeDebugCodeFromUnicode)
-    const codeSentence = joinWords(...codeWords)
+    const codes: Array<Code & Word> = unicodeWords.map(computeDebugCodeFromUnicode)
+    const codesWithAdvancesCollapsed = collapseAdvancesForDebugging(codes)
 
-    return expressStavesAsWidthsForDebugging(sumAdvancesForDebugging(codeSentence))
+    return joinWords(...codesWithAdvancesCollapsed)
 }
 
 export {

@@ -13,8 +13,6 @@ const BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP: Record<RecordKey<Code 
     "nt256": SMuFL_MAP["note256thUp"],
     "nt512": SMuFL_MAP["note512thUp"],
     "nt1024": SMuFL_MAP["note1024thUp"],
-    // todo this one is just an alias for "nt4" ... where does that put it?
-    //  perhaps it doesn't matter if none of them is going to get their own code point?
     "nt": SMuFL_MAP["noteQuarterUp"],
 } as Record<Code & Word, Unicode & Word>
 
