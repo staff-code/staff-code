@@ -320,14 +320,14 @@ describe("computeInputSentenceUnicode", (): void => {
 
         it("supports positioning the next glyph with its right edge against the right edge of the current line with the advance-to-end code", (): void => {
             const inputSentence = `ston \
-nt en; blsn ; br; \
-nt ; nt en; blsn ; br; \
-nt ; nt ; nt en; blsn ; br; \
-nt ; nt ; nt ; nt en; blsn ; br; \
-nt ; nt ; nt ; nt ; nt en; blsn ; br; \
-nt ; nt ; nt ; nt ; nt ; nt en; blsn ; br; \
-nt ; nt ; nt ; nt ; nt ; nt ; nt en; blsn ; br; \
-nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt en; blsn` as Io & Sentence
+nt en; bl ; br; \
+nt ; nt en; bl ; br; \
+nt ; nt ; nt en; bl ; br; \
+nt ; nt ; nt ; nt en; bl ; br; \
+nt ; nt ; nt ; nt ; nt en; bl ; br; \
+nt ; nt ; nt ; nt ; nt ; nt en; bl ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; nt en; bl ; br; \
+nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt en; bl` as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -389,7 +389,7 @@ ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; s
         })
 
         it("the advance-to-end code has no effect when smart staff is not on", (): void => {
-            const inputSentence = "nt en; blsn" as Io & Sentence
+            const inputSentence = "nt en; bl" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
