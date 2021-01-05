@@ -1,44 +1,49 @@
-import {add, Clause, extendClause, subtract, sumTexts, Word} from "@sagittal/general"
+import {Clause, subtract, sumTexts, Word} from "@sagittal/general"
 import {Octals, Unicode} from "../../codes"
-import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
-import {NARROW_STAVE_UNICODES} from "./advanceOrBreak"
-import {NARROW_STAVE_WIDTH} from "./constants"
+import {updateSmartAdvance} from "./advance"
+import {MEDIUM_STAVE_UNICODES, NARROW_STAVE_UNICODES, WIDE_STAVE_UNICODES} from "./advanceOrBreak"
+import {MEDIUM_STAVE_WIDTH, NARROW_STAVE_WIDTH, WIDE_STAVE_WIDTH} from "./constants"
 import {computeAdvanceUnicode} from "./unicode"
 import {computeUnicodeWidth} from "./width"
 
-const computeAdvanceToEndIntroClause = (unicode: Unicode & Word): Unicode & Clause => {
-    const unicodeWidth = computeUnicodeWidth(unicode, {spacing: false})
+const computeAdvanceToEndIntroClause = (width: Octals): Unicode & Clause => {
+    let advanceToEndIntroClause: Unicode & Clause
 
-    let advanceToEndIntroClause = EMPTY_UNICODE as Unicode & Clause
-
-    // todo: okay i think i'm just not going to support anything with width > 8
-    //  no wait, I can just get it to work by dropping a bigger chunk of stave down!
-    //  but you should test drive it out
-    //  would be ideal if it had a helper method
-    //  should not export this constant all the way from over there
-    //  leverage the ability to use 16 or 24, if you can
-    //  an x'it'd test is there already for this
-    if (unicodeWidth > smarts.staveWidth) {
+    if (width > smarts.staveWidth && width > MEDIUM_STAVE_WIDTH) {
         advanceToEndIntroClause = sumTexts(
-            advanceToEndIntroClause,
             computeAdvanceUnicode(smarts.staveWidth),
-            NARROW_STAVE_UNICODES[smarts.stave] as string,
+            WIDE_STAVE_UNICODES[smarts.stave] as Unicode as Unicode & Clause,
+            computeAdvanceUnicode(subtract(WIDE_STAVE_WIDTH, width)),
         ) as Unicode & Clause
-        smarts.staveWidth = NARROW_STAVE_WIDTH
+    } else if (width > smarts.staveWidth && width > NARROW_STAVE_WIDTH) {
+        advanceToEndIntroClause = sumTexts(
+            computeAdvanceUnicode(smarts.staveWidth),
+            MEDIUM_STAVE_UNICODES[smarts.stave] as Unicode as Unicode & Clause,
+            computeAdvanceUnicode(subtract(MEDIUM_STAVE_WIDTH, width)),
+        ) as Unicode & Clause
+    } else if (width > smarts.staveWidth) {
+        advanceToEndIntroClause = sumTexts(
+            computeAdvanceUnicode(smarts.staveWidth),
+            NARROW_STAVE_UNICODES[smarts.stave] as Unicode as Unicode & Clause,
+            computeAdvanceUnicode(subtract(NARROW_STAVE_WIDTH, width)),
+        ) as Unicode & Clause
+    } else {
+        advanceToEndIntroClause = sumTexts(
+            computeAdvanceUnicode(subtract(smarts.staveWidth, width)),
+        )
     }
 
-    return sumTexts(
-        advanceToEndIntroClause,
-        computeAdvanceUnicode(subtract(smarts.staveWidth, unicodeWidth)),
-    )
+    return advanceToEndIntroClause
 }
 
 const computeAdvanceToEndIntroClauseAndUpdateSmarts = (unicode: Unicode & Word): Unicode & Clause => {
-    const advanceToEndIntroClause = computeAdvanceToEndIntroClause(unicode)
+    const width = computeUnicodeWidth(unicode, {spacing: false})
+    const advanceToEndIntroClause = computeAdvanceToEndIntroClause(width)
 
-    smarts.advanceWidth = 0 as Octals
+    smarts.staveWidth = width
     smarts.advanceToEnd = false
+    updateSmartAdvance(unicode, {spacing: false})
 
     return advanceToEndIntroClause
 }

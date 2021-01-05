@@ -1,5 +1,5 @@
 import {Clause, sumTexts, Word} from "@sagittal/general"
-import {Octals, Unicode} from "../../codes"
+import {computeDebugCodeFromUnicode, Octals, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {updateSmartAdvance} from "./advance"

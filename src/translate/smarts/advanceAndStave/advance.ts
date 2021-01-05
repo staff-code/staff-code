@@ -3,8 +3,8 @@ import {Unicode} from "../../codes"
 import {smarts} from "../globals"
 import {computeUnicodeWidth} from "./width"
 
-const updateSmartAdvance = (unicode: Unicode & Word): void => {
-    const width = computeUnicodeWidth(unicode)
+const updateSmartAdvance = (unicode: Unicode & Word, {spacing = true}: {spacing?: boolean} = {}): void => {
+    const width = computeUnicodeWidth(unicode, {spacing})
 
     smarts.advanceWidth = max(smarts.advanceWidth, width)
 }

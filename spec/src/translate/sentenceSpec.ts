@@ -332,24 +332,24 @@ nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt en; blsn` as Io & Sentence
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = `\
-    
-         
-          
-               
-                 
-                    
-                        
-                            ` as Unicode & Sentence
+     
+          
+           
+                
+                  
+                     
+                         
+                             ` as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = `\
-ntqrdn st8 8; st8 7; blsn br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 7; blsn br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; blsn br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 7; blsn br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 7; blsn br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 7; blsn br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 7; blsn br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 3; ntqrdn 5; st8 8; st8 7; blsn` as Code & Sentence
+ntqrdn st8 8; st8 7; blsn 1; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 7; blsn 1; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; blsn 1; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 7; blsn 1; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 7; blsn 1; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 7; blsn 1; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 7; blsn 1; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 3; ntqrdn 5; st8 8; st8 7; blsn 1;` as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -367,24 +367,24 @@ nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt en; bldb` as Io & Sentence
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = `\
-       
-        
-             
-                
-                 
-                      
-                       
-                            ` as Unicode & Sentence
+         
+          
+               
+                  
+                   
+                        
+                         
+                              ` as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = `\
-ntqrdn st8 8; st8 8; st8 3; bldb br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 3; bldb br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 8; st8 3; bldb br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 8; st8 3; bldb br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 3; bldb br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 8; st8 3; bldb br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 3; bldb br; \
-ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 3; ntqrdn 5; st8 8; st8 3; bldb` as Code & Sentence
+ntqrdn st8 8; st8 8; st8 3; bldb 5; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 3; bldb 5; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 8; st8 3; bldb 5; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 8; st8 3; bldb 5; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 3; bldb 5; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 8; st8 3; bldb 5; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 3; bldb 5; br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 3; ntqrdn 5; st8 8; st8 3; bldb 5;` as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -399,15 +399,92 @@ ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; s
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
-        // tslint:disable-next-line ban
-        xit("the advance-to-end code works for glyphs with larger widths", (): void => {
-            const inputSentence = "ston en; orprprdevxmr" as Io & Sentence // The code orprprdevxmr has 44 width
+        it("the advance-to-end code works for glyphs with widths between 1 and 8", (): void => {
+            const inputSentence = "ston en; chcrab" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "" as Unicode & Sentence
+            const expectedUnicode = "    " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "st8 4; orprprdevxmr 4; st24 24; st8 8;" as Code & Sentence
+            const expectedCodes = "st8 5; chcrab 3;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("the advance-to-end code works for glyphs with widths of exactly 8", (): void => {
+            const inputSentence = "ston en; brmrup" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = " " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "st8 brmrup 8;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("the advance-to-end code works for glyphs with widths between 8 and 16", (): void => {
+            const inputSentence = "ston en; bk" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = " 　  " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "st16 1; bk 15;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("the advance-to-end code works for glyphs with widths of exactly 16", (): void => {
+            const inputSentence = "ston en; acsm4dn" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = " " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "st16 acsm4dn 16;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("the advance-to-end code works for glyphs with widths between 16 and 24", (): void => {
+            const inputSentence = "ston en; accmLH3rnemsq" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "   " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "st24 4; accmLH3rnemsq 20;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("the advance-to-end code works for glyphs with widths of exactly 24", (): void => {
+            const inputSentence = "ston en; wgcrlrst" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "  " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "st24 wgcrlrst 24;" as Code & Sentence
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("you can continue the same line after using an advance-to-end code", (): void => {
+            const inputSentence = "ston nt en; nt ; nt" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "            " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            // todo wait a sec shouldn't all of these st8 8; st8 5; be st16 13; ???
+            //  review the original rationale for making these as small as possible.
+            //  maybe the current implementation of en; changes it?
+            /*
+             Which makes me think that we should revise the Smart Stave feature so that instead of populating the staff
+             24px at a time, it should do it 8px at a time, so that when you need to use this code, you stave break
+             ASAP, with as little undesirable wasted stave space as possible. It will result in longer sentences
+             (3x the count of stave characters), but I think that's a minor cost, considering that the alternative would
+             be to break from the purity of the implementation so far, as I described yesterday, with respect to how new
+             codewords never retroactively alter previous codes, i.e. that we don't have to rewind and replace the most
+             recent st24 deposited by Smart Staves into a st8 to effect the nicest barline break.
+             */
+            const expectedCodes = "ntqrdn st8 8; st8 8; st16 5; ntqrdn 11; ntqrdn st8 8; st8 5;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
     })

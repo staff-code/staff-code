@@ -59,7 +59,7 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
         const useUpExistingStaveAdvanceUnicode: Unicode = computeAdvanceUnicode(smarts.staveWidth)
         let remainingAdvanceWidthWeStillNeedToApply: Octals = subtract(width, smarts.staveWidth)
 
-        let staveAndAdvanceUnicode = "" as Unicode
+        let staveAndAdvanceUnicode = "" as Unicode & Word
 
         while (remainingAdvanceWidthWeStillNeedToApply > WIDE_STAVE_WIDTH) {
             staveAndAdvanceUnicode = sumTexts(
@@ -117,4 +117,6 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
 export {
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
     NARROW_STAVE_UNICODES,
+    MEDIUM_STAVE_UNICODES,
+    WIDE_STAVE_UNICODES,
 }
