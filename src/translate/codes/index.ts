@@ -13,9 +13,9 @@ export {computeUnicodeForCode} from "./unicode"
 export {computeUnicodeLiteral, isUnicodeLiteral, computeUnicodeFromUnicodeLiteral} from "./literal"
 export {SMuFL_MAP} from "./smufl"
 export {
-    NOT_SMuFL_SMART_SPACING_MAP,
+    NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
-    NOT_SMuFL_SMART_ADVANCE_MAP,
+    NOT_SMuFL_SMART_ADVANCE_NONSYMBOL_MAP,
 } from "./notSmufl"
 export {Unicode, Code, LowercasedCode, Octals, UnicodeLiteral} from "./types"

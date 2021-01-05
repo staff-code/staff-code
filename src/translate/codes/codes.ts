@@ -2,12 +2,12 @@ import {RecordKey, Word} from "@sagittal/general"
 import {ALIAS_SYMBOL_MAP} from "./aliases"
 import {mergeAllCodeMapsIntoLowercasedCodeMap} from "./merge"
 import {
-    NOT_SMuFL_DEFINE_CUSTOM_MAP,
-    NOT_SMuFL_MANUAL_ADVANCE_MAP,
+    NOT_SMuFL_DEFINE_CUSTOM_NONSYMBOL_MAP,
     NOT_SMuFL_LINE_BREAKS_MAP,
-    NOT_SMuFL_SMART_ADVANCE_MAP,
-    NOT_SMuFL_SMART_SPACING_MAP,
-    NOT_SMuFL_SMART_STAVE_MAP,
+    NOT_SMuFL_MANUAL_ADVANCE_MAP,
+    NOT_SMuFL_SMART_ADVANCE_NONSYMBOL_MAP,
+    NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP,
+    NOT_SMuFL_SMART_STAVE_NONSYMBOL_MAP,
     NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
 } from "./notSmufl"
@@ -25,13 +25,13 @@ const BASE_SYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ...NOT_SMuFL_MANUAL_ADVANCE_MAP,
 }
 
-// Nonsymbols are still assigned code points to allow users to re-map different codes to them, but do not emit them.
-// No aliases exist for nonsymbols at this time, so there is no need to split into base and alias.
+// Nonsymbols do not emit unicode code points, but are still assigned codes to prevent new codes from being defined that
+// Would conflict with them. No aliases exist for nonsymbols at this time, so no need to split into base and alias.
 const NONSYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    ...NOT_SMuFL_SMART_SPACING_MAP,
-    ...NOT_SMuFL_SMART_STAVE_MAP,
-    ...NOT_SMuFL_SMART_ADVANCE_MAP,
-    ...NOT_SMuFL_DEFINE_CUSTOM_MAP,
+    ...NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP,
+    ...NOT_SMuFL_SMART_STAVE_NONSYMBOL_MAP,
+    ...NOT_SMuFL_SMART_ADVANCE_NONSYMBOL_MAP,
+    ...NOT_SMuFL_DEFINE_CUSTOM_NONSYMBOL_MAP,
 }
 
 const LOWERCASED_CODE_MAP: Record<RecordKey<LowercasedCode & Word>, Unicode & Word> =

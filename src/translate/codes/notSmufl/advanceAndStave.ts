@@ -5,22 +5,6 @@ const NOT_SMuFL_LINE_BREAKS_MAP: Record<RecordKey<Code & Word>, Unicode & Word> 
     /*U+000A*/"lnfd": "\n",
 } as Record<Code & Word, Unicode & Word>
 
-const NOT_SMuFL_SMART_STAVE_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    /*U+E40C*/"ston": "",
-    /*U+E40D*/"stof": "",
-} as Record<Code & Word, Unicode & Word>
-
-const NOT_SMuFL_SMART_SPACING_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    /*U+F3D0*/"sp0": "",
-    /*U+F3D1*/"sp1": "",
-    /*U+F3D2*/"sp2": "",
-    /*U+F3D3*/"sp3": "",
-    /*U+F3D4*/"sp4": "",
-    /*U+F3D5*/"sp5": "",
-    /*U+F3D6*/"sp6": "",
-    /*U+F3D7*/"sp7": "",
-} as Record<Code & Word, Unicode & Word>
-
 const NOT_SMuFL_MANUAL_ADVANCE_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*U+200A              */"1;": " ",
     /*U+2009              */"2;": " ",
@@ -50,17 +34,7 @@ const NOT_SMuFL_MANUAL_ADVANCE_MAP: Record<RecordKey<Code & Word>, Unicode & Wor
 
 // * U+2001 EM QUAD, our desired "14;", is not in the font yet. Once it is, these should be replaced.
 
-const NOT_SMuFL_SMART_ADVANCE_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    /*U+F3EC*/";": "",
-    /*U+F3ED*/ "en;": "",
-    /*U+F3EE*/ "rt;": "",
-    /*U+F3EF*/ "cn;": "",
-} as Record<Code & Word, Unicode & Word>
-
 export {
     NOT_SMuFL_LINE_BREAKS_MAP,
-    NOT_SMuFL_SMART_STAVE_MAP,
-    NOT_SMuFL_SMART_SPACING_MAP,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
-    NOT_SMuFL_SMART_ADVANCE_MAP,
 }

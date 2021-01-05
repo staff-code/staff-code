@@ -3,8 +3,8 @@ import {
     Code,
     computeUnicodeForCode,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
-    NOT_SMuFL_SMART_ADVANCE_MAP,
-    NOT_SMuFL_SMART_SPACING_MAP,
+    NOT_SMuFL_SMART_ADVANCE_NONSYMBOL_MAP,
+    NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP,
     Octals,
     Unicode,
 } from "../../codes"
@@ -16,7 +16,7 @@ const ADVANCE_TO_END_UNICODE = computeUnicodeForCode("en;" as Code & Word)
 
 const SMART_ADVANCE_UNICODE = computeUnicodeForCode(";" as Code & Word)
 
-const SMART_ADVANCE_UNICODES = Object.values(NOT_SMuFL_SMART_ADVANCE_MAP)
+const SMART_ADVANCE_UNICODES = Object.values(NOT_SMuFL_SMART_ADVANCE_NONSYMBOL_MAP)
 const MANUAL_ADVANCE_UNICODES = Object.values(NOT_SMuFL_MANUAL_ADVANCE_MAP)
 const WIDTH_TO_ADVANCE_UNICODE_ARRAY: Array<Unicode & Word> =
     [EMPTY_UNICODE as Unicode & Word, ...MANUAL_ADVANCE_UNICODES]
@@ -24,7 +24,7 @@ const WIDTH_TO_ADVANCE_UNICODE_ARRAY: Array<Unicode & Word> =
 const SMART_STAVE_ON_UNICODE = computeUnicodeForCode("ston" as Code & Word)
 const SMART_STAVE_OFF_UNICODE = computeUnicodeForCode("stof" as Code & Word)
 
-const SPACING_UNICODES = Object.values(NOT_SMuFL_SMART_SPACING_MAP)
+const SPACING_UNICODES = Object.values(NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP)
 
 const MAX_ADVANCE_UNICODE = computeUnicodeForCode("24;" as Code & Word)
 const MAX_ADVANCE_WIDTH: Octals = 24 as Octals

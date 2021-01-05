@@ -68,7 +68,7 @@ const BASS_CONDITIONAL_POSITION_ALIASES_MAP: Record<RecordKey<Code & Word>, Unic
     "f1": NOT_SMuFL_CODES["staffPosLower12"],
     "e1": NOT_SMuFL_CODES["staffPosLower13"],
     "d1": NOT_SMuFL_CODES["staffPosLower14"],
-    "c1": NOT_SMuFL_CODES["staffPosLower15"],
+    "c1": NOT_SMuFL_CODES["staffPosLower15"], // todo maybe these should all be capitalized
 } as Record<Code & Word, Unicode & Word>
 
 export {
