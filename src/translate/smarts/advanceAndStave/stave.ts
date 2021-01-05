@@ -1,8 +1,5 @@
 import {Word} from "@sagittal/general"
-import {Code, computeUnicodeForCode, Octals, Unicode} from "../../codes"
-import {smarts} from "../globals"
-import {SMART_STAVE_OFF_UNICODE, SMART_STAVE_ON_UNICODE} from "./constants"
-import {SmartStave} from "./types"
+import {Code, computeUnicodeForCode} from "../../codes"
 
 const LINES_1_STAVE_UNICODES = [
     computeUnicodeForCode("st1lnnr" as Code & Word),
@@ -45,28 +42,13 @@ const PLAINCHANT_STAVE_UNICODES = [
     computeUnicodeForCode("chstwd" as Code & Word),
 ]
 
-// TODO: CLEAN: SMART STAVE UNICODE MATCHING
-//  Since this is so similar, perhaps this should live back up in introClause, with the rest of the unicode switch
-
-const updateSmartStave = (unicode: Unicode & Word): void => {
-    if (unicode === SMART_STAVE_ON_UNICODE) smarts.staveOn = true
-    if (unicode === SMART_STAVE_OFF_UNICODE) {
-        smarts.staveWidth = 0 as Octals
-        smarts.staveOn = false
-    }
-
-    if (smarts.staveOn) {
-        if (LINES_1_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_1
-        if (LINES_2_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_2
-        if (LINES_3_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_3
-        if (LINES_4_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_4
-        if (LINES_5_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_5
-        if (LINES_6_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LINES_6
-        if (LUTE_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.LUTE
-        if (PLAINCHANT_STAVE_UNICODES.includes(unicode)) smarts.stave = SmartStave.PLAINCHANT
-    }
-}
-
 export {
-    updateSmartStave,
+    LINES_1_STAVE_UNICODES,
+    LINES_2_STAVE_UNICODES,
+    LINES_3_STAVE_UNICODES,
+    LINES_4_STAVE_UNICODES,
+    LINES_5_STAVE_UNICODES,
+    LINES_6_STAVE_UNICODES,
+    LUTE_STAVE_UNICODES,
+    PLAINCHANT_STAVE_UNICODES,
 }

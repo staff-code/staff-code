@@ -4,17 +4,33 @@ import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {updateSmartAdvance} from "./advance"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
-import {ADVANCE_TO_END_UNICODE, BREAK_UNICODE, SMART_ADVANCE_UNICODE} from "./constants"
+import {
+    ADVANCE_TO_END_UNICODE,
+    BREAK_UNICODE,
+    SMART_ADVANCE_UNICODE,
+    SMART_STAVE_OFF_UNICODE,
+    SMART_STAVE_ON_UNICODE,
+} from "./constants"
 import {computeAdvanceToEndIntroClauseAndUpdateSmarts} from "./end"
 import {isManualAdvanceUnicode, isSpacingUnicode} from "./isUnicode"
 import {computeManualAdvanceWidth} from "./manualAdvance"
 import {computeSpacing} from "./spacing"
-import {updateSmartStave} from "./stave"
+import {
+    LINES_1_STAVE_UNICODES,
+    LINES_2_STAVE_UNICODES,
+    LINES_3_STAVE_UNICODES,
+    LINES_4_STAVE_UNICODES,
+    LINES_5_STAVE_UNICODES,
+    LINES_6_STAVE_UNICODES,
+    LUTE_STAVE_UNICODES,
+    PLAINCHANT_STAVE_UNICODES,
+} from "./stave"
+import {SmartStave} from "./types"
 
 const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
     unicode: Unicode & Word,
 ): Unicode & Clause => {
-    let smartAdvanceAndSmartStaveUnicodeIntroClause: Unicode & Clause
+    let smartAdvanceAndSmartStaveUnicodeIntroClause: Unicode & Clause = EMPTY_UNICODE as Unicode & Clause
 
     // TODO: CLEAN: IS IT REALLY INTRO CLAUSE HERE?
     //  I don't think any of these are ever actually "intro clause" or "prefix" because whenever they happen
@@ -38,24 +54,38 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
         smarts.staveWidth = 0 as Octals
     } else if (isSpacingUnicode(unicode)) {
         smarts.spacing = computeSpacing(unicode)
-        smartAdvanceAndSmartStaveUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
     } else if (unicode === ADVANCE_TO_END_UNICODE) {
         smarts.advanceToEnd = true
-        smartAdvanceAndSmartStaveUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
+    } else if (unicode === SMART_STAVE_ON_UNICODE) {
+        smarts.staveOn = true
+    } else if (unicode === SMART_STAVE_OFF_UNICODE) {
+        smarts.staveWidth = 0 as Octals
+        smarts.staveOn = false
+    } else if (smarts.staveOn && LINES_1_STAVE_UNICODES.includes(unicode)) {
+        smarts.stave = SmartStave.LINES_1
+    } else if (smarts.staveOn && LINES_2_STAVE_UNICODES.includes(unicode)) {
+        smarts.stave = SmartStave.LINES_2
+    } else if (smarts.staveOn && LINES_3_STAVE_UNICODES.includes(unicode)) {
+        smarts.stave = SmartStave.LINES_3
+    } else if (smarts.staveOn && LINES_4_STAVE_UNICODES.includes(unicode)) {
+        smarts.stave = SmartStave.LINES_4
+    } else if (smarts.staveOn && LINES_5_STAVE_UNICODES.includes(unicode)) {
+        smarts.stave = SmartStave.LINES_5
+    } else if (smarts.staveOn && LINES_6_STAVE_UNICODES.includes(unicode)) {
+        smarts.stave = SmartStave.LINES_6
+    } else if (smarts.staveOn && LUTE_STAVE_UNICODES.includes(unicode)) {
+        smarts.stave = SmartStave.LUTE
+    } else if (smarts.staveOn && PLAINCHANT_STAVE_UNICODES.includes(unicode)) {
+        smarts.stave = SmartStave.PLAINCHANT
+    } else if (smarts.staveOn && smarts.advanceToEnd) {
+        smartAdvanceAndSmartStaveUnicodeIntroClause = sumTexts(
+            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+                smarts.advanceWidth,
+            ),
+            computeAdvanceToEndIntroClauseAndUpdateSmarts(unicode),
+        )
     } else {
-        updateSmartStave(unicode)
-
-        if (smarts.staveOn && smarts.advanceToEnd) {
-            smartAdvanceAndSmartStaveUnicodeIntroClause = sumTexts(
-                computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-                    smarts.advanceWidth,
-                ),
-                computeAdvanceToEndIntroClauseAndUpdateSmarts(unicode),
-            )
-        } else {
-            updateSmartAdvance(unicode)
-            smartAdvanceAndSmartStaveUnicodeIntroClause = EMPTY_UNICODE as Unicode & Clause
-        }
+        updateSmartAdvance(unicode)
     }
 
     return smartAdvanceAndSmartStaveUnicodeIntroClause
