@@ -21,9 +21,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "      \n   " as Unicode & Sentence
+        const expectedUnicode = "      \n   " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl st16 16; st8 7; ntqrup 1; st8 8; st8 4; br; ntqrup st8 8; st8 5;" as Code & Sentence
+        const expectedCodes = "Gcl st16 16; st8 7; ntqrdn 1; st8 8; st8 4; br; ntqrdn st8 8; st8 5;" as Code & Sentence
         expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
     })
 
@@ -32,9 +32,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "      \n " as Unicode & Sentence
+        const expectedUnicode = "      \n " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl st16 16; st8 7; ntqrup 1; st8 8; st8 4; br; sp" as Code & Sentence
+        const expectedCodes = "Gcl st16 16; st8 7; ntqrdn 1; st8 8; st8 4; br; sp" as Code & Sentence
         expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
     })
 
@@ -43,9 +43,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "      \n   " as Unicode & Sentence
+        const expectedUnicode = "      \n   " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl st16 16; st8 7; ntqrup 1; st8 8; st8 4; br; ntqrup st8 8; st8 5;" as Code & Sentence
+        const expectedCodes = "Gcl st16 16; st8 7; ntqrdn 1; st8 8; st8 4; br; ntqrdn st8 8; st8 5;" as Code & Sentence
         expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
     })
 
@@ -66,9 +66,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "    　  　 " as Unicode & Sentence
+        const expectedUnicode = "    　  　 " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl 23; .{ 6; ntqrup 13; .} 6; ntqrup 13;" as Code & Sentence
+        const expectedCodes = "Gcl 23; .{ 6; ntqrdn 13; .} 6; ntqrdn 13;" as Code & Sentence
         expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
     })
 
@@ -122,9 +122,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "　 　 " as Unicode & Sentence
+            const expectedUnicode = "　 　 " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "up2 ntqrdn 13; /|\\ ntqrup 13;" as Code & Sentence
+            const expectedCodes = "up2 ntqrdn 13; /|\\ ntqrdn 13;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -205,13 +205,13 @@ describe("computeInputSentenceUnicode", (): void => {
             expectedCodes = "ntwh 17;"
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
 
-            actual = computeInputSentenceUnicode("nt2" as Io & Sentence)
+            actual = computeInputSentenceUnicode("nt2up" as Io & Sentence)
             expectedUnicode = "　 " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             expectedCodes = "nthfup 13;"
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
 
-            actual = computeInputSentenceUnicode("nt4" as Io & Sentence)
+            actual = computeInputSentenceUnicode("ntup" as Io & Sentence)
             expectedUnicode = "　 " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             expectedCodes = "ntqrup 13;"
@@ -286,13 +286,13 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("resets the advance amount after each application", (): void => {
-            const inputSentence = "lgln nt16up ; nt4" as Io & Sentence
+            const inputSentence = "lgln nt16up ; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "   　 " as Unicode & Sentence
+            const expectedUnicode = "   　 " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "lgln nt16up 21; ntqrup 13;" as Code & Sentence
+            const expectedCodes = "lgln nt16up 21; ntqrdn 13;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -332,24 +332,24 @@ nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt en; blsn` as Io & Sentence
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = `\
-    
-         
-          
-               
-                 
-                    
-                        
-                            ` as Unicode & Sentence
+    
+         
+          
+               
+                 
+                    
+                        
+                            ` as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = `\
-ntqrup st8 8; st8 5; 2; blsn br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; 5; blsn br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; blsn br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; 3; blsn br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; 6; blsn br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 7; blsn br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 6; ntqrup 2; st8 8; st8 3; 4; blsn br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 6; ntqrup 2; st8 8; st8 3; ntqrup 5; st8 8; st8 7; blsn` as Code & Sentence
+ntqrdn st8 8; st8 5; 2; blsn br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; 5; blsn br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; blsn br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; 3; blsn br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; 6; blsn br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 7; blsn br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 3; 4; blsn br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 3; ntqrdn 5; st8 8; st8 7; blsn` as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -367,24 +367,24 @@ nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt en; bldb` as Io & Sentence
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = `\
-       
-        
-             
-                
-                 
-                      
-                       
-                            ` as Unicode & Sentence
+       
+        
+             
+                
+                 
+                      
+                       
+                            ` as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = `\
-ntqrup st8 8; st8 5; 3; st8 3; bldb br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 3; bldb br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; 1; st8 3; bldb br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; 4; st8 3; bldb br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; 2; bldb br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 6; 2; st8 3; bldb br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 6; ntqrup 2; st8 8; st8 3; bldb br; \
-ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 4; st8 8; st8 1; ntqrup 7; st8 6; ntqrup 2; st8 8; st8 3; ntqrup 5; st8 8; st8 3; bldb` as Code & Sentence
+ntqrdn st8 8; st8 5; 3; st8 3; bldb br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 3; bldb br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; 1; st8 3; bldb br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; 4; st8 3; bldb br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; 2; bldb br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; 2; st8 3; bldb br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 3; bldb br; \
+ntqrdn st8 8; st8 5; ntqrdn 3; st8 8; st8 2; ntqrdn 6; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 4; st8 8; st8 1; ntqrdn 7; st8 6; ntqrdn 2; st8 8; st8 3; ntqrdn 5; st8 8; st8 3; bldb` as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -393,9 +393,9 @@ ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; s
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "　 " as Unicode & Sentence
+            const expectedUnicode = "　 " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "ntqrup blsn 13;" as Code & Sentence
+            const expectedCodes = "ntqrdn blsn 13;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -414,24 +414,24 @@ ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; s
 
     describe("Smart Stave", (): void => {
         it("automatically adds stave lines as needed, if smart stave has been asked for", (): void => {
-            const inputSentence = "ston nt8up ; nt4" as Io & Sentence
+            const inputSentence = "ston nt8up ; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "     " as Unicode & Sentence
+            const expectedUnicode = "     " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "nt8up st16 16; st8 4; ntqrup 4; st8 8; st8 1;" as Code & Sentence
+            const expectedCodes = "nt8up st16 16; st8 4; ntqrdn 4; st8 8; st8 1;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
         it("does not add additional lines as needed, if only a manual stave has been asked for", (): void => {
-            const inputSentence = "st5lnwd nt8up ; nt4" as Io & Sentence
+            const inputSentence = "st5lnwd nt8up ; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "  　 " as Unicode & Sentence
+            const expectedUnicode = "  　 " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "st24 nt8up 20; ntqrup 13;" as Code & Sentence
+            const expectedCodes = "st24 nt8up 20; ntqrdn 13;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -440,9 +440,9 @@ ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; s
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "      　 　    " as Unicode & Sentence
+            const expectedUnicode = "      　 　    " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Gcl st16 16; st8 7; ntqrup 1; st8 8; st8 4; ntqrup 13; ntqrup 13; ntqrup st8 8; st8 5;" as Code & Sentence
+            const expectedCodes = "Gcl st16 16; st8 7; ntqrdn 1; st8 8; st8 4; ntqrdn 13; ntqrdn 13; ntqrdn st8 8; st8 5;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -607,9 +607,9 @@ ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; s
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "     " as Unicode & Sentence
+            const expectedUnicode = "     " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "nt8up st4ln 16; st4lnnr 4; ntqrup 4; st4lnnr 8; st4lnnr 1;" as Code & Sentence
+            const expectedCodes = "nt8up st4ln 16; st4lnnr 4; ntqrdn 4; st4lnnr 8; st4lnnr 1;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -618,9 +618,9 @@ ntqrup st8 8; st8 5; ntqrup 3; st8 8; st8 2; ntqrup 6; st8 7; ntqrup 1; st8 8; s
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "     " as Unicode & Sentence
+            const expectedUnicode = "     " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "nt8up st16 16; st8 4; ntqrup 4; st8 8; st8 1;" as Code & Sentence
+            const expectedCodes = "nt8up st16 16; st8 4; ntqrdn 4; st8 8; st8 1;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
     })

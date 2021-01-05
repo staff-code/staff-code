@@ -2,7 +2,7 @@ import {RecordKey, Word} from "@sagittal/general"
 import {SMuFL_MAP} from "../../smufl"
 import {Code, Unicode} from "../../types"
 
-const MIDDLE_POSITION_AND_BELOW_CONDITIONAL_NOTE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
+const BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "nt2": SMuFL_MAP["noteHalfUp"],
     "nt4": SMuFL_MAP["noteQuarterUp"],
     "nt8": SMuFL_MAP["note8thUp"],
@@ -13,10 +13,12 @@ const MIDDLE_POSITION_AND_BELOW_CONDITIONAL_NOTE_ALIASES_MAP: Record<RecordKey<C
     "nt256": SMuFL_MAP["note256thUp"],
     "nt512": SMuFL_MAP["note512thUp"],
     "nt1024": SMuFL_MAP["note1024thUp"],
+    // todo this one is just an alias for "nt4" ... where does that put it?
+    //  perhaps it doesn't matter if none of them is going to get their own code point?
     "nt": SMuFL_MAP["noteQuarterUp"],
 } as Record<Code & Word, Unicode & Word>
 
-const ABOVE_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
+const MIDDLE_POSITION_AND_ABOVE_CONDITIONAL_NOTE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "nt2": SMuFL_MAP["noteHalfDown"],
     "nt4": SMuFL_MAP["noteQuarterDown"],
     "nt8": SMuFL_MAP["note8thDown"],
@@ -31,6 +33,6 @@ const ABOVE_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP: Record<RecordKey<Code 
 } as Record<Code & Word, Unicode & Word>
 
 export {
-    MIDDLE_POSITION_AND_BELOW_CONDITIONAL_NOTE_ALIASES_MAP,
-    ABOVE_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
+    BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
+    MIDDLE_POSITION_AND_ABOVE_CONDITIONAL_NOTE_ALIASES_MAP,
 }

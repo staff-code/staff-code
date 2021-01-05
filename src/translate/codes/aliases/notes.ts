@@ -9,6 +9,7 @@ const NOTE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "nt4up": SMuFL_MAP["noteQuarterUp"],
     "nt4dn": SMuFL_MAP["noteQuarterDown"],
     "ntdb": SMuFL_MAP["noteDoubleWhole"],
+    "ntup": SMuFL_MAP["noteQuarterUp"],
     "ntdn": SMuFL_MAP["noteQuarterDown"],
 } as Record<Code & Word, Unicode & Word>
 

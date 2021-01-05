@@ -6,8 +6,8 @@ enum Clef {
 }
 
 enum StemZone {
-    ABOVE_MIDDLE_POSITION,
-    MIDDLE_POSITION_AND_BELOW,
+    MIDDLE_POSITION_AND_ABOVE,
+    BELOW_MIDDLE_POSITION,
 }
 
 export {
