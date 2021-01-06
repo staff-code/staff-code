@@ -6,6 +6,7 @@ type StaffCodeCallback = (inputSentence: Io & Sentence, unicodeSentence: Unicode
 type StaffCodeOptions = Partial<{
     interactive: boolean,
     download: boolean,
+    copyLink: boolean,
     inline: boolean,
     initialText: Io,
     font: FontName,
@@ -18,6 +19,3 @@ export {
     StaffCodeOptions,
     StaffCodeCallback,
 }
-
-
-

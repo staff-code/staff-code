@@ -1,3 +1,4 @@
+import {buildCopyLinkButton} from "../../copyLinkButton"
 import {buildDisplay} from "../../display"
 import {buildDownloadButton} from "../../downloadButton"
 import {transferInputToDisplay} from "../../transfer"
@@ -5,7 +6,17 @@ import {StaffCodeOptions} from "../../types"
 import {buildPackageInput} from "./input"
 
 const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
-    const {download = true, interactive = true, inline = false, initialText, font, lineHeight, callback, size} = options
+    const {
+        download = true,
+        interactive = true,
+        inline = false,
+        initialText,
+        font,
+        lineHeight,
+        callback,
+        size,
+        copyLink = true,
+    } = options
 
     const root = document.createElement("span")
     root.classList.add("staff-code")
@@ -19,6 +30,10 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     if (download) {
         const downloadButton = buildDownloadButton(display)
         root.appendChild(downloadButton)
+    }
+    if (copyLink) {
+        const copyLinkButton = buildCopyLinkButton(input)
+        root.appendChild(copyLinkButton)
     }
 
     transferInputToDisplay(root, {callback})
