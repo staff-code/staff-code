@@ -24,9 +24,7 @@ const NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP: Record<RecordKey<Code & Word>, Unic
 
 const NOT_SMuFL_SMART_ADVANCE_NONSYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ";": EMPTY_UNICODE,     // Smart advance
-    // TODO: FEATURE IMPROVE: AT END OF LINES, ADVANCE TO END OF STAFF, DON'T EXCEED STAVE LINES, ALT SOLUTION TO EN;
-    ";;": EMPTY_UNICODE,    // Final smart advance, without spacing
-    // TODO: FEATURE IMPROVE, READY TO GO: EN; SHOULD WORK WHEN STOF, LIKE A ;
+    ";;": EMPTY_UNICODE,    // Final smart advance, using up remaining stave
     "en;": EMPTY_UNICODE,   // Advance-to-end
     "rt;": EMPTY_UNICODE,   // Right align
     "cn;": EMPTY_UNICODE,   // Center align

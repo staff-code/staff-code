@@ -1,9 +1,10 @@
-import {Clause, Io, subtract, Word} from "@sagittal/general"
+import {Clause, Io, subtract, sumTexts, Word} from "@sagittal/general"
 import {LowercasedCode, NONSYMBOL_MAP, Octals, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
 import {computeSpacing, isSpacingCode} from "./spacing"
+import {computeAdvanceUnicode} from "./unicode"
 
 const NONSYMBOL_CODES = Object.keys(NONSYMBOL_MAP)
 
@@ -11,6 +12,12 @@ const isNonsymbolCode = (input: Io & Word): boolean => {
     const lowercasedCode: LowercasedCode & Word = input.toLowerCase() as LowercasedCode & Word
 
     return NONSYMBOL_CODES.includes(lowercasedCode)
+}
+
+const computeEndOfLineWidth = (): Octals => {
+    const unspacedAdvance = subtract(smarts.advanceWidth, smarts.spacing)
+
+    return unspacedAdvance < 0 ? 0 as Octals : unspacedAdvance
 }
 
 const computeNonsymbolUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
@@ -24,10 +31,12 @@ const computeNonsymbolUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode
                 smarts.advanceWidth,
             )
     } else if (lowercasedCode === ";;") {
-        nonsymbolUnicodeClause =
+        nonsymbolUnicodeClause = sumTexts(
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-                subtract(smarts.advanceWidth, smarts.spacing)
-            )
+                computeEndOfLineWidth(),
+            ),
+            computeAdvanceUnicode(smarts.staveWidth),
+        )
     } else if (lowercasedCode === "en;") {
         smarts.advanceToEnd = true
     } else if (lowercasedCode === "ston") {
@@ -45,4 +54,5 @@ const computeNonsymbolUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode
 export {
     computeNonsymbolUnicodeClauseAndUpdateSmarts,
     isNonsymbolCode,
+    computeEndOfLineWidth,
 }
