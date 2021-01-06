@@ -1,1 +1,1 @@
-[staff={SIMPLETEXT1;optional} interactive={CHOICE1=true,false;defaultValue=false} inline={CHOICE2=true,false;defaultValue=false} font={SIMPLETEXT2;optional} size={SIMPLETEXT3;optional}]{TEXT}[/staff]
+[staff={SIMPLETEXT1;optional} interactive={CHOICE1=true,false;defaultValue=false} inline={CHOICE2=true,false;defaultValue=false} font={SIMPLETEXT2;optional} size={SIMPLETEXT3;defaultValue=1.13}]{TEXT}[/staff]
