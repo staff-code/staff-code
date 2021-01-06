@@ -1,4 +1,4 @@
-import {Decimal, Em, Multiplier} from "@sagittal/general"
+import {Em, Multiplier} from "@sagittal/general"
 import {StaffCodeOptions} from "./types"
 
 const FONT_SIZE = 2.5 as Em
@@ -8,7 +8,7 @@ const MARGIN_SIZE = 1 as Em
 const HORIZONTAL_MARGIN_MULTIPLIER = 1 / 8 as Multiplier<Em>
 
 const buildDisplay = (options: StaffCodeOptions = {}): HTMLElement => {
-    const {font, lineHeight, inline = false, size = 1 as Decimal<{integer: true}>} = options
+    const {font, lineHeight, inline = false, size = 1} = options
 
     const display = document.createElement(inline ? "span" : "div")
     if (inline) display.style.display = "inline-block"
