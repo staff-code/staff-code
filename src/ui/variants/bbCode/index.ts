@@ -19,3 +19,7 @@ import {loadFontsThen} from "../../fonts"
 import {setupBBCodeStaffCode} from "./setup"
 
 loadFontsThen(setupBBCodeStaffCode)
+
+// @ts-ignore
+// tslint:disable-next-line no-console
+console.warn("Version " + __VERSION__)
