@@ -38,7 +38,7 @@ const computeAdvanceToEndIntroClause = (width: Octals): Unicode & Clause => {
 }
 
 const computeAdvanceToEndIntroClauseAndUpdateSmarts = (unicode: Unicode & Word): Unicode & Clause => {
-    const width = computeUnicodeWidth(unicode, {spacing: false})
+    const width = subtract(computeUnicodeWidth(unicode, {spacing: false}), smarts.manualAdvance)
     const advanceToEndIntroClause = computeAdvanceToEndIntroClause(width)
 
     smarts.staveWidth = width

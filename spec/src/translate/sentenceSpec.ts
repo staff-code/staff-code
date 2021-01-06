@@ -330,9 +330,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "       " as Unicode & Sentence
+            const expectedUnicode = "          " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "up2 /|\\ st16 14; up2 ntqrdn 2; st16 16;" as Code & Sentence
+            const expectedCodes = "up2 /|\\ st16 14; up2 ntqrdn 2; st16 16; st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -504,11 +504,11 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
-        xit("the advance-to-end code can be adjusted with manual advance", (): void => {
+        it("the advance-to-end code can be adjusted with manual advance", (): void => {
             const inputSentence = "ston nt en; 1; bl" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
-            const expectedUnicode = "     "
+            const expectedUnicode = "        "
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "ntqrdn st16 16; blsn st8 8;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)

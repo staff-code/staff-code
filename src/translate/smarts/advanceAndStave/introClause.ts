@@ -1,4 +1,4 @@
-import {Clause, sumTexts, Word} from "@sagittal/general"
+import {Clause, Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
@@ -31,6 +31,7 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
         smartAdvanceAndSmartStaveUnicodeIntroClause =
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
                 manualAdvanceWidth,
+                {manual: true},
             )
     } else if (unicode === BREAK_UNICODE) {
         smartAdvanceAndSmartStaveUnicodeIntroClause = computeEndOfLineUnicodeClauseAndUpdateSmarts()

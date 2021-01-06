@@ -48,6 +48,7 @@ const WIDE_STAVE_UNICODES: Record<SmartStave, Unicode & Word> = {
 
 const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak = (
     width: Octals,
+    {manual = false}: {manual?: boolean} = {},
 ): Unicode & Clause => {
     let advanceUnicodeIntroClause: Unicode & Clause
     if (smarts.staveWidth >= width) {
@@ -112,7 +113,12 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
         ) as Unicode & Clause
     }
 
-    smarts.advanceWidth = 0 as Octals
+    if (manual) {
+        smarts.manualAdvance = width
+    } else {
+        smarts.manualAdvance = 0 as Octals
+        smarts.advanceWidth = 0 as Octals
+    }
 
     return advanceUnicodeIntroClause
 }
