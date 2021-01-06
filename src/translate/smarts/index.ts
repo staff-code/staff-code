@@ -4,6 +4,7 @@ export {
     isManualAdvanceUnicode,
     computeCommandUnicodeClauseAndUpdateSmarts,
     isCommandCode,
+    computeEndOfLineUnicodeClauseAndUpdateSmarts,
 } from "./advanceAndStave"
 export {INITIAL_SMARTS} from "./constants"
 export {isCommenting} from "./comments"

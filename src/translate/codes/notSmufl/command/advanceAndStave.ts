@@ -20,7 +20,6 @@ const NOT_SMuFL_SMART_SPACING_COMMAND_MAP: Record<RecordKey<Code & Word>, Unicod
 
 const NOT_SMuFL_SMART_ADVANCE_COMMAND_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ";": EMPTY_UNICODE,     // Smart advance
-    ";;": EMPTY_UNICODE,    // Final smart advance, using up remaining stave
     "en;": EMPTY_UNICODE,   // Advance-to-end
     "rt;": EMPTY_UNICODE,   // Right align
     "cn;": EMPTY_UNICODE,   // Center align

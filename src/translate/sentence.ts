@@ -2,16 +2,16 @@ import {
     BLANK,
     Clause,
     finalChar,
-    finalElement,
     Io,
     NEWLINE,
     Sentence,
     setAllPropertiesOfObjectOnAnother,
     SPACE,
+    sumTexts,
     Word,
 } from "@sagittal/general"
 import {Unicode} from "./codes"
-import {INITIAL_SMARTS, smarts} from "./smarts"
+import {computeEndOfLineUnicodeClauseAndUpdateSmarts, INITIAL_SMARTS, smarts} from "./smarts"
 import {computeInputUnicodeClause} from "./word"
 
 const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io & Sentence =>
@@ -25,14 +25,6 @@ const ensureLineBreaksImmediatelyDisplay = (unicodeSentence: Unicode & Sentence)
         `${unicodeSentence} ` as Unicode & Sentence :
         unicodeSentence
 
-const ensureFinalSymbolHasStaveUnderneathIfSmartStaveIsOn = (inputs: Array<Io & Word>): void => {
-    if (finalElement(inputs) !== ";") {
-        // TODO: I don't think this final-advance should actually have a code,
-        //  So there's no way a user can accidentally type it.
-        inputs.push(";;" as Io & Word)
-    }
-}
-
 const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Sentence => {
     // tslint:disable-next-line
     // console.warn("NEW SENTENCE ------------------", inputSentence)
@@ -40,13 +32,14 @@ const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Se
     setAllPropertiesOfObjectOnAnother({objectToChange: smarts, objectWithProperties: INITIAL_SMARTS})
 
     const inputs = collapseAllWhitespacesToSingleSpaces(inputSentence).split(SPACE) as Array<Io & Word>
-    ensureFinalSymbolHasStaveUnderneathIfSmartStaveIsOn(inputs)
 
     const unicodeClauses: Array<Unicode & Clause> = inputs.map(computeInputUnicodeClause)
     let unicodeSentence = unicodeClauses.join(BLANK) as Unicode & Sentence
     unicodeSentence = ensureLineBreaksImmediatelyDisplay(unicodeSentence)
 
-    return unicodeSentence
+    const endOfLineUnicodeClause = computeEndOfLineUnicodeClauseAndUpdateSmarts()
+
+    return sumTexts(unicodeSentence, endOfLineUnicodeClause as Unicode as Unicode & Sentence)
 }
 
 export {
