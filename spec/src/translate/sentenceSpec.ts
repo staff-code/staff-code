@@ -406,14 +406,14 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("the advance-to-end code has no effect when smart staff is not on", (): void => {
+        it("the advance-to-end code behaves like a normal smart advance when smart staff is not on (so that if the user deletes the ston code from their sentence, things look basically the same, just without the staff)", (): void => {
             const inputSentence = "nt en; bl" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "  " as Unicode & Sentence
+            const expectedUnicode = "　  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "ntqrdn blsn 11;" as Code & Sentence
+            const expectedCodes = "ntqrdn 13; blsn 1;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 

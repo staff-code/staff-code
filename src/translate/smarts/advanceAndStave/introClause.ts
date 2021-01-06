@@ -60,6 +60,13 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
             ),
             computeAdvanceToEndIntroClauseAndUpdateSmarts(unicode),
         )
+    } else if (smarts.advanceToEnd) {
+        smartAdvanceAndSmartStaveUnicodeIntroClause =
+            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+                smarts.advanceWidth,
+            )
+        smarts.advanceToEnd = false
+        updateSmartAdvance(unicode)
     } else {
         updateSmartAdvance(unicode)
     }
