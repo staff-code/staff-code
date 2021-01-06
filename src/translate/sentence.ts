@@ -27,7 +27,7 @@ const ensureLineBreaksImmediatelyDisplay = (unicodeSentence: Unicode & Sentence)
 
 const ensureFinalSymbolHasStaveUnderneathIfSmartStaveIsOn = (inputs: Array<Io & Word>): void => {
     if (finalElement(inputs) !== ";") {
-        inputs.push(";" as Io & Word)
+        inputs.push(";;" as Io & Word)
     }
 }
 

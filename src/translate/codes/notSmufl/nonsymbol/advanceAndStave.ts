@@ -3,8 +3,8 @@ import {EMPTY_UNICODE} from "../../../constants"
 import {Code, Unicode} from "../../types"
 
 const NOT_SMuFL_SMART_STAVE_NONSYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    "ston": EMPTY_UNICODE,
-    "stof": EMPTY_UNICODE,
+    "ston": EMPTY_UNICODE,  // Smart staff on
+    "stof": EMPTY_UNICODE,  // Smart staff off
 } as Record<Code & Word, Unicode & Word>
 
 const NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
@@ -19,10 +19,11 @@ const NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP: Record<RecordKey<Code & Word>, Unic
 } as Record<Code & Word, Unicode & Word>
 
 const NOT_SMuFL_SMART_ADVANCE_NONSYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    ";": EMPTY_UNICODE,
-    "en;": EMPTY_UNICODE,
-    "rt;": EMPTY_UNICODE,
-    "cn;": EMPTY_UNICODE,
+    ";": EMPTY_UNICODE,     // Smart advance
+    ";;": EMPTY_UNICODE,    // Final smart advance, without spacing
+    "en;": EMPTY_UNICODE,   // Advance-to-end
+    "rt;": EMPTY_UNICODE,   // Right align
+    "cn;": EMPTY_UNICODE,   // Center align
 } as Record<Code & Word, Unicode & Word>
 
 export {

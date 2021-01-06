@@ -43,7 +43,7 @@ const computeAdvanceToEndIntroClauseAndUpdateSmarts = (unicode: Unicode & Word):
 
     smarts.staveWidth = width
     smarts.advanceToEnd = false
-    updateSmartAdvance(unicode, {spacing: false})
+    updateSmartAdvance(unicode)
 
     return advanceToEndIntroClause
 }

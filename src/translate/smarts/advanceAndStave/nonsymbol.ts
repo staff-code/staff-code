@@ -1,4 +1,4 @@
-import {Clause, Io, Word} from "@sagittal/general"
+import {Clause, Io, subtract, Word} from "@sagittal/general"
 import {LowercasedCode, NONSYMBOL_MAP, Octals, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
@@ -22,6 +22,11 @@ const computeNonsymbolUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode
         nonsymbolUnicodeClause =
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
                 smarts.advanceWidth,
+            )
+    } else if (lowercasedCode === ";;") {
+        nonsymbolUnicodeClause =
+            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+                subtract(smarts.advanceWidth, smarts.spacing)
             )
     } else if (lowercasedCode === "en;") {
         smarts.advanceToEnd = true

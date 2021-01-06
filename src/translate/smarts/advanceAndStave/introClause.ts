@@ -1,4 +1,4 @@
-import {Clause, sumTexts, Word} from "@sagittal/general"
+import {Clause, subtract, sumTexts, Word} from "@sagittal/general"
 import {Octals, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
@@ -34,7 +34,7 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
     } else if (unicode === BREAK_UNICODE) {
         smartAdvanceAndSmartStaveUnicodeIntroClause =
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-                smarts.advanceWidth,
+                subtract(smarts.advanceWidth, smarts.spacing),
             )
         smarts.staveWidth = 0 as Octals
     } else if (smarts.staveOn && LINES_1_STAVE_UNICODES.includes(unicode)) {
