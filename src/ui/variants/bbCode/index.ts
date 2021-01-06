@@ -18,10 +18,10 @@ Text, and its precursors Bravura and SMuFL. For more information see https://www
 import {loadFontsThen} from "../../fonts"
 import {setupBBCodeStaffCode} from "./setup"
 
+(globalThis as unknown as {staffCode: boolean}).staffCode = true
+
 loadFontsThen(setupBBCodeStaffCode)
 
 // @ts-ignore
 // tslint:disable-next-line no-console
 console.warn("Version " + __VERSION__)
-
-(globalThis as unknown as {staffCode: boolean}).staffCode = true
