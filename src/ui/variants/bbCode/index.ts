@@ -23,3 +23,5 @@ loadFontsThen(setupBBCodeStaffCode)
 // @ts-ignore
 // tslint:disable-next-line no-console
 console.warn("Version " + __VERSION__)
+
+(globalThis as unknown as {staffCode: boolean}).staffCode = true

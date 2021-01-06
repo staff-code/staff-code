@@ -1,6 +1,6 @@
 const loadFontsThen = (fn: () => void): void => {
     let fontsLoaded = false
-    const woff = new FontFace("Bravura Text BB", "url('https://sagittal.github.io/assets/fonts/BravuraTextBB.woff')")
+    const woff = new FontFace("Bravura Text BB", "url('assets/fonts/BravuraTextBB.woff'), url('https://sagittal.github.io/assets/fonts/BravuraTextBB.woff')")
     woff.load().then((): void => {
         document.fonts.add(woff)
         if (!fontsLoaded) {
@@ -8,7 +8,7 @@ const loadFontsThen = (fn: () => void): void => {
             fontsLoaded = true
         }
     })
-    const otf = new FontFace("Bravura Text BB", "url('https://sagittal.github.io/assets/fonts/BravuraTextBB.otf')")
+    const otf = new FontFace("Bravura Text BB", "url('assets/fonts/BravuraTextBB.otf'), url('https://sagittal.github.io/assets/fonts/BravuraTextBB.otf')")
     otf.load().then((): void => {
         document.fonts.add(otf)
         if (!fontsLoaded) {
