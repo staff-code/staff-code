@@ -8,7 +8,7 @@ import {BREAK_UNICODE} from "./constants"
 import {computeAdvanceToEndIntroClauseAndUpdateSmarts} from "./end"
 import {isManualAdvanceUnicode} from "./isUnicode"
 import {computeManualAdvanceWidth} from "./manualAdvance"
-import {computeEndOfLineWidth} from "./nonsymbol"
+import {computeEndOfLineWidth} from "./command"
 import {
     LINES_1_STAVE_UNICODES,
     LINES_2_STAVE_UNICODES,

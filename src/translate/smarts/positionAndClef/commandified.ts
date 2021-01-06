@@ -3,9 +3,9 @@ import {Unicode} from "../../codes"
 import {isManualStaffUnicode} from "../advanceAndStave"
 import {smarts} from "../globals"
 
-const isNonsymbolifiedStaffUnicode = (unicode: Unicode & Word): boolean =>
+const isCommandifiedStaffUnicode = (unicode: Unicode & Word): boolean =>
     smarts.staveOn && isManualStaffUnicode(unicode)
 
 export {
-    isNonsymbolifiedStaffUnicode,
+    isCommandifiedStaffUnicode,
 }

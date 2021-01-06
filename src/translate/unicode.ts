@@ -4,14 +4,14 @@ import {EMPTY_UNICODE} from "./constants"
 import {
     getUnicodeGivenClefAndPosition,
     isManualAdvanceUnicode,
-    isNonsymbolifiedStaffUnicode,
+    isCommandifiedStaffUnicode,
     isPositionUnicode,
 } from "./smarts"
 
 const shouldNotBeDisplayed = (unicode: Unicode & Word): boolean =>
     isPositionUnicode(unicode)
     || isManualAdvanceUnicode(unicode)
-    || isNonsymbolifiedStaffUnicode(unicode)
+    || isCommandifiedStaffUnicode(unicode)
 
 const computeMaybeNotDisplayedUnicode = (unicode: Unicode & Word): Unicode & Word =>
     shouldNotBeDisplayed(unicode) ?

@@ -1,17 +1,17 @@
 import {Clause, Io, subtract, sumTexts, Word} from "@sagittal/general"
-import {LowercasedCode, NONSYMBOL_MAP, Octals, Unicode} from "../../codes"
+import {LowercasedCode, COMMAND_MAP, Octals, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
 import {computeSpacing, isSpacingCode} from "./spacing"
 import {computeAdvanceUnicode} from "./unicode"
 
-const NONSYMBOL_CODES = Object.keys(NONSYMBOL_MAP)
+const COMMAND_CODES = Object.keys(COMMAND_MAP)
 
-const isNonsymbolCode = (input: Io & Word): boolean => {
+const isCommandCode = (input: Io & Word): boolean => {
     const lowercasedCode: LowercasedCode & Word = input.toLowerCase() as LowercasedCode & Word
 
-    return NONSYMBOL_CODES.includes(lowercasedCode)
+    return COMMAND_CODES.includes(lowercasedCode)
 }
 
 const computeEndOfLineWidth = (): Octals => {
@@ -20,18 +20,18 @@ const computeEndOfLineWidth = (): Octals => {
     return unspacedAdvance < 0 ? 0 as Octals : unspacedAdvance
 }
 
-const computeNonsymbolUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
-    let nonsymbolUnicodeClause: Unicode & Clause = EMPTY_UNICODE as Unicode & Clause
+const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
+    let commandUnicodeClause: Unicode & Clause = EMPTY_UNICODE as Unicode & Clause
 
     const lowercasedCode: LowercasedCode & Word = input.toLowerCase() as LowercasedCode & Word
 
     if (lowercasedCode === ";") {
-        nonsymbolUnicodeClause =
+        commandUnicodeClause =
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
                 smarts.advanceWidth,
             )
     } else if (lowercasedCode === ";;") {
-        nonsymbolUnicodeClause = sumTexts(
+        commandUnicodeClause = sumTexts(
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
                 computeEndOfLineWidth(),
             ),
@@ -48,11 +48,11 @@ const computeNonsymbolUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode
         smarts.spacing = computeSpacing(lowercasedCode)
     }
 
-    return nonsymbolUnicodeClause
+    return commandUnicodeClause
 }
 
 export {
-    computeNonsymbolUnicodeClauseAndUpdateSmarts,
-    isNonsymbolCode,
+    computeCommandUnicodeClauseAndUpdateSmarts,
+    isCommandCode,
     computeEndOfLineWidth,
 }

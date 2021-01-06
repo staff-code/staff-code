@@ -1,7 +1,7 @@
 import {Word} from "@sagittal/general"
-import {LowercasedCode, NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP, Octals} from "../../codes"
+import {LowercasedCode, NOT_SMuFL_SMART_SPACING_COMMAND_MAP, Octals} from "../../codes"
 
-const SPACING_CODES = Object.keys(NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP)
+const SPACING_CODES = Object.keys(NOT_SMuFL_SMART_SPACING_COMMAND_MAP)
 
 const isSpacingCode = (lowercasedCode: LowercasedCode & Word): boolean =>
     SPACING_CODES.includes(lowercasedCode)

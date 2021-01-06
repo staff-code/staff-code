@@ -15,7 +15,7 @@ const mergeAllCodeMapsIntoLowercasedCodeMap = (
         mapEntries.forEach(([code, unicode]: [Code & Word, Unicode & Word]): void => {
             const lowercasedCode = code.toLowerCase() as LowercasedCode & Word
             if (!isUndefined(mergedAndLowercasedMaps[lowercasedCode])) {
-                throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteral(mergedAndLowercasedMaps[lowercasedCode])} and code point ${computeUnicodeLiteral(unicode)}. If ${computeUnicodeLiteral(EMPTY_UNICODE as Unicode & Word)}, it is probably a nonsymbol code used for smart StaffCode features.`)
+                throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteral(mergedAndLowercasedMaps[lowercasedCode])} and code point ${computeUnicodeLiteral(unicode)}. If ${computeUnicodeLiteral(EMPTY_UNICODE as Unicode & Word)}, it is probably used for a StaffCode command.`)
             }
             mergedAndLowercasedMaps[lowercasedCode] = unicode
         })

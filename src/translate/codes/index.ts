@@ -7,16 +7,16 @@ export {
     MIDDLE_POSITION_AND_ABOVE_CONDITIONAL_NOTE_ALIASES_MAP,
     BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
 } from "./aliases"
-export {LOWERCASED_CODE_MAP, BASE_SYMBOL_MAP, NONSYMBOL_MAP} from "./codes"
+export {LOWERCASED_CODE_MAP, BASE_SYMBOL_MAP, COMMAND_MAP} from "./codes"
 export {computeDebugCodeFromUnicode} from "./code"
 export {computeUnicodeForCode} from "./unicode"
 export {computeUnicodeLiteral, isUnicodeLiteral, computeUnicodeFromUnicodeLiteral} from "./literal"
 export {SMuFL_MAP} from "./smufl"
 export {
-    NOT_SMuFL_SMART_SPACING_NONSYMBOL_MAP,
+    NOT_SMuFL_SMART_SPACING_COMMAND_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
-    NOT_SMuFL_SMART_ADVANCE_NONSYMBOL_MAP,
+    NOT_SMuFL_SMART_ADVANCE_COMMAND_MAP,
 } from "./notSmufl"
 export {Unicode, Code, LowercasedCode, Octals, UnicodeLiteral} from "./types"
 export {mergeAllCodeMapsIntoLowercasedCodeMap} from "./merge"
