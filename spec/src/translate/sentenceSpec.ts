@@ -25,9 +25,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "      \n     " as Unicode & Sentence
+        const expectedUnicode = "       \n     " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 10; br; ntqrdn st16 16;" as Code & Sentence
+        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; br; ntqrdn st16 16;" as Code & Sentence
         expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
     })
 
@@ -36,9 +36,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "      \n " as Unicode & Sentence
+        const expectedUnicode = "       \n " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 10; br; sp" as Code & Sentence
+        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; br; sp" as Code & Sentence
         expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
     })
 
@@ -47,9 +47,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "      \n     " as Unicode & Sentence
+        const expectedUnicode = "       \n     " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 10; br; ntqrdn st16 16;" as Code & Sentence
+        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; br; ntqrdn st16 16;" as Code & Sentence
         expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
     })
 
@@ -518,14 +518,14 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("can be turned off and on", (): void => {
+        it("can be turned off and on, and upon turning it off, it advances you to the end of the stave it has already laid down", (): void => {
             const inputSentence = "ston Gcl ; nt ; stof nt ; nt ; ston nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "      　 　      " as Unicode & Sentence
+            const expectedUnicode = "       　 　      " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 12; ntqrdn 13; ntqrdn 13; ntqrdn st16 16;" as Code & Sentence
+            const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; ntqrdn 13; ntqrdn 13; ntqrdn st16 16;" as Code & Sentence
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
