@@ -29,7 +29,7 @@ const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
     const inputUnicodeClause = extendClause(introClauseUnicode, displayUnicode) as Unicode & Clause
 
     // tslint:disable-next-line
-    // console.warn(`${input} → ${computeCodeSentenceFromUnicodeSentence(inputUnicodeClause as Unicode as Unicode & Sentence)}\nsmarts: ${stringify(smarts)}\n`)
+    // console.warn(`${input} → ${debugCodeSentence(inputUnicodeClause as Unicode as Unicode & Sentence)}\nsmarts: ${stringify(smarts)}\n`)
 
     return inputUnicodeClause
 }

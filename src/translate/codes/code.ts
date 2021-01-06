@@ -28,7 +28,7 @@ const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES = Object.entr
     BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING,
 ) as Array<[unknown, Unicode & Word]> as Array<[Code & Word, Unicode & Word]>
 
-const computeDebugCodeFromUnicode = (unicode: Unicode & Word): Code & Word => {
+const debugCode = (unicode: Unicode & Word): Code & Word => {
     const codeEntry = BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES
         .find((codeEntry: [Code & Word, Unicode & Word]): boolean => {
             const [_, symbolUnicode] = codeEntry
@@ -66,16 +66,16 @@ const collapseAdvancesForDebugging = (codes: Array<Code & Word>): Array<Code & W
     return codesWithAdvancesCollapsed
 }
 
-const computeCodeSentenceFromUnicodeSentence = (unicodeSentence: Unicode & Sentence): Code & Sentence => {
+const debugCodeSentence = (unicodeSentence: Unicode & Sentence): Code & Sentence => {
     const unicodeWords = unicodeSentence.split(BLANK) as Array<Unicode & Word>
 
-    const codes: Array<Code & Word> = unicodeWords.map(computeDebugCodeFromUnicode)
+    const codes: Array<Code & Word> = unicodeWords.map(debugCode)
     const codesWithAdvancesCollapsed = collapseAdvancesForDebugging(codes)
 
     return joinWords(...codesWithAdvancesCollapsed)
 }
 
 export {
-    computeDebugCodeFromUnicode,
-    computeCodeSentenceFromUnicodeSentence,
+    debugCode,
+    debugCodeSentence,
 }

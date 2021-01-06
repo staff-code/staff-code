@@ -5,8 +5,6 @@ import {Code, Unicode} from "../../types"
 const NOT_SMuFL_SMART_STAVE_COMMAND_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "ston": EMPTY_UNICODE,  // Smart staff on
     "stof": EMPTY_UNICODE,  // Smart staff off
-    // TODO: MAYBE BUG: I just realised that the en; lookahead should stop if it reaches a "stof" or a "br;"
-    //  Without finding any visible symbol. It shouldn't search all the way to the end of the input in that case.
 } as Record<Code & Word, Unicode & Word>
 
 const NOT_SMuFL_SMART_SPACING_COMMAND_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {

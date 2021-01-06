@@ -32,7 +32,6 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
         smarts.staveOn = true
     } else if (lowercasedCode === "stof") {
         commandUnicodeClause = computeEndOfLineUnicodeClauseAndUpdateSmarts()
-        smarts.staveWidth = 0 as Octals
         smarts.staveOn = false
     } else if (isSpacingCode(lowercasedCode)) {
         smarts.spacing = computeSpacing(lowercasedCode)
