@@ -185,6 +185,9 @@ describe("computeInputSentenceUnicode", (): void => {
             let expectedUnicode
             let expectedCodes
 
+            // These tests are taking advantage of the fact that there is a secret smart advance character
+            // Appended to the end of each input sentence.
+
             actual = computeInputSentenceUnicode("lgln" as Io & Sentence)
             expectedUnicode = "　 " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
@@ -255,6 +258,17 @@ describe("computeInputSentenceUnicode", (): void => {
             expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             expectedCodes = "nt16dn 11;"
+            expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("does not repeatedly advance if multiple smart advance codes are provided (besides adding the default 2 spacing, in preparation for if you were to provide an actual next glyph)", (): void => {
+            const inputSentence = "ntup ; ; ; ; ; ;" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "　 " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "ntqrup 13;"
             expect(computeCodeSentenceFromUnicodeSentence(actual)).toBe(expectedCodes)
         })
 
