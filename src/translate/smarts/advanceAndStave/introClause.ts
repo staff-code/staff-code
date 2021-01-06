@@ -52,17 +52,9 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
     } else if (smarts.staveOn && PLAINCHANT_STAVE_UNICODES.includes(unicode)) {
         smarts.stave = SmartStave.PLAINCHANT
     } else if (smarts.staveOn && smarts.advanceToEnd) {
-        smartAdvanceAndSmartStaveUnicodeIntroClause = sumTexts(
-            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-                smarts.advanceWidth,
-            ),
-            computeAdvanceToEndIntroClauseAndUpdateSmarts(unicode),
-        )
-    } else if (smarts.advanceToEnd) {
         smartAdvanceAndSmartStaveUnicodeIntroClause =
-            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-                smarts.advanceWidth,
-            )
+            computeAdvanceToEndIntroClauseAndUpdateSmarts(unicode)
+    } else if (smarts.advanceToEnd) {
         smarts.advanceToEnd = false
         updateSmartAdvance(unicode)
     } else {

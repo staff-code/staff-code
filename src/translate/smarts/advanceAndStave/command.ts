@@ -26,6 +26,10 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
             )
     } else if (lowercasedCode === "en;") {
         smarts.advanceToEnd = true
+        commandUnicodeClause =
+            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+                smarts.advanceWidth,
+            )
     } else if (lowercasedCode === "ston") {
         smarts.staveOn = true
     } else if (lowercasedCode === "stof") {

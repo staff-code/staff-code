@@ -8,7 +8,7 @@ export {
     BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
 } from "./aliases"
 export {LOWERCASED_CODE_MAP, BASE_SYMBOL_MAP, COMMAND_MAP} from "./codes"
-export {debugCode} from "./code"
+export {debugCode, debugCodeSentence} from "./code"
 export {computeUnicodeForCode} from "./unicode"
 export {computeUnicodeLiteral, isUnicodeLiteral, computeUnicodeFromUnicodeLiteral} from "./literal"
 export {SMuFL_MAP} from "./smufl"

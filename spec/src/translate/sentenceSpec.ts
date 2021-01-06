@@ -498,14 +498,20 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             const inputSentence = "ston nt en; br; bl ; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
-            const expectedUnicode = "     \n      "
+            const expectedUnicode = "     \n      "
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "ntqrdn st16 16; br; blsn st8 3; ntqrdn 5; st8 8;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("the advance-to-end code is canceled by a stof", (): void => {
+        xit("the advance-to-end code can be adjusted with manual advance", (): void => {
+            const inputSentence = "ston nt en; 1; bl" as Io & Sentence
 
+            const actual = computeInputSentenceUnicode(inputSentence)
+            const expectedUnicode = "     "
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "ntqrdn st16 16; blsn st8 8;"
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
     })
 
