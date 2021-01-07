@@ -1,6 +1,6 @@
 import {BLANK, Io, Sentence} from "@sagittal/general"
-import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {WEB_APP_URL} from "./constants"
+import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "./initial"
 import {Initial} from "./types"
 
@@ -14,15 +14,14 @@ const onWebApp = (): boolean => {
     return baseUrl === WEB_APP_URL
 }
 
-// TODO: FEATURE IMPROVE, READY TO GO: READABLE CODES PARAM
-//  Make the code list in the URL more nearly human readable
-
 const handleCopyLinkClick = (
     input: HTMLTextAreaElement,
     sizeSpinner?: HTMLInputElement,
     lineSpinner?: HTMLInputElement,
 ): void => {
-    const initialCodesParam = encodeURIComponent(prepareCodesToBeHumanReadableAsEncodedQueryParams(input.value as Io & Sentence))
+    const initialCodesParam = encodeURIComponent(
+        prepareCodesToBeHumanReadableAsEncodedQueryParams(input.value as Io & Sentence),
+    )
 
     const initialSizeParam = sizeSpinner ?
         sizeSpinner.value === `${DEFAULT_INITIAL_SIZE}` ? BLANK : `&${Initial.SIZE}=${sizeSpinner.value}` :

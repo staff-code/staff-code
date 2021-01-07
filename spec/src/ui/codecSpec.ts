@@ -1,5 +1,8 @@
 import {Io, Sentence} from "@sagittal/general"
-import {undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams, prepareCodesToBeHumanReadableAsEncodedQueryParams} from "../../../src/ui/human"
+import {
+    prepareCodesToBeHumanReadableAsEncodedQueryParams,
+    undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams,
+} from "../../../src/ui/human"
 import {EncodedCode} from "../../../src/ui/types"
 
 describe("prepareCodesToBeHumanReadableAsEncodedQueryParams", (): void => {
