@@ -10,6 +10,9 @@ const onWebApp = (): boolean => {
     return baseUrl === WEB_APP_URL
 }
 
+// TODO: FEATURE IMPROVE, READY TO GO: READABLE CODES PARAM
+//  Make the code list in the URL more nearly human readable
+
 const handleCopyLinkClick = (
     input: HTMLTextAreaElement,
     sizeSpinner?: HTMLInputElement,
