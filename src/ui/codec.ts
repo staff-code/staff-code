@@ -1,6 +1,8 @@
 import {Io, Sentence, SPACE} from "@sagittal/general"
 import {EncodedCode} from "./types"
 
+// TODO, FEATURE IMPROVE, READY TO GO: RENAME PARAM ENCODING TO BE SOMETHING MORE TO DO WITH HUMAN READABILITY
+
 const encodeCodes = (inputSentence: Io & Sentence): EncodedCode & Sentence =>
     inputSentence
         .replace(/ /g, "-")

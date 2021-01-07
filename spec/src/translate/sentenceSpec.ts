@@ -386,24 +386,24 @@ nt ; nt ; nt ; nt ; nt ; nt ; nt ; nt en; bldb` as Io & Sentence
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = `\
-         
-          
-               
-                  
-                   
-                        
-                         
-                              ` as Unicode & Sentence
+       
+         
+             
+              
+                   
+                      
+                         
+                            ` as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = `\
-ntqrdn st16 16; st8 3; bldb 5; br; \
-ntqrdn st16 13; ntqrdn 3; st16 11; bldb 5; br; \
-ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 8; st8 3; bldb 5; br; \
-ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 16; st8 3; bldb 5; br; \
-ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4; st16 11; bldb 5; br; \
-ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4; st16 9; ntqrdn 7; st8 8; st8 3; bldb 5; br; \
-ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4; st16 9; ntqrdn 7; st8 6; ntqrdn 2; st16 11; bldb 5; br; \
-ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4; st16 9; ntqrdn 7; st8 6; ntqrdn 2; st16 11; ntqrdn 5; st8 8; st8 3; bldb 5;` as Code & Sentence
+ntqrdn st16 16; st8 4; bldb 4; br; \
+ntqrdn st16 13; ntqrdn 3; st16 12; bldb 4; br; \
+ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 8; st8 4; bldb 4; br; \
+ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; bldb 4; br; \
+ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4; st16 12; bldb 4; br; \
+ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4; st16 9; ntqrdn 7; st8 8; st8 4; bldb 4; br; \
+ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4; st16 9; ntqrdn 7; st8 6; ntqrdn 2; st16 12; bldb 4; br; \
+ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4; st16 9; ntqrdn 7; st8 6; ntqrdn 2; st16 11; ntqrdn 5; st8 8; st8 4; bldb 4;` as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
