@@ -15,3 +15,6 @@ const buildCopyLinkButton = (input: HTMLTextAreaElement): HTMLButtonElement => {
 export {
     buildCopyLinkButton,
 }
+
+// TODO: FEATURE IMPROVE, READY TO GO: STORE CODES IN COOKIE
+//  So that you could come away and come back, and it would keep where you were

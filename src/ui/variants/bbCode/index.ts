@@ -25,6 +25,9 @@ posting.php?mode=reply&f=17&t=436:313 A parser-blocking, cross site (i.e. differ
 */
 (globalThis as unknown as {staffCode: boolean}).staffCode = true
 
+// TODO: FEATURE IMPROVE, READY TO GO: PREVENT LOCAL STAFF_CODE FETCH FROM FAILING ONCE FOR EACH [STAFF] ON THE PAGE
+//  Perhaps using the same mechanism as is used to conditionally load the remote script?
+
 loadFontsThen(setupBBCodeStaffCode)
 
 // @ts-ignore
