@@ -3,8 +3,8 @@ import {computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, LowercasedCode, Unic
 import {EMPTY_UNICODE} from "./constants"
 import {
     getUnicodeGivenClefAndPosition,
-    isManualAdvanceUnicode,
     isCommandifiedStaffUnicode,
+    isManualAdvanceUnicode,
     isPositionUnicode,
 } from "./smarts"
 

@@ -2,8 +2,8 @@ import {Word} from "@sagittal/general"
 import {
     Code,
     computeUnicodeForCode,
-    LowercasedCode,
     LOWERCASED_CODE_MAP,
+    LowercasedCode,
     Unicode,
 } from "../../../../../src/translate/codes"
 import {takesLegerLine} from "../../../../../src/translate/smarts/leger"

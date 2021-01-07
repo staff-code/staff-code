@@ -26,7 +26,7 @@ const BEAMS_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
 } as Record<Code & Word, Unicode & Word>
 
 const BARLINE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    "bl": SMuFL_MAP["barlineSingle"]
+    "bl": SMuFL_MAP["barlineSingle"],
 } as Record<Code & Word, Unicode & Word>
 
 export {
