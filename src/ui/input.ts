@@ -13,6 +13,7 @@ const setupInput = (
 ): void => {
     input.classList.add("input")
     input.value = `${initialCodes}${input.value}`
+    input.spellcheck = false
 
     if (!interactive) {
         input.style.display = "none"
