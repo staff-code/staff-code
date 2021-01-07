@@ -1,4 +1,4 @@
-import {Clause, subtract, sumTexts, Word} from "@sagittal/general"
+import {add, Clause, subtract, sumTexts, Word} from "@sagittal/general"
 import {Octals, Unicode} from "../../codes"
 import {smarts} from "../globals"
 import {updateSmartAdvance} from "./advance"
@@ -37,8 +37,17 @@ const computeAdvanceToEndIntroClause = (width: Octals): Unicode & Clause => {
     return advanceToEndIntroClause
 }
 
+const computeWidthToAdvanceToEnd = (unicode: Unicode & Word): Octals => {
+    const widthWithoutSpacing = computeUnicodeWidth(unicode, {spacing: false})
+    const widthWithoutManualAdvance = subtract(widthWithoutSpacing, smarts.manualAdvance)
+
+    return widthWithoutManualAdvance < 0 ?
+        add(NARROW_STAVE_WIDTH, widthWithoutManualAdvance) :
+        widthWithoutManualAdvance
+}
+
 const computeAdvanceToEndIntroClauseAndUpdateSmarts = (unicode: Unicode & Word): Unicode & Clause => {
-    const width = subtract(computeUnicodeWidth(unicode, {spacing: false}), smarts.manualAdvance)
+    const width = computeWidthToAdvanceToEnd(unicode)
     const advanceToEndIntroClause = computeAdvanceToEndIntroClause(width)
 
     smarts.staveWidth = width
