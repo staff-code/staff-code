@@ -1,5 +1,7 @@
 // TODO: BUG, BLOCKED: COPY LINK DOES NOT WORK ON THE FORUM BECAUSE IT'S NOT HTTPS
 //  Either make it HTTPS (which we want anyway) or remove the button from the forum version
+//  Well, we've added HTTPS via CloudFlare and it's working for the main site already
+//  So really, just waiting on this one. Should work w/in 24 hours
 
 const buildCopyLinkButton = (input: HTMLTextAreaElement): HTMLButtonElement => {
     const copyLinkButton = document.createElement("button")
@@ -15,6 +17,3 @@ const buildCopyLinkButton = (input: HTMLTextAreaElement): HTMLButtonElement => {
 export {
     buildCopyLinkButton,
 }
-
-// TODO: FEATURE IMPROVE, READY TO GO: STORE CODES IN COOKIE
-//  So that you could come away and come back, and it would keep where you were
