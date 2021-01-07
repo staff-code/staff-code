@@ -3,11 +3,26 @@
 //  Well, we've added HTTPS via CloudFlare and it's working for the main site already
 //  So really, just waiting on this one. Should work w/in 24 hours
 
-const buildCopyLinkButton = (input: HTMLTextAreaElement): HTMLButtonElement => {
+import {INITIAL_LINE_HEIGHT, INITIAL_SIZE} from "./initial"
+
+const buildCopyLinkButton = (
+    input: HTMLTextAreaElement,
+    sizeSpinner?: HTMLInputElement,
+    lineHeightSpinner?: HTMLInputElement,
+): HTMLButtonElement => {
     const copyLinkButton = document.createElement("button")
     copyLinkButton.textContent = "Copy link"
     copyLinkButton.addEventListener("click", (): void => {
-        history.pushState(undefined, "", `?codes=${encodeURIComponent(input.value)}`)
+        const initialSizeParam = sizeSpinner ?
+            sizeSpinner.value === `${INITIAL_SIZE}` ? "" : `&size=${sizeSpinner.value}` :
+            ""
+
+        console.log("whats the haps", lineHeightSpinner)
+        const initialLineHeightParam = lineHeightSpinner ?
+            lineHeightSpinner.value === `${INITIAL_LINE_HEIGHT}` ? "" : `&lineHeight=${lineHeightSpinner.value}` :
+            ""
+
+        history.pushState(undefined, "", `?codes=${encodeURIComponent(input.value)}${initialSizeParam}${initialLineHeightParam}`)
         navigator.clipboard.writeText(document.location.href)
     })
 

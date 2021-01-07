@@ -10,9 +10,11 @@ type StaffCodeOptions = Partial<{
     inline: boolean,
     initialText: Io,
     font: FontName,
-    size: number,
-    lineHeight: number,
+    initialSize: number,
+    initialLineHeight: number,
     callback: StaffCodeCallback,
+    sizeSpinner: boolean,
+    lineHeightSpinner: boolean,
 }>
 
 export {

@@ -8,12 +8,27 @@ const setupBBCodeStaffCode = (): void =>
             const inline = root.getAttribute("sc-inline") === "true"
             const interactive = root.getAttribute("sc-interactive") === "true"
             const copyLink = root.getAttribute("sc-copy-link") === "true"
+            const sizeSpinner = root.getAttribute("sc-size-spinner") === "true"
+            const lineHeightSpinner = root.getAttribute("sc-line-height-spinner") === "true"
             const font = root.getAttribute("sc-font") as Maybe<FontName>
-            const size = parseFloat(root.getAttribute("sc-size") || BLANK) || undefined
-            const lineHeight = parseFloat(root.getAttribute("sc-line-height") || BLANK) || undefined
+            const initialSize = parseFloat(root.getAttribute("sc-initial-size") || BLANK) || undefined
+            const initialLineHeight = parseFloat(root.getAttribute("sc-initial-line-height") || BLANK) || undefined
             const callback = (globalThis as unknown as {staffCodeCallback: StaffCodeCallback}).staffCodeCallback
 
-            setupBBCodeRoot(root, {interactive, inline, font, lineHeight, callback, size, copyLink})
+            setupBBCodeRoot(
+                root,
+                {
+                    interactive,
+                    inline,
+                    font,
+                    initialLineHeight,
+                    callback,
+                    initialSize,
+                    copyLink,
+                    sizeSpinner,
+                    lineHeightSpinner,
+                },
+            )
         })
 
 export {
