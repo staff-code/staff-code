@@ -1,6 +1,7 @@
+import {BLANK} from "@sagittal/general"
 import {Unicode} from "./codes"
 
-const EMPTY_UNICODE: Unicode = "" as Unicode
+const EMPTY_UNICODE: Unicode = BLANK as Unicode
 
 export {
     EMPTY_UNICODE,

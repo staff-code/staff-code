@@ -1,24 +1,21 @@
 import {Io, Sentence} from "@sagittal/general"
 import {Unicode} from "../../../translate"
-import {computeInitialText, setStaffCodeCookie} from "../../initial"
+import {setStaffCodeCookie} from "../../initial"
 import {setupInput} from "../../input"
-import {StaffCodeOptions} from "../../types"
+import {Initial, InputOptions} from "../../types"
 
-const buildPackageInput = (root: HTMLSpanElement, options: StaffCodeOptions): HTMLTextAreaElement => {
-    const {
-        interactive,
-        initialText = computeInitialText(),
-        callback,
-    } = options
-
+const buildPackageInput = (
+    root: HTMLSpanElement,
+    {interactive, initialCodes, callback}: InputOptions,
+): HTMLTextAreaElement => {
     const input = document.createElement("textarea")
 
     const callbackPlusCookie = (inputSentence: Io & Sentence, unicodeSentence: Unicode & Sentence): void => {
-        setStaffCodeCookie("input-sentence", inputSentence)
+        setStaffCodeCookie(Initial.CODES, inputSentence)
         callback && callback(inputSentence, unicodeSentence)
     }
 
-    setupInput(input, root, {interactive, initialText, callback: callbackPlusCookie})
+    setupInput(input, root, {interactive, initialCodes, callback: callbackPlusCookie})
 
     return input
 }

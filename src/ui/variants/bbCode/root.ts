@@ -1,61 +1,39 @@
-import {buildCopyLinkButton} from "../../copyLinkButton"
 import {buildDisplay} from "../../display"
-import {computeInitialLineHeight, computeInitialSize} from "../../initial"
+import {DEFAULT_FONT} from "../../fonts"
+import {computeInitialCodes, computeInitialLine, computeInitialSize} from "../../initial"
 import {setupInput} from "../../input"
-import {buildLineHeightSpinnerWrapper} from "../../lineHeight"
-import {buildSizeSpinnerWrapper} from "../../size"
+import {sharedRootSetup} from "../../root"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeOptions} from "../../types"
 
 const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}): void => {
     const {
-        interactive = false,
-        inline = false,
-        initialText,
-        font,
-        initialLineHeight = computeInitialLineHeight(),
+        ui: {
+            inline = false,
+            interactive = false,
+            copyLinkButton = false,
+            sizeSpinner = false,
+            lineSpinner = false,
+        } = {},
+        initial: {
+            codes: initialCodes = computeInitialCodes(),
+            size: initialSize = computeInitialSize(),
+            line: initialLine = computeInitialLine(),
+        } = {},
+        font = DEFAULT_FONT,
         callback,
-        initialSize = computeInitialSize(),
-        copyLink = false,
-        sizeSpinner = false,
-        lineHeightSpinner = false,
     } = options
 
     if (root.classList.contains("processed")) return
     root.classList.add("processed")
 
-    const display = buildDisplay({font, inline, initialLineHeight, initialSize})
+    const display = buildDisplay({font, inline, initialLine, initialSize})
     root.prepend(display)
 
     const input: HTMLTextAreaElement = root.querySelector(".input") as HTMLTextAreaElement
-    setupInput(input, root, {interactive, initialText, callback})
+    setupInput(input, root, {interactive, initialCodes, callback})
 
-    let sizeSpinnerWrapper
-    if (sizeSpinner) {
-        sizeSpinnerWrapper = buildSizeSpinnerWrapper(display, {initialSize})
-        root.appendChild(sizeSpinnerWrapper)
-    }
-
-    let lineHeightSpinnerWrapper
-    if (lineHeightSpinner) {
-        lineHeightSpinnerWrapper = buildLineHeightSpinnerWrapper(display, {initialLineHeight})
-        root.appendChild(lineHeightSpinnerWrapper)
-    }
-
-    if (copyLink) {
-        let sizeSpinnerInput = sizeSpinnerWrapper ?
-            sizeSpinnerWrapper.querySelector("input") :
-            undefined
-        let lineHeightSpinnerInput = lineHeightSpinnerWrapper ?
-            lineHeightSpinnerWrapper.querySelector("input") :
-            undefined
-        const copyLinkButton = buildCopyLinkButton(
-            input,
-            sizeSpinnerInput || undefined,
-            lineHeightSpinnerInput || undefined,
-        )
-        root.appendChild(copyLinkButton)
-    }
+    sharedRootSetup(root, display, input, {copyLinkButton, sizeSpinner, lineSpinner, initialLine, initialSize})
 
     transferInputToDisplay(root, {callback})
 }

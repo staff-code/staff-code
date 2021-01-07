@@ -1,8 +1,9 @@
 // tslint:disable max-line-length
 
-import {Io, Sentence} from "@sagittal/general"
+import {BLANK, Io, Sentence} from "@sagittal/general"
 import {Code, computeInputSentenceUnicode, Unicode} from "../../../src"
 import {debugCodeSentence} from "../../../src/translate/codes"
+import {EMPTY_UNICODE} from "../../../src/translate/constants"
 
 // TODO: CLEAN, BLOCKED: VISUAL TESTS
 //  Like the ones Vexflow has
@@ -698,9 +699,9 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "" as Unicode & Sentence
+            const expectedUnicode = EMPTY_UNICODE as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "" as Code & Sentence
+            const expectedCodes = BLANK as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -709,9 +710,9 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "" as Unicode & Sentence
+            const expectedUnicode = EMPTY_UNICODE as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "" as Code & Sentence
+            const expectedCodes = BLANK as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 

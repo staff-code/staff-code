@@ -1,18 +1,19 @@
-import {Io, Maybe, Sentence} from "@sagittal/general"
+import {BLANK, Em, Io, Maybe, Multiplier, Sentence} from "@sagittal/general"
+import {Initial} from "./types"
 
-const INITIAL_STAFF_CODE_INPUT_VALUE = "ston Gcl ; " as Io & Sentence
-const INITIAL_LINE_HEIGHT = 2
-const INITIAL_SIZE = 1
+const DEFAULT_INITIAL_CODES = "ston Gcl ; " as Io & Sentence
+const DEFAULT_INITIAL_LINE = 2 as Multiplier<Em>
+const DEFAULT_INITIAL_SIZE = 1 as Multiplier<Em>
 
-const setStaffCodeCookie = (name: string, value: string): void => {
+const setStaffCodeCookie = (name: Initial, value: string): void => {
     const date = new Date()
     date.setDate(date.getDate() + 7)
 
-    document.cookie = `staff-code-${name}=${(encodeURIComponent(value) || "")}; expires=${date.toUTCString()}; path=/`
+    document.cookie = `staffcode_${name}=${(encodeURIComponent(value) || BLANK)}; expires=${date.toUTCString()}; path=/`
 }
 
-const getStaffCodeCookie = (name: string): Maybe<Io & Sentence> => {
-    const cookieName = `staff-code-${name}=`
+const getStaffCodeCookie = (name: Initial): Maybe<string> => {
+    const cookieName = `staffcode_${name}=`
     const cookies = document.cookie.split(";")
 
     for (let i = 0; i < cookies.length; i++) {
@@ -26,28 +27,29 @@ const getStaffCodeCookie = (name: string): Maybe<Io & Sentence> => {
     return undefined
 }
 
-const computeInitialText = (): Io & Sentence =>
-    new URLSearchParams(window.location.search).get("codes") as Io & Sentence
-    || getStaffCodeCookie("initial-text")
-    || INITIAL_STAFF_CODE_INPUT_VALUE
+const computeInitialCodes = (): Io & Sentence =>
+    new URLSearchParams(window.location.search).get(Initial.CODES) as Io & Sentence
+    || getStaffCodeCookie(Initial.CODES) as Io & Sentence
+    || DEFAULT_INITIAL_CODES
 
-const computeInitialLineHeight = (): number =>
-    parseFloat(new URLSearchParams(window.location.search).get("lineHeight") || "")
-    || parseFloat(getStaffCodeCookie("line-height") || "")
-    || INITIAL_LINE_HEIGHT
+const computeInitialLine = (): Multiplier<Em> =>
+    parseFloat(new URLSearchParams(window.location.search).get(Initial.LINE) || BLANK) as Multiplier<Em>
+    || parseFloat(getStaffCodeCookie(Initial.LINE) || BLANK) as Multiplier<Em>
+    || DEFAULT_INITIAL_LINE
 
 
-const computeInitialSize = (): number =>
-    parseFloat(new URLSearchParams(window.location.search).get("size") || "")
-    || parseFloat(getStaffCodeCookie("size") || "")
-    || INITIAL_SIZE
+const computeInitialSize = (): Multiplier<Em> =>
+    parseFloat(new URLSearchParams(window.location.search).get(Initial.SIZE) || BLANK) as Multiplier<Em>
+    || parseFloat(getStaffCodeCookie(Initial.SIZE) || BLANK) as Multiplier<Em>
+    || DEFAULT_INITIAL_SIZE
 
 
 export {
-    computeInitialText,
+    computeInitialCodes,
     setStaffCodeCookie,
-    computeInitialLineHeight,
+    computeInitialLine,
     computeInitialSize,
-    INITIAL_LINE_HEIGHT,
-    INITIAL_SIZE, // todo so there's a difference between font size which is in em and "size" which is a multiplier theroef... make sure you realize that consistently
+    DEFAULT_INITIAL_CODES,
+    DEFAULT_INITIAL_LINE,
+    DEFAULT_INITIAL_SIZE,
 }

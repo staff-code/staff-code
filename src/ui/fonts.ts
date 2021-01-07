@@ -1,3 +1,7 @@
+import {FontName} from "@sagittal/general"
+
+const DEFAULT_FONT = "Bravura Text BB" as FontName
+
 const loadFontsThen = (fn: () => void): void => {
     let fontsLoaded = false
     const woff = new FontFace("Bravura Text BB", "url('assets/fonts/BravuraTextBB.woff'), url('https://sagittal.github.io/assets/fonts/BravuraTextBB.woff')")
@@ -19,5 +23,6 @@ const loadFontsThen = (fn: () => void): void => {
 }
 
 export {
+    DEFAULT_FONT,
     loadFontsThen,
 }

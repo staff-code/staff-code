@@ -1,5 +1,6 @@
-import {BLANK, computeLineCount, FontName, Px, vectorizeText} from "@sagittal/general"
+import {BLANK, computeLineCount, Px, vectorizeText} from "@sagittal/general"
 import {Unicode} from "../translate"
+import {DEFAULT_FONT} from "./fonts"
 
 const HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT: Px = 57 as Px
 const APPARENT_SCALING_EXPONENT = 1.16
@@ -64,7 +65,7 @@ const downloadSvg = (display: HTMLElement): void => {
     const unicodeSentence: Unicode = (display.textContent || BLANK) as Unicode
     const options = {
         height: computeSvgHeight(unicodeSentence),
-        font: "Bravura Text BB" as FontName,
+        font: DEFAULT_FONT,
         lineSpacing: parseFloat(display.style.lineHeight),
         styletags: {breaklines: true},
     }
