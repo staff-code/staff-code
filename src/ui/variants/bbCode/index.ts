@@ -23,7 +23,7 @@ import {setupBBCodeStaffCode} from "./setup"
 /*
 posting.php?mode=reply&f=17&t=436:313 A parser-blocking, cross site (i.e. different eTLD+1) script, https://sagittal.github.io/staffCode.js, is invoked via document.write. The network request for this script MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message. See https://www.chromestatus.com/feature/5718547946799104 for more details.
 */
-(globalThis as unknown as {staffCode: boolean}).staffCode = true
+(globalThis as unknown as {staffCode: string}).staffCode = "LOADED"
 
 // TODO: FEATURE IMPROVE, READY TO GO: PREVENT LOCAL STAFF_CODE FETCH FROM FAILING ONCE FOR EACH [STAFF] ON THE PAGE
 //  Perhaps using the same mechanism as is used to conditionally load the remote script?
