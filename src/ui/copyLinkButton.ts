@@ -8,9 +8,6 @@ const onWebApp = (): boolean => {
     const getUrl = window.location
     const baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split("/")[1]
 
-    // TODO: BUG, READY TO GO: DIAGNOSE WHY THIS IS NOT WORKING
-    console.log("huh what's the diff", baseUrl, WEB_APP_URL)
-
     return baseUrl === WEB_APP_URL
 }
 
@@ -37,7 +34,7 @@ const handleCopyLinkClick = (
         history.pushState(undefined, BLANK, initialParams)
     }
 
-    navigator.clipboard.writeText(`${WEB_APP_URL}/${initialParams}`)
+    navigator.clipboard.writeText(`${WEB_APP_URL}${initialParams}`)
 }
 
 
