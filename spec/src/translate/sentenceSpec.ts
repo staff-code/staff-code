@@ -515,12 +515,12 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
         })
 
         it("the advance-to-end code can be adjusted with manual advance, when the manual advance amount is greater than the difference between the width of the glyph and the remaining stave", (): void => {
-            const inputSentence = "ston nt en; 5; bl" as Io & Sentence
+            const inputSentence = "ston nt en; 13; bl" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
-            const expectedUnicode = "          "
+            const expectedUnicode = "           "
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "ntqrdn st16 16; st8 4; blsn 4;"
+            const expectedCodes = "ntqrdn st16 16; st16 12; blsn 4;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
     })

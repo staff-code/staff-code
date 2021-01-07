@@ -39,11 +39,13 @@ const computeAdvanceToEndIntroClause = (width: Octals): Unicode & Clause => {
 
 const computeWidthToAdvanceToEnd = (unicode: Unicode & Word): Octals => {
     const widthWithoutSpacing = computeUnicodeWidth(unicode, {spacing: false})
-    const widthWithoutManualAdvance = subtract(widthWithoutSpacing, smarts.manualAdvance)
+    let widthWithoutManualAdvance = subtract(widthWithoutSpacing, smarts.manualAdvance)
 
-    return widthWithoutManualAdvance < 0 ?
-        add(NARROW_STAVE_WIDTH, widthWithoutManualAdvance) :
-        widthWithoutManualAdvance
+    while (widthWithoutManualAdvance < 0) {
+        widthWithoutManualAdvance = add(NARROW_STAVE_WIDTH, widthWithoutManualAdvance)
+    }
+
+    return widthWithoutManualAdvance
 }
 
 const computeAdvanceToEndIntroClauseAndUpdateSmarts = (unicode: Unicode & Word): Unicode & Clause => {
