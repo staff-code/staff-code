@@ -5,9 +5,8 @@ const buildCopyLinkButton = (input: HTMLTextAreaElement): HTMLButtonElement => {
     const copyLinkButton = document.createElement("button")
     copyLinkButton.textContent = "Copy link"
     copyLinkButton.addEventListener("click", (): void => {
-        const codesAsQueryParams = `?codes=${encodeURIComponent(input.value)}`
-        navigator.clipboard.writeText(`https://sagittal.github.io${codesAsQueryParams}`)
-        history.pushState(undefined, "", codesAsQueryParams)
+        history.pushState(undefined, "", `?codes=${encodeURIComponent(input.value)}`)
+        navigator.clipboard.writeText(document.location.href)
     })
 
     return copyLinkButton

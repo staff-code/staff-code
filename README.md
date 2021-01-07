@@ -36,8 +36,10 @@ const callback = (inputSentence: string, unicodeSentence: string): any => {
 const options: StaffCodeOptions = {
     interactive: false,         // default: true (whether a textarea input for instantly changing the display appears)
     download: false,            // default: true (whether a download button for a vectorized SVG appears)
+    copyLink: false,            // default: true (whether a button to add query params to the URL for the current codes and then copy the link)
     inline: false,              // default: true (whether the display appears as a <span> or a <div>
     lineHeight: 1.5,            // default: 2 (affects the spacing of staves)
+    size: 1.3,                  // default: 1 (the overall scaling of the font)
     initialText: "ston Fcl",    // default: "ston Gcl ; "
     font: "Petaluma",           // default: "Bravura Text BB" (you'll have to move a custom font to assets/fonts)
     callback,                   // default: undefined
@@ -50,6 +52,8 @@ loadFontsThen((): void => {
 ```
 
 The WOFF and OTF variants of the Bravura Text BB font are included in the package. You should serve them at `assets/fonts/*` for them to be automatically picked up.
+
+Note that the "Copy Link" button reads and writes the `codes` query param.
 
 ## development
 
