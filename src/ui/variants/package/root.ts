@@ -29,18 +29,18 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     const root = document.createElement("span")
     root.classList.add("staff-code")
 
-    const display = buildDisplay({font, inline, initialLine, initialSize})
-    root.appendChild(display)
-
     const input = buildPackageInput(root, {initialCodes, interactive, callback})
+    const display = buildDisplay({font, inline, initialLine, initialSize})
+
     root.appendChild(input)
 
     sharedRootSetup(root, display, input, {copyLinkButton, sizeSpinner, lineSpinner, initialSize, initialLine})
-
     if (downloadButton) {
         const downloadButton = buildDownloadButton(display)
         root.appendChild(downloadButton)
     }
+
+    root.appendChild(display)
 
     transferInputToDisplay(root, {callback})
 

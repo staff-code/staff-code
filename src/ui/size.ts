@@ -1,4 +1,4 @@
-import {Em, Multiplier} from "@sagittal/general"
+import {Em, lowerCaseToUpperCase, Multiplier} from "@sagittal/general"
 import {DEFAULT_BLOCK_MODE_FONT_SIZE} from "./display"
 import {setStaffCodeCookie} from "./initial"
 import {Initial} from "./types"
@@ -6,14 +6,18 @@ import {Initial} from "./types"
 const buildSizeSpinnerWrapper = (
     display: HTMLElement,
     {initialSize}: {initialSize: Multiplier<Em>},
-): HTMLDivElement => {
-    const sizeSpinnerWrapper = document.createElement("div")
+): HTMLSpanElement => {
+    const sizeSpinnerWrapper = document.createElement("span")
+    sizeSpinnerWrapper.style.display = "inline-block"
+    sizeSpinnerWrapper.style.margin = "2px"
 
     const sizeSpinnerLabel = document.createElement("label")
-    sizeSpinnerLabel.innerHTML = Initial.SIZE
+    sizeSpinnerLabel.innerHTML = lowerCaseToUpperCase(Initial.SIZE)
     sizeSpinnerLabel.setAttribute("for", Initial.SIZE)
-    sizeSpinnerLabel.style.width = "5em"
+    sizeSpinnerLabel.style.width = "2em"
     sizeSpinnerLabel.style.display = "inline-block"
+    sizeSpinnerLabel.style.textAlign = "right"
+    sizeSpinnerLabel.style.marginRight = "2px"
 
     const sizeSpinner = document.createElement("input")
     sizeSpinner.type = "number"

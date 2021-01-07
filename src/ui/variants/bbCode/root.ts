@@ -27,13 +27,14 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
     if (root.classList.contains("processed")) return
     root.classList.add("processed")
 
-    const display = buildDisplay({font, inline, initialLine, initialSize})
-    root.prepend(display)
-
     const input: HTMLTextAreaElement = root.querySelector(".input") as HTMLTextAreaElement
+    const display = buildDisplay({font, inline, initialLine, initialSize})
+
     setupInput(input, root, {interactive, initialCodes, callback})
 
     sharedRootSetup(root, display, input, {copyLinkButton, sizeSpinner, lineSpinner, initialLine, initialSize})
+
+    root.appendChild(display)
 
     transferInputToDisplay(root, {callback})
 }

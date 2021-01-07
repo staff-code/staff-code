@@ -44,7 +44,9 @@ const buildCopyLinkButton = (
     lineSpinner?: HTMLInputElement,
 ): HTMLButtonElement => {
     const copyLinkButton = document.createElement("button")
-    copyLinkButton.textContent = "Copy link"
+    copyLinkButton.textContent = "\u{1f4cb}\ufe0e Link"
+    copyLinkButton.style.margin = "2px"
+    copyLinkButton.style.cursor = "pointer"
     copyLinkButton.addEventListener("click", (): void => {
         handleCopyLinkClick(input, sizeSpinner, lineSpinner)
     })

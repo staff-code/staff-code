@@ -1,18 +1,22 @@
-import {Em, Multiplier} from "@sagittal/general"
+import {Em, lowerCaseToUpperCase, Multiplier} from "@sagittal/general"
 import {setStaffCodeCookie} from "./initial"
 import {Initial} from "./types"
 
 const buildLineSpinnerWrapper = (
     display: HTMLElement,
     {initialLine}: {initialLine: Multiplier<Em>},
-): HTMLDivElement => {
-    const lineSpinnerWrapper = document.createElement("div")
+): HTMLSpanElement => {
+    const lineSpinnerWrapper = document.createElement("span")
+    lineSpinnerWrapper.style.display = "inline-block"
+    lineSpinnerWrapper.style.margin = "2px"
 
     const lineSpinnerLabel = document.createElement("label")
-    lineSpinnerLabel.innerHTML = Initial.LINE
+    lineSpinnerLabel.innerHTML = lowerCaseToUpperCase(Initial.LINE)
     lineSpinnerLabel.setAttribute("for", Initial.LINE)
-    lineSpinnerLabel.style.width = "5em"
+    lineSpinnerLabel.style.width = "2em"
     lineSpinnerLabel.style.display = "inline-block"
+    lineSpinnerLabel.style.textAlign = "right"
+    lineSpinnerLabel.style.marginRight = "2px"
 
     const lineSpinner = document.createElement("input")
     lineSpinner.type = "number"
