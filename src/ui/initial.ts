@@ -1,5 +1,5 @@
 import {BLANK, Em, Io, Maybe, Multiplier, Sentence} from "@sagittal/general"
-import {decodeCodes} from "./codec"
+import {undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {EncodedCode, Initial} from "./types"
 
 const DEFAULT_INITIAL_CODES = "ston Gcl ; " as Io & Sentence
@@ -29,8 +29,8 @@ const getStaffCodeCookie = (name: Initial): Maybe<string> => {
 }
 
 const computeInitialCodes = (): Io & Sentence =>
-    decodeCodes((new URLSearchParams(window.location.search).get(Initial.CODES) || BLANK) as EncodedCode & Sentence)
-    || decodeCodes((getStaffCodeCookie(Initial.CODES) || BLANK) as EncodedCode & Sentence)
+    undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams((new URLSearchParams(window.location.search).get(Initial.CODES) || BLANK) as EncodedCode & Sentence)
+    || undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams((getStaffCodeCookie(Initial.CODES) || BLANK) as EncodedCode & Sentence)
     || DEFAULT_INITIAL_CODES
 
 const computeInitialLine = (): Multiplier<Em> =>

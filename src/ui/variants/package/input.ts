@@ -1,6 +1,6 @@
 import {Io, Sentence} from "@sagittal/general"
 import {Unicode} from "../../../translate"
-import {encodeCodes} from "../../codec"
+import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "../../human"
 import {setStaffCodeCookie} from "../../initial"
 import {setupInput} from "../../input"
 import {Initial, InputOptions} from "../../types"
@@ -12,7 +12,7 @@ const buildPackageInput = (
     const input = document.createElement("textarea")
 
     const callbackPlusCookie = (inputSentence: Io & Sentence, unicodeSentence: Unicode & Sentence): void => {
-        setStaffCodeCookie(Initial.CODES, encodeCodes(inputSentence))
+        setStaffCodeCookie(Initial.CODES, prepareCodesToBeHumanReadableAsEncodedQueryParams(inputSentence))
         callback && callback(inputSentence, unicodeSentence)
     }
 

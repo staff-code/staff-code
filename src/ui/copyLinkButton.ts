@@ -1,5 +1,5 @@
 import {BLANK, Io, Sentence} from "@sagittal/general"
-import {encodeCodes} from "./codec"
+import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {WEB_APP_URL} from "./constants"
 import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "./initial"
 import {Initial} from "./types"
@@ -22,7 +22,7 @@ const handleCopyLinkClick = (
     sizeSpinner?: HTMLInputElement,
     lineSpinner?: HTMLInputElement,
 ): void => {
-    const initialCodesParam = encodeURIComponent(encodeCodes(input.value as Io & Sentence))
+    const initialCodesParam = encodeURIComponent(prepareCodesToBeHumanReadableAsEncodedQueryParams(input.value as Io & Sentence))
 
     const initialSizeParam = sizeSpinner ?
         sizeSpinner.value === `${DEFAULT_INITIAL_SIZE}` ? BLANK : `&${Initial.SIZE}=${sizeSpinner.value}` :
