@@ -52,6 +52,8 @@ enum Initial {
     LINE = "line",
 }
 
+type EncodedCode = string & {_EncodedCode: boolean}
+
 export {
     StaffCodeOptions,
     StaffCodeCallback,
@@ -61,4 +63,5 @@ export {
     InitialOptions,
     InputOptions,
     RootOptions,
+    EncodedCode,
 }

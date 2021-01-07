@@ -1,4 +1,5 @@
-import {BLANK} from "@sagittal/general"
+import {BLANK, Io, Sentence} from "@sagittal/general"
+import {encodeCodes} from "./codec"
 import {WEB_APP_URL} from "./constants"
 import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "./initial"
 import {Initial} from "./types"
@@ -6,6 +7,9 @@ import {Initial} from "./types"
 const onWebApp = (): boolean => {
     const getUrl = window.location
     const baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split("/")[1]
+
+    // TODO: BUG, READY TO GO: DIAGNOSE WHY THIS IS NOT WORKING
+    console.log("huh what's the diff", baseUrl, WEB_APP_URL)
 
     return baseUrl === WEB_APP_URL
 }
@@ -18,7 +22,7 @@ const handleCopyLinkClick = (
     sizeSpinner?: HTMLInputElement,
     lineSpinner?: HTMLInputElement,
 ): void => {
-    const initialCodesParam = encodeURIComponent(input.value)
+    const initialCodesParam = encodeURIComponent(encodeCodes(input.value as Io & Sentence))
 
     const initialSizeParam = sizeSpinner ?
         sizeSpinner.value === `${DEFAULT_INITIAL_SIZE}` ? BLANK : `&${Initial.SIZE}=${sizeSpinner.value}` :
