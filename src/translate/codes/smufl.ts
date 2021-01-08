@@ -2218,7 +2218,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"wiggleVibratoMediumFaster": "\uEADD", // Vibrato medium, faster
     /*  */"wiggleVibratoMediumFast": "\uEADE", // Vibrato medium, fast
     /*  */"wiggleVibratoMediumSlow": "\uEADF", // Vibrato medium, slow
-    /*  */"wiggleVibratoMediumSlower": "\uEAE0", // Vibrato medium, slower
+    /*  */"wiggleVIbratoMediumSlower": "\uEAE0", // Vibrato medium, slower
     /*  */"wiggleVibratoMediumSlowest": "\uEAE1", // Vibrato medium, slowest
     /*  */"wiggleVibratoLargeFastest": "\uEAE2", // Vibrato large, fastest
     /*  */"wiggleVibratoLargeFasterStill": "\uEAE3", // Vibrato large, faster still
@@ -2232,7 +2232,7 @@ const SMuFL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*  */"wiggleVibratoLargestFaster": "\uEAEB", // Vibrato largest, faster
     /*  */"wiggleVibratoLargestFast": "\uEAEC", // Vibrato largest, fast
     /*  */"wiggleVibratoLargestSlow": "\uEAED", // Vibrato largest, slow
-    /*  */"wiggleVibratoLargestSlower": "\uEAEE", // Vibrato largest, slower
+    /*  */"wiggleVIbratoLargestSlower": "\uEAEE", // Vibrato largest, slower
     /*  */"wiggleVibratoLargestSlowest": "\uEAEF", // Vibrato largest, slowest
     /*  */"wiggleRandom1": "\uEAF0", // Quasi-random squiggle 1
     /*  */"wiggleRandom2": "\uEAF1", // Quasi-random squiggle 2

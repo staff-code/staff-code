@@ -1,5 +1,5 @@
-import {Em, FontName, Io, Multiplier, Sentence} from "@sagittal/general"
-import {Unicode} from "../translate"
+import {Em, FontName, Io, Multiplier, Name, Sentence} from "@sagittal/general"
+import {Unicode, UnicodeLiteral} from "../translate"
 
 type StaffCodeCallback = (inputSentence: Io & Sentence, unicodeSentence: Unicode & Sentence) => any
 
@@ -54,6 +54,13 @@ enum Initial {
 
 type EncodedCode = string & {_EncodedCode: boolean}
 
+interface RangeData {
+    description: string,
+    glyphs: Array<Name<Unicode>>,
+    range_end: UnicodeLiteral,
+    range_start: UnicodeLiteral,
+}
+
 export {
     StaffCodeOptions,
     StaffCodeCallback,
@@ -64,4 +71,5 @@ export {
     InputOptions,
     RootOptions,
     EncodedCode,
+    RangeData,
 }

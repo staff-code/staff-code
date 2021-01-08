@@ -2,6 +2,7 @@ import {buildDisplay} from "../../display"
 import {buildDownloadButton} from "../../downloadButton"
 import {DEFAULT_FONT} from "../../fonts"
 import {computeInitialCodes, computeInitialLine, computeInitialSize} from "../../initial"
+import {buildReference} from "../../reference"
 import {sharedRootSetup} from "../../root"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeOptions} from "../../types"
@@ -30,7 +31,10 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     root.classList.add("staff-code")
 
     const input = buildPackageInput(root, {initialCodes, interactive, callback})
+    const reference = buildReference(root, input, {callback})
     const display = buildDisplay({font, inline, initialLine, initialSize})
+
+    root.appendChild(reference)
 
     root.appendChild(input)
 

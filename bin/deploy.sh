@@ -6,6 +6,8 @@ rm vendor/glyphnames.json
 wget -P vendor https://raw.githubusercontent.com/w3c/smufl/gh-pages/metadata/glyphnames.json
 rm vendor/bravura_metadata.json
 wget -P vendor https://raw.githubusercontent.com/steinbergmedia/bravura/master/redist/bravura_metadata.json
+rm vendor/ranges.json
+wget -P vendor https://raw.githubusercontent.com/w3c/smufl/gh-pages/metadata/ranges.json
 npm run generate-bravura-widths
 
 # rev version

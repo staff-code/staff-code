@@ -11,14 +11,12 @@ import {
     NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
 } from "./notSmufl"
-import {SMuFL_MAP} from "./smufl"
 import {Code, LowercasedCode, Unicode} from "./types"
 
 // See: http://forum.sagittal.org/viewtopic.php?f=17&t=436&p=3172#word-types
 
 // Base symbols means not aliased symbols.
 const BASE_SYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    ...SMuFL_MAP,
     ...NOT_SMuFL_LINE_BREAKS_MAP,
     ...NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP,
     ...NOT_SMuFL_ZERO_POSITION_MAP,

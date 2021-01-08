@@ -19,10 +19,10 @@ const EXCEPTION_LEGER_LINE_WIDTHS = {
     [computeUnicodeForCode("nt512up" as Code & Word)]: 11,
     [computeUnicodeForCode("nt1024up" as Code & Word)]: 11,
     // See: https://w3c.github.io/smufl/gitbook/tables/round-and-square-noteheads.html
-    [computeUnicodeForCode("noteheadRoundBlackSlashedLarge" as Code & Word)]: 16,
-    [computeUnicodeForCode("noteheadRoundWhiteSlashedLarge" as Code & Word)]: 16,
-    [computeUnicodeForCode("noteheadRoundBlackSlashed" as Code & Word)]: 8,
-    [computeUnicodeForCode("noteheadRoundWhiteSlashed" as Code & Word)]: 8,
+    [computeUnicodeForCode("nhrnblsllg" as Code & Word)]: 16,
+    [computeUnicodeForCode("nhrnwtsllg" as Code & Word)]: 16,
+    [computeUnicodeForCode("nhrnblsl" as Code & Word)]: 8,
+    [computeUnicodeForCode("nhrnwtsl" as Code & Word)]: 8,
 }
 
 const computeLegerLineUnicode = (unicode: Unicode & Word): Unicode & Word => {

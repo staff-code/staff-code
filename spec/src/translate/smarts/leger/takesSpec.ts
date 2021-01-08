@@ -11,7 +11,7 @@ import {canBePositioned} from "../../../../../src/translate/smarts/positionAndCl
 
 describe("takesLegerLine", (): void => {
     it("determines whether a glyph ever takes a leger line, regardless whether it might need one now", (): void => {
-        const unicode = computeUnicodeForCode("note8thUp" as Code & Word)
+        const unicode = computeUnicodeForCode("nt8up" as Code & Word)
 
         const actual = takesLegerLine(unicode)
 
