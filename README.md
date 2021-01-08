@@ -16,7 +16,7 @@ StaffCode can be used in two ways:
 
 ### BBCode
 
-- Follow the instructions at `https://sagittal.github.io/README.txt`.
+- Follow the instructions at `https://staffcode.sagittal.org/README.txt`.
 
 ### package
 
@@ -80,4 +80,4 @@ You may need to install 7-zip in order to deploy, since it is used to archive th
 
 After deploying, you can use the `npm run update-staff-code` script in the `scripts/forum` script group to update the Sagittal forum.
 
-And to update the Sagittal web app, in the `app` repo, run `npm upgrade` and confirm you pull in the npm package you just published. Then run `npm run deploy` there (which in turn cd's into its `dist` folder which is actually a submodule repo, the GitHub pages one, for `https://sagittal.github.io`, for which commiting and pushing is equivalent to deploying the new static app) (don't forget to commit afterwards).
+And to update the Sagittal web app, in the `app` repo, run `npm upgrade` and confirm you pull in the npm package you just published. Then run `npm run deploy` there (which in turn cd's into its `dist` folder which is actually a submodule repo, the GitHub pages one, for `https://staffcode.sagittal.org`, for which commiting and pushing is equivalent to deploying the new static app) (don't forget to commit afterwards).
