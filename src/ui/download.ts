@@ -7,7 +7,8 @@ const APPARENT_SCALING_EXPONENT = 1.16
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
-// TODO: I don't think size are affecting the SVG. line is I think.
+// TODO: FEATURE IMPROVE, READY TO GO: ENSURE DOWNLOADED SVG REFLECTS LINE HEIGHT AND SIZE
+//  I don't think size are affecting the SVG. line is I think.
 const computeSvgHeight = (unicodeSentence: Unicode): Px =>
     HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT * (computeLineCount(unicodeSentence) ** APPARENT_SCALING_EXPONENT) as Px
 

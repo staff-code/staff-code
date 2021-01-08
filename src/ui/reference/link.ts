@@ -27,7 +27,7 @@ const buildReferenceLink = (
     topLink.id = "top"
     summary.appendChild(topLink)
 
-    // TODO, CLEAN, DO MORE STYLES AS A STYLESHEET, NOT EXPENSIVELY ON EACH ELEMENT INDIVIDUALLY:
+    // TODO: CLEAN, READY TO GO: DO MORE STYLES AS A STYLESHEET, NOT EXPENSIVELY ON EACH ELEMENT INDIVIDUALLY
     //  Probably do for each cell or like, everything in the app too?
     const css = "table tr:hover{ background-color: #eeeeee } details[open]{ height: 300px }"
     const style = document.createElement("style")
@@ -35,7 +35,7 @@ const buildReferenceLink = (
     document.getElementsByTagName("head")[0].appendChild(style)
 
     if (initialReferenceOpen) {
-        // TODO: FEATURE IMPROVE, INCLUDE SPINNER
+        // TODO: FEATURE IMPROVE, READY TO GO: INCLUDE A LOADING SPINNER WHILE REFERENCE IS POPULATING
         import("./reference")
             .then(({buildReference}: {buildReference: BuildReference}): void => {
                 referenceLink.setAttribute("open", "open")
@@ -55,10 +55,9 @@ const buildReferenceLink = (
             await import("./reference")
 
 
-        // todo should URL put stuff into cookies upon load?
-        //  and like this also set stuff in URL bar? like everywhere we do stuff like this, should do both?
-        //  no wait you only do the URL params when you click copy link, d'uh
-        //  but i still think a question remains about whether from the URL stuff should set cookies. maybe yes.
+        // TODO: FEATURE IMPROVE, BLOCKED: UPDATE COOKIES WITH URL PARAMS
+        //  Should params not only take precedence over cookies on initial page load, but also replace them?
+        //  Blocked on waiting for Dave's opinion
 
         if (referenceBuilt) {
             return

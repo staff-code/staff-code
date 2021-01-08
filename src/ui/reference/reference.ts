@@ -71,7 +71,9 @@ const buildRangeTable = (
     return table
 }
 
-// TODO: CLEAN, BREAK REFERENCE DOWN INTO MODULES
+// TODO: CLEAN, BLOCKED: BREAK REFERENCE DOWN INTO MODULES
+//  - I say "blocked" because I just don't think it's mature enough yet to pre-emptively break down
+//  It's still helpful for me to have pretty much everything in one big place
 
 let referenceBuilt = false
 
@@ -82,8 +84,7 @@ const buildReference = (
 ): HTMLDivElement => {
     referenceBuilt = true
 
-    // TODO: CLEAN REFERENCE CODE
-    //  - if you want to not load this until you click (learn how to chunk in webpack), this isn't going to work
+    // TODO: CLEAN, READY TO GO: REFERENCE CODE
     //  - and the RangeData type no have to have underscores in its keys (maybe can go down to only range_start & end?)
     //  - and is there any way to not have to have a click handler for every single row in each table?
     //  - also it doesn't seem to insert where your cursor is, only at the end
