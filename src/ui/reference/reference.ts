@@ -70,6 +70,7 @@ const buildReference = (
     referenceBuilt = true
 
     const reference = document.createElement("div")
+    reference.style.padding = "10px"
 
     const instructions = document.createElement("span")
     instructions.innerHTML = "Click any row to insert that code."
@@ -88,18 +89,21 @@ const buildReference = (
         rangeLink.id = sectionName
         reference.appendChild(rangeLink)
 
+        const titleWrapper = document.createElement("div")
+        reference.appendChild(titleWrapper)
+        titleWrapper.style.display = "flex"
+        titleWrapper.style.alignItems = "center"
+        titleWrapper.style.justifyContent = "space-between"
+
         const title = document.createElement("h3")
         title.innerHTML = sectionName
-        title.style.display = "inline-block"
-        reference.appendChild(title)
+        titleWrapper.appendChild(title)
 
         const backToTopLink = document.createElement("a")
         backToTopLink.href = "#top"
-        // TODO: FEATURE IMPROVE, READY TO GO: STYLE BACK TO TOP MORE NICELY TO THE RIGHT
         backToTopLink.innerHTML = "↑ back to top"
-        backToTopLink.style.display = "inline-block"
-        backToTopLink.style.paddingLeft = "30px"
-        reference.appendChild(backToTopLink)
+        backToTopLink.style.minWidth = "100px"
+        titleWrapper.appendChild(backToTopLink)
 
         const table = buildRangeTable(root, input, sectionData, callback)
         reference.appendChild(table)
