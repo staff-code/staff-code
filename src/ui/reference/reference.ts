@@ -15,10 +15,10 @@ const buildRangeTable = (
 
     sectionData.forEach(([unicode, code, glyphName]: ReferenceRow): void => {
         const row = table.insertRow()
-        // TODO, CLEAN, READY TO GO: ONE CLICK HANDLER FOR WHOLE THING, USE TARGET SOMEHOW TO FIGURE OUT WHICH ROW
+        // TODO: CLEAN, READY TO GO: ONE CLICK HANDLER FOR WHOLE THING, USE TARGET SOMEHOW TO FIGURE OUT WHICH ROW
         row.addEventListener("click", (): void => {
             input.value = input.value.match(/\s$/) ?
-                // TODO, FEATURE IMPROVE, READY TO GO: INSERTING SHOULD OCCUR WHEREVER THE CURSOR IS, NOT ALWAYS THE END
+                // TODO: FEATURE IMPROVE, READY TO GO: INSERTING SHOULD OCCUR WHEREVER THE CURSOR IS, NOT ALWAYS THE END
                 `${input.value}${code}` :
                 `${input.value} ${code}`
             transferInputToDisplay(root, {callback})

@@ -35,7 +35,6 @@ const buildReferenceLink = (
     document.getElementsByTagName("head")[0].appendChild(style)
 
     if (initialReferenceOpen) {
-        // TODO: FEATURE IMPROVE, READY TO GO: INCLUDE A LOADING SPINNER WHILE REFERENCE IS POPULATING
         import("./reference")
             .then(({buildReference}: {buildReference: BuildReference}): void => {
                 referenceLink.setAttribute("open", "open")
@@ -49,6 +48,8 @@ const buildReferenceLink = (
             setStaffCodeCookie(Initial.REFERENCE_OPEN, "false")
         } else {
             setStaffCodeCookie(Initial.REFERENCE_OPEN, "true")
+            referenceLink.style.cursor = "progress"
+            summary.style.cursor = "progress"
         }
 
         const {referenceBuilt, buildReference}: {referenceBuilt: boolean, buildReference: BuildReference} =
@@ -59,11 +60,16 @@ const buildReferenceLink = (
         //  Blocked on waiting for Dave's opinion
 
         if (referenceBuilt) {
+            referenceLink.style.cursor = "auto"
+            summary.style.cursor = "pointer"
             return
         }
 
         const reference = buildReference(root, input, {callback})
         referenceLink.appendChild(reference)
+
+        referenceLink.style.cursor = "auto"
+        summary.style.cursor = "pointer"
     })
 
     return referenceLink
