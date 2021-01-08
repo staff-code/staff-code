@@ -19,6 +19,7 @@ const handleCopyLinkClick = (
 ): void => {
     // todo: would it be better if we just stored these things in a central state rather than tried to figure it out
     //  by reaching into all these UI components?
+    //  you'd also include references to ui components so you wouldn't have to pass them around so much etc
 
     const encodedCodes = encodeURIComponent(
         prepareCodesToBeHumanReadableAsEncodedQueryParams(input.value as Io & Sentence),
