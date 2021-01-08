@@ -1,3 +1,4 @@
+import {BLANK, SPACE} from "@sagittal/general"
 import {ReferenceRow, SectionName} from "../../../bin"
 import {DEFAULT_FONT} from "../fonts"
 import {transferInputToDisplay} from "../transfer"
@@ -17,10 +18,15 @@ const buildRangeTable = (
         const row = table.insertRow()
         // TODO: CLEAN, READY TO GO: ONE CLICK HANDLER FOR WHOLE THING, USE TARGET SOMEHOW TO FIGURE OUT WHICH ROW
         row.addEventListener("click", (): void => {
-            input.value = input.value.match(/\s$/) ?
-                // TODO: FEATURE IMPROVE, READY TO GO: INSERTING SHOULD OCCUR WHEREVER THE CURSOR IS, NOT ALWAYS THE END
-                `${input.value}${code}` :
-                `${input.value} ${code}`
+            const textCursorPosition = input.selectionStart
+
+            const upToSelection = input.value.slice(0, textCursorPosition)
+            const maybePrecedingSpaceBuffer = upToSelection[upToSelection.length - 1] === SPACE ? BLANK : SPACE
+            const afterSelection = input.value.slice(textCursorPosition)
+            const maybeSucceedingSpaceBuffer = afterSelection[0] === SPACE ? BLANK : SPACE
+
+            input.value = `${upToSelection}${maybePrecedingSpaceBuffer}${code}${maybeSucceedingSpaceBuffer}${afterSelection}`
+
             transferInputToDisplay(root, {callback})
         })
         row.style.cursor = "pointer"
