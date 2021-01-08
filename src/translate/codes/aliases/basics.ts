@@ -3,30 +3,30 @@ import {SMuFL_MAP} from "../smufl"
 import {Code, Unicode} from "../types"
 
 const TIME_SIGNATURE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    "tmnm": SMuFL_MAP["timeSigCombNumerator"],
-    "tmdn": SMuFL_MAP["timeSigCombDenominator"],
+    "tmnm": SMuFL_MAP["tmsgcmnm"],
+    "tmdn": SMuFL_MAP["tmsgcmdn"],
 } as Record<Code & Word, Unicode & Word>
 
 const REST_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    "rsdb": SMuFL_MAP["restDoubleWhole"],
-    "rs1": SMuFL_MAP["restWhole"],
-    "rs2": SMuFL_MAP["restHalf"],
-    "rs4": SMuFL_MAP["restQuarter"],
-    "rs": SMuFL_MAP["restQuarter"],
+    "rsdb": SMuFL_MAP["rsdbwh"],
+    "rs1": SMuFL_MAP["rswh"],
+    "rs2": SMuFL_MAP["rshf"],
+    "rs4": SMuFL_MAP["rsqr"],
+    "rs": SMuFL_MAP["rsqr"],
 } as Record<Code & Word, Unicode & Word>
 
 // See: https://w3c.github.io/smufl/gitbook/tables/beamed-groups-of-notes.html
 const BEAMS_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    "ntbmst": SMuFL_MAP["textBlackNoteShortStem"],
-    "ntbm8": SMuFL_MAP["textBlackNoteLongStem"],
-    "ntbm16": SMuFL_MAP["textBlackNoteFrac16thShortStem"],
-    "bm8": SMuFL_MAP["textCont8thBeamShortStem"],
-    "bm16": SMuFL_MAP["textCont16thBeamShortStem"],
-    "txtp3": SMuFL_MAP["textTuplet3ShortStem"],
+    "ntbmst": SMuFL_MAP["txblntshsm"],
+    "ntbm8": SMuFL_MAP["txblntlnsm"],
+    "ntbm16": SMuFL_MAP["txblntfr16shsm"],
+    "bm8": SMuFL_MAP["txcn8bmshsm"],
+    "bm16": SMuFL_MAP["txcn16bmshsm"],
+    "txtp3": SMuFL_MAP["txtp3shsm"],
 } as Record<Code & Word, Unicode & Word>
 
 const BARLINE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    "bl": SMuFL_MAP["barlineSingle"],
+    "bl": SMuFL_MAP["blsn"],
 } as Record<Code & Word, Unicode & Word>
 
 export {

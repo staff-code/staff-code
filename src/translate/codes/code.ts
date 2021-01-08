@@ -1,39 +1,33 @@
 import {BLANK, joinWords, Sentence, Word} from "@sagittal/general"
-import {
-    ACCIDENTAL_ALIASES_MAP,
-    GENERIC_POSITION_ALIASES_MAP,
-    LINE_BREAK_ALIASES_MAP,
-    SMuFL_ABBREVIATION_ALIASES_MAP,
-} from "./aliases"
-import {BASE_SYMBOL_MAP} from "./codes"
+import {ACCIDENTAL_ALIASES_MAP, GENERIC_POSITION_ALIASES_MAP, LINE_BREAK_ALIASES_MAP} from "./aliases"
+import {BASE_GLYPH_MAP} from "./codes"
 import {Code, Unicode} from "./types"
 import {computeUnicodeForCode} from "./unicode"
 
-const DEBUGGING_ALIASES_MAP = {
+const DEBUGGING_ONLY_ALIASES_MAP = {
     "sp": " ",
     "st8": computeUnicodeForCode("st5lnnr" as Code & Word),
     "st16": computeUnicodeForCode("st5ln" as Code & Word),
     "st24": computeUnicodeForCode("st5lnwd" as Code & Word),
 }
 
-const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {
-    ...DEBUGGING_ALIASES_MAP,
+const BASE_GLYPH_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {
+    ...DEBUGGING_ONLY_ALIASES_MAP,
     ...ACCIDENTAL_ALIASES_MAP,
     ...GENERIC_POSITION_ALIASES_MAP,
     ...LINE_BREAK_ALIASES_MAP,
-    ...SMuFL_ABBREVIATION_ALIASES_MAP,
-    ...BASE_SYMBOL_MAP,
+    ...BASE_GLYPH_MAP,
 }
-const BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES = Object.entries(
-    BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING,
+const BASE_GLYPH_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES = Object.entries(
+    BASE_GLYPH_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING,
 ) as Array<[unknown, Unicode & Word]> as Array<[Code & Word, Unicode & Word]>
 
 const debugCode = (unicode: Unicode & Word): Code & Word => {
-    const codeEntry = BASE_SYMBOL_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES
+    const codeEntry = BASE_GLYPH_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING_ENTRIES
         .find((codeEntry: [Code & Word, Unicode & Word]): boolean => {
-            const [_, symbolUnicode] = codeEntry
+            const [_, entryUnicode] = codeEntry
 
-            return symbolUnicode === unicode
+            return entryUnicode === unicode
         })
 
     if (!codeEntry) return "??" as Code & Word

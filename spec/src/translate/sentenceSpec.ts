@@ -66,7 +66,7 @@ describe("computeInputSentenceUnicode", (): void => {
         expect(debugCodeSentence(actual)).toBe(expectedCodes)
     })
 
-    it("still supports symbols with curlies, despite those being comment chars", (): void => {
+    it("still supports codes with curlies, despite those being comment chars", (): void => {
         const inputSentence = "Gcl ; .{ ; nt ; .} ; nt" as Io & Sentence
 
         const actual = computeInputSentenceUnicode(inputSentence)
@@ -100,7 +100,7 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("don't manifest until they are needed (only apply to symbols with ligatures to be vertically shifted by them)", (): void => {
+        it("don't manifest until they are needed (only apply to glyphs with ligatures to be vertically shifted by them)", (): void => {
             const inputSentence = "D5 ston /|\\ ; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
@@ -604,7 +604,7 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("provides leger lines of the smallest size which is wider than the symbol they are for", (): void => {
+        it("provides leger lines of the smallest size which is wider than the glyph they are for", (): void => {
             let actual
             let expectedUnicode
             let expectedCodes

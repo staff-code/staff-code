@@ -9,8 +9,9 @@ wget -P vendor https://raw.githubusercontent.com/steinbergmedia/bravura/master/r
 rm vendor/ranges.json
 wget -P vendor https://raw.githubusercontent.com/w3c/smufl/gh-pages/metadata/ranges.json
 
+npm run generate-smufl-map
 npm run generate-bravura-widths
-cp vendor/ranges.json src/ui/reference
+npm run generate-smufl-reference
 
 # rev version
 

@@ -6,13 +6,11 @@ export {
     LINE_BREAK_ALIASES_MAP,
     MIDDLE_POSITION_AND_ABOVE_CONDITIONAL_NOTE_ALIASES_MAP,
     BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
-    SMuFL_ABBREVIATION_ALIASES_MAP,
 } from "./aliases"
-export {LOWERCASED_CODE_MAP, BASE_SYMBOL_MAP, COMMAND_MAP} from "./codes"
+export {LOWERCASED_CODE_MAP, BASE_GLYPH_MAP, COMMAND_MAP} from "./codes"
 export {debugCode, debugCodeSentence} from "./code"
 export {computeUnicodeForCode} from "./unicode"
 export {computeUnicodeLiteral, isUnicodeLiteral, computeUnicodeFromUnicodeLiteral} from "./literal"
-export {SMuFL_MAP} from "./smufl"
 export {
     NOT_SMuFL_SMART_SPACING_COMMAND_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,

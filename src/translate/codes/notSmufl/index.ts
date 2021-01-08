@@ -6,4 +6,4 @@ export {
     NOT_SMuFL_DEFINE_CUSTOM_COMMAND_MAP,
 } from "./command"
 export {NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP, NOT_SMuFL_ZERO_POSITION_MAP} from "./positionAndClef"
-export {NOT_SMuFL_CODES} from "./codes"
+export {NOT_SMuFL_MAP} from "./codes"

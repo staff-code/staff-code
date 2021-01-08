@@ -1,59 +1,38 @@
-import {computeKeyPath, isUndefined, Name, sort, Word} from "@sagittal/general"
-import {Code, SMuFL_ABBREVIATION_ALIASES_MAP, SMuFL_MAP, Unicode} from "../../translate"
+import {ReferenceRow, SectionName} from "../../../bin"
 import {DEFAULT_FONT} from "../fonts"
 import {transferInputToDisplay} from "../transfer"
 import {StaffCodeCallback, StaffCodeOptions} from "../types"
-import ranges from "./ranges.json"
-import {RangeData} from "./types"
-
-const SMuFL_ABBREVIATION_ALIASES_ENTRIES =
-    Object.entries(SMuFL_ABBREVIATION_ALIASES_MAP) as Array<[Code & Word, Unicode & Word]>
-
-const getAbbreviation = (unicode: Unicode & Word): Code & Word => {
-    const abbreviationEntry = SMuFL_ABBREVIATION_ALIASES_ENTRIES
-        .find(([abbreviationCode, abbreviationUnicode]: [Code & Word, Unicode & Word]): boolean => {
-            return abbreviationUnicode === unicode
-        })
-
-    if (isUndefined(abbreviationEntry)) throw new Error(`Did not find abbreviation code for ${unicode}.`)
-
-    const [abbreviationCode, abbreviationUnicode] = abbreviationEntry
-
-    return abbreviationCode
-}
+import referenceJson from "./reference.json"
 
 const buildRangeTable = (
     root: HTMLSpanElement,
     input: HTMLTextAreaElement,
-    rangeData: RangeData,
+    sectionData: ReferenceRow[],
     callback?: StaffCodeCallback,
 ): HTMLTableElement => {
-    const {glyphs} = rangeData
-
     const table = document.createElement("table")
     table.style.borderCollapse = "collapse"
 
-    glyphs.forEach((glyph: Name<Unicode>): void => {
-        const unicode = SMuFL_MAP[glyph]
-        const code = getAbbreviation(unicode)
-
+    sectionData.forEach(([unicode, code, glyphName]: ReferenceRow): void => {
         const row = table.insertRow()
+        // TODO, CLEAN, READY TO GO: ONE CLICK HANDLER FOR WHOLE THING, USE TARGET SOMEHOW TO FIGURE OUT WHICH ROW
         row.addEventListener("click", (): void => {
             input.value = input.value.match(/\s$/) ?
+                // TODO, FEATURE IMPROVE, READY TO GO: INSERTING SHOULD OCCUR WHEREVER THE CURSOR IS, NOT ALWAYS THE END
                 `${input.value}${code}` :
                 `${input.value} ${code}`
             transferInputToDisplay(root, {callback})
         })
         row.style.cursor = "pointer"
 
-        const symbolCell = row.insertCell()
-        symbolCell.innerHTML = unicode
-        symbolCell.style.border = "1px solid"
-        symbolCell.style.padding = "2px 5px"
-        symbolCell.style.fontFamily = DEFAULT_FONT
-        symbolCell.style.width = "3em"
-        symbolCell.style.textAlign = "center"
-        row.appendChild(symbolCell)
+        const unicodeCell = row.insertCell()
+        unicodeCell.innerHTML = unicode
+        unicodeCell.style.border = "1px solid"
+        unicodeCell.style.padding = "2px 5px"
+        unicodeCell.style.fontFamily = DEFAULT_FONT
+        unicodeCell.style.width = "3em"
+        unicodeCell.style.textAlign = "center"
+        row.appendChild(unicodeCell)
 
         const codeCell = row.insertCell()
         codeCell.innerHTML = code
@@ -61,11 +40,11 @@ const buildRangeTable = (
         codeCell.style.padding = "2px"
         row.appendChild(codeCell)
 
-        const fullGlyphNameCell = row.insertCell()
-        fullGlyphNameCell.innerHTML = glyph
-        fullGlyphNameCell.style.border = "1px solid"
-        fullGlyphNameCell.style.padding = "2px 5px"
-        row.appendChild(fullGlyphNameCell)
+        const glyphNameCell = row.insertCell()
+        glyphNameCell.innerHTML = glyphName
+        glyphNameCell.style.border = "1px solid"
+        glyphNameCell.style.padding = "2px 5px"
+        row.appendChild(glyphNameCell)
     })
 
     return table
@@ -84,15 +63,7 @@ const buildReference = (
 ): HTMLDivElement => {
     referenceBuilt = true
 
-    // TODO: CLEAN, READY TO GO: REFERENCE CODE
-    //  - and the RangeData type no have to have underscores in its keys (maybe can go down to only range_start & end?)
-    //  - and is there any way to not have to have a click handler for every single row in each table?
-    //  - also it doesn't seem to insert where your cursor is, only at the end
-    //  - Just assemble the exact data to map over
-
     const reference = document.createElement("div")
-
-    const rangeEntries = Object.entries(ranges) as Array<[string, RangeData]>
 
     const instructions = document.createElement("span")
     instructions.innerHTML = "Click any row to insert that code."
@@ -105,34 +76,34 @@ const buildReference = (
     const toc = document.createElement("ul")
     reference.appendChild(toc)
 
-    sort(rangeEntries, {by: computeKeyPath(1, "range_start")})
-
-    rangeEntries.forEach(([rangeKey, rangeData]: [string, RangeData]): void => {
+    const referenceSections = referenceJson as Array<[SectionName, ReferenceRow[]]>
+    referenceSections.forEach(([sectionName, sectionData]: [SectionName, ReferenceRow[]]): void => {
         const rangeLink = document.createElement("a")
-        rangeLink.id = rangeKey
+        rangeLink.id = sectionName
         reference.appendChild(rangeLink)
 
         const title = document.createElement("h3")
-        title.innerHTML = rangeData.description
+        title.innerHTML = sectionName
         title.style.display = "inline-block"
         reference.appendChild(title)
 
         const backToTopLink = document.createElement("a")
         backToTopLink.href = "#top"
+        // TODO: FEATURE IMPROVE, READY TO GO: STYLE BACK TO TOP MORE NICELY TO THE RIGHT
         backToTopLink.innerHTML = "↑ back to top"
         backToTopLink.style.display = "inline-block"
         backToTopLink.style.paddingLeft = "30px"
         reference.appendChild(backToTopLink)
 
-        const table = buildRangeTable(root, input, rangeData, callback)
+        const table = buildRangeTable(root, input, sectionData, callback)
         reference.appendChild(table)
 
         const tocItem = document.createElement("li")
         toc.appendChild(tocItem)
 
         const tocLink = document.createElement("a")
-        tocLink.href = `#${rangeKey}`
-        tocLink.innerHTML = rangeData.description
+        tocLink.href = `#${sectionName}`
+        tocLink.innerHTML = sectionName
         tocItem.appendChild(tocLink)
     })
 

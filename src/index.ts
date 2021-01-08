@@ -5,7 +5,6 @@ export {
     computeUnicodeLiteral,
     Octals,
     Code,
-    SMuFL_MAP,
     Unicode,
     computeInputSentenceUnicode,
     UnicodeLiteral,

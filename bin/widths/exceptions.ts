@@ -1,33 +1,52 @@
-import {RecordKey} from "@sagittal/general"
-import {Octals, SMuFL_MAP, Unicode} from "../../src"
+import {Name, RecordKey} from "@sagittal/general"
+import {computeUnicodeFromUnicodeLiteral, Octals, Unicode, UnicodeLiteral} from "../../src"
+import {computeGlyphUnicode} from "../glyphUnicode"
 
 const EXCEPTION_WIDTHS: Record<RecordKey<Unicode>, Octals> = {
-    [SMuFL_MAP["staff6Lines"]]: 0 as Octals,
-    [SMuFL_MAP["staff6LinesWide"]]: 0 as Octals,
-    [SMuFL_MAP["staff6LinesNarrow"]]: 0 as Octals,
-    [SMuFL_MAP["staff5Lines"]]: 0 as Octals,
-    [SMuFL_MAP["staff5LinesWide"]]: 0 as Octals,
-    [SMuFL_MAP["staff5LinesNarrow"]]: 0 as Octals,
-    [SMuFL_MAP["staff4Lines"]]: 0 as Octals,
-    [SMuFL_MAP["staff4LinesWide"]]: 0 as Octals,
-    [SMuFL_MAP["staff4LinesNarrow"]]: 0 as Octals,
-    [SMuFL_MAP["staff3Lines"]]: 0 as Octals,
-    [SMuFL_MAP["staff3LinesWide"]]: 0 as Octals,
-    [SMuFL_MAP["staff3LinesNarrow"]]: 0 as Octals,
-    [SMuFL_MAP["staff2Lines"]]: 0 as Octals,
-    [SMuFL_MAP["staff2LinesWide"]]: 0 as Octals,
-    [SMuFL_MAP["staff2LinesNarrow"]]: 0 as Octals,
-    [SMuFL_MAP["staff1Line"]]: 0 as Octals,
-    [SMuFL_MAP["staff1LineWide"]]: 0 as Octals,
-    [SMuFL_MAP["staff1LineNarrow"]]: 0 as Octals,
-    [SMuFL_MAP["chantStaff"]]: 0 as Octals,
-    [SMuFL_MAP["chantStaffWide"]]: 0 as Octals,
-    [SMuFL_MAP["chantStaffNarrow"]]: 0 as Octals,
-    [SMuFL_MAP["luteStaff6Lines"]]: 0 as Octals,
-    [SMuFL_MAP["luteStaff6LinesWide"]]: 0 as Octals,
-    [SMuFL_MAP["luteStaff6LinesNarrow"]]: 0 as Octals,
+    [computeGlyphUnicode("staff6Lines" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff6LinesWide" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff6LinesNarrow" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff5Lines" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff5LinesWide" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff5LinesNarrow" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff4Lines" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff4LinesWide" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff4LinesNarrow" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff3Lines" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff3LinesWide" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff3LinesNarrow" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff2Lines" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff2LinesWide" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff2LinesNarrow" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff1Line" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff1LineWide" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("staff1LineNarrow" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("chantStaff" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("chantStaffWide" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("chantStaffNarrow" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("luteStaff6Lines" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("luteStaff6LinesWide" as Name<Unicode>)]: 0 as Octals,
+    [computeGlyphUnicode("luteStaff6LinesNarrow" as Name<Unicode>)]: 0 as Octals,
 }
+
+const FLOORED_WIDTHS = ([
+    "U+E030",
+    "U+E031",
+    "U+E032",
+    "U+E033",
+    "U+E034",
+    "U+E035",
+    "U+E036",
+    "U+E037",
+    "U+E038",
+    "U+E039",
+    "U+E041",
+    "U+E04D",
+    "U+EBA4",
+    "U+EBA5",
+] as UnicodeLiteral[]).map(computeUnicodeFromUnicodeLiteral)
 
 export {
     EXCEPTION_WIDTHS,
+    FLOORED_WIDTHS,
 }

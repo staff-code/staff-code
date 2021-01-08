@@ -3,14 +3,14 @@ import {SMuFL_MAP} from "../smufl"
 import {Code, Unicode} from "../types"
 
 const NOTE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    "nt1": SMuFL_MAP["noteWhole"],
-    "nt2up": SMuFL_MAP["noteHalfUp"],
-    "nt2dn": SMuFL_MAP["noteHalfDown"],
-    "nt4up": SMuFL_MAP["noteQuarterUp"],
-    "nt4dn": SMuFL_MAP["noteQuarterDown"],
-    "ntdb": SMuFL_MAP["noteDoubleWhole"],
-    "ntup": SMuFL_MAP["noteQuarterUp"],
-    "ntdn": SMuFL_MAP["noteQuarterDown"],
+    "nt1": SMuFL_MAP["ntwh"],
+    "nt2up": SMuFL_MAP["nthfup"],
+    "nt2dn": SMuFL_MAP["nthfdn"],
+    "nt4up": SMuFL_MAP["ntqrup"],
+    "nt4dn": SMuFL_MAP["ntqrdn"],
+    "ntdb": SMuFL_MAP["ntdbwh"],
+    "ntup": SMuFL_MAP["ntqrup"],
+    "ntdn": SMuFL_MAP["ntqrdn"],
 } as Record<Code & Word, Unicode & Word>
 
 export {

@@ -7,7 +7,7 @@ import {
 } from "./command"
 import {NOT_SMuFL_SUPPLEMENTAL_POSITION_MAP, NOT_SMuFL_ZERO_POSITION_MAP} from "./positionAndClef"
 
-const NOT_SMuFL_CODES = {
+const NOT_SMuFL_MAP = {
     ...NOT_SMuFL_LINE_BREAKS_MAP,
     ...NOT_SMuFL_SMART_STAVE_COMMAND_MAP,
     ...NOT_SMuFL_SMART_SPACING_COMMAND_MAP,
@@ -19,5 +19,5 @@ const NOT_SMuFL_CODES = {
 }
 
 export {
-    NOT_SMuFL_CODES,
+    NOT_SMuFL_MAP,
 }

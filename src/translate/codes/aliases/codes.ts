@@ -7,16 +7,10 @@ import {NOTE_ALIASES_MAP} from "./notes"
 import {
     CLEF_ALIASES_MAP,
     GENERIC_POSITION_ALIASES_MAP,
-    NOT_SMuFL_SUPPLEMENTAL_POSITION_ALIASES_MAP,
-    NOT_SMuFL_ZERO_POSITION_ALIASES_MAP,
 } from "./positionAndClef"
-import {SMuFL_ABBREVIATION_ALIASES_MAP} from "./smufl"
 
 // Does not include the conditional clef-dependant aliases (e.g. "c4") or the position-dependent aliases (e.g. "nt4")
-const ALIAS_SYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    ...SMuFL_ABBREVIATION_ALIASES_MAP,
-    ...NOT_SMuFL_ZERO_POSITION_ALIASES_MAP,
-    ...NOT_SMuFL_SUPPLEMENTAL_POSITION_ALIASES_MAP,
+const ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ...NOTE_ALIASES_MAP,
     ...BEAMS_ALIASES_MAP,
     ...REST_ALIASES_MAP,
@@ -29,5 +23,5 @@ const ALIAS_SYMBOL_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
 }
 
 export {
-    ALIAS_SYMBOL_MAP,
+    ALIASES_MAP,
 }

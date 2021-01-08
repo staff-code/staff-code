@@ -1,11 +1,12 @@
-import {Name, RecordKey, Word} from "@sagittal/general"
+import {Name, RecordKey} from "@sagittal/general"
 import * as fs from "fs"
-import {Octals, Unicode, UnicodeLiteral} from "../../src"
-import {glyphNames} from "./globals"
+import {Octals, Unicode} from "../../src"
+import {glyphNames} from "../globals"
+import {GlyphDatum} from "../types"
 import {computeBravuraGlyphWidth} from "./width"
 
 const generateBravuraWidths = (): void => {
-    const glyphNameEntries = Object.entries(glyphNames) as Array<[Name<Unicode>, {codepoint: UnicodeLiteral & Word}]>
+    const glyphNameEntries = Object.entries(glyphNames) as Array<[Name<Unicode>, GlyphDatum]>
 
     const bravuraWidths = glyphNameEntries.reduce(computeBravuraGlyphWidth, {} as Record<RecordKey<Unicode>, Octals>)
 

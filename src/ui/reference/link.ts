@@ -54,7 +54,6 @@ const buildReferenceLink = (
         const {referenceBuilt, buildReference}: {referenceBuilt: boolean, buildReference: BuildReference} =
             await import("./reference")
 
-
         // TODO: FEATURE IMPROVE, BLOCKED: UPDATE COOKIES WITH URL PARAMS
         //  Should params not only take precedence over cookies on initial page load, but also replace them?
         //  Blocked on waiting for Dave's opinion
