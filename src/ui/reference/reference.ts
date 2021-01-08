@@ -1,4 +1,4 @@
-import {BLANK, SPACE} from "@sagittal/general"
+import {BLANK, Maybe, SPACE} from "@sagittal/general"
 import {ReferenceRow, SectionName} from "../../../bin"
 import {DEFAULT_FONT} from "../fonts"
 import {transferInputToDisplay} from "../transfer"
@@ -16,19 +16,7 @@ const buildRangeTable = (
 
     sectionData.forEach(([unicode, code, glyphName]: ReferenceRow): void => {
         const row = table.insertRow()
-        // TODO: CLEAN, READY TO GO: ONE CLICK HANDLER FOR WHOLE THING, USE TARGET SOMEHOW TO FIGURE OUT WHICH ROW
-        row.addEventListener("click", (): void => {
-            const textCursorPosition = input.selectionStart
 
-            const upToSelection = input.value.slice(0, textCursorPosition)
-            const maybePrecedingSpaceBuffer = upToSelection[upToSelection.length - 1] === SPACE ? BLANK : SPACE
-            const afterSelection = input.value.slice(textCursorPosition)
-            const maybeSucceedingSpaceBuffer = afterSelection[0] === SPACE ? BLANK : SPACE
-
-            input.value = `${upToSelection}${maybePrecedingSpaceBuffer}${code}${maybeSucceedingSpaceBuffer}${afterSelection}`
-
-            transferInputToDisplay(root, {callback})
-        })
         row.style.cursor = "pointer"
 
         const unicodeCell = row.insertCell()
@@ -115,6 +103,26 @@ const buildReference = (
         tocLink.href = `#${sectionName}`
         tocLink.innerHTML = sectionName
         tocItem.appendChild(tocLink)
+    })
+
+    reference.addEventListener("click", (event: MouseEvent): void => {
+        const eventPath = event.composedPath()
+        const maybeParentReferenceRow = eventPath[1] as Maybe<HTMLTableRowElement>
+        const maybeCodeCell =
+            maybeParentReferenceRow && maybeParentReferenceRow.children[1] as Maybe<HTMLTableCellElement>
+        if (!maybeCodeCell || maybeCodeCell.tagName !== "TD") return
+
+        const code = maybeCodeCell.innerHTML
+
+        const textCursorPosition = input.selectionStart
+        const upToSelection = input.value.slice(0, textCursorPosition)
+        const maybePrecedingSpaceBuffer = upToSelection[upToSelection.length - 1] === SPACE ? BLANK : SPACE
+        const afterSelection = input.value.slice(textCursorPosition)
+        const maybeSucceedingSpaceBuffer = afterSelection[0] === SPACE ? BLANK : SPACE
+
+        input.value = `${upToSelection}${maybePrecedingSpaceBuffer}${code}${maybeSucceedingSpaceBuffer}${afterSelection}`
+
+        transferInputToDisplay(root, {callback})
     })
 
     return reference
