@@ -47,6 +47,7 @@ const options: StaffCodeOptions = {
         size: 1.3,              // default: 1 (the overall scaling, via the font-size attribute)
         line: 1.5,              // default: 2 (affects the spacing of staves, via the line-height attribute)
         codes: "ston Fcl",      // default: "ston Gcl ; "
+        referenceOpen: true     // default: false
     },
     font: "Petaluma",           // default: "Bravura Text BB" (you'll have to move a custom font to assets/fonts)
     callback,                   // default: undefined

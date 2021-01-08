@@ -1,7 +1,7 @@
 import {buildDisplay} from "../../display"
 import {buildDownloadButton} from "../../downloadButton"
 import {DEFAULT_FONT} from "../../fonts"
-import {computeInitialCodes, computeInitialLine, computeInitialSize} from "../../initial"
+import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "../../initial"
 import {buildReferenceLink} from "../../reference"
 import {sharedRootSetup} from "../../root"
 import {transferInputToDisplay} from "../../transfer"
@@ -23,6 +23,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
             codes: initialCodes = computeInitialCodes(),
             size: initialSize = computeInitialSize(),
             line: initialLine = computeInitialLine(),
+            referenceOpen: initialReferenceOpen = computeInitialReferenceOpen(),
         } = {},
         font = DEFAULT_FONT,
         callback,
@@ -36,7 +37,19 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
 
     root.appendChild(input)
 
-    sharedRootSetup(root, display, input, {copyLinkButton, sizeSpinner, lineSpinner, initialSize, initialLine})
+    let referenceLink
+    if (reference) {
+        referenceLink = buildReferenceLink(root, input, {callback, initialReferenceOpen})
+    }
+
+    sharedRootSetup(
+        root,
+        display,
+        input,
+        referenceLink,
+        {copyLinkButton, sizeSpinner, lineSpinner, initialLine, initialSize},
+    )
+
     if (downloadButton) {
         const downloadButton = buildDownloadButton(display)
         root.appendChild(downloadButton)
@@ -44,8 +57,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
 
     root.appendChild(display)
 
-    if (reference) {
-        const referenceLink = buildReferenceLink(root, input, {callback})
+    if (referenceLink) {
         root.appendChild(referenceLink)
     }
 

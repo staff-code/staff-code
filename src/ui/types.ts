@@ -24,6 +24,7 @@ interface InitialOptions {
     codes: Io & Sentence,
     size: Multiplier<Em>,
     line: Multiplier<Em>,
+    referenceOpen: boolean,
 }
 
 interface DisplayOptions {
@@ -51,6 +52,7 @@ enum Initial {
     CODES = "codes",
     SIZE = "size",
     LINE = "line",
+    REFERENCE_OPEN = "reference-open",
 }
 
 type EncodedCode = string & {_EncodedCode: boolean}

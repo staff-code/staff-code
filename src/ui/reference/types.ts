@@ -1,6 +1,6 @@
 import {Name} from "@sagittal/general"
 import {Unicode, UnicodeLiteral} from "../../translate"
-import {StaffCodeOptions} from "../types"
+import {StaffCodeCallback, StaffCodeOptions} from "../types"
 
 interface RangeData {
     description: string,
@@ -15,7 +15,13 @@ type BuildReference = (
     {callback}: StaffCodeOptions,
 ) => HTMLDivElement
 
+interface ReferenceOptions {
+    callback?: StaffCodeCallback,
+    initialReferenceOpen: boolean,
+}
+
 export {
     RangeData,
     BuildReference,
+    ReferenceOptions,
 }

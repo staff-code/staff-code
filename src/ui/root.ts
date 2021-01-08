@@ -1,3 +1,4 @@
+import {Maybe} from "@sagittal/general"
 import {buildCopyLinkButton} from "./copyLinkButton"
 import {buildLineSpinnerWrapper} from "./line"
 import {buildSizeSpinnerWrapper} from "./size"
@@ -7,6 +8,7 @@ const sharedRootSetup = (
     root: HTMLSpanElement,
     display: HTMLElement,
     input: HTMLTextAreaElement,
+    referenceLink: Maybe<HTMLDetailsElement>, // todo: this is just horrible, the confusion
     {copyLinkButton, sizeSpinner, lineSpinner, initialSize, initialLine}: RootOptions,
 ): void => {
     let sizeSpinnerWrapper
@@ -26,6 +28,7 @@ const sharedRootSetup = (
             input,
             sizeSpinnerWrapper && sizeSpinnerWrapper.querySelector("input") || undefined,
             lineSpinnerWrapper && lineSpinnerWrapper.querySelector("input") || undefined,
+            referenceLink,
         )
         root.appendChild(copyLinkButton)
     }

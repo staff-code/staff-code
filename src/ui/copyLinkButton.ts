@@ -8,20 +8,22 @@ const onWebApp = (): boolean => {
     const getUrl = window.location
     const baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split("/")[1]
 
-    // todo bring back when you're done experimenting
-    //  but it looks like the #top hash intra-page navigation is messing with the query params...
-    //  might simply be a way to put the query params up there differently that would work better...?
-    return true // baseUrl === WEB_APP_URL
+    return baseUrl === WEB_APP_URL
 }
 
 const handleCopyLinkClick = (
     input: HTMLTextAreaElement,
     sizeSpinner?: HTMLInputElement,
     lineSpinner?: HTMLInputElement,
+    referenceLink?: HTMLDetailsElement,
 ): void => {
-    const initialCodesParam = encodeURIComponent(
+    // todo: would it be better if we just stored these things in a central state rather than tried to figure it out
+    //  by reaching into all these UI components?
+
+    const encodedCodes = encodeURIComponent(
         prepareCodesToBeHumanReadableAsEncodedQueryParams(input.value as Io & Sentence),
     )
+    const initialCodesParam = `&${Initial.CODES}=${encodedCodes}`
 
     const initialSizeParam = sizeSpinner ?
         sizeSpinner.value === `${DEFAULT_INITIAL_SIZE}` ? BLANK : `&${Initial.SIZE}=${sizeSpinner.value}` :
@@ -31,7 +33,11 @@ const handleCopyLinkClick = (
         lineSpinner.value === `${DEFAULT_INITIAL_LINE}` ? BLANK : `&${Initial.LINE}=${lineSpinner.value}` :
         BLANK
 
-    const initialParams = `?${Initial.CODES}=${initialCodesParam}${initialSizeParam}${initialLineParam}`
+    const initialReferenceOpenParam = referenceLink ?
+        referenceLink.hasAttribute("open") ? `&${Initial.REFERENCE_OPEN}=true` : BLANK :
+        BLANK
+
+    const initialParams = `?${initialSizeParam}${initialLineParam}${initialReferenceOpenParam}${initialCodesParam}`
 
     if (onWebApp()) {
         history.pushState(undefined, BLANK, initialParams)
@@ -45,13 +51,14 @@ const buildCopyLinkButton = (
     input: HTMLTextAreaElement,
     sizeSpinner?: HTMLInputElement,
     lineSpinner?: HTMLInputElement,
+    referenceLink?: HTMLDetailsElement,
 ): HTMLButtonElement => {
     const copyLinkButton = document.createElement("button")
     copyLinkButton.textContent = "\u{1f4cb}\ufe0e Link"
     copyLinkButton.style.margin = "2px"
     copyLinkButton.style.cursor = "pointer"
     copyLinkButton.addEventListener("click", (): void => {
-        handleCopyLinkClick(input, sizeSpinner, lineSpinner)
+        handleCopyLinkClick(input, sizeSpinner, lineSpinner, referenceLink)
     })
 
     return copyLinkButton

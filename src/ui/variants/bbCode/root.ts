@@ -1,6 +1,6 @@
 import {buildDisplay} from "../../display"
 import {DEFAULT_FONT} from "../../fonts"
-import {computeInitialCodes, computeInitialLine, computeInitialSize} from "../../initial"
+import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "../../initial"
 import {setupInput} from "../../input"
 import {buildReferenceLink} from "../../reference"
 import {sharedRootSetup} from "../../root"
@@ -21,6 +21,7 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
             codes: initialCodes = computeInitialCodes(),
             size: initialSize = computeInitialSize(),
             line: initialLine = computeInitialLine(),
+            referenceOpen: initialReferenceOpen = computeInitialReferenceOpen(),
         } = {},
         font = DEFAULT_FONT,
         callback,
@@ -32,14 +33,24 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
     const input: HTMLTextAreaElement = root.querySelector(".input") as HTMLTextAreaElement
     const display = buildDisplay({font, inline, initialLine, initialSize})
 
+    let referenceLink
+    if (reference) {
+        referenceLink = buildReferenceLink(root, input, {callback, initialReferenceOpen})
+    }
+
     setupInput(input, root, {interactive, initialCodes, callback})
 
-    sharedRootSetup(root, display, input, {copyLinkButton, sizeSpinner, lineSpinner, initialLine, initialSize})
+    sharedRootSetup(
+        root,
+        display,
+        input,
+        referenceLink,
+        {copyLinkButton, sizeSpinner, lineSpinner, initialLine, initialSize},
+    )
 
     root.appendChild(display)
 
-    if (reference) {
-        const referenceLink = buildReferenceLink(root, input, {callback})
+    if (referenceLink) {
         root.appendChild(referenceLink)
     }
 
