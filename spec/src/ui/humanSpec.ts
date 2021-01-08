@@ -5,24 +5,21 @@ import {
 } from "../../../src/ui/human"
 import {EncodedCode} from "../../../src/ui/types"
 
-describe("prepareCodesToBeHumanReadableAsEncodedQueryParams", (): void => {
-    it("prepares the codes to be readable when used as query params", (): void => {
-        const inputSentence = "ston nt ; nt8 ; cdsq" as Io & Sentence
+const inputSentence = "ston nt ; nt8  ; cdsq - br; ;;  -  - -  .-  .- .-  .- ; - ;" as Io & Sentence
+const encodedSentence = "ston-nt-q-nt8  q-cdsqq-j-brq-;;  j  j-j  .j  .j-.j  .j-q-j-q" as EncodedCode & Sentence
 
+describe("prepareCodesToBeHumanReadableAsEncodedQueryParams", (): void => {
+    fit("prepares the codes to be readable when used as query params", (): void => {
         const actual = prepareCodesToBeHumanReadableAsEncodedQueryParams(inputSentence)
 
-        const expected = "ston-nt-q-nt8-q-cdsqq" as EncodedCode & Sentence
-        expect(actual).toBe(expected)
+        expect(actual).toBe(encodedSentence)
     })
 })
 
 describe("undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams", (): void => {
-    it("undoes what was done to make the codes readable when used as query params", (): void => {
-        const encodedSentence = "ston-nt-q-nt8-q-cdsqq" as EncodedCode & Sentence
-
+    fit("undoes what was done to make the codes readable when used as query params", (): void => {
         const actual = undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams(encodedSentence)
 
-        const expected = "ston nt ; nt8 ; cdsq" as Io & Sentence
-        expect(actual).toBe(expected)
+        expect(actual).toBe(inputSentence)
     })
 })

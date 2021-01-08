@@ -30,6 +30,7 @@ const buildReferenceLink = (
     document.getElementsByTagName("head")[0].appendChild(style)
 
     if (initialReferenceOpen) {
+        // TODO: FEATURE IMPROVE, INCLUDE SPINNER
         import("./reference")
             .then(({buildReference}: {buildReference: BuildReference}): void => {
                 referenceLink.setAttribute("open", "open")
