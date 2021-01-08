@@ -22,6 +22,7 @@ const buildSizeSpinnerWrapper = (
     const sizeSpinner = document.createElement("input")
     sizeSpinner.type = "number"
     sizeSpinner.step = "0.1"
+    sizeSpinner.min = "0"
     sizeSpinner.value = `${initialSize}`
     sizeSpinner.style.width = "3em"
     sizeSpinner.id = Initial.SIZE

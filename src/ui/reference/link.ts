@@ -13,6 +13,9 @@ const buildReferenceLink = (
     referenceLink.style.border = "1px solid"
     referenceLink.style.marginBottom = "10px"
 
+    // TODO: Somehow also include StaffCode as a title sort of thing to the right of the reference,
+    //  Which upon clicking shows an about text, which links to the instructions post
+
     const summary = document.createElement("summary")
     summary.innerHTML = "Reference"
     summary.style.cursor = "pointer"

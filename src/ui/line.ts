@@ -21,6 +21,7 @@ const buildLineSpinnerWrapper = (
     const lineSpinner = document.createElement("input")
     lineSpinner.type = "number"
     lineSpinner.step = "0.1"
+    lineSpinner.min = "0"
     lineSpinner.value = `${initialLine}`
     lineSpinner.style.width = "3em"
     lineSpinner.id = Initial.LINE

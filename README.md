@@ -61,7 +61,7 @@ loadFontsThen((): void => {
 
 The WOFF and OTF variants of the Bravura Text BB font are included in the package. You should serve them at `assets/fonts/*` for them to be automatically picked up.
 
-The download button and reference are not made available in the bbCode variant.
+The download button, reference, copy link button, size spinner, and line spinner are not made available in the bbCode variant.
 
 The copy link button only writes the query params to the URL bar if it detects that it's running in the StaffCode web app.
 
