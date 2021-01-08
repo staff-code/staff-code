@@ -7,10 +7,6 @@ const setupBBCodeStaffCode = (): void =>
         .forEach((root: HTMLSpanElement): void => {
             const inline = root.getAttribute("sc-inline") === "true"
             const interactive = root.getAttribute("sc-interactive") === "true"
-            // TODO: remove copy button, and probably the spinners too
-            const copyLinkButton = root.getAttribute("sc-copy-link-button") === "true"
-            const sizeSpinner = root.getAttribute("sc-size-spinner") === "true"
-            const lineSpinner = root.getAttribute("sc-line-spinner") === "true"
 
             const size = parseFloat(root.getAttribute("sc-initial-size") || BLANK) as Multiplier<Em> || undefined
             const line = parseFloat(root.getAttribute("sc-initial-line") || BLANK) as Multiplier<Em> || undefined
@@ -24,9 +20,6 @@ const setupBBCodeStaffCode = (): void =>
                     ui: {
                         inline,
                         interactive,
-                        copyLinkButton,
-                        sizeSpinner,
-                        lineSpinner,
                     },
                     initial: {
                         line,

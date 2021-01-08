@@ -1,9 +1,11 @@
+import {buildCopyLinkButton} from "../../copyLinkButton"
 import {buildDisplay} from "../../display"
 import {buildDownloadButton} from "../../downloadButton"
 import {DEFAULT_FONT} from "../../fonts"
 import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "../../initial"
+import {buildLineSpinnerWrapper} from "../../line"
 import {buildReferenceLink} from "../../reference"
-import {sharedRootSetup} from "../../root"
+import {buildSizeSpinnerWrapper} from "../../size"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeOptions} from "../../types"
 import {buildPackageInput} from "./input"
@@ -42,13 +44,27 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
         referenceLink = buildReferenceLink(root, input, {callback, initialReferenceOpen})
     }
 
-    sharedRootSetup(
-        root,
-        display,
-        input,
-        referenceLink,
-        {copyLinkButton, sizeSpinner, lineSpinner, initialLine, initialSize},
-    )
+    let sizeSpinnerWrapper
+    if (sizeSpinner) {
+        sizeSpinnerWrapper = buildSizeSpinnerWrapper(display, {initialSize})
+        root.appendChild(sizeSpinnerWrapper)
+    }
+
+    let lineSpinnerWrapper
+    if (lineSpinner) {
+        lineSpinnerWrapper = buildLineSpinnerWrapper(display, {initialLine})
+        root.appendChild(lineSpinnerWrapper)
+    }
+
+    if (copyLinkButton) {
+        const copyLinkButton = buildCopyLinkButton(
+            input,
+            sizeSpinnerWrapper && sizeSpinnerWrapper.querySelector("input") || undefined,
+            lineSpinnerWrapper && lineSpinnerWrapper.querySelector("input") || undefined,
+            referenceLink,
+        )
+        root.appendChild(copyLinkButton)
+    }
 
     if (downloadButton) {
         const downloadButton = buildDownloadButton(display)

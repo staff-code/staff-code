@@ -3,7 +3,6 @@ import {DEFAULT_FONT} from "../../fonts"
 import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "../../initial"
 import {setupInput} from "../../input"
 import {buildReferenceLink} from "../../reference"
-import {sharedRootSetup} from "../../root"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeOptions} from "../../types"
 
@@ -12,9 +11,6 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
         ui: {
             inline = false,
             interactive = false,
-            copyLinkButton = false,
-            sizeSpinner = false,
-            lineSpinner = false,
             reference = false,
         } = {},
         initial: {
@@ -39,14 +35,6 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
     }
 
     setupInput(input, root, {interactive, initialCodes, callback})
-
-    sharedRootSetup(
-        root,
-        display,
-        input,
-        referenceLink,
-        {copyLinkButton, sizeSpinner, lineSpinner, initialLine, initialSize},
-    )
 
     root.appendChild(display)
 
