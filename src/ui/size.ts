@@ -9,15 +9,13 @@ const buildSizeSpinnerWrapper = (
 ): HTMLSpanElement => {
     const sizeSpinnerWrapper = document.createElement("span")
     sizeSpinnerWrapper.style.display = "inline-block"
-    sizeSpinnerWrapper.style.margin = "2px"
+    sizeSpinnerWrapper.style.marginRight = "2px"
 
     const sizeSpinnerLabel = document.createElement("label")
     sizeSpinnerLabel.innerHTML = lowerCaseToUpperCase(Initial.SIZE)
     sizeSpinnerLabel.setAttribute("for", Initial.SIZE)
     sizeSpinnerLabel.style.width = "2em"
     sizeSpinnerLabel.style.display = "inline-block"
-    sizeSpinnerLabel.style.textAlign = "right"
-    sizeSpinnerLabel.style.marginRight = "2px"
 
     const sizeSpinner = document.createElement("input")
     sizeSpinner.type = "number"

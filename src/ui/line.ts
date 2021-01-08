@@ -6,17 +6,16 @@ const buildLineSpinnerWrapper = (
     display: HTMLElement,
     {initialLine}: {initialLine: Multiplier<Em>},
 ): HTMLSpanElement => {
+    // todo: reduce duplication between the two spinners
     const lineSpinnerWrapper = document.createElement("span")
     lineSpinnerWrapper.style.display = "inline-block"
-    lineSpinnerWrapper.style.margin = "2px"
+    lineSpinnerWrapper.style.marginRight = "2px"
 
     const lineSpinnerLabel = document.createElement("label")
     lineSpinnerLabel.innerHTML = lowerCaseToUpperCase(Initial.LINE)
     lineSpinnerLabel.setAttribute("for", Initial.LINE)
     lineSpinnerLabel.style.width = "2em"
     lineSpinnerLabel.style.display = "inline-block"
-    lineSpinnerLabel.style.textAlign = "right"
-    lineSpinnerLabel.style.marginRight = "2px"
 
     const lineSpinner = document.createElement("input")
     lineSpinner.type = "number"

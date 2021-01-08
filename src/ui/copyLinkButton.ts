@@ -54,7 +54,7 @@ const buildCopyLinkButton = (
     referenceLink?: HTMLDetailsElement,
 ): HTMLButtonElement => {
     const copyLinkButton = document.createElement("button")
-    copyLinkButton.textContent = "Copy Link"
+    copyLinkButton.textContent = "Copy link"
     copyLinkButton.style.margin = "2px"
     copyLinkButton.style.cursor = "pointer"
     copyLinkButton.addEventListener("click", (): void => {
