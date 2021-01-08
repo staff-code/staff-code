@@ -8,7 +8,9 @@ rm vendor/bravura_metadata.json
 wget -P vendor https://raw.githubusercontent.com/steinbergmedia/bravura/master/redist/bravura_metadata.json
 rm vendor/ranges.json
 wget -P vendor https://raw.githubusercontent.com/w3c/smufl/gh-pages/metadata/ranges.json
+
 npm run generate-bravura-widths
+cp vendor/ranges.json src/ui/reference
 
 # rev version
 

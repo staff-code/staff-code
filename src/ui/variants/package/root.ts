@@ -2,7 +2,7 @@ import {buildDisplay} from "../../display"
 import {buildDownloadButton} from "../../downloadButton"
 import {DEFAULT_FONT} from "../../fonts"
 import {computeInitialCodes, computeInitialLine, computeInitialSize} from "../../initial"
-import {buildReference} from "../../reference"
+import {buildReferenceLink} from "../../reference"
 import {sharedRootSetup} from "../../root"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeOptions} from "../../types"
@@ -17,6 +17,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
             copyLinkButton = true,
             sizeSpinner = true,
             lineSpinner = true,
+            reference = true,
         } = {},
         initial: {
             codes: initialCodes = computeInitialCodes(),
@@ -31,10 +32,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     root.classList.add("staff-code")
 
     const input = buildPackageInput(root, {initialCodes, interactive, callback})
-    const reference = buildReference(root, input, {callback})
     const display = buildDisplay({font, inline, initialLine, initialSize})
-
-    root.appendChild(reference)
 
     root.appendChild(input)
 
@@ -45,6 +43,11 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     }
 
     root.appendChild(display)
+
+    if (reference) {
+        const referenceLink = buildReferenceLink(root, input, {callback})
+        root.appendChild(referenceLink)
+    }
 
     transferInputToDisplay(root, {callback})
 

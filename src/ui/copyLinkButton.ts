@@ -8,7 +8,10 @@ const onWebApp = (): boolean => {
     const getUrl = window.location
     const baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split("/")[1]
 
-    return baseUrl === WEB_APP_URL
+    // todo bring back when you're done experimenting
+    //  but it looks like the #top hash intra-page navigation is messing with the query params...
+    //  might simply be a way to put the query params up there differently that would work better...?
+    return true // baseUrl === WEB_APP_URL
 }
 
 const handleCopyLinkClick = (

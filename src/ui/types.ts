@@ -17,6 +17,7 @@ interface UiOptions {
     copyLinkButton: boolean,
     sizeSpinner: boolean,
     lineSpinner: boolean,
+    reference: boolean,
 }
 
 interface InitialOptions {
@@ -54,13 +55,6 @@ enum Initial {
 
 type EncodedCode = string & {_EncodedCode: boolean}
 
-interface RangeData {
-    description: string,
-    glyphs: Array<Name<Unicode>>,
-    range_end: UnicodeLiteral,
-    range_start: UnicodeLiteral,
-}
-
 export {
     StaffCodeOptions,
     StaffCodeCallback,
@@ -71,5 +65,4 @@ export {
     InputOptions,
     RootOptions,
     EncodedCode,
-    RangeData,
 }
