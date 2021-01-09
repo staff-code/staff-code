@@ -3,23 +3,18 @@ import {Code, Unicode} from "../../src"
 
 type ReferenceRow = [Unicode & Word, Code & Word, Name<Unicode>]
 
-type SectionName = string & {_SectionNameBrand: boolean}
-
-type ReferenceSection = [SectionName, ReferenceRow[]]
+type Section = [Name<Section>, ReferenceRow[]]
 
 interface SmuflRangeDatum {
-    description: SectionName,
+    description: Name<Section>,
     glyphs: Array<Name<Unicode>>,
 }
 
-type SectionKey = string & {_SectionKeyBrand: boolean}
-
-type SmuflRanges = Record<SectionKey, SmuflRangeDatum>
+type SmuflRanges = Record<string, SmuflRangeDatum>
 
 export {
     ReferenceRow,
-    SectionName,
-    ReferenceSection,
+    Section,
     SmuflRangeDatum,
     SmuflRanges,
 }

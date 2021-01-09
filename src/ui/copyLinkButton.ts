@@ -4,6 +4,8 @@ import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "./initial"
 import {Initial} from "./types"
 
+// todo: maybe some of these things which are only relevant to the package version can now come into variants/package
+
 const onWebApp = (): boolean => {
     const getUrl = window.location
     const baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split("/")[1]

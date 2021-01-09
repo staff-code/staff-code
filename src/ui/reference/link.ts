@@ -1,3 +1,4 @@
+import {uiState} from "../globals"
 import {setStaffCodeCookie} from "../initial"
 import {Initial} from "../types"
 import {BuildReference, ReferenceOptions} from "./types"
@@ -52,14 +53,14 @@ const buildReferenceLink = (
             summary.style.cursor = "progress"
         }
 
-        const {referenceBuilt, buildReference}: {referenceBuilt: boolean, buildReference: BuildReference} =
+        const {buildReference}: {buildReference: BuildReference} =
             await import("./reference")
 
         // TODO: FEATURE IMPROVE, BLOCKED: UPDATE COOKIES WITH URL PARAMS
         //  Should params not only take precedence over cookies on initial page load, but also replace them?
         //  Blocked on waiting for Dave's opinion
 
-        if (referenceBuilt) {
+        if (uiState.referenceBuilt) {
             referenceLink.style.cursor = "auto"
             summary.style.cursor = "pointer"
             return

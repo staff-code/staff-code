@@ -4,14 +4,14 @@ import {Unicode} from "../../src"
 import {computeSmuflCode} from "../codes"
 import {computeGlyphUnicode} from "../glyphUnicode"
 import {smuflRanges} from "./globals"
-import {ReferenceRow, ReferenceSection, SmuflRangeDatum} from "./types"
+import {ReferenceRow, Section, SmuflRangeDatum} from "./types"
 
 const generateSmuflReference = (): void => {
     const rangeValues = Object.values(smuflRanges) as SmuflRangeDatum[]
     sort(rangeValues, {by: computeKeyPath("range_start")})
 
-    const referenceSections = rangeValues.map((rangeData: SmuflRangeDatum): ReferenceSection => {
-        const {description, glyphs: glyphNames} = rangeData
+    const sections = rangeValues.map((rangeDatum: SmuflRangeDatum): Section => {
+        const {description, glyphs: glyphNames} = rangeDatum
 
         const sectionName = description
         const sectionData = glyphNames.map((glyphName: Name<Unicode>): ReferenceRow => {
@@ -26,7 +26,7 @@ const generateSmuflReference = (): void => {
 
     fs.writeFileSync(
         "src/ui/reference/reference.json",
-        JSON.stringify(referenceSections, undefined, 2),
+        JSON.stringify(sections, undefined, 2),
     )
 }
 

@@ -60,7 +60,7 @@ const buildLineSpinnerWrapper = (
     display: HTMLElement,
     {initialLine}: {initialLine: Multiplier<Em>},
 ): HTMLSpanElement =>
-    buildSpinnerWrapper(display, Initial.SIZE, initialLine, handleLineSpinnerChange)
+    buildSpinnerWrapper(display, Initial.LINE, initialLine, handleLineSpinnerChange)
 
 export {
     buildSizeSpinnerWrapper,
