@@ -81,6 +81,7 @@ const setupPackageRoot = (options: DeepPartial<StaffCodeOptions> = {}): HTMLSpan
         root.appendChild(downloadButton)
     }
 
+    console.log("what is the font", font, "and default font", DEFAULT_FONT)
     const display = buildDisplay({
         font: font as FontName,
         initialLine: line as Multiplier<Em>,

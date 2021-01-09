@@ -33,6 +33,7 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: DeepPartial<StaffCodeOp
     const input: HTMLTextAreaElement = root.querySelector(".input") as HTMLTextAreaElement
     if (codes) input.value = codes as Io & Sentence
 
+    console.log("what is the font", font, "and default font", DEFAULT_FONT)
     const display = buildDisplay({
         font: font as FontName,
         initialLine: line as Multiplier<Em>,
