@@ -1,11 +1,10 @@
-import {uiState} from "../../../globals"
+import {isUndefined} from "@sagittal/general"
+import {components} from "../../../globals"
 import {setStaffCodeCookie} from "../initial"
 import {Initial} from "../types"
 import {BuildReference, ReferenceOptions} from "./types"
 
 const buildReferenceLink = (
-    root: HTMLSpanElement,
-    input: HTMLTextAreaElement,
     {callback, initialReferenceOpen}: ReferenceOptions,
 ): HTMLDetailsElement => {
     const referenceLink = document.createElement("details")
@@ -13,6 +12,7 @@ const buildReferenceLink = (
     referenceLink.style.overflowY = "auto"
     referenceLink.style.border = "1px solid"
     referenceLink.style.marginBottom = "10px"
+    components.referenceLink = referenceLink
 
     // TODO: FEATURE IMPROVE, BLOCKED: STAFF CODE TITLE AND ABOUT
     //  Somehow also include StaffCode as a title sort of thing to the right of the reference,
@@ -39,7 +39,7 @@ const buildReferenceLink = (
         import("./reference")
             .then(({buildReference}: {buildReference: BuildReference}): void => {
                 referenceLink.setAttribute("open", "open")
-                const reference = buildReference(root, input, {callback})
+                const reference = buildReference({callback})
                 referenceLink.appendChild(reference)
             })
     }
@@ -60,13 +60,13 @@ const buildReferenceLink = (
         //  Should params not only take precedence over cookies on initial page load, but also replace them?
         //  Blocked on waiting for Dave's opinion
 
-        if (uiState.referenceBuilt) {
+        if (!isUndefined(components.reference)) {
             referenceLink.style.cursor = "auto"
             summary.style.cursor = "pointer"
             return
         }
 
-        const reference = buildReference(root, input, {callback})
+        const reference = buildReference({callback})
         referenceLink.appendChild(reference)
 
         referenceLink.style.cursor = "auto"

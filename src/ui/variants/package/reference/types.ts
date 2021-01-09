@@ -1,10 +1,6 @@
 import {StaffCodeCallback, StaffCodeOptions} from "../../../types"
 
-type BuildReference = (
-    root: HTMLSpanElement,
-    input: HTMLTextAreaElement,
-    {callback}: StaffCodeOptions,
-) => HTMLDivElement
+type BuildReference = ({callback}: StaffCodeOptions) => HTMLDivElement
 
 interface ReferenceOptions {
     callback?: StaffCodeCallback,

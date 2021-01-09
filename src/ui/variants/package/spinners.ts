@@ -1,27 +1,27 @@
 import {Em, lowerCaseToUpperCase, Multiplier} from "@sagittal/general"
 import {DEFAULT_BLOCK_MODE_FONT_SIZE} from "../../display"
+import {components} from "../../globals"
 import {setStaffCodeCookie} from "./initial"
 import {Initial} from "./types"
 
-const handleSizeSpinnerChange = (event: Event, display: HTMLElement): void => {
+const handleSizeSpinnerChange = (event: Event): void => {
     const target = event.target! as HTMLInputElement
     const size = parseFloat(target.value)
-    display.style.fontSize = `${size * DEFAULT_BLOCK_MODE_FONT_SIZE}em`
+    components.display.style.fontSize = `${size * DEFAULT_BLOCK_MODE_FONT_SIZE}em`
     setStaffCodeCookie(Initial.SIZE, `${size}`)
 }
 
-const handleLineSpinnerChange = (event: Event, display: HTMLElement): void => {
+const handleLineSpinnerChange = (event: Event): void => {
     const target = event.target! as HTMLInputElement
     const line = target.value
-    display.style.lineHeight = line
+    components.display.style.lineHeight = line
     setStaffCodeCookie(Initial.LINE, line)
 }
 
 const buildSpinnerWrapper = (
-    display: HTMLElement,
     initial: Initial,
     initialValue: Multiplier<Em>,
-    handleSpinnerChange: (event: Event, display: HTMLElement) => void,
+    handleSpinnerChange: (event: Event) => void,
 ): HTMLSpanElement => {
     const spinnerWrapper = document.createElement("span")
     spinnerWrapper.style.display = "inline-block"
@@ -40,8 +40,10 @@ const buildSpinnerWrapper = (
     spinner.value = `${initialValue}`
     spinner.style.width = "3em"
     spinner.id = initial
+    // @ts-ignore
+    components[`${initial}Spinner`] = spinner
 
-    spinner.addEventListener("change", (event: Event): void => handleSpinnerChange(event, display))
+    spinner.addEventListener("change", handleSpinnerChange)
 
     spinnerWrapper.appendChild(spinnerLabel)
     spinnerWrapper.appendChild(spinner)
@@ -50,17 +52,14 @@ const buildSpinnerWrapper = (
 }
 
 const buildSizeSpinnerWrapper = (
-    display: HTMLElement,
     {initialSize}: {initialSize: Multiplier<Em>},
 ): HTMLSpanElement =>
-    buildSpinnerWrapper(display, Initial.SIZE, initialSize, handleSizeSpinnerChange)
-
+    buildSpinnerWrapper(Initial.SIZE, initialSize, handleSizeSpinnerChange)
 
 const buildLineSpinnerWrapper = (
-    display: HTMLElement,
     {initialLine}: {initialLine: Multiplier<Em>},
 ): HTMLSpanElement =>
-    buildSpinnerWrapper(display, Initial.LINE, initialLine, handleLineSpinnerChange)
+    buildSpinnerWrapper(Initial.LINE, initialLine, handleLineSpinnerChange)
 
 export {
     buildSizeSpinnerWrapper,

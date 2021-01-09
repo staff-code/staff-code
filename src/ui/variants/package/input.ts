@@ -7,7 +7,6 @@ import {setStaffCodeCookie} from "./initial"
 import {Initial} from "./types"
 
 const buildPackageInput = (
-    root: HTMLSpanElement,
     {interactive, initialCodes, callback}: InputOptions,
 ): HTMLTextAreaElement => {
     const input = document.createElement("textarea")
@@ -17,7 +16,7 @@ const buildPackageInput = (
         callback && callback(inputSentence, unicodeSentence)
     }
 
-    setupInput(input, root, {interactive, initialCodes, callback: callbackPlusCookie})
+    setupInput(input, {interactive, initialCodes, callback: callbackPlusCookie})
 
     return input
 }

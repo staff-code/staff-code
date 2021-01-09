@@ -40,6 +40,17 @@ interface InputOptions {
     callback?: StaffCodeCallback,
 }
 
+interface Components {
+    input: HTMLTextAreaElement,
+    display: HTMLElement,
+    root: HTMLSpanElement,
+    reference: HTMLDivElement,
+    toc: HTMLUListElement,
+    sizeSpinner: HTMLInputElement,
+    lineSpinner: HTMLInputElement,
+    referenceLink: HTMLDetailsElement, // todo better name please?
+}
+
 export {
     StaffCodeOptions,
     StaffCodeCallback,
@@ -47,4 +58,5 @@ export {
     UiOptions,
     InitialOptions,
     InputOptions,
+    Components,
 }

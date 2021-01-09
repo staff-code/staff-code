@@ -1,11 +1,7 @@
 import {ReferenceRow} from "../../../../../bin"
 import {DEFAULT_FONT} from "../../../fonts"
 
-const buildSectionTable = (
-    root: HTMLSpanElement,
-    input: HTMLTextAreaElement,
-    sectionData: ReferenceRow[],
-): HTMLTableElement => {
+const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
     const table = document.createElement("table")
     table.style.borderCollapse = "collapse"
 

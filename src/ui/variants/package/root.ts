@@ -1,5 +1,6 @@
 import {buildDisplay} from "../../display"
 import {DEFAULT_FONT} from "../../fonts"
+import {components} from "../../globals"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeOptions} from "../../types"
 import {buildCopyLinkButton} from "./copyLinkButton"
@@ -31,42 +32,40 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     } = options
 
     const root = document.createElement("span")
+    components.root = root
     root.classList.add("staff-code")
 
-    const input = buildPackageInput(root, {initialCodes, interactive, callback})
+    const input = buildPackageInput({initialCodes, interactive, callback})
+    components.input = input
     const display = buildDisplay({font, inline, initialLine, initialSize})
+    components.display = display
 
     root.appendChild(input)
 
     let referenceLink
     if (reference) {
-        referenceLink = buildReferenceLink(root, input, {callback, initialReferenceOpen})
+        referenceLink = buildReferenceLink({callback, initialReferenceOpen})
     }
 
     let sizeSpinnerWrapper
     if (sizeSpinner) {
-        sizeSpinnerWrapper = buildSizeSpinnerWrapper(display, {initialSize})
+        sizeSpinnerWrapper = buildSizeSpinnerWrapper({initialSize})
         root.appendChild(sizeSpinnerWrapper)
     }
 
     let lineSpinnerWrapper
     if (lineSpinner) {
-        lineSpinnerWrapper = buildLineSpinnerWrapper(display, {initialLine})
+        lineSpinnerWrapper = buildLineSpinnerWrapper({initialLine})
         root.appendChild(lineSpinnerWrapper)
     }
 
     if (copyLinkButton) {
-        const copyLinkButton = buildCopyLinkButton(
-            input,
-            sizeSpinnerWrapper && sizeSpinnerWrapper.querySelector("input") || undefined,
-            lineSpinnerWrapper && lineSpinnerWrapper.querySelector("input") || undefined,
-            referenceLink,
-        )
+        const copyLinkButton = buildCopyLinkButton()
         root.appendChild(copyLinkButton)
     }
 
     if (downloadButton) {
-        const downloadButton = buildDownloadButton(display)
+        const downloadButton = buildDownloadButton()
         root.appendChild(downloadButton)
     }
 

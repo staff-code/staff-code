@@ -1,4 +1,5 @@
 import {doOnNextEventLoop, Ms, Px} from "@sagittal/general"
+import {components} from "./globals"
 import {handleKeydown, handleKeyup} from "./key"
 import {transferInputToDisplay} from "./transfer"
 import {InputOptions} from "./types"
@@ -8,9 +9,10 @@ const ABOUT_THREE_LINES_HIGH_PX: Px = 50 as Px
 
 const setupInput = (
     input: HTMLTextAreaElement,
-    root: HTMLSpanElement,
     {interactive, initialCodes, callback}: InputOptions,
 ): void => {
+    const {root} = components
+
     input.classList.add("input")
     input.value = `${initialCodes}${input.value}`
     input.spellcheck = false
@@ -25,7 +27,7 @@ const setupInput = (
     input.style.width = `${ABOUT_FORTY_CHARS_WIDE_PX}px`
     input.style.height = `${ABOUT_THREE_LINES_HIGH_PX}px`
 
-    input.addEventListener("keydown", (event: KeyboardEvent): void => handleKeydown(event, input, root, {callback}))
+    input.addEventListener("keydown", (event: KeyboardEvent): void => handleKeydown(event, {callback}))
     input.addEventListener("keyup", handleKeyup)
     input.addEventListener("paste", (): void => {
         doOnNextEventLoop((): void => transferInputToDisplay(root, {callback}), 100 as Ms).then()

@@ -1,7 +1,12 @@
 // tslint:disable max-line-length
 
 import {BLANK, Em, Io, Maybe, Multiplier, Sentence} from "@sagittal/general"
-import {DEFAULT_INITIAL_CODES, DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../constants"
+import {
+    DEFAULT_INITIAL_CODES,
+    DEFAULT_INITIAL_LINE,
+    DEFAULT_INITIAL_REFERENCE_OPEN,
+    DEFAULT_INITIAL_SIZE,
+} from "../../globals"
 import {undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {EncodedCode, Initial} from "./types"
 
@@ -46,6 +51,7 @@ const computeInitialSize = (): Multiplier<Em> =>
 const computeInitialReferenceOpen = (): boolean =>
     new URLSearchParams(window.location.search).get(Initial.REFERENCE_OPEN) === "true"
     || getStaffCodeCookie(Initial.REFERENCE_OPEN) === "true"
+    || DEFAULT_INITIAL_REFERENCE_OPEN
 
 export {
     computeInitialCodes,

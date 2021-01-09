@@ -1,7 +1,7 @@
-const uiState = {
-    referenceBuilt: false,
-}
+import {Components} from "./types"
+
+const components: Components = {} as Components
 
 export {
-    uiState,
+    components,
 }

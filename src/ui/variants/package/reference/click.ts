@@ -1,5 +1,6 @@
 import {BLANK, Io, Maybe, Sentence, SPACE, Word} from "@sagittal/general"
 import {Code} from "../../../../translate"
+import {components} from "../../../globals"
 import {transferInputToDisplay} from "../../../transfer"
 import {StaffCodeOptions} from "../../../types"
 
@@ -16,10 +17,10 @@ const computeInputWithInsertedCode = (input: HTMLTextAreaElement, code: Code & W
 
 const handleReferenceClick = (
     event: MouseEvent,
-    root: HTMLSpanElement,
-    input: HTMLTextAreaElement,
     {callback}: StaffCodeOptions,
 ): void => {
+    const {input, root} = components
+
     const eventPath = event.composedPath()
     const maybeParentReferenceRow = eventPath[1] as Maybe<HTMLTableRowElement>
     const maybeCodeCell =
