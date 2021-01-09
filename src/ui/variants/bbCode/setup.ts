@@ -11,7 +11,7 @@ const setupBBCodeStaffCode = (): void =>
             const size = parseFloat(root.getAttribute("sc-initial-size") || BLANK) as Multiplier<Em> || undefined
             const line = parseFloat(root.getAttribute("sc-initial-line") || BLANK) as Multiplier<Em> || undefined
 
-            const font = root.getAttribute("sc-font") as Maybe<FontName>
+            const font = root.getAttribute("sc-font") || undefined
             const callback = (globalThis as unknown as {staffCodeCallback: StaffCodeCallback}).staffCodeCallback
 
             setupBBCodeRoot(
