@@ -1,6 +1,6 @@
-import {Em, lowerCaseToUpperCase, Multiplier} from "@sagittal/general"
+import {lowerCaseToUpperCase} from "@sagittal/general"
 import {DEFAULT_BLOCK_MODE_FONT_SIZE} from "../../display"
-import {components} from "../../globals"
+import {components, staffCodeOptions} from "./globals"
 import {setStaffCodeCookie} from "./initial"
 import {Initial} from "./types"
 
@@ -20,7 +20,6 @@ const handleLineSpinnerChange = (event: Event): void => {
 
 const buildSpinnerWrapper = (
     initial: Initial,
-    initialValue: Multiplier<Em>,
     handleSpinnerChange: (event: Event) => void,
 ): HTMLSpanElement => {
     const spinnerWrapper = document.createElement("span")
@@ -37,7 +36,8 @@ const buildSpinnerWrapper = (
     spinner.type = "number"
     spinner.step = "0.1"
     spinner.min = "0"
-    spinner.value = `${initialValue}`
+    // @ts-ignore
+    spinner.value = `${staffCodeOptions.initial[initial]}`
     spinner.style.width = "3em"
     spinner.id = initial
     // @ts-ignore
@@ -51,15 +51,11 @@ const buildSpinnerWrapper = (
     return spinnerWrapper
 }
 
-const buildSizeSpinnerWrapper = (
-    {initialSize}: {initialSize: Multiplier<Em>},
-): HTMLSpanElement =>
-    buildSpinnerWrapper(Initial.SIZE, initialSize, handleSizeSpinnerChange)
+const buildSizeSpinnerWrapper = (): HTMLSpanElement =>
+    buildSpinnerWrapper(Initial.SIZE, handleSizeSpinnerChange)
 
-const buildLineSpinnerWrapper = (
-    {initialLine}: {initialLine: Multiplier<Em>},
-): HTMLSpanElement =>
-    buildSpinnerWrapper(Initial.LINE, initialLine, handleLineSpinnerChange)
+const buildLineSpinnerWrapper = (): HTMLSpanElement =>
+    buildSpinnerWrapper(Initial.LINE, handleLineSpinnerChange)
 
 export {
     buildSizeSpinnerWrapper,

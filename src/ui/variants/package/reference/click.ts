@@ -1,26 +1,22 @@
 import {BLANK, Io, Maybe, Sentence, SPACE, Word} from "@sagittal/general"
 import {Code} from "../../../../translate"
-import {components} from "../../../globals"
 import {transferInputToDisplay} from "../../../transfer"
-import {StaffCodeOptions} from "../../../types"
+import {components, staffCodeOptions} from "../globals"
 
-const computeInputWithInsertedCode = (input: HTMLTextAreaElement, code: Code & Word): Io & Sentence => {
+const insertCodeIntoInput = (code: Code & Word): void => {
+    const {input} = components
+
     const textCursorPosition = input.selectionStart
     const upToSelection = input.value.slice(0, textCursorPosition)
     const maybePrecedingSpaceBuffer = upToSelection[upToSelection.length - 1] === SPACE ? BLANK : SPACE
     const afterSelection = input.value.slice(textCursorPosition)
     const maybeSucceedingSpaceBuffer = afterSelection[0] === SPACE ? BLANK : SPACE
 
-    return `${upToSelection}${maybePrecedingSpaceBuffer}${code}${maybeSucceedingSpaceBuffer}${afterSelection}` as
+    input.value = `${upToSelection}${maybePrecedingSpaceBuffer}${code}${maybeSucceedingSpaceBuffer}${afterSelection}` as
         Io & Sentence
 }
 
-const handleReferenceClick = (
-    event: MouseEvent,
-    {callback}: StaffCodeOptions,
-): void => {
-    const {input, root} = components
-
+const handleReferenceClick = (event: MouseEvent): void => {
     const eventPath = event.composedPath()
     const maybeParentReferenceRow = eventPath[1] as Maybe<HTMLTableRowElement>
     const maybeCodeCell =
@@ -28,9 +24,9 @@ const handleReferenceClick = (
     if (!maybeCodeCell || maybeCodeCell.tagName !== "TD") return
 
     const code = maybeCodeCell.innerHTML as Code & Word
-    input.value = computeInputWithInsertedCode(input, code)
+    insertCodeIntoInput(code)
 
-    transferInputToDisplay(root, {callback})
+    transferInputToDisplay(components.root, staffCodeOptions.callback)
 }
 
 export {

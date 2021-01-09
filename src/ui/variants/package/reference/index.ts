@@ -1,1 +1,1 @@
-export {buildReferenceLink} from "./link"
+export {buildReferenceExpander} from "./expander"

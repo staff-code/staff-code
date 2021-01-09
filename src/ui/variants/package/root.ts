@@ -1,16 +1,17 @@
+import {DeepPartial, Em, FontName, Maybe, Multiplier, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
 import {buildDisplay} from "../../display"
 import {DEFAULT_FONT} from "../../fonts"
-import {components} from "../../globals"
 import {transferInputToDisplay} from "../../transfer"
-import {StaffCodeOptions} from "../../types"
+import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 import {buildCopyLinkButton} from "./copyLinkButton"
 import {buildDownloadButton} from "./downloadButton"
+import {components, staffCodeOptions} from "./globals"
 import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "./initial"
 import {buildPackageInput} from "./input"
-import {buildReferenceLink} from "./reference"
+import {buildReferenceExpander} from "./reference"
 import {buildLineSpinnerWrapper, buildSizeSpinnerWrapper} from "./spinners"
 
-const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
+const setupPackageRoot = (options: DeepPartial<StaffCodeOptions> = {}): HTMLSpanElement => {
     const {
         ui: {
             inline = false,
@@ -22,40 +23,51 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
             reference = true,
         } = {},
         initial: {
-            codes: initialCodes = computeInitialCodes(),
-            size: initialSize = computeInitialSize(),
-            line: initialLine = computeInitialLine(),
-            referenceOpen: initialReferenceOpen = computeInitialReferenceOpen(),
+            codes = computeInitialCodes(),
+            size = computeInitialSize(),
+            line = computeInitialLine(),
+            referenceOpen = computeInitialReferenceOpen(),
         } = {},
         font = DEFAULT_FONT,
         callback,
     } = options
+    setAllPropertiesOfObjectOnAnother({
+        objectToChange: staffCodeOptions, objectWithProperties: {
+            ui: {
+                inline,
+                interactive,
+                downloadButton,
+                copyLinkButton,
+                sizeSpinner,
+                lineSpinner,
+                reference,
+            },
+            initial: {
+                codes,
+                size,
+                line,
+                referenceOpen,
+            },
+            font,
+            callback,
+        } as StaffCodeOptions,
+    })
 
     const root = document.createElement("span")
     components.root = root
     root.classList.add("staff-code")
 
-    const input = buildPackageInput({initialCodes, interactive, callback})
+    const input = buildPackageInput()
     components.input = input
-    const display = buildDisplay({font, inline, initialLine, initialSize})
-    components.display = display
-
     root.appendChild(input)
 
-    let referenceLink
-    if (reference) {
-        referenceLink = buildReferenceLink({callback, initialReferenceOpen})
-    }
-
-    let sizeSpinnerWrapper
     if (sizeSpinner) {
-        sizeSpinnerWrapper = buildSizeSpinnerWrapper({initialSize})
+        const sizeSpinnerWrapper = buildSizeSpinnerWrapper()
         root.appendChild(sizeSpinnerWrapper)
     }
 
-    let lineSpinnerWrapper
     if (lineSpinner) {
-        lineSpinnerWrapper = buildLineSpinnerWrapper({initialLine})
+        const lineSpinnerWrapper = buildLineSpinnerWrapper()
         root.appendChild(lineSpinnerWrapper)
     }
 
@@ -69,13 +81,21 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
         root.appendChild(downloadButton)
     }
 
+    const display = buildDisplay({
+        font: font as FontName,
+        initialLine: line as Multiplier<Em>,
+        inline,
+        initialSize: size as Multiplier<Em>,
+    })
+    components.display = display
     root.appendChild(display)
 
-    if (referenceLink) {
-        root.appendChild(referenceLink)
+    if (reference) {
+        const referenceExpander = buildReferenceExpander()
+        root.appendChild(referenceExpander)
     }
 
-    transferInputToDisplay(root, {callback})
+    transferInputToDisplay(root, callback as Maybe<StaffCodeCallback>)
 
     return root
 }

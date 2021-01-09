@@ -33,7 +33,7 @@ const callback = (inputSentence: string, unicodeSentence: string): any => {
     console.warn("user input:", inputSentence, "output unicode:", unicodeSentence)
 }
 
-const options: StaffCodeOptions = {
+const options: Partial<StaffCodeOptions> = {
     ui: {
         inline: true,           // default: false (whether the display appears as a <span> or a <div>)
         interactive: false,     // default: true (whether a textarea input for instantly changing the display appears)
@@ -61,7 +61,7 @@ loadFontsThen((): void => {
 
 The WOFF and OTF variants of the Bravura Text BB font are included in the package. You should serve them at `assets/fonts/*` for them to be automatically picked up.
 
-The download button, reference, copy link button, size spinner, and line spinner are not made available in the bbCode variant.
+The download button, reference, copy link button, size spinner, line spinner, and interactive mode are not made available in the bbCode variant.
 
 The copy link button only writes the query params to the URL bar if it detects that it's running in the StaffCode web app.
 

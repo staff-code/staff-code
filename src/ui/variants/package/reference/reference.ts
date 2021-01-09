@@ -1,11 +1,10 @@
 import {Section} from "../../../../../bin"
-import {components} from "../../../globals"
-import {StaffCodeOptions} from "../../../types"
+import {components} from "../globals"
 import {handleReferenceClick} from "./click"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
 
-const buildReference = ({callback}: StaffCodeOptions): HTMLDivElement => {
+const buildReference = (): HTMLDivElement => {
     const reference = document.createElement("div")
     reference.style.padding = "10px"
     components.reference = reference
@@ -25,9 +24,7 @@ const buildReference = ({callback}: StaffCodeOptions): HTMLDivElement => {
     const sections = referenceJson as Section[]
     sections.forEach(appendSection)
 
-    reference.addEventListener("click", (event: MouseEvent): void => {
-        handleReferenceClick(event,{callback})
-    })
+    reference.addEventListener("click", handleReferenceClick)
 
     return reference
 }

@@ -1,8 +1,8 @@
 import {Io, Sentence} from "@sagittal/general"
 import {computeInputSentenceUnicode} from "../translate"
-import {StaffCodeOptions} from "./types"
+import {StaffCodeCallback} from "./types"
 
-const transferInputToDisplay = (root: HTMLSpanElement, {callback}: StaffCodeOptions): void => {
+const transferInputToDisplay = (root: HTMLSpanElement, callback?: StaffCodeCallback): void => {
     const input = root.querySelector(".input") as HTMLTextAreaElement
     const display = root.querySelector(".display") as HTMLElement
 

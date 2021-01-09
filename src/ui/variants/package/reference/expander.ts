@@ -1,28 +1,31 @@
 import {isUndefined} from "@sagittal/general"
-import {components} from "../../../globals"
+import {components, staffCodeOptions} from "../globals"
 import {setStaffCodeCookie} from "../initial"
 import {Initial} from "../types"
-import {BuildReference, ReferenceOptions} from "./types"
 
-const buildReferenceLink = (
-    {callback, initialReferenceOpen}: ReferenceOptions,
-): HTMLDetailsElement => {
-    const referenceLink = document.createElement("details")
-    referenceLink.style.width = "550px"
-    referenceLink.style.overflowY = "auto"
-    referenceLink.style.border = "1px solid"
-    referenceLink.style.marginBottom = "10px"
-    components.referenceLink = referenceLink
+const buildReferenceExpander = (): HTMLDetailsElement => {
+    const {initial: {referenceOpen: initialReferenceOpen}} = staffCodeOptions
 
-    // TODO: FEATURE IMPROVE, BLOCKED: STAFF CODE TITLE AND ABOUT
+    const referenceExpander = document.createElement("details")
+    referenceExpander.style.width = "550px"
+    referenceExpander.style.overflowY = "auto"
+    referenceExpander.style.border = "1px solid"
+    referenceExpander.style.marginBottom = "10px"
+    components.referenceExpander = referenceExpander
+
+    // TODO: FEATURE IMPROVE, READY TO GO: STAFF CODE TITLE AND ABOUT
     //  Somehow also include StaffCode as a title sort of thing to the right of the reference,
     //  Which upon clicking shows an about text, which links to the instructions post
-    //  - Blocked on waiting for Dave's copy
+    /*
+    StaffCode version XX.XX.XXX
+    by Douglas Blumeyer and Dave Keenan
+    Introduction to StaffCode (link: https://forum.sagittal.org/viewtopic.php?p=3192#p3192)
+     */
 
     const summary = document.createElement("summary")
     summary.innerHTML = "Reference"
     summary.style.cursor = "pointer"
-    referenceLink.appendChild(summary)
+    referenceExpander.appendChild(summary)
 
     const topLink = document.createElement("a")
     topLink.id = "top"
@@ -37,23 +40,23 @@ const buildReferenceLink = (
 
     if (initialReferenceOpen) {
         import("./reference")
-            .then(({buildReference}: {buildReference: BuildReference}): void => {
-                referenceLink.setAttribute("open", "open")
-                const reference = buildReference({callback})
-                referenceLink.appendChild(reference)
+            .then(({buildReference}: {buildReference: () => HTMLDivElement}): void => {
+                referenceExpander.setAttribute("open", "open")
+                const reference = buildReference()
+                referenceExpander.appendChild(reference)
             })
     }
 
-    referenceLink.addEventListener("click", async (): Promise<void> => {
-        if (referenceLink.hasAttribute("open")) {
+    referenceExpander.addEventListener("click", async (): Promise<void> => {
+        if (referenceExpander.hasAttribute("open")) {
             setStaffCodeCookie(Initial.REFERENCE_OPEN, "false")
         } else {
             setStaffCodeCookie(Initial.REFERENCE_OPEN, "true")
-            referenceLink.style.cursor = "progress"
+            referenceExpander.style.cursor = "progress"
             summary.style.cursor = "progress"
         }
 
-        const {buildReference}: {buildReference: BuildReference} =
+        const {buildReference}: {buildReference: () => HTMLDivElement} =
             await import("./reference")
 
         // TODO: FEATURE IMPROVE, BLOCKED: UPDATE COOKIES WITH URL PARAMS
@@ -61,21 +64,21 @@ const buildReferenceLink = (
         //  Blocked on waiting for Dave's opinion
 
         if (!isUndefined(components.reference)) {
-            referenceLink.style.cursor = "auto"
+            referenceExpander.style.cursor = "auto"
             summary.style.cursor = "pointer"
             return
         }
 
-        const reference = buildReference({callback})
-        referenceLink.appendChild(reference)
+        const reference = buildReference()
+        referenceExpander.appendChild(reference)
 
-        referenceLink.style.cursor = "auto"
+        referenceExpander.style.cursor = "auto"
         summary.style.cursor = "pointer"
     })
 
-    return referenceLink
+    return referenceExpander
 }
 
 export {
-    buildReferenceLink,
+    buildReferenceExpander,
 }

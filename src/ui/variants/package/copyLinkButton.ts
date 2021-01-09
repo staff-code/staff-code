@@ -1,6 +1,6 @@
 import {BLANK, Io, Sentence} from "@sagittal/general"
 import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_REFERENCE_OPEN, DEFAULT_INITIAL_SIZE} from "../../constants"
-import {components} from "../../globals"
+import {components} from "./globals"
 import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {Initial} from "./types"
 
@@ -32,7 +32,7 @@ const computeInitialLineParam = (): string =>
         `&${Initial.LINE}=${components.lineSpinner.value}`
 
 const computeInitialReferenceOpenParam = (): string =>
-    !components.referenceLink || !components.referenceLink.hasAttribute("open") ?
+    !components.referenceExpander || components.referenceExpander.hasAttribute("open") === DEFAULT_INITIAL_REFERENCE_OPEN ?
         BLANK :
         `&${Initial.REFERENCE_OPEN}=true`
 

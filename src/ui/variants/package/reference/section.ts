@@ -1,5 +1,5 @@
 import {Section} from "../../../../../bin"
-import {components} from "../../../globals"
+import {components} from "../globals"
 import {buildSectionTable} from "./table"
 import {buildSectionTitle} from "./title"
 import {buildTocItem} from "./tocItem"

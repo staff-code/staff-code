@@ -1,21 +1,27 @@
+import {
+    DeepPartial,
+    Em,
+    FontName, Io,
+    Maybe,
+    Multiplier,
+    Sentence,
+    setAllPropertiesOfObjectOnAnother,
+} from "@sagittal/general"
 import {DEFAULT_INITIAL_CODES, DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../../constants"
 import {buildDisplay} from "../../display"
 import {DEFAULT_FONT} from "../../fonts"
-import {components} from "../../globals"
-import {setupInput} from "../../input"
 import {transferInputToDisplay} from "../../transfer"
-import {StaffCodeOptions} from "../../types"
+import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 
-const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}): void => {
+const setupBBCodeRoot = (root: HTMLSpanElement, options: DeepPartial<StaffCodeOptions> = {}): void => {
     const {
         ui: {
             inline = false,
-            interactive = false,
         } = {},
         initial: {
-            codes: initialCodes = DEFAULT_INITIAL_CODES,
-            size: initialSize = DEFAULT_INITIAL_SIZE,
-            line: initialLine = DEFAULT_INITIAL_LINE,
+            codes = DEFAULT_INITIAL_CODES,
+            size = DEFAULT_INITIAL_SIZE,
+            line = DEFAULT_INITIAL_LINE,
         } = {},
         font = DEFAULT_FONT,
         callback,
@@ -23,18 +29,19 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
 
     if (root.classList.contains("processed")) return
     root.classList.add("processed")
-    components.root = root
 
     const input: HTMLTextAreaElement = root.querySelector(".input") as HTMLTextAreaElement
-    components.input = input
-    const display = buildDisplay({font, inline, initialLine, initialSize})
+    if (codes) input.value = codes as Io & Sentence
 
-    setupInput(input, {interactive, initialCodes, callback})
-
+    const display = buildDisplay({
+        font: font as FontName,
+        initialLine: line as Multiplier<Em>,
+        initialSize: size as Multiplier<Em>,
+        inline
+    })
     root.appendChild(display)
-    components.display = display
 
-    transferInputToDisplay(root, {callback})
+    transferInputToDisplay(root, callback as Maybe<StaffCodeCallback>)
 }
 
 export {

@@ -6,7 +6,7 @@ import {
     DEFAULT_INITIAL_LINE,
     DEFAULT_INITIAL_REFERENCE_OPEN,
     DEFAULT_INITIAL_SIZE,
-} from "../../globals"
+} from "../../constants"
 import {undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {EncodedCode, Initial} from "./types"
 

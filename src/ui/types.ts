@@ -3,12 +3,12 @@ import {Unicode} from "../translate"
 
 type StaffCodeCallback = (inputSentence: Io & Sentence, unicodeSentence: Unicode & Sentence) => any
 
-type StaffCodeOptions = Partial<{
-    ui: Partial<UiOptions>,
-    initial: Partial<InitialOptions>,
+type StaffCodeOptions = {
+    ui: UiOptions,
+    initial: InitialOptions,
     font: FontName,
     callback: StaffCodeCallback,
-}>
+}
 
 interface UiOptions {
     interactive: boolean,
@@ -34,29 +34,10 @@ interface DisplayOptions {
     initialLine: Multiplier<Em>,
 }
 
-interface InputOptions {
-    interactive: boolean,
-    initialCodes: Io & Sentence,
-    callback?: StaffCodeCallback,
-}
-
-interface Components {
-    input: HTMLTextAreaElement,
-    display: HTMLElement,
-    root: HTMLSpanElement,
-    reference: HTMLDivElement,
-    toc: HTMLUListElement,
-    sizeSpinner: HTMLInputElement,
-    lineSpinner: HTMLInputElement,
-    referenceLink: HTMLDetailsElement, // todo better name please?
-}
-
 export {
     StaffCodeOptions,
     StaffCodeCallback,
-    DisplayOptions,
     UiOptions,
     InitialOptions,
-    InputOptions,
-    Components,
+    DisplayOptions,
 }
