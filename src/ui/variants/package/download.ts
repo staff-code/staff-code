@@ -69,7 +69,6 @@ const downloadSvg = (display: HTMLElement): void => {
         height: computeSvgHeight(unicodeSentence),
         font: DEFAULT_FONT,
         lineSpacing: parseFloat(display.style.lineHeight),
-        styletags: {breaklines: true},
     }
 
     const svg = buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem()
