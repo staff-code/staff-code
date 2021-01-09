@@ -21,7 +21,6 @@ const buildPackageInput = (): HTMLTextAreaElement => {
         callback && callback(inputSentence, unicodeSentence)
     }
 
-
     input.classList.add("input")
     input.value = `${initialCodes}${input.value}`
     input.spellcheck = false

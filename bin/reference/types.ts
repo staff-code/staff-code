@@ -3,6 +3,7 @@ import {Code, Unicode} from "../../src"
 
 type ReferenceRow = [Unicode & Word, Code & Word, Name<Unicode>]
 
+// @ts-ignore
 type Section = [Name<Section>, ReferenceRow[]]
 
 interface SmuflRangeDatum {

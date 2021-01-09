@@ -31,6 +31,8 @@ const buildSpinnerWrapper = (
     spinnerLabel.setAttribute("for", initial)
     spinnerLabel.style.width = "2em"
     spinnerLabel.style.display = "inline-block"
+    spinnerLabel.style.fontFamily = "sans-serif"
+    spinnerLabel.style.fontSize = "0.75em"
 
     const spinner = document.createElement("input")
     spinner.type = "number"

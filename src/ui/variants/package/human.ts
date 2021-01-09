@@ -5,7 +5,7 @@ const prepareCodesToBeHumanReadableAsEncodedQueryParams = (
     inputSentence: Io & Sentence,
 ): EncodedCode & Sentence =>
     inputSentence
-        .replace(/j/g, "jj")
+        .replace(/j/g, "jj") // TODO: try Dave's suggestion: https://forum.sagittal.org/viewtopic.php?p=3376#p3376
         .replace(/-/g, "j")
         .replace(/([^ ]) (?=[^ ]|$)/g, "$1-")
         .replace(/q/g, "qq")

@@ -10,3 +10,5 @@ export {
     UnicodeLiteral,
     computeUnicodeFromUnicodeLiteral,
 } from "./translate"
+
+// TODO: REVERT FAVICON PLUGIN

@@ -59,10 +59,6 @@ const buildReferenceExpander = (): HTMLDetailsElement => {
         const {buildReference}: {buildReference: () => HTMLDivElement} =
             await import("./reference")
 
-        // TODO: FEATURE IMPROVE, BLOCKED: UPDATE COOKIES WITH URL PARAMS
-        //  Should params not only take precedence over cookies on initial page load, but also replace them?
-        //  Blocked on waiting for Dave's opinion
-
         if (!isUndefined(components.reference)) {
             referenceExpander.style.cursor = "auto"
             summary.style.cursor = "pointer"
