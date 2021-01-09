@@ -1,4 +1,4 @@
-import {StaffCodeCallback, StaffCodeOptions} from "../types"
+import {StaffCodeCallback, StaffCodeOptions} from "../../../types"
 
 type BuildReference = (
     root: HTMLSpanElement,

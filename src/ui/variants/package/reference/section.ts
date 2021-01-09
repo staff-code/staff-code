@@ -1,4 +1,4 @@
-import {Section} from "../../../bin"
+import {Section} from "../../../../../bin"
 import {buildSectionTable} from "./table"
 import {buildSectionTitle} from "./title"
 import {buildTocItem} from "./tocItem"

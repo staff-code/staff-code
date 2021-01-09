@@ -1,5 +1,5 @@
 import {Name} from "@sagittal/general"
-import {Section} from "../../../bin"
+import {Section} from "../../../../../bin"
 
 const buildSectionTitle = (sectionName: Name<Section>): HTMLDivElement => {
     const sectionTitle = document.createElement("div")

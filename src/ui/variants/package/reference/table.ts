@@ -1,5 +1,5 @@
-import {ReferenceRow} from "../../../bin"
-import {DEFAULT_FONT} from "../fonts"
+import {ReferenceRow} from "../../../../../bin"
+import {DEFAULT_FONT} from "../../../fonts"
 
 const buildSectionTable = (
     root: HTMLSpanElement,

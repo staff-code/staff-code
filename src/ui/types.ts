@@ -1,5 +1,5 @@
-import {Em, FontName, Io, Multiplier, Name, Sentence} from "@sagittal/general"
-import {Unicode, UnicodeLiteral} from "../translate"
+import {Em, FontName, Io, Multiplier, Sentence} from "@sagittal/general"
+import {Unicode} from "../translate"
 
 type StaffCodeCallback = (inputSentence: Io & Sentence, unicodeSentence: Unicode & Sentence) => any
 
@@ -40,31 +40,11 @@ interface InputOptions {
     callback?: StaffCodeCallback,
 }
 
-interface RootOptions {
-    copyLinkButton: boolean,
-    sizeSpinner: boolean,
-    lineSpinner: boolean,
-    initialSize: Multiplier<Em>,
-    initialLine: Multiplier<Em>,
-}
-
-enum Initial {
-    CODES = "codes",
-    SIZE = "size",
-    LINE = "line",
-    REFERENCE_OPEN = "reference-open",
-}
-
-type EncodedCode = string & {_EncodedCode: boolean}
-
 export {
     StaffCodeOptions,
     StaffCodeCallback,
-    Initial,
     DisplayOptions,
     UiOptions,
     InitialOptions,
     InputOptions,
-    RootOptions,
-    EncodedCode,
 }

@@ -1,9 +1,10 @@
 import {Io, Sentence} from "@sagittal/general"
 import {Unicode} from "../../../translate"
-import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "../../human"
-import {setStaffCodeCookie} from "../../initial"
 import {setupInput} from "../../input"
-import {Initial, InputOptions} from "../../types"
+import {InputOptions} from "../../types"
+import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
+import {setStaffCodeCookie} from "./initial"
+import {Initial} from "./types"
 
 const buildPackageInput = (
     root: HTMLSpanElement,

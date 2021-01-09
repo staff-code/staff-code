@@ -1,12 +1,9 @@
 // tslint:disable max-line-length
 
 import {BLANK, Em, Io, Maybe, Multiplier, Sentence} from "@sagittal/general"
+import {DEFAULT_INITIAL_CODES, DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../constants"
 import {undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {EncodedCode, Initial} from "./types"
-
-const DEFAULT_INITIAL_CODES = "ston Gcl ; " as Io & Sentence
-const DEFAULT_INITIAL_LINE = 2 as Multiplier<Em>
-const DEFAULT_INITIAL_SIZE = 1 as Multiplier<Em>
 
 const setStaffCodeCookie = (name: Initial, value: string): void => {
     const date = new Date()
@@ -56,7 +53,4 @@ export {
     computeInitialLine,
     computeInitialSize,
     computeInitialReferenceOpen,
-    DEFAULT_INITIAL_CODES,
-    DEFAULT_INITIAL_LINE,
-    DEFAULT_INITIAL_SIZE,
 }

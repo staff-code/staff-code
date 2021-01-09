@@ -1,4 +1,4 @@
-import {uiState} from "../globals"
+import {uiState} from "../../../globals"
 import {setStaffCodeCookie} from "../initial"
 import {Initial} from "../types"
 import {BuildReference, ReferenceOptions} from "./types"

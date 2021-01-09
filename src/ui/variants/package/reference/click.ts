@@ -1,7 +1,7 @@
 import {BLANK, Io, Maybe, Sentence, SPACE, Word} from "@sagittal/general"
-import {Code} from "../../translate"
-import {transferInputToDisplay} from "../transfer"
-import {StaffCodeOptions} from "../types"
+import {Code} from "../../../../translate"
+import {transferInputToDisplay} from "../../../transfer"
+import {StaffCodeOptions} from "../../../types"
 
 const computeInputWithInsertedCode = (input: HTMLTextAreaElement, code: Code & Word): Io & Sentence => {
     const textCursorPosition = input.selectionStart

@@ -1,5 +1,4 @@
-export {downloadSvg} from "./download"
 export {loadFontsThen} from "./fonts"
-export {setupPackageRoot} from "./variants"
+export {setupPackageRoot, downloadSvg} from "./variants"
 export {transferInputToDisplay} from "./transfer"
 export {StaffCodeOptions, StaffCodeCallback} from "./types"

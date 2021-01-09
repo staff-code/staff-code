@@ -1,6 +1,6 @@
 import {BLANK, computeLineCount, Px, vectorizeText} from "@sagittal/general"
-import {Unicode} from "../translate"
-import {DEFAULT_FONT} from "./fonts"
+import {Unicode} from "../../../translate"
+import {DEFAULT_FONT} from "../../fonts"
 
 const HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT: Px = 57 as Px
 const APPARENT_SCALING_EXPONENT = 1.16

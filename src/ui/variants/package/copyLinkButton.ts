@@ -1,10 +1,9 @@
 import {BLANK, Io, Sentence} from "@sagittal/general"
-import {WEB_APP_URL} from "./constants"
+import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../constants"
 import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
-import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "./initial"
 import {Initial} from "./types"
 
-// todo: maybe some of these things which are only relevant to the package version can now come into variants/package
+const WEB_APP_URL = "https://staffcode.sagittal.org/"
 
 const onWebApp = (): boolean => {
     const getUrl = window.location
@@ -23,6 +22,7 @@ const handleCopyLinkClick = (
     //  Would it be better if we just stored these things in a central state rather than tried to figure it out
     //  By reaching into all these UI components?
     //  - You'd also include references to ui components so you wouldn't have to pass them around so much etc
+    //  - And it might be the case that they are only relevant to the package variant
 
     const encodedCodes = encodeURIComponent(
         prepareCodesToBeHumanReadableAsEncodedQueryParams(input.value as Io & Sentence),
@@ -49,7 +49,6 @@ const handleCopyLinkClick = (
 
     navigator.clipboard.writeText(`${WEB_APP_URL}${initialParams}`)
 }
-
 
 const buildCopyLinkButton = (
     input: HTMLTextAreaElement,

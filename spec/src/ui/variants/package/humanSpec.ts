@@ -2,8 +2,8 @@ import {Io, Sentence} from "@sagittal/general"
 import {
     prepareCodesToBeHumanReadableAsEncodedQueryParams,
     undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams,
-} from "../../../src/ui/human"
-import {EncodedCode} from "../../../src/ui/types"
+} from "../../../../../src/ui/variants/package/human"
+import {EncodedCode} from "../../../../../src/ui/variants/package/types"
 
 const inputSentence = "ston nt ; nt8  ; cdsq - br; ;;  -  - -  .-  .- .-  .- ; - ;" as Io & Sentence
 const encodedSentence = "ston-nt-q-nt8  q-cdsqq-j-brq-;;  j  j-j  .j  .j-.j  .j-q-j-q" as EncodedCode & Sentence

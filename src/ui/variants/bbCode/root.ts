@@ -1,9 +1,9 @@
 import {buildDisplay} from "../../display"
 import {DEFAULT_FONT} from "../../fonts"
-import {computeInitialCodes, computeInitialLine, computeInitialSize} from "../../initial"
 import {setupInput} from "../../input"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeOptions} from "../../types"
+import {DEFAULT_INITIAL_CODES, DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../constants"
 
 const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}): void => {
     const {
@@ -12,9 +12,9 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
             interactive = false,
         } = {},
         initial: {
-            codes: initialCodes = computeInitialCodes(),
-            size: initialSize = computeInitialSize(),
-            line: initialLine = computeInitialLine(),
+            codes: initialCodes = DEFAULT_INITIAL_CODES,
+            size: initialSize = DEFAULT_INITIAL_SIZE,
+            line: initialLine = DEFAULT_INITIAL_LINE,
         } = {},
         font = DEFAULT_FONT,
         callback,

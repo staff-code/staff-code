@@ -1,5 +1,5 @@
 import {Name} from "@sagittal/general"
-import {Section} from "../../../bin"
+import {Section} from "../../../../../bin"
 
 const buildTocItem = (sectionName: Name<Section>): HTMLLIElement => {
     const tocItem = document.createElement("li")

@@ -1,13 +1,13 @@
-import {buildCopyLinkButton} from "../../copyLinkButton"
 import {buildDisplay} from "../../display"
-import {buildDownloadButton} from "../../downloadButton"
 import {DEFAULT_FONT} from "../../fonts"
-import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "../../initial"
-import {buildReferenceLink} from "../../reference"
-import {buildLineSpinnerWrapper, buildSizeSpinnerWrapper} from "../../spinners"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeOptions} from "../../types"
+import {buildCopyLinkButton} from "./copyLinkButton"
+import {buildDownloadButton} from "./downloadButton"
+import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "./initial"
 import {buildPackageInput} from "./input"
+import {buildReferenceLink} from "./reference"
+import {buildLineSpinnerWrapper, buildSizeSpinnerWrapper} from "./spinners"
 
 const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     const {

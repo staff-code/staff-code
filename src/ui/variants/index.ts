@@ -1,1 +1,1 @@
-export {setupPackageRoot} from "./package"
+export {setupPackageRoot, downloadSvg} from "./package"

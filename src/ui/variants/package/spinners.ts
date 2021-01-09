@@ -1,5 +1,5 @@
 import {Em, lowerCaseToUpperCase, Multiplier} from "@sagittal/general"
-import {DEFAULT_BLOCK_MODE_FONT_SIZE} from "./display"
+import {DEFAULT_BLOCK_MODE_FONT_SIZE} from "../../display"
 import {setStaffCodeCookie} from "./initial"
 import {Initial} from "./types"
 
