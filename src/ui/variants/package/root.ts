@@ -1,4 +1,4 @@
-import {DeepPartial, Em, FontName, Maybe, Multiplier, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
+import {Maybe, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
 import {buildDisplay} from "../../display"
 import {DEFAULT_FONT} from "../../fonts"
 import {transferInputToDisplay} from "../../transfer"
@@ -6,13 +6,13 @@ import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 import {buildCopyLinkButton} from "./copyLink"
 import {applyCss} from "./css"
 import {buildDownloadButton} from "./download"
-import {components, staffCodeOptions} from "./globals"
+import {components, staffCodeConfig} from "./globals"
 import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "./initial"
 import {buildPackageInput} from "./input"
 import {buildReferenceExpander} from "./reference"
 import {buildLineSpinnerWrapper, buildSizeSpinnerWrapper} from "./spinners"
 
-const setupPackageRoot = (options: DeepPartial<StaffCodeOptions> = {}): HTMLSpanElement => {
+const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     const {
         ui: {
             inline = false,
@@ -25,15 +25,15 @@ const setupPackageRoot = (options: DeepPartial<StaffCodeOptions> = {}): HTMLSpan
         } = {},
         initial: {
             codes = computeInitialCodes(),
-            size = computeInitialSize(),
-            line = computeInitialLine(),
+            size: initialSize = computeInitialSize(),
+            line: initialLine = computeInitialLine(),
             referenceOpen = computeInitialReferenceOpen(),
         } = {},
         font = DEFAULT_FONT,
         callback,
     } = options
     setAllPropertiesOfObjectOnAnother({
-        objectToChange: staffCodeOptions, objectWithProperties: {
+        objectToChange: staffCodeConfig, objectWithProperties: {
             ui: {
                 inline,
                 interactive,
@@ -45,8 +45,8 @@ const setupPackageRoot = (options: DeepPartial<StaffCodeOptions> = {}): HTMLSpan
             },
             initial: {
                 codes,
-                size,
-                line,
+                size: initialSize,
+                line: initialLine,
                 referenceOpen,
             },
             font,
@@ -84,12 +84,7 @@ const setupPackageRoot = (options: DeepPartial<StaffCodeOptions> = {}): HTMLSpan
         root.appendChild(downloadButton)
     }
 
-    const display = buildDisplay({
-        font: font as FontName,
-        initialLine: line as Multiplier<Em>,
-        inline,
-        initialSize: size as Multiplier<Em>,
-    })
+    const display = buildDisplay({font, initialLine, inline, initialSize})
     components.display = display
     root.appendChild(display)
 

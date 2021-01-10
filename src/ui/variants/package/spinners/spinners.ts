@@ -1,5 +1,5 @@
 import {lowerCaseToUpperCase} from "@sagittal/general"
-import {components, staffCodeOptions} from "../globals"
+import {components, staffCodeConfig} from "../globals"
 import {Initial} from "../types"
 
 const buildSpinnerWrapper = (initial: Initial, handleSpinnerChange: (event: Event) => void): HTMLSpanElement => {
@@ -15,7 +15,7 @@ const buildSpinnerWrapper = (initial: Initial, handleSpinnerChange: (event: Even
     spinner.step = "0.1"
     spinner.min = "0"
     // @ts-ignore
-    spinner.value = `${staffCodeOptions.initial[initial]}`
+    spinner.value = `${staffCodeConfig.initial[initial]}`
     spinner.id = initial
     // @ts-ignore
     components[`${initial}Spinner`] = spinner

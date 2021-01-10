@@ -1,11 +1,11 @@
-import {StaffCodeOptions} from "../../types"
+import {StaffCodeConfig} from "../../types"
 import {Components} from "./types"
 
 const components: Components = {} as Components
 
-const staffCodeOptions: StaffCodeOptions = {} as StaffCodeOptions
+const staffCodeConfig: StaffCodeConfig = {} as StaffCodeConfig
 
 export {
     components,
-    staffCodeOptions,
+    staffCodeConfig,
 }

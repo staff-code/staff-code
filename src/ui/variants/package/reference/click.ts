@@ -1,7 +1,7 @@
 import {BLANK, Io, Maybe, Sentence, SPACE, Word} from "@sagittal/general"
 import {Code} from "../../../../translate"
 import {transferInputToDisplay} from "../../../transfer"
-import {components, staffCodeOptions} from "../globals"
+import {components, staffCodeConfig} from "../globals"
 
 const insertCodeIntoInput = (code: Code & Word): void => {
     const {input} = components
@@ -26,7 +26,7 @@ const handleReferenceClick = (event: MouseEvent): void => {
     const code = maybeCodeCell.textContent as Code & Word
     insertCodeIntoInput(code)
 
-    transferInputToDisplay(components.root, staffCodeOptions.callback)
+    transferInputToDisplay(components.root, staffCodeConfig.callback)
 }
 
 export {

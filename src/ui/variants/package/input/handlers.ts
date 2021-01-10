@@ -1,6 +1,6 @@
 import {BLANK, doOnNextEventLoop, Maybe, Ms} from "@sagittal/general"
 import {transferInputToDisplay} from "../../../transfer"
-import {components, staffCodeOptions} from "../globals"
+import {components, staffCodeConfig} from "../globals"
 
 let keycodeWhichIsDown: Maybe<string> = undefined
 
@@ -30,7 +30,7 @@ const handleKeydown = (event: KeyboardEvent): void => {
     const multiCharSelection = isSelectionLengthGreaterThanOneChar()
     doOnNextEventLoop((): void => {
         if (shouldTransfer(event, multiCharSelection)) {
-            transferInputToDisplay(components.root, staffCodeOptions.callback)
+            transferInputToDisplay(components.root, staffCodeConfig.callback)
         }
     }, 100 as Ms).then()
 }

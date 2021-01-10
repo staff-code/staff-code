@@ -1,16 +1,16 @@
 import {doOnNextEventLoop, Ms} from "@sagittal/general"
 import {transferInputToDisplay} from "../../../transfer"
-import {staffCodeOptions} from "../globals"
+import {staffCodeConfig} from "../globals"
 import {buildStaffCodeCallback} from "./callback"
 import {handleKeydown, handleKeyup} from "./handlers"
 
 const buildPackageInput = (): HTMLTextAreaElement => {
-    const {initial: {codes: initialCodes}, ui: {interactive}} = staffCodeOptions
+    const {initial: {codes: initialCodes}, ui: {interactive}} = staffCodeConfig
 
     const input = document.createElement("textarea")
 
-    const {callback} = staffCodeOptions
-    staffCodeOptions.callback = buildStaffCodeCallback(callback)
+    const {callback} = staffCodeConfig
+    staffCodeConfig.callback = buildStaffCodeCallback(callback)
 
     input.classList.add("sc-input")
     input.value = `${initialCodes}${input.value}`

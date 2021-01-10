@@ -3,12 +3,19 @@ import {Unicode} from "../translate"
 
 type StaffCodeCallback = (inputSentence: Io & Sentence, unicodeSentence: Unicode & Sentence) => any
 
-type StaffCodeOptions = {
+interface StaffCodeConfig {
     ui: UiOptions,
     initial: InitialOptions,
     font: FontName,
     callback: StaffCodeCallback,
 }
+
+type StaffCodeOptions = Partial<{
+    ui: Partial<UiOptions>,
+    initial: Partial<InitialOptions>,
+    font: FontName,
+    callback: StaffCodeCallback,
+}>
 
 interface UiOptions {
     interactive: boolean,
@@ -35,6 +42,7 @@ interface DisplayOptions {
 }
 
 export {
+    StaffCodeConfig,
     StaffCodeOptions,
     StaffCodeCallback,
     UiOptions,

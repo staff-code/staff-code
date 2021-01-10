@@ -1,6 +1,6 @@
 import {isUndefined} from "@sagittal/general"
 import pkg from "../../../../../package.json"
-import {components, staffCodeOptions} from "../globals"
+import {components, staffCodeConfig} from "../globals"
 import {setStaffCodeCookie} from "../initial"
 import {Initial} from "../types"
 
@@ -15,7 +15,7 @@ const STAFF_CODE_ABOUT_TOOLTIP = `<div class="sc-tooltip">${STAFF_CODE_ABOUT_TOO
 const STAFF_CODE_ABOUT = `<span class="sc-about">StaffCode${STAFF_CODE_ABOUT_TOOLTIP}</span>`
 
 const buildReferenceExpander = (): HTMLDetailsElement => {
-    const {initial: {referenceOpen: initialReferenceOpen}} = staffCodeOptions
+    const {initial: {referenceOpen: initialReferenceOpen}} = staffCodeConfig
 
     const referenceExpander = document.createElement("details")
     components.referenceExpander = referenceExpander
