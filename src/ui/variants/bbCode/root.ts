@@ -19,9 +19,9 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: DeepPartial<StaffCodeOp
             inline = false,
         } = {},
         initial: {
-            codes = DEFAULT_INITIAL_CODES,
-            size = DEFAULT_INITIAL_SIZE,
-            line = DEFAULT_INITIAL_LINE,
+            codes: initialCodes,
+            size: initialSize = DEFAULT_INITIAL_SIZE,
+            line: initialLine = DEFAULT_INITIAL_LINE,
         } = {},
         font = DEFAULT_FONT,
         callback,
@@ -31,13 +31,13 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: DeepPartial<StaffCodeOp
     root.classList.add("processed")
 
     const input: HTMLTextAreaElement = root.querySelector(".input") as HTMLTextAreaElement
-    if (codes) input.value = codes as Io & Sentence
+    if (initialCodes) input.value = initialCodes as Io & Sentence
 
     const display = buildDisplay({
         font: font as FontName,
-        initialLine: line as Multiplier<Em>,
-        initialSize: size as Multiplier<Em>,
-        inline
+        initialLine: initialLine as Multiplier<Em>, // TODO: this DeepPartial didn't really work well
+        initialSize: initialSize as Multiplier<Em>,
+        inline,
     })
     root.appendChild(display)
 
