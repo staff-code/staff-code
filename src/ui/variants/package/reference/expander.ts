@@ -32,7 +32,7 @@ details[open] {
     text-align: right;
 }
 
-.sc-about:hover .sc-tooltip {
+details[open] .sc-about:hover .sc-tooltip {
     display: block;
 }
 `
@@ -40,7 +40,7 @@ details[open] {
 const STAFF_CODE_ABOUT_TOOLTIP_TEXT = `
 StaffCode version ${version}<br>
 by Douglas Blumeyer and Dave Keenan<br>
-<a href='https://forum.sagittal.org/viewtopic.php?p=3192#p3192'>Introduction to StaffCode</a>
+<a target="_blank" href='https://forum.sagittal.org/viewtopic.php?p=3192#p3192'>Introduction to StaffCode</a>
 `
 
 const STAFF_CODE_ABOUT_TOOLTIP = `<div class="sc-tooltip">${STAFF_CODE_ABOUT_TOOLTIP_TEXT}</div>`
