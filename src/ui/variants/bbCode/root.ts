@@ -1,13 +1,5 @@
-import {
-    DeepPartial,
-    Em,
-    FontName, Io,
-    Maybe,
-    Multiplier,
-    Sentence,
-    setAllPropertiesOfObjectOnAnother,
-} from "@sagittal/general"
-import {DEFAULT_INITIAL_CODES, DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../../constants"
+import {DeepPartial, Em, FontName, Io, Maybe, Multiplier, Sentence} from "@sagittal/general"
+import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../../constants"
 import {buildDisplay} from "../../display"
 import {DEFAULT_FONT} from "../../fonts"
 import {transferInputToDisplay} from "../../transfer"

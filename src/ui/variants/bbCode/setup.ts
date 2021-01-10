@@ -1,4 +1,4 @@
-import {BLANK, Em, FontName, Maybe, Multiplier} from "@sagittal/general"
+import {BLANK, Em, Multiplier} from "@sagittal/general"
 import {StaffCodeCallback} from "../../types"
 import {setupBBCodeRoot} from "./root"
 
