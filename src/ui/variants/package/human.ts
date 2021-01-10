@@ -5,11 +5,10 @@ const prepareCodesToBeHumanReadableAsEncodedQueryParams = (
     inputSentence: Io & Sentence,
 ): EncodedCode & Sentence =>
     inputSentence
-        .replace(/j/g, "jj") // TODO: try Dave's suggestion: https://forum.sagittal.org/viewtopic.php?p=3376#p3376
-        .replace(/-/g, "j")
-        .replace(/([^ ]) (?=[^ ]|$)/g, "$1-")
+        .replace(/-/g, "--")
+        .replace(/([^ \-]) (?=[^ \-]|$)/g, "$1-")
         .replace(/q/g, "qq")
-        .replace(/([^;]);(?=[^;]|$)/g, "$1q") as EncodedCode & Sentence
+        .replace(/([^;q]);(?=[^;q]|$)/g, "$1q") as EncodedCode & Sentence
 
 const undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams = (
     encodedSentence: EncodedCode & Sentence,
@@ -18,8 +17,7 @@ const undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams = (
         .replace(/([^q])q(?=[^q]|$)/g, "$1;")
         .replace(/qq/g, "q")
         .replace(/([^\-])-(?=[^\-]|$)/g, "$1 ")
-        .replace(/jj/g, "j")
-        .replace(/j/g, "-") as Io & Sentence
+        .replace(/--/g, "-") as Io & Sentence
 
 export {
     prepareCodesToBeHumanReadableAsEncodedQueryParams,
