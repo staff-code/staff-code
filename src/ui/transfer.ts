@@ -3,8 +3,8 @@ import {computeInputSentenceUnicode} from "../translate"
 import {StaffCodeCallback} from "./types"
 
 const transferInputToDisplay = (root: HTMLSpanElement, callback?: StaffCodeCallback): void => {
-    const input = root.querySelector(".input") as HTMLTextAreaElement
-    const display = root.querySelector(".display") as HTMLElement
+    const input = root.querySelector(".sc-input") as HTMLTextAreaElement
+    const display = root.querySelector(".sc-display") as HTMLElement
 
     const inputSentence = input.value as Io & Sentence
 

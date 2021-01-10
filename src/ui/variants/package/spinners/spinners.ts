@@ -4,16 +4,11 @@ import {Initial} from "../types"
 
 const buildSpinnerWrapper = (initial: Initial, handleSpinnerChange: (event: Event) => void): HTMLSpanElement => {
     const spinnerWrapper = document.createElement("span")
-    spinnerWrapper.style.display = "inline-block"
-    spinnerWrapper.style.marginRight = "2px"
+    spinnerWrapper.classList.add("sc-spinner")
 
     const spinnerLabel = document.createElement("label")
-    spinnerLabel.innerHTML = lowerCaseToUpperCase(initial)
+    spinnerLabel.textContent = lowerCaseToUpperCase(initial)
     spinnerLabel.setAttribute("for", initial)
-    spinnerLabel.style.width = "2em"
-    spinnerLabel.style.display = "inline-block"
-    spinnerLabel.style.fontFamily = "sans-serif"
-    spinnerLabel.style.fontSize = "0.75em"
 
     const spinner = document.createElement("input")
     spinner.type = "number"
@@ -21,7 +16,6 @@ const buildSpinnerWrapper = (initial: Initial, handleSpinnerChange: (event: Even
     spinner.min = "0"
     // @ts-ignore
     spinner.value = `${staffCodeOptions.initial[initial]}`
-    spinner.style.width = "3em"
     spinner.id = initial
     // @ts-ignore
     components[`${initial}Spinner`] = spinner

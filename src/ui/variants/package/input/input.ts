@@ -1,11 +1,8 @@
-import {doOnNextEventLoop, Ms, Px} from "@sagittal/general"
+import {doOnNextEventLoop, Ms} from "@sagittal/general"
 import {transferInputToDisplay} from "../../../transfer"
 import {staffCodeOptions} from "../globals"
 import {buildStaffCodeCallback} from "./callback"
 import {handleKeydown, handleKeyup} from "./handlers"
-
-const ABOUT_FORTY_CHARS_WIDE_PX: Px = 300 as Px
-const ABOUT_THREE_LINES_HIGH_PX: Px = 50 as Px
 
 const buildPackageInput = (): HTMLTextAreaElement => {
     const {initial: {codes: initialCodes}, ui: {interactive}} = staffCodeOptions
@@ -15,7 +12,7 @@ const buildPackageInput = (): HTMLTextAreaElement => {
     const {callback} = staffCodeOptions
     staffCodeOptions.callback = buildStaffCodeCallback(callback)
 
-    input.classList.add("input")
+    input.classList.add("sc-input")
     input.value = `${initialCodes}${input.value}`
     input.spellcheck = false
 
@@ -23,9 +20,6 @@ const buildPackageInput = (): HTMLTextAreaElement => {
         input.style.display = "none"
     } else {
         input.style.display = "block"
-
-        input.style.width = `${ABOUT_FORTY_CHARS_WIDE_PX}px`
-        input.style.height = `${ABOUT_THREE_LINES_HIGH_PX}px`
 
         input.addEventListener("keydown", handleKeydown)
         input.addEventListener("keyup", handleKeyup)

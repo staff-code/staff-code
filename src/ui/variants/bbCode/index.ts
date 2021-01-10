@@ -15,7 +15,7 @@ music notation. This project would not have been possible without the great work
 Text, and its precursors Bravura and SMuFL. For more information see https://www.smufl.org/fonts/.
 */
 
-import {version} from "../../../../package.json"
+import pkg from "../../../../package.json"
 import {loadFontsThen} from "../../fonts"
 import {setupBBCodeStaffCode} from "./setup"
 
@@ -30,4 +30,4 @@ loadFontsThen(setupBBCodeStaffCode)
 
 // @ts-ignore
 // tslint:disable-next-line no-console
-console.log("Running StaffCode v" + version)
+console.log("Running StaffCode v" + pkg.version)

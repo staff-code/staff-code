@@ -6,7 +6,7 @@ const buildTocItem = (sectionName: Name<Section>): HTMLLIElement => {
 
     const tocLink = document.createElement("a")
     tocLink.href = `#${sectionName}`
-    tocLink.innerHTML = sectionName
+    tocLink.textContent = sectionName
     tocItem.appendChild(tocLink)
 
     return tocItem

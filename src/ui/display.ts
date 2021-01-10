@@ -14,7 +14,7 @@ const buildDisplay = ({font, initialLine, inline, initialSize}: DisplayOptions):
     if (!inline) display.style.margin = `${MARGIN_SIZE}em ${MARGIN_SIZE * HORIZONTAL_MARGIN_MULTIPLIER}em`
     display.style.fontFamily = font
     display.style.whiteSpace = "pre"
-    display.classList.add("display")
+    display.classList.add("sc-display")
 
     return display
 }

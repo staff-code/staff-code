@@ -4,6 +4,7 @@ import {DEFAULT_FONT} from "../../fonts"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 import {buildCopyLinkButton} from "./copyLink"
+import {applyCss} from "./css"
 import {buildDownloadButton} from "./download"
 import {components, staffCodeOptions} from "./globals"
 import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "./initial"
@@ -52,6 +53,8 @@ const setupPackageRoot = (options: DeepPartial<StaffCodeOptions> = {}): HTMLSpan
             callback,
         } as StaffCodeOptions,
     })
+
+    applyCss()
 
     const root = document.createElement("span")
     components.root = root

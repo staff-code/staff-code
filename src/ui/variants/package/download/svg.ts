@@ -8,9 +8,7 @@ const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
 const buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem = (): SVGGraphicsElement => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg") as Element as SVGGraphicsElement
-    svg.style.position = "absolute"
-    svg.style.top = "-9999px"
-    svg.style.left = "-9999px"
+    svg.classList.add("sc-svg")
 
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg")
     svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink")
@@ -24,9 +22,7 @@ const cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled = (
     svg: SVGGraphicsElement,
 ): SVGGraphicsElement => {
     const clonedSvg = svg.cloneNode(true) as SVGGraphicsElement
-    clonedSvg.style.position = "relative"
-    clonedSvg.style.top = "0"
-    clonedSvg.style.left = "0"
+    clonedSvg.classList.add("sc-cloned-svg")
 
     return clonedSvg
 }

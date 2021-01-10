@@ -10,11 +10,11 @@ const buildReference = (): HTMLDivElement => {
     components.reference = reference
 
     const instructions = document.createElement("span")
-    instructions.innerHTML = "Click any row to insert that code."
+    instructions.textContent = "Click any row to insert that code."
     reference.appendChild(instructions)
 
     const tocTitle = document.createElement("h2")
-    tocTitle.innerHTML = "SMuFL sections"
+    tocTitle.textContent = "SMuFL sections"
     reference.appendChild(tocTitle)
 
     const toc = document.createElement("ul")
