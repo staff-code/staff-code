@@ -27,7 +27,10 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: DeepPartial<StaffCodeOp
 
     const display = buildDisplay({
         font: font as FontName,
-        initialLine: initialLine as Multiplier<Em>, // TODO: this DeepPartial didn't really work well
+        // TODO: CLEAN, READY TO GO: FIX DEEP PARTIAL TYPE
+        //  This DeepPartial didn't really work well, forcing me to redeclare all these types.
+        //  It needs to somehow understand how to stop at leaf nodes.
+        initialLine: initialLine as Multiplier<Em>,
         initialSize: initialSize as Multiplier<Em>,
         inline,
     })

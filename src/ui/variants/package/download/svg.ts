@@ -1,24 +1,10 @@
-import {BLANK, computeLineCount, Px, vectorizeText} from "@sagittal/general"
-import {Unicode} from "../../../translate"
-import {DEFAULT_FONT} from "../../fonts"
-import {components} from "./globals"
-
-const HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT: Px = 57 as Px
-const APPARENT_SCALING_EXPONENT = 1.16
+import {BLANK, vectorizeText} from "@sagittal/general"
+import {Unicode} from "../../../../translate"
+import {DEFAULT_FONT} from "../../../fonts"
+import {components} from "../globals"
+import {computeSvgHeight, scaleSVGToFitContents} from "./resize"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
-
-// TODO: FEATURE IMPROVE, READY TO GO: ENSURE DOWNLOADED SVG REFLECTS LINE HEIGHT AND SIZE
-//  I don't think size are affecting the SVG. line is I think.
-const computeSvgHeight = (unicodeSentence: Unicode): Px =>
-    HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT * (computeLineCount(unicodeSentence) ** APPARENT_SCALING_EXPONENT) as Px
-
-const scaleSVGToFitContents = (svg: SVGGraphicsElement): void => {
-    const bbox = svg.getBBox()
-
-    svg.setAttribute("width", `${bbox.x + bbox.width + bbox.x}`)
-    svg.setAttribute("height", `${bbox.y + bbox.height + bbox.y}`)
-}
 
 const buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem = (): SVGGraphicsElement => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg") as Element as SVGGraphicsElement
@@ -83,19 +69,6 @@ const downloadSvg = (): void => {
     buildDummyDownloadLinkAndClickIt(svgBlobUrl)
 }
 
-const buildDownloadButton = (): HTMLButtonElement => {
-    const downloadButton = document.createElement("button")
-    downloadButton.textContent = "\u21e9 image" // TODO: we should try the FontAwesome: fas fa-download &#xf019;.
-    downloadButton.style.margin = "2px"
-    downloadButton.style.cursor = "pointer"
-    downloadButton.style.fontFamily = "sans-serif"
-    downloadButton.style.fontSize = "0.75em"
-    downloadButton.addEventListener("click", downloadSvg)
-
-    return downloadButton
-}
-
 export {
-    buildDownloadButton,
     downloadSvg,
 }
