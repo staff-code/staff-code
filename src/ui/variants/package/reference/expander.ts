@@ -1,7 +1,51 @@
 import {isUndefined} from "@sagittal/general"
+import {version} from "../../../../../package.json"
 import {components, staffCodeOptions} from "../globals"
 import {setStaffCodeCookie} from "../initial"
 import {Initial} from "../types"
+
+const CSS = `
+table tr:hover { 
+    background-color: #eeeeee;
+}
+
+details[open] { 
+    height: 300px;
+}
+
+.sc-about {
+    float: right; 
+    font-weight: bold;
+    position: relative;
+}
+
+.sc-about .sc-tooltip {
+    display: none;
+    background: white;
+    border: solid 1px;
+    font-weight: normal;
+    font-size: 0.75em;
+    padding: 0.5em;
+    position: absolute;
+    right: 0;
+    width: 200px;
+    text-align: right;
+}
+
+.sc-about:hover .sc-tooltip {
+    display: block;
+}
+`
+
+const STAFF_CODE_ABOUT_TOOLTIP_TEXT = `
+StaffCode version ${version}<br>
+by Douglas Blumeyer and Dave Keenan<br>
+<a href='https://forum.sagittal.org/viewtopic.php?p=3192#p3192'>Introduction to StaffCode</a>
+`
+
+const STAFF_CODE_ABOUT_TOOLTIP = `<div class="sc-tooltip">${STAFF_CODE_ABOUT_TOOLTIP_TEXT}</div>`
+
+const STAFF_CODE_ABOUT = `<span class="sc-about">StaffCode${STAFF_CODE_ABOUT_TOOLTIP}</span>`
 
 const buildReferenceExpander = (): HTMLDetailsElement => {
     const {initial: {referenceOpen: initialReferenceOpen}} = staffCodeOptions
@@ -9,21 +53,12 @@ const buildReferenceExpander = (): HTMLDetailsElement => {
     const referenceExpander = document.createElement("details")
     referenceExpander.style.width = "550px"
     referenceExpander.style.overflowY = "auto"
-    referenceExpander.style.border = "1px solid"
+    referenceExpander.style.borderTop = "1px solid"
     referenceExpander.style.marginBottom = "10px"
     components.referenceExpander = referenceExpander
 
-    // TODO: FEATURE IMPROVE, READY TO GO: STAFF CODE TITLE AND ABOUT
-    //  Somehow also include StaffCode as a title sort of thing to the right of the reference,
-    //  Which upon clicking shows an about text, which links to the instructions post
-    /*
-    StaffCode version XX.XX.XXX
-    by Douglas Blumeyer and Dave Keenan
-    Introduction to StaffCode (link: https://forum.sagittal.org/viewtopic.php?p=3192#p3192)
-     */
-
     const summary = document.createElement("summary")
-    summary.innerHTML = "Reference"
+    summary.innerHTML = `Reference${STAFF_CODE_ABOUT}`
     summary.style.cursor = "pointer"
     referenceExpander.appendChild(summary)
 
@@ -33,9 +68,8 @@ const buildReferenceExpander = (): HTMLDetailsElement => {
 
     // TODO: CLEAN, READY TO GO: DO MORE STYLES AS A STYLESHEET, NOT EXPENSIVELY ON EACH ELEMENT INDIVIDUALLY
     //  Probably do for each cell or like, everything in the app too?
-    const css = "table tr:hover{ background-color: #eeeeee } details[open]{ height: 300px }"
     const style = document.createElement("style")
-    style.appendChild(document.createTextNode(css))
+    style.appendChild(document.createTextNode(CSS))
     document.getElementsByTagName("head")[0].appendChild(style)
 
     if (initialReferenceOpen) {

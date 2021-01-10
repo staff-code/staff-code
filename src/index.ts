@@ -10,5 +10,3 @@ export {
     UnicodeLiteral,
     computeUnicodeFromUnicodeLiteral,
 } from "./translate"
-
-// TODO: REVERT FAVICON PLUGIN, OR OTHERWISE DEAL WITH MISSING FAVICON SITUATION, AUTO/ASSETS STUFF NOT FOUND IN DEVTOOL
