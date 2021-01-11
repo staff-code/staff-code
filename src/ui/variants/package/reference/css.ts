@@ -16,7 +16,8 @@ const REFERENCE_CSS = css`
   }
 
   details {
-    width: 550px;
+    width: 100%;
+    max-width: 600px;
     overflow-y: auto;
     border-top: 1px solid;
     margin-bottom: 10px;

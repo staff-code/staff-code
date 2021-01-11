@@ -59,15 +59,6 @@ Maybe it should be the first section after the list of ranges links.
 [tr][td]    [/td][td][font=Roboto mono]en;[/font][/td][td][b]en[/b]d-of-staff advance[/td][/tr]
 [tr][td]    [/td][td][font=Roboto mono]br;[/font][/td][td]line [b]br[/b]eak advance[/td][/tr]
 
------
-
-Remove the indent and bullet from the start of all the section links.
-
------
-
-Then elide any of those links that still word-wrap, until they don't.
-This probably only requires changing "accidental" and "accidentals" to "acc..."
-in the Sagittal sections from Promethean onward.
 
 -----
 
