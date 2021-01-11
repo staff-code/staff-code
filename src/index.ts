@@ -137,15 +137,6 @@ Retaining the glyph names intact should be less important when we have links to 
  Even expand "acc" out to "accidental" if that works better (but I really don't thing it necessary).
 If you don't separate the words, half the emboldened letters will be uppercase when they are lowercase in the staffCode.
 
------
-
-It seems to me that it's the positioning code word that should be sticky. (not the position)
-
------
-
-I tried font=Times for the mnemonics in the above table,
-and I found that bold was barely distinguishable from regular.
-So maybe we should use a different (maybe san-serif) font for the mnemonics in the Reference too.
 
 -----
 

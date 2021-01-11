@@ -1,3 +1,4 @@
+import {FontName} from "@sagittal/general"
 import {Section} from "../../../../../bin"
 import {components} from "../globals"
 import {loadGoogleFont} from "./fonts"
@@ -6,7 +7,8 @@ import referenceJson from "./reference.json"
 import {appendSection} from "./section"
 
 const buildReference = (): HTMLDivElement => {
-    loadGoogleFont()
+    loadGoogleFont("Roboto Mono" as FontName)
+    loadGoogleFont("Roboto" as FontName)
 
     const reference = document.createElement("div")
     reference.style.padding = "10px"

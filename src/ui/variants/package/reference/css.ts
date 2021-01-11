@@ -18,7 +18,7 @@ const REFERENCE_CSS = css`
   }
 
   details[open] {
-    height: 450px;
+    height: 520px;
   }
 
   .sc-about {
@@ -76,12 +76,13 @@ const REFERENCE_CSS = css`
 
   /* code */
   td:nth-child(2) {
-    font-family: "Roboto Mono";
+    font-family: Roboto Mono;
     border: 1px solid;
   }
 
   /* glyph name */
   td:nth-child(3) {
+    font-family: Roboto;
     border: 1px solid;
   }
 `
