@@ -1,4 +1,4 @@
-import {computeKeyPath, Name, sort} from "@sagittal/general"
+import {computeKeyPath, Id, Name, sort} from "@sagittal/general"
 import * as fs from "fs"
 import {Unicode} from "../../src"
 import {computeSmuflCode} from "../codes"
@@ -8,12 +8,13 @@ import {computeMnemonic} from "./mnemonic"
 import {ReferenceRow, Section, SmuflRangeDatum} from "./types"
 
 const generateSmuflReference = (): void => {
-    const rangeValues = Object.values(smuflRanges) as SmuflRangeDatum[]
-    sort(rangeValues, {by: computeKeyPath("range_start")})
+    const rangeEntries = Object.entries(smuflRanges) as Array<[Id<Section>, SmuflRangeDatum]>
+    sort(rangeEntries, {by: computeKeyPath(1, "range_start")})
 
-    const sections = rangeValues.map((rangeDatum: SmuflRangeDatum): Section => {
+    const sections = rangeEntries.map(([rangeName, rangeDatum]: [Id<Section>, SmuflRangeDatum]): Section => {
         const {description, glyphs: glyphNames} = rangeDatum
 
+        const sectionId = rangeName
         const sectionName = description
         const sectionData = glyphNames.map((glyphName: Name<Unicode>): ReferenceRow => {
             const unicode = computeGlyphUnicode(glyphName)
@@ -23,7 +24,7 @@ const generateSmuflReference = (): void => {
             return [unicode, code, mnemonic]
         })
 
-        return [sectionName, sectionData]
+        return [sectionId, sectionName, sectionData]
     })
 
     fs.writeFileSync(

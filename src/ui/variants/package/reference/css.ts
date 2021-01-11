@@ -53,6 +53,11 @@ const REFERENCE_CSS = css`
   .sc-section-title h3 {
     margin: 0 0 5px 0;
   }
+  
+  .sc-section-title a:first-child {
+    text-decoration: inherit;
+    color: inherit;
+  }
 
   table {
     border-collapse: collapse;

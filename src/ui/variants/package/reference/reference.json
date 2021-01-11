@@ -1,5 +1,6 @@
 [
   [
+    "staffBracketsAndDividers",
     "Staff brackets and dividers",
     [
       [
@@ -75,6 +76,7 @@
     ]
   ],
   [
+    "staves",
     "Staves",
     [
       [
@@ -185,6 +187,7 @@
     ]
   ],
   [
+    "barlines",
     "Barlines",
     [
       [
@@ -240,6 +243,7 @@
     ]
   ],
   [
+    "repeats",
     "Repeats",
     [
       [
@@ -315,6 +319,7 @@
     ]
   ],
   [
+    "clefs",
     "Clefs",
     [
       [
@@ -560,6 +565,7 @@
     ]
   ],
   [
+    "timeSignatures",
     "Time signatures",
     [
       [
@@ -725,6 +731,7 @@
     ]
   ],
   [
+    "noteheads",
     "Noteheads",
     [
       [
@@ -1195,6 +1202,7 @@
     ]
   ],
   [
+    "slashNoteheads",
     "Slash noteheads",
     [
       [
@@ -1255,6 +1263,7 @@
     ]
   ],
   [
+    "roundAndSquareNoteheads",
     "Round and square noteheads",
     [
       [
@@ -1330,6 +1339,7 @@
     ]
   ],
   [
+    "noteClusters",
     "Note clusters",
     [
       [
@@ -1535,6 +1545,7 @@
     ]
   ],
   [
+    "noteNameNoteheads",
     "Note name noteheads",
     [
       [
@@ -2020,6 +2031,7 @@
     ]
   ],
   [
+    "shapeNoteNoteheads",
     "Shape note noteheads",
     [
       [
@@ -2165,6 +2177,7 @@
     ]
   ],
   [
+    "individualNotes",
     "Individual notes",
     [
       [
@@ -2290,6 +2303,7 @@
     ]
   ],
   [
+    "beamedGroupsOfNotes",
     "Beamed groups of notes",
     [
       [
@@ -2430,6 +2444,7 @@
     ]
   ],
   [
+    "stems",
     "Stems",
     [
       [
@@ -2515,6 +2530,7 @@
     ]
   ],
   [
+    "tremolos",
     "Tremolos",
     [
       [
@@ -2625,6 +2641,7 @@
     ]
   ],
   [
+    "flags",
     "Flags",
     [
       [
@@ -2720,6 +2737,7 @@
     ]
   ],
   [
+    "standardAccidentals12Edo",
     "Standard accidentals (12-EDO)",
     [
       [
@@ -2795,6 +2813,7 @@
     ]
   ],
   [
+    "gouldArrowQuartertoneAccidentals24Edo",
     "Gould arrow quartertone accidentals (24-EDO)",
     [
       [
@@ -2860,6 +2879,7 @@
     ]
   ],
   [
+    "steinZimmermannAccidentals24Edo",
     "Stein-Zimmermann accidentals (24-EDO)",
     [
       [
@@ -2895,6 +2915,7 @@
     ]
   ],
   [
+    "extendedSteinZimmermannAccidentals",
     "Extended Stein-Zimmermann accidentals",
     [
       [
@@ -2965,6 +2986,7 @@
     ]
   ],
   [
+    "simsAccidentals72Edo",
     "Sims accidentals (72-EDO)",
     [
       [
@@ -3000,6 +3022,7 @@
     ]
   ],
   [
+    "johnstonAccidentalsJustIntonation",
     "Johnston accidentals (just intonation)",
     [
       [
@@ -3045,6 +3068,7 @@
     ]
   ],
   [
+    "extendedHelmholtzEllisAccidentalsJustIntonation",
     "Extended Helmholtz-Ellis accidentals (just intonation)",
     [
       [
@@ -3350,6 +3374,7 @@
     ]
   ],
   [
+    "spartanSagittalSingleShaftAccidentals",
     "Spartan Sagittal single-shaft accidentals",
     [
       [
@@ -3435,6 +3460,7 @@
     ]
   ],
   [
+    "spartanSagittalMultiShaftAccidentals",
     "Spartan Sagittal multi-shaft accidentals",
     [
       [
@@ -3630,6 +3656,7 @@
     ]
   ],
   [
+    "athenianSagittalExtensionMediumPrecisionAccidentals",
     "Athenian Sagittal extension (medium precision) accidentals",
     [
       [
@@ -3835,6 +3862,7 @@
     ]
   ],
   [
+    "trojanSagittalExtension12EdoRelativeAccidentals",
     "Trojan Sagittal extension (12-EDO relative) accidentals",
     [
       [
@@ -3960,6 +3988,7 @@
     ]
   ],
   [
+    "prometheanSagittalExtensionHighPrecisionSingleShaftAccidentals",
     "Promethean Sagittal extension (high precision) single-shaft accidentals",
     [
       [
@@ -4115,6 +4144,7 @@
     ]
   ],
   [
+    "prometheanSagittalExtensionHighPrecisionMultiShaftAccidentals",
     "Promethean Sagittal extension (high precision) multi-shaft accidentals",
     [
       [
@@ -4440,6 +4470,7 @@
     ]
   ],
   [
+    "herculeanSagittalExtensionVeryHighPrecisionAccidentalDiacritics",
     "Herculean Sagittal extension (very high precision) accidental diacritics",
     [
       [
@@ -4465,6 +4496,7 @@
     ]
   ],
   [
+    "olympianSagittalExtensionExtremePrecisionAccidentalDiacritics",
     "Olympian Sagittal extension (extreme precision) accidental diacritics",
     [
       [
@@ -4490,6 +4522,7 @@
     ]
   ],
   [
+    "magratheanSagittalExtensionInsanePrecisionAccidentalDiacritics",
     "Magrathean Sagittal extension (insane precision) accidental diacritics",
     [
       [
@@ -4595,6 +4628,7 @@
     ]
   ],
   [
+    "wyschnegradskyAccidentals72Edo",
     "Wyschnegradsky accidentals (72-EDO)",
     [
       [
@@ -4710,6 +4744,7 @@
     ]
   ],
   [
+    "arelEzgiUzdilekAeuAccidentals",
     "Arel-Ezgi-Uzdilek (AEU) accidentals",
     [
       [
@@ -4755,6 +4790,7 @@
     ]
   ],
   [
+    "turkishFolkMusicAccidentals",
     "Turkish folk music accidentals",
     [
       [
@@ -4800,6 +4836,7 @@
     ]
   ],
   [
+    "persianAccidentals",
     "Persian accidentals",
     [
       [
@@ -4815,6 +4852,7 @@
     ]
   ],
   [
+    "otherAccidentals",
     "Other accidentals",
     [
       [
@@ -4980,6 +5018,7 @@
     ]
   ],
   [
+    "articulation",
     "Articulation",
     [
       [
@@ -5135,6 +5174,7 @@
     ]
   ],
   [
+    "holdsAndPauses",
     "Holds and pauses",
     [
       [
@@ -5260,6 +5300,7 @@
     ]
   ],
   [
+    "rests",
     "Rests",
     [
       [
@@ -5380,6 +5421,7 @@
     ]
   ],
   [
+    "barRepeats",
     "Bar repeats",
     [
       [
@@ -5415,6 +5457,7 @@
     ]
   ],
   [
+    "octaves",
     "Octaves",
     [
       [
@@ -5500,6 +5543,7 @@
     ]
   ],
   [
+    "dynamics",
     "Dynamics",
     [
       [
@@ -5715,6 +5759,7 @@
     ]
   ],
   [
+    "lyrics",
     "Lyrics",
     [
       [
@@ -5750,6 +5795,7 @@
     ]
   ],
   [
+    "commonOrnaments",
     "Common ornaments",
     [
       [
@@ -5835,6 +5881,7 @@
     ]
   ],
   [
+    "otherBaroqueOrnaments",
     "Other baroque ornaments",
     [
       [
@@ -5970,6 +6017,7 @@
     ]
   ],
   [
+    "combiningStrokesForTrillsAndMordents",
     "Combining strokes for trills and mordents",
     [
       [
@@ -6100,6 +6148,7 @@
     ]
   ],
   [
+    "precomposedTrillsAndMordents",
     "Precomposed trills and mordents",
     [
       [
@@ -6230,6 +6279,7 @@
     ]
   ],
   [
+    "brassTechniques",
     "Brass techniques",
     [
       [
@@ -6395,6 +6445,7 @@
     ]
   ],
   [
+    "windTechniques",
     "Wind techniques",
     [
       [
@@ -6540,6 +6591,7 @@
     ]
   ],
   [
+    "stringTechniques",
     "String techniques",
     [
       [
@@ -6680,6 +6732,7 @@
     ]
   ],
   [
+    "pluckedTechniques",
     "Plucked techniques",
     [
       [
@@ -6750,6 +6803,7 @@
     ]
   ],
   [
+    "vocalTechniques",
     "Vocal techniques",
     [
       [
@@ -6815,6 +6869,7 @@
     ]
   ],
   [
+    "keyboardTechniques",
     "Keyboard techniques",
     [
       [
@@ -7020,6 +7075,7 @@
     ]
   ],
   [
+    "harpTechniques",
     "Harp techniques",
     [
       [
@@ -7175,6 +7231,7 @@
     ]
   ],
   [
+    "tunedMalletPercussionPictograms",
     "Tuned mallet percussion pictograms",
     [
       [
@@ -7275,6 +7332,7 @@
     ]
   ],
   [
+    "chimesPictograms",
     "Chimes pictograms",
     [
       [
@@ -7325,6 +7383,7 @@
     ]
   ],
   [
+    "drumsPictograms",
     "Drums pictograms",
     [
       [
@@ -7435,6 +7494,7 @@
     ]
   ],
   [
+    "woodenStruckOrScrapedPercussionPictograms",
     "Wooden struck or scraped percussion pictograms",
     [
       [
@@ -7505,6 +7565,7 @@
     ]
   ],
   [
+    "metallicStruckPercussionPictograms",
     "Metallic struck percussion pictograms",
     [
       [
@@ -7520,6 +7581,7 @@
     ]
   ],
   [
+    "bellsPictograms",
     "Bells pictograms",
     [
       [
@@ -7580,6 +7642,7 @@
     ]
   ],
   [
+    "cymbalsPictograms",
     "Cymbals pictograms",
     [
       [
@@ -7640,6 +7703,7 @@
     ]
   ],
   [
+    "gongsPictograms",
     "Gongs pictograms",
     [
       [
@@ -7670,6 +7734,7 @@
     ]
   ],
   [
+    "shakersOrRattlesPictograms",
     "Shakers or rattles pictograms",
     [
       [
@@ -7720,6 +7785,7 @@
     ]
   ],
   [
+    "whistlesAndAerophonesPictograms",
     "Whistles and aerophones pictograms",
     [
       [
@@ -7780,6 +7846,7 @@
     ]
   ],
   [
+    "miscellaneousPercussionInstrumentPictograms",
     "Miscellaneous percussion instrument pictograms",
     [
       [
@@ -7825,6 +7892,7 @@
     ]
   ],
   [
+    "beatersPictograms",
     "Beaters pictograms",
     [
       [
@@ -8470,6 +8538,7 @@
     ]
   ],
   [
+    "percussionPlayingTechniquePictograms",
     "Percussion playing technique pictograms",
     [
       [
@@ -8630,6 +8699,7 @@
     ]
   ],
   [
+    "handbells",
     "Handbells",
     [
       [
@@ -8725,6 +8795,7 @@
     ]
   ],
   [
+    "guitar",
     "Guitar",
     [
       [
@@ -8880,6 +8951,7 @@
     ]
   ],
   [
+    "chordDiagrams",
     "Chord diagrams",
     [
       [
@@ -8940,6 +9012,7 @@
     ]
   ],
   [
+    "analytics",
     "Analytics",
     [
       [
@@ -9005,6 +9078,7 @@
     ]
   ],
   [
+    "chordSymbols",
     "Chord symbols",
     [
       [
@@ -9075,6 +9149,7 @@
     ]
   ],
   [
+    "tuplets",
     "Tuplets",
     [
       [
@@ -9135,6 +9210,7 @@
     ]
   ],
   [
+    "conductorSymbols",
     "Conductor symbols",
     [
       [
@@ -9195,6 +9271,7 @@
     ]
   ],
   [
+    "accordion",
     "Accordion",
     [
       [
@@ -9475,6 +9552,7 @@
     ]
   ],
   [
+    "beamsAndSlurs",
     "Beams and slurs",
     [
       [
@@ -9520,6 +9598,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceStaves",
     "Medieval and Renaissance staves",
     [
       [
@@ -9570,6 +9649,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceClefs",
     "Medieval and Renaissance clefs",
     [
       [
@@ -9635,6 +9715,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceProlations",
     "Medieval and Renaissance prolations",
     [
       [
@@ -9800,6 +9881,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceNoteheadsAndStems",
     "Medieval and Renaissance noteheads and stems",
     [
       [
@@ -9950,6 +10032,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceIndividualNotes",
     "Medieval and Renaissance individual notes",
     [
       [
@@ -10050,6 +10133,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceObliqueForms",
     "Medieval and Renaissance oblique forms",
     [
       [
@@ -10215,6 +10299,7 @@
     ]
   ],
   [
+    "medievalAndRenaissancePlainchantSingleNoteForms",
     "Medieval and Renaissance plainchant single-note forms",
     [
       [
@@ -10310,6 +10395,7 @@
     ]
   ],
   [
+    "medievalAndRenaissancePlainchantMultipleNoteForms",
     "Medieval and Renaissance plainchant multiple-note forms",
     [
       [
@@ -10425,6 +10511,7 @@
     ]
   ],
   [
+    "medievalAndRenaissancePlainchantArticulations",
     "Medieval and Renaissance plainchant articulations",
     [
       [
@@ -10480,6 +10567,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceAccidentals",
     "Medieval and Renaissance accidentals",
     [
       [
@@ -10515,6 +10603,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceRests",
     "Medieval and Renaissance rests",
     [
       [
@@ -10565,6 +10654,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceMiscellany",
     "Medieval and Renaissance miscellany",
     [
       [
@@ -10655,6 +10745,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceSymbolsInCmn",
     "Medieval and Renaissance symbols in CMN",
     [
       [
@@ -10715,6 +10806,7 @@
     ]
   ],
   [
+    "daseianNotation",
     "Daseian notation",
     [
       [
@@ -10810,6 +10902,7 @@
     ]
   ],
   [
+    "figuredBass",
     "Figured bass",
     [
       [
@@ -10975,6 +11068,7 @@
     ]
   ],
   [
+    "functionTheorySymbols",
     "Function theory symbols",
     [
       [
@@ -11220,6 +11314,7 @@
     ]
   ],
   [
+    "multiSegmentLines",
     "Multi-segment lines",
     [
       [
@@ -11725,6 +11820,7 @@
     ]
   ],
   [
+    "electronicMusicPictograms",
     "Electronic music pictograms",
     [
       [
@@ -12055,6 +12151,7 @@
     ]
   ],
   [
+    "arrowsAndArrowheads",
     "Arrows and arrowheads",
     [
       [
@@ -12300,6 +12397,7 @@
     ]
   ],
   [
+    "combiningStaffPositions",
     "Combining staff positions",
     [
       [
@@ -12385,6 +12483,7 @@
     ]
   ],
   [
+    "renaissanceLuteTablature",
     "Renaissance lute tablature",
     [
       [
@@ -12475,6 +12574,7 @@
     ]
   ],
   [
+    "frenchAndEnglishRenaissanceLuteTablature",
     "French and English Renaissance lute tablature",
     [
       [
@@ -12590,6 +12690,7 @@
     ]
   ],
   [
+    "italianAndSpanishRenaissanceLuteTablature",
     "Italian and Spanish Renaissance lute tablature",
     [
       [
@@ -12710,6 +12811,7 @@
     ]
   ],
   [
+    "germanRenaissanceLuteTablature",
     "German Renaissance lute tablature",
     [
       [
@@ -12895,6 +12997,7 @@
     ]
   ],
   [
+    "kievanSquareNotation",
     "Kievan square notation",
     [
       [
@@ -12975,6 +13078,7 @@
     ]
   ],
   [
+    "kodályHandSigns",
     "Kodály hand signs",
     [
       [
@@ -13015,6 +13119,7 @@
     ]
   ],
   [
+    "simplifiedMusicNotation",
     "Simplified Music Notation",
     [
       [
@@ -13075,6 +13180,7 @@
     ]
   ],
   [
+    "miscellaneousSymbols",
     "Miscellaneous symbols",
     [
       [
@@ -13105,6 +13211,7 @@
     ]
   ],
   [
+    "timeSignaturesSupplement",
     "Time signatures supplement",
     [
       [
@@ -13145,6 +13252,7 @@
     ]
   ],
   [
+    "octavesSupplement",
     "Octaves supplement",
     [
       [
@@ -13195,6 +13303,7 @@
     ]
   ],
   [
+    "metronomeMarks",
     "Metronome marks",
     [
       [
@@ -13320,6 +13429,7 @@
     ]
   ],
   [
+    "figuredBassSupplement",
     "Figured bass supplement",
     [
       [
@@ -13340,6 +13450,7 @@
     ]
   ],
   [
+    "shapeNoteNoteheadsSupplement",
     "Shape note noteheads supplement",
     [
       [
@@ -13415,6 +13526,7 @@
     ]
   ],
   [
+    "timeSignaturesTurned",
     "Turned time signatures",
     [
       [
@@ -13480,6 +13592,7 @@
     ]
   ],
   [
+    "timeSignaturesReversed",
     "Reversed time signatures",
     [
       [
@@ -13545,6 +13658,7 @@
     ]
   ],
   [
+    "functionTheorySymbolsSupplement",
     "Function theory symbols supplement",
     [
       [
@@ -13570,6 +13684,7 @@
     ]
   ],
   [
+    "fingering",
     "Fingering",
     [
       [
@@ -13730,6 +13845,7 @@
     ]
   ],
   [
+    "arabicAccidentals",
     "Arabic accidentals",
     [
       [
@@ -13780,6 +13896,7 @@
     ]
   ],
   [
+    "articulationSupplement",
     "Articulation supplement",
     [
       [
@@ -13825,6 +13942,7 @@
     ]
   ],
   [
+    "stockhausenAccidentals",
     "Stockhausen accidentals (24-EDO)",
     [
       [
@@ -13905,6 +14023,7 @@
     ]
   ],
   [
+    "standardAccidentalsChordSymbols",
     "Standard accidentals for chord symbols",
     [
       [
@@ -13945,6 +14064,7 @@
     ]
   ],
   [
+    "clefsSupplement",
     "Clefs supplement",
     [
       [
@@ -13955,6 +14075,7 @@
     ]
   ],
   [
+    "fingeringSupplement",
     "Fingering supplement",
     [
       [
@@ -14040,6 +14161,7 @@
     ]
   ],
   [
+    "kahnotation",
     "Kahnotation",
     [
       [
@@ -14455,6 +14577,7 @@
     ]
   ],
   [
+    "organGerman",
     "German organ tablature",
     [
       [
@@ -14780,6 +14903,7 @@
     ]
   ],
   [
+    "extendedHelmholtzEllisAccidentalsJustIntonationSupplement",
     "Extended Helmholtz-Ellis accidentals (just intonation) supplement",
     [
       [
@@ -14835,6 +14959,7 @@
     ]
   ],
   [
+    "otherAccidentalsSupplement",
     "Other accidentals supplement",
     [
       [
@@ -14890,6 +15015,7 @@
     ]
   ],
   [
+    "techniquesNoteheads",
     "Techniques noteheads",
     [
       [
@@ -14915,6 +15041,7 @@
     ]
   ],
   [
+    "chopNotation",
     "Chop (percussive bowing) notation",
     [
       [
@@ -14980,6 +15107,7 @@
     ]
   ],
   [
+    "medievalAndRenaissanceProlationsSupplement",
     "Medieval and Renaissance prolations supplement",
     [
       [
@@ -15010,6 +15138,7 @@
     ]
   ],
   [
+    "noteheadsSupplement",
     "Noteheads supplement",
     [
       [
@@ -15125,6 +15254,7 @@
     ]
   ],
   [
+    "noteNameNoteheadsSupplement",
     "Note name noteheads supplement",
     [
       [
@@ -15265,6 +15395,7 @@
     ]
   ],
   [
+    "scaleDegrees",
     "Scale degrees",
     [
       [
