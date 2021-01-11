@@ -54,27 +54,35 @@ const REFERENCE_CSS = css`
     border-collapse: collapse;
   }
   
-  td {
-    border: 1px solid;
+  tr:nth-child(even) td:nth-child(1) {
+    text-align: left;
+    padding-left: 0.33em;
+  }
+
+  tr:nth-child(odd) td:nth-child(1) {
+    text-align: right;
+    padding-right: 1.33em;
   }
 
   /* glyph */
   td:nth-child(1) {
     padding: 2px 5px;
     font-family: Bravura Text BB;
-    width: 3em;
+    font-size: 1.875em; /* 3/4 * default 2.5 when size = 1 */
+    width: 1em;
     text-align: center;
+    line-height: 0.9; /* so that they don't massively increase height of the rows */
   }
 
   /* code */
   td:nth-child(2) {
     font-family: "Roboto Mono";
-    padding: 2px;
+    border: 1px solid;
   }
 
   /* glyph name */
   td:nth-child(3) {
-    padding: 2px 5px;
+    border: 1px solid;
   }
 `
 

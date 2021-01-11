@@ -40,10 +40,6 @@ We should see "~|( sanai 17C" (no commas) (if I've remembered those correctly).
 
 Make the triangle that collapses it, stay visible, not scroll with the reference content.
 
-----
-
-Probably better if you align them glyphs to the left of the cell,
-with maybe enough margin to allow for the largest negative left-sidebearing plus a bit.
 
 -----
 
@@ -121,22 +117,6 @@ I think if it's all exerted by the previous table, then the anchor
 (which I already made sure was the same vertical position as the visible title)
  will link you so that there's no space above the section title.
 
------
-
-[quote]
-The more I think about how to display the symbols at about twice the point size they are now,
-without having them overlap each other vertically, the more I think the solution is to stager them horizontally.
- This might be done most easily by simply inserting two [b]16;[/b] characters (\u2003\u2003),
-  or however many octals gives the best overall result,
-   before every symbol with an even code point (because sydvexln [font=Bravura Text BB]       [/font]
-   has an odd codepoint). This assumes symbol text is left-aligned in the field, not centered.
-   This might let us avoid a list of special cases.
-[/quote]
-
-I like the staggering idea. I think I'll achieve it with CSS, though, not extra codes in there,
- in case someone double-clicks in there to copy a symbol.
- And it would probably be a good idea to alternate the background color of rows,too,
- to improve readability, subtly, between white and a very light grey.
 
 -------
 
