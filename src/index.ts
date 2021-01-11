@@ -180,12 +180,6 @@ It's just scrolling the input and output out of view?[/quote]
 
 Yes, it's just scrolling. Forcing me to drag it back down again so I can see the the input and output again.
 
--------
-
-...eliminate the borders between the cells that have the symbols,
-so we don't have borders interfering with the (staggered) symbols when they spill above or below their cells.
-I just realised that, if you can eliminate the borders between the symbol cells,
-then the best way to obtain the stagger would be to actually have two columns for symbols
 
 -----
 

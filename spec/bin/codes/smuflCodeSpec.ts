@@ -30,6 +30,24 @@ describe("computeSmuflCode", (): void => {
         expect(actual).toBe(expected)
     })
 
+    it("and adjusts the name of a couple EHEJIPN symbols whose meaning changed after choosing SMuFL glyph names           ", (): void => {
+        const glyphName = "accidentalCombiningLower23Limit29LimitComma" as Name<Unicode>
+
+        const actual = computeSmuflCode(glyphName)
+
+        const expected = "accmlr23lmcm" as Code & Word
+        expect(actual).toBe(expected)
+    })
+
+    it("the other EHEJIPN change", (): void => {
+        const glyphName = "accidentalCombiningRaise23Limit29LimitComma" as Name<Unicode>
+
+        const actual = computeSmuflCode(glyphName)
+
+        const expected = "accmrs23lmcm" as Code & Word
+        expect(actual).toBe(expected)
+    })
+
     it("it removes ordinal number suffixes", (): void => {
         expect(computeSmuflCode("mensuralObliqueAsc2ndVoid" as Name<Unicode>)).toBe("mnobas2vd")
         expect(computeSmuflCode("noteheadClusterWhole3rd" as Name<Unicode>)).toBe("nhclwh3")

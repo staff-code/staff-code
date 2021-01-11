@@ -23,8 +23,12 @@ const fixSmuflCapitalizationIssue = (glyphName: Name<Unicode>): Name<Unicode> =>
         // Despite the fact that this can never be fixed in SMuFL. See https://github.com/w3c/smufl/issues/167
         .replace(/wiggleVIbrato/, "wiggleVibrato") as Name<Unicode>
 
+const updateEhejipn = (glyphName: Name<Unicode>): Name<Unicode> =>
+    glyphName
+        .replace(/23Limit29LimitComma/, "23LimitComma") as Name<Unicode>
+
 const computeSmuflCode = (glyphName: Name<Unicode>): Code & Word => {
-    const words = separateWordsBySpaces(replaceOrdinals(fixSmuflCapitalizationIssue(glyphName)))
+    const words = separateWordsBySpaces(replaceOrdinals(fixSmuflCapitalizationIssue(updateEhejipn(glyphName))))
         .split(SPACE) as Array<Name<Unicode> & Word>
 
     return words.map(computeGlyphNameWordAbbreviation).join(BLANK) as Code & Word
