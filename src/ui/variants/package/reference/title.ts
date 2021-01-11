@@ -3,7 +3,7 @@ import {Section} from "../../../../../bin"
 
 const buildSectionTitle = (sectionName: Name<Section>): HTMLDivElement => {
     const sectionTitle = document.createElement("div")
-    sectionTitle.classList.add(".sc-section-title")
+    sectionTitle.classList.add("sc-section-title")
 
     const sectionLink = document.createElement("a")
     sectionLink.id = sectionName

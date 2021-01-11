@@ -49,9 +49,14 @@ const REFERENCE_CSS = css`
     align-items: center;
     justify-content: space-between;
   }
+  
+  .sc-section-title h3 {
+    margin: 0 0 5px 0;
+  }
 
   table {
     border-collapse: collapse;
+    margin-bottom: 30px;
   }
   
   tr:nth-child(even) td:nth-child(1) {

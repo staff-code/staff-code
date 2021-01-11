@@ -95,47 +95,11 @@ We could get maybe 4 more links on-screen when the Reference initially opens, if
 [/list]
 
 
------------
-
-There seems excessive vertical space between each section heading and its table.
-[/quote]
-
-That's just default margin for heading elements.
-I think you're right that it would look better with the bottom margin overridden to be smaller.
-
-
------
-
-After I click a section link, there seems excessive vertical space above the section heading.
-I'd prefer to see more of its table.
-
-The existing vertical space between the end of one table and the section heading for the next is good.
-[/quote]
-
-Okay, I'll just have to rework how that spacing is created.
-I think if it's all exerted by the previous table, then the anchor
-(which I already made sure was the same vertical position as the visible title)
- will link you so that there's no space above the section title.
-
-
--------
-
-For the best look, the point size of Bravura Text SC used in the Reference,
-should be some simple ratio of that used for the output (when size=1).
- I think 3/4 of the size will work best.
-
 -----
 
 Just make every section heading into [a link to the official SMuFL pages].
 The heading "[b]StaffCode command[/b] (not SMuFL)" can link to our tutorial,
 or some other page of ours that resembles a SMuFL table (but makes it clear it isn't).
-
-------
-
-Retaining the glyph names intact should be less important when we have links to the actual SMuFL tables.
- I think it's better to separate the words and threat these entries as mnemonics for the codes.
- Even expand "acc" out to "accidental" if that works better (but I really don't thing it necessary).
-If you don't separate the words, half the emboldened letters will be uppercase when they are lowercase in the staffCode.
 
 
 -----
@@ -180,13 +144,6 @@ It's just scrolling the input and output out of view?[/quote]
 
 Yes, it's just scrolling. Forcing me to drag it back down again so I can see the the input and output again.
 
-
------
-
-We could be kind to EHEJIPN and delete the "29Limit" from accidentalCombiningLower23Limit29LimitComma and
-accidentalCombiningRaise23Limit29LimitComma before we generate auto staffCodes for them,
-and before we separate the words to make the mnemonic in the reference.
-(and fix the VIbrato one)
 
 ----
 
