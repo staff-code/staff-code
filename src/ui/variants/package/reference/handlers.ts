@@ -28,7 +28,7 @@ const handleReferenceClick = (event: MouseEvent): void => {
         maybeParentReferenceRow && maybeParentReferenceRow.children[1] as Maybe<HTMLTableCellElement>
     if (!maybeCodeCell || maybeCodeCell.tagName !== "TD") return
 
-    const code = maybeCodeCell.textContent as Code & Word
+    const code = maybeCodeCell.getAttribute("sc-code") as Code & Word
     insertCodeIntoInput(code)
 
     transferInputToDisplay(components.root, staffCodeConfig.callback)

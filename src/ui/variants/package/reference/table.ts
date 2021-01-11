@@ -1,4 +1,5 @@
 import {ReferenceRow} from "../../../../../bin"
+import {setupCodeCell} from "./code"
 import {EXCLUDED_CODES} from "./exceptions"
 
 const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
@@ -14,7 +15,7 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
         row.appendChild(unicodeCell)
 
         const codeCell = row.insertCell()
-        codeCell.textContent = code
+        setupCodeCell(codeCell, unicode, code)
         row.appendChild(codeCell)
 
         const mnemonicCell = row.insertCell()

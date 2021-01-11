@@ -6,13 +6,13 @@ import {Code, Unicode} from "../../types"
 // All EHEJIPN staffCodes start with a dot (full-stop). Unicodes are successive below.
 
 const EHEJIPN_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    ".bbv": SMuFL_MAP["acdbflrnardn"],
-    ".bv": SMuFL_MAP["acflrnardn"],
+    ".bbv": SMuFL_MAP["acdbflonardn"],
+    ".bv": SMuFL_MAP["acflonardn"],
     ".nv": SMuFL_MAP["acntonardn"],
     ".#v": SMuFL_MAP["acshonardn"],
     ".xv": SMuFL_MAP["acdbshonardn"],
-    ".bb^": SMuFL_MAP["acdbflrnarup"],
-    ".b^": SMuFL_MAP["acflrnarup"],
+    ".bb^": SMuFL_MAP["acdbflonarup"],
+    ".b^": SMuFL_MAP["acflonarup"],
     ".n^": SMuFL_MAP["acntonarup"],
     ".#^": SMuFL_MAP["acshonarup"],
     ".x^": SMuFL_MAP["acdbshonarup"],

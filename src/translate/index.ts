@@ -7,4 +7,5 @@ export {
     UnicodeLiteral,
     computeUnicodeFromUnicodeLiteral,
     debugCode,
+    ALIASES_MAP,
 } from "./codes"

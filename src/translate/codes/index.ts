@@ -6,6 +6,7 @@ export {
     LINE_BREAK_ALIASES_MAP,
     MIDDLE_POSITION_AND_ABOVE_CONDITIONAL_NOTE_ALIASES_MAP,
     BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
+    ALIASES_MAP,
 } from "./aliases"
 export {LOWERCASED_CODE_MAP, BASE_GLYPH_MAP, COMMAND_MAP} from "./codes"
 export {debugCode, debugCodeSentence} from "./code"

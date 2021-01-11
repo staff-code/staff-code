@@ -31,4 +31,6 @@ describe("computeMnemonic", (): void => {
         const expected = "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>f</b><b>l</b>at <b>1</b><b>1</b> <b>L</b> <b>d</b>ow<b>n</b>" as Mnemonic & Sentence
         expect(actual).toBe(expected)
     })
+
+    // todo: 3-digit numbers too
 })
