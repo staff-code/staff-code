@@ -18,7 +18,7 @@ const REFERENCE_CSS = css`
   }
 
   details[open] {
-    height: 300px;
+    height: 450px;
   }
 
   .sc-about {
