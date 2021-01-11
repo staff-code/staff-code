@@ -1,9 +1,16 @@
 import {css} from "@sagittal/general"
 
 const REFERENCE_CSS = css`
+  h3 {
+    display: inline-block;  
+    padding-right: 10px;
+    margin: 0 0 5px 0;
+  }
+  
   ul {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
+    margin: 0 0 30px 0;
   }
 
   table tr:hover {
@@ -54,10 +61,6 @@ const REFERENCE_CSS = css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-
-  .sc-section-title h3 {
-    margin: 0 0 5px 0;
   }
 
   .sc-section-title a:first-child {

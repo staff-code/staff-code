@@ -14,13 +14,16 @@ const buildReference = (): HTMLDivElement => {
     reference.style.padding = "10px"
     components.reference = reference
 
-    const instructions = document.createElement("span")
-    instructions.textContent = "Click any row to insert that code."
-    reference.appendChild(instructions)
+    const tocTitleWrapper = document.createElement("div")
+    reference.appendChild(tocTitleWrapper)
 
-    const tocTitle = document.createElement("h2")
-    tocTitle.textContent = "SMuFL sections"
-    reference.appendChild(tocTitle)
+    const tocTitle = document.createElement("h3")
+    tocTitle.innerHTML = "SMuFL sections"
+    tocTitleWrapper.appendChild(tocTitle)
+
+    const instructions = document.createElement("span")
+    instructions.textContent = "(Click to insert code)"
+    tocTitleWrapper.appendChild(instructions)
 
     const toc = document.createElement("ul")
     reference.appendChild(toc)

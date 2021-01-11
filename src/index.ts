@@ -13,24 +13,6 @@ export {
 
 // tslint:disable
 /*
-[quote]
-And maybe we can make exceptions in the vertical offset of the symbol in the case of symbols that only project up too far,
-or only project down too far (like 128th , 512th or 1024th notes or stems).
-
-I don't mind that some symbols overflow their box upward and/or downward,
- provided they don't overlap other symbols.
-That seems like a good use of space.
-So that suggests another possibility.
-A run of tall symbols(like G clefs) could be staggered.
-Every second one shifted a little to the right.
-[/quote]
-
-Yeah I think if you want to prevent individual overflow without compromising the overall aesthetic
-it'll come down to a table of exceptions. I'd like it to be as simple as possible.
-Perhaps a symbol can either be offset up, down, right, or left by a fixed amount. I'll try that.
-
------
-
 We should see "~|( sanai 17C" (no commas) (if I've remembered those correctly).
  But "~|(" should be what you get when you click.
 
@@ -39,7 +21,6 @@ We should see "~|( sanai 17C" (no commas) (if I've remembered those correctly).
 -----
 
 Make the triangle that collapses it, stay visible, not scroll with the reference content.
-
 
 -----
 
@@ -58,32 +39,6 @@ Maybe it should be the first section after the list of ranges links.
 [tr][td]    [/td][td][font=Roboto mono]0;..24;[/font][/td][td][b]0..24[/b] octals advance[/td][/tr]
 [tr][td]    [/td][td][font=Roboto mono]en;[/font][/td][td][b]en[/b]d-of-staff advance[/td][/tr]
 [tr][td]    [/td][td][font=Roboto mono]br;[/font][/td][td]line [b]br[/b]eak advance[/td][/tr]
-
-
------
-
-I noticed an issue on mobile.
-If you go straight for the reference and start tapping to insert,
-you end up inserting stuff at the beginning of the input, not the end.
- On desktop, it seems, the text cursor defaults to the end of the input, but on mobile it starts at the beginning.
- I'll just need to find a way to force mobile to start at the end, too.
-
------
-
-It would be good if the "back to top" links were a little further to the left (by about half their own width),
-so I at least get to see the "back" part of them on my phone without horizontal scrolling.
-(reference should just fit in mobile)
-
-----
-
-We could get maybe 4 more links on-screen when the Reference initially opens, if we:
-[list]
-[*]Set the words "SMuFL sections" at the same size as all the section headings.
-[*]Remove the blank lines (or excessive line-height) above it and below it.
-[*]Move the text "Click any row to insert that code ." to immediately after the words "SMuFL sections",
- on the same line. But keep it unbolded and in the point size it's in now.
-[*]Change it to "(Click to insert code)".
-[/list]
 
 
 -----
