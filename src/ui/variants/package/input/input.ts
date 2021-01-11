@@ -29,6 +29,9 @@ const buildPackageInput = (): HTMLTextAreaElement => {
         input.addEventListener("cut", (): void => {
             doOnNextEventLoop(transferInputToDisplay, 100 as Ms).then()
         })
+
+        input.selectionStart = input.value.length
+        input.selectionEnd = input.value.length
     }
 
     return input
