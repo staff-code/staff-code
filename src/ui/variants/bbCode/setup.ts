@@ -1,4 +1,4 @@
-import {BLANK, Em, Multiplier} from "@sagittal/general"
+import {BLANK, Em, FontName, Multiplier} from "@sagittal/general"
 import {StaffCodeCallback} from "../../types"
 import {setupBBCodeRoot} from "./root"
 
@@ -11,7 +11,7 @@ const setupBBCodeStaffCode = (): void =>
             const size = parseFloat(root.getAttribute("sc-initial-size") || BLANK) as Multiplier<Em> || undefined
             const line = parseFloat(root.getAttribute("sc-initial-line") || BLANK) as Multiplier<Em> || undefined
 
-            const font = root.getAttribute("sc-font") || undefined
+            const font = root.getAttribute("sc-font") as FontName || undefined
             const callback = (globalThis as unknown as {staffCodeCallback: StaffCodeCallback}).staffCodeCallback
 
             setupBBCodeRoot(
