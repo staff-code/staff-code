@@ -83,6 +83,7 @@ const REFERENCE_CSS = css`
 
   .sc-section-title a:nth-child(2) {
     margin-top: 20px;
+    min-width: 100px;
   }
 
   .sc-section-title h3 {
@@ -92,6 +93,10 @@ const REFERENCE_CSS = css`
   table {
     border-collapse: collapse;
     margin-bottom: 30px;
+  }
+  
+  tr {
+    cursor: pointer;
   }
 
   tr:nth-child(even) td:nth-child(1) {

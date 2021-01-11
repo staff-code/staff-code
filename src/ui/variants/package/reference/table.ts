@@ -9,8 +9,6 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
 
         const row = table.insertRow()
 
-        row.style.cursor = "pointer"
-
         const unicodeCell = row.insertCell()
         unicodeCell.textContent = unicode
         row.appendChild(unicodeCell)

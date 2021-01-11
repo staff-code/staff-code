@@ -1,1 +1,1 @@
-export {ReferenceRow, Section} from "./types"
+export {ReferenceRow, Section, Explanation, Mnemonic, Parenthetical} from "./types"

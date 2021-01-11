@@ -1,11 +1,11 @@
-import {computeKeyPath, Id, Name, sort} from "@sagittal/general"
+import {computeKeyPath, Id, sort} from "@sagittal/general"
 import * as fs from "fs"
-import {Unicode} from "../../src"
-import {computeSmuflCode} from "../codes"
-import {computeGlyphUnicode} from "../glyphUnicode"
+import {COMMANDS_SECTION} from "./commands"
+import {computeExplanation} from "./explanations"
 import {smuflRanges} from "./globals"
-import {computeMnemonic} from "./mnemonic"
-import {ReferenceRow, Section, SmuflRangeDatum} from "./types"
+import {computeParenthetical} from "./parentheticals"
+import {computeSectionDatum} from "./row"
+import {Section, SmuflRangeDatum} from "./types"
 
 const generateSmuflReference = (): void => {
     const rangeEntries = Object.entries(smuflRanges) as Array<[Id<Section>, SmuflRangeDatum]>
@@ -16,16 +16,14 @@ const generateSmuflReference = (): void => {
 
         const sectionId = rangeName
         const sectionName = description
-        const sectionData = glyphNames.map((glyphName: Name<Unicode>): ReferenceRow => {
-            const unicode = computeGlyphUnicode(glyphName)
-            const code = computeSmuflCode(glyphName)
-            const mnemonic = computeMnemonic(glyphName)
+        const parenthetical = computeParenthetical(sectionId)
+        const sectionLink = ""
+        const explanation = computeExplanation(sectionId)
+        const sectionData = glyphNames.map(computeSectionDatum)
 
-            return [unicode, code, mnemonic]
-        })
-
-        return [sectionId, sectionName, sectionData]
+        return [sectionId, sectionName, parenthetical, sectionLink, explanation, sectionData]
     })
+    sections.unshift(COMMANDS_SECTION)
 
     fs.writeFileSync(
         "src/ui/variants/package/reference/reference.json",
