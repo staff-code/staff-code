@@ -6,6 +6,8 @@ import {components} from "../globals"
 const DEFAULT_EM_SIZE: Px = 16 as Px
 const FIRST_LINE = 1
 
+// TODO: CLEAN, READY TO GO: TEST MORE UI HELPER METHODS
+//  E.g. this one could and should be tested. Should be easy.
 const computeSvgHeight = (unicodeSentence: Unicode): Px => {
     const {lineSpinner, sizeSpinner} = components
 

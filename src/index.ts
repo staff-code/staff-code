@@ -13,20 +13,6 @@ export {
 
 // tslint:disable
 /*
-And could you please make the focus (and hence blinking insertion point)
-go back to the input text immediately after a click in the reference.
-I think the insertion point should  be placed after the space following the inserted symbol
-(whether or not that space was just inserted with the symbol).
-
-----
-
-...make exceptions in the height of the row, for unusually tall symbols (possibly only G clefs),
- so that [i]all [/i]symbols can be set in a larger point size.
- Maybe 50% to 100% larger than they are now.
-okay, but we're going to try not that
-
------
-
 [quote]
 And maybe we can make exceptions in the vertical offset of the symbol in the case of symbols that only project up too far,
 or only project down too far (like 128th , 512th or 1024th notes or stems).
@@ -42,11 +28,6 @@ Every second one shifted a little to the right.
 Yeah I think if you want to prevent individual overflow without compromising the overall aesthetic
 it'll come down to a table of exceptions. I'd like it to be as simple as possible.
 Perhaps a symbol can either be offset up, down, right, or left by a fixed amount. I'll try that.
-
------
-
-monospaced codes in the reference
-Roboto Mono ... might be good for the staffCodes, in both the Reference and the input field.
 
 -----
 

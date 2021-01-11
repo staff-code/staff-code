@@ -1,10 +1,13 @@
 import {Section} from "../../../../../bin"
 import {components} from "../globals"
+import {loadGoogleFont} from "./fonts"
 import {handleReferenceClick} from "./handlers"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
 
 const buildReference = (): HTMLDivElement => {
+    loadGoogleFont()
+
     const reference = document.createElement("div")
     reference.style.padding = "10px"
     components.reference = reference

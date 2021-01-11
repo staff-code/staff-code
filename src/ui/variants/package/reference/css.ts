@@ -58,6 +58,7 @@ const REFERENCE_CSS = css`
     border: 1px solid;
   }
 
+  /* glyph */
   td:nth-child(1) {
     padding: 2px 5px;
     font-family: Bravura Text BB;
@@ -65,10 +66,13 @@ const REFERENCE_CSS = css`
     text-align: center;
   }
 
+  /* code */
   td:nth-child(2) {
+    font-family: "Roboto Mono";
     padding: 2px;
   }
 
+  /* glyph name */
   td:nth-child(3) {
     padding: 2px 5px;
   }
