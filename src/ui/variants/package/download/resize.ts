@@ -1,13 +1,22 @@
-// TODO: FEATURE IMPROVE, READY TO GO: ENSURE DOWNLOADED SVG REFLECTS LINE HEIGHT AND SIZE
 import {computeLineCount, Px} from "@sagittal/general"
-//  I don't think size are affecting the SVG. line is I think.
 import {Unicode} from "../../../../translate"
+import {DEFAULT_BLOCK_MODE_FONT_SIZE} from "../../../display"
+import {components} from "../globals"
 
-const HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT: Px = 57 as Px
-const APPARENT_SCALING_EXPONENT = 1.16
+const DEFAULT_EM_SIZE: Px = 16 as Px
+const FIRST_LINE = 1
 
-const computeSvgHeight = (unicodeSentence: Unicode): Px =>
-    HEIGHT_WHICH_CAUSES_SVG_TO_MATCH_TEXT * (computeLineCount(unicodeSentence) ** APPARENT_SCALING_EXPONENT) as Px
+const computeSvgHeight = (unicodeSentence: Unicode): Px => {
+    const {lineSpinner, sizeSpinner} = components
+
+    const lineCount = computeLineCount(unicodeSentence)
+    const lineHeight = parseFloat(lineSpinner.value)
+    const heightFromAdditionalLines = (lineCount - FIRST_LINE) * lineHeight
+
+    const size = parseFloat(sizeSpinner.value)
+
+    return DEFAULT_BLOCK_MODE_FONT_SIZE * DEFAULT_EM_SIZE * size * (FIRST_LINE + heightFromAdditionalLines) as Px
+}
 
 const scaleSVGToFitContents = (svg: SVGGraphicsElement): void => {
     const bbox = svg.getBBox()
