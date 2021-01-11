@@ -1,7 +1,7 @@
-import {Name, Word} from "@sagittal/general"
+import {Html, Name, Word} from "@sagittal/general"
 import {Code, Unicode} from "../../src"
 
-type ReferenceRow = [Unicode & Word, Code & Word, Name<Unicode>]
+type ReferenceRow = [Unicode & Word, Code & Word, Html]
 
 // @ts-ignore
 type Section = [Name<Section>, ReferenceRow[]]

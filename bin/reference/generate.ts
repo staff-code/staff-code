@@ -4,6 +4,7 @@ import {Unicode} from "../../src"
 import {computeSmuflCode} from "../codes"
 import {computeGlyphUnicode} from "../glyphUnicode"
 import {smuflRanges} from "./globals"
+import {computeMnemonic} from "./mnemonic"
 import {ReferenceRow, Section, SmuflRangeDatum} from "./types"
 
 const generateSmuflReference = (): void => {
@@ -17,8 +18,9 @@ const generateSmuflReference = (): void => {
         const sectionData = glyphNames.map((glyphName: Name<Unicode>): ReferenceRow => {
             const unicode = computeGlyphUnicode(glyphName)
             const code = computeSmuflCode(glyphName)
+            const mnemonic = computeMnemonic(glyphName)
 
-            return [unicode, code, glyphName]
+            return [unicode, code, mnemonic]
         })
 
         return [sectionName, sectionData]

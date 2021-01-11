@@ -80,7 +80,7 @@ const REFERENCE_CSS = css`
     border: 1px solid;
   }
 
-  /* glyph name */
+  /* mnemonic */
   td:nth-child(3) {
     font-family: Roboto;
     border: 1px solid;

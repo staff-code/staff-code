@@ -1,13 +1,13 @@
 import {Name, RecordKey} from "@sagittal/general"
 import {Unicode} from "../../../../translate"
 
-const EXCLUDED_GLYPH_NAMES: Record<RecordKey<Name<Unicode>>, boolean> = {
-    "accSagittalUnused1": true,
-    "accSagittalUnused2": true,
-    "accSagittalUnused3": true,
-    "accSagittalUnused4": true,
+const EXCLUDED_CODES: Record<RecordKey<Name<Unicode>>, boolean> = {
+    "acsgun1": true,
+    "acsgun2": true,
+    "acsgun3": true,
+    "acsgun4": true,
 }
 
 export {
-    EXCLUDED_GLYPH_NAMES,
+    EXCLUDED_CODES,
 }

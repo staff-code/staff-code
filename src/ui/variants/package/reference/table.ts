@@ -1,11 +1,11 @@
 import {ReferenceRow} from "../../../../../bin"
-import {EXCLUDED_GLYPH_NAMES} from "./exceptions"
+import {EXCLUDED_CODES} from "./exceptions"
 
 const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
     const table = document.createElement("table")
 
-    sectionData.forEach(([unicode, code, glyphName]: ReferenceRow): void => {
-        if (EXCLUDED_GLYPH_NAMES[glyphName]) return
+    sectionData.forEach(([unicode, code, mnemonic]: ReferenceRow): void => {
+        if (EXCLUDED_CODES[code]) return
 
         const row = table.insertRow()
 
@@ -19,9 +19,9 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
         codeCell.textContent = code
         row.appendChild(codeCell)
 
-        const glyphNameCell = row.insertCell()
-        glyphNameCell.textContent = glyphName
-        row.appendChild(glyphNameCell)
+        const mnemonicCell = row.insertCell()
+        mnemonicCell.innerHTML = mnemonic
+        row.appendChild(mnemonicCell)
     })
 
     return table

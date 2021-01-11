@@ -36,4 +36,7 @@ const computeSmuflCode = (glyphName: Name<Unicode>): Code & Word => {
 
 export {
     computeSmuflCode,
+    separateWordsBySpaces,
+    fixSmuflCapitalizationIssue,
+    updateEhejipn,
 }
