@@ -11,7 +11,7 @@ const buildReference = (): HTMLDivElement => {
     loadGoogleFont("Roboto" as FontName)
 
     const reference = document.createElement("div")
-    reference.style.padding = "10px"
+    reference.classList.add("sc-reference")
     components.reference = reference
 
     const tocTitleWrapper = document.createElement("div")

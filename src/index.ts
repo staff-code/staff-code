@@ -20,10 +20,6 @@ We should see "~|( sanai 17C" (no commas) (if I've remembered those correctly).
 
 -----
 
-Make the triangle that collapses it, stay visible, not scroll with the reference content.
-
------
-
 We'll need a section for non-SMuFL StaffCode commands.
 Maybe it should be the first section after the list of ranges links.
 

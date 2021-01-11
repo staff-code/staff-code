@@ -1,12 +1,16 @@
 import {css} from "@sagittal/general"
 
 const REFERENCE_CSS = css`
+  .sc-reference {
+    padding: 10px;
+  }
+
   h3 {
-    display: inline-block;  
+    display: inline-block;
     padding-right: 10px;
     margin: 0 0 5px 0;
   }
-  
+
   ul {
     list-style: none;
     padding: 0;
@@ -18,11 +22,16 @@ const REFERENCE_CSS = css`
   }
 
   summary {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: white;
     cursor: pointer;
     outline: none;
   }
 
   details {
+    position: relative;
     width: 100%;
     max-width: 600px;
     overflow-y: auto;
@@ -63,9 +72,21 @@ const REFERENCE_CSS = css`
     justify-content: space-between;
   }
 
-  .sc-section-title a:first-child {
+  /* title link to SMuFL */
+
+  .sc-section-title a:nth-child(1) {
     text-decoration: inherit;
     color: inherit;
+  }
+
+  /* back to top link */
+
+  .sc-section-title a:nth-child(2) {
+    margin-top: 20px;
+  }
+
+  .sc-section-title h3 {
+    margin-top: 20px;
   }
 
   table {
