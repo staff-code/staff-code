@@ -36,22 +36,9 @@ We should see "~|( sanai 17C" (no commas) (if I've remembered those correctly).
 
 (listed in order of their length is not a bad idea)
 
-----
-
-Make the reference about 45% taller.
-It would be good if the height of the area in which the Reference scrolls,
-was an exact multiple of the table row height.
-It would be really good if it was 16 rows, since many ranges have 16 symbols,
-or a multiple thereof, or a little less than that.
-
-
 -----
 
 Make the triangle that collapses it, stay visible, not scroll with the reference content.
-
-----
-
- remove the 4 accSagittalUnused<n> rows from the reference.
 
 ----
 
