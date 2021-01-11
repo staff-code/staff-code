@@ -1,6 +1,11 @@
 import {css} from "@sagittal/general"
 
 const REFERENCE_CSS = css`
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
   table tr:hover {
     background-color: #eeeeee;
   }
@@ -49,11 +54,11 @@ const REFERENCE_CSS = css`
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .sc-section-title h3 {
     margin: 0 0 5px 0;
   }
-  
+
   .sc-section-title a:first-child {
     text-decoration: inherit;
     color: inherit;
@@ -63,7 +68,7 @@ const REFERENCE_CSS = css`
     border-collapse: collapse;
     margin-bottom: 30px;
   }
-  
+
   tr:nth-child(even) td:nth-child(1) {
     text-align: left;
     padding-left: 0.33em;
@@ -75,6 +80,7 @@ const REFERENCE_CSS = css`
   }
 
   /* glyph */
+
   td:nth-child(1) {
     padding: 2px 5px;
     font-family: Bravura Text BB;
@@ -85,12 +91,14 @@ const REFERENCE_CSS = css`
   }
 
   /* code */
+
   td:nth-child(2) {
     font-family: Roboto Mono;
     border: 1px solid;
   }
 
   /* mnemonic */
+
   td:nth-child(3) {
     font-family: Roboto;
     border: 1px solid;

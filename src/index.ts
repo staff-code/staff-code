@@ -97,7 +97,6 @@ We could get maybe 4 more links on-screen when the Reference initially opens, if
 
 -----
 
-Just make every section heading into [a link to the official SMuFL pages].
 The heading "[b]StaffCode command[/b] (not SMuFL)" can link to our tutorial,
 or some other page of ours that resembles a SMuFL table (but makes it clear it isn't).
 
@@ -156,6 +155,4 @@ I figured the ranges needed to be unrolled so the user could click to insert spe
 
 StaffCode commands (not SMuFL)
 "Auto stem direction" means stem down for middle line and above, otherwise stem up.
-
-------
  */
