@@ -32,5 +32,12 @@ describe("computeMnemonic", (): void => {
         expect(actual).toBe(expected)
     })
 
-    // todo: 3-digit numbers too
+    it("rejoins three-digit numbers too, aye yaye yaye", (): void => {
+        const glyphName = "accSagittal143CommaUp" as Name<Unicode>
+
+        const actual = computeMnemonic(glyphName)
+
+        const expected = "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>1</b><b>4</b><b>3</b> <b>c</b>o<b>m</b>ma <b>u</b><b>p</b>" as Mnemonic & Sentence
+        expect(actual).toBe(expected)
+    })
 })

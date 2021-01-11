@@ -3,13 +3,13 @@ import {Code, Unicode} from "../../src"
 import {computeSmuflCode, fixSmuflCapitalizationIssue, separateWordsBySpaces, updateEhejipn} from "../codes"
 import {Mnemonic} from "./types"
 
-const rejoinNumbers = (glyphName: Name<Unicode>): Name<Unicode> =>
-    glyphName
-        .replace(/(\d+)\s+(\d+)/g, "$1$2") as Name<Unicode>
+const rejoinNumbers = (mnemonic: Mnemonic): Mnemonic =>
+    mnemonic
+        .replace(/(<b>\d+<\/b>)\s+(?=<b>\d+<\/b>)/g, "$1") as Mnemonic
 
 const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
     const code = computeSmuflCode(glyphName)
-    const glyphNameWords = rejoinNumbers(separateWordsBySpaces(fixSmuflCapitalizationIssue(updateEhejipn(glyphName))))
+    const glyphNameWords = separateWordsBySpaces(fixSmuflCapitalizationIssue(updateEhejipn(glyphName)))
         .split(SPACE) as Array<Name<Unicode> & Word>
 
     let codeIndex = 0 as Index<Code & Char>
@@ -33,7 +33,7 @@ const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
         mnemonicWords.push(mnemonicWord)
     })
 
-    return joinWords(...mnemonicWords) as Mnemonic
+    return rejoinNumbers(joinWords(...mnemonicWords)) as Mnemonic
 }
 
 export {
