@@ -14,7 +14,7 @@ const applyCss = (): void => {
     `
 
     const style = document.createElement("style")
-    style.appendChild(document.createTextNode(combinedCss))
+    style.textContent = combinedCss
     document.getElementsByTagName("head")[0].appendChild(style)
 }
 
