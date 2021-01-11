@@ -1,6 +1,6 @@
 import {Section} from "../../../../../bin"
 import {components} from "../globals"
-import {handleReferenceClick} from "./click"
+import {handleReferenceClick} from "./handlers"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
 

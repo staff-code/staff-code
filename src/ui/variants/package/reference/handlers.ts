@@ -6,14 +6,19 @@ import {components, staffCodeConfig} from "../globals"
 const insertCodeIntoInput = (code: Code & Word): void => {
     const {input} = components
 
-    const textCursorPosition = input.selectionStart
+    let textCursorPosition = input.selectionStart
     const upToSelection = input.value.slice(0, textCursorPosition)
-    const maybePrecedingSpaceBuffer = upToSelection[upToSelection.length - 1] === SPACE ? BLANK : SPACE
+    const maybePrecedingBuffer = upToSelection[upToSelection.length - 1] === SPACE ? BLANK : SPACE
     const afterSelection = input.value.slice(textCursorPosition)
-    const maybeSucceedingSpaceBuffer = afterSelection[0] === SPACE ? BLANK : SPACE
+    const maybeSucceedingBuffer = afterSelection[0] === SPACE ? BLANK : SPACE
 
-    input.value = `${upToSelection}${maybePrecedingSpaceBuffer}${code}${maybeSucceedingSpaceBuffer}${afterSelection}` as
+    input.value = `${upToSelection}${maybePrecedingBuffer}${code}${maybeSucceedingBuffer}${afterSelection}` as
         Io & Sentence
+
+    input.focus()
+    textCursorPosition = textCursorPosition + code.length + maybePrecedingBuffer.length + maybeSucceedingBuffer.length
+    input.selectionStart = textCursorPosition
+    input.selectionEnd = textCursorPosition
 }
 
 const handleReferenceClick = (event: MouseEvent): void => {
