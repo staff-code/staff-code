@@ -1,11 +1,15 @@
-import {Char, Count, increment, Index, joinWords, Name, Sentence, SPACE, splitWord, Word} from "@sagittal/general"
+import {Char, Count, increment, Index, joinWords, Name, SPACE, splitWord, Word} from "@sagittal/general"
 import {Code, Unicode} from "../../src"
 import {computeSmuflCode, fixSmuflCapitalizationIssue, separateWordsBySpaces, updateEhejipn} from "../codes"
 import {Mnemonic} from "./types"
 
+const rejoinNumbers = (glyphName: Name<Unicode>): Name<Unicode> =>
+    glyphName
+        .replace(/(\d+)\s+(\d+)/g, "$1$2") as Name<Unicode>
+
 const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
     const code = computeSmuflCode(glyphName)
-    const glyphNameWords = separateWordsBySpaces(fixSmuflCapitalizationIssue(updateEhejipn(glyphName)))
+    const glyphNameWords = rejoinNumbers(separateWordsBySpaces(fixSmuflCapitalizationIssue(updateEhejipn(glyphName))))
         .split(SPACE) as Array<Name<Unicode> & Word>
 
     let codeIndex = 0 as Index<Code & Char>
@@ -29,7 +33,7 @@ const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
         mnemonicWords.push(mnemonicWord)
     })
 
-    return joinWords(...mnemonicWords) as Mnemonic & Sentence
+    return joinWords(...mnemonicWords) as Mnemonic
 }
 
 export {

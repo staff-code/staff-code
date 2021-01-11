@@ -1,4 +1,6 @@
-import {Name} from "@sagittal/general"
+import {Name, Sentence} from "@sagittal/general"
+import {glyphNames} from "../../../bin/globals"
+import {Mnemonic} from "../../../bin/reference"
 import {computeMnemonic} from "../../../bin/reference/mnemonic"
 import {Unicode} from "../../../src"
 
@@ -8,7 +10,7 @@ describe("computeMnemonic", (): void => {
 
         const actual = computeMnemonic(glyphName)
 
-        const expected = "<b>s</b><b>y</b>stem <b>d</b>i<b>v</b>ider <b>l</b>o<b>n</b>g"
+        const expected = "<b>s</b><b>y</b>stem <b>d</b>i<b>v</b>ider <b>l</b>o<b>n</b>g" as Mnemonic & Sentence
         expect(actual).toBe(expected)
     })
 
@@ -17,7 +19,16 @@ describe("computeMnemonic", (): void => {
 
         const actual = computeMnemonic(glyphName)
 
-        const expected = "<b>G</b> <b>c</b><b>l</b>ef"
+        const expected = "<b>G</b> <b>c</b><b>l</b>ef" as Mnemonic & Sentence
+        expect(actual).toBe(expected)
+    })
+
+    it("rejoins multi-digit numbers", (): void => {
+        const glyphName = "accSagittalFlat11LDown" as Name<Unicode>
+
+        const actual = computeMnemonic(glyphName)
+
+        const expected = "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>f</b><b>l</b>at <b>1</b><b>1</b> <b>L</b> <b>d</b>ow<b>n</b>" as Mnemonic & Sentence
         expect(actual).toBe(expected)
     })
 })
