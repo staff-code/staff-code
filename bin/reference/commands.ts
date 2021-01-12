@@ -13,7 +13,7 @@ const COMMANDS_SECTION = [
         ["", "ston", "<b>st</b>aff <b>on</b>"],
         ["", "stof", "<b>st</b>aff <b>of</b>f (default)"],
         ["", "nt2", "<b>n</b>o<b>t</b>e 1/<b>2</b> (with auto stem direction)"],
-        ["", "nt", "<b>n</b>o<b>t</b>e 1/<b>4</b> (with auto stem direction)"], // todo: "nt4"
+        ["", "nt4", "<b>n</b>o<b>t</b>e 1/<b>4</b> (with auto stem direction)"],
         ["", "nt8", "<b>n</b>o<b>t</b>e 1/<b>8</b> (with auto stem direction)"],
         ["", "nt16", "<b>n</b>o<b>t</b>e 1/<b>16</b> (with auto stem direction)"],
         ["", "nt32", "<b>n</b>o<b>t</b>e 1/<b>32</b> (with auto stem direction)"],
