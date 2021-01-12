@@ -2541,42 +2541,42 @@
       [
         "",
         "nt128up",
-        "<b>n</b>o<b>t</b>e <b>1</b><b>2</b> <b>8</b> th <b>u</b><b>p</b>"
+        "<b>n</b>o<b>t</b>e <b>1</b><b>2</b><b>8</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "nt128dn",
-        "<b>n</b>o<b>t</b>e <b>1</b><b>2</b> <b>8</b> th <b>d</b>ow<b>n</b>"
+        "<b>n</b>o<b>t</b>e <b>1</b><b>2</b><b>8</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "nt256up",
-        "<b>n</b>o<b>t</b>e <b>2</b><b>5</b> <b>6</b> th <b>u</b><b>p</b>"
+        "<b>n</b>o<b>t</b>e <b>2</b><b>5</b><b>6</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "nt256dn",
-        "<b>n</b>o<b>t</b>e <b>2</b><b>5</b> <b>6</b> th <b>d</b>ow<b>n</b>"
+        "<b>n</b>o<b>t</b>e <b>2</b><b>5</b><b>6</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "nt512up",
-        "<b>n</b>o<b>t</b>e <b>5</b><b>1</b> <b>2</b> th <b>u</b><b>p</b>"
+        "<b>n</b>o<b>t</b>e <b>5</b><b>1</b><b>2</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "nt512dn",
-        "<b>n</b>o<b>t</b>e <b>5</b><b>1</b> <b>2</b> th <b>d</b>ow<b>n</b>"
+        "<b>n</b>o<b>t</b>e <b>5</b><b>1</b><b>2</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "nt1024up",
-        "<b>n</b>o<b>t</b>e <b>1</b><b>0</b> <b>2</b><b>4</b> th <b>u</b><b>p</b>"
+        "<b>n</b>o<b>t</b>e <b>1</b><b>0</b><b>2</b><b>4</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "nt1024dn",
-        "<b>n</b>o<b>t</b>e <b>1</b><b>0</b> <b>2</b><b>4</b> th <b>d</b>ow<b>n</b>"
+        "<b>n</b>o<b>t</b>e <b>1</b><b>0</b><b>2</b><b>4</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
@@ -2982,42 +2982,42 @@
       [
         "",
         "fl128up",
-        "<b>f</b><b>l</b>ag <b>1</b><b>2</b> <b>8</b> th <b>u</b><b>p</b>"
+        "<b>f</b><b>l</b>ag <b>1</b><b>2</b><b>8</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "fl128dn",
-        "<b>f</b><b>l</b>ag <b>1</b><b>2</b> <b>8</b> th <b>d</b>ow<b>n</b>"
+        "<b>f</b><b>l</b>ag <b>1</b><b>2</b><b>8</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "fl256up",
-        "<b>f</b><b>l</b>ag <b>2</b><b>5</b> <b>6</b> th <b>u</b><b>p</b>"
+        "<b>f</b><b>l</b>ag <b>2</b><b>5</b><b>6</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "fl256dn",
-        "<b>f</b><b>l</b>ag <b>2</b><b>5</b> <b>6</b> th <b>d</b>ow<b>n</b>"
+        "<b>f</b><b>l</b>ag <b>2</b><b>5</b><b>6</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "fl512up",
-        "<b>f</b><b>l</b>ag <b>5</b><b>1</b> <b>2</b> th <b>u</b><b>p</b>"
+        "<b>f</b><b>l</b>ag <b>5</b><b>1</b><b>2</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "fl512dn",
-        "<b>f</b><b>l</b>ag <b>5</b><b>1</b> <b>2</b> th <b>d</b>ow<b>n</b>"
+        "<b>f</b><b>l</b>ag <b>5</b><b>1</b><b>2</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "fl1024up",
-        "<b>f</b><b>l</b>ag <b>1</b><b>0</b> <b>2</b><b>4</b> th <b>u</b><b>p</b>"
+        "<b>f</b><b>l</b>ag <b>1</b><b>0</b><b>2</b><b>4</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "fl1024dn",
-        "<b>f</b><b>l</b>ag <b>1</b><b>0</b> <b>2</b><b>4</b> th <b>d</b>ow<b>n</b>"
+        "<b>f</b><b>l</b>ag <b>1</b><b>0</b><b>2</b><b>4</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
@@ -4345,12 +4345,12 @@
       [
         "",
         "acsg143cmup",
-        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>1</b><b>4</b> <b>3</b> <b>c</b>o<b>m</b>ma <b>u</b><b>p</b>"
+        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>1</b><b>4</b><b>3</b> <b>c</b>o<b>m</b>ma <b>u</b><b>p</b>"
       ],
       [
         "",
         "acsg143cmdn",
-        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>1</b><b>4</b> <b>3</b> <b>c</b>o<b>m</b>ma <b>d</b>ow<b>n</b>"
+        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>1</b><b>4</b><b>3</b> <b>c</b>o<b>m</b>ma <b>d</b>ow<b>n</b>"
       ],
       [
         "",
@@ -4534,12 +4534,12 @@
       [
         "",
         "acsgsh143Cdn",
-        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>s</b><b>h</b>arp <b>1</b><b>4</b> <b>3</b> <b>C</b> <b>d</b>ow<b>n</b>"
+        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>s</b><b>h</b>arp <b>1</b><b>4</b><b>3</b> <b>C</b> <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "acsgfl143Cup",
-        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>f</b><b>l</b>at <b>1</b><b>4</b> <b>3</b> <b>C</b> <b>u</b><b>p</b>"
+        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>f</b><b>l</b>at <b>1</b><b>4</b><b>3</b> <b>C</b> <b>u</b><b>p</b>"
       ],
       [
         "",
@@ -4584,12 +4584,12 @@
       [
         "",
         "acsgsh143Cup",
-        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>s</b><b>h</b>arp <b>1</b><b>4</b> <b>3</b> <b>C</b> <b>u</b><b>p</b>"
+        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>s</b><b>h</b>arp <b>1</b><b>4</b><b>3</b> <b>C</b> <b>u</b><b>p</b>"
       ],
       [
         "",
         "acsgfl143Cdn",
-        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>f</b><b>l</b>at <b>1</b><b>4</b> <b>3</b> <b>C</b> <b>d</b>ow<b>n</b>"
+        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>f</b><b>l</b>at <b>1</b><b>4</b><b>3</b> <b>C</b> <b>d</b>ow<b>n</b>"
       ],
       [
         "",
@@ -4774,12 +4774,12 @@
       [
         "",
         "acsgdbsh143Cdn",
-        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>d</b>ou<b>b</b>le <b>s</b><b>h</b>arp <b>1</b><b>4</b> <b>3</b> <b>C</b> <b>d</b>ow<b>n</b>"
+        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>d</b>ou<b>b</b>le <b>s</b><b>h</b>arp <b>1</b><b>4</b><b>3</b> <b>C</b> <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "acsgdbfl143Cup",
-        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>d</b>ou<b>b</b>le <b>f</b><b>l</b>at <b>1</b><b>4</b> <b>3</b> <b>C</b> <b>u</b><b>p</b>"
+        "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>d</b>ou<b>b</b>le <b>f</b><b>l</b>at <b>1</b><b>4</b><b>3</b> <b>C</b> <b>u</b><b>p</b>"
       ],
       [
         "",
@@ -5723,22 +5723,22 @@
       [
         "",
         "rs128",
-        "<b>r</b>e<b>s</b>t <b>1</b><b>2</b> <b>8</b> th"
+        "<b>r</b>e<b>s</b>t <b>1</b><b>2</b><b>8</b> th"
       ],
       [
         "",
         "rs256",
-        "<b>r</b>e<b>s</b>t <b>2</b><b>5</b> <b>6</b> th"
+        "<b>r</b>e<b>s</b>t <b>2</b><b>5</b><b>6</b> th"
       ],
       [
         "",
         "rs512",
-        "<b>r</b>e<b>s</b>t <b>5</b><b>1</b> <b>2</b> th"
+        "<b>r</b>e<b>s</b>t <b>5</b><b>1</b><b>2</b> th"
       ],
       [
         "",
         "rs1024",
-        "<b>r</b>e<b>s</b>t <b>1</b><b>0</b> <b>2</b><b>4</b> th"
+        "<b>r</b>e<b>s</b>t <b>1</b><b>0</b><b>2</b><b>4</b> th"
       ],
       [
         "",
@@ -12533,7 +12533,7 @@
       [
         "",
         "elvllv100",
-        "<b>e</b><b>l</b>ec <b>v</b>o<b>l</b>ume <b>l</b>e<b>v</b>el <b>1</b><b>0</b> <b>0</b>"
+        "<b>e</b><b>l</b>ec <b>v</b>o<b>l</b>ume <b>l</b>e<b>v</b>el <b>1</b><b>0</b><b>0</b>"
       ],
       [
         "",
@@ -12573,7 +12573,7 @@
       [
         "",
         "elMIDIcn100",
-        "<b>e</b><b>l</b>ec <b>M</b> <b>I</b> <b>D</b> <b>I</b> <b>c</b>o<b>n</b>troller <b>1</b><b>0</b> <b>0</b>"
+        "<b>e</b><b>l</b>ec <b>M</b> <b>I</b> <b>D</b> <b>I</b> <b>c</b>o<b>n</b>troller <b>1</b><b>0</b><b>0</b>"
       ],
       [
         "",
@@ -12936,7 +12936,7 @@
     "Combining staff positions",
     "",
     "",
-    "These are invisible characters that move the following symbol up or down if possible. StaffCode generates them from note names C1 D1 E1 .. C7 based on the preceding clef and its staff position. They can also be used directly, relative to the middle staff line. See also <a href=\"Combining staff positions supplement\">Combining staff positions supplement</a>.",
+    "These are invisible characters that move the following symbol up or down if possible. StaffCode generates them from note names C1 D1 E1 .. C7 based on the preceding clef and its staff position. They can also be used directly, relative to the middle staff line. See also <a href=\"combiningStaffPositionsSupplement\">Combining staff positions supplement</a>.",
     [
       [
         "",
@@ -13955,42 +13955,42 @@
       [
         "",
         "mtnt128up",
-        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>1</b><b>2</b> <b>8</b> th <b>u</b><b>p</b>"
+        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>1</b><b>2</b><b>8</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "mtnt128dn",
-        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>1</b><b>2</b> <b>8</b> th <b>d</b>ow<b>n</b>"
+        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>1</b><b>2</b><b>8</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "mtnt256up",
-        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>2</b><b>5</b> <b>6</b> th <b>u</b><b>p</b>"
+        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>2</b><b>5</b><b>6</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "mtnt256dn",
-        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>2</b><b>5</b> <b>6</b> th <b>d</b>ow<b>n</b>"
+        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>2</b><b>5</b><b>6</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "mtnt512up",
-        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>5</b><b>1</b> <b>2</b> th <b>u</b><b>p</b>"
+        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>5</b><b>1</b><b>2</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "mtnt512dn",
-        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>5</b><b>1</b> <b>2</b> th <b>d</b>ow<b>n</b>"
+        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>5</b><b>1</b><b>2</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
         "mtnt1024up",
-        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>1</b><b>0</b> <b>2</b><b>4</b> th <b>u</b><b>p</b>"
+        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>1</b><b>0</b><b>2</b><b>4</b> th <b>u</b><b>p</b>"
       ],
       [
         "",
         "mtnt1024dn",
-        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>1</b><b>0</b> <b>2</b><b>4</b> th <b>d</b>ow<b>n</b>"
+        "<b>m</b>e<b>t</b> <b>n</b>o<b>t</b>e <b>1</b><b>0</b><b>2</b><b>4</b> th <b>d</b>ow<b>n</b>"
       ],
       [
         "",
