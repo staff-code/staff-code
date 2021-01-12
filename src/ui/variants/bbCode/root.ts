@@ -22,7 +22,7 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
     if (root.classList.contains("processed")) return
     root.classList.add("processed")
 
-    const input: HTMLTextAreaElement = root.querySelector(".input") as HTMLTextAreaElement
+    const input: HTMLTextAreaElement = root.querySelector(".sc-input") as HTMLTextAreaElement
     if (initialCodes) input.value = initialCodes as Io & Sentence
 
     const display = buildDisplay({font, initialLine, initialSize, inline})
