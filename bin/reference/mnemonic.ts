@@ -10,6 +10,8 @@ const rejoinNumbersAndOrdinalSuffixes = (mnemonic: Mnemonic): Mnemonic =>
         .replace(/(\d+<\/b>)\s+nd(\s|$)/g, "$1nd$2")
         .replace(/(\d+<\/b>)\s+th(\s|$)/g, "$1th$2") as Mnemonic
 
+const ORDINAL_SUFFIXES = ["st", "nd", "rd"]
+
 const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
     const code = computeSmuflCode(glyphName)
     const glyphNameWords = separateWordsBySpaces(fixSmuflCapitalizationIssue(updateEhejipn(glyphName)))
@@ -21,6 +23,11 @@ const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
         let caseModifiedGlyphNameWord = glyphNameWord.length === 1 ?
             glyphNameWord.toUpperCase() as Name<Unicode> & Word :
             glyphNameWord.toLowerCase() as Name<Unicode> & Word
+
+        if (ORDINAL_SUFFIXES.includes(caseModifiedGlyphNameWord)) {
+            mnemonicWords.push(caseModifiedGlyphNameWord as Word as Mnemonic & Word)
+            return
+        }
 
         let mnemonicWord = "" as Mnemonic & Word
         let codeCharsAlreadyMatchedByThisMnemonicWord = 0 as Count<Code & Char>

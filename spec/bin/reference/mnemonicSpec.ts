@@ -48,4 +48,13 @@ describe("computeMnemonic", (): void => {
         const expected = "<b>n</b>o<b>t</b>e <b>8</b>th <b>u</b><b>p</b>" as Mnemonic
         expect(actual).toBe(expected)
     })
+
+    it("ignores ordinal suffixes when bolding, aye yaye yaye yaye yaye yaye yaye", (): void => {
+        const glyphName = "flag32ndDown" as Name<Unicode>
+
+        const actual = computeMnemonic(glyphName)
+
+        const expected = "<b>f</b><b>l</b>ag <b>3</b><b>2</b>nd <b>d</b>ow<b>n</b>"
+        expect(actual).toBe(expected)
+    })
 })
