@@ -9,3 +9,4 @@ export {
     debugCode,
     ALIASES_MAP,
 } from "./codes"
+export {EMPTY_UNICODE} from "./constants"

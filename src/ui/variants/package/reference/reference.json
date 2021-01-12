@@ -23,98 +23,8 @@
       ],
       [
         "",
-        "D1",
-        "move to the <b>D1</b> position"
-      ],
-      [
         "",
-        "E1",
-        "move to the <b>E1</b> position"
-      ],
-      [
-        "",
-        "F1",
-        "move to the <b>F1</b> position"
-      ],
-      [
-        "",
-        "G1",
-        "move to the <b>G1</b> position"
-      ],
-      [
-        "",
-        "A1",
-        "move to the <b>A1</b> position"
-      ],
-      [
-        "",
-        "B1",
-        "move to the <b>B1</b> position"
-      ],
-      [
-        "",
-        "C2",
-        "move to the <b>C2</b> (2nd-octave C) position"
-      ],
-      [
-        "",
-        "D2",
-        "move to the <b>D2</b> position"
-      ],
-      [
-        "",
-        "E2",
-        "move to the <b>E2</b> position"
-      ],
-      [
-        "",
-        "F2",
-        "move to the <b>F2</b> position"
-      ],
-      [
-        "",
-        "G2",
-        "move to the <b>G2</b> position"
-      ],
-      [
-        "",
-        "A2",
-        "move to the <b>A2</b> position"
-      ],
-      [
-        "",
-        "B2",
-        "move to the <b>B2</b> position"
-      ],
-      [
-        "",
-        "C3",
-        "move to the <b>C3</b> (3rd-octave C) position"
-      ],
-      [
-        "",
-        "D3",
-        "move to the <b>D3</b> position"
-      ],
-      [
-        "",
-        "E3",
-        "move to the <b>E3</b> position"
-      ],
-      [
-        "",
-        "F3",
-        "move to the <b>F3</b> position"
-      ],
-      [
-        "",
-        "G3",
-        "move to the <b>G3</b> position"
-      ],
-      [
-        "",
-        "A3",
-        "move to the <b>A3</b> position"
+        "..."
       ],
       [
         "",
@@ -133,98 +43,8 @@
       ],
       [
         "",
-        "E4",
-        "move to the <b>E4</b> position"
-      ],
-      [
         "",
-        "F4",
-        "move to the <b>F4</b> position"
-      ],
-      [
-        "",
-        "G4",
-        "move to the <b>G4</b> position"
-      ],
-      [
-        "",
-        "A4",
-        "move to the <b>A4</b> position"
-      ],
-      [
-        "",
-        "B4",
-        "move to the <b>B4</b> position"
-      ],
-      [
-        "",
-        "C5",
-        "move to the <b>C5</b> (5th-octave C) position"
-      ],
-      [
-        "",
-        "D5",
-        "move to the <b>D5</b> position"
-      ],
-      [
-        "",
-        "E5",
-        "move to the <b>E5</b> position"
-      ],
-      [
-        "",
-        "F5",
-        "move to the <b>F5</b> position"
-      ],
-      [
-        "",
-        "G5",
-        "move to the <b>G5</b> position"
-      ],
-      [
-        "",
-        "A5",
-        "move to the <b>A5</b> position"
-      ],
-      [
-        "",
-        "B5",
-        "move to the <b>B5</b> position"
-      ],
-      [
-        "",
-        "C6",
-        "move to the <b>C6</b> (6th-octave C) position"
-      ],
-      [
-        "",
-        "D6",
-        "move to the <b>D6</b> position"
-      ],
-      [
-        "",
-        "E6",
-        "move to the <b>E6</b> position"
-      ],
-      [
-        "",
-        "F6",
-        "move to the <b>F6</b> position"
-      ],
-      [
-        "",
-        "G6",
-        "move to the <b>G6</b> position"
-      ],
-      [
-        "",
-        "A6",
-        "move to the <b>A6</b> position"
-      ],
-      [
-        "",
-        "B6",
-        "move to the <b>B6</b> position"
+        "..."
       ],
       [
         "",
@@ -258,23 +78,8 @@
       ],
       [
         "",
-        "nt64",
-        "<b>n</b>o<b>t</b>e 1/<b>64</b> (with auto stem direction)"
-      ],
-      [
         "",
-        "nt128",
-        "<b>n</b>o<b>t</b>e 1/<b>128</b> (with auto stem direction)"
-      ],
-      [
-        "",
-        "nt256",
-        "<b>n</b>o<b>t</b>e 1/<b>256</b> (with auto stem direction)"
-      ],
-      [
-        "",
-        "nt512",
-        "<b>n</b>o<b>t</b>e 1/<b>512</b> (with auto stem direction)"
+        "..."
       ],
       [
         "",
@@ -298,23 +103,8 @@
       ],
       [
         "",
-        "sp3",
-        "set <b>sp</b>acing <b>3</b> octals"
-      ],
-      [
         "",
-        "sp4",
-        "set <b>sp</b>acing <b>4</b> octals"
-      ],
-      [
-        "",
-        "sp5",
-        "set <b>sp</b>acing <b>5</b> octals"
-      ],
-      [
-        "",
-        "sp6",
-        "set <b>sp</b>acing <b>5</b> octals"
+        "..."
       ],
       [
         "",
@@ -353,103 +143,8 @@
       ],
       [
         "",
-        "4;",
-        "<b>4</b> octals advance"
-      ],
-      [
         "",
-        "5;",
-        "<b>5</b> octals advance"
-      ],
-      [
-        "",
-        "6;",
-        "<b>6</b> octals advance"
-      ],
-      [
-        "",
-        "7;",
-        "<b>7</b> octals advance"
-      ],
-      [
-        "",
-        "8;",
-        "<b>8</b> octals advance"
-      ],
-      [
-        "",
-        "9;",
-        "<b>9</b> octals advance"
-      ],
-      [
-        "",
-        "10;",
-        "<b>10</b> octals advance"
-      ],
-      [
-        "",
-        "11;",
-        "<b>11</b> octals advance"
-      ],
-      [
-        "",
-        "12;",
-        "<b>12</b> octals advance"
-      ],
-      [
-        "",
-        "13;",
-        "<b>13</b> octals advance"
-      ],
-      [
-        "",
-        "14;",
-        "<b>14</b> octals advance"
-      ],
-      [
-        "",
-        "15;",
-        "<b>15</b> octals advance"
-      ],
-      [
-        "",
-        "16;",
-        "<b>16</b> octals advance"
-      ],
-      [
-        "",
-        "17;",
-        "<b>17</b> octals advance"
-      ],
-      [
-        "",
-        "18;",
-        "<b>18</b> octals advance"
-      ],
-      [
-        "",
-        "19;",
-        "<b>19</b> octals advance"
-      ],
-      [
-        "",
-        "20;",
-        "<b>20</b> octals advance"
-      ],
-      [
-        "",
-        "21;",
-        "<b>21</b> octals advance"
-      ],
-      [
-        "",
-        "22;",
-        "<b>22</b> octals advance"
-      ],
-      [
-        "",
-        "23;",
-        "<b>23</b> octals advance"
+        "..."
       ],
       [
         "",

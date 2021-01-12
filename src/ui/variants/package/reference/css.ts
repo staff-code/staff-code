@@ -34,6 +34,14 @@ const REFERENCE_CSS = css`
   table tr:hover {
     background-color: #eeeeee;
   }
+  
+  table tr.no-code {
+    background-color: inherit;
+  }
+  
+  table tr.no-code td {
+    border: none;
+  }
 
   summary {
     position: sticky;

@@ -31,6 +31,7 @@ const handleReferenceClick = (event: MouseEvent): void => {
     if (!maybeCodeCell || maybeCodeCell.tagName !== "TD") return
 
     const code = maybeCodeCell.getAttribute("sc-code") as Code & Word
+    if (!code.length) return
     insertCodeIntoInput(code)
 
     transferInputToDisplay(components.root, staffCodeConfig.callback)
