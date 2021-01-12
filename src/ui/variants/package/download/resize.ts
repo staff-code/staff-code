@@ -8,6 +8,7 @@ const FIRST_LINE = 1
 
 // TODO: CLEAN, READY TO GO: TEST MORE UI HELPER METHODS
 //  E.g. this one could and should be tested. Should be easy.
+//  But you should just go through everything that looks unit testable and backfill them
 const computeSvgHeight = (unicodeSentence: Unicode): Px => {
     const {lineSpinner, sizeSpinner} = components
 
