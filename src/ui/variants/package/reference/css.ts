@@ -10,8 +10,6 @@ import {css} from "@sagittal/general"
 // TODO: I think we need at least one more pixel of left and right padding in the code and mnemonic cells.
 //  This need shows up most in the Combining staff positions table.
 
-// TODO: [Section links] also need to look like links, so users don't get surprised by them...
-
 // TODO: I suppose it's too much to ask that only the triangle, and possibly the word "Reference",
 //  Cause the Reference to expand and collapse? Not the word StaffCode and not the blank space in between.
 //  Also, I'm pretty sure that as long as it's this way, you can't see the alt-text for StaffCode on mobile.
@@ -95,6 +93,11 @@ const REFERENCE_CSS = css`
     color: inherit;
   }
 
+  .sc-section-title:hover a:nth-child(1) h3 {
+    text-decoration: underline;
+    color: blue;
+  }
+  
   /* back to top link */
 
   .sc-section-title a:nth-child(2) {
