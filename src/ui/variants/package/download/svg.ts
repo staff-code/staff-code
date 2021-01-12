@@ -13,7 +13,7 @@ const buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItT
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg")
     svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink")
 
-    document.body.appendChild(svg)
+    components.root.appendChild(svg)
 
     return svg
 }

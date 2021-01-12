@@ -17,7 +17,7 @@ StaffCode can be used in two ways:
 
 ### BBCode
 
-- Follow the instructions at `https://staffcode.sagittal.org/README.txt`.
+- Follow the instructions at `https://app.sagittal.org/staffcode/README.txt`.
 
 ### package
 
@@ -91,5 +91,5 @@ Sagittal forum.
 
 And to update the Sagittal web app, in the `app` repo, run `npm upgrade` and confirm you pull in the npm package you
 just published. Then run `npm run deploy` there (which in turn cd's into its `dist` folder which is actually a submodule
-repo, the GitHub pages one, for `https://staffcode.sagittal.org`, for which commiting and pushing is equivalent to
+repo, the GitHub pages one, for `https://app.sagittal.org/staffcode`, for which commiting and pushing is equivalent to
 deploying the new static app) (don't forget to commit afterwards).

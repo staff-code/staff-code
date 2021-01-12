@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 set -e
 
 # update code with resources from SMuFL and Bravura
