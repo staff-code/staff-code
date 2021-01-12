@@ -79,17 +79,19 @@ It uses `tsc` to transpile the library for `npm` into `dist/package`.
 
 Use `npm start` to run a local server with a minimal demo of the package variant of StaffCode, for QA purposes.
 
-The BBCode variant is published to GitHub as a release, with the contents of the `dist/bbCode` folder archived and
-uploaded as an asset thereof. You'll need to install `jq` (e.g. with Chocolatey) in order to perform such programmatic
-releasing.
+The BBCode variant is distributed via the StaffCode web app at `https://app.sagittal.org/staffcode/staffCode.js`. The
+Sagittal web app (which includes the StaffCode web app) uses a `webpack` plugin to copy the contents of `dist/bbCode`
+from its copy of `staff-code` in its `node_modules` into its own `dist`.
 
-You may need to install 7-zip in order to deploy, since it is used to archive the asset as a .zip file. I
-used `choco install 7zip` while running my terminal as an administrator.
+You may need to install `wget` in order to deploy, since it is used to update the SMuFL and Bravura dependencies
+in `vendor`. I used `choco install wget` while running my terminal as an administrator.
 
 After deploying, you can use the `npm run update-staff-code` script in the `scripts/forum` script group to update the
 Sagittal forum.
 
 And to update the Sagittal web app, in the `app` repo, run `npm upgrade` and confirm you pull in the npm package you
 just published. Then run `npm run deploy` there (which in turn cd's into its `dist` folder which is actually a submodule
-repo, the GitHub pages one, for `https://app.sagittal.org/staffcode`, for which commiting and pushing is equivalent to
+repo, the GitHub pages one, for `https://app.sagittal.org/staffcode`, for which committing and pushing is equivalent to
 deploying the new static app) (don't forget to commit afterwards).
+
+# TODO: add more information about how the bin/ and vendor/ stuff works

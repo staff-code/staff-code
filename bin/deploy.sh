@@ -4,11 +4,11 @@ set -e
 
 # update code with resources from SMuFL and Bravura
 
-rm vendor/glyphnames.json
+rm vendor/glyphnames.json || true
 wget -P vendor https://raw.githubusercontent.com/w3c/smufl/gh-pages/metadata/glyphnames.json
-rm vendor/bravura_metadata.json
+rm vendor/bravura_metadata.json || true
 wget -P vendor https://raw.githubusercontent.com/steinbergmedia/bravura/master/redist/bravura_metadata.json
-rm vendor/ranges.json
+rm vendor/ranges.json || true
 wget -P vendor https://raw.githubusercontent.com/w3c/smufl/gh-pages/metadata/ranges.json
 
 npm run generate-smufl-map
