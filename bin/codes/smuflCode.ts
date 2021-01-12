@@ -1,5 +1,6 @@
 import {BLANK, Name, SPACE, Word} from "@sagittal/general"
 import {Code, Unicode} from "../../src"
+import {separateWordsBySpaces} from "../separate"
 import {computeGlyphNameWordAbbreviation} from "./glyphNameWordAbbreviation"
 
 const replaceOrdinals = (glyphName: Name<Unicode>): Name<Unicode> =>
@@ -8,13 +9,6 @@ const replaceOrdinals = (glyphName: Name<Unicode>): Name<Unicode> =>
         .replace(/2nd/, "2")
         .replace(/3rd/, "3")
         .replace(/(\d)th/, "$1") as Name<Unicode>
-
-const separateWordsBySpaces = (glyphName: Name<Unicode>): Name<Unicode> =>
-    glyphName
-        .replace(/([A-Z])/g, " $1")
-        .replace(/(\d)/g, " $1 ")
-        .replace(/\s+/g, SPACE)
-        .trim() as Name<Unicode>
 
 const fixSmuflCapitalizationIssue = (glyphName: Name<Unicode>): Name<Unicode> =>
     glyphName
@@ -36,7 +30,6 @@ const computeSmuflCode = (glyphName: Name<Unicode>): Code & Word => {
 
 export {
     computeSmuflCode,
-    separateWordsBySpaces,
     fixSmuflCapitalizationIssue,
     updateEhejipn,
 }

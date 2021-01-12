@@ -1,1 +1,1 @@
-export {computeSmuflCode, separateWordsBySpaces, fixSmuflCapitalizationIssue, updateEhejipn} from "./smuflCode"
+export {computeSmuflCode, fixSmuflCapitalizationIssue, updateEhejipn} from "./smuflCode"

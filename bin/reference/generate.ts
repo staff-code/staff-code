@@ -1,4 +1,4 @@
-import {computeKeyPath, Id, sort} from "@sagittal/general"
+import {computeKeyPath, Id, Link, sort} from "@sagittal/general"
 import * as fs from "fs"
 import {COMMANDS_SECTION} from "./commands"
 import {computeExplanation} from "./explanations"
@@ -17,7 +17,7 @@ const generateSmuflReference = (): void => {
         const sectionId = rangeName
         const sectionName = description
         const parenthetical = computeParenthetical(sectionId)
-        const sectionLink = ""
+        const sectionLink = "" as Link
         const explanation = computeExplanation(sectionId)
         const sectionData = glyphNames.map(computeSectionDatum)
 
