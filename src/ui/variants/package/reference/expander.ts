@@ -1,4 +1,4 @@
-import {isUndefined, Link} from "@sagittal/general"
+import {isUndefined} from "@sagittal/general"
 import {INTRODUCTION_TO_STAFF_CODE_LINK} from "../../../../../bin"
 import pkg from "../../../../../package.json"
 import {components, staffCodeConfig} from "../globals"

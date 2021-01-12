@@ -1,5 +1,4 @@
-import {Name, Sentence} from "@sagittal/general"
-import {glyphNames} from "../../../bin/globals"
+import {Name} from "@sagittal/general"
 import {Mnemonic} from "../../../bin/reference"
 import {computeMnemonic} from "../../../bin/reference/mnemonic"
 import {Unicode} from "../../../src"

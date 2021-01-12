@@ -11,6 +11,7 @@ ston Gcl ; d5 /|\ ; nt ;
 ## use
 
 StaffCode can be used in two ways:
+
 - on `phpBB` forums with `BBCode`
 - an `npm` package, e.g. in a web application
 
@@ -59,11 +60,14 @@ loadFontsThen((): void => {
 })
 ```
 
-The WOFF and OTF variants of the Bravura Text BB font are included in the package. You should serve them at `assets/fonts/*` for them to be automatically picked up.
+The WOFF and OTF variants of the Bravura Text BB font are included in the package. You should serve them
+at `assets/fonts/*` for them to be automatically picked up.
 
-The download button, reference, copy link button, size spinner, line spinner, and interactive mode are not made available in the bbCode variant.
+The download button, reference, copy link button, size spinner, line spinner, and interactive mode are not made
+available in the bbCode variant.
 
-The copy link button only writes the query params to the URL bar if it detects that it's running in the StaffCode web app.
+The copy link button only writes the query params to the URL bar if it detects that it's running in the StaffCode web
+app.
 
 ## development
 
@@ -75,10 +79,17 @@ It uses `tsc` to transpile the library for `npm` into `dist/package`.
 
 Use `npm start` to run a local server with a minimal demo of the package variant of StaffCode, for QA purposes.
 
-The BBCode variant is published to GitHub as a release, with the contents of the `dist/bbCode` folder archived and uploaded as an asset thereof. You'll need to install `jq` (e.g. with Chocolatey) in order to perform such programmatic releasing.
+The BBCode variant is published to GitHub as a release, with the contents of the `dist/bbCode` folder archived and
+uploaded as an asset thereof. You'll need to install `jq` (e.g. with Chocolatey) in order to perform such programmatic
+releasing.
 
-You may need to install 7-zip in order to deploy, since it is used to archive the asset as a .zip file. I used `choco install 7zip` while running my terminal as an administrator.
+You may need to install 7-zip in order to deploy, since it is used to archive the asset as a .zip file. I
+used `choco install 7zip` while running my terminal as an administrator.
 
-After deploying, you can use the `npm run update-staff-code` script in the `scripts/forum` script group to update the Sagittal forum.
+After deploying, you can use the `npm run update-staff-code` script in the `scripts/forum` script group to update the
+Sagittal forum.
 
-And to update the Sagittal web app, in the `app` repo, run `npm upgrade` and confirm you pull in the npm package you just published. Then run `npm run deploy` there (which in turn cd's into its `dist` folder which is actually a submodule repo, the GitHub pages one, for `https://staffcode.sagittal.org`, for which commiting and pushing is equivalent to deploying the new static app) (don't forget to commit afterwards).
+And to update the Sagittal web app, in the `app` repo, run `npm upgrade` and confirm you pull in the npm package you
+just published. Then run `npm run deploy` there (which in turn cd's into its `dist` folder which is actually a submodule
+repo, the GitHub pages one, for `https://staffcode.sagittal.org`, for which commiting and pushing is equivalent to
+deploying the new static app) (don't forget to commit afterwards).
