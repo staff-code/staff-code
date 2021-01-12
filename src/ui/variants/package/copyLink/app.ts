@@ -1,4 +1,4 @@
-import {WEB_APP_URL} from "./constants"
+import {WEB_APP_URL} from "../../../constants"
 
 const codeRunningInStaffCodeWebApp = (): boolean => {
     const getUrl = window.location

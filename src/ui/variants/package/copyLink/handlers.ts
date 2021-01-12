@@ -1,6 +1,6 @@
 import {BLANK} from "@sagittal/general"
+import {WEB_APP_URL} from "../../../constants"
 import {codeRunningInStaffCodeWebApp} from "./app"
-import {WEB_APP_URL} from "./constants"
 import {computeInitialParams} from "./initial"
 
 const handleCopyLinkClick = (): void => {

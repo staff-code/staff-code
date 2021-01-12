@@ -27,7 +27,7 @@
     "generate-smufl-reference": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/reference/generate.ts"
   },
   "devDependencies": {
-    "@sagittal/general": "^1.0.83",
+    "@sagittal/general": "^1.0.84",
     "@types/css-font-loading-module": "0.0.4",
     "@types/jasmine": "^3.6.2",
     "@types/node": "^14.14.20",
@@ -42,7 +42,7 @@
     "ts-node": "^9.1.1",
     "tslint": "^6.1.3",
     "typescript": "^4.1.3",
-    "webpack": "^5.12.3",
+    "webpack": "^5.13.0",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.1"
   },

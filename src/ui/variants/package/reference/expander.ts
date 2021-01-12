@@ -1,4 +1,5 @@
-import {isUndefined} from "@sagittal/general"
+import {isUndefined, Link} from "@sagittal/general"
+import {INTRODUCTION_TO_STAFF_CODE_LINK} from "../../../../../bin"
 import pkg from "../../../../../package.json"
 import {components, staffCodeConfig} from "../globals"
 import {setStaffCodeCookie} from "../initial"
@@ -7,7 +8,7 @@ import {Initial} from "../types"
 const STAFF_CODE_ABOUT_TOOLTIP_TEXT = `
 StaffCode version ${pkg.version}<br>
 by Douglas Blumeyer and Dave Keenan<br>
-<a target="_blank" href='https://forum.sagittal.org/viewtopic.php?p=3192#p3192'>Introduction to StaffCode</a>
+<a target="_blank" href='${INTRODUCTION_TO_STAFF_CODE_LINK}'>Introduction to StaffCode</a>
 `
 
 const STAFF_CODE_ABOUT_TOOLTIP = `<div class="sc-tooltip">${STAFF_CODE_ABOUT_TOOLTIP_TEXT}</div>`

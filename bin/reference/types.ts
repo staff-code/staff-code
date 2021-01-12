@@ -1,4 +1,4 @@
-import {Html, Id, Name, Word} from "@sagittal/general"
+import {Html, Id, Link, Name, Word} from "@sagittal/general"
 import {Code, Unicode} from "../../src"
 
 type ReferenceRow = [Unicode & Word, Code & Word, Mnemonic]
@@ -9,7 +9,7 @@ type Explanation = Html & {_ExpanationBrand: boolean}
 type Parenthetical = string & {_ParentheticalBrand: boolean}
 
 // @ts-ignore
-type Section = [Id<Section>, Name<Section>, Parenthetical, string, Explanation, ReferenceRow[]] // todo: url not string
+type Section = [Id<Section>, Name<Section>, Parenthetical, Link, Explanation, ReferenceRow[]]
 
 interface SmuflRangeDatum {
     description: Name<Section>,

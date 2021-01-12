@@ -1,4 +1,4 @@
-import {BLANK, vectorizeText} from "@sagittal/general"
+import {BLANK, Link, vectorizeText} from "@sagittal/general"
 import {Unicode} from "../../../../translate"
 import {DEFAULT_FONT} from "../../../fonts"
 import {components} from "../globals"
@@ -27,7 +27,7 @@ const cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled = (
     return clonedSvg
 }
 
-const buildDummyDownloadLinkAndClickIt = (svgBlobURL: string): void => {
+const buildDummyDownloadLinkAndClickIt = (svgBlobURL: Link): void => {
     const a: HTMLAnchorElement = document.createElement("a")
 
     a.style.display = "none"
@@ -38,12 +38,12 @@ const buildDummyDownloadLinkAndClickIt = (svgBlobURL: string): void => {
     window.URL.revokeObjectURL(svgBlobURL)
 }
 
-const buildSvgBlobUrl = (clonedSvg: SVGGraphicsElement): string => {
+const buildSvgBlobUrl = (clonedSvg: SVGGraphicsElement): Link => {
     const outerHTML = clonedSvg.outerHTML
     const blob = new Blob([outerHTML], {type: "image/svg+xml;charset=utf-8"})
     const URL = window.URL || window.webkitURL || window
 
-    return URL.createObjectURL(blob)
+    return URL.createObjectURL(blob) as Link
 }
 
 const downloadSvg = (): void => {

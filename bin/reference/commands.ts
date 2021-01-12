@@ -1,9 +1,7 @@
-import {Id, Name} from "@sagittal/general"
+import {Id, Link, Name} from "@sagittal/general"
+import {INTRODUCTION_TO_STAFF_CODE_LINK} from "./constants"
 import {NOT_SMUFL} from "./parentheticals"
 import {Explanation, ReferenceRow, Section} from "./types"
-
-// Temporary link, until a public post is ready.
-const INTRODUCTION_TO_STAFF_CODE_LINK = "https://forum.sagittal.org/viewtopic.php?p=3192"
 
 const COMMANDS_SECTION = [
     "commands" as Id<Section>,
