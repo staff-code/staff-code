@@ -1,4 +1,4 @@
-import {Html, Id, Link, Name, Word} from "@sagittal/general"
+import {Char, Count, Html, Id, Index, Link, Name, Word} from "@sagittal/general"
 import {Code, Unicode} from "../../src"
 
 type ReferenceRow = [Unicode & Word, Code & Word, Mnemonic]
@@ -18,6 +18,16 @@ interface SmuflRangeDatum {
 
 type SmuflRanges = Record<Id<Section>, SmuflRangeDatum>
 
+interface MatchesCaseAgnosticParameters {
+    glyphNameChar: Name<Unicode> & Char,
+    code: Code & Word,
+    codeIndex: Index<Code & Char>
+}
+
+interface ShouldBoldParameters extends MatchesCaseAgnosticParameters {
+    codeCharsAlreadyMatchedByThisMnemonicWord: Count<Code & Char>,
+}
+
 export {
     ReferenceRow,
     Section,
@@ -26,4 +36,6 @@ export {
     Explanation,
     Mnemonic,
     Parenthetical,
+    MatchesCaseAgnosticParameters,
+    ShouldBoldParameters,
 }

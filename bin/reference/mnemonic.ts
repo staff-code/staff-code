@@ -2,36 +2,33 @@ import {Char, Count, increment, Index, joinWords, Name, SPACE, splitWord, Word} 
 import {Code, Unicode} from "../../src"
 import {computeSmuflCode, fixSmuflCapitalizationIssue, updateEhejipn} from "../codes"
 import {separateWordsBySpacesForMnemonic} from "../separate"
-import {isBoldable} from "./boldable"
+import {shouldBold} from "./bold"
+import {computeCaseModifiedGlyphNameWord} from "./case"
+import {shouldCountAgainstBoldedCharAllotmentForWord} from "./count"
+import {rejoinSagittalCommaNames, unjoinTabClefs} from "./exceptions"
 import {Mnemonic} from "./types"
 
-const ORDINAL_SUFFIXES = ["st", "nd", "rd"]
 
 const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
     const code = computeSmuflCode(glyphName)
-    const glyphNameWords = separateWordsBySpacesForMnemonic(fixSmuflCapitalizationIssue(updateEhejipn(glyphName)))
+    const glyphNameWords = unjoinTabClefs(rejoinSagittalCommaNames(
+        separateWordsBySpacesForMnemonic(fixSmuflCapitalizationIssue(updateEhejipn(glyphName))),
+    ))
         .split(SPACE) as Array<Name<Unicode> & Word>
 
     let codeIndex = 0 as Index<Code & Char>
     const mnemonicWords = glyphNameWords.map((glyphNameWord: Name<Unicode> & Word): Mnemonic & Word => {
-        let caseModifiedGlyphNameWord = glyphNameWord.length === 1 ?
-            glyphNameWord.toUpperCase() as Name<Unicode> & Word :
-            glyphNameWord.toLowerCase() as Name<Unicode> & Word
-
-        if (ORDINAL_SUFFIXES.includes(caseModifiedGlyphNameWord)) {
-            return caseModifiedGlyphNameWord as Word as Mnemonic & Word
-        }
+        let caseModifiedGlyphNameWord = computeCaseModifiedGlyphNameWord(glyphNameWord)
 
         let mnemonicWord = "" as Mnemonic & Word
         let codeCharsAlreadyMatchedByThisMnemonicWord = 0 as Count<Code & Char>
         splitWord(caseModifiedGlyphNameWord).forEach((glyphNameChar: Name<Unicode> & Char): void => {
-            if (
-                glyphNameChar === code[codeIndex]
-                && isBoldable({caseModifiedGlyphNameWord, glyphNameChar, codeCharsAlreadyMatchedByThisMnemonicWord})
-            ) {
+            if (shouldBold({glyphNameChar, code, codeIndex, codeCharsAlreadyMatchedByThisMnemonicWord})) {
                 mnemonicWord = `${mnemonicWord}<b>${glyphNameChar}</b>` as Mnemonic & Word
                 codeIndex = increment(codeIndex)
-                codeCharsAlreadyMatchedByThisMnemonicWord = increment(codeCharsAlreadyMatchedByThisMnemonicWord)
+                if (shouldCountAgainstBoldedCharAllotmentForWord(glyphNameChar, caseModifiedGlyphNameWord)) {
+                    codeCharsAlreadyMatchedByThisMnemonicWord = increment(codeCharsAlreadyMatchedByThisMnemonicWord)
+                }
             } else {
                 mnemonicWord = `${mnemonicWord}${glyphNameChar}` as Mnemonic & Word
             }
