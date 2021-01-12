@@ -23,11 +23,9 @@ const UNICODE_ALIASES = ALIASES_ENTRIES.reduce(
 const CODE_ALIASES: Record<RecordKey<Code & Word>, Array<Code & Word>> = {
     "nt4": ["nt", "nt4"] as Array<Code & Word>,
 }
-console.log("the heck?", CODE_ALIASES)
 
 const setupCodeCell = (codeCell: HTMLTableCellElement, unicode: Unicode & Word, code: Code & Word): void => {
     const aliases = UNICODE_ALIASES[unicode] || CODE_ALIASES[code]
-    if (code === "nt" || code === "nt4") console.log("the other heck?", code, "unicode", unicode, "uau", UNICODE_ALIASES[unicode], "cac", CODE_ALIASES[code], "aliases", aliases)
     if (isUndefined(aliases)) {
         codeCell.textContent = code
         codeCell.setAttribute("sc-code", code)
