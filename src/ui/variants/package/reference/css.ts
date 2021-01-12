@@ -1,14 +1,6 @@
 import {css} from "@sagittal/general"
 
-// TODO: I suppose it's too much to ask that only the triangle, and possibly the word "Reference",
-//  Cause the Reference to expand and collapse? Not the word StaffCode and not the blank space in between.
-//  Also, I'm pretty sure that as long as it's this way, you can't see the alt-text for StaffCode on mobile.
-
 const REFERENCE_CSS = css`
-  .sc-reference {
-    padding: 20px 10px;
-  }
-
   h3 {
     display: inline-block;
     padding-right: 10px;
@@ -24,44 +16,64 @@ const REFERENCE_CSS = css`
   table tr:hover {
     background-color: #eeeeee;
   }
-  
+
   table tr.no-code {
     background-color: inherit;
   }
-  
+
   table tr.no-code td {
     border: none;
   }
 
-  summary {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background: white;
+  .sc-reference-expander {
     cursor: pointer;
-    outline: none;
   }
 
-  details {
-    position: relative;
+  .sc-reference-wrapper {
     width: 100%;
     max-width: 600px;
-    overflow-y: auto;
     border-top: 1px solid;
-    margin-bottom: 10px;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
   }
 
-  details[open] {
+  .sc-reference {
+    height: 0;
+    overflow-y: hidden;
+    box-sizing: border-box;
+  }
+
+  .sc-reference-banner {
+    margin: 0 2px;
+  }
+
+  .sc-reference-wrapper.open {
+    border: 1px solid;
+  }
+
+  .sc-reference-wrapper.open .sc-reference {
     height: 432px;
+    padding: 20px 10px;
+    overflow-y: auto;
   }
 
-  .sc-about {
+  .sc-reference-wrapper.open .sc-reference-expander img {
+    transform: rotate(90deg);
+  }
+
+  .sc-reference-expander img {
+    vertical-align: top;
+  }
+
+  .sc-title {
     float: right;
     font-weight: bold;
     position: relative;
+    cursor: default;
   }
 
-  .sc-about .sc-tooltip {
+  .sc-title .sc-about {
     display: none;
     background: white;
     border: solid 1px;
@@ -74,7 +86,7 @@ const REFERENCE_CSS = css`
     text-align: right;
   }
 
-  details[open] .sc-about:hover .sc-tooltip {
+  .sc-reference-wrapper.open .sc-title:hover .sc-about {
     display: block;
   }
 
@@ -95,7 +107,7 @@ const REFERENCE_CSS = css`
     text-decoration: underline;
     color: blue;
   }
-  
+
   /* back to top link */
 
   .sc-section-title a:nth-child(2) {
@@ -111,7 +123,7 @@ const REFERENCE_CSS = css`
     border-collapse: collapse;
     margin-bottom: 30px;
   }
-  
+
   tr {
     cursor: pointer;
   }

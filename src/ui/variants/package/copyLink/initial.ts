@@ -2,6 +2,7 @@ import {BLANK, Io, Sentence} from "@sagittal/general"
 import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_REFERENCE_OPEN, DEFAULT_INITIAL_SIZE} from "../../../constants"
 import {components} from "../globals"
 import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "../human"
+import {isReferenceOpen} from "../reference"
 import {Initial} from "../types"
 
 const computeInitialCodesParam = (): string => {
@@ -30,8 +31,8 @@ const computeInitialLineParam = (): string =>
 
 const computeInitialReferenceOpenParam = (): string =>
     (
-        !components.referenceExpander
-        || components.referenceExpander.hasAttribute("open") === DEFAULT_INITIAL_REFERENCE_OPEN
+        !components.referenceWrapper
+        || isReferenceOpen() === DEFAULT_INITIAL_REFERENCE_OPEN
     ) ?
         BLANK :
         `&${Initial.REFERENCE_OPEN}=true`

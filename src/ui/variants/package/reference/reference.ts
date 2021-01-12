@@ -2,13 +2,9 @@ import {FontName} from "@sagittal/general"
 import {Section} from "../../../../../bin"
 import {components} from "../globals"
 import {loadGoogleFont} from "./fonts"
-import {handleReferenceClick} from "./handlers"
+import {handleReferenceTableClick} from "./insert"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
-
-// TODO: We need a border around the scrolling area,
-//  And the scroll bar should only be as high as that area
-//  (although the latter is not important, if this is difficult).
 
 const buildReference = (): HTMLDivElement => {
     loadGoogleFont("Roboto Mono" as FontName)
@@ -19,6 +15,10 @@ const buildReference = (): HTMLDivElement => {
     const reference = document.createElement("div")
     reference.classList.add("sc-reference")
     components.reference = reference
+
+    const topLink = document.createElement("a")
+    topLink.id = "top"
+    reference.appendChild(topLink)
 
     const tocTitleWrapper = document.createElement("div")
     reference.appendChild(tocTitleWrapper)
@@ -38,7 +38,7 @@ const buildReference = (): HTMLDivElement => {
     const sections = referenceJson as Section[]
     sections.forEach(appendSection)
 
-    reference.addEventListener("click", handleReferenceClick)
+    reference.addEventListener("click", handleReferenceTableClick)
 
     return reference
 }

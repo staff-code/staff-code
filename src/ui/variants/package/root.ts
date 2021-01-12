@@ -9,7 +9,7 @@ import {buildDownloadButton} from "./download"
 import {components, staffCodeConfig} from "./globals"
 import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "./initial"
 import {buildPackageInput} from "./input"
-import {buildReferenceExpander} from "./reference"
+import {buildReferenceWrapper} from "./reference"
 import {buildLineSpinnerWrapper, buildSizeSpinnerWrapper} from "./spinners"
 
 const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
@@ -89,7 +89,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     root.appendChild(display)
 
     if (reference) {
-        const referenceExpander = buildReferenceExpander()
+        const referenceExpander = buildReferenceWrapper()
         root.appendChild(referenceExpander)
     }
 

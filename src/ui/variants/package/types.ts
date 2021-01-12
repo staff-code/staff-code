@@ -15,7 +15,8 @@ interface Components {
     toc: HTMLUListElement,
     sizeSpinner: HTMLInputElement,
     lineSpinner: HTMLInputElement,
-    referenceExpander: HTMLDetailsElement,
+    referenceWrapper: HTMLDivElement,
+    referenceExpander: HTMLSpanElement,
 }
 
 export {

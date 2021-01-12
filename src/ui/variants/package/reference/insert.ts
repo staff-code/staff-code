@@ -23,7 +23,7 @@ const insertCodeIntoInput = (code: Code & Word): void => {
     input.selectionEnd = textCursorPosition
 }
 
-const handleReferenceClick = (event: MouseEvent): void => {
+const handleReferenceTableClick = (event: MouseEvent): void => {
     const eventPath = event.composedPath()
     const maybeParentReferenceRow = eventPath[1] as Maybe<HTMLTableRowElement>
     const maybeCodeCell =
@@ -38,5 +38,5 @@ const handleReferenceClick = (event: MouseEvent): void => {
 }
 
 export {
-    handleReferenceClick,
+    handleReferenceTableClick,
 }

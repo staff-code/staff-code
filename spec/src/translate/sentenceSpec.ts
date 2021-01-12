@@ -2,8 +2,8 @@
 
 import {BLANK, Io, Sentence} from "@sagittal/general"
 import {Code, computeInputSentenceUnicode, Unicode} from "../../../src"
+import {EMPTY_UNICODE} from "../../../src/translate"
 import {debugCodeSentence} from "../../../src/translate/codes"
-import {EMPTY_UNICODE} from "../../../src/translate/constants"
 
 // TODO: CLEAN, BLOCKED: VISUAL TESTS
 //  Like the ones Vexflow has
