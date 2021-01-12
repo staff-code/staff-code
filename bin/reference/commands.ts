@@ -3,6 +3,8 @@ import {INTRODUCTION_TO_STAFF_CODE_LINK} from "./constants"
 import {NOT_SMUFL} from "./parentheticals"
 import {Explanation, ReferenceRow, Section} from "./types"
 
+// TODO: include https://forum.sagittal.org/viewtopic.php?p=3451#p3451
+
 const COMMANDS_SECTION = [
     "commands" as Id<Section>,
     "StaffCode commands" as Name<Section>,

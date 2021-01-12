@@ -3,6 +3,8 @@ import {WEB_APP_URL} from "../../../constants"
 import {codeRunningInStaffCodeWebApp} from "./app"
 import {computeInitialParams} from "./initial"
 
+// TODO: "Copy link" isn't updating the URL in the browser.
+
 const handleCopyLinkClick = (): void => {
     const initialParams = computeInitialParams()
 

@@ -2,6 +2,7 @@ import {Id, RecordKey} from "@sagittal/general"
 import {Explanation, Section} from "./types"
 
 const EXPLANATIONS: Record<RecordKey<Id<Section>>, Explanation> = {
+    // TODO: StaffCode generates staff pieces and leger lines automatically after a ston (staff on) command, and any staff-piece code will change what kind of staff is generated. The default is st5ln (staff 5 lines).
     "staves": `Following <b>ston</b> (<b>st</b>aff <b>on</b>) StaffCode generates staff pieces and leger lines automatically, and any staff-piece code will change what kind of staff is generated. The default is <b>st5ln</b> (<b>st</b>aff <b>5</b> <b>l</b>i<b>n</b>es).` as Explanation,
     "clefs": `StaffCode maps note names C1 D1 E1 .. C7 to staff positions based on the preceding clef and its staff position. If there has been no clef, treble staff positioning is used.` as Explanation,
     "combiningStaffPositions": `These are invisible characters that move the following symbol up or down if possible. StaffCode generates them from note names C1 D1 E1 .. C7 based on the preceding clef and its staff position. They can also be used directly, relative to the middle staff line. See also <a href="combiningStaffPositionsSupplement">Combining staff positions supplement</a>.` as Explanation,

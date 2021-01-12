@@ -1,5 +1,21 @@
 import {css} from "@sagittal/general"
 
+// TODO: Can we reduce the height of all rows by 4 pixels (and hence the height of the Reference by 16 times that)?
+//  I'll be happy if Gcl8vb and Gcl15ma (and nhrnblsllg and nhrnwtsllg) have at least one pixel between them.
+//  - (Also) I notice that the scrollable part of the reference field is now 22.5 rows high on my phone
+//  (21 on my desktop). If it was only 18 rows high, it would fit on my phone screen at the same time as the input field
+//  (and the browser guff at the top) and therefore cause no scrolling.
+//  Okay I’ll reduce the height and we’ll see how it looks then.
+
+// TODO: I think we need at least one more pixel of left and right padding in the code and mnemonic cells.
+//  This need shows up most in the Combining staff positions table.
+
+// TODO: [Section links] also need to look like links, so users don't get surprised by them...
+
+// TODO: I suppose it's too much to ask that only the triangle, and possibly the word "Reference",
+//  Cause the Reference to expand and collapse? Not the word StaffCode and not the blank space in between.
+//  Also, I'm pretty sure that as long as it's this way, you can't see the alt-text for StaffCode on mobile.
+
 const REFERENCE_CSS = css`
   .sc-reference {
     padding: 20px 10px;

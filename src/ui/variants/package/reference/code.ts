@@ -24,6 +24,19 @@ const CODE_ALIASES: Record<RecordKey<Code & Word>, Array<Code & Word>> = {
     "nt4": ["nt", "nt4"] as Array<Code & Word>,
 }
 
+// TODO: "x dbsh" should be "X dbsh" (uppercase X).
+
+// TODO: Give only one Sagispeak code per symbol.
+//  The shortest one, or if they are the same length, the one most likely to be pronounceable by English-speakers.
+//  "sl" rather than "sr", "ch" rather than "kh". You might reorder them as required in your original source, so that
+//  StaffCode can just use the first one.
+//  - I think I've already got a primary Sagispeak map and a secondary one,
+//  So I could exclude the secondary map from the reference code cell aliases.
+
+// TODO: I think /||\ and \!!/ should be the click-to-insert (ungreyed) codes, despite being longer than shr and flt.
+//  Likewise @. and l., not i and o.
+//  Can't argue with that. I'll try to figure out the least obnoxious way to realize that.
+
 const setupCodeCell = (codeCell: HTMLTableCellElement, unicode: Unicode & Word, code: Code & Word): void => {
     const aliases = UNICODE_ALIASES[unicode] || CODE_ALIASES[code]
     if (isUndefined(aliases)) {

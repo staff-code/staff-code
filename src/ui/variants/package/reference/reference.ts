@@ -6,8 +6,14 @@ import {handleReferenceClick} from "./handlers"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
 
+// TODO: We need a border around the scrolling area,
+//  And the scroll bar should only be as high as that area
+//  (although the latter is not important, if this is difficult).
+
 const buildReference = (): HTMLDivElement => {
     loadGoogleFont("Roboto Mono" as FontName)
+
+    // TODO: Alright, I'll try Lucida Sans then.
     loadGoogleFont("Roboto" as FontName)
 
     const reference = document.createElement("div")

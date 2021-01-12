@@ -248,6 +248,9 @@ const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & 
     "l.": SMuFL_MAP["acsgfrtndn"],
 } as Record<Code & Word, Unicode & Word>
 
+// TODO: And "shr" is just wrong. It has to be "shp". This has nothing to do with Aus vs US pronunciation.
+//  Let's just say that the rule for 3 letter abbreviations is: first letter, next consonant, last consonant.
+
 const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "nai": SMuFL_MAP["acsg5V7klup"],
     "nao": SMuFL_MAP["acsg5V7kldn"],

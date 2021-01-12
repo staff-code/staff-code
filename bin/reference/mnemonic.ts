@@ -12,6 +12,11 @@ const rejoinNumbersAndOrdinalSuffixes = (mnemonic: Mnemonic): Mnemonic =>
 
 const ORDINAL_SUFFIXES = ["st", "nd", "rd"]
 
+// TODO: Yes. At the beginning, I knew I wouldn't want to have the fix for VIbrato and 23&29 in two places each,
+//  So I reused the existing method. But it comes along with stuff I don't need.
+//  I just need to split that method up and only use the part of it these two modules both want
+//  (i.e., bolding mnemonics requires no number munging). I'll sort it out tomorrow. Thanks for the nudge.
+
 const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
     const code = computeSmuflCode(glyphName)
     const glyphNameWords = separateWordsBySpaces(fixSmuflCapitalizationIssue(updateEhejipn(glyphName)))
