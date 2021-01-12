@@ -3,9 +3,12 @@ import {Code, Unicode} from "../../src"
 import {computeSmuflCode, fixSmuflCapitalizationIssue, separateWordsBySpaces, updateEhejipn} from "../codes"
 import {Mnemonic} from "./types"
 
-const rejoinNumbers = (mnemonic: Mnemonic): Mnemonic =>
+const rejoinNumbersAndOrdinalSuffixes = (mnemonic: Mnemonic): Mnemonic =>
     mnemonic
-        .replace(/(<b>\d+<\/b>)\s+(?=<b>\d+<\/b>)/g, "$1") as Mnemonic
+        .replace(/(<b>\d+<\/b>)\s+(?=<b>\d+<\/b>)/g, "$1")
+        .replace(/(\d+<\/b>)\s+st(\s|$)/g, "$1st$2")
+        .replace(/(\d+<\/b>)\s+nd(\s|$)/g, "$1nd$2")
+        .replace(/(\d+<\/b>)\s+th(\s|$)/g, "$1th$2") as Mnemonic
 
 const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
     const code = computeSmuflCode(glyphName)
@@ -33,7 +36,7 @@ const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
         mnemonicWords.push(mnemonicWord)
     })
 
-    return rejoinNumbers(joinWords(...mnemonicWords)) as Mnemonic
+    return rejoinNumbersAndOrdinalSuffixes(joinWords(...mnemonicWords)) as Mnemonic
 }
 
 export {
