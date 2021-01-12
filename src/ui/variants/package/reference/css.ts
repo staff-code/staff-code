@@ -2,7 +2,7 @@ import {css} from "@sagittal/general"
 
 const REFERENCE_CSS = css`
   .sc-reference {
-    padding: 10px;
+    padding: 20px 10px;
   }
 
   h3 {

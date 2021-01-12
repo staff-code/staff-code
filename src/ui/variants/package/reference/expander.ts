@@ -27,7 +27,7 @@ const buildReferenceExpander = (): HTMLDetailsElement => {
 
     const topLink = document.createElement("a")
     topLink.id = "top"
-    summary.appendChild(topLink)
+    referenceExpander.appendChild(topLink)
 
     if (initialReferenceOpen) {
         import("./reference")

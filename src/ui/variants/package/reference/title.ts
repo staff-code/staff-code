@@ -29,7 +29,7 @@ const buildSectionTitle = (
     sectionParenthetical.textContent = parenthetical
     sectionSmuflLink.appendChild(sectionParenthetical)
 
-    const backToTopLink = document.createElement("a") // todo: no loner workinger
+    const backToTopLink = document.createElement("a")
     backToTopLink.href = "#top"
     backToTopLink.textContent = "↑ back to top"
     visibleSectionTitleElementsWrapper.appendChild(backToTopLink)
