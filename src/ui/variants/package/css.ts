@@ -11,6 +11,10 @@ const applyCss = (): void => {
         ${INPUT_CSS}
         ${REFERENCE_CSS}
         ${SPINNER_CSS}
+        
+        body {
+          background-color: #f8f8f8;
+        }
     `
 
     const style = document.createElement("style")

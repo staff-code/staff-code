@@ -30,6 +30,7 @@ const REFERENCE_CSS = css`
   }
 
   .sc-reference-wrapper {
+    background: white;
     width: 100%;
     max-width: 600px;
     border-top: 1px solid;
