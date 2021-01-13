@@ -10,10 +10,11 @@ ston Gcl ; d5 /|\ ; nt ;
 
 ## use
 
-StaffCode can be used in two ways:
+StaffCode can be used in three ways:
 
 - on `phpBB` forums with `BBCode`
-- an `npm` package, e.g. in a web application
+- as an `npm` package, e.g. installed in a web application
+- with the StaffCode web app, running at `https://staffcode.org`.
 
 ### BBCode
 
@@ -25,10 +26,10 @@ StaffCode can be used in two ways:
 npm install staff-code
 ```
 
-Recommended usage:
+Example usage:
 
 ```ts
-import {setupPackageRoot, loadFontsThen, StaffCodeOptions} from "staff-code"
+import { setupPackageRoot, loadFontsThen, StaffCodeOptions } from "staff-code"
 
 const callback = (inputSentence: string, unicodeSentence: string): any => {
     console.warn("user input:", inputSentence, "output unicode:", unicodeSentence)
@@ -67,35 +68,23 @@ The download button, reference, copy link button, size spinner, line spinner, an
 available in the bbCode variant.
 
 The copy link button only writes the query params to the URL bar if it detects that it's running in the StaffCode web
-app.
+app. It still copies the link to the web app to your clipboard in either case.
 
 ## development
 
-`npm run deploy` builds both variants of StaffCode.
+After cloning, don't forget to `cd` into `dist` and `git checkout main`. There's probably a way I could do a recursive
+submodule initiation, like I did on other big projects, but I'm too lazy.
 
-It uses `webpack` to bundle the `staffCode.js` file to be used for `BBCode` into `dist/bbCode`.
+`npm run deploy` builds both the `bbCode` and `package` variants of StaffCode, as well as the web app.
+
+It uses `webpack` to bundle the `staffCode.js` file to be used for `BBCode` into `dist/app/bbCode`. Yes, the bbCode
+variant is served via the web app at `https://staffcode.org/staffCode.js`.
 
 It uses `tsc` to transpile the library for `npm` into `dist/package`.
 
-Use `npm start` to run a local server with a minimal demo of the package variant of StaffCode, for QA purposes.
-
-The BBCode variant is distributed via the StaffCode web app at `https://staffcode.org/staffCode.js`. The
-Sagittal web app (which includes the StaffCode web app) uses a `webpack` plugin to copy the contents of `dist/bbCode`
-from its copy of `staff-code` in its `node_modules` into its own `dist`.
+Use `npm start` to run a local version of the web app.
 
 You may need to install `wget` in order to deploy, since it is used to update the SMuFL and Bravura dependencies
-in `vendor`. I used `choco install wget` while running my terminal as an administrator.
-
-After deploying, you can use the `npm run update-staff-code` script in the `scripts/forum` script group to update the
-Sagittal forum.
-
-And to update the Sagittal web app, in the `app` repo, run `npm upgrade` and confirm you pull in the npm package you
-just published. Then run `npm run deploy` there (which in turn cd's into its `dist` folder which is actually a submodule
-repo, the GitHub pages one, for `https://staffcode.org`, for which committing and pushing is equivalent to
-deploying the new static app) (don't forget to commit afterwards).
-
-# TODO: add more information about how the bin/ and vendor/ stuff works
-
-# TODO: and also how it's interesting that dist/ has app, bbCode, and package, and the app contains both bbCode and package. actually maybe you don't need bbCode separate anymore, since there's going to be no copying it in.
-
-# TODO: and qa can go to just being the app, and update QA stuff in readme etc.
+in `vendor`. I used `choco install wget` while running my terminal as an administrator. This updating occurs as a first
+step of each deploy, so the deployed app, package, and bbCode variant all stay up-to-date with SMuFL and Bravura. The
+code in `bin` is designed to adapt the data from these sources for quick use by the rest of StaffCode's code.
