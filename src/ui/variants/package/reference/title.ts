@@ -18,6 +18,9 @@ const buildSectionTitle = (
     const visibleSectionTitleElementsWrapper = document.createElement("div")
     sectionTitle.appendChild(visibleSectionTitleElementsWrapper)
 
+    // TODO: I like your idea of smaller links that actually tell you where they will go, as in "SMuFL reference".
+    //  These could look similar to, and be alongside, the links that say "Back to top".
+
     const sectionSmuflLink = document.createElement("a")
     sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/gitbook/tables/${sectionId}`
     sectionSmuflLink.target = "_blank"
