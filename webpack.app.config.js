@@ -2,8 +2,9 @@ const path = require("path")
 const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin")
-const common = require("./webpack.common.config")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 const IgnoreNotFoundExportPlugin = require("ignore-not-found-export-webpack-plugin")
+const common = require("./webpack.common.config")
 
 module.exports = {
     ...common,
@@ -22,5 +23,10 @@ module.exports = {
         new FaviconsWebpackPlugin("./assets/favicon.png"),
         new webpack.ProvidePlugin({process: "process/browser"}),
         new IgnoreNotFoundExportPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {from: "assets/fonts", to: "assets/fonts"},
+            ],
+        }),
     ],
 }

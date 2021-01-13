@@ -30,8 +30,6 @@ rm -rf dist/bbCode/* > /dev/null 2>&1 || true
 
 mkdir -p dist/package/assets/fonts
 cp assets/fonts/* dist/package/assets/fonts
-mkdir -p dist/app/assets/fonts
-cp assets/fonts/* dist/app/assets/fonts
 cp assets/fonts/* dist/bbCode
 
 # publish bbCode as GitHub release
