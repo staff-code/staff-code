@@ -14,11 +14,11 @@ const COPY_LINK_CSS = css`
     outline: none;
     position: relative;
   }
-  
+
   .sc-copy-link:hover {
     background-color: #035FC8;
   }
-  
+
   .sc-copy-link:active {
     background-color: #0366CC;
   }
@@ -26,7 +26,7 @@ const COPY_LINK_CSS = css`
   .sc-copy-link div {
     display: none;
   }
-  
+
   .sc-copy-link:active div {
     display: block;
     position: absolute;

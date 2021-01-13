@@ -23,7 +23,8 @@ const UNICODE_ALIASES = ALIASES_ENTRIES.reduce(
         unicodeAliases[unicode].push(code)
         sort(unicodeAliases[unicode], {by: computeKeyPath("length")})
 
-        // TODO: I think /||\ and \!!/ should be the click-to-insert (ungreyed) codes,
+        // TODO: FEATURE IMPROVE, READY TO GO: EXCEPTIONAL ALIAS ORDERING
+        //  I think /||\ and \!!/ should be the click-to-insert (ungreyed) codes,
         //  Despite being longer than shr and flt.
         //  Likewise @. and l., not i and o.
         //  Can't argue with that. I'll try to figure out the least obnoxious way to realize that.
@@ -38,7 +39,8 @@ const CODE_ALIASES: Record<RecordKey<Code & Word>, Array<Code & Word>> = {
     "nt4": ["nt", "nt4"] as Array<Code & Word>,
 }
 
-// TODO: Fix Sagispeak, "sl" rather than "sr", "ch" rather than "kh". Also in Sagittal-SMuFL-Map.
+// TODO: FEATURE IMPROVE, READY TO GO: SAGISPEAK CORRECTIONS
+//  Fix Sagispeak, "sl" rather than "sr", "ch" rather than "kh". Also in Sagittal-SMuFL-Map.
 
 const setupCodeCell = (codeCell: HTMLTableCellElement, unicode: Unicode & Word, code: Code & Word): void => {
     const aliases = UNICODE_ALIASES[unicode] || CODE_ALIASES[code]

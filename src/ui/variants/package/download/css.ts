@@ -13,15 +13,15 @@ const DOWNLOAD_CSS = css`
     border-radius: 3px;
     outline: none;
   }
-  
+
   .sc-download:hover {
     background-color: #2C974B;
   }
-  
+
   .sc-download:active {
     background-color: #2EA44F;
   }
-  
+
   .sc-download svg {
     height: 1em;
     vertical-align: middle;

@@ -14,7 +14,7 @@ import {
 import {SMuFL_MAP} from "./smufl"
 import {Code, LowercasedCode, Unicode} from "./types"
 
-// See: http://forum.sagittal.org/viewtopic.php?f=17&t=436&p=3172#word-types
+// See: https://forum.sagittal.org/viewtopic.php?f=17&t=436&p=3172#word-types
 
 // Base glyphs means not aliased glyphs.
 const BASE_GLYPH_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {

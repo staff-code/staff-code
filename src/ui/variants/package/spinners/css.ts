@@ -19,7 +19,7 @@ const SPINNER_CSS = css`
     border-radius: 3px;
     padding: 2px;
   }
-  
+
   .sc-spinner input:focus {
     outline-color: #88bbff;
   }

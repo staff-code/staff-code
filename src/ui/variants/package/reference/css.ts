@@ -105,7 +105,7 @@ const REFERENCE_CSS = css`
     white-space: nowrap;
     padding-left: 10px;
   }
-  
+
   .sc-section-explanation {
     padding: 10px 0;
   }
