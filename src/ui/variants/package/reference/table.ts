@@ -12,7 +12,7 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
         const row = table.insertRow()
 
         const unicodeCell = row.insertCell()
-        unicodeCell.textContent = unicode
+        unicodeCell.innerHTML = `${unicode}&#xfe0e`
         row.appendChild(unicodeCell)
 
         const codeCell = row.insertCell()
