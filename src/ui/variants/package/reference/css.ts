@@ -36,11 +36,7 @@ const REFERENCE_CSS = css`
   .sc-reference-wrapper {
     background: white;
     width: 100%;
-    max-width: 600px;
-    border-top: 1px solid #bbbbbb;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
-    border-bottom: 1px solid transparent;
+    max-width: 300px;
   }
 
   .sc-reference {
@@ -54,18 +50,15 @@ const REFERENCE_CSS = css`
   }
 
   .sc-reference-wrapper.open {
-    border: 1px solid #bbbbbb;
-    border-radius: 3px;
-  }
-
-  .sc-reference-wrapper.open .sc-reference-banner {
-    border-bottom: 1px solid #bbbbbb;
+    max-width: 600px;
   }
 
   .sc-reference-wrapper.open .sc-reference {
     height: 432px;
     padding: 20px 10px;
     overflow-y: auto;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
   }
 
   .sc-reference-wrapper.open .sc-reference-expander img {
