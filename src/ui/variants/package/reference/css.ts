@@ -91,33 +91,20 @@ const REFERENCE_CSS = css`
     display: block;
   }
 
-  .sc-section-title div {
+  .sc-section-intro {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  /* title link to SMuFL */
-
-  .sc-section-title a:nth-child(1) {
-    text-decoration: inherit;
-    color: inherit;
+  .sc-section-intro a {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 10px;
   }
-
-  .sc-section-title:hover a:nth-child(1) h3 {
-    text-decoration: underline;
-    color: blue;
-  }
-
-  /* back to top link */
-
-  .sc-section-title a:nth-child(2) {
-    margin-top: 20px;
-    min-width: 100px;
-  }
-
-  .sc-section-title h3 {
-    margin-top: 20px;
+  
+  .sc-section-explanation {
+    padding: 10px 0;
   }
 
   table {

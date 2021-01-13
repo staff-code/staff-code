@@ -1,6 +1,51 @@
 import {Id, Name} from "@sagittal/general"
 import {Explanation, Parenthetical, Section} from "../../../../../bin"
 
+const buildSectionIntroLeftHalf = (
+    sectionId: Id<Section>,
+    sectionName: Name<Section>,
+    parenthetical: Parenthetical,
+    sectionLink: string,
+): HTMLDivElement => {
+    const sectionIntroLeftHalf = document.createElement("div")
+
+    const sectionHeading = document.createElement("h3")
+    sectionHeading.textContent = sectionName
+    sectionIntroLeftHalf.appendChild(sectionHeading)
+
+    const sectionParenthetical = document.createElement("span")
+    sectionParenthetical.textContent = parenthetical
+    sectionIntroLeftHalf.appendChild(sectionParenthetical)
+
+    const sectionSmuflLink = document.createElement("a")
+    sectionSmuflLink.textContent = "SMuFL reference"
+    sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/gitbook/tables/${sectionId}`
+    sectionSmuflLink.target = "_blank"
+    sectionIntroLeftHalf.appendChild(sectionSmuflLink)
+
+    return sectionIntroLeftHalf
+}
+
+const buildSectionIntro = (
+    sectionId: Id<Section>,
+    sectionName: Name<Section>,
+    parenthetical: Parenthetical,
+    sectionLink: string,
+): HTMLDivElement => {
+    const sectionIntro = document.createElement("div")
+    sectionIntro.classList.add("sc-section-intro")
+
+    const sectionIntroLeftHalf = buildSectionIntroLeftHalf(sectionId, sectionName, parenthetical, sectionLink)
+    sectionIntro.appendChild(sectionIntroLeftHalf)
+
+    const backToTopLink = document.createElement("a")
+    backToTopLink.href = "#top"
+    backToTopLink.textContent = "↑ back to top"
+    sectionIntro.appendChild(backToTopLink)
+
+    return sectionIntro
+}
+
 const buildSectionTitle = (
     sectionId: Id<Section>,
     sectionName: Name<Section>,
@@ -9,35 +54,16 @@ const buildSectionTitle = (
     explanation: Explanation,
 ): HTMLDivElement => {
     const sectionTitle = document.createElement("div")
-    sectionTitle.classList.add("sc-section-title")
 
     const sectionAnchor = document.createElement("a")
     sectionAnchor.id = sectionId
     sectionTitle.appendChild(sectionAnchor)
 
-    const visibleSectionTitleElementsWrapper = document.createElement("div")
-    sectionTitle.appendChild(visibleSectionTitleElementsWrapper)
+    const sectionIntro = buildSectionIntro(sectionId, sectionName, parenthetical, sectionLink)
+    sectionTitle.appendChild(sectionIntro)
 
-    // TODO: I like your idea of smaller links that actually tell you where they will go, as in "SMuFL reference".
-    //  These could look similar to, and be alongside, the links that say "Back to top".
-
-    const sectionSmuflLink = document.createElement("a")
-    sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/gitbook/tables/${sectionId}`
-    sectionSmuflLink.target = "_blank"
-    visibleSectionTitleElementsWrapper.appendChild(sectionSmuflLink)
-    const sectionHeading = document.createElement("h3")
-    sectionHeading.textContent = sectionName
-    sectionSmuflLink.appendChild(sectionHeading)
-    const sectionParenthetical = document.createElement("span")
-    sectionParenthetical.textContent = parenthetical
-    sectionSmuflLink.appendChild(sectionParenthetical)
-
-    const backToTopLink = document.createElement("a")
-    backToTopLink.href = "#top"
-    backToTopLink.textContent = "↑ back to top"
-    visibleSectionTitleElementsWrapper.appendChild(backToTopLink)
-
-    const explanationDiv = document.createElement("span")
+    const explanationDiv = document.createElement("div")
+    explanationDiv.classList.add("sc-section-explanation")
     explanationDiv.innerHTML = explanation
     sectionTitle.appendChild(explanationDiv)
 
