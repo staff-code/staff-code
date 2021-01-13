@@ -23,6 +23,12 @@ const UNICODE_ALIASES = ALIASES_ENTRIES.reduce(
         unicodeAliases[unicode].push(code)
         sort(unicodeAliases[unicode], {by: computeKeyPath("length")})
 
+        // TODO: I think /||\ and \!!/ should be the click-to-insert (ungreyed) codes,
+        //  Despite being longer than shr and flt.
+        //  Likewise @. and l., not i and o.
+        //  Can't argue with that. I'll try to figure out the least obnoxious way to realize that.
+        //  Just make it so that if any code has no alphabetical characters, it definitely comes first
+
         return unicodeAliases
     },
     {} as Record<RecordKey<Unicode & Word>, Array<Code & Word>>,
@@ -33,10 +39,6 @@ const CODE_ALIASES: Record<RecordKey<Code & Word>, Array<Code & Word>> = {
 }
 
 // TODO: Fix Sagispeak, "sl" rather than "sr", "ch" rather than "kh". Also in Sagittal-SMuFL-Map.
-
-// TODO: I think /||\ and \!!/ should be the click-to-insert (ungreyed) codes, despite being longer than shr and flt.
-//  Likewise @. and l., not i and o.
-//  Can't argue with that. I'll try to figure out the least obnoxious way to realize that.
 
 const setupCodeCell = (codeCell: HTMLTableCellElement, unicode: Unicode & Word, code: Code & Word): void => {
     const aliases = UNICODE_ALIASES[unicode] || CODE_ALIASES[code]
