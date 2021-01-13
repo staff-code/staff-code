@@ -97,7 +97,7 @@ const REFERENCE_CSS = css`
     text-align: right;
   }
 
-  .sc-reference-wrapper.open .sc-title:hover .sc-about {
+  .sc-title:hover .sc-about {
     display: block;
   }
 
