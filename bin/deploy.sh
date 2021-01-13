@@ -24,31 +24,54 @@ NEW_VERSION=$(< package.json grep version | head -1 | awk -F: '{ print $2 }' | s
 
 rm -rf dist/package/* > /dev/null 2>&1 || true
 rm -rf dist/app/* > /dev/null 2>&1 || true
+rm -rf dist/bbCode/* > /dev/null 2>&1 || true
 
 # copy fonts
 
 mkdir -p dist/package/assets/fonts
-cp -r assets/fonts/* dist/package/assets/fonts
+cp assets/fonts/* dist/package/assets/fonts
 mkdir -p dist/app/assets/fonts
-cp -r assets/fonts/* dist/app/assets/fonts
+cp assets/fonts/* dist/app/assets/fonts
+cp assets/fonts/* dist/bbCode
 
-# include BBCode variant materials in dist/
+# publish bbCode as GitHub release
 
 npm run build-bbcode
 
-cp src/ui/variants/bbCode/acp/README.txt dist/app/bbCode
+cp src/ui/variants/bbCode/acp/README.txt dist/bbCode
 STAFF_BBCODE_USAGE=$(<src/ui/variants/bbCode/acp/staff/bbCodeUsage.txt)
-sed -i "s@{{STAFF_BBCODE_USAGE}}@${STAFF_BBCODE_USAGE}@g" dist/app/bbCode/README.txt
+sed -i "s@{{STAFF_BBCODE_USAGE}}@${STAFF_BBCODE_USAGE}@g" dist/bbCode/README.txt
 STAFF_HTML_REPLACEMENT=$(<src/ui/variants/bbCode/acp/staff/htmlReplacement.html)
-sed -i "s@{{STAFF_HTML_REPLACEMENT}}@${STAFF_HTML_REPLACEMENT//$'\n'/'\n'}@g" dist/app/bbCode/README.txt
+sed -i "s@{{STAFF_HTML_REPLACEMENT}}@${STAFF_HTML_REPLACEMENT//$'\n'/'\n'}@g" dist/bbCode/README.txt
 STAFF_HELP_LINE=$(<src/ui/variants/bbCode/acp/staff/helpLine.txt)
-sed -i "s@{{STAFF_HELP_LINE}}@${STAFF_HELP_LINE}@g" dist/app/bbCode/README.txt
+sed -i "s@{{STAFF_HELP_LINE}}@${STAFF_HELP_LINE}@g" dist/bbCode/README.txt
 SC_BBCODE_USAGE=$(<src/ui/variants/bbCode/acp/sc/bbCodeUsage.txt)
-sed -i "s@{{SC_BBCODE_USAGE}}@${SC_BBCODE_USAGE}@g" dist/app/bbCode/README.txt
+sed -i "s@{{SC_BBCODE_USAGE}}@${SC_BBCODE_USAGE}@g" dist/bbCode/README.txt
 SC_HTML_REPLACEMENT=$(<src/ui/variants/bbCode/acp/sc/htmlReplacement.html)
-sed -i "s@{{SC_HTML_REPLACEMENT}}@${SC_HTML_REPLACEMENT//$'\n'/'\n'}@g" dist/app/bbCode/README.txt
+sed -i "s@{{SC_HTML_REPLACEMENT}}@${SC_HTML_REPLACEMENT//$'\n'/'\n'}@g" dist/bbCode/README.txt
 SC_HELP_LINE=$(<src/ui/variants/bbCode/acp/sc/helpLine.txt)
-sed -i "s@{{SC_HELP_LINE}}@${SC_HELP_LINE}@g" dist/app/bbCode/README.txt
+sed -i "s@{{SC_HELP_LINE}}@${SC_HELP_LINE}@g" dist/bbCode/README.txt
+
+pushd dist/bbCode
+  7z a StaffCodeBBCode.zip .
+popd
+
+UPLOAD_URL=$(curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
+  -s \
+  -X POST \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/repos/staff-code/staff-code/releases \
+  -d "{\"tag_name\":\"v${NEW_VERSION}-beta\"}" \
+  | jq -r '.upload_url'
+)
+UPLOAD_URL=${UPLOAD_URL/"{?name,label}"/"?name=StaffCodeBBCode.zip"}
+
+curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
+-X POST \
+--data-binary @"dist/bbCode/StaffCodeBBCode.zip" \
+-H "Accept: application/vnd.github.v3+json" \
+-H "Content-Type: application/octet-stream" \
+"${UPLOAD_URL}"
 
 # publish package variant
 
@@ -66,4 +89,4 @@ pushd dist/app || exit
   git push
 popd || exit
 
-echo Package and app deployed. Please commit, and if necessary, update the Sagittal forum config for bbCodes.
+echo Package published, bbCode released, and app deployed. Please commit, and if necessary, update the Sagittal forum config for bbCodes using the scripts-forum repo.

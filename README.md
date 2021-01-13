@@ -12,13 +12,14 @@ ston Gcl ; d5 /|\ ; nt ;
 
 StaffCode can be used in three ways:
 
-- on `phpBB` forums with `BBCode`
-- as an `npm` package, e.g. installed in a web application
-- with the StaffCode web app, running at `https://staffcode.org`.
+1) on `phpBB` forums with `BBCode`,
+2) as an `npm` package, e.g. installed in a web application,
+3) or with the StaffCode web app, running at `https://staffcode.org`.
 
 ### BBCode
 
-- Follow the instructions at `https://staffcode.org/bbCode/README.txt`.
+- Download the `.zip` file from GitHub release page.
+- Follow the instructions in the `README.txt` file contained there.
 
 ### package
 
@@ -29,7 +30,7 @@ npm install staff-code
 Example usage:
 
 ```ts
-import { setupPackageRoot, loadFontsThen, StaffCodeOptions } from "staff-code"
+import {setupPackageRoot, loadFontsThen, StaffCodeOptions} from "staff-code"
 
 const callback = (inputSentence: string, unicodeSentence: string): any => {
     console.warn("user input:", inputSentence, "output unicode:", unicodeSentence)
@@ -70,21 +71,29 @@ available in the bbCode variant.
 The copy link button only writes the query params to the URL bar if it detects that it's running in the StaffCode web
 app. It still copies the link to the web app to your clipboard in either case.
 
+### app
+
+Visit `https://staffcode.org` and have fun!
+
 ## development
 
 After cloning, don't forget to `cd` into `dist` and `git checkout main`. There's probably a way I could do a recursive
 submodule initiation, like I did on other big projects, but I'm too lazy.
 
-`npm run deploy` builds both the `bbCode` and `package` variants of StaffCode, as well as the web app.
-
-It uses `webpack` to bundle the `staffCode.js` file to be used for `BBCode` into `dist/app/bbCode`. Yes, the bbCode
-variant is served via the web app at `https://staffcode.org/staffCode.js`.
-
-It uses `tsc` to transpile the library for `npm` into `dist/package`.
-
 Use `npm start` to run a local version of the web app.
 
-You may need to install `wget` in order to deploy, since it is used to update the SMuFL and Bravura dependencies
-in `vendor`. I used `choco install wget` while running my terminal as an administrator. This updating occurs as a first
-step of each deploy, so the deployed app, package, and bbCode variant all stay up-to-date with SMuFL and Bravura. The
-code in `bin` is designed to adapt the data from these sources for quick use by the rest of StaffCode's code.
+## deployment
+
+`npm run deploy` builds both the `bbCode` and `package` variants of StaffCode, as well as the web `app`.
+
+The web `app` and the `bbCode` variant are bundled by `webpack`, while `tsc` is used to simply transpile the `package`.
+
+The BBCode variant is published to GitHub as a release, with the contents of the `dist/bbCode` folder archived and
+uploaded as an asset thereof.
+
+You may need to install `wget` and `jq` in order to deploy. Chocolatey is good for this sort of thing. I
+used `choco install wget` while running my terminal as an administrator.
+
+Additional dependencies (besides `node_modules`) are located in the `vendor` directory. These are on key JSON data files
+from Bravura and SMuFL. As a first step of each deploy, these dependencies are updated. The code in the `bin` directory
+then processes this data into a form where it can be consumed by StaffCode's `src` code.
