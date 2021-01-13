@@ -85,6 +85,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     }
 
     const display = buildDisplay({font, initialLine, inline, initialSize})
+    display.style.background = "white"
     components.display = display
     root.appendChild(display)
 

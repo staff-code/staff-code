@@ -17,7 +17,6 @@ const buildDisplay = ({font, initialLine, inline, initialSize}: DisplayOptions):
     }
     display.style.fontFamily = font
     display.style.whiteSpace = "pre"
-    display.style.background = "white"
     display.classList.add("sc-display")
 
     return display
