@@ -6,6 +6,10 @@ const buildCopyLinkButton = (): HTMLButtonElement => {
     copyLinkButton.classList.add("sc-copy-link")
     copyLinkButton.addEventListener("click", handleCopyLinkClick)
 
+    const copyLinkMessage = document.createElement("div")
+    copyLinkMessage.textContent = "Link copied!"
+    copyLinkButton.appendChild(copyLinkMessage)
+
     return copyLinkButton
 }
 

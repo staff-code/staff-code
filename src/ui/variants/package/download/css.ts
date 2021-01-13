@@ -6,9 +6,23 @@ const DOWNLOAD_CSS = css`
     cursor: pointer;
     font-family: sans-serif;
     font-size: 0.75em;
+    border: none;
+    color: white;
+    background-color: #2EA44F;
+    padding: 3px 6px;
+    border-radius: 3px;
+    outline: none;
   }
-
-  .sc-download img {
+  
+  .sc-download:hover {
+    background-color: #2C974B;
+  }
+  
+  .sc-download:active {
+    background-color: #2EA44F;
+  }
+  
+  .sc-download svg {
     height: 1em;
     vertical-align: middle;
   }

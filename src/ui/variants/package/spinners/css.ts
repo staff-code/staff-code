@@ -16,6 +16,10 @@ const SPINNER_CSS = css`
   .sc-spinner input {
     width: 3em;
   }
+  
+  .sc-spinner input:focus {
+    outline-color: #88bbff;
+  }
 `
 
 export {

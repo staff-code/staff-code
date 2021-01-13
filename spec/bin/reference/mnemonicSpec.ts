@@ -9,8 +9,6 @@ describe("computeMnemonic", (): void => {
 
         const actual = computeMnemonic(glyphName)
 
-        // TODO: try underline instead of bold
-
         // Code: sydvln
         const expected = "<u>s</u><u>y</u>stem <u>d</u>i<u>v</u>ider <u>l</u>o<u>n</u>g" as Mnemonic
         expect(actual).toBe(expected)
