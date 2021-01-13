@@ -24,7 +24,7 @@ const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
         let codeCharsAlreadyMatchedByThisMnemonicWord = 0 as Count<Code & Char>
         splitWord(caseModifiedGlyphNameWord).forEach((glyphNameChar: Name<Unicode> & Char): void => {
             if (shouldBold({glyphNameChar, code, codeIndex, codeCharsAlreadyMatchedByThisMnemonicWord})) {
-                mnemonicWord = `${mnemonicWord}<b>${glyphNameChar}</b>` as Mnemonic & Word
+                mnemonicWord = `${mnemonicWord}<u>${glyphNameChar}</u>` as Mnemonic & Word
                 codeIndex = increment(codeIndex)
                 if (shouldCountAgainstBoldedCharAllotmentForWord(glyphNameChar, caseModifiedGlyphNameWord)) {
                     codeCharsAlreadyMatchedByThisMnemonicWord = increment(codeCharsAlreadyMatchedByThisMnemonicWord)

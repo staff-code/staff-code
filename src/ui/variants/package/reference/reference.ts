@@ -8,7 +8,6 @@ import {appendSection} from "./section"
 
 const buildReference = (): HTMLDivElement => {
     loadGoogleFont("Roboto Mono" as FontName)
-    loadGoogleFont("Lucida Sans" as FontName)
 
     const reference = document.createElement("div")
     reference.classList.add("sc-reference")

@@ -9,8 +9,10 @@ describe("computeMnemonic", (): void => {
 
         const actual = computeMnemonic(glyphName)
 
+        // TODO: try underline instead of bold
+
         // Code: sydvln
-        const expected = "<b>s</b><b>y</b>stem <b>d</b>i<b>v</b>ider <b>l</b>o<b>n</b>g" as Mnemonic
+        const expected = "<u>s</u><u>y</u>stem <u>d</u>i<u>v</u>ider <u>l</u>o<u>n</u>g" as Mnemonic
         expect(actual).toBe(expected)
     })
 
@@ -20,7 +22,7 @@ describe("computeMnemonic", (): void => {
         const actual = computeMnemonic(glyphName)
 
         // Code: Gcl
-        const expected = "<b>G</b> <b>c</b><b>l</b>ef" as Mnemonic
+        const expected = "<u>G</u> <u>c</u><u>l</u>ef" as Mnemonic
         expect(actual).toBe(expected)
     })
 
@@ -30,7 +32,7 @@ describe("computeMnemonic", (): void => {
         const actual = computeMnemonic(glyphName)
 
         // Code: acsgfl11Ldn
-        const expected = "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>f</b><b>l</b>at <b>1</b><b>1</b><b>L</b> <b>d</b>ow<b>n</b>" as Mnemonic
+        const expected = "<u>a</u><u>c</u>c <u>s</u>a<u>g</u>ittal <u>f</u><u>l</u>at <u>1</u><u>1</u><u>L</u> <u>d</u>ow<u>n</u>" as Mnemonic
         expect(actual).toBe(expected)
     })
 
@@ -40,7 +42,7 @@ describe("computeMnemonic", (): void => {
         const actual = computeMnemonic(glyphName)
 
         // Code: acsg143cmup
-        const expected = "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>1</b><b>4</b><b>3</b> <b>c</b>o<b>m</b>ma <b>u</b><b>p</b>" as Mnemonic
+        const expected = "<u>a</u><u>c</u>c <u>s</u>a<u>g</u>ittal <u>1</u><u>4</u><u>3</u> <u>c</u>o<u>m</u>ma <u>u</u><u>p</u>" as Mnemonic
         expect(actual).toBe(expected)
     })
 
@@ -50,7 +52,7 @@ describe("computeMnemonic", (): void => {
         const actual = computeMnemonic(glyphName)
 
         // Code: nt8up
-        const expected = "<b>n</b>o<b>t</b>e <b>8</b>th <b>u</b><b>p</b>" as Mnemonic
+        const expected = "<u>n</u>o<u>t</u>e <u>8</u>th <u>u</u><u>p</u>" as Mnemonic
         expect(actual).toBe(expected)
     })
 
@@ -60,7 +62,7 @@ describe("computeMnemonic", (): void => {
         const actual = computeMnemonic(glyphName)
 
         // Code: fl32dn
-        const expected = "<b>f</b><b>l</b>ag <b>3</b><b>2</b>nd <b>d</b>ow<b>n</b>"
+        const expected = "<u>f</u><u>l</u>ag <u>3</u><u>2</u>nd <u>d</u>ow<u>n</u>"
         expect(actual).toBe(expected)
     })
 
@@ -70,7 +72,7 @@ describe("computeMnemonic", (): void => {
         const actual = computeMnemonic(glyphName)
 
         // Code: Gcl8vbCcl
-        const expected = "<b>G</b> <b>c</b><b>l</b>ef <b>8</b><b>v</b><b>b</b> <b>C</b> <b>c</b><b>l</b>ef"
+        const expected = "<u>G</u> <u>c</u><u>l</u>ef <u>8</u><u>v</u><u>b</u> <u>C</u> <u>c</u><u>l</u>ef"
         expect(actual).toBe(expected)
     })
 
@@ -80,7 +82,7 @@ describe("computeMnemonic", (): void => {
         const actual = computeMnemonic(glyphName)
 
         // Code: acsg5V7klup
-        const expected = "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>5</b><b>v</b><b>7</b> <b>k</b><b>l</b>eisma <b>u</b><b>p</b>"
+        const expected = "<u>a</u><u>c</u>c <u>s</u>a<u>g</u>ittal <u>5</u><u>v</u><u>7</u> <u>k</u><u>l</u>eisma <u>u</u><u>p</u>"
         expect(actual).toBe(expected)
     })
 
@@ -90,7 +92,7 @@ describe("computeMnemonic", (): void => {
         const actual = computeMnemonic(glyphName)
 
         // Code: acsgsh25Sdn
-        const expected = "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>s</b><b>h</b>arp <b>2</b><b>5</b><b>S</b> <b>d</b>ow<b>n</b>"
+        const expected = "<u>a</u><u>c</u>c <u>s</u>a<u>g</u>ittal <u>s</u><u>h</u>arp <u>2</u><u>5</u><u>S</u> <u>d</u>ow<u>n</u>"
         expect(actual).toBe(expected)
     })
 
@@ -100,7 +102,7 @@ describe("computeMnemonic", (): void => {
         const actual = computeMnemonic(glyphName)
 
         // Code: acsgsh5V19Cup
-        const expected = "<b>a</b><b>c</b>c <b>s</b>a<b>g</b>ittal <b>s</b><b>h</b>arp <b>5</b><b>v</b><b>1</b><b>9</b><b>C</b> <b>u</b><b>p</b>"
+        const expected = "<u>a</u><u>c</u>c <u>s</u>a<u>g</u>ittal <u>s</u><u>h</u>arp <u>5</u><u>v</u><u>1</u><u>9</u><u>C</u> <u>u</u><u>p</u>"
         expect(actual).toBe(expected)
     })
 
@@ -110,7 +112,7 @@ describe("computeMnemonic", (): void => {
         const actual = computeMnemonic(glyphName)
 
         // Code: 6sttbcl
-        const expected = "<b>6</b> <b>s</b><b>t</b>ring <b>t</b>a<b>b</b> <b>c</b><b>l</b>ef"
+        const expected = "<u>6</u> <u>s</u><u>t</u>ring <u>t</u>a<u>b</u> <u>c</u><u>l</u>ef"
         expect(actual).toBe(expected)
     })
 })
