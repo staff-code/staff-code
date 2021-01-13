@@ -1,4 +1,4 @@
-import {Maybe, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
+import {FontName, Maybe, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
 import {buildDisplay} from "../../display"
 import {DEFAULT_FONT} from "../../fonts"
 import {transferInputToDisplay} from "../../transfer"
@@ -6,6 +6,7 @@ import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 import {buildCopyLinkButton} from "./copyLink"
 import {applyCss} from "./css"
 import {buildDownloadButton} from "./download"
+import {loadGoogleFont} from "./fonts"
 import {components, staffCodeConfig} from "./globals"
 import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "./initial"
 import {buildPackageInput} from "./input"
@@ -54,6 +55,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
         } as StaffCodeOptions,
     })
 
+    loadGoogleFont("Roboto Mono" as FontName)
     applyCss()
 
     const root = document.createElement("span")

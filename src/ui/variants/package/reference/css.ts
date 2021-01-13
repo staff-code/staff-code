@@ -138,7 +138,7 @@ const REFERENCE_CSS = css`
   td:nth-child(2) {
     font-family: Roboto Mono;
     border: 1px solid #bbbbbb;
-    font-size: 13.333px;
+    font-size: 13px;
     padding: 0 3px;
   }
 

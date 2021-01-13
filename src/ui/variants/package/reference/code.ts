@@ -41,7 +41,7 @@ const CODE_ALIASES: Record<RecordKey<Code & Word>, Array<Code & Word>> = {
 }
 
 // TODO: FEATURE IMPROVE, READY TO GO: SAGISPEAK CORRECTIONS
-//  Fix Sagispeak, "sl" rather than "sr", "ch" rather than "kh". Also in Sagittal-SMuFL-Map.
+//  Fix Sagispeak, "sl" rather than "sr", "ch" rather than "kh". Also in Sagittal-SMuFL-Map. Also fix "x" -> "X".
 
 const setupCodeCell = (codeCell: HTMLTableCellElement, unicode: Unicode & Word, code: Code & Word): void => {
     const aliases = UNICODE_ALIASES[unicode] || CODE_ALIASES[code]

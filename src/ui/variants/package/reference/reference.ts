@@ -1,14 +1,10 @@
-import {FontName} from "@sagittal/general"
 import {Section} from "../../../../../bin"
-import {loadGoogleFont} from "../fonts"
 import {components} from "../globals"
 import {handleReferenceTableClick} from "./insert"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
 
 const buildReference = (): HTMLDivElement => {
-    loadGoogleFont("Roboto Mono" as FontName)
-
     const reference = document.createElement("div")
     reference.classList.add("sc-reference")
     components.reference = reference
