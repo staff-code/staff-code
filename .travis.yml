@@ -3,3 +3,8 @@ node_js:
   - 14
 script:
   - npm run test-ci
+git:
+  submodules: false
+before_install:
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules || true
+  - git submodule update --init --recursive
