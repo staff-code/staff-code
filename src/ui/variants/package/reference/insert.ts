@@ -3,8 +3,6 @@ import {Code} from "../../../../translate"
 import {transferInputToDisplay} from "../../../transfer"
 import {components, staffCodeConfig} from "../globals"
 
-// todo: bug with inserting Sagittals, they don't insert! maybe others have a problem? check commands too I guess
-
 const insertCodeIntoInput = (code: Code & Word): void => {
     const {input} = components
 

@@ -24,8 +24,6 @@ const CODE_ALIASES: Record<RecordKey<Code & Word>, Array<Code & Word>> = {
     "nt4": ["nt", "nt4"] as Array<Code & Word>,
 }
 
-// TODO: "x dbsh" should be "X dbsh" (uppercase X).
-
 // TODO: Give only one Sagispeak code per symbol.
 //  The shortest one, or if they are the same length, the one most likely to be pronounceable by English-speakers.
 //  "sl" rather than "sr", "ch" rather than "kh". You might reorder them as required in your original source, so that

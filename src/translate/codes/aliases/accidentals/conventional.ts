@@ -7,7 +7,7 @@ const CONVENTIONAL_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicod
     "n": SMuFL_MAP["acnt"],
     "#": SMuFL_MAP["acsh"],
     "b": SMuFL_MAP["acfl"],
-    "x": SMuFL_MAP["aclgdbsh"],
+    "X": SMuFL_MAP["aclgdbsh"],
     "bb": SMuFL_MAP["acdbfl"],
     "sh": SMuFL_MAP["acsh"],
     "fl": SMuFL_MAP["acfl"],
