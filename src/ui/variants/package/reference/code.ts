@@ -1,7 +1,15 @@
 import {computeKeyPath, isUndefined, RecordKey, sort, Word} from "@sagittal/general"
-import {ALIASES_MAP, Code, Unicode} from "../../../../translate"
+import {ALIASES_MAP, Code, SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP, Unicode} from "../../../../translate"
 
-const ALIASES_ENTRIES = Object.entries(ALIASES_MAP) as Array<[Code & Word, Unicode & Word]>
+const ALIASES_FOR_REFERENCE_MAP = JSON.parse(JSON.stringify(ALIASES_MAP))
+
+const SAGITTAL_SECONDARY_SAGISPEAK_ALIAS_CODES =
+    Object.keys(SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP) as Array<Code & Word>
+SAGITTAL_SECONDARY_SAGISPEAK_ALIAS_CODES.forEach((key: Code & Word): void => {
+    delete ALIASES_FOR_REFERENCE_MAP[key]
+})
+
+const ALIASES_ENTRIES = Object.entries(ALIASES_FOR_REFERENCE_MAP) as Array<[Code & Word, Unicode & Word]>
 
 const UNICODE_ALIASES = ALIASES_ENTRIES.reduce(
     (
@@ -24,12 +32,7 @@ const CODE_ALIASES: Record<RecordKey<Code & Word>, Array<Code & Word>> = {
     "nt4": ["nt", "nt4"] as Array<Code & Word>,
 }
 
-// TODO: Give only one Sagispeak code per symbol.
-//  The shortest one, or if they are the same length, the one most likely to be pronounceable by English-speakers.
-//  "sl" rather than "sr", "ch" rather than "kh". You might reorder them as required in your original source, so that
-//  StaffCode can just use the first one.
-//  - I think I've already got a primary Sagispeak map and a secondary one,
-//  So I could exclude the secondary map from the reference code cell aliases.
+// TODO: Fix Sagispeak, "sl" rather than "sr", "ch" rather than "kh". Also in Sagittal-SMuFL-Map.
 
 // TODO: I think /||\ and \!!/ should be the click-to-insert (ungreyed) codes, despite being longer than shr and flt.
 //  Likewise @. and l., not i and o.
