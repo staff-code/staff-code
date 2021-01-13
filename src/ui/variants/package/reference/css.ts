@@ -161,7 +161,7 @@ const REFERENCE_CSS = css`
   /* mnemonic cell */
 
   td:nth-child(3) {
-    font-family: Roboto;
+    font-family: Lucida Sans;
     border: 1px solid;
     font-size: 13.333px;
     padding: 0 3px;

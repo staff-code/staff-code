@@ -1,16 +1,14 @@
 import {FontName} from "@sagittal/general"
 import {Section} from "../../../../../bin"
+import {loadGoogleFont} from "../fonts"
 import {components} from "../globals"
-import {loadGoogleFont} from "./fonts"
 import {handleReferenceTableClick} from "./insert"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
 
 const buildReference = (): HTMLDivElement => {
     loadGoogleFont("Roboto Mono" as FontName)
-
-    // TODO: Alright, I'll try Lucida Sans then.
-    loadGoogleFont("Roboto" as FontName)
+    loadGoogleFont("Lucida Sans" as FontName)
 
     const reference = document.createElement("div")
     reference.classList.add("sc-reference")
