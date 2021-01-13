@@ -9,7 +9,7 @@ const COPY_LINK_CSS = css`
     border: none;
     color: white;
     background-color: #0366CC;
-    padding: 3px 6px;
+    padding: 4px 6px 2px 6px;
     border-radius: 3px;
     outline: none;
     position: relative;

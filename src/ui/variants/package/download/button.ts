@@ -10,7 +10,7 @@ const DOWNLOAD_ICON = `<?xml version="1.0" encoding="utf-8"?>
 
 const buildDownloadButton = (): HTMLButtonElement => {
     const downloadButton = document.createElement("button")
-    downloadButton.innerHTML = `${DOWNLOAD_ICON} image`
+    downloadButton.innerHTML = `${DOWNLOAD_ICON}image`
     downloadButton.classList.add("sc-download")
     downloadButton.addEventListener("click", downloadSvg)
 

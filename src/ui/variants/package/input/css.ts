@@ -8,6 +8,8 @@ const INPUT_CSS = `
     width: ${ABOUT_FORTY_CHARS_WIDE_PX}px;
     height: ${ABOUT_THREE_LINES_HIGH_PX}px;
     font-family: Roboto Mono;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
   }
   
   .sc-input:focus {

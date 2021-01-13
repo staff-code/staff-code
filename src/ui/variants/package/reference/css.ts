@@ -46,11 +46,16 @@ const REFERENCE_CSS = css`
   }
 
   .sc-reference-banner {
-    margin: 0 2px;
+    padding: 3px;
   }
 
   .sc-reference-wrapper.open {
     border: 1px solid #bbbbbb;
+    border-radius: 3px;
+  }
+
+  .sc-reference-wrapper.open .sc-reference-banner {
+    border-bottom: 1px solid #bbbbbb;
   }
 
   .sc-reference-wrapper.open .sc-reference {
@@ -64,7 +69,8 @@ const REFERENCE_CSS = css`
   }
 
   .sc-reference-expander img {
-    vertical-align: top;
+    height: 0.6em;
+    padding-right: 2px;
   }
 
   .sc-title {

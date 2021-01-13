@@ -3,7 +3,7 @@ import {components, staffCodeConfig} from "../globals"
 import {Initial} from "../types"
 
 const buildSpinnerWrapper = (initial: Initial, handleSpinnerChange: (event: Event) => void): HTMLSpanElement => {
-    const spinnerWrapper = document.createElement("span")
+    const spinnerWrapper = document.createElement("div")
     spinnerWrapper.classList.add("sc-spinner")
 
     const spinnerLabel = document.createElement("label")

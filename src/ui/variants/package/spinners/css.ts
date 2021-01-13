@@ -15,6 +15,9 @@ const SPINNER_CSS = css`
 
   .sc-spinner input {
     width: 3em;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
+    padding: 2px;
   }
   
   .sc-spinner input:focus {
