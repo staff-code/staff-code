@@ -2,7 +2,7 @@ import {css} from "@sagittal/general"
 
 const DOWNLOAD_CSS = css`
   .sc-download {
-    margin: 2px;
+    margin: 2px 5px;
     cursor: pointer;
     font-family: sans-serif;
     font-size: 0.75em;

@@ -3,7 +3,7 @@ import {css} from "@sagittal/general"
 const SPINNER_CSS = css`
   .sc-spinner {
     display: inline-block;
-    margin-right: 2px;
+    margin-right: 5px;
   }
 
   .sc-spinner label {

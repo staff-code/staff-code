@@ -36,7 +36,7 @@ const REFERENCE_CSS = css`
   .sc-reference-wrapper {
     background: white;
     width: 100%;
-    max-width: 300px;
+    max-width: 340px; /* same width as input at beginning */
   }
 
   .sc-reference {
