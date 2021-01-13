@@ -19,14 +19,7 @@ const REFERENCE_CSS = css`
 
   table tr.no-code {
     background-color: inherit;
-  }
-
-  table tr.no-code td:nth-child(2) {
-    background-color: #f8f8f8;
-  }
-
-  table tr.no-code td:nth-child(3) {
-    background-color: #f8f8f8;
+    cursor: auto;
   }
 
   .sc-reference-expander {

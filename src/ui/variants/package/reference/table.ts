@@ -1,6 +1,6 @@
-import {BLANK} from "@sagittal/general"
 import {ReferenceRow} from "../../../../../bin"
 import {setupCodeCell} from "./code"
+import {EMPTY_CODE} from "./constants"
 import {EXCLUDED_CODES} from "./exceptions"
 
 const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
@@ -17,7 +17,7 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
 
         const codeCell = row.insertCell()
         setupCodeCell(codeCell, unicode, code)
-        if (code === BLANK) row.classList.add("no-code")
+        if (code === EMPTY_CODE) row.classList.add("no-code")
         row.appendChild(codeCell)
 
         const mnemonicCell = row.insertCell()
