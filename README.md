@@ -17,7 +17,7 @@ StaffCode can be used in two ways:
 
 ### BBCode
 
-- Follow the instructions at `https://app.sagittal.org/staffcode/README.txt`.
+- Follow the instructions at `https://staffcode.org/bbCode/README.txt`.
 
 ### package
 
@@ -79,7 +79,7 @@ It uses `tsc` to transpile the library for `npm` into `dist/package`.
 
 Use `npm start` to run a local server with a minimal demo of the package variant of StaffCode, for QA purposes.
 
-The BBCode variant is distributed via the StaffCode web app at `https://app.sagittal.org/staffcode/staffCode.js`. The
+The BBCode variant is distributed via the StaffCode web app at `https://staffcode.org/staffCode.js`. The
 Sagittal web app (which includes the StaffCode web app) uses a `webpack` plugin to copy the contents of `dist/bbCode`
 from its copy of `staff-code` in its `node_modules` into its own `dist`.
 
@@ -91,7 +91,11 @@ Sagittal forum.
 
 And to update the Sagittal web app, in the `app` repo, run `npm upgrade` and confirm you pull in the npm package you
 just published. Then run `npm run deploy` there (which in turn cd's into its `dist` folder which is actually a submodule
-repo, the GitHub pages one, for `https://app.sagittal.org/staffcode`, for which committing and pushing is equivalent to
+repo, the GitHub pages one, for `https://staffcode.org`, for which committing and pushing is equivalent to
 deploying the new static app) (don't forget to commit afterwards).
 
 # TODO: add more information about how the bin/ and vendor/ stuff works
+
+# TODO: and also how it's interesting that dist/ has app, bbCode, and package, and the app contains both bbCode and package. actually maybe you don't need bbCode separate anymore, since there's going to be no copying it in.
+
+# TODO: and qa can go to just being the app, and update QA stuff in readme etc.

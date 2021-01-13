@@ -1,6 +1,6 @@
 {
   "name": "staff-code",
-  "version": "1.0.126",
+  "version": "1.0.133",
   "main": "dist/package/src/index.js",
   "types": "dist/package/src/index.d.ts",
   "description": "converts simple text codes into Unicode which in the Bravura Text font displays as sheet music",
@@ -10,9 +10,10 @@
     "url": "git+https://github.com/Sagittal/staff-code.git"
   },
   "scripts": {
-    "start": "webpack serve --config webpack.qa.config.js",
-    "build": "npm run build-bbcode && npm run build-package",
-    "build-bbcode": "webpack",
+    "start": "webpack serve --config webpack.dev.config.js",
+    "build": "npm run build-bbcode && npm run build-package && npm run build-app",
+    "build-app": "webpack --config webpack.app.config.js",
+    "build-bbcode": "webpack --config webpack.bbCode.config.js",
     "build-package": "tsc --module esnext",
     "deploy": "sh bin/deploy.sh",
     "profile": "node --prof -r ts-node/register/transpile-only --max-old-space-size=131072 [[script.ts]] && node --prof-process isolate-*.log > processed.txt && rm isolate-*.log",
@@ -34,6 +35,7 @@
     "@types/vexflow": "^3.0.0",
     "buffer": "^6.0.3",
     "copy-webpack-plugin": "^7.0.0",
+    "favicons-webpack-plugin": "^5.0.0-alpha.3",
     "html-webpack-plugin": "^4.5.1",
     "ignore-not-found-export-webpack-plugin": "^1.0.1",
     "jasmine": "^3.6.3",

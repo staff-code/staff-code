@@ -39,6 +39,6 @@ See the HTML Replacement section for the [staff] code above for further details 
 {{SC_HELP_LINE}}
 
 Optional: if you would rather install the fonts and JavaScript directly on your phpBB server:
-- Download https://app.sagittal.org/staffcode/assets/fonts/BravuraTextBB.otf, https://app.sagittal.org/staffcode/assets/fonts/BravuraTextBB.woff, and https://app.sagittal.org/staffcode/staffCode.js.
+- Download https://staffcode.org/assets/fonts/BravuraTextBB.otf, https://staffcode.org/assets/fonts/BravuraTextBB.woff, and https://staffcode.org/staffCode.js.
 - Drag `BravuraTextBB.otf` and `BravuraTextBB.woff` to your `assets/fonts` folder, along with any other fonts your users may wish to use. SMuFL-compliant fonts will not work out of the box; a non-trivial amount of modification to a font is required to work with StaffCode.
 - Drag `staffCode.js` to your `assets/javascripts` folder.

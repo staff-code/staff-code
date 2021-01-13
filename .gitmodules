@@ -1,0 +1,3 @@
+[submodule "staff-code.github.io"]
+	path = dist/app
+	url = git@github.com:staff-code/staff-code.github.io

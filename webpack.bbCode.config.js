@@ -7,7 +7,7 @@ module.exports = {
     mode: "production",
     entry: "./src/ui/variants/bbCode/index.ts",
     output: {
-        path: path.resolve(__dirname, "dist/bbCode"),
+        path: path.resolve(__dirname, "dist/app/bbCode"),
         filename: "staffCode.js",
     },
     plugins: [
