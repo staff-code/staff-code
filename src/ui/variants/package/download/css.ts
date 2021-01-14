@@ -4,7 +4,7 @@ import {STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE} from "../constants"
 // language=CSS
 const DOWNLOAD_CSS = `
     .sc-download {
-        margin: 2px 5px;
+        margin: 2px 5px 2px 0;
         cursor: pointer;
         font-family: ${UI_FONT};
         font-size: ${UI_FONT_SIZE}em;
