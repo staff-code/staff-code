@@ -7,6 +7,11 @@ const computeBaseUrl = (location: Location): Link =>
 const codeRunningInStaffCodeWebApp = (): boolean => {
     const baseUrl = computeBaseUrl(window.location)
 
+    // TODO: The fix for the copy link button updating the URL still didn't work.
+    //  I'll need to do some dedicated debugging.
+
+    console.log("diagnosing base app url checking", baseUrl, WEB_APP_URL, baseUrl === WEB_APP_URL)
+
     return baseUrl === WEB_APP_URL
 }
 
