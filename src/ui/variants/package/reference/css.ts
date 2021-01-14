@@ -46,6 +46,7 @@ const REFERENCE_WRAPPER_CSS = `
 const REFERENCE_BANNER_CSS = `
     .sc-reference-banner {
         padding: 3px;
+        font-family: ${UI_FONT};
     }
 
     .sc-reference-expander {
