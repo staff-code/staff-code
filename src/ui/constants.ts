@@ -5,7 +5,7 @@ const DEFAULT_INITIAL_LINE = 2 as Multiplier<Em>
 const DEFAULT_INITIAL_SIZE = 1 as Multiplier<Em>
 const DEFAULT_INITIAL_REFERENCE_OPEN = false
 
-const WEB_APP_URL = "https://staffcode.org/" as Link
+const WEB_APP_URL = "https://staffcode.org" as Link
 
 export {
     WEB_APP_URL,

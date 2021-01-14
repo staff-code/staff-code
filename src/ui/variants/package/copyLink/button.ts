@@ -9,7 +9,7 @@ const buildCopyLinkButton = (): HTMLButtonElement => {
 
     const copyLinkMessage = document.createElement("div")
     copyLinkMessage.classList.add("sc-copy-link-message")
-    copyLinkMessage.textContent = "Link copied to clipboard"
+    copyLinkMessage.innerHTML = "Link copied to clipboard<br>Browser URL updated"
     components.copyLinkMessage = copyLinkMessage
     copyLinkButton.appendChild(copyLinkMessage)
 
