@@ -12,7 +12,11 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
         const row = table.insertRow()
 
         const unicodeCell = row.insertCell()
-        unicodeCell.innerHTML = `${unicode}&#xfe0e` // TODO: I think this is making some weird thing show up
+        // TODO: BUG, BLOCKED: WEIRD FLOATERS IN GLYPH CELLS
+        //  I think this is making some weird thing show up
+        //  But blocked on Dave's feedback
+        //  When done, make this easier to find by helper constant or something at least referencing Emoji
+        unicodeCell.innerHTML = `${unicode}&#xfe0e`
         row.appendChild(unicodeCell)
 
         const codeCell = row.insertCell()
