@@ -2,7 +2,7 @@ import {isUndefined} from "@sagittal/general"
 import {components} from "../../globals"
 import {setStaffCodeCookie} from "../../initial"
 import {Initial} from "../../types"
-import {closeReference, isReferenceOpen, openReference} from "../open"
+import {closeReference, isReferenceOpen, openReference} from "./open"
 
 const handleReferenceExpanderClick = async (): Promise<void> => {
     const {referenceWrapper, referenceExpander} = components

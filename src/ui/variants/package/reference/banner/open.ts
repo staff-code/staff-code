@@ -1,4 +1,4 @@
-import {components} from "../globals"
+import {components} from "../../globals"
 
 const isReferenceOpen = (): boolean =>
     components.referenceWrapper.classList.contains("open")

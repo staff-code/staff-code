@@ -1,6 +1,5 @@
 import {components, staffCodeConfig} from "../globals"
-import {buildReferenceBanner} from "./banner"
-import {openReference} from "./open"
+import {buildReferenceBanner, openReference} from "./banner"
 
 const buildReferenceWrapper = (): HTMLDivElement => {
     const {initial: {referenceOpen: initialReferenceOpen}} = staffCodeConfig

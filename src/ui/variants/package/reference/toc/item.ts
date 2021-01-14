@@ -1,5 +1,5 @@
 import {Id, Name} from "@sagittal/general"
-import {Parenthetical, Section} from "../../../../../bin"
+import {Parenthetical, Section} from "../../../../../../bin"
 
 const buildTocItem = (
     sectionId: Id<Section>,

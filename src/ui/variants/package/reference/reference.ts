@@ -1,23 +1,9 @@
 import {Section} from "../../../../../bin"
 import {components} from "../globals"
-import {handleReferenceTableClick, handleReferenceTableUndo} from "./handlers"
+import {handleReferenceTableClick, handleReferenceTableUndo} from "./section"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
-
-// TODO: if this works, extract to general/browser
-const isBrowserMobile = (): boolean => {
-    const toMatch = [
-        /Android/i,
-        /webOS/i,
-        /iPhone/i,
-        /iPad/i,
-        /iPod/i,
-        /BlackBerry/i,
-        /Windows Phone/i,
-    ]
-
-    return toMatch.some((toMatchItem: RegExp): boolean => !!navigator.userAgent.match(toMatchItem))
-}
+import {buildTocWrapper} from "./toc"
 
 const buildReference = (): HTMLDivElement => {
     const referenceBorderWrapper = document.createElement("div")
@@ -32,21 +18,8 @@ const buildReference = (): HTMLDivElement => {
     topLink.id = "top"
     reference.appendChild(topLink)
 
-    // todo: extract TOC stuff
-    const tocTitleWrapper = document.createElement("div")
+    const tocTitleWrapper = buildTocWrapper()
     reference.appendChild(tocTitleWrapper)
-
-    const tocTitle = document.createElement("h3")
-    tocTitle.innerHTML = "SMuFL sections"
-    tocTitleWrapper.appendChild(tocTitle)
-
-    const instructions = document.createElement("span")
-    instructions.textContent = `(${isBrowserMobile() ? "Tap" : "Click"} to insert code)`
-    tocTitleWrapper.appendChild(instructions)
-
-    const toc = document.createElement("ul")
-    reference.appendChild(toc)
-    components.toc = toc
 
     const sections = referenceJson as Section[]
     sections.forEach(appendSection)
