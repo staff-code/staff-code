@@ -41,20 +41,20 @@ const REFERENCE_BANNER_CSS = `
 
     .sc-title .sc-about {
         display: none;
-        background-color: white;
-        border: ${STANDARD_BORDER};
-        font-family: ${UI_FONT};
-        font-size: ${UI_FONT_SIZE}em;
-        padding: 0.5em;
-        position: absolute;
-        right: -3px;
-        bottom: 18px;
-        width: 150px;
-        z-index: 9999;
     }
 
     .sc-title:hover .sc-about {
         display: block;
+        width: max-content;
+        background-color: white;
+        border: ${STANDARD_BORDER};
+        font-family: ${UI_FONT};
+        font-size: ${UI_FONT_SIZE}em;
+        padding: 1.5em;
+        position: absolute;
+        right: -3px;
+        bottom: 18px;
+        z-index: 9999;
     }
 `
 
