@@ -76,6 +76,7 @@ const REFERENCE_BANNER_CSS = `
         right: 0;
         width: 200px;
         text-align: right;
+        z-index: 9999;
     }
 
     .sc-title:hover .sc-about {
