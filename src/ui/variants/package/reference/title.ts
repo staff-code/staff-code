@@ -1,4 +1,4 @@
-import {camelCaseToKebabCase, Id, Name} from "@sagittal/general"
+import {BLANK, camelCaseToKebabCase, Id, Name} from "@sagittal/general"
 import {COMMANDS_SECTION_ID, Explanation, Parenthetical, Section} from "../../../../../bin"
 
 const buildSectionIntro = (
@@ -14,9 +14,11 @@ const buildSectionIntro = (
     sectionHeading.textContent = sectionName
     sectionIntro.appendChild(sectionHeading)
 
-    const sectionParenthetical = document.createElement("span")
-    sectionParenthetical.textContent = parenthetical
-    sectionIntro.appendChild(sectionParenthetical)
+    if (parenthetical !== BLANK) {
+        const sectionParenthetical = document.createElement("span")
+        sectionParenthetical.textContent = parenthetical
+        sectionIntro.appendChild(sectionParenthetical)
+    }
 
     const sectionSmuflLink = document.createElement("a")
     sectionSmuflLink.textContent = sectionId === COMMANDS_SECTION_ID ? "Intro to StaffCode" : "SMuFL reference"
@@ -45,10 +47,12 @@ const buildSectionTitle = (
     const sectionIntro = buildSectionIntro(sectionId, sectionName, parenthetical, sectionLink)
     sectionTitle.appendChild(sectionIntro)
 
-    const explanationDiv = document.createElement("div")
-    explanationDiv.classList.add("sc-section-explanation")
-    explanationDiv.innerHTML = explanation
-    sectionTitle.appendChild(explanationDiv)
+    if (explanation !== BLANK) {
+        const explanationDiv = document.createElement("div")
+        explanationDiv.classList.add("sc-section-explanation")
+        explanationDiv.innerHTML = explanation
+        sectionTitle.appendChild(explanationDiv)
+    }
 
     return sectionTitle
 }
