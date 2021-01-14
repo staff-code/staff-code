@@ -6,7 +6,7 @@ import {computeInitialParams} from "./initial"
 
 const handleCopyLinkClick = (): void => {
     components.copyLinkMessage.classList.add("active")
-    setTimeout((): void => components.copyLinkMessage.classList.remove("active"), 1000)
+    setTimeout((): void => components.copyLinkMessage.classList.remove("active"), 1500)
 
     const initialParams = computeInitialParams()
 
