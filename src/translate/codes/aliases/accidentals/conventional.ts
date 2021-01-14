@@ -3,8 +3,8 @@ import {SMuFL_MAP} from "../../smufl"
 import {Code, Unicode} from "../../types"
 
 const CONVENTIONAL_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    "h": SMuFL_MAP["acnt"],
     "n": SMuFL_MAP["acnt"],
+    "h": SMuFL_MAP["acnt"],
     "#": SMuFL_MAP["acsh"],
     "b": SMuFL_MAP["acfl"],
     "X": SMuFL_MAP["aclgdbsh"],
