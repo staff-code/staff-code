@@ -8,11 +8,14 @@ import {
 } from "../constants"
 import {ABOUT_FORTY_FIVE_CHARS_WIDE_PX, INPUT_PADDING} from "../input"
 
+// TODO: I really want the two right-hand corners of the Reference
+//  (which are also the right-hand corners of the scrollbar)
+//  To have the same radius that the two left-hand corners of the Reference
+
 // tslint:disable-next-line comment-format
 // language=CSS
 const REFERENCE_WRAPPER_CSS = `
     .sc-reference-wrapper {
-        background: white;
         width: 100%;
         max-width: ${ABOUT_FORTY_FIVE_CHARS_WIDE_PX}px;
         padding: ${INPUT_PADDING}px;
@@ -31,6 +34,7 @@ const REFERENCE_WRAPPER_CSS = `
     }
 
     .sc-reference {
+        background: white;
         height: 0;
         overflow-y: hidden;
         box-sizing: border-box;
