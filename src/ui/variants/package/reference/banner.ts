@@ -21,11 +21,15 @@ const buildReferenceBanner = (): HTMLDivElement => {
     referenceExpander.addEventListener("click", handleReferenceExpanderClick)
     referenceBanner.appendChild(referenceExpander)
 
+    const backToTopLink = document.createElement("a")
+    backToTopLink.href = "#top"
+    backToTopLink.textContent = "Back to top"
+    referenceBanner.appendChild(backToTopLink)
+
     const siteTitle = document.createElement("span")
     siteTitle.classList.add("sc-title")
     siteTitle.textContent = "StaffCode"
     referenceBanner.appendChild(siteTitle)
-
     const siteAbout = document.createElement("div")
     siteAbout.classList.add("sc-about")
     siteAbout.innerHTML = STAFF_CODE_ABOUT

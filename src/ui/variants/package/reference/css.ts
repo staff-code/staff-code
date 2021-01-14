@@ -47,6 +47,9 @@ const REFERENCE_BANNER_CSS = `
     .sc-reference-banner {
         padding: 3px;
         font-family: ${UI_FONT};
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .sc-reference-expander {
@@ -60,6 +63,14 @@ const REFERENCE_BANNER_CSS = `
 
     .sc-reference-wrapper.open .sc-reference-expander img {
         transform: rotate(90deg);
+    }
+
+    .sc-reference-wrapper a {
+        visibility: hidden;
+    }
+
+    .sc-reference-wrapper.open a {
+        visibility: visible;
     }
 
     /* title & about */
@@ -115,13 +126,7 @@ const REFERENCE_SECTION_TITLE_CSS = `
 
     /* intro */
 
-    .sc-section-intro {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .sc-section-title h3 {
+    .sc-section-intro h3 {
         display: inline-block;
         padding-right: 10px;
         margin: 0 0 5px 0;
