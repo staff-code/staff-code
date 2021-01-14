@@ -54,8 +54,10 @@ const buildSectionTitle = (
     explanation: Explanation,
 ): HTMLDivElement => {
     const sectionTitle = document.createElement("div")
+    sectionTitle.classList.add("sc-section-title")
 
     const sectionAnchor = document.createElement("a")
+    sectionAnchor.classList.add("sc-section-anchor")
     sectionAnchor.id = sectionId
     sectionTitle.appendChild(sectionAnchor)
 

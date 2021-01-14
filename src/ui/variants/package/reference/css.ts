@@ -62,7 +62,15 @@ const REFERENCE_CSS = css`
     height: 0.6em;
     padding-right: 2px;
   }
+  
+  .sc-section-title {
+    position: relative;
+  }
 
+  .sc-section-anchor {
+    position: absolute;
+  }
+  
   .sc-title {
     float: right;
     font-weight: bold;
