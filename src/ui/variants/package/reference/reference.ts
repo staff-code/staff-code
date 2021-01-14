@@ -1,6 +1,6 @@
 import {Section} from "../../../../../bin"
 import {components} from "../globals"
-import {handleReferenceTableClick, handleReferenceTableUndo} from "./section"
+import {handleReferenceInsert, handleReferenceInsertUndo} from "./section"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
 import {buildTocWrapper} from "./toc"
@@ -24,8 +24,8 @@ const buildReference = (): HTMLDivElement => {
     const sections = referenceJson as Section[]
     sections.forEach(appendSection)
 
-    reference.addEventListener("click", handleReferenceTableClick)
-    document.addEventListener("keydown", handleReferenceTableUndo)
+    reference.addEventListener("click", handleReferenceInsert)
+    document.addEventListener("keydown", handleReferenceInsertUndo)
 
     return referenceBorderWrapper
 }

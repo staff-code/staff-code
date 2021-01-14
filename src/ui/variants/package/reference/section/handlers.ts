@@ -27,7 +27,7 @@ const insertCodeIntoInputAndSavePreviousState = (code: Code & Word): void => {
     input.selectionEnd = textCursorPosition
 }
 
-const handleReferenceTableClick = (event: MouseEvent): void => {
+const handleReferenceInsert = (event: MouseEvent): void => {
     const eventPath = event.composedPath()
     const maybeParentReferenceRow = eventPath[1] as Maybe<HTMLTableRowElement>
     const maybeCodeCell =
@@ -41,7 +41,7 @@ const handleReferenceTableClick = (event: MouseEvent): void => {
     transferInputToDisplay(components.root, staffCodeConfig.callback)
 }
 
-const handleReferenceTableUndo = (event: KeyboardEvent): void => {
+const handleReferenceInsertUndo = (event: KeyboardEvent): void => {
     if (event.code === "KeyZ" && event.ctrlKey) {
         let previousValue = components.reference.getAttribute(INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE)
         if (previousValue) {
@@ -58,6 +58,6 @@ const handleReferenceTableUndo = (event: KeyboardEvent): void => {
 }
 
 export {
-    handleReferenceTableClick, // todo: rename to just insert and undo
-    handleReferenceTableUndo,
+    handleReferenceInsert,
+    handleReferenceInsertUndo,
 }
