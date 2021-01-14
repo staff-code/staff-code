@@ -5,6 +5,8 @@ import {REFERENCE_CSS} from "./reference"
 import {SPINNER_CSS} from "./spinners"
 
 const applyCss = (): void => {
+    // tslint:disable-next-line comment-format
+    // language=CSS
     const combinedCss = `
         ${COPY_LINK_CSS}
         ${DOWNLOAD_CSS}

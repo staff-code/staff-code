@@ -10,5 +10,3 @@ export {
     UnicodeLiteral,
     computeUnicodeFromUnicodeLiteral,
 } from "./translate"
-
-// TODO: CLEAN, READY TO GO: TRANSFER DICTIONARY ENTRIES FROM SAGITTAL-MAIN OVER TO HERE AS NECESSARY

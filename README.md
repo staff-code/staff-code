@@ -82,6 +82,8 @@ submodule initiation, like I did on other big projects, but I'm too lazy.
 
 Use `npm start` to run a local version of the web app.
 
+If using JetBrains IDE, you can Alt+Enter inside the strings of CSS and choose "Inject Language > CSS".
+
 ## deployment
 
 `npm run deploy` builds both the `bbCode` and `package` variants of StaffCode, as well as the web `app`.

@@ -8,7 +8,6 @@ import {shouldCountAgainstBoldedCharAllotmentForWord} from "./count"
 import {rejoinSagittalCommaNames, unjoinTabClefs} from "./exceptions"
 import {Mnemonic} from "./types"
 
-
 const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
     const code = computeSmuflCode(glyphName)
     const glyphNameWords = unjoinTabClefs(rejoinSagittalCommaNames(
