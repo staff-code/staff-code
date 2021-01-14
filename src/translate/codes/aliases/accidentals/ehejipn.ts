@@ -84,12 +84,12 @@ const EHEJIPN_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & W
     ".n": SMuFL_MAP["acnt"],
     ".#": SMuFL_MAP["acsh"],
     ".x": SMuFL_MAP["acdbsh"], // *
-    ".<b": SMuFL_MAP["acthqrtnflzm"], // **
-    ".>#": SMuFL_MAP["acthqrtnshst"],
+    ".db": SMuFL_MAP["acthqrtnflzm"], // **
+    ".t#": SMuFL_MAP["acthqrtnshst"],
 } as Record<Code & Word, Unicode & Word>
 
 // * Not the same as "x", the (Sagittal-compatible) large double-sharp.
-// ** Not the same as "<b", the (Sagittal-compatible) sesquiflat.
+// ** Not the same as "db", the (Sagittal-compatible) sesquiflat.
 
 export {
     EHEJIPN_ACCIDENTAL_ALIASES_MAP,
