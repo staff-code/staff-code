@@ -13,10 +13,14 @@ const buildSiteTitle = (): HTMLSpanElement => {
     siteTitle.classList.add("sc-title")
     siteTitle.textContent = "StaffCode"
 
+    const siteAboutTriggeringScrim = document.createElement("div")
+    siteAboutTriggeringScrim.classList.add("sc-about-trigger")
+    siteTitle.appendChild(siteAboutTriggeringScrim)
+
     const siteAbout = document.createElement("span")
     siteAbout.classList.add("sc-about")
     siteAbout.innerHTML = STAFF_CODE_ABOUT
-    siteTitle.appendChild(siteAbout)
+    siteAboutTriggeringScrim.appendChild(siteAbout)
 
     return siteTitle
 }

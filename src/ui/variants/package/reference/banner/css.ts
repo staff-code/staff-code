@@ -39,7 +39,7 @@ const REFERENCE_BANNER_CSS = `
         cursor: default;
     }
 
-    .sc-title .sc-about {
+    .sc-about {
         display: none;
         width: max-content;
         background-color: white;
@@ -49,12 +49,20 @@ const REFERENCE_BANNER_CSS = `
         font-size: ${UI_FONT_SIZE}em;
         padding: 1.5em;
         position: absolute;
-        right: -3px;
-        bottom: 18px;
+        right: 0px;
+        bottom: 25px;
         z-index: 9999;
     }
 
-    .sc-title:hover .sc-about {
+    .sc-about-trigger {
+        position: absolute;
+        top: -30px;
+        left: -25px;
+        width: 100px;
+        height: 50px;
+    }
+
+    .sc-about-trigger:hover .sc-about {
         display: block;
     }
 `
