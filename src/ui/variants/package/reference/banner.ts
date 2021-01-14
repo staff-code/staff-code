@@ -5,7 +5,8 @@ import {handleReferenceExpanderClick} from "./expand"
 
 const STAFF_CODE_ABOUT = `
 StaffCode version ${pkg.version}<br>
-by Douglas Blumeyer and Dave Keenan<br>
+by Douglas Blumeyer<br>
+and Dave Keenan<br>
 <a target="_blank" href='${INTRO_TO_STAFF_CODE_LINK}'>Intro to StaffCode</a>
 `
 

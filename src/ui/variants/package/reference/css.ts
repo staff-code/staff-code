@@ -79,8 +79,9 @@ const REFERENCE_BANNER_CSS = `
         font-size: ${UI_FONT_SIZE}em;
         padding: 0.5em;
         position: absolute;
-        right: 0;
-        width: 200px;
+        right: 0px;
+        bottom: 20px;
+        width: 120px;
         text-align: right;
         z-index: 9999;
     }
