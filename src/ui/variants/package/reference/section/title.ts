@@ -1,5 +1,12 @@
 import {BLANK, camelCaseToKebabCase, Id, Name} from "@sagittal/general"
-import {COMMANDS_SECTION_ID, Explanation, Parenthetical, Section} from "../../../../../../bin"
+import {
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
+    COMMANDS_SECTION_ID,
+    Explanation,
+    LEGER_LINES_SUPPLEMENT_SECTION_ID,
+    Parenthetical,
+    Section,
+} from "../../../../../../bin"
 
 const buildSectionIntro = (
     sectionId: Id<Section>,
@@ -21,7 +28,14 @@ const buildSectionIntro = (
     }
 
     const sectionSmuflLink = document.createElement("a")
-    sectionSmuflLink.textContent = sectionId === COMMANDS_SECTION_ID ? "Introduction to StaffCode" : "SMuFL reference"
+    sectionSmuflLink.textContent = sectionId === COMMANDS_SECTION_ID ?
+        "Introduction to StaffCode" :
+        (
+            sectionId === LEGER_LINES_SUPPLEMENT_SECTION_ID
+            || sectionId === COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID
+        ) ?
+            "" :
+            "SMuFL reference"
     sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/gitbook/tables/${camelCaseToKebabCase(sectionId)}`
     sectionSmuflLink.target = "_blank"
     sectionIntro.appendChild(sectionSmuflLink)

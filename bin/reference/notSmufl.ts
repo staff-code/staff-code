@@ -1,5 +1,10 @@
 import {Id, Link, Name} from "@sagittal/general"
-import {COMMANDS_SECTION_ID, INTRO_TO_STAFF_CODE_LINK} from "./constants"
+import {
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
+    COMMANDS_SECTION_ID,
+    INTRO_TO_STAFF_CODE_LINK,
+    LEGER_LINES_SUPPLEMENT_SECTION_ID,
+} from "./constants"
 import {NOT_SMUFL} from "./parentheticals"
 import {Explanation, ReferenceRow, Section} from "./types"
 
@@ -43,7 +48,7 @@ const COMMANDS_SECTION: Section = [
 ] as Section
 
 const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION: Section = [
-    "combiningStaffPositionsSupplement" as Id<Section>,
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
     "Combing staff positions supplement" as Name<Section>,
     NOT_SMUFL,
     "" as Link,
@@ -68,7 +73,7 @@ const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION: Section = [
 ]
 
 const LEGER_LINES_SUPPLEMENT_SECTION: Section = [
-    "legerLinesSupplement" as Id<Section>,
+    LEGER_LINES_SUPPLEMENT_SECTION_ID,
     "Leger lines supplement" as Name<Section>,
     NOT_SMUFL,
     "" as Link,

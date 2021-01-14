@@ -2,6 +2,8 @@ import {Id, Link} from "@sagittal/general"
 import {Section} from "./types"
 
 const COMMANDS_SECTION_ID = "commands" as Id<Section>
+const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID = "combiningStaffPositionsSupplement" as Id<Section>
+const LEGER_LINES_SUPPLEMENT_SECTION_ID = "legerLinesSupplement" as Id<Section>
 
 // todo: perhaps these should also include their text, to spare from that one exception for the commands?
 // Temporary link, until a public post is ready.
@@ -14,4 +16,6 @@ const INTRO_TO_STAFF_CODE_LINK: Link = "https://forum.sagittal.org/viewtopic.php
 export {
     COMMANDS_SECTION_ID,
     INTRO_TO_STAFF_CODE_LINK,
+    LEGER_LINES_SUPPLEMENT_SECTION_ID,
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
 }
