@@ -1,13 +1,13 @@
 import {Word} from "@sagittal/general"
-import {LowercasedCode, NOT_SMuFL_SMART_SPACING_COMMAND_MAP, Octals} from "../../codes"
+import {CaseDesensitized, Code, NOT_SMuFL_SMART_SPACING_COMMAND_MAP, Octals} from "../../codes"
 
 const SPACING_CODES = Object.keys(NOT_SMuFL_SMART_SPACING_COMMAND_MAP)
 
-const isSpacingCode = (lowercasedCode: LowercasedCode & Word): boolean =>
-    SPACING_CODES.includes(lowercasedCode)
+const isSpacingCode = (caseDesensitizedCode: Code & CaseDesensitized & Word): boolean =>
+    SPACING_CODES.includes(caseDesensitizedCode)
 
-const computeSpacing = (lowercasedCode: LowercasedCode & Word): Octals =>
-    SPACING_CODES.indexOf(lowercasedCode) as Octals
+const computeSpacing = (caseDesensitizedCode: Code & CaseDesensitized & Word): Octals =>
+    SPACING_CODES.indexOf(caseDesensitizedCode) as Octals
 
 export {
     computeSpacing,

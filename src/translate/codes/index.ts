@@ -9,7 +9,7 @@ export {
     ALIASES_MAP,
     SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP,
 } from "./aliases"
-export {LOWERCASED_CODE_MAP, BASE_GLYPH_MAP, COMMAND_MAP} from "./codes"
+export {CASE_DESENSITIZED_CODE_MAP, BASE_GLYPH_MAP, COMMAND_MAP} from "./codes"
 export {debugCode, debugCodeSentence} from "./code"
 export {computeUnicodeForCode} from "./unicode"
 export {computeUnicodeLiteral, isUnicodeLiteral, computeUnicodeFromUnicodeLiteral} from "./literal"
@@ -19,5 +19,5 @@ export {
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
     NOT_SMuFL_SMART_ADVANCE_COMMAND_MAP,
 } from "./notSmufl"
-export {Unicode, Code, LowercasedCode, Octals, UnicodeLiteral} from "./types"
-export {mergeAllCodeMapsIntoLowercasedCodeMap} from "./merge"
+export {Unicode, Code, CaseDesensitized, Octals, UnicodeLiteral} from "./types"
+export {mergeAllCodeMapsIntoCaseDesensitizedCodeMap} from "./merge"

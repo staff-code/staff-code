@@ -1,10 +1,11 @@
 import {isUndefined, Word} from "@sagittal/general"
-import {LOWERCASED_CODE_MAP} from "./codes"
-import {Code, LowercasedCode, Unicode} from "./types"
+import {caseDesensitize} from "../case"
+import {CASE_DESENSITIZED_CODE_MAP} from "./codes"
+import {Code, Unicode} from "./types"
 
 const computeUnicodeForCode = (code: Code & Word): Unicode & Word => {
-    const lowercasedCode = code.toLowerCase() as LowercasedCode & Word
-    const unicode = LOWERCASED_CODE_MAP[lowercasedCode]
+    const caseDesensitizedCode = caseDesensitize(code)
+    const unicode = CASE_DESENSITIZED_CODE_MAP[caseDesensitizedCode]
 
     if (isUndefined(unicode)) throw new Error(`Unicode not found for code ${code}`)
 

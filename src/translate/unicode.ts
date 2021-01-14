@@ -1,5 +1,6 @@
 import {Io, isUndefined, Word} from "@sagittal/general"
-import {computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, LowercasedCode, Unicode} from "./codes"
+import {caseDesensitize} from "./case"
+import {Code, computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
 import {
     getUnicodeGivenClefAndPosition,
@@ -22,8 +23,8 @@ const computeUnicodeAsFallbackToInput = (input: Io & Word): Unicode & Word =>
     `${input} ` as Unicode & Word // The space is important to separate multiple fallen back words in a row.
 
 const getUnicode = (input: Io & Word): Unicode & Word => {
-    const lowercasedCode: LowercasedCode & Word = input.toLowerCase() as LowercasedCode & Word
-    const unicode = getUnicodeGivenClefAndPosition(lowercasedCode)
+    const caseDesensitizedCode = caseDesensitize(input as Code & Word)
+    const unicode = getUnicodeGivenClefAndPosition(caseDesensitizedCode)
 
     if (!isUndefined(unicode)) return unicode
 

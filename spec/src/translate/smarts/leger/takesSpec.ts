@@ -1,9 +1,9 @@
 import {Word} from "@sagittal/general"
 import {
+    CaseDesensitized,
+    CASE_DESENSITIZED_CODE_MAP,
     Code,
     computeUnicodeForCode,
-    LOWERCASED_CODE_MAP,
-    LowercasedCode,
     Unicode,
 } from "../../../../../src/translate/codes"
 import {takesLegerLine} from "../../../../../src/translate/smarts/leger"
@@ -19,13 +19,15 @@ describe("takesLegerLine", (): void => {
     })
 
     it("every glyph which takes a leger line can be positioned", (): void => {
-        const lowercasedCodeMapEntries =
-            Object.entries(LOWERCASED_CODE_MAP) as Array<[LowercasedCode & Word, Unicode & Word]>
+        const caseDesensitizedCodeMapEntries =
+            Object.entries(CASE_DESENSITIZED_CODE_MAP) as Array<[Code & CaseDesensitized & Word, Unicode & Word]>
 
-        lowercasedCodeMapEntries.forEach(([lowercasedCode, unicode]: [LowercasedCode & Word, Unicode & Word]): void => {
-            if (takesLegerLine(unicode) && !canBePositioned(unicode)) {
-                fail(`Code ${lowercasedCode} takes a leger line but cannot be positioned.`)
-            }
-        })
+        caseDesensitizedCodeMapEntries.forEach(
+            ([caseDesensitizedCode, unicode]: [Code & CaseDesensitized & Word, Unicode & Word]): void => {
+                if (takesLegerLine(unicode) && !canBePositioned(unicode)) {
+                    fail(`Code ${caseDesensitizedCode} takes a leger line but cannot be positioned.`)
+                }
+            },
+        )
     })
 })

@@ -2,12 +2,12 @@ import {Count, RecordKey, Word} from "@sagittal/general"
 import {
     BASS_CONDITIONAL_POSITION_ALIASES_MAP,
     BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
+    CaseDesensitized,
+    CASE_DESENSITIZED_CODE_MAP,
     Code,
     computeUnicodeForCode,
     GENERIC_POSITION_ALIASES_MAP,
-    LOWERCASED_CODE_MAP,
-    LowercasedCode,
-    mergeAllCodeMapsIntoLowercasedCodeMap,
+    mergeAllCodeMapsIntoCaseDesensitizedCodeMap,
     MIDDLE_POSITION_AND_ABOVE_CONDITIONAL_NOTE_ALIASES_MAP,
     TREBLE_CONDITIONAL_POSITION_ALIASES_MAP,
     Unicode,
@@ -17,28 +17,28 @@ import {Clef, Position, StemZone} from "./types"
 const TREBLE_UNICODE = computeUnicodeForCode("Gcl" as Code & Word)
 const BASS_UNICODE = computeUnicodeForCode("Fcl" as Code & Word)
 
-const CLEF_LOWERCASED_CODE_MAPS:
-    Record<Clef, Record<StemZone, Record<RecordKey<LowercasedCode & Word>, Unicode & Word>>> = {
+const CONDITIONAL_ALIAS_ENHANCED_CASE_DESENSITIZED_CODE_MAP:
+    Record<Clef, Record<StemZone, Record<RecordKey<Code & CaseDesensitized & Word>, Unicode & Word>>> = {
     [Clef.TREBLE]: {
-        [StemZone.MIDDLE_POSITION_AND_ABOVE]: mergeAllCodeMapsIntoLowercasedCodeMap(
-            LOWERCASED_CODE_MAP,
+        [StemZone.MIDDLE_POSITION_AND_ABOVE]: mergeAllCodeMapsIntoCaseDesensitizedCodeMap(
+            CASE_DESENSITIZED_CODE_MAP,
             TREBLE_CONDITIONAL_POSITION_ALIASES_MAP,
             MIDDLE_POSITION_AND_ABOVE_CONDITIONAL_NOTE_ALIASES_MAP,
         ),
-        [StemZone.BELOW_MIDDLE_POSITION]: mergeAllCodeMapsIntoLowercasedCodeMap(
-            LOWERCASED_CODE_MAP,
+        [StemZone.BELOW_MIDDLE_POSITION]: mergeAllCodeMapsIntoCaseDesensitizedCodeMap(
+            CASE_DESENSITIZED_CODE_MAP,
             TREBLE_CONDITIONAL_POSITION_ALIASES_MAP,
             BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
         ),
     },
     [Clef.BASS]: {
-        [StemZone.MIDDLE_POSITION_AND_ABOVE]: mergeAllCodeMapsIntoLowercasedCodeMap(
-            LOWERCASED_CODE_MAP,
+        [StemZone.MIDDLE_POSITION_AND_ABOVE]: mergeAllCodeMapsIntoCaseDesensitizedCodeMap(
+            CASE_DESENSITIZED_CODE_MAP,
             BASS_CONDITIONAL_POSITION_ALIASES_MAP,
             MIDDLE_POSITION_AND_ABOVE_CONDITIONAL_NOTE_ALIASES_MAP,
         ),
-        [StemZone.BELOW_MIDDLE_POSITION]: mergeAllCodeMapsIntoLowercasedCodeMap(
-            LOWERCASED_CODE_MAP,
+        [StemZone.BELOW_MIDDLE_POSITION]: mergeAllCodeMapsIntoCaseDesensitizedCodeMap(
+            CASE_DESENSITIZED_CODE_MAP,
             BASS_CONDITIONAL_POSITION_ALIASES_MAP,
             BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
         ),
@@ -53,7 +53,7 @@ const MAX_POSITIONS_AWAY_FROM_MIDDLE_STAVE_LINE = 15 as Count<Position>
 export {
     TREBLE_UNICODE,
     BASS_UNICODE,
-    CLEF_LOWERCASED_CODE_MAPS,
+    CONDITIONAL_ALIAS_ENHANCED_CASE_DESENSITIZED_CODE_MAP,
     POSITION_UNICODES,
     NOT_SMuFL_ZERO_POSITION_UNICODE,
     MAX_POSITIONS_AWAY_FROM_MIDDLE_STAVE_LINE,

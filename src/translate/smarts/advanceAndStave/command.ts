@@ -1,5 +1,6 @@
 import {Clause, Io, Word} from "@sagittal/general"
-import {COMMAND_MAP, LowercasedCode, Unicode} from "../../codes"
+import {caseDesensitize} from "../../case"
+import {Code, COMMAND_MAP, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
@@ -9,34 +10,34 @@ import {computeSpacing, isSpacingCode} from "./spacing"
 const COMMAND_CODES = Object.keys(COMMAND_MAP)
 
 const isCommandCode = (input: Io & Word): boolean => {
-    const lowercasedCode: LowercasedCode & Word = input.toLowerCase() as LowercasedCode & Word
+    const caseDesensitizedCode = caseDesensitize(input as Code & Word)
 
-    return COMMAND_CODES.includes(lowercasedCode)
+    return COMMAND_CODES.includes(caseDesensitizedCode)
 }
 
 const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
     let commandUnicodeClause: Unicode & Clause = EMPTY_UNICODE as Unicode & Clause
 
-    const lowercasedCode: LowercasedCode & Word = input.toLowerCase() as LowercasedCode & Word
+    const caseDesensitizedCode = caseDesensitize(input as Code & Word)
 
-    if (lowercasedCode === ";") {
+    if (caseDesensitizedCode === ";") {
         commandUnicodeClause =
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
                 smarts.advanceWidth,
             )
-    } else if (lowercasedCode === "en;") {
+    } else if (caseDesensitizedCode === "en;") {
         smarts.advanceToEnd = true
         commandUnicodeClause =
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
                 smarts.advanceWidth,
             )
-    } else if (lowercasedCode === "ston") {
+    } else if (caseDesensitizedCode === "ston") {
         smarts.staveOn = true
-    } else if (lowercasedCode === "stof") {
+    } else if (caseDesensitizedCode === "stof") {
         commandUnicodeClause = computeEndOfLineUnicodeClauseAndUpdateSmarts()
         smarts.staveOn = false
-    } else if (isSpacingCode(lowercasedCode)) {
-        smarts.spacing = computeSpacing(lowercasedCode)
+    } else if (isSpacingCode(caseDesensitizedCode)) {
+        smarts.spacing = computeSpacing(caseDesensitizedCode)
     }
 
     return commandUnicodeClause

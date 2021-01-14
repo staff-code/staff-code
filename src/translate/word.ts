@@ -41,7 +41,6 @@ const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
     return inputUnicodeClause
 }
 
-
 export {
     computeInputUnicodeClause,
 }
