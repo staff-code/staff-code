@@ -24,12 +24,15 @@ const UNICODE_ALIASES = ALIASES_ENTRIES.reduce(
         unicodeAliases[unicode].push(code)
         sort(unicodeAliases[unicode], {by: computeKeyPath("length")})
 
-        // TODO: FEATURE IMPROVE, READY TO GO: EXCEPTIONAL ALIAS ORDERING
-        //  I think /||\ and \!!/ should be the click-to-insert (ungreyed) codes,
-        //  Despite being longer than shr and flt.
-        //  Likewise @. and l., not i and o.
-        //  Can't argue with that. I'll try to figure out the least obnoxious way to realize that.
-        //  Just make it so that if any code has no alphabetical characters, it definitely comes first
+        const indexOfCodeWithNonAlphabeticalChars =
+            unicodeAliases[unicode].findIndex((unicodeAlias: Code & Word): boolean => !!unicodeAlias.match(/[^\w]/))
+        if (indexOfCodeWithNonAlphabeticalChars !== -1) {
+            unicodeAliases[unicode] = [
+                unicodeAliases[unicode][indexOfCodeWithNonAlphabeticalChars],
+                ...unicodeAliases[unicode].slice(0, indexOfCodeWithNonAlphabeticalChars),
+                ...unicodeAliases[unicode].slice(indexOfCodeWithNonAlphabeticalChars + 1),
+            ]
+        }
 
         return unicodeAliases
     },
