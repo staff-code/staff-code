@@ -1,12 +1,12 @@
-import {BLANK, Html, Word} from "@sagittal/general"
+import {Html, Word} from "@sagittal/general"
 import {ReferenceRow} from "../../../../../bin"
-import {computeUnicodeLiteral, Unicode} from "../../../../translate"
+import {Unicode} from "../../../../translate"
 import {setupCodeCell} from "./code"
 import {EMPTY_CODE} from "./constants"
 import {EXCLUDED_CODES} from "./exceptions"
 
 const suppressEmoji = (unicode: Unicode & Word): Html =>
-    `&#x${computeUnicodeLiteral(unicode).replace(/U\+/, BLANK).toLowerCase()};&#xfe0e;` as Html
+    `${unicode}` as Html // TODO: this doesn't actually work yet
 
 const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
     const table = document.createElement("table")
