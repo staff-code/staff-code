@@ -1,19 +1,5 @@
+import {isBrowserMobile} from "@sagittal/general"
 import {components} from "../../globals"
-
-// TODO: if this works, extract to general/browser
-const isBrowserMobile = (): boolean => {
-    const toMatch = [
-        /Android/i,
-        /webOS/i,
-        /iPhone/i,
-        /iPad/i,
-        /iPod/i,
-        /BlackBerry/i,
-        /Windows Phone/i,
-    ]
-
-    return toMatch.some((toMatchItem: RegExp): boolean => !!navigator.userAgent.match(toMatchItem))
-}
 
 const buildTocWrapper = (): HTMLDivElement => {
     const tocWrapper = document.createElement("div")
