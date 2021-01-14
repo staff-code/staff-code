@@ -103,10 +103,20 @@ const REFERENCE_BANNER_CSS = `
 // tslint:disable-next-line comment-format
 // language=CSS
 const REFERENCE_TOC_CSS = `
-    ul {
+    .sc-reference ul {
         list-style: none;
         padding: 0;
         margin: 0 0 30px 0;
+    }
+`
+
+// tslint:disable-next-line comment-format
+// language=CSS
+const REFERENCE_GENERAL_CSS = `
+    .sc-reference h3 {
+        display: inline-block;
+        padding-right: 10px;
+        margin: 0 0 5px 0;
     }
 `
 
@@ -119,14 +129,6 @@ const REFERENCE_SECTION_TITLE_CSS = `
 
     .sc-section-anchor {
         position: absolute;
-    }
-
-    /* intro */
-
-    .sc-section-intro h3 {
-        display: inline-block;
-        padding-right: 10px;
-        margin: 0 0 5px 0;
     }
 
     .sc-section-intro a {
@@ -207,6 +209,7 @@ const REFERENCE_CSS = `
     ${REFERENCE_WRAPPER_CSS}
     ${REFERENCE_BANNER_CSS}
     ${REFERENCE_TOC_CSS}
+    ${REFERENCE_GENERAL_CSS}
     ${REFERENCE_SECTION_TITLE_CSS}
     ${REFERENCE_TABLE_CSS}
 `
