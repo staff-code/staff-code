@@ -24,11 +24,11 @@ const REFERENCE_BANNER_CSS = `
         transform: rotate(90deg);
     }
 
-    .sc-reference-wrapper a {
+    .sc-back-to-top {
         visibility: hidden;
     }
 
-    .sc-reference-wrapper.open a {
+    .sc-reference-wrapper.open .sc-back-to-top {
         visibility: visible;
     }
 

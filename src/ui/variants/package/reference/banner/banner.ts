@@ -14,6 +14,7 @@ const buildReferenceBanner = (): HTMLDivElement => {
     referenceBanner.appendChild(referenceExpander)
 
     const backToTopLink = document.createElement("a")
+    backToTopLink.classList.add("sc-back-to-top")
     backToTopLink.href = "#top"
     backToTopLink.textContent = "Back to top"
     referenceBanner.appendChild(backToTopLink)
