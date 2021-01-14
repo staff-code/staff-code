@@ -4,9 +4,6 @@ import {INPUT_CSS} from "./input"
 import {REFERENCE_CSS} from "./reference"
 import {SPINNER_CSS} from "./spinners"
 
-// TODO: The download button lines up with the input field for me on desktop Chrome, but mobile chrome it's shorter,
-//  And on desktop Firefox it's longer. I'll just have to rework the layout to not leave that lining up to chance.
-
 const applyCss = (): void => {
     // tslint:disable-next-line comment-format
     // language=CSS

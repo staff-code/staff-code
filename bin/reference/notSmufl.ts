@@ -43,7 +43,7 @@ const COMMANDS_SECTION: Section = [
 ] as Section
 
 const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION: Section = [
-    "combiningStaffPositionsSupplement" as Id<Section>, // todo: const? used elsehwere?
+    "combiningStaffPositionsSupplement" as Id<Section>,
     "Combing staff positions supplement" as Name<Section>,
     NOT_SMUFL,
     "" as Link,
