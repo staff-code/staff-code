@@ -1,6 +1,6 @@
 // tslint:disable-next-line comment-format
 // language=CSS
-import {STANDARD_BORDER, UI_FONT, UI_FONT_SIZE} from "../../constants"
+import {STANDARD_BORDER, STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE} from "../../constants"
 
 const REFERENCE_BANNER_CSS = `
     .sc-reference-banner {
@@ -41,13 +41,10 @@ const REFERENCE_BANNER_CSS = `
 
     .sc-title .sc-about {
         display: none;
-    }
-
-    .sc-title:hover .sc-about {
-        display: block;
         width: max-content;
         background-color: white;
         border: ${STANDARD_BORDER};
+        border-radius: ${STANDARD_BORDER_RADIUS}px;
         font-family: ${UI_FONT};
         font-size: ${UI_FONT_SIZE}em;
         padding: 1.5em;
@@ -55,6 +52,10 @@ const REFERENCE_BANNER_CSS = `
         right: -3px;
         bottom: 18px;
         z-index: 9999;
+    }
+
+    .sc-title:hover .sc-about {
+        display: block;
     }
 `
 
