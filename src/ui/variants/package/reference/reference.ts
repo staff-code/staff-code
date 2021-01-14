@@ -4,6 +4,21 @@ import {handleReferenceTableClick} from "./insert"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
 
+// TODO: if this works, extract to general/browser
+const isBrowserMobile = (): boolean => {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i,
+    ]
+
+    return toMatch.some((toMatchItem: RegExp): boolean => !!navigator.userAgent.match(toMatchItem))
+}
+
 const buildReference = (): HTMLDivElement => {
     const reference = document.createElement("div")
     reference.classList.add("sc-reference")
@@ -21,7 +36,7 @@ const buildReference = (): HTMLDivElement => {
     tocTitleWrapper.appendChild(tocTitle)
 
     const instructions = document.createElement("span")
-    instructions.textContent = "(Click to insert code)"
+    instructions.textContent = `(${isBrowserMobile() ? "Tap" : "Click"} to insert code)`
     tocTitleWrapper.appendChild(instructions)
 
     const toc = document.createElement("ul")
