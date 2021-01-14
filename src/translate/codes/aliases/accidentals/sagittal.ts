@@ -8,6 +8,9 @@ import {Code, Unicode} from "../../types"
 //  `npm run analyze-ji-pitches -- --ordered-fields commaClass,name` to get comma names for StaffCode from script group
 //  What we want is just macros for all of the Olympian commas, up to largest single shaft, super and sub.
 //  So this is blocked on finishing comma name parsing stuff in @sagittal/system.
+//  - This seems like the time to mention that I want the comma names to come last
+//  (despite some containing slashes, asterisks and carets), otherwise the ASCII and the comma names might kind of
+//  Blur together visually/mentally. It's good to have the lowercase-letters-only sagispeak in between.
 
 const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "|(": SMuFL_MAP["acsg5V7klup"],

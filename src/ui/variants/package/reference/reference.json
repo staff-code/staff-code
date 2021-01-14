@@ -489,7 +489,7 @@
     "Clefs",
     "",
     "",
-    "StaffCode maps note names C1 D1 E1 .. C7 to staff positions based on the preceding clef and its staff position. If there has been no clef, treble staff positioning is used.",
+    "StaffCode maps note names C1 ... B3 C4 D4 ... C7 to staff positions based on the preceding clef and its staff position. If there has been no clef, treble staff positioning is used.",
     [
       [
         "",
