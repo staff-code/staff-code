@@ -19,7 +19,7 @@ const buildSectionIntroLeftHalf = (
 
     const sectionSmuflLink = document.createElement("a")
     sectionSmuflLink.textContent = sectionId === COMMANDS_SECTION_ID ? "Intro to StaffCode" : "SMuFL reference"
-    sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/gitbook/tables/${sectionId}`
+    sectionSmuflLink.href = sectionLink || `http://www.smufl.org/version/latest/range/shapeNoteNoteheads/${sectionId}`
     sectionSmuflLink.target = "_blank"
     sectionIntroLeftHalf.appendChild(sectionSmuflLink)
 
