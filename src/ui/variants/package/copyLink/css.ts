@@ -1,10 +1,10 @@
-import {STANDARD_BORDER, STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE} from "../constants"
+import {STANDARD_BORDER, STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE, UI_SPACING} from "../constants"
 
 // tslint:disable-next-line comment-format
 // language=CSS
 const COPY_LINK_CSS = `
     .sc-copy-link {
-        margin: 2px 5px 2px 0;
+        margin: 2px ${UI_SPACING}px 2px 0;
         cursor: pointer;
         font-family: ${UI_FONT};
         font-size: ${UI_FONT_SIZE}em;

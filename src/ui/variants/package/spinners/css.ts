@@ -1,11 +1,18 @@
-import {OUTLINE_LIGHT_BLUE, STANDARD_BORDER, STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE} from "../constants"
+import {
+    OUTLINE_LIGHT_BLUE,
+    STANDARD_BORDER,
+    STANDARD_BORDER_RADIUS,
+    UI_FONT,
+    UI_FONT_SIZE,
+    UI_SPACING,
+} from "../constants"
 
 // tslint:disable-next-line comment-format
 // language=CSS
 const SPINNER_CSS = `
     .sc-spinner {
         display: inline-block;
-        margin-right: 5px;
+        margin-right: ${UI_SPACING}px;
     }
 
     .sc-spinner label {
