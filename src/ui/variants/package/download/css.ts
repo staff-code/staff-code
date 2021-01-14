@@ -11,7 +11,7 @@ const DOWNLOAD_CSS = `
         border: none;
         color: white;
         background-color: #2EA44F;
-        padding: 4px 6px 2px 6px;
+        padding: 4px 6px 3px 6px;
         border-radius: ${STANDARD_BORDER_RADIUS}px;
         outline: none;
     }

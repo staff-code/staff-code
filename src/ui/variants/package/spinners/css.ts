@@ -12,7 +12,7 @@ import {
 const SPINNER_CSS = `
     .sc-spinner {
         display: inline-block;
-        margin-right: ${UI_SPACING}px;
+        margin: 2px ${UI_SPACING}px 0 0;
     }
 
     .sc-spinner label {
