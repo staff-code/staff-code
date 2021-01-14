@@ -23,19 +23,19 @@ const COPY_LINK_CSS = css`
     background-color: #0366CC;
   }
 
-  .sc-copy-link div {
+  .sc-copy-link-message {
     display: none;
   }
 
-  .sc-copy-link:active div {
+  .sc-copy-link-message.active {
     display: block;
     position: absolute;
     background-color: white;
     border: 1px solid #bbbbbb;
     top: 35px;
-    left: -9px;
-    width: 80px;
-    color: mediumvioletred;
+    left: -35px;
+    width: 130px;
+    color: black;
   }
 `
 

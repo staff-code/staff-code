@@ -1,3 +1,4 @@
+import {components} from "../globals"
 import {handleCopyLinkClick} from "./handlers"
 
 const buildCopyLinkButton = (): HTMLButtonElement => {
@@ -7,7 +8,9 @@ const buildCopyLinkButton = (): HTMLButtonElement => {
     copyLinkButton.addEventListener("click", handleCopyLinkClick)
 
     const copyLinkMessage = document.createElement("div")
-    copyLinkMessage.textContent = "Link copied!"
+    copyLinkMessage.classList.add("sc-copy-link-message")
+    copyLinkMessage.textContent = "Link copied to clipboard"
+    components.copyLinkMessage = copyLinkMessage
     copyLinkButton.appendChild(copyLinkMessage)
 
     return copyLinkButton

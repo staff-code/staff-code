@@ -17,6 +17,7 @@ interface Components {
     lineSpinner: HTMLInputElement,
     referenceWrapper: HTMLDivElement,
     referenceExpander: HTMLSpanElement,
+    copyLinkMessage: HTMLDivElement,
 }
 
 export {

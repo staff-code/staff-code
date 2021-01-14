@@ -1,9 +1,13 @@
 import {BLANK} from "@sagittal/general"
 import {WEB_APP_URL} from "../../../constants"
+import {components} from "../globals"
 import {codeRunningInStaffCodeWebApp} from "./app"
 import {computeInitialParams} from "./initial"
 
 const handleCopyLinkClick = (): void => {
+    components.copyLinkMessage.classList.add("active")
+    setTimeout((): void => components.copyLinkMessage.classList.remove("active"), 1000)
+
     const initialParams = computeInitialParams()
 
     if (codeRunningInStaffCodeWebApp()) {
