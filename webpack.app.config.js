@@ -6,6 +6,10 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 const IgnoreNotFoundExportPlugin = require("ignore-not-found-export-webpack-plugin")
 const common = require("./webpack.common.config")
 
+// TODO: There may be some issue where GitHub pages is running a mix of new and old code
+//  Maybe it started upon extracting from the Sagittal app
+//  Maybe the chunks aren't getting hashed properly?
+
 module.exports = {
     ...common,
     mode: "production",
