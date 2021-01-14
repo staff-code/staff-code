@@ -1,6 +1,6 @@
 {
   "name": "staff-code",
-  "version": "1.0.140",
+  "version": "1.0.143",
   "main": "dist/package/src/index.js",
   "types": "dist/package/src/index.d.ts",
   "description": "converts simple text codes into Unicode which in the Bravura Text font displays as sheet music",
@@ -35,8 +35,9 @@
     "@types/vexflow": "^3.0.0",
     "buffer": "^6.0.3",
     "copy-webpack-plugin": "^7.0.0",
+    "favicons": "^6.2.0",
     "favicons-webpack-plugin": "^5.0.0-alpha.6",
-    "html-webpack-plugin": "^4.5.1",
+    "html-webpack-plugin": "^5.0.0-beta.5",
     "ignore-not-found-export-webpack-plugin": "^1.0.1",
     "jasmine": "^3.6.3",
     "jasmine-spec-reporter": "^5.0.2",
