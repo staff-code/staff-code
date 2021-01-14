@@ -34,9 +34,11 @@ const COPY_LINK_CSS = `
         position: absolute;
         background-color: white;
         border: ${STANDARD_BORDER};
+        border-radius: ${STANDARD_BORDER_RADIUS}px;
         top: 35px;
         left: -35px;
-        width: 130px;
+        width: max-content;
+        padding: 1.5em;
         color: black;
     }
 `
