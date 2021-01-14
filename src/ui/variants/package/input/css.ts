@@ -8,7 +8,7 @@ import {
 } from "../constants"
 
 const ABOUT_FORTY_FIVE_CHARS_WIDE_PX: Px = 340 as Px
-const ABOUT_THREE_LINES_HIGH_PX: Px = 52 as Px
+const ABOUT_THREE_LINES_HIGH_PX: Px = 55 as Px
 const INPUT_PADDING = 2 as Px
 
 // tslint:disable-next-line comment-format
