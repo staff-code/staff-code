@@ -18,9 +18,9 @@ const buildSpinnerWrapper = (
     spinner.type = "number"
     spinner.step = "0.1"
     spinner.min = "0.1"
-    spinner.max = `${max}`
+    spinner.max = JSON.stringify(max)
     // @ts-ignore
-    spinner.value = `${staffCodeConfig.initial[initial]}`
+    spinner.value = JSON.stringify(staffCodeConfig.initial[initial])
     spinner.id = initial
     // @ts-ignore
     components[`${initial}Spinner`] = spinner

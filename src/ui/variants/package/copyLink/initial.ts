@@ -16,7 +16,7 @@ const computeInitialCodesParam = (): string => {
 const computeInitialSizeParam = (): string =>
     (
         !components.sizeSpinner
-        || components.sizeSpinner.value === `${DEFAULT_INITIAL_SIZE}`
+        || components.sizeSpinner.value === JSON.stringify(DEFAULT_INITIAL_SIZE)
     ) ?
         BLANK :
         `&${Initial.SIZE}=${components.sizeSpinner.value}`
@@ -24,7 +24,7 @@ const computeInitialSizeParam = (): string =>
 const computeInitialLineParam = (): string =>
     (
         !components.lineSpinner
-        || components.lineSpinner.value === `${DEFAULT_INITIAL_LINE}`
+        || components.lineSpinner.value === JSON.stringify(DEFAULT_INITIAL_LINE)
     ) ?
         BLANK :
         `&${Initial.LINE}=${components.lineSpinner.value}`

@@ -3,6 +3,7 @@ import {components} from "../globals"
 import {handleReferenceTableClick} from "./insert"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
+import {handleReferenceTableUndo} from "./undo"
 
 // TODO: if this works, extract to general/browser
 const isBrowserMobile = (): boolean => {
@@ -47,6 +48,7 @@ const buildReference = (): HTMLDivElement => {
     sections.forEach(appendSection)
 
     reference.addEventListener("click", handleReferenceTableClick)
+    document.addEventListener("keydown", handleReferenceTableUndo)
 
     return reference
 }
