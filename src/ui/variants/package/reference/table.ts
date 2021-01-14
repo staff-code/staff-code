@@ -1,7 +1,12 @@
+import {BLANK, Html, Word} from "@sagittal/general"
 import {ReferenceRow} from "../../../../../bin"
+import {computeUnicodeLiteral, Unicode} from "../../../../translate"
 import {setupCodeCell} from "./code"
 import {EMPTY_CODE} from "./constants"
 import {EXCLUDED_CODES} from "./exceptions"
+
+const suppressEmoji = (unicode: Unicode & Word): Html =>
+    `&#x${computeUnicodeLiteral(unicode).replace(/U\+/, BLANK).toLowerCase()};&#xfe0e;` as Html
 
 const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
     const table = document.createElement("table")
@@ -12,11 +17,7 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
         const row = table.insertRow()
 
         const unicodeCell = row.insertCell()
-        // TODO: BUG, BLOCKED: WEIRD FLOATERS IN GLYPH CELLS
-        //  I think this is making some weird thing show up
-        //  But blocked on Dave's feedback
-        //  When done, make this easier to find by helper constant or something at least referencing Emoji
-        unicodeCell.innerHTML = `${unicode}&#xfe0e`
+        unicodeCell.innerHTML = suppressEmoji(unicode)
         row.appendChild(unicodeCell)
 
         const codeCell = row.insertCell()
