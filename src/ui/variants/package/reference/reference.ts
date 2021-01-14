@@ -20,14 +20,19 @@ const isBrowserMobile = (): boolean => {
 }
 
 const buildReference = (): HTMLDivElement => {
+    const referenceBorderWrapper = document.createElement("div")
+    referenceBorderWrapper.classList.add("sc-reference-border-wrapper")
+
     const reference = document.createElement("div")
     reference.classList.add("sc-reference")
+    referenceBorderWrapper.appendChild(reference)
     components.reference = reference
 
     const topLink = document.createElement("a")
     topLink.id = "top"
     reference.appendChild(topLink)
 
+    // todo: extract TOC stuff
     const tocTitleWrapper = document.createElement("div")
     reference.appendChild(tocTitleWrapper)
 
@@ -49,7 +54,7 @@ const buildReference = (): HTMLDivElement => {
     reference.addEventListener("click", handleReferenceTableClick)
     document.addEventListener("keydown", handleReferenceTableUndo)
 
-    return reference
+    return referenceBorderWrapper
 }
 
 export {

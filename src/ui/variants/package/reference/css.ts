@@ -23,15 +23,19 @@ const REFERENCE_WRAPPER_CSS = `
         height: 432px;
         padding: 20px 10px;
         overflow-y: auto;
-        border: ${STANDARD_BORDER};
-        border-radius: ${STANDARD_BORDER_RADIUS}px;
     }
 
     .sc-reference {
-        background: white;
+        background-color: white;
         height: 0;
         overflow-y: hidden;
         box-sizing: border-box;
+    }
+
+    .sc-reference-border-wrapper {
+        overflow-x: hidden;
+        border: ${STANDARD_BORDER};
+        border-radius: ${STANDARD_BORDER_RADIUS}px;
     }
 `
 
@@ -76,7 +80,7 @@ const REFERENCE_BANNER_CSS = `
 
     .sc-title .sc-about {
         display: none;
-        background: white;
+        background-color: white;
         border: ${STANDARD_BORDER};
         font-family: ${UI_FONT};
         font-size: ${UI_FONT_SIZE}em;
