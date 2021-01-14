@@ -76,8 +76,6 @@ const REFERENCE_BANNER_CSS = `
     /* title & about */
 
     .sc-title {
-        float: right;
-        font-weight: bold;
         position: relative;
         cursor: default;
     }
@@ -86,7 +84,6 @@ const REFERENCE_BANNER_CSS = `
         display: none;
         background: white;
         border: ${STANDARD_BORDER};
-        font-weight: normal;
         font-family: ${UI_FONT};
         font-size: ${UI_FONT_SIZE}em;
         padding: 0.5em;
