@@ -1,5 +1,5 @@
 import {Id, Name} from "@sagittal/general"
-import {Explanation, Parenthetical, Section} from "../../../../../bin"
+import {COMMANDS_SECTION_ID, Explanation, Parenthetical, Section} from "../../../../../bin"
 
 const buildSectionIntroLeftHalf = (
     sectionId: Id<Section>,
@@ -18,7 +18,7 @@ const buildSectionIntroLeftHalf = (
     sectionIntroLeftHalf.appendChild(sectionParenthetical)
 
     const sectionSmuflLink = document.createElement("a")
-    sectionSmuflLink.textContent = "SMuFL reference"
+    sectionSmuflLink.textContent = sectionId === COMMANDS_SECTION_ID ? "Intro to StaffCode" : "SMuFL reference"
     sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/gitbook/tables/${sectionId}`
     sectionSmuflLink.target = "_blank"
     sectionIntroLeftHalf.appendChild(sectionSmuflLink)

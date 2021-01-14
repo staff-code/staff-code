@@ -1,4 +1,4 @@
-import {INTRODUCTION_TO_STAFF_CODE_LINK} from "../../../../../bin"
+import {INTRO_TO_STAFF_CODE_LINK} from "../../../../../bin"
 import pkg from "../../../../../package.json"
 import {components} from "../globals"
 import {handleReferenceExpanderClick} from "./expand"
@@ -6,7 +6,7 @@ import {handleReferenceExpanderClick} from "./expand"
 const STAFF_CODE_ABOUT = `
 StaffCode version ${pkg.version}<br>
 by Douglas Blumeyer and Dave Keenan<br>
-<a target="_blank" href='${INTRODUCTION_TO_STAFF_CODE_LINK}'>Introduction to StaffCode</a>
+<a target="_blank" href='${INTRO_TO_STAFF_CODE_LINK}'>Intro to StaffCode</a>
 `
 
 const buildReferenceBanner = (): HTMLDivElement => {

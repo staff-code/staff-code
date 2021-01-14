@@ -1,13 +1,13 @@
-import {Id, Name} from "@sagittal/general"
-import {INTRODUCTION_TO_STAFF_CODE_LINK} from "./constants"
+import {Name} from "@sagittal/general"
+import {COMMANDS_SECTION_ID, INTRO_TO_STAFF_CODE_LINK} from "./constants"
 import {NOT_SMUFL} from "./parentheticals"
 import {Explanation, ReferenceRow, Section} from "./types"
 
 const COMMANDS_SECTION = [
-    "commands" as Id<Section>,
+    COMMANDS_SECTION_ID,
     "StaffCode commands" as Name<Section>,
     NOT_SMUFL,
-    INTRODUCTION_TO_STAFF_CODE_LINK,
+    INTRO_TO_STAFF_CODE_LINK,
     `"Auto stem direction" means stem down for middle line and above, otherwise stem up.` as Explanation,
     [
         ["", "ston", "<u>st</u>aff <u>on</u>"],
