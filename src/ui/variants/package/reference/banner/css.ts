@@ -49,8 +49,7 @@ const REFERENCE_BANNER_CSS = `
         position: absolute;
         right: -3px;
         bottom: 18px;
-        width: 120px;
-        text-align: right;
+        width: 150px;
         z-index: 9999;
     }
 

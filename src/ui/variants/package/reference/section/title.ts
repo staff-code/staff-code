@@ -21,7 +21,7 @@ const buildSectionIntro = (
     }
 
     const sectionSmuflLink = document.createElement("a")
-    sectionSmuflLink.textContent = sectionId === COMMANDS_SECTION_ID ? "Intro to StaffCode" : "SMuFL reference"
+    sectionSmuflLink.textContent = sectionId === COMMANDS_SECTION_ID ? "Introduction to StaffCode" : "SMuFL reference"
     sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/gitbook/tables/${camelCaseToKebabCase(sectionId)}`
     sectionSmuflLink.target = "_blank"
     sectionIntro.appendChild(sectionSmuflLink)
