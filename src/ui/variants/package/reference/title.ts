@@ -1,4 +1,4 @@
-import {Id, Name} from "@sagittal/general"
+import {camelCaseToKebabCase, Id, Name} from "@sagittal/general"
 import {COMMANDS_SECTION_ID, Explanation, Parenthetical, Section} from "../../../../../bin"
 
 const buildSectionIntroLeftHalf = (
@@ -19,8 +19,7 @@ const buildSectionIntroLeftHalf = (
 
     const sectionSmuflLink = document.createElement("a")
     sectionSmuflLink.textContent = sectionId === COMMANDS_SECTION_ID ? "Intro to StaffCode" : "SMuFL reference"
-    sectionSmuflLink.href = sectionLink || `http://www.smufl.org/version/latest/range/shapeNoteNoteheads/${sectionId}`
-    // sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/gitbook/tables/${camelCaseToKebabCase(sectionId)}.html` // todo: finish in sagittal.general
+    sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/gitbook/tables/${camelCaseToKebabCase(sectionId)}`
     sectionSmuflLink.target = "_blank"
     sectionIntroLeftHalf.appendChild(sectionSmuflLink)
 
