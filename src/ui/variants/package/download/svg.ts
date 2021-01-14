@@ -1,8 +1,8 @@
-import {BLANK, Link, vectorizeText} from "@sagittal/general"
+import {BLANK, Link, Px, vectorizeText} from "@sagittal/general"
 import {Unicode} from "../../../../translate"
 import {DEFAULT_FONT} from "../../../fonts"
 import {components} from "../globals"
-import {computeSvgHeight, scaleSVGToFitContents} from "./resize"
+import {cropSVGToFitContents, getDummyHeight} from "./resize"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
@@ -46,18 +46,35 @@ const buildSvgBlobUrl = (clonedSvg: SVGGraphicsElement): Link => {
     return URL.createObjectURL(blob) as Link
 }
 
+const DUMMY_WIDTH = 1000 as Px
+
 const downloadSvg = (): void => {
     const {display} = components
     const unicodeSentence: Unicode = (display.textContent || BLANK) as Unicode
-    const options = {
-        height: computeSvgHeight(unicodeSentence),
+
+    const dummyOptions = {
+        width: DUMMY_WIDTH,
         font: DEFAULT_FONT,
         lineSpacing: parseFloat(display.style.lineHeight),
     }
+    const dummySvg = buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem()
+    dummySvg.innerHTML = vectorizeText(unicodeSentence, dummyOptions)
+    const dummyHeight = getDummyHeight(dummySvg) // todo relative to 1000 width
 
+    const actualWidth = display.offsetWidth
+    const options = {
+        height: dummyHeight * (actualWidth / DUMMY_WIDTH) * (2/3) as Px, // todo dunno why the 2/3 is importatn
+        font: DEFAULT_FONT,
+        lineSpacing: parseFloat(display.style.lineHeight),
+    }
     const svg = buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem()
+
     svg.innerHTML = vectorizeText(unicodeSentence, options)
-    scaleSVGToFitContents(svg)
+    cropSVGToFitContents(svg)
+
+    // todo also going to have to deal with this crazy garbled nonsense you get seemingly
+    //  if you ever try to download the SVG more than once without refreshing the page
+
     const clonedSvg = cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled(svg)
 
     const svgBlobUrl = buildSvgBlobUrl(clonedSvg)

@@ -88,8 +88,11 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     }
 
     const display = buildDisplay({font, initialLine, inline, initialSize})
+    display.style.display = "inline-block"
+    const displayWrapper = document.createElement("div")
+    displayWrapper.appendChild(display)
     components.display = display
-    root.appendChild(display)
+    root.appendChild(displayWrapper)
 
     if (reference) {
         const referenceExpander = buildReferenceWrapper()
