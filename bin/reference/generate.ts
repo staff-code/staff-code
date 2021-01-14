@@ -1,8 +1,12 @@
 import {computeKeyPath, Id, Link, sort} from "@sagittal/general"
 import * as fs from "fs"
-import {COMMANDS_SECTION} from "./commands"
 import {computeExplanation} from "./explanations"
 import {smuflRanges} from "./globals"
+import {
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION,
+    COMMANDS_SECTION,
+    LEGER_LINES_SUPPLEMENT_SECTION,
+} from "./notSmufl"
 import {computeParenthetical} from "./parentheticals"
 import {computeSectionDatum} from "./row"
 import {Section, SmuflRangeDatum} from "./types"
@@ -24,6 +28,8 @@ const generateSmuflReference = (): void => {
         return [sectionId, sectionName, parenthetical, sectionLink, explanation, sectionData]
     })
     sections.unshift(COMMANDS_SECTION)
+    sections.push(COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION)
+    sections.push(LEGER_LINES_SUPPLEMENT_SECTION)
 
     fs.writeFileSync(
         "src/ui/variants/package/reference/reference.json",

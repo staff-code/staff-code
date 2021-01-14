@@ -12846,7 +12846,7 @@
     "Combining staff positions",
     "",
     "",
-    "These are invisible characters that move the following symbol up or down if possible. StaffCode generates them from note names C1 D1 E1 .. C7 based on the preceding clef and its staff position. They can also be used directly, relative to the middle staff line. See also <a href=\"combiningStaffPositionsSupplement\">Combining staff positions supplement</a>.",
+    "These are invisible characters that move the following symbol up or down if possible. StaffCode generates them from note names C1 ... B3 C4 D4 ... C7 based on the preceding clef and its staff position. They can also be used directly, relative to the middle staff line. See also <a href=\"#combiningStaffPositionsSupplement\">Combining staff positions supplement</a>.",
     [
       [
         "",
@@ -15989,6 +15989,159 @@
         "",
         "scdg9",
         "<u>s</u><u>c</u>ale <u>d</u>e<u>g</u>ree <u>9</u>"
+      ]
+    ]
+  ],
+  [
+    "combiningStaffPositionsSupplement",
+    "Combing staff positions supplement",
+    "(not SMuFL)",
+    "",
+    "SMuFL does not allow staff positions corresponding to more than 2 leger lines. And it does not allow symbols on the middle staff line without advancing. So StaffCode adds the following additional positions.",
+    [
+      [
+        "",
+        "up0",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>0</u>"
+      ],
+      [
+        "",
+        "up9",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>9</u>"
+      ],
+      [
+        "",
+        "up10",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>10</u>"
+      ],
+      [
+        "",
+        "up11",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>11</u>"
+      ],
+      [
+        "",
+        "up12",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>12</u>"
+      ],
+      [
+        "",
+        "up13",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>13</u>"
+      ],
+      [
+        "",
+        "up14",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>14</u>"
+      ],
+      [
+        "",
+        "up15",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>15</u>"
+      ],
+      [
+        "",
+        "dn9",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>9</u>"
+      ],
+      [
+        "",
+        "dn10",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>10</u>"
+      ],
+      [
+        "",
+        "dn11",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>11</u>"
+      ],
+      [
+        "",
+        "dn12",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>12</u>"
+      ],
+      [
+        "",
+        "dn13",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>13</u>"
+      ],
+      [
+        "",
+        "dn14",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>14</u>"
+      ],
+      [
+        "",
+        "dn15",
+        "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>15</u>"
+      ]
+    ]
+  ],
+  [
+    "legerLinesSupplement",
+    "Leger lines supplement",
+    "(not SMuFL)",
+    "",
+    "SMuFL does not have suitable leger lines for all note and notehead symbols, so StaffCode adds the following. StaffCode will generate them automatically following <u>st</u>on (<u>st</u>aff <u>on</u>).",
+    [
+      [
+        "",
+        "lgln8",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>8</u> octals"
+      ],
+      [
+        "",
+        "lgln10",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>10</u> octals"
+      ],
+      [
+        "",
+        "lgln12",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>12</u> octals"
+      ],
+      [
+        "",
+        "lgln14",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>14</u> octals"
+      ],
+      [
+        "",
+        "lgln16",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>16</u> octals"
+      ],
+      [
+        "",
+        "lgln18",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>18</u> octals"
+      ],
+      [
+        "",
+        "lgln20",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>20</u> octals"
+      ],
+      [
+        "",
+        "lgln22",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>22</u> octals"
+      ],
+      [
+        "",
+        "lgln24",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>24</u> octals"
+      ],
+      [
+        "",
+        "lgln28",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>28</u> octals"
+      ],
+      [
+        "",
+        "lgln34",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>34</u> octals"
+      ],
+      [
+        "",
+        "lgln40",
+        "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>40</u> octals"
       ]
     ]
   ]

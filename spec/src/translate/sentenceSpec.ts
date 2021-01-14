@@ -133,7 +133,7 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("works for the supplemental positions", (): void => {
+        it("works for the positions supplement", (): void => {
             const inputSentence = "c7 /|\\ nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
@@ -142,6 +142,15 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "up15 /|\\ up15 ntqrdn 11;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
+        })
+
+        it("ignores leger line supplements for now", (): void => {
+            const inputSentence = "lgln8" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            expect(actual).toBe(EMPTY_UNICODE)
+            expect(debugCodeSentence(actual)).toBe(BLANK)
         })
     })
 
