@@ -9,6 +9,7 @@ import {
 
 const ABOUT_FORTY_FIVE_CHARS_WIDE_PX: Px = 340 as Px
 const ABOUT_THREE_LINES_HIGH_PX: Px = 52 as Px
+const INPUT_PADDING = 2 as Px
 
 // tslint:disable-next-line comment-format
 // language=CSS
@@ -21,6 +22,7 @@ const INPUT_CSS = `
         border: ${STANDARD_BORDER};
         border-radius: ${STANDARD_BORDER_RADIUS}px;
         margin-bottom: 5px;
+        padding: ${INPUT_PADDING}px;
     }
 
     .sc-input:focus {
@@ -31,4 +33,5 @@ const INPUT_CSS = `
 export {
     ABOUT_FORTY_FIVE_CHARS_WIDE_PX,
     INPUT_CSS,
+    INPUT_PADDING,
 }

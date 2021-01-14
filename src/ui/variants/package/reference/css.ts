@@ -2,10 +2,11 @@ import {
     MONOSPACED_FONT,
     MONOSPACED_FONT_SIZE,
     STANDARD_BORDER,
-    STANDARD_BORDER_RADIUS, UI_FONT,
+    STANDARD_BORDER_RADIUS,
+    UI_FONT,
     UI_FONT_SIZE,
 } from "../constants"
-import {ABOUT_FORTY_FIVE_CHARS_WIDE_PX} from "../input"
+import {ABOUT_FORTY_FIVE_CHARS_WIDE_PX, INPUT_PADDING} from "../input"
 
 // tslint:disable-next-line comment-format
 // language=CSS
@@ -14,8 +15,9 @@ const REFERENCE_WRAPPER_CSS = `
         background: white;
         width: 100%;
         max-width: ${ABOUT_FORTY_FIVE_CHARS_WIDE_PX}px;
+        padding: ${INPUT_PADDING}px;
     }
-  
+
     .sc-reference-wrapper.open {
         max-width: 600px;
     }
@@ -29,9 +31,9 @@ const REFERENCE_WRAPPER_CSS = `
     }
 
     .sc-reference {
-      height: 0;
-      overflow-y: hidden;
-      box-sizing: border-box;
+        height: 0;
+        overflow-y: hidden;
+        box-sizing: border-box;
     }
 `
 
