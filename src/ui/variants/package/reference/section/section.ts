@@ -1,8 +1,8 @@
-import {Section} from "../../../../../bin"
-import {components} from "../globals"
+import {Section} from "../../../../../../bin"
+import {components} from "../../globals"
 import {buildSectionTable} from "./table"
 import {buildSectionTitle} from "./title"
-import {buildTocItem} from "./tocItem"
+import {buildTocItem} from "../tocItem"
 
 const appendSection = (section: Section): void => {
     const [sectionId, sectionName, parenthetical, sectionLink, explanation, sectionData] = section

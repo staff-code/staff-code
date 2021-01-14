@@ -1,7 +1,7 @@
 import {BLANK, Io, Maybe, Sentence, SPACE, Word} from "@sagittal/general"
-import {Code} from "../../../../translate"
-import {transferInputToDisplay} from "../../../transfer"
-import {components, staffCodeConfig} from "../globals"
+import {Code} from "../../../../../translate"
+import {transferInputToDisplay} from "../../../../transfer"
+import {components, staffCodeConfig} from "../../globals"
 import {INPUT_PREVIOUS_POSITION_DATA_ATTRIBUTE, INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "./constants"
 
 const insertCodeIntoInputAndSavePreviousState = (code: Code & Word): void => {

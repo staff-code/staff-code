@@ -1,8 +1,8 @@
 import {isUndefined} from "@sagittal/general"
-import {components} from "../globals"
-import {setStaffCodeCookie} from "../initial"
-import {Initial} from "../types"
-import {closeReference, isReferenceOpen, openReference} from "./open"
+import {components} from "../../globals"
+import {setStaffCodeCookie} from "../../initial"
+import {Initial} from "../../types"
+import {closeReference, isReferenceOpen, openReference} from "../open"
 
 const handleReferenceExpanderClick = async (): Promise<void> => {
     const {referenceWrapper, referenceExpander} = components
@@ -18,7 +18,7 @@ const handleReferenceExpanderClick = async (): Promise<void> => {
     }
 
     const {buildReference}: {buildReference: () => HTMLDivElement} =
-        await import("./reference")
+        await import("../reference")
 
     if (!isUndefined(components.reference)) {
         referenceWrapper.style.cursor = "auto"

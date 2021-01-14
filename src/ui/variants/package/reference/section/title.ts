@@ -1,5 +1,5 @@
 import {BLANK, camelCaseToKebabCase, Id, Name} from "@sagittal/general"
-import {COMMANDS_SECTION_ID, Explanation, Parenthetical, Section} from "../../../../../bin"
+import {COMMANDS_SECTION_ID, Explanation, Parenthetical, Section} from "../../../../../../bin"
 
 const buildSectionIntro = (
     sectionId: Id<Section>,

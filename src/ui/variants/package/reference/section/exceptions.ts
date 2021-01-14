@@ -1,5 +1,5 @@
 import {Name, RecordKey} from "@sagittal/general"
-import {Unicode} from "../../../../translate"
+import {Unicode} from "../../../../../translate"
 
 const EXCLUDED_CODES: Record<RecordKey<Name<Unicode>>, boolean> = {
     "acsgun1": true,

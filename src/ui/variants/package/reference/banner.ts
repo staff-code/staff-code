@@ -1,7 +1,7 @@
 import {INTRO_TO_STAFF_CODE_LINK} from "../../../../../bin"
 import pkg from "../../../../../package.json"
 import {components} from "../globals"
-import {handleReferenceExpanderClick} from "./expand"
+import {handleReferenceExpanderClick} from "./handlers"
 
 const STAFF_CODE_ABOUT = `
 StaffCode version ${pkg.version}<br>

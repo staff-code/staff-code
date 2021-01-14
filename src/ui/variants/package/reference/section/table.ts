@@ -1,6 +1,6 @@
 import {Html, Word} from "@sagittal/general"
-import {ReferenceRow} from "../../../../../bin"
-import {Unicode} from "../../../../translate"
+import {ReferenceRow} from "../../../../../../bin"
+import {Unicode} from "../../../../../translate"
 import {setupCodeCell} from "./code"
 import {EMPTY_CODE} from "./constants"
 import {EXCLUDED_CODES} from "./exceptions"

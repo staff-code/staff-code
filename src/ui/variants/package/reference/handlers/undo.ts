@@ -1,4 +1,4 @@
-import {components} from "../globals"
+import {components} from "../../globals"
 import {INPUT_PREVIOUS_POSITION_DATA_ATTRIBUTE, INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "./constants"
 
 const handleReferenceTableUndo = (event: KeyboardEvent): void => {

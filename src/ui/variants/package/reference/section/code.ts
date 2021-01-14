@@ -1,5 +1,5 @@
 import {BLANK, computeKeyPath, isUndefined, RecordKey, sort, Word} from "@sagittal/general"
-import {ALIASES_MAP, Code, SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP, Unicode} from "../../../../translate"
+import {ALIASES_MAP, Code, SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP, Unicode} from "../../../../../translate"
 import {EMPTY_CODE} from "./constants"
 
 const ALIASES_FOR_REFERENCE_MAP = JSON.parse(JSON.stringify(ALIASES_MAP))
