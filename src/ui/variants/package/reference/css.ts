@@ -136,7 +136,7 @@ const REFERENCE_CSS = css`
     padding: 2px 5px;
     font-family: Bravura Text BB;
     font-size: 1.6666em;
-    width: 1em;
+    width: 1.1111em;
     text-align: center;
     line-height: 0.75; /* so that they don't massively increase height of the rows */
   }
