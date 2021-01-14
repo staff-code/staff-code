@@ -237,7 +237,7 @@
     "Staves",
     "(and leger lines)",
     "",
-    "StaffCode generates staff pieces and leger lines automatically after a <u>ston</u> (<u>st</u>aff <u>on</u>) comman, and any staff-piece code will change what kind of staff is generated. The default is <u>st5ln</u> (<u>st</u>aff <u>5</u> <u>l</u>i<u>n</u>es).",
+    "StaffCode generates staff pieces and leger lines automatically after a <u>ston</u> (<u>st</u>aff <u>on</u>) command, and any staff-piece code will change what kind of staff is generated. The default is <u>st5ln</u> (<u>st</u>aff <u>5</u> <u>l</u>i<u>n</u>es).",
     [
       [
         "",
