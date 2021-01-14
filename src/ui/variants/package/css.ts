@@ -15,7 +15,8 @@ const applyCss = (): void => {
         ${SPINNER_CSS}
         
         body {
-          background-color: #f8f8f8;
+            position: fixed;
+            background-color: #f8f8f8;
         }
     `
 

@@ -11,7 +11,6 @@ const buildTocItem = (
     const tocLink = document.createElement("a")
     tocLink.href = `#${sectionId}`
     tocLink.textContent = parenthetical ? `${sectionName} ${parenthetical}` : sectionName
-    tocLink.addEventListener("click", (): void => window.scrollTo({top: 0}))
     tocItem.appendChild(tocLink)
 
     return tocItem
