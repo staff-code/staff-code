@@ -40,7 +40,7 @@ const buildSectionIntro = (
 
     const backToTopLink = document.createElement("a")
     backToTopLink.href = "#top"
-    backToTopLink.textContent = "↑ back to top"
+    backToTopLink.textContent = "Back to top"
     sectionIntro.appendChild(backToTopLink)
 
     return sectionIntro
