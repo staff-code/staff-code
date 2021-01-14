@@ -5,8 +5,10 @@ import {setupCodeCell} from "./code"
 import {EMPTY_CODE} from "./constants"
 import {EXCLUDED_CODES} from "./exceptions"
 
+const EMOJI_SUPPRESSANT = "︎"
+
 const suppressEmoji = (unicode: Unicode & Word): Html =>
-    `${unicode}` as Html // TODO: this doesn't actually work yet
+    `${unicode}${EMOJI_SUPPRESSANT}` as Html // TODO: Emoji are still a problem, but only on iPhones
 
 const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
     const table = document.createElement("table")
