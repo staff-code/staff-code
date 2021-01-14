@@ -8,7 +8,7 @@ const MONOSPACED_FONT_SIZE = 13 as Px
 
 const UI_FONT = "sans-serif"
 const UI_FONT_SIZE = 0.75 as Em
-const UI_SPACING = 14 as Px
+const UI_SPACING = 12 as Px
 
 const OUTLINE_LIGHT_BLUE = "#88bbff"
 

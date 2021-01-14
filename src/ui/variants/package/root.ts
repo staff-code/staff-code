@@ -4,15 +4,13 @@ import {DEFAULT_FONT} from "../../fonts"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 import {MONOSPACED_FONT} from "./constants"
-import {buildCopyLinkButton} from "./copyLink"
+import {buildControls} from "./controls"
 import {applyCss} from "./css"
-import {buildDownloadButton} from "./download"
 import {loadGoogleFont} from "./fonts"
 import {components, staffCodeConfig} from "./globals"
 import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "./initial"
 import {buildPackageInput} from "./input"
 import {buildReferenceWrapper} from "./reference"
-import {buildLineSpinnerWrapper, buildSizeSpinnerWrapper} from "./spinners"
 
 const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     const {
@@ -63,29 +61,16 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     components.root = root
     root.classList.add("staff-code")
 
+    const ui = document.createElement("span")
+    ui.classList.add("sc-ui")
+    root.appendChild(ui)
+
     const input = buildPackageInput()
     components.input = input
-    root.appendChild(input)
+    ui.appendChild(input)
 
-    if (sizeSpinner) {
-        const sizeSpinnerWrapper = buildSizeSpinnerWrapper()
-        root.appendChild(sizeSpinnerWrapper)
-    }
-
-    if (lineSpinner) {
-        const lineSpinnerWrapper = buildLineSpinnerWrapper()
-        root.appendChild(lineSpinnerWrapper)
-    }
-
-    if (copyLinkButton) {
-        const copyLinkButton = buildCopyLinkButton()
-        root.appendChild(copyLinkButton)
-    }
-
-    if (downloadButton) {
-        const downloadButton = buildDownloadButton()
-        root.appendChild(downloadButton)
-    }
+    const controls = buildControls()
+    ui.appendChild(controls)
 
     const display = buildDisplay({font, initialLine, inline, initialSize})
     display.style.display = "inline-block"

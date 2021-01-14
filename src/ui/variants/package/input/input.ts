@@ -19,7 +19,7 @@ const buildPackageInput = (): HTMLTextAreaElement => {
     if (!interactive) {
         input.style.display = "none"
     } else {
-        input.style.display = "block"
+        input.style.display = "inline-block"
 
         input.addEventListener("keydown", handleKeydown)
         input.addEventListener("keyup", handleKeyup)

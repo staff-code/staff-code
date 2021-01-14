@@ -21,6 +21,17 @@ const applyCss = (): void => {
             position: fixed;
             background-color: #f8f8f8;
         }
+        
+        .sc-ui {
+            display: flex;
+            flex-direction: column;
+            width: max-content;
+        }
+        
+        .sc-controls {
+            display: flex;
+            justify-content: space-between;
+        }
     `
 
     const style = document.createElement("style")
