@@ -30,7 +30,7 @@ const REFERENCE_WRAPPER_CSS = `
         box-sizing: border-box;
     }
 
-    .sc-reference-border-wrapper {
+    .sc-reference-wrapper.open .sc-reference-border-wrapper {
         overflow-x: hidden;
         border: ${STANDARD_BORDER};
         border-radius: ${STANDARD_BORDER_RADIUS}px;
