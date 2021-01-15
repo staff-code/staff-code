@@ -12,7 +12,7 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
         const row = table.insertRow()
 
         const unicodeCell = row.insertCell()
-        unicodeCell.innerHTML = unicode // TODO: how to suppress Emoji for real?
+        unicodeCell.innerHTML = unicode // On iOS, I have tried and failed everything I can think of to suppress Emoji.
         row.appendChild(unicodeCell)
 
         const codeCell = row.insertCell()
