@@ -99,3 +99,8 @@ used `choco install wget` while running my terminal as an administrator.
 Additional dependencies (besides `node_modules`) are located in the `vendor` directory. These are on key JSON data files
 from Bravura and SMuFL. As a first step of each deploy, these dependencies are updated. The code in the `bin` directory
 then processes this data into a form where it can be consumed by StaffCode's `src` code.
+
+`npm run build` builds two versions of the package: one with CJS modules and one with ESM modules; otherwise exactly the
+same. This is so the project can be used isomorphically (in both Node and the browser). The two packages are exposed
+as `main` and `module`, respectively. `sideEffects: false` has been marked in `package.json` to allow the ESM version to
+be tree-shaken by consumers.

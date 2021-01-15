@@ -1,8 +1,9 @@
 {
   "name": "staff-code",
-  "version": "1.0.153",
-  "main": "dist/package/src/index.js",
-  "types": "dist/package/src/index.d.ts",
+  "version": "1.0.154",
+  "main": "dist/package/cjs/src/index.js",
+  "module": "dist/package/esm/src/esmIndex.js",
+  "types": "dist/package/cjs/src/index.d.ts",
   "description": "converts simple text codes into Unicode which in the Bravura Text font displays as sheet music",
   "license": "MIT",
   "repository": {
@@ -14,7 +15,9 @@
     "build": "npm run build-bbcode && npm run build-package && npm run build-app",
     "build-app": "webpack --config webpack.app.config.js",
     "build-bbcode": "webpack --config webpack.bbCode.config.js",
-    "build-package": "tsc --module esnext",
+    "build-package": "npm run build-package-cjs && npm run build-package-esm",
+    "build-package-cjs": "tsc --module commonjs --outDir dist/package/cjs",
+    "build-package-esm": "tsc --module esnext --outDir dist/package/esm",
     "deploy": "sh bin/deploy.sh",
     "profile": "node --prof -r ts-node/register/transpile-only --max-old-space-size=131072 [[script.ts]] && node --prof-process isolate-*.log > processed.txt && rm isolate-*.log",
     "lint": "tslint \"src/**/*.ts\" --fix && tslint \"spec/**/*.ts\" --fix",
