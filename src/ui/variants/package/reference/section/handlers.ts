@@ -29,7 +29,9 @@ const insertCodeIntoInputAndSavePreviousState = (code: Code & Word): void => {
 
 const handleReferenceInsert = (event: MouseEvent): void => {
     const eventPath = event.composedPath()
-    const maybeParentReferenceRow = eventPath[1] as Maybe<HTMLTableRowElement>
+    const maybeParentReferenceRow = eventPath.find((element: EventTarget): boolean => {
+        return (element as HTMLTableRowElement).tagName === "TR"
+    }) as Maybe<HTMLTableRowElement>
     const maybeCodeCell =
         maybeParentReferenceRow && maybeParentReferenceRow.children[1] as Maybe<HTMLTableCellElement>
     if (!maybeCodeCell || maybeCodeCell.tagName !== "TD") return
