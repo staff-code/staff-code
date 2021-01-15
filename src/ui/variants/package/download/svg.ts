@@ -1,22 +1,14 @@
-import {BLANK, Link, Px, vectorizeText} from "@sagittal/general"
+import {BLANK, Link, Sentence, vectorizeText} from "@sagittal/general"
 import {Unicode} from "../../../../translate"
 import {DEFAULT_FONT} from "../../../fonts"
 import {components} from "../globals"
-import {cropSVGToFitContents, getDummyHeight} from "./resize"
+import {
+    buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem,
+    computeSvgHeight,
+    cropSvgToFitContents,
+} from "./resize"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
-
-const buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem = (): SVGGraphicsElement => {
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg") as Element as SVGGraphicsElement
-    svg.classList.add("sc-svg")
-
-    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg")
-    svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink")
-
-    components.root.appendChild(svg)
-
-    return svg
-}
 
 const cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled = (
     svg: SVGGraphicsElement,
@@ -46,34 +38,24 @@ const buildSvgBlobUrl = (clonedSvg: SVGGraphicsElement): Link => {
     return URL.createObjectURL(blob) as Link
 }
 
-const DUMMY_WIDTH = 1000 as Px
-
 const downloadSvg = (): void => {
     const {display} = components
-    const unicodeSentence: Unicode = (display.textContent || BLANK) as Unicode
+    const unicodeSentence: Unicode & Sentence = (display.textContent || BLANK) as Unicode & Sentence
 
-    const dummyOptions = {
-        width: DUMMY_WIDTH,
-        font: DEFAULT_FONT,
-        lineSpacing: parseFloat(display.style.lineHeight),
-    }
-    const dummySvg = buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem()
-    dummySvg.innerHTML = vectorizeText(unicodeSentence, dummyOptions)
-    const dummyHeight = getDummyHeight(dummySvg) // todo relative to 1000 width
-
-    const actualWidth = display.offsetWidth
     const options = {
-        height: dummyHeight * (actualWidth / DUMMY_WIDTH) * (2/3) as Px, // todo dunno why the 2/3 is importatn
+        height: computeSvgHeight(unicodeSentence),
         font: DEFAULT_FONT,
         lineSpacing: parseFloat(display.style.lineHeight),
     }
     const svg = buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem()
-
     svg.innerHTML = vectorizeText(unicodeSentence, options)
-    cropSVGToFitContents(svg)
+    cropSvgToFitContents(svg)
 
-    // todo also going to have to deal with this crazy garbled nonsense you get seemingly
-    //  if you ever try to download the SVG more than once without refreshing the page
+    // TODO: BUG, READY TO GO: VECTORIZE-TEXT MANGLING ON REPEAT DOWNLOADS WITH CHANGES
+    //  Going to have to deal with this crazy garbled nonsense you get seemingly
+    //  If you ever try to download the SVG more than once without refreshing the page
+
+    // TODO: BUG, READY TO GO: VECTORIZE-TEXT IS CUTTING OFF THE BOTTOM OF MULTI-LINE DISPLAYS
 
     const clonedSvg = cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled(svg)
 

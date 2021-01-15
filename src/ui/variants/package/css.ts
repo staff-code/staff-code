@@ -4,7 +4,8 @@ import {INPUT_CSS} from "./input"
 import {REFERENCE_CSS} from "./reference"
 import {SPINNER_CSS} from "./spinners"
 
-// TODO: position: fixed wasn't quite enough.
+// TODO: FEATURE IMPROVE, READY TO GO: PREVENT SCROLLING UPON CLICKING REFERENCE SECTION LINK
+//  Position: fixed wasn't quite enough.
 //  It'd be cool if there was a way to prevent the reference from going off the bottom of the screen.
 //  Already gave up on trying to make it so, twice.
 
