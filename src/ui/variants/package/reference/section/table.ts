@@ -1,14 +1,7 @@
-import {Html, Word} from "@sagittal/general"
 import {ReferenceRow} from "../../../../../../bin"
-import {Unicode} from "../../../../../translate"
 import {setupCodeCell} from "./code"
 import {EMPTY_CODE_CELL} from "./constants"
 import {EXCLUDED_CODES} from "./exceptions"
-
-const EMOJI_SUPPRESSANT = "︎"
-
-const suppressEmoji = (unicode: Unicode & Word): Html =>
-    `${unicode}${EMOJI_SUPPRESSANT}` as Html // TODO: Emoji are still a problem, but only on iPhones
 
 const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
     const table = document.createElement("table")
@@ -19,7 +12,7 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
         const row = table.insertRow()
 
         const unicodeCell = row.insertCell()
-        unicodeCell.innerHTML = suppressEmoji(unicode)
+        unicodeCell.innerHTML = unicode // TODO: how to suppress Emoji for real?
         row.appendChild(unicodeCell)
 
         const codeCell = row.insertCell()
