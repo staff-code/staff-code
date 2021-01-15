@@ -251,6 +251,11 @@ const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & 
     "l.": SMuFL_MAP["acsgfrtndn"],
 } as Record<Code & Word, Unicode & Word>
 
+// TODO: FEATURE IMPROVE, READY TO GO: SAGISPEAK PREFERENCE ADJUSTMENT
+//  When there is more than one Sagispeak word for a symbol,
+//  The one that is listed in the StaffCode reference (greyed out) should be the shortest one.
+//  - Alright, I'll get the Sagittal-SMuFL-Map to conform to this, and make that fix soon.
+
 const SAGITTAL_SAGISPEAK_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "nai": SMuFL_MAP["acsg5V7klup"],
     "nao": SMuFL_MAP["acsg5V7kldn"],
