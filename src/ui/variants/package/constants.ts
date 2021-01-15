@@ -12,6 +12,8 @@ const UI_SPACING = 12 as Px
 
 const OUTLINE_LIGHT_BLUE = "#88bbff"
 
+const MAX_APP_WIDTH = 600 as Px // todo helpers for formatting px and em
+
 export {
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
@@ -21,4 +23,5 @@ export {
     UI_FONT,
     UI_FONT_SIZE,
     UI_SPACING,
+    MAX_APP_WIDTH,
 }

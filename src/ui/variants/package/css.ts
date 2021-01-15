@@ -1,3 +1,4 @@
+import {MAX_APP_WIDTH} from "./constants"
 import {COPY_LINK_CSS} from "./copyLink"
 import {DOWNLOAD_CSS} from "./download"
 import {INPUT_CSS} from "./input"
@@ -23,18 +24,20 @@ const applyCss = (): void => {
             position: fixed;
             background-color: #f8f8f8;
             height: 100%;
+            width: 100%;
         }
         
         .staff-code {
             height: 100%;
             display: flex;
             flex-direction: column;
+            width: 100%;
+            max-width: ${MAX_APP_WIDTH}px;
         }
         
         .sc-ui {
             display: flex;
             flex-direction: column;
-            width: max-content;
         }
         
         .sc-controls {

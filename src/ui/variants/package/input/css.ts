@@ -1,5 +1,6 @@
 import {Px} from "@sagittal/general"
 import {
+    MAX_APP_WIDTH,
     MONOSPACED_FONT,
     MONOSPACED_FONT_SIZE,
     OUTLINE_LIGHT_BLUE,
@@ -7,22 +8,22 @@ import {
     STANDARD_BORDER_RADIUS,
 } from "../constants"
 
-const ABOUT_FORTY_FIVE_CHARS_WIDE_PX: Px = 340 as Px
 const ABOUT_THREE_LINES_HIGH_PX: Px = 55 as Px
-const INPUT_PADDING = 2 as Px
 
 // tslint:disable-next-line comment-format
 // language=CSS
 const INPUT_CSS = `
     .sc-input {
-        width: ${ABOUT_FORTY_FIVE_CHARS_WIDE_PX}px;
+        width: 100%;
+        max-width: ${MAX_APP_WIDTH}px;
+        resize: vertical;
         height: ${ABOUT_THREE_LINES_HIGH_PX}px;
         font-family: ${MONOSPACED_FONT};
         font-size: ${MONOSPACED_FONT_SIZE}px;
         border: ${STANDARD_BORDER};
         border-radius: ${STANDARD_BORDER_RADIUS}px;
         margin-bottom: 5px;
-        padding: ${INPUT_PADDING}px;
+        box-sizing: border-box;
     }
 
     .sc-input:focus {
@@ -31,7 +32,5 @@ const INPUT_CSS = `
 `
 
 export {
-    ABOUT_FORTY_FIVE_CHARS_WIDE_PX,
     INPUT_CSS,
-    INPUT_PADDING,
 }

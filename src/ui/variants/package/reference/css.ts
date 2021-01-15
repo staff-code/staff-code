@@ -1,5 +1,4 @@
-import {STANDARD_BORDER, STANDARD_BORDER_RADIUS} from "../constants"
-import {ABOUT_FORTY_FIVE_CHARS_WIDE_PX, INPUT_PADDING} from "../input"
+import {MAX_APP_WIDTH, STANDARD_BORDER, STANDARD_BORDER_RADIUS} from "../constants"
 import {REFERENCE_BANNER_CSS} from "./banner"
 import {REFERENCE_SECTION_CSS} from "./section"
 import {REFERENCE_TOC_CSS} from "./toc"
@@ -9,15 +8,11 @@ import {REFERENCE_TOC_CSS} from "./toc"
 const REFERENCE_WRAPPER_CSS = `
     .sc-reference-wrapper {
         width: 100%;
-        max-width: ${ABOUT_FORTY_FIVE_CHARS_WIDE_PX}px;
-        padding: ${INPUT_PADDING}px;
+        max-width: ${MAX_APP_WIDTH}px;
+        padding: 2px;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
-    }
-
-    .sc-reference-wrapper.open {
-        max-width: 600px;
     }
 
     .sc-reference {
