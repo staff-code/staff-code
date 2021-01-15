@@ -22,6 +22,13 @@ const applyCss = (): void => {
         body {
             position: fixed;
             background-color: #f8f8f8;
+            height: 100%;
+        }
+        
+        .staff-code {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .sc-ui {

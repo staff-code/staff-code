@@ -1,17 +1,12 @@
 import {Section} from "../../../../../bin"
 import {components} from "../globals"
-import {handleReferenceInsert, handleReferenceInsertUndo} from "./section"
 import referenceJson from "./reference.json"
-import {appendSection} from "./section"
+import {appendSection, handleReferenceInsert, handleReferenceInsertUndo} from "./section"
 import {buildTocWrapper} from "./toc"
 
 const buildReference = (): HTMLDivElement => {
-    const referenceBorderWrapper = document.createElement("div")
-    referenceBorderWrapper.classList.add("sc-reference-border-wrapper")
-
     const reference = document.createElement("div")
     reference.classList.add("sc-reference")
-    referenceBorderWrapper.appendChild(reference)
     components.reference = reference
 
     const topLink = document.createElement("a")
@@ -27,7 +22,7 @@ const buildReference = (): HTMLDivElement => {
     reference.addEventListener("click", handleReferenceInsert)
     document.addEventListener("keydown", handleReferenceInsertUndo)
 
-    return referenceBorderWrapper
+    return reference
 }
 
 export {

@@ -11,16 +11,13 @@ const REFERENCE_WRAPPER_CSS = `
         width: 100%;
         max-width: ${ABOUT_FORTY_FIVE_CHARS_WIDE_PX}px;
         padding: ${INPUT_PADDING}px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
 
     .sc-reference-wrapper.open {
         max-width: 600px;
-    }
-
-    .sc-reference-wrapper.open .sc-reference {
-        height: 432px;
-        padding: 20px 10px;
-        overflow-y: auto;
     }
 
     .sc-reference {
@@ -30,8 +27,12 @@ const REFERENCE_WRAPPER_CSS = `
         box-sizing: border-box;
     }
 
-    .sc-reference-wrapper.open .sc-reference-border-wrapper {
-        overflow-x: hidden;
+    .sc-reference-wrapper.open .sc-reference {
+        /*max-height: 432px;*/
+        padding: 20px 10px;
+        flex-grow: 1;
+        margin-bottom: 20px;
+        overflow-y: auto;
         border: ${STANDARD_BORDER};
         border-radius: ${STANDARD_BORDER_RADIUS}px;
     }
