@@ -1,5 +1,5 @@
 import {Word} from "@sagittal/general"
-import {computeUnicodeLiteral, Unicode} from "../../../../src"
+import {computeUnicodeFromUnicodeLiteral, computeUnicodeLiteral, Unicode, UnicodeLiteral} from "../../../../src"
 import {EMPTY_UNICODE} from "../../../../src/translate"
 import {Code, computeUnicodeForCode} from "../../../../src/translate/codes"
 
@@ -19,6 +19,26 @@ describe("computeUnicodeLiteral", (): void => {
         const actual = computeUnicodeLiteral(unicode)
 
         const expected = "(BLANK)"
+        expect(actual).toBe(expected)
+    })
+})
+
+describe("computeUnicodeFromUnicodeLiteral", (): void => {
+    it("works", (): void => {
+        const unicodeLiteral = "U+E08A" as UnicodeLiteral
+
+        const actual = computeUnicodeFromUnicodeLiteral(unicodeLiteral)
+
+        const expected = "\ue08a"
+        expect(actual).toBe(expected)
+    })
+
+    it("works for >4 digit code points", (): void => {
+        const unicodeLiteral = "U+10E08A" as UnicodeLiteral
+
+        const actual = computeUnicodeFromUnicodeLiteral(unicodeLiteral)
+
+        const expected = "\u{10e08a}"
         expect(actual).toBe(expected)
     })
 })

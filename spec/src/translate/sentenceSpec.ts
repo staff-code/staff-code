@@ -282,7 +282,7 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("gives a default width of 0 to unknown codes", (): void => {
+        it("gives a default width of 0 to unknown codes (given as unicode literals)", (): void => {
             const inputSentence = "U+5E78" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
@@ -300,6 +300,17 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeInputSentenceUnicode("u5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
             expect(computeInputSentenceUnicode("\\u+5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
             expect(computeInputSentenceUnicode("\\u+5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
+        })
+
+        it("accepts unknown codes with code points greater than 65535 (0xFFFF)", (): void => {
+            const inputSentence = "U+1D10B" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "𝄋" as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "??" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
         it("if more than one unicode has occurred since the previous advance, uses the width of the unicode with the max width", (): void => {

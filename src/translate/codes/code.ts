@@ -61,7 +61,7 @@ const collapseAdvancesForDebugging = (codes: Array<Code & Word>): Array<Code & W
 }
 
 const debugCodeSentence = (unicodeSentence: Unicode & Sentence): Code & Sentence => {
-    const unicodeWords = unicodeSentence.split(BLANK) as Array<Unicode & Word>
+    const unicodeWords = Array.from(unicodeSentence) as Array<Unicode & Word>
 
     const codes: Array<Code & Word> = unicodeWords.map(debugCode)
     const codesWithAdvancesCollapsed = collapseAdvancesForDebugging(codes)

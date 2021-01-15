@@ -1,7 +1,7 @@
 import {Io, Word} from "@sagittal/general"
 import {Unicode, UnicodeLiteral} from "./types"
 
-const UNICODE_LITERAL_MATCHER = /^\\?[uU]\+?([\da-fA-F]{4})/
+const UNICODE_LITERAL_MATCHER = /^\\?[uU]\+?([\da-fA-F]{4,6})/
 
 const isUnicodeLiteral = (candidateUnicodeLiteral: Io & Word): candidateUnicodeLiteral is UnicodeLiteral & Word =>
     !!candidateUnicodeLiteral.match(UNICODE_LITERAL_MATCHER)
@@ -16,7 +16,7 @@ const computeUnicodeLiteral = (unicode: Unicode & Word): UnicodeLiteral & Word =
 }
 
 const computeUnicodeFromUnicodeLiteral = (unicodeLiteral: UnicodeLiteral): Unicode & Word =>
-    String.fromCharCode(parseInt(unicodeLiteral.replace(UNICODE_LITERAL_MATCHER, "0x$1"))) as Unicode & Word
+    String.fromCodePoint(parseInt(unicodeLiteral.replace(UNICODE_LITERAL_MATCHER, "0x$1"))) as Unicode & Word
 
 export {
     isUnicodeLiteral,
