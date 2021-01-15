@@ -1,9 +1,12 @@
 {
   "name": "staff-code",
-  "version": "1.0.154",
+  "version": "1.0.160",
   "main": "dist/package/cjs/src/index.js",
   "module": "dist/package/esm/src/esmIndex.js",
   "types": "dist/package/cjs/src/index.d.ts",
+  "files": [
+    "dist/package"
+  ],
   "description": "converts simple text codes into Unicode which in the Bravura Text font displays as sheet music",
   "license": "MIT",
   "repository": {
@@ -28,7 +31,8 @@
     "tmp": "node -r ts-node/register/transpile-only --max-old-space-size=131072 spec/helpers/shared/tmp/tmp.ts",
     "generate-smufl-map": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/codes/generate.ts",
     "generate-bravura-widths": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/widths/generate.ts",
-    "generate-smufl-reference": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/reference/generate.ts"
+    "generate-smufl-reference": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/reference/generate.ts",
+    "generate-version": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/version/generate.ts"
   },
   "devDependencies": {
     "@sagittal/general": "^1.0.88",

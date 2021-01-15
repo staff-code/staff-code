@@ -19,6 +19,7 @@ npm run generate-smufl-reference
 
 npm version patch
 NEW_VERSION=$(< package.json grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')
+npm run generate-version # for the code to display what version it's running
 
 # clean (cannot remove entire dist or you lose the submodule!)
 

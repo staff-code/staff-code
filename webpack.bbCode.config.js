@@ -1,6 +1,8 @@
 const path = require("path")
+const webpack = require("webpack")
 const IgnoreNotFoundExportPlugin = require("ignore-not-found-export-webpack-plugin")
 const common = require("./webpack.common.config")
+const {version} = require("./package.json")
 
 module.exports = {
     ...common,
@@ -16,5 +18,8 @@ module.exports = {
         // doing all that work right now. And I feel like I should be able to just use `import {}` and `export {}`.
         // Maybe it's just an issue that `webpack` will fix eventually.
         new IgnoreNotFoundExportPlugin(),
+        new webpack.DefinePlugin({
+            __VERSION__: JSON.stringify(version)
+        })
     ],
 }

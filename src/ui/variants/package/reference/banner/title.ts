@@ -1,8 +1,11 @@
 import {INTRO_TO_STAFF_CODE_LINK} from "../../../../../../bin"
-import pkg from "../../../../../../package.json"
+import versionJson from "./version.json"
+
+// @ts-ignore
+const VERSION = versionJson.version
 
 const STAFF_CODE_ABOUT = `
-StaffCode version ${pkg.version}<br>
+StaffCode version ${VERSION}<br>
 by Douglas Blumeyer<br>
 and Dave Keenan<br>
 <a target="_blank" href='${INTRO_TO_STAFF_CODE_LINK}'>Introduction to StaffCode</a>
