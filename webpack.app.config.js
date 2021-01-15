@@ -16,7 +16,7 @@ module.exports = {
     entry: "./app/index.ts",
     output: {
         path: path.resolve(__dirname, "dist/app"),
-        chunkFilename: "[name].bundle.js",
+        chunkFilename: "[name].[contenthash].js",
         filename: "main.[contenthash].js",
     },
     plugins: [
