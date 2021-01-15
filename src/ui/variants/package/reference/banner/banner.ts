@@ -5,6 +5,7 @@ import {buildSiteTitle} from "./title"
 const buildReferenceBanner = (): HTMLDivElement => {
     const referenceBanner = document.createElement("div")
     referenceBanner.classList.add("sc-reference-banner")
+    components.referenceBanner = referenceBanner
 
     const referenceExpander = document.createElement("span")
     components.referenceExpander = referenceExpander

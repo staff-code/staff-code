@@ -17,6 +17,7 @@ const buildReferenceWrapper = (): HTMLDivElement => {
                 openReference()
                 const reference = buildReference()
                 referenceWrapper.appendChild(reference)
+                referenceBanner.style.borderBottom = "none"
             })
     }
 

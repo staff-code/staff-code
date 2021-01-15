@@ -3,13 +3,18 @@
 import {STANDARD_BORDER, STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE} from "../../constants"
 
 const REFERENCE_BANNER_CSS = `
+    /* banner */
+    
     .sc-reference-banner {
         padding: 3px;
         font-family: ${UI_FONT};
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border-bottom: ${STANDARD_BORDER};
     }
+    
+    /* expander */
 
     .sc-reference-expander {
         cursor: pointer;
@@ -23,6 +28,8 @@ const REFERENCE_BANNER_CSS = `
     .sc-reference-wrapper.open .sc-reference-expander img {
         transform: rotate(90deg);
     }
+    
+    /* back to top */
 
     .sc-back-to-top {
         visibility: hidden;

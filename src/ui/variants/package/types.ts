@@ -11,12 +11,13 @@ interface Components {
     input: HTMLTextAreaElement,
     display: HTMLElement,
     root: HTMLSpanElement,
-    reference: HTMLDivElement,
     toc: HTMLUListElement,
     sizeSpinner: HTMLInputElement,
     lineSpinner: HTMLInputElement,
+    reference: HTMLDivElement,
     referenceWrapper: HTMLDivElement,
     referenceExpander: HTMLSpanElement,
+    referenceBanner: HTMLSpanElement,
     copyLinkMessage: HTMLDivElement,
 }
 
