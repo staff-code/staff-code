@@ -9,7 +9,6 @@ const REFERENCE_WRAPPER_CSS = `
     .sc-reference-wrapper {
         width: 100%;
         max-width: ${MAX_APP_WIDTH}px;
-        padding: 2px;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
