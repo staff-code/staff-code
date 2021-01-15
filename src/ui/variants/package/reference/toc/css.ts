@@ -6,6 +6,11 @@ const REFERENCE_TOC_CSS = `
         padding: 0;
         margin: 0 0 30px 0;
     }
+
+    .sc-reference li {
+        text-indent: -1em;
+        padding: 0 1em;
+    }
 `
 
 export {
