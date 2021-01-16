@@ -1,4 +1,4 @@
-import {MAX_APP_WIDTH} from "./constants"
+import {MAX_APP_WIDTH, SAGITTAL_FORUM_ORANGE} from "./constants"
 import {COPY_LINK_CSS} from "./copyLink"
 import {DOWNLOAD_CSS} from "./download"
 import {INPUT_CSS} from "./input"
@@ -17,7 +17,7 @@ const applyCss = (): void => {
         
         body {
             position: fixed;
-            background-color: #f8f8f8;
+            background-color: #f4f4f4;
             height: 100%;
             width: 100%;
         }
@@ -38,6 +38,10 @@ const applyCss = (): void => {
         .sc-controls {
             display: flex;
             justify-content: space-between;
+        }
+        
+        a {
+            color: ${SAGITTAL_FORUM_ORANGE};
         }
     `
 

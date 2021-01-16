@@ -14,6 +14,8 @@ const OUTLINE_LIGHT_BLUE = "#88bbff"
 
 const MAX_APP_WIDTH = 600 as Px // todo helpers for formatting px and em
 
+const SAGITTAL_FORUM_ORANGE = "#dd6600"
+
 export {
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
@@ -24,4 +26,5 @@ export {
     UI_FONT_SIZE,
     UI_SPACING,
     MAX_APP_WIDTH,
+    SAGITTAL_FORUM_ORANGE,
 }
