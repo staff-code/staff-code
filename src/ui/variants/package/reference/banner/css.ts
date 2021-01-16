@@ -58,17 +58,17 @@ const REFERENCE_BANNER_CSS = `
         font-size: ${UI_FONT_SIZE}em;
         padding: 1.5em;
         position: absolute;
-        right: 0px;
+        right: 0;
         bottom: 25px;
         z-index: 9999;
     }
 
     .sc-about-trigger {
         position: absolute;
-        top: -30px;
+        top: -15px;
         left: -25px;
         width: 100px;
-        height: 50px;
+        height: 35px;
     }
 
     .sc-about-trigger:hover .sc-about {
