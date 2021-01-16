@@ -11,6 +11,15 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
 
         const row = table.insertRow()
 
+        // TODO: EMOJI FIX
+        //  Let's YOLO and put all the ligatures in the [i]other [/i]private use areas
+        //  U+F0000..U+FFFFD and U+100000..U+10FFFD which have 65,534 code points each.
+        //  Hell, let's just generate 31 CSP ligatures for every damn symbol in the font.
+        //  Those two private use areas give enough room to do that for up to 65534*2/31 = 4228 symbols.
+        //  (Yes, strangely, 65534 happens to be an exact multiple of 31).
+
+        // TODO: ALSO STILL NEED TO RENAME FONT TO BRAVURA TEXT SC
+
         const unicodeCell = row.insertCell()
         unicodeCell.innerHTML = unicode
         row.appendChild(unicodeCell)

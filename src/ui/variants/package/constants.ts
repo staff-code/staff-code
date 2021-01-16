@@ -12,7 +12,7 @@ const UI_SPACING = 12 as Px
 
 const OUTLINE_LIGHT_BLUE = "#88bbff"
 
-const MAX_APP_WIDTH = 600 as Px // todo helpers for formatting px and em
+const MAX_APP_WIDTH = 600 as Px // todo helpers for formatting px and em (in @sagittal/general)
 
 const SAGITTAL_FORUM_ORANGE = "#dd6600"
 
