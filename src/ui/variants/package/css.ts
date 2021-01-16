@@ -38,7 +38,7 @@ const applyCss = (): void => {
         
         .sc-controls {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
         }
         
         a {
