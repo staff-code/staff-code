@@ -1,7 +1,14 @@
+import {
+    APP_MARGIN,
+    MONOSPACED_FONT,
+    STANDARD_BORDER,
+    STANDARD_BORDER_RADIUS,
+    UI_FONT,
+    UI_FONT_SIZE,
+} from "../../constants"
+
 // tslint:disable-next-line comment-format
 // language=CSS
-import {MONOSPACED_FONT, STANDARD_BORDER, STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE} from "../../constants"
-
 const REFERENCE_BANNER_CSS = `
     /* banner */
     
@@ -12,6 +19,7 @@ const REFERENCE_BANNER_CSS = `
         align-items: center;
         justify-content: space-between;
         border-bottom: ${STANDARD_BORDER};
+        margin-right: ${APP_MARGIN}px;
     }
     
     /* expander */

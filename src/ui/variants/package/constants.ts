@@ -16,6 +16,8 @@ const MAX_APP_WIDTH = 600 as Px // todo helpers for formatting px and em
 
 const SAGITTAL_FORUM_ORANGE = "#dd6600"
 
+const APP_MARGIN = 16 as Px
+
 export {
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
@@ -27,4 +29,5 @@ export {
     UI_SPACING,
     MAX_APP_WIDTH,
     SAGITTAL_FORUM_ORANGE,
+    APP_MARGIN,
 }

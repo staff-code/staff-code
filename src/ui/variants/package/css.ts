@@ -1,4 +1,4 @@
-import {MAX_APP_WIDTH, SAGITTAL_FORUM_ORANGE} from "./constants"
+import {APP_MARGIN, MAX_APP_WIDTH, SAGITTAL_FORUM_ORANGE} from "./constants"
 import {COPY_LINK_CSS} from "./copyLink"
 import {DOWNLOAD_CSS} from "./download"
 import {INPUT_CSS} from "./input"
@@ -33,6 +33,7 @@ const applyCss = (): void => {
         .sc-ui {
             display: flex;
             flex-direction: column;
+            margin-right: ${APP_MARGIN}px;
         }
         
         .sc-controls {

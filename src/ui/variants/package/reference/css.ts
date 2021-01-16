@@ -1,4 +1,4 @@
-import {MAX_APP_WIDTH, STANDARD_BORDER, STANDARD_BORDER_RADIUS} from "../constants"
+import {APP_MARGIN, MAX_APP_WIDTH, STANDARD_BORDER, STANDARD_BORDER_RADIUS} from "../constants"
 import {REFERENCE_BANNER_CSS} from "./banner"
 import {REFERENCE_SECTION_CSS} from "./section"
 import {REFERENCE_TOC_CSS} from "./toc"
@@ -24,7 +24,7 @@ const REFERENCE_WRAPPER_CSS = `
     .sc-reference-wrapper.open .sc-reference {
         padding: 10px;
         flex-grow: 1;
-        margin-bottom: 20px;
+        margin: 0 ${APP_MARGIN}px ${APP_MARGIN}px 0;
         overflow-y: auto;
         border: ${STANDARD_BORDER};
         border-radius: ${STANDARD_BORDER_RADIUS}px;
