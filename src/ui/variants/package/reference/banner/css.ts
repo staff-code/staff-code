@@ -1,6 +1,6 @@
 // tslint:disable-next-line comment-format
 // language=CSS
-import {STANDARD_BORDER, STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE} from "../../constants"
+import {MONOSPACED_FONT, STANDARD_BORDER, STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE} from "../../constants"
 
 const REFERENCE_BANNER_CSS = `
     /* banner */
@@ -20,13 +20,18 @@ const REFERENCE_BANNER_CSS = `
         cursor: pointer;
     }
 
-    .sc-reference-expander img {
-        height: 0.6em;
-        padding-right: 2px;
+    .sc-reference-expander-icon {
+        font-weight: bold;
+        font-family: ${MONOSPACED_FONT};
+        padding-right: 3px;
+    }
+    
+    .sc-reference-expander-icon::before {
+        content: "+";
     }
 
-    .sc-reference-wrapper.open .sc-reference-expander img {
-        transform: rotate(90deg);
+    .sc-reference-wrapper.open .sc-reference-expander-icon::before {
+        content: "-";
     }
     
     /* back to top */

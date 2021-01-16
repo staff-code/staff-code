@@ -1,5 +1,5 @@
 import {components} from "../../globals"
-import {handleReferenceExpanderClick} from "./handlers"
+import {buildReferenceExpander} from "./expander"
 import {buildSiteTitle} from "./title"
 
 const buildReferenceBanner = (): HTMLDivElement => {
@@ -7,11 +7,8 @@ const buildReferenceBanner = (): HTMLDivElement => {
     referenceBanner.classList.add("sc-reference-banner")
     components.referenceBanner = referenceBanner
 
-    const referenceExpander = document.createElement("span")
+    const referenceExpander = buildReferenceExpander()
     components.referenceExpander = referenceExpander
-    referenceExpander.classList.add("sc-reference-expander")
-    referenceExpander.innerHTML = `<img src="https://raw.githubusercontent.com/Keyamoon/IcoMoon-Free/master/SVG/285-play3.svg"/>Reference`
-    referenceExpander.addEventListener("click", handleReferenceExpanderClick)
     referenceBanner.appendChild(referenceExpander)
 
     const backToTopLink = document.createElement("a")
