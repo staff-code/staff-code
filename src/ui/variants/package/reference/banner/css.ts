@@ -37,6 +37,8 @@ const REFERENCE_BANNER_CSS = `
 
     .sc-reference-wrapper.open .sc-back-to-top {
         visibility: visible;
+        color: inherit;
+        text-decoration: inherit;
     }
 
     /* title & about */
