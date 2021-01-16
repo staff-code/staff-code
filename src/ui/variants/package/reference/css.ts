@@ -22,8 +22,7 @@ const REFERENCE_WRAPPER_CSS = `
     }
 
     .sc-reference-wrapper.open .sc-reference {
-        /*max-height: 432px;*/
-        padding: 20px 10px;
+        padding: 10px;
         flex-grow: 1;
         margin-bottom: 20px;
         overflow-y: auto;
