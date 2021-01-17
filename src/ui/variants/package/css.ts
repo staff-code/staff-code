@@ -1,4 +1,15 @@
-import {APP_MARGIN, DARK_EBONY, EBONY, EGGSHELL, IVORY, LIGHT_EBONY, LIGHT_TAN, MAX_APP_WIDTH, TAN} from "./constants"
+import {
+    APP_MARGIN,
+    DARK_GREY,
+    GREY,
+    LIGHTER_TAN,
+    LIGHT_TAN,
+    LIGHT_GREY,
+    TAN,
+    LIGHTER_GREY,
+    MAX_APP_WIDTH,
+    DARK_TAN, STANDARD_BORDER_RADIUS,
+} from "./constants"
 import {COPY_LINK_CSS} from "./copyLink"
 import {DOWNLOAD_CSS} from "./download"
 import {INPUT_CSS} from "./input"
@@ -14,14 +25,13 @@ const applyCss = (): void => {
         ${INPUT_CSS}
         ${REFERENCE_CSS}
         ${SPINNER_CSS}
-        
         * {
-            color: ${DARK_EBONY};
+            color: ${DARK_GREY};
         }
 
         body {
             position: fixed;
-            background-color: ${EGGSHELL};
+            background-color: ${LIGHTER_TAN};
             height: 100%;
             width: 100%;
         }
@@ -46,23 +56,40 @@ const applyCss = (): void => {
         }
 
         a {
-            color: ${TAN};
+            color: ${DARK_TAN};
         }
 
         a:hover {
-            color: ${LIGHT_TAN};
+            color: ${TAN};
         }
 
         a:visited {
-            color: ${EBONY};
+            color: ${GREY};
         }
 
         a:visited:hover {
-            color: ${LIGHT_EBONY};
+            color: ${LIGHT_GREY};
         }
 
         ::selection {
-            background: ${IVORY};
+            background-color: ${LIGHT_TAN};
+        }
+
+        ::-webkit-scrollbar-track {
+            background: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 18px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: ${LIGHT_GREY};
+            border-radius: ${STANDARD_BORDER_RADIUS - 1}px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: ${LIGHTER_GREY};
         }
     `
 

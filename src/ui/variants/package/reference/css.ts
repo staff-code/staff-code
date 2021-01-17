@@ -3,10 +3,6 @@ import {REFERENCE_BANNER_CSS} from "./banner"
 import {REFERENCE_SECTION_CSS} from "./section"
 import {REFERENCE_TOC_CSS} from "./toc"
 
-// TODO: FEATURE IMPROVE, READY TO GO: But I'm afraid it isn't going to be caressable until [i]all [/i]the corners of the Reference are rounded.
-//  Otherwise I might cut my fingers on the sharp corners. :)
-//  In other words figure out hte border-wrapper again, now with it not exceeding bottom of the page fix too.
-
 // tslint:disable-next-line comment-format
 // language=CSS
 const REFERENCE_WRAPPER_CSS = `

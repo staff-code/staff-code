@@ -3,7 +3,7 @@ import {
     MONOSPACED_FONT,
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
-    TAN,
+    DARK_TAN,
     UI_FONT,
     UI_FONT_SIZE,
 } from "../../constants"
@@ -30,7 +30,7 @@ const REFERENCE_BANNER_CSS = `
     }
 
     .sc-reference-expander:hover span {
-        color: ${TAN};
+        color: ${DARK_TAN};
     }
 
     .sc-reference-expander-icon {
@@ -60,7 +60,7 @@ const REFERENCE_BANNER_CSS = `
     }
 
     .sc-reference-wrapper.open .sc-back-to-top:hover {
-        color: ${TAN};
+        color: ${DARK_TAN};
     }
 
     /* title & about */

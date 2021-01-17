@@ -1,6 +1,6 @@
 import {BLANK, computeKeyPath, isUndefined, RecordKey, sort, Word} from "@sagittal/general"
 import {ALIASES_MAP, Code, SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP, Unicode} from "../../../../../translate"
-import {LIGHT_EBONY} from "../../constants"
+import {LIGHT_GREY} from "../../constants"
 import {EMPTY_CODE_CELL} from "./constants"
 
 const ALIASES_FOR_REFERENCE_MAP = JSON.parse(JSON.stringify(ALIASES_MAP))
@@ -49,7 +49,7 @@ const setupCodeCell = (codeCell: HTMLTableCellElement, unicode: Unicode & Word, 
     if (isUndefined(aliases)) {
         codeCell.textContent = code
         if (code === EMPTY_CODE_CELL) {
-            codeCell.style.color = LIGHT_EBONY
+            codeCell.style.color = LIGHT_GREY
             codeCell.setAttribute("sc-code", BLANK)
         } else {
             codeCell.setAttribute("sc-code", code)
@@ -60,7 +60,7 @@ const setupCodeCell = (codeCell: HTMLTableCellElement, unicode: Unicode & Word, 
             aliasSpan.textContent = alias
             if (index !== 0) {
                 aliasSpan.style.paddingLeft = "1em"
-                aliasSpan.style.color = LIGHT_EBONY
+                aliasSpan.style.color = LIGHT_GREY
             }
             codeCell.appendChild(aliasSpan)
         })

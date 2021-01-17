@@ -1,6 +1,6 @@
 import {
-    IVORY,
     LIGHT_TAN,
+    TAN,
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
     UI_FONT,
@@ -31,7 +31,7 @@ const SPINNER_CSS = `
     }
 
     .sc-spinner input:focus {
-        outline-color: ${IVORY};
+        outline-color: ${LIGHT_TAN};
     }
 `
 

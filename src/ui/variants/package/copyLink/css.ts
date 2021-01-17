@@ -1,6 +1,6 @@
 import {
-    EBONY,
-    LIGHT_EBONY,
+    GREY,
+    LIGHT_GREY,
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
     UI_FONT,
@@ -18,7 +18,7 @@ const COPY_LINK_CSS = `
         font-size: ${UI_FONT_SIZE}em;
         border: none;
         color: white;
-        background-color: ${EBONY};
+        background-color: ${GREY};
         padding: 4px 6px 3px 6px;
         border-radius: ${STANDARD_BORDER_RADIUS}px;
         outline: none;
@@ -26,11 +26,11 @@ const COPY_LINK_CSS = `
     }
 
     .sc-copy-link:hover {
-        background-color: ${LIGHT_EBONY};
+        background-color: ${LIGHT_GREY};
     }
 
     .sc-copy-link:active {
-        background-color: ${EBONY};
+        background-color: ${GREY};
     }
 
     .sc-copy-link-message {
