@@ -8,7 +8,7 @@ import {
     STANDARD_BORDER_RADIUS,
 } from "../constants"
 
-const ABOUT_THREE_LINES_HIGH_PX: Px = 55 as Px
+const ABOUT_THREE_LINES_HIGH_PX: Px = 60 as Px
 
 // tslint:disable-next-line comment-format
 // language=CSS
