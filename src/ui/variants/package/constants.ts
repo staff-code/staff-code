@@ -1,10 +1,12 @@
 import {Em, FontName, Px} from "@sagittal/general"
 
+const EGGSHELL = "#FAF8F6"
 const IVORY = "#DEC89C"
 const LIGHT_TAN = "#C99A68"
 const TAN = "#B37E43"
 const LIGHT_EBONY = "#94937D"
 const EBONY = "#6C6B59"
+const DARK_EBONY = "#333333"
 
 const STANDARD_BORDER = `1px solid ${LIGHT_EBONY}`
 const STANDARD_BORDER_RADIUS = 3 as Px
@@ -22,13 +24,6 @@ const MAX_APP_WIDTH = 600 as Px
 
 const APP_MARGIN = 16 as Px
 
-// TODO: WARM COLOR SCHEME
-//  That completely conflicts with using orange for the links.
-//  We could keep the orange links and go totally Sagittal-forum-themed,
-//  By having button text and background chosen from the set {white, orange, black}.
-//  But let's see what you come up with for a warm classic style.
-//  Feel free to change the link colour as well as the button colours.
-
 export {
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
@@ -37,6 +32,8 @@ export {
     EBONY,
     LIGHT_EBONY,
     IVORY,
+    EGGSHELL,
+    DARK_EBONY,
     MONOSPACED_FONT_SIZE,
     MONOSPACED_FONT,
     UI_FONT,

@@ -1,4 +1,4 @@
-import {APP_MARGIN, EBONY, IVORY, LIGHT_EBONY, LIGHT_TAN, MAX_APP_WIDTH, TAN} from "./constants"
+import {APP_MARGIN, DARK_EBONY, EBONY, EGGSHELL, IVORY, LIGHT_EBONY, LIGHT_TAN, MAX_APP_WIDTH, TAN} from "./constants"
 import {COPY_LINK_CSS} from "./copyLink"
 import {DOWNLOAD_CSS} from "./download"
 import {INPUT_CSS} from "./input"
@@ -14,13 +14,14 @@ const applyCss = (): void => {
         ${INPUT_CSS}
         ${REFERENCE_CSS}
         ${SPINNER_CSS}
+        
         * {
-            color: #333333;
+            color: ${DARK_EBONY};
         }
 
         body {
             position: fixed;
-            background-color: #faf8f6;
+            background-color: ${EGGSHELL};
             height: 100%;
             width: 100%;
         }
