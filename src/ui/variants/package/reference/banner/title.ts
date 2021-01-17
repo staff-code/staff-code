@@ -7,8 +7,10 @@ const VERSION = versionJson.version
 const STAFF_CODE_ABOUT = `
 StaffCode version ${VERSION}<br>
 by Douglas Blumeyer<br>
-and Dave Keenan<br>
-<a target="_blank" href='${INTRO_TO_STAFF_CODE_LINK}'>Introduction to StaffCode</a>
+and Dave Keenan.<br>
+A product of the <a target="_blank" href="https://sagittal.org/">Sagittal</a><br>
+microtonal notation project.<br>
+<a target="_blank" href="${INTRO_TO_STAFF_CODE_LINK}">Introduction to StaffCode</a>
 `
 
 const buildSiteTitle = (): HTMLSpanElement => {
