@@ -78,10 +78,9 @@ const REFERENCE_BANNER_CSS = `
 
     .sc-about-trigger {
         position: absolute;
-        top: -15px;
-        left: -25px;
-        width: 100px;
-        height: 35px;
+        top: -5px;
+        width: 75px;
+        height: 25px;
     }
 
     .sc-about-trigger:hover .sc-about {
