@@ -77,7 +77,7 @@ const LEGER_LINES_SUPPLEMENT_SECTION: Section = [
     "Leger lines supplement" as Name<Section>,
     NOT_SMUFL,
     "" as Link,
-    `SMuFL does not have suitable leger lines for all note and notehead symbols, so StaffCode adds the following. StaffCode will generate them automatically following <u>st</u>on (<u>st</u>aff <u>on</u>).` as Explanation,
+    `SMuFL does not have suitable leger lines for all note and notehead symbols, so StaffCode adds the following. StaffCode will generate them automatically following <span>ston</span> (<u>st</u>aff <u>on</u>).` as Explanation,
     [
         ["", "lgln8", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>8</u> octals"],
         ["", "lgln10", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>10</u> octals"],

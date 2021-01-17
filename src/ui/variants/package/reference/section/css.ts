@@ -22,6 +22,11 @@ const REFERENCE_SECTION_TITLE_CSS = `
     .sc-section-explanation {
         padding: 10px 0;
     }
+
+    .sc-section-explanation span {
+        font-family: ${MONOSPACED_FONT};
+        font-size: ${MONOSPACED_FONT_SIZE}px;
+    }
 `
 
 // tslint:disable-next-line comment-format
