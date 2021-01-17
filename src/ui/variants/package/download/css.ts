@@ -1,4 +1,4 @@
-import {STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE, UI_SPACING} from "../constants"
+import {LIGHT_TAN, STANDARD_BORDER_RADIUS, TAN, UI_FONT, UI_FONT_SIZE} from "../constants"
 
 // tslint:disable-next-line comment-format
 // language=CSS
@@ -10,18 +10,18 @@ const DOWNLOAD_CSS = `
         font-size: ${UI_FONT_SIZE}em;
         border: none;
         color: white;
-        background-color: #2EA44F;
+        background-color: ${TAN};
         padding: 4px 6px 3px 6px;
         border-radius: ${STANDARD_BORDER_RADIUS}px;
         outline: none;
     }
 
     .sc-download:hover {
-        background-color: #2C974B;
+        background-color: ${LIGHT_TAN};
     }
 
     .sc-download:active {
-        background-color: #2EA44F;
+        background-color: ${TAN};
     }
 
     .sc-download svg {

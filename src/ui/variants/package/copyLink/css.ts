@@ -1,4 +1,12 @@
-import {STANDARD_BORDER, STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE, UI_SPACING} from "../constants"
+import {
+    EBONY,
+    LIGHT_EBONY,
+    STANDARD_BORDER,
+    STANDARD_BORDER_RADIUS,
+    UI_FONT,
+    UI_FONT_SIZE,
+    UI_SPACING,
+} from "../constants"
 
 // tslint:disable-next-line comment-format
 // language=CSS
@@ -10,7 +18,7 @@ const COPY_LINK_CSS = `
         font-size: ${UI_FONT_SIZE}em;
         border: none;
         color: white;
-        background-color: #0366CC;
+        background-color: ${EBONY};
         padding: 4px 6px 3px 6px;
         border-radius: ${STANDARD_BORDER_RADIUS}px;
         outline: none;
@@ -18,11 +26,11 @@ const COPY_LINK_CSS = `
     }
 
     .sc-copy-link:hover {
-        background-color: #035FC8;
+        background-color: ${LIGHT_EBONY};
     }
 
     .sc-copy-link:active {
-        background-color: #0366CC;
+        background-color: ${EBONY};
     }
 
     .sc-copy-link-message {

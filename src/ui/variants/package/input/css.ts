@@ -1,9 +1,9 @@
 import {Px} from "@sagittal/general"
 import {
+    IVORY,
     MAX_APP_WIDTH,
     MONOSPACED_FONT,
     MONOSPACED_FONT_SIZE,
-    OUTLINE_LIGHT_BLUE,
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
 } from "../constants"
@@ -27,7 +27,7 @@ const INPUT_CSS = `
     }
 
     .sc-input:focus {
-        outline-color: ${OUTLINE_LIGHT_BLUE};
+        outline-color: ${IVORY};
     }
 `
 

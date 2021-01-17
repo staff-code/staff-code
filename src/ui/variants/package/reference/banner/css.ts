@@ -3,6 +3,7 @@ import {
     MONOSPACED_FONT,
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
+    TAN,
     UI_FONT,
     UI_FONT_SIZE,
 } from "../../constants"
@@ -11,7 +12,7 @@ import {
 // language=CSS
 const REFERENCE_BANNER_CSS = `
     /* banner */
-    
+
     .sc-reference-banner {
         padding: 3px;
         font-family: ${UI_FONT};
@@ -21,11 +22,15 @@ const REFERENCE_BANNER_CSS = `
         border-bottom: ${STANDARD_BORDER};
         margin-right: ${APP_MARGIN}px;
     }
-    
+
     /* expander */
 
     .sc-reference-expander {
         cursor: pointer;
+    }
+
+    .sc-reference-expander:hover span {
+        color: ${TAN};
     }
 
     .sc-reference-expander-icon {
@@ -33,7 +38,7 @@ const REFERENCE_BANNER_CSS = `
         font-family: ${MONOSPACED_FONT};
         padding-right: 3px;
     }
-    
+
     .sc-reference-expander-icon::before {
         content: "+";
     }
@@ -41,7 +46,7 @@ const REFERENCE_BANNER_CSS = `
     .sc-reference-wrapper.open .sc-reference-expander-icon::before {
         content: "-";
     }
-    
+
     /* back to top */
 
     .sc-back-to-top {
@@ -52,6 +57,10 @@ const REFERENCE_BANNER_CSS = `
         visibility: visible;
         color: inherit;
         text-decoration: inherit;
+    }
+
+    .sc-reference-wrapper.open .sc-back-to-top:hover {
+        color: ${TAN};
     }
 
     /* title & about */
