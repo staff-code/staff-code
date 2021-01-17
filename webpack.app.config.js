@@ -20,7 +20,10 @@ module.exports = {
             title: "StaffCode",
             meta: {viewport: "width=device-width, height=device-height, initial-scale=1"},
         }),
-        new FaviconsWebpackPlugin("./assets/favicon.png"),
+        new FaviconsWebpackPlugin({
+            logo: "./assets/favicon.png",
+            outputPath: 'auto/assets',
+        }),
         new webpack.ProvidePlugin({process: "process/browser"}),
         new IgnoreNotFoundExportPlugin(),
         new CopyWebpackPlugin({
