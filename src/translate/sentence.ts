@@ -42,7 +42,7 @@ const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Se
     return sumTexts(unicodeSentence, endOfLineUnicodeClause as Unicode as Unicode & Sentence)
 }
 
-// TODO: A PASS TO EVEN OUT THE COMPOSITION OF EACH CONTIGUOUS ADVANCE
+// TODO: FEATURE IMPROVE, READY TO GO: A PASS TO EVEN OUT THE COMPOSITION OF EACH CONTIGUOUS ADVANCE
 //  Original idea is here: https://forum.sagittal.org/viewtopic.php?p=3465#p3465
 //  And latest is here: https://forum.sagittal.org/viewtopic.php?p=3558#p3558
 /*
