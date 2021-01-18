@@ -18,7 +18,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: "StaffCode",
-            meta: {viewport: "width=device-width, height=device-height, initial-scale=1"},
+            meta: {viewport: "width=device-width, height=device-height, initial-scale=1, maximum-scale=1"},
         }),
         new FaviconsWebpackPlugin({
             logo: "./assets/favicon.png",
