@@ -1,6 +1,5 @@
 import {BLANK, Link, Sentence, vectorizeText} from "@sagittal/general"
-import {Unicode} from "../../../../translate"
-import {smarts} from "../../../../translate/smarts"
+import {smarts, Unicode} from "../../../../translate"
 import {DEFAULT_FONT} from "../../../fonts"
 import {components} from "../globals"
 import {

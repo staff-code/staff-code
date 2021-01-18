@@ -28,7 +28,7 @@ const INPUT_CSS = `
     .sc-input-border-wrapper:focus {
         border-color: ${LIGHT_TAN};
     }
-    
+
     .sc-input {
         min-height: ${ABOUT_THREE_LINES_HIGH_PX}px;
         resize: vertical;

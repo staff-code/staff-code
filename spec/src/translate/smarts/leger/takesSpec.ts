@@ -1,7 +1,7 @@
 import {Word} from "@sagittal/general"
 import {
-    CaseDesensitized,
     CASE_DESENSITIZED_CODE_MAP,
+    CaseDesensitized,
     Code,
     computeUnicodeForCode,
     Unicode,

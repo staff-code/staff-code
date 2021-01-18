@@ -7,7 +7,7 @@ import {components} from "../globals"
 //  You should just go through everything that looks unit testable and backfill them
 
 const ABSOLUTE_WIDTH_TO_BASE_RELATIVE_HEIGHT_AGAINST = 1000 as Px
-const UNKNOWN_FACTOR = 2/3
+const UNKNOWN_FACTOR = 2 / 3
 
 const buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem = (): SVGGraphicsElement => {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg") as Element as SVGGraphicsElement

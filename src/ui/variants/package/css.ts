@@ -1,14 +1,15 @@
 import {
     APP_MARGIN,
     DARK_GREY,
+    DARK_TAN,
     GREY,
-    LIGHTER_TAN,
-    LIGHT_TAN,
     LIGHT_GREY,
-    TAN,
+    LIGHT_TAN,
     LIGHTER_GREY,
+    LIGHTER_TAN,
     MAX_APP_WIDTH,
-    DARK_TAN, STANDARD_BORDER_RADIUS,
+    STANDARD_BORDER_RADIUS,
+    TAN,
 } from "./constants"
 import {COPY_LINK_CSS} from "./copyLink"
 import {DOWNLOAD_CSS} from "./download"

@@ -1,4 +1,4 @@
-import {BLANK, joinWords, Sentence, Word} from "@sagittal/general"
+import {joinWords, Sentence, Word} from "@sagittal/general"
 import {ACCIDENTAL_ALIASES_MAP, GENERIC_POSITION_ALIASES_MAP, LINE_BREAK_ALIASES_MAP} from "./aliases"
 import {BASE_GLYPH_MAP} from "./codes"
 import {Code, Unicode} from "./types"

@@ -14,7 +14,7 @@ const REFERENCE_WRAPPER_CSS = `
         flex-direction: column;
         overflow: hidden;
     }
-    
+
     .sc-reference-border-wrapper::-webkit-scrollbar {
         width: 0;
     }

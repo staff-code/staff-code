@@ -1,12 +1,4 @@
-import {
-    LIGHT_TAN,
-    TAN,
-    STANDARD_BORDER,
-    STANDARD_BORDER_RADIUS,
-    UI_FONT,
-    UI_FONT_SIZE,
-    UI_SPACING,
-} from "../constants"
+import {LIGHT_TAN, STANDARD_BORDER, STANDARD_BORDER_RADIUS, UI_FONT, UI_FONT_SIZE, UI_SPACING} from "../constants"
 
 // tslint:disable-next-line comment-format
 // language=CSS

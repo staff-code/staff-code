@@ -10,4 +10,5 @@ export {
     ALIASES_MAP,
     SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP,
 } from "./codes"
+export {smarts} from "./smarts"
 export {EMPTY_UNICODE} from "./constants"
