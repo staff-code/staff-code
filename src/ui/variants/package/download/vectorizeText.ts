@@ -1,10 +1,7 @@
 import {Px, Sentence, vectorizeText} from "@sagittal/general"
-import {Unicode} from "../../../../translate"
+import {smarts, Unicode} from "../../../../translate"
 import {DEFAULT_FONT} from "../../../fonts"
 import {components} from "../globals"
-
-// TODO: CLEAN, READY TO GO: TEST MORE UI HELPER METHODS
-//  You should just go through everything that looks unit testable and backfill them
 
 const ABSOLUTE_WIDTH_TO_BASE_RELATIVE_HEIGHT_AGAINST = 1000 as Px
 const UNKNOWN_FACTOR = 2 / 3
@@ -53,8 +50,28 @@ const getSvgHeight = (svg: SVGGraphicsElement): Px => {
     return bbox.y + bbox.height + bbox.y as Px
 }
 
+const computeSvgFromInputUsingVectorizeTextLibrary = (unicodeSentence: Unicode & Sentence): SVGGraphicsElement => {
+    const {display} = components
+
+    const options = {
+        height: computeSvgHeight(unicodeSentence),
+        font: DEFAULT_FONT,
+        lineSpacing: parseFloat(display.style.lineHeight),
+    }
+    const svg = buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem()
+    svg.innerHTML = vectorizeText(unicodeSentence, options)
+    cropSvgToFitContents(svg)
+    svg.style.padding = `${smarts.spacing}px`
+
+    // TODO: BUG, READY TO GO: VECTORIZE-TEXT MANGLING ON REPEAT DOWNLOADS WITH CHANGES
+    //  Going to have to deal with this crazy garbled nonsense you get seemingly
+    //  If you ever try to download the SVG more than once without refreshing the page
+
+    // TODO: BUG, READY TO GO: VECTORIZE-TEXT IS CUTTING OFF THE BOTTOM OF MULTI-LINE DISPLAYS
+
+    return svg
+}
+
 export {
-    cropSvgToFitContents,
-    computeSvgHeight,
-    buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem,
+    computeSvgFromInputUsingVectorizeTextLibrary,
 }

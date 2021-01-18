@@ -1,12 +1,7 @@
-import {BLANK, Link, Sentence, vectorizeText} from "@sagittal/general"
-import {smarts, Unicode} from "../../../../translate"
-import {DEFAULT_FONT} from "../../../fonts"
+import {BLANK, Link, Sentence} from "@sagittal/general"
+import {Unicode} from "../../../../translate"
 import {components} from "../globals"
-import {
-    buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem,
-    computeSvgHeight,
-    cropSvgToFitContents,
-} from "./resize"
+import {computeSvgFromInputUsingVectorizeTextLibrary} from "./vectorizeText"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
@@ -38,25 +33,13 @@ const buildSvgBlobUrl = (clonedSvg: SVGGraphicsElement): Link => {
     return URL.createObjectURL(blob) as Link
 }
 
-const downloadSvg = (): void => {
+const downloadSvg = async (): Promise<void> => {
     const {display} = components
     const unicodeSentence: Unicode & Sentence = (display.textContent || BLANK) as Unicode & Sentence
 
-    const options = {
-        height: computeSvgHeight(unicodeSentence),
-        font: DEFAULT_FONT,
-        lineSpacing: parseFloat(display.style.lineHeight),
-    }
-    const svg = buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem()
-    svg.innerHTML = vectorizeText(unicodeSentence, options)
-    cropSvgToFitContents(svg)
-    svg.style.padding = `${smarts.spacing}px`
-
-    // TODO: BUG, READY TO GO: VECTORIZE-TEXT MANGLING ON REPEAT DOWNLOADS WITH CHANGES
-    //  Going to have to deal with this crazy garbled nonsense you get seemingly
-    //  If you ever try to download the SVG more than once without refreshing the page
-
-    // TODO: BUG, READY TO GO: VECTORIZE-TEXT IS CUTTING OFF THE BOTTOM OF MULTI-LINE DISPLAYS
+    const svg = computeSvgFromInputUsingVectorizeTextLibrary(unicodeSentence)
+    // TODO: Finish this
+    // const svg = await computeSvgFromInputUsingTextToSvgLibrary(unicodeSentence)
 
     const clonedSvg = cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled(svg)
 
