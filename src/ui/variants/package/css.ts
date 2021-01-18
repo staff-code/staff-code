@@ -45,6 +45,7 @@ const applyCss = (): void => {
         }
 
         .sc-ui {
+            flex-shrink: 0;
             display: flex;
             flex-direction: column;
             margin-right: ${APP_MARGIN}px;

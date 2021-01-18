@@ -74,7 +74,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     const display = buildDisplay({font, initialLine, inline, initialSize})
     display.style.display = "inline-block"
     const displayWrapper = document.createElement("div")
-    displayWrapper.style.minHeight = "max-content"
+    displayWrapper.style.flexShrink = "0"
     displayWrapper.appendChild(display)
     components.display = display
     root.appendChild(displayWrapper)
