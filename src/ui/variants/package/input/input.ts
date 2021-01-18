@@ -1,4 +1,4 @@
-import {doOnNextEventLoop, isBrowserMobile, Ms} from "@sagittal/general"
+import {doOnNextEventLoop, Ms} from "@sagittal/general"
 import {transferInputToDisplay} from "../../../transfer"
 import {components, staffCodeConfig} from "../globals"
 import {buildStaffCodeCallback} from "./callback"
@@ -9,7 +9,6 @@ const buildPackageInput = (): HTMLDivElement => {
 
     const inputBorderWrapper = document.createElement("div")
     inputBorderWrapper.classList.add("sc-input-border-wrapper")
-    if (!isBrowserMobile()) inputBorderWrapper.style.resize = "vertical"
 
     const input = document.createElement("textarea")
     components.input = input

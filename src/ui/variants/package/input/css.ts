@@ -16,12 +16,13 @@ const INPUT_CSS = `
     .sc-input-border-wrapper {
         border: ${STANDARD_BORDER};
         border-radius: ${STANDARD_BORDER_RADIUS}px;
+        box-sizing: border-box;
         overflow: hidden;
         width: 100%;
         max-width: ${MAX_APP_WIDTH}px;
         margin-bottom: 5px;
         padding: 0;
-        min-height: ${ABOUT_THREE_LINES_HIGH_PX}px;
+        display: inherit;
     }
 
     .sc-input-border-wrapper:focus {
@@ -29,11 +30,12 @@ const INPUT_CSS = `
     }
     
     .sc-input {
+        min-height: ${ABOUT_THREE_LINES_HIGH_PX}px;
+        resize: vertical;
         height: 100%;
         width: 100%;
         box-sizing: border-box;
         border-radius: ${STANDARD_BORDER_RADIUS}px;
-        resize: none;
         border: none;
         outline: none;
         margin: 0;
