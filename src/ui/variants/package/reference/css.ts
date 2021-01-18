@@ -12,6 +12,15 @@ const REFERENCE_WRAPPER_CSS = `
         flex-grow: 1;
         display: flex;
         flex-direction: column;
+        overflow: hidden;
+    }
+
+    .sc-reference-wrapper.open .sc-reference-border-wrapper {
+        flex-grow: 1;
+        margin: 0 ${APP_MARGIN}px ${APP_MARGIN}px 0;
+        overflow: hidden;
+        border: ${STANDARD_BORDER};
+        border-radius: ${STANDARD_BORDER_RADIUS}px;
     }
 
     .sc-reference {
@@ -23,11 +32,8 @@ const REFERENCE_WRAPPER_CSS = `
 
     .sc-reference-wrapper.open .sc-reference {
         padding: 10px;
-        flex-grow: 1;
-        margin: 0 ${APP_MARGIN}px ${APP_MARGIN}px 0;
         overflow-y: auto;
-        border: ${STANDARD_BORDER};
-        border-radius: ${STANDARD_BORDER_RADIUS}px;
+        height: 100%;
     }
 `
 

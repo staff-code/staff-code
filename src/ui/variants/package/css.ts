@@ -85,7 +85,7 @@ const applyCss = (): void => {
 
         ::-webkit-scrollbar-thumb {
             background-color: ${LIGHT_GREY};
-            border-radius: ${STANDARD_BORDER_RADIUS - 1}px;
+            border-radius: ${STANDARD_BORDER_RADIUS - 3}px;
         }
 
         ::-webkit-scrollbar-thumb:hover {

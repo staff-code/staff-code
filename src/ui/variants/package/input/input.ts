@@ -1,13 +1,18 @@
 import {doOnNextEventLoop, Ms} from "@sagittal/general"
 import {transferInputToDisplay} from "../../../transfer"
-import {staffCodeConfig} from "../globals"
+import {components, staffCodeConfig} from "../globals"
 import {buildStaffCodeCallback} from "./callback"
 import {handleKeydown, handleKeyup} from "./handlers"
 
-const buildPackageInput = (): HTMLTextAreaElement => {
+const buildPackageInput = (): HTMLDivElement => {
     const {initial: {codes: initialCodes}, ui: {interactive}} = staffCodeConfig
 
+    const inputBorderWrapper = document.createElement("div")
+    inputBorderWrapper.classList.add("sc-input-border-wrapper")
+
     const input = document.createElement("textarea")
+    components.input = input
+    inputBorderWrapper.appendChild(input)
 
     const {callback} = staffCodeConfig
     staffCodeConfig.callback = buildStaffCodeCallback(callback)
@@ -34,7 +39,7 @@ const buildPackageInput = (): HTMLTextAreaElement => {
         input.selectionEnd = input.value.length
     }
 
-    return input
+    return inputBorderWrapper
 }
 
 export {

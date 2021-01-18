@@ -5,9 +5,13 @@ import {appendSection, handleReferenceInsert, handleReferenceInsertUndo} from ".
 import {buildTocWrapper} from "./toc"
 
 const buildReference = (): HTMLDivElement => {
+    const referenceBorderWrapper = document.createElement("div")
+    referenceBorderWrapper.classList.add("sc-reference-border-wrapper")
+
     const reference = document.createElement("div")
     reference.classList.add("sc-reference")
     components.reference = reference
+    referenceBorderWrapper.appendChild(reference)
 
     const topLink = document.createElement("a")
     topLink.id = "top"
@@ -22,7 +26,7 @@ const buildReference = (): HTMLDivElement => {
     reference.addEventListener("click", handleReferenceInsert)
     document.addEventListener("keydown", handleReferenceInsertUndo)
 
-    return reference
+    return referenceBorderWrapper
 }
 
 export {

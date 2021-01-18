@@ -13,21 +13,31 @@ const ABOUT_THREE_LINES_HIGH_PX: Px = 60 as Px
 // tslint:disable-next-line comment-format
 // language=CSS
 const INPUT_CSS = `
-    .sc-input {
+    .sc-input-border-wrapper {
+        border: ${STANDARD_BORDER};
+        border-radius: ${STANDARD_BORDER_RADIUS}px;
+        overflow: hidden;
         width: 100%;
         max-width: ${MAX_APP_WIDTH}px;
         resize: vertical;
-        height: ${ABOUT_THREE_LINES_HIGH_PX}px;
-        font-family: ${MONOSPACED_FONT};
-        font-size: ${MONOSPACED_FONT_SIZE}px;
-        border: ${STANDARD_BORDER};
-        border-radius: ${STANDARD_BORDER_RADIUS}px;
         margin-bottom: 5px;
-        box-sizing: border-box;
+        height: ${ABOUT_THREE_LINES_HIGH_PX}px;
     }
 
-    .sc-input:focus {
-        outline-color: ${LIGHT_TAN};
+    .sc-input-border-wrapper:focus {
+        border-color: ${LIGHT_TAN};
+    }
+    
+    .sc-input {
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: ${STANDARD_BORDER_RADIUS - 3}px;
+        border: none;
+        outline: none;
+        margin: 0;
+        font-family: ${MONOSPACED_FONT};
+        font-size: ${MONOSPACED_FONT_SIZE}px;
     }
 `
 

@@ -66,7 +66,6 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     root.appendChild(ui)
 
     const input = buildPackageInput()
-    components.input = input
     ui.appendChild(input)
 
     const controls = buildControls()
