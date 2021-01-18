@@ -80,15 +80,15 @@ const REFERENCE_BANNER_CSS = `
         font-size: ${UI_FONT_SIZE}em;
         padding: 1.5em;
         position: fixed;
-        margin: -120px -110px;
+        margin: -122px -103px;
         z-index: 9999;
     }
 
     .sc-about-trigger {
-        position: absolute;
-        top: -8px;
-        width: 75px;
+        position: fixed;
+        margin: -25px -6px;
         height: 30px;
+        width: 80px;
     }
 
     .sc-about-trigger:hover .sc-about {
