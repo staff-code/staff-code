@@ -1,5 +1,6 @@
 import {BLANK, Link, Sentence, vectorizeText} from "@sagittal/general"
 import {Unicode} from "../../../../translate"
+import {smarts} from "../../../../translate/smarts"
 import {DEFAULT_FONT} from "../../../fonts"
 import {components} from "../globals"
 import {
@@ -50,6 +51,7 @@ const downloadSvg = (): void => {
     const svg = buildHiddenButAddedToDOMSvgWhoseContentsSizeCanBeMeasuredInOrderToScaleItToFitThem()
     svg.innerHTML = vectorizeText(unicodeSentence, options)
     cropSvgToFitContents(svg)
+    svg.style.padding = `${smarts.spacing}px`
 
     // TODO: BUG, READY TO GO: VECTORIZE-TEXT MANGLING ON REPEAT DOWNLOADS WITH CHANGES
     //  Going to have to deal with this crazy garbled nonsense you get seemingly
