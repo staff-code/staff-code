@@ -33,7 +33,8 @@ const INPUT_CSS = `
         height: 100%;
         width: 100%;
         box-sizing: border-box;
-        border-radius: ${STANDARD_BORDER_RADIUS - 3}px;
+        border-radius: ${STANDARD_BORDER_RADIUS}px;
+        resize: none;
         border: none;
         outline: none;
         margin: 0;
