@@ -26,13 +26,13 @@ const REFERENCE_WRAPPER_CSS = `
     .sc-reference {
         background-color: white;
         height: 0;
-        overflow-y: hidden;
+        overflow: hidden;
         box-sizing: border-box;
     }
 
     .sc-reference-wrapper.open .sc-reference {
         padding: 10px;
-        overflow-y: auto;
+        overflow-y: scroll;
         height: 100%;
     }
 `
