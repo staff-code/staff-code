@@ -14,11 +14,15 @@ const REFERENCE_WRAPPER_CSS = `
         flex-direction: column;
         overflow: hidden;
     }
+    
+    .sc-reference-border-wrapper::-webkit-scrollbar {
+        width: 0;
+    }
 
     .sc-reference-wrapper.open .sc-reference-border-wrapper {
         flex-grow: 1;
         margin: 0 ${APP_MARGIN}px ${APP_MARGIN}px 0;
-        overflow: hidden;
+        overflow-y: scroll;
         border: ${STANDARD_BORDER};
         border-radius: ${STANDARD_BORDER_RADIUS}px;
     }
