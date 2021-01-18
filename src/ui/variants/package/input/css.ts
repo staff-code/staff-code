@@ -21,7 +21,7 @@ const INPUT_CSS = `
         max-width: ${MAX_APP_WIDTH}px;
         resize: vertical;
         margin-bottom: 5px;
-        height: ${ABOUT_THREE_LINES_HIGH_PX}px;
+        min-height: ${ABOUT_THREE_LINES_HIGH_PX}px;
     }
 
     .sc-input-border-wrapper:focus {
