@@ -29,10 +29,14 @@ const buildPackageInput = (): HTMLDivElement => {
         input.addEventListener("keydown", handleKeydown)
         input.addEventListener("keyup", handleKeyup)
         input.addEventListener("paste", (): void => {
-            doOnNextEventLoop(transferInputToDisplay, 100 as Ms).then()
+            doOnNextEventLoop((): void => {
+                transferInputToDisplay(components.root, staffCodeConfig.callback)
+            }, 100 as Ms).then()
         })
         input.addEventListener("cut", (): void => {
-            doOnNextEventLoop(transferInputToDisplay, 100 as Ms).then()
+            doOnNextEventLoop((): void => {
+                transferInputToDisplay(components.root, staffCodeConfig.callback)
+            }, 100 as Ms).then()
         })
 
         input.selectionStart = input.value.length
