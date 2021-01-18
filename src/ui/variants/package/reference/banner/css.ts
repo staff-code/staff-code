@@ -1,9 +1,9 @@
 import {
     APP_MARGIN,
+    DARK_TAN,
     MONOSPACED_FONT,
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
-    DARK_TAN,
     UI_FONT,
     UI_FONT_SIZE,
 } from "../../constants"
@@ -21,6 +21,7 @@ const REFERENCE_BANNER_CSS = `
         justify-content: space-between;
         border-bottom: ${STANDARD_BORDER};
         margin-right: ${APP_MARGIN}px;
+        min-height: 1.5em;
     }
 
     /* expander */
