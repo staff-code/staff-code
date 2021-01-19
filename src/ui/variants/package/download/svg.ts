@@ -1,5 +1,4 @@
 import {BLANK, Sentence} from "@sagittal/general"
-import * as FileSaver from "file-saver"
 import {Unicode} from "../../../../translate"
 import {components} from "../globals"
 import {computeSvgFromInput} from "./textToSvg"
@@ -20,7 +19,19 @@ const buildBlobAndSaveIt = (svg: SVGGraphicsElement): void => {
     const outerHTML = svg.outerHTML
     const blob = new Blob([outerHTML], {type: TYPE})
 
-    FileSaver.saveAs(blob, DOWNLOAD_FILENAME)
+    const reader = new FileReader()
+    reader.onload = (): void => {
+        window.location.href = reader.result as string
+    }
+    reader.readAsDataURL(blob)
+
+    const fileURL = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = fileURL
+    a.target = "_blank"
+    a.download = DOWNLOAD_FILENAME
+    document.body.appendChild(a)
+    a.click()
 }
 
 const downloadSvg = async (): Promise<void> => {
