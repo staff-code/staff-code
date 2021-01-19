@@ -1,5 +1,6 @@
-import {Em, FontName, formatPx, Multiplier, Px, Sentence, textToSvg} from "@sagittal/general"
+import {Em, Multiplier, Px, Sentence, textToSvg, TextToSvgOptions} from "@sagittal/general"
 import {smarts, Unicode} from "../../../../translate"
+import {BRAVURA_TEXT_BB_OTF} from "../../../constants"
 import {computeFontSize} from "../font"
 import {components} from "../globals"
 
@@ -9,15 +10,16 @@ const emToPx = (em: Em): Px =>
 const computeSvgFromInput = async (unicodeSentence: Unicode & Sentence): Promise<SVGGraphicsElement> => {
     const line = parseFloat(components.lineSpinner.value) as Multiplier<Px>
     const fontSize = emToPx(computeFontSize(parseFloat(components.sizeSpinner.value) as Multiplier<Em>))
-    const options = {font: "assets/fonts/BravuraTextBB.otf" as FontName, line, fontSize}
+    const options = {
+        font: BRAVURA_TEXT_BB_OTF,
+        line,
+        fontSize,
+        padding: smarts.spacing,
+    } as TextToSvgOptions
     const svgString = await textToSvg(unicodeSentence, options)
 
-    // I'm not worrying about minding the line count because ultimately @sagittal/general will handle this for you
-    const height = line * fontSize
-    const heightAndMarginAdjustedSvg = svgString.replace(/height="(\d+)"/, `height="${height}" style="padding: ${formatPx(smarts.spacing)}"`)
-
     const svgParser = new DOMParser()
-    const svgDocument = svgParser.parseFromString(heightAndMarginAdjustedSvg, "text/html")
+    const svgDocument = svgParser.parseFromString(svgString, "text/html")
 
     return svgDocument.firstChild as SVGGraphicsElement
 }

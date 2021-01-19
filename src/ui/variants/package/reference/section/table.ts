@@ -19,6 +19,7 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
         //  (Yes, strangely, 65534 happens to be an exact multiple of 31).
 
         // TODO, FEATURE IMPROVE, READY TO GO: ALSO STILL NEED TO RENAME FONT TO BRAVURA TEXT SC
+        //  Though I'd like to get this to-do out of the code base and into the work planning post
 
         const unicodeCell = row.insertCell()
         unicodeCell.innerHTML = unicode

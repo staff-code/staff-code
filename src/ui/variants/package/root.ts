@@ -1,6 +1,6 @@
 import {Maybe, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
+import {BRAVURA_TEXT_BB} from "../../constants"
 import {buildDisplay} from "../../display"
-import {DEFAULT_FONT} from "../../fonts"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 import {MONOSPACED_FONT} from "./constants"
@@ -29,7 +29,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
             line: initialLine = computeInitialLine(),
             referenceOpen = computeInitialReferenceOpen(),
         } = {},
-        font = DEFAULT_FONT,
+        font = BRAVURA_TEXT_BB,
         callback,
     } = options
     setAllPropertiesOfObjectOnAnother({

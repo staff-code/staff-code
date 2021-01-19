@@ -1,7 +1,6 @@
 import {Io, Maybe, Sentence} from "@sagittal/general"
-import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../../constants"
+import {BRAVURA_TEXT_BB, DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../../constants"
 import {buildDisplay} from "../../display"
-import {DEFAULT_FONT} from "../../fonts"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 
@@ -15,7 +14,7 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
             size: initialSize = DEFAULT_INITIAL_SIZE,
             line: initialLine = DEFAULT_INITIAL_LINE,
         } = {},
-        font = DEFAULT_FONT,
+        font = BRAVURA_TEXT_BB,
         callback,
     } = options
 

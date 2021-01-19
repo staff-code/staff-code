@@ -1,0 +1,142 @@
+<body>
+<div>basically works </div>
+<img src="./basically_works.svg"/>
+<div>supports multiple staves with a break </div>
+<img src="./supports_multiple_staves_with_a_break.svg"/>
+<div>adds a space at the end if the last word is a break (so that the break immediately indicates that it has occurred, by taking up space in the display) </div>
+<img src="./nd_if_the_last_word_is_a_break_(so_that_the_break_immediately_indicates_that_it_has_occurred,_by_taking_up_space_in_the_display).svg"/>
+<div>supports inline comments </div>
+<img src="./supports_inline_comments.svg"/>
+<div>still supports codes with curlies, despite those being comment chars </div>
+<img src="./still_supports_codes_with_curlies,_despite_those_being_comment_chars.svg"/>
+<div>is whitespace agnostic </div>
+<img src="./is_whitespace_agnostic.svg"/>
+<h1>Smart Position</h1>
+<div>the most recently used position is automatically applied if none is specified </div>
+<img src="./the_most_recently_used_position_is_automatically_applied_if_none_is_specified.svg"/>
+<div>don't manifest until they are needed (only apply to glyphs with ligatures to be vertically shifted by them) </div>
+<img src="./don't_manifest_until_they_are_needed_(only_apply_to_glyphs_with_ligatures_to_be_vertically_shifted_by_them).svg"/>
+<div>persists until a new position is used (is 'sticky') </div>
+<img src="./persists_until_a_new_position_is_used_(is_'sticky').svg"/>
+<div>does not actually put the middle position on the stave; there is no zero position glyph in SMuFL, so we temporarily use a code point from the Sagittal range, but it has no actual effect so it shouldn't be emitted </div>
+<img src="./yph_in_SMuFL,_so_we_temporarily_use_a_code_point_from_the_Sagittal_range,_but_it_has_no_actual_effect_so_it_shouldn't_be_emitted.svg"/>
+<div>works for the positions supplement </div>
+<img src="./works_for_the_positions_supplement.svg"/>
+<div>ignores leger line supplements for now </div>
+<img src="./ignores_leger_line_supplements_for_now.svg"/>
+<h1>Smart Clef</h1>
+<div>assume treble clef even if no clef has been provided </div>
+<img src="./assume_treble_clef_even_if_no_clef_has_been_provided.svg"/>
+<div>change depending on the clef </div>
+<img src="./change_depending_on_the_clef.svg"/>
+<div>clefs are smart and they stick until you change them (you can change from one to the other) </div>
+<img src="./clefs_are_smart_and_they_stick_until_you_change_them_(you_can_change_from_one_to_the_other).svg"/>
+<h1>Smart Advance</h1>
+<div>advances by the width computed for each glyph from the Bravura font lgln</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_lgln.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font Gcl</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_Gcl.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font ntdbwh</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_ntdbwh.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font ntwh</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_ntwh.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font nt2up</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_nt2up.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font ntup</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_ntup.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font nt8up</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_nt8up.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font nt16up</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_nt16up.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font nthfdn</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_nthfdn.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font ntqrdn</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_ntqrdn.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font nt8dn</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_nt8dn.svg"/>
+<div>advances by the width computed for each glyph from the Bravura font nt16dn</div>
+<img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_nt16dn.svg"/>
+<div>does not repeatedly advance if multiple smart advance codes are provided (besides adding the default 2 spacing, in preparation for if you were to provide an actual next glyph) </div>
+<img src="./dvance_codes_are_provided_(besides_adding_the_default_2_spacing,_in_preparation_for_if_you_were_to_provide_an_actual_next_glyph).svg"/>
+<div>if more than one unicode has occurred since the previous advance, uses the width of the unicode with the max width </div>
+<img src="./if_more_than_one_unicode_has_occurred_since_the_previous_advance,_uses_the_width_of_the_unicode_with_the_max_width.svg"/>
+<div>resets the advance amount after each application </div>
+<img src="./resets_the_advance_amount_after_each_application.svg"/>
+<div>can have the spacing adjusted from the default of 2 </div>
+<img src="./can_have_the_spacing_adjusted_from_the_default_of_2.svg"/>
+<div>supports manual advance amounts </div>
+<img src="./supports_manual_advance_amounts.svg"/>
+<div>supports positioning the next glyph with its right edge against the right edge of the current line with the advance-to-end code </div>
+<img src="./supports_positioning_the_next_glyph_with_its_right_edge_against_the_right_edge_of_the_current_line_with_the_advance-to-end_code.svg"/>
+<div>the advance-to-end code also works for the double barline </div>
+<img src="./the_advance-to-end_code_also_works_for_the_double_barline.svg"/>
+<div>the advance-to-end code behaves like a normal smart advance when smart staff is not on (so that if the user deletes the ston code from their sentence, things look basically the same, just without the staff) </div>
+<img src="./s_not_on_(so_that_if_the_user_deletes_the_ston_code_from_their_sentence,_things_look_basically_the_same,_just_without_the_staff).svg"/>
+<div>the advance-to-end code works for glyphs with widths between 1 and 8 </div>
+<img src="./the_advance-to-end_code_works_for_glyphs_with_widths_between_1_and_8.svg"/>
+<div>the advance-to-end code works for glyphs with widths of exactly 8 </div>
+<img src="./the_advance-to-end_code_works_for_glyphs_with_widths_of_exactly_8.svg"/>
+<div>the advance-to-end code works for glyphs with widths between 8 and 16 </div>
+<img src="./the_advance-to-end_code_works_for_glyphs_with_widths_between_8_and_16.svg"/>
+<div>the advance-to-end code works for glyphs with widths of exactly 16 </div>
+<img src="./the_advance-to-end_code_works_for_glyphs_with_widths_of_exactly_16.svg"/>
+<div>the advance-to-end code works for glyphs with widths between 16 and 24 </div>
+<img src="./the_advance-to-end_code_works_for_glyphs_with_widths_between_16_and_24.svg"/>
+<div>the advance-to-end code works for glyphs with widths of exactly 24 </div>
+<img src="./the_advance-to-end_code_works_for_glyphs_with_widths_of_exactly_24.svg"/>
+<div>you can continue the same line after using an advance-to-end code, and it will include the proper spacing for the character which used to be up against the exact right edge of the line </div>
+<img src="./-end_code,_and_it_will_include_the_proper_spacing_for_the_character_which_used_to_be_up_against_the_exact_right_edge_of_the_line.svg"/>
+<div>the advance-to-end code is canceled by a line break </div>
+<img src="./the_advance-to-end_code_is_canceled_by_a_line_break.svg"/>
+<div>the advance-to-end code can be adjusted with manual advance </div>
+<img src="./the_advance-to-end_code_can_be_adjusted_with_manual_advance.svg"/>
+<div>the advance-to-end code can be adjusted with manual advance, when the manual advance amount is greater than the difference between the width of the glyph and the remaining stave </div>
+<img src="./al_advance,_when_the_manual_advance_amount_is_greater_than_the_difference_between_the_width_of_the_glyph_and_the_remaining_stave.svg"/>
+<h1>Smart Stave</h1>
+<div>automatically adds stave lines as needed, if smart stave has been asked for </div>
+<img src="./automatically_adds_stave_lines_as_needed,_if_smart_stave_has_been_asked_for.svg"/>
+<div>does not add additional lines as needed, if only a manual stave has been asked for </div>
+<img src="./does_not_add_additional_lines_as_needed,_if_only_a_manual_stave_has_been_asked_for.svg"/>
+<div>can be turned off and on, and upon turning it off, it advances you to the end of the stave it has already laid down </div>
+<img src="./can_be_turned_off_and_on,_and_upon_turning_it_off,_it_advances_you_to_the_end_of_the_stave_it_has_already_laid_down.svg"/>
+<div>provides leger lines automatically for notes and noteheads beyond ±5 staff positions </div>
+<img src="./provides_leger_lines_automatically_for_notes_and_noteheads_beyond_±5_staff_positions.svg"/>
+<div>only puts leger lines on every other position (the ones that would have been lines) </div>
+<img src="./only_puts_leger_lines_on_every_other_position_(the_ones_that_would_have_been_lines).svg"/>
+<div>provides multiple leger lines if the note is very beyond the staff </div>
+<img src="./provides_multiple_leger_lines_if_the_note_is_very_beyond_the_staff.svg"/>
+<div>turns off leger lines when smart stave is off </div>
+<img src="./turns_off_leger_lines_when_smart_stave_is_off.svg"/>
+<div>provides leger lines of the smallest size which is wider than the glyph they are for lglnnr</div>
+<img src="./provides_leger_lines_of_the_smallest_size_which_is_wider_than_the_glyph_they_are_for_lglnnr.svg"/>
+<div>provides leger lines of the smallest size which is wider than the glyph they are for lgln</div>
+<img src="./provides_leger_lines_of_the_smallest_size_which_is_wider_than_the_glyph_they_are_for_lgln.svg"/>
+<div>provides leger lines of the smallest size which is wider than the glyph they are for lglnwd</div>
+<img src="./provides_leger_lines_of_the_smallest_size_which_is_wider_than_the_glyph_they_are_for_lglnwd.svg"/>
+<div>provides leger lines of the smallest size which is wider than the glyph they are for beyond lglnwd</div>
+<img src="./provides_leger_lines_of_the_smallest_size_which_is_wider_than_the_glyph_they_are_for_beyond_lglnwd.svg"/>
+<div>makes exceptions for upward notes with flags, ignoring the width the flags contribute nt8up</div>
+<img src="./makes_exceptions_for_upward_notes_with_flags,_ignoring_the_width_the_flags_contribute_nt8up.svg"/>
+<div>makes exceptions for upward notes with flags, ignoring the width the flags contribute nt16up</div>
+<img src="./makes_exceptions_for_upward_notes_with_flags,_ignoring_the_width_the_flags_contribute_nt16up.svg"/>
+<div>makes exceptions for upward notes with flags, ignoring the width the flags contribute nt32up</div>
+<img src="./makes_exceptions_for_upward_notes_with_flags,_ignoring_the_width_the_flags_contribute_nt32up.svg"/>
+<div>makes exceptions for upward notes with flags, ignoring the width the flags contribute nt64up</div>
+<img src="./makes_exceptions_for_upward_notes_with_flags,_ignoring_the_width_the_flags_contribute_nt64up.svg"/>
+<div>makes exceptions for upward notes with flags, ignoring the width the flags contribute nt128up</div>
+<img src="./makes_exceptions_for_upward_notes_with_flags,_ignoring_the_width_the_flags_contribute_nt128up.svg"/>
+<div>makes exceptions for upward notes with flags, ignoring the width the flags contribute nt256up</div>
+<img src="./makes_exceptions_for_upward_notes_with_flags,_ignoring_the_width_the_flags_contribute_nt256up.svg"/>
+<div>makes exceptions for upward notes with flags, ignoring the width the flags contribute nt512up</div>
+<img src="./makes_exceptions_for_upward_notes_with_flags,_ignoring_the_width_the_flags_contribute_nt512up.svg"/>
+<div>makes exceptions for upward notes with flags, ignoring the width the flags contribute nt1024up</div>
+<img src="./makes_exceptions_for_upward_notes_with_flags,_ignoring_the_width_the_flags_contribute_nt1024up.svg"/>
+<div>should not display anything when you've only entered 'ston' </div>
+<img src="./should_not_display_anything_when_you've_only_entered_'ston'.svg"/>
+<div>should not display anything when you've only entered 'ston' and an example of the type of staff you want to automate </div>
+<img src="./should_not_display_anything_when_you've_only_entered_'ston'_and_an_example_of_the_type_of_staff_you_want_to_automate.svg"/>
+<div>can be configured to automate different types of staves, by providing one stave of that kind </div>
+<img src="./can_be_configured_to_automate_different_types_of_staves,_by_providing_one_stave_of_that_kind.svg"/>
+<div>manual stave of the same type as the automated type has no effect (including if it's the default type) </div>
+<img src="./manual_stave_of_the_same_type_as_the_automated_type_has_no_effect_(including_if_it's_the_default_type).svg"/>
+</body>

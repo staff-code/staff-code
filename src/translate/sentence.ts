@@ -42,9 +42,11 @@ const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Se
     return sumTexts(unicodeSentence, endOfLineUnicodeClause as Unicode as Unicode & Sentence)
 }
 
-// TODO: FEATURE IMPROVE, READY TO GO: A PASS TO EVEN OUT THE COMPOSITION OF EACH CONTIGUOUS ADVANCE
+// TODO: FEATURE IMPROVE, BLOCKED: A PASS TO EVEN OUT THE COMPOSITION OF EACH CONTIGUOUS ADVANCE
 //  Original idea is here: https://forum.sagittal.org/viewtopic.php?p=3465#p3465
 //  And latest is here: https://forum.sagittal.org/viewtopic.php?p=3558#p3558
+//  - Blocked, because I don't understand in the latest post how the new composition of manual advances could possibly
+//  Make sense w/r/t to what we have now
 /*
 1	1
 2	1+1
