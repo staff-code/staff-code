@@ -1,4 +1,4 @@
-import {Em, FontName, Multiplier, Px, Sentence, textToSvg} from "@sagittal/general"
+import {Em, FontName, formatPx, Multiplier, Px, Sentence, textToSvg} from "@sagittal/general"
 import {smarts, Unicode} from "../../../../translate"
 import {computeFontSize} from "../font"
 import {components} from "../globals"
@@ -14,16 +14,12 @@ const computeSvgFromInput = async (unicodeSentence: Unicode & Sentence): Promise
 
     // I'm not worrying about minding the line count because ultimately @sagittal/general will handle this for you
     const height = line * fontSize
-    const heightAndMarginAdjustedSvg = svgString.replace(/height="(\d+)"/, `height="${height}" style="padding: ${smarts.spacing}px"`)
+    const heightAndMarginAdjustedSvg = svgString.replace(/height="(\d+)"/, `height="${height}" style="padding: ${formatPx(smarts.spacing)}"`)
 
     const svgParser = new DOMParser()
     const svgDocument = svgParser.parseFromString(heightAndMarginAdjustedSvg, "text/html")
 
-    const svg = svgDocument.firstChild as SVGGraphicsElement
-
-    svg.style.padding = `${smarts.spacing}px`
-
-    return svg
+    return svgDocument.firstChild as SVGGraphicsElement
 }
 
 export {

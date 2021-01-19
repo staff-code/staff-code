@@ -1,4 +1,4 @@
-import {Px} from "@sagittal/general"
+import {formatPx, Px} from "@sagittal/general"
 import {
     LIGHT_TAN,
     MAX_APP_WIDTH,
@@ -15,11 +15,11 @@ const ABOUT_THREE_LINES_HIGH_PX: Px = 60 as Px
 const INPUT_CSS = `
     .sc-input-border-wrapper {
         border: ${STANDARD_BORDER};
-        border-radius: ${STANDARD_BORDER_RADIUS}px;
+        border-radius: ${formatPx(STANDARD_BORDER_RADIUS)};
         box-sizing: border-box;
         overflow: hidden;
         width: 100%;
-        max-width: ${MAX_APP_WIDTH}px;
+        max-width: ${formatPx(MAX_APP_WIDTH)};
         margin-bottom: 5px;
         padding: 0;
         display: inherit;
@@ -30,17 +30,17 @@ const INPUT_CSS = `
     }
 
     .sc-input {
-        min-height: ${ABOUT_THREE_LINES_HIGH_PX}px;
+        min-height: ${formatPx(ABOUT_THREE_LINES_HIGH_PX)};
         resize: vertical;
         height: 100%;
         width: 100%;
         box-sizing: border-box;
-        border-radius: ${STANDARD_BORDER_RADIUS}px;
+        border-radius: ${formatPx(STANDARD_BORDER_RADIUS)};
         border: none;
         outline: none;
         margin: 0;
         font-family: ${MONOSPACED_FONT};
-        font-size: ${MONOSPACED_FONT_SIZE}px;
+        font-size: ${formatPx(MONOSPACED_FONT_SIZE)};
     }
 `
 

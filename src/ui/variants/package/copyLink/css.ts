@@ -1,3 +1,4 @@
+import {formatEm, formatPx} from "@sagittal/general"
 import {
     GREY,
     LIGHT_GREY,
@@ -12,15 +13,15 @@ import {
 // language=CSS
 const COPY_LINK_CSS = `
     .sc-copy-link {
-        margin: 2px ${UI_SPACING}px 2px 0;
+        margin: 2px ${formatPx(UI_SPACING)} 2px 0;
         cursor: pointer;
         font-family: ${UI_FONT};
-        font-size: ${UI_FONT_SIZE}em;
+        font-size: ${formatEm(UI_FONT_SIZE)};
         border: none;
         color: white;
         background-color: ${GREY};
         padding: 4px 6px 3px 6px;
-        border-radius: ${STANDARD_BORDER_RADIUS}px;
+        border-radius: ${formatPx(STANDARD_BORDER_RADIUS)};
         outline: none;
         position: relative;
     }
@@ -42,7 +43,7 @@ const COPY_LINK_CSS = `
         position: absolute;
         background-color: white;
         border: ${STANDARD_BORDER};
-        border-radius: ${STANDARD_BORDER_RADIUS}px;
+        border-radius: ${formatPx(STANDARD_BORDER_RADIUS)};
         top: 35px;
         left: -35px;
         width: max-content;

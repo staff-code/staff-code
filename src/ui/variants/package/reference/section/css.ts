@@ -1,3 +1,4 @@
+import {formatPx} from "@sagittal/general"
 import {MONOSPACED_FONT, MONOSPACED_FONT_SIZE, STANDARD_BORDER} from "../../constants"
 
 // tslint:disable-next-line comment-format
@@ -25,7 +26,7 @@ const REFERENCE_SECTION_TITLE_CSS = `
 
     .sc-section-explanation span {
         font-family: ${MONOSPACED_FONT};
-        font-size: ${MONOSPACED_FONT_SIZE}px;
+        font-size: ${formatPx(MONOSPACED_FONT_SIZE)};
     }
 `
 
@@ -78,7 +79,7 @@ const REFERENCE_TABLE_CSS = `
     td:nth-child(2) {
         font-family: ${MONOSPACED_FONT};
         border: ${STANDARD_BORDER};
-        font-size: ${MONOSPACED_FONT_SIZE}px;
+        font-size: ${formatPx(MONOSPACED_FONT_SIZE)};
         padding: 0 3px;
     }
 

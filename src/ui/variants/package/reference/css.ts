@@ -1,3 +1,4 @@
+import {formatPx} from "@sagittal/general"
 import {APP_MARGIN, MAX_APP_WIDTH, STANDARD_BORDER, STANDARD_BORDER_RADIUS} from "../constants"
 import {REFERENCE_BANNER_CSS} from "./banner"
 import {REFERENCE_SECTION_CSS} from "./section"
@@ -8,7 +9,7 @@ import {REFERENCE_TOC_CSS} from "./toc"
 const REFERENCE_WRAPPER_CSS = `
     .sc-reference-wrapper {
         width: 100%;
-        max-width: ${MAX_APP_WIDTH}px;
+        max-width: ${formatPx(MAX_APP_WIDTH)};
         flex-grow: 1;
         display: flex;
         flex-direction: column;
@@ -21,11 +22,11 @@ const REFERENCE_WRAPPER_CSS = `
 
     .sc-reference-wrapper.open .sc-reference-border-wrapper {
         flex-grow: 1;
-        margin: 0 ${APP_MARGIN}px ${APP_MARGIN}px 0;
+        margin: 0 ${formatPx(APP_MARGIN)} ${formatPx(APP_MARGIN)} 0;
         overflow-y: scroll;
         scrollbar-width: none;
         border: ${STANDARD_BORDER};
-        border-radius: ${STANDARD_BORDER_RADIUS}px;
+        border-radius: ${formatPx(STANDARD_BORDER_RADIUS)};
     }
 
     .sc-reference {

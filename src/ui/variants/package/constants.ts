@@ -16,14 +16,11 @@ const STANDARD_BORDER_RADIUS = 5 as Px
 const MONOSPACED_FONT = "Roboto Mono" as FontName
 const MONOSPACED_FONT_SIZE = 13 as Px
 
-const UI_FONT = "sans-serif"
+const UI_FONT = "sans-serif" as FontName
 const UI_FONT_SIZE = 0.75 as Em
+
 const UI_SPACING = 12 as Px
-
-// TODO: CLEAN, READY TO GO: STOP HAVING TO REMEMBER TO SUFFIX EM OR PX
-//  Add helpers for formatting px and em (in @sagittal/general)
 const MAX_APP_WIDTH = 600 as Px
-
 const APP_MARGIN = 16 as Px
 
 export {

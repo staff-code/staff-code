@@ -1,3 +1,4 @@
+import {formatEm, formatPx} from "@sagittal/general"
 import {
     APP_MARGIN,
     DARK_TAN,
@@ -20,7 +21,7 @@ const REFERENCE_BANNER_CSS = `
         align-items: center;
         justify-content: space-between;
         border-bottom: ${STANDARD_BORDER};
-        margin-right: ${APP_MARGIN}px;
+        margin-right: ${formatPx(APP_MARGIN)};
         min-height: 1.5em;
     }
 
@@ -76,9 +77,9 @@ const REFERENCE_BANNER_CSS = `
         width: max-content;
         background-color: white;
         border: ${STANDARD_BORDER};
-        border-radius: ${STANDARD_BORDER_RADIUS}px;
+        border-radius: ${formatPx(STANDARD_BORDER_RADIUS)};
         font-family: ${UI_FONT};
-        font-size: ${UI_FONT_SIZE}em;
+        font-size: ${formatEm(UI_FONT_SIZE)};
         padding: 1.5em;
         position: fixed;
         margin: -122px -103px;

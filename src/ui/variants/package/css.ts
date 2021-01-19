@@ -1,14 +1,13 @@
+import {formatPx} from "@sagittal/general"
 import {
     APP_MARGIN,
     DARK_GREY,
     DARK_TAN,
     GREY,
+    LIGHTER_TAN,
     LIGHT_GREY,
     LIGHT_TAN,
-    LIGHTER_GREY,
-    LIGHTER_TAN,
     MAX_APP_WIDTH,
-    STANDARD_BORDER_RADIUS,
     TAN,
 } from "./constants"
 import {COPY_LINK_CSS} from "./copyLink"
@@ -42,14 +41,14 @@ const applyCss = (): void => {
             display: flex;
             flex-direction: column;
             width: 100%;
-            max-width: ${MAX_APP_WIDTH}px;
+            max-width: ${formatPx(MAX_APP_WIDTH)};
         }
 
         .sc-ui {
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
-            margin-right: ${APP_MARGIN}px;
+            margin-right: ${formatPx(APP_MARGIN)};
         }
 
         .sc-controls {
