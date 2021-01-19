@@ -16,7 +16,7 @@ const REFERENCE_WRAPPER_CSS = `
     }
 
     .sc-reference-border-wrapper::-webkit-scrollbar {
-        width: 0;
+        display: none;
     }
 
     .sc-reference-wrapper.open .sc-reference-border-wrapper {
