@@ -1,4 +1,5 @@
-import {BLANK, Link, Sentence} from "@sagittal/general"
+import {BLANK, Sentence} from "@sagittal/general"
+import * as FileSaver from "file-saver"
 import {Unicode} from "../../../../translate"
 import {components} from "../globals"
 import {computeSvgFromInput} from "./textToSvg"
@@ -15,24 +16,11 @@ const cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled = (
     return clonedSvg
 }
 
-const buildDummyDownloadLinkAndClickIt = (svgBlobURL: Link): void => {
-    const a: HTMLAnchorElement = document.createElement("a")
-
-    a.style.display = "none"
-    a.target = "_blank";
-    a.href = svgBlobURL
-    a.download = DOWNLOAD_FILENAME
-
-    a.click()
-    window.URL.revokeObjectURL(svgBlobURL)
-}
-
-const buildSvgBlobUrl = (clonedSvg: SVGGraphicsElement): Link => {
-    const outerHTML = clonedSvg.outerHTML
+const buildBlobAndSaveIt = (svg: SVGGraphicsElement): void => {
+    const outerHTML = svg.outerHTML
     const blob = new Blob([outerHTML], {type: TYPE})
-    const URL = window.URL || window.webkitURL || window
 
-    return URL.createObjectURL(blob) as Link
+    FileSaver.saveAs(blob, DOWNLOAD_FILENAME)
 }
 
 const downloadSvg = async (): Promise<void> => {
@@ -43,9 +31,7 @@ const downloadSvg = async (): Promise<void> => {
 
     const clonedSvg = cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled(svg)
 
-    const svgBlobUrl = buildSvgBlobUrl(clonedSvg)
-
-    buildDummyDownloadLinkAndClickIt(svgBlobUrl)
+    buildBlobAndSaveIt(clonedSvg)
 }
 
 export {
