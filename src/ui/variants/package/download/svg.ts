@@ -4,6 +4,7 @@ import {components} from "../globals"
 import {computeSvgFromInput} from "./textToSvg"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
+const TYPE = "image/svg+xml;charset=utf-8"
 
 const cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled = (
     svg: SVGGraphicsElement,
@@ -18,6 +19,7 @@ const buildDummyDownloadLinkAndClickIt = (svgBlobURL: Link): void => {
     const a: HTMLAnchorElement = document.createElement("a")
 
     a.style.display = "none"
+    a.target = "_blank";
     a.href = svgBlobURL
     a.download = DOWNLOAD_FILENAME
 
@@ -27,7 +29,7 @@ const buildDummyDownloadLinkAndClickIt = (svgBlobURL: Link): void => {
 
 const buildSvgBlobUrl = (clonedSvg: SVGGraphicsElement): Link => {
     const outerHTML = clonedSvg.outerHTML
-    const blob = new Blob([outerHTML], {type: "image/svg+xml;charset=utf-8"})
+    const blob = new Blob([outerHTML], {type: TYPE})
     const URL = window.URL || window.webkitURL || window
 
     return URL.createObjectURL(blob) as Link
