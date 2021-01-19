@@ -1,12 +1,13 @@
-import {DEFAULT_BLOCK_MODE_FONT_SIZE} from "../../../display"
+import {Em, Multiplier} from "@sagittal/general"
+import {computeFontSize} from "../font"
 import {components} from "../globals"
 import {setStaffCodeCookie} from "../initial"
 import {Initial} from "../types"
 
 const handleSizeSpinnerChange = (event: Event): void => {
     const target = event.target! as HTMLInputElement
-    const size = parseFloat(target.value)
-    components.display.style.fontSize = `${size * DEFAULT_BLOCK_MODE_FONT_SIZE}em`
+    const size = parseFloat(target.value) as Multiplier<Em>
+    components.display.style.fontSize = `${computeFontSize(size)}em`
     setStaffCodeCookie(Initial.SIZE, JSON.stringify(size))
 }
 

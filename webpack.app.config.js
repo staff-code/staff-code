@@ -21,7 +21,8 @@ module.exports = {
             meta: {viewport: "width=device-width, height=device-height, initial-scale=1, maximum-scale=1"},
         }),
         new FaviconsWebpackPlugin({
-            // TODO: What happens if you just use new FaviconsWebpackPlugin("./assets/favicon.png")?
+            // TODO: CLEAN, READY TO GO: SIMPLIFY FAVICON PLUGIN USAGE IF POSSIBLE (THEY BROKE ITS FORMER SIMPLICITY)
+            //  What happens if you just use new FaviconsWebpackPlugin("./assets/favicon.png")?
             logo: "./assets/favicon.png",
             outputPath: 'auto/assets',
         }),

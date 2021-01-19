@@ -1,6 +1,7 @@
 import {BLANK, Link, Sentence} from "@sagittal/general"
 import {Unicode} from "../../../../translate"
 import {components} from "../globals"
+import {computeSvgFromInput} from "./textToSvg"
 import {computeSvgFromInputUsingVectorizeTextLibrary} from "./vectorizeText"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
@@ -37,9 +38,7 @@ const downloadSvg = async (): Promise<void> => {
     const {display} = components
     const unicodeSentence: Unicode & Sentence = (display.textContent || BLANK) as Unicode & Sentence
 
-    const svg = computeSvgFromInputUsingVectorizeTextLibrary(unicodeSentence)
-    // TODO: Finish this
-    // const svg = await computeSvgFromInputUsingTextToSvgLibrary(unicodeSentence)
+    const svg = await computeSvgFromInput(unicodeSentence)
 
     const clonedSvg = cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled(svg)
 

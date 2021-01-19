@@ -1,4 +1,5 @@
-import {FontName} from "@sagittal/general"
+import {Em, FontName, Multiplier, multiply} from "@sagittal/general"
+import {DEFAULT_BLOCK_MODE_FONT_SIZE} from "../../display"
 
 const loadGoogleFont = (font: FontName): void => {
     const link = document.createElement("link")
@@ -7,6 +8,10 @@ const loadGoogleFont = (font: FontName): void => {
     document.getElementsByTagName("head")[0].appendChild(link)
 }
 
+const computeFontSize = (size: Multiplier<Em>): Em =>
+    multiply(DEFAULT_BLOCK_MODE_FONT_SIZE, size)
+
 export {
     loadGoogleFont,
+    computeFontSize,
 }
