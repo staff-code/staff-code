@@ -3,7 +3,6 @@ module.exports = {
         extensions: [".ts", ".scss", ".js", ".json"],
         alias: {
             buffer: "buffer",
-            path: "path-browserify",
         },
     },
     module: {
