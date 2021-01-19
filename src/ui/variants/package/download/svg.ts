@@ -2,7 +2,6 @@ import {BLANK, Link, Sentence} from "@sagittal/general"
 import {Unicode} from "../../../../translate"
 import {components} from "../globals"
 import {computeSvgFromInput} from "./textToSvg"
-import {computeSvgFromInputUsingVectorizeTextLibrary} from "./vectorizeText"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 
