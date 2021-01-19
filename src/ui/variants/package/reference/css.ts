@@ -23,6 +23,7 @@ const REFERENCE_WRAPPER_CSS = `
         flex-grow: 1;
         margin: 0 ${APP_MARGIN}px ${APP_MARGIN}px 0;
         overflow-y: scroll;
+        scrollbar-width: none;
         border: ${STANDARD_BORDER};
         border-radius: ${STANDARD_BORDER_RADIUS}px;
     }
