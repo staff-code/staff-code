@@ -82,7 +82,7 @@ npm publish --access public
 npm run build-app
 pushd dist/app || exit
   touch .nojekyll
-  echo www.staffcode.org > CNAME
+  echo staffcode.org > CNAME
   git add .
   git commit -m "${NEW_VERSION}"
   git push
