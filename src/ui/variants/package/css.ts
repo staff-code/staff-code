@@ -76,23 +76,6 @@ const applyCss = (): void => {
         ::selection {
             background-color: ${LIGHT_TAN};
         }
-
-        ::-webkit-scrollbar-track {
-            background: none;
-        }
-
-        ::-webkit-scrollbar {
-            width: 18px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: ${LIGHT_GREY};
-            border-radius: ${STANDARD_BORDER_RADIUS - 3}px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: ${LIGHTER_GREY};
-        }
     `
 
     const style = document.createElement("style")
