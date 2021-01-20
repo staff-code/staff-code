@@ -3,6 +3,7 @@ import {ALIASES_MAP} from "./aliases"
 import {mergeAllCodeMapsIntoCaseDesensitizedCodeMap} from "./merge"
 import {
     NOT_SMuFL_DEFINE_CUSTOM_COMMAND_MAP,
+    NOT_SMuFL_GROUP_COMMAND_MAP,
     NOT_SMUFL_LEGER_LINES_SUPPLEMENT_MAP,
     NOT_SMuFL_LINE_BREAKS_MAP,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
@@ -34,6 +35,7 @@ const COMMAND_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ...NOT_SMuFL_SMART_STAVE_COMMAND_MAP,
     ...NOT_SMuFL_SMART_ADVANCE_COMMAND_MAP,
     ...NOT_SMuFL_DEFINE_CUSTOM_COMMAND_MAP,
+    ...NOT_SMuFL_GROUP_COMMAND_MAP,
 }
 
 const CASE_DESENSITIZED_CODE_MAP: Record<RecordKey<Code & CaseDesensitized & Word>, Unicode & Word> =
