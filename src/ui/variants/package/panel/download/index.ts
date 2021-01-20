@@ -1,3 +1,3 @@
 export {buildDownloadButton} from "./button"
-export {downloadSvg} from "./svg"
+export {downloadSvg} from "./handlers"
 export {DOWNLOAD_CSS} from "./css"

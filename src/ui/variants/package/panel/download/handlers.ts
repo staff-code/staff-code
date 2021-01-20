@@ -1,7 +1,8 @@
 import {BLANK, Sentence} from "@sagittal/general"
 import {Unicode} from "../../../../../translate"
-import {components} from "../../globals"
-import {computeSvgFromInput} from "./textToSvg"
+import {transferInputToDisplay} from "../../../../transfer"
+import {components, staffCodeConfig} from "../../globals"
+import {computeSvgFromInput} from "./vectorize"
 
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 const TYPE = "image/svg+xml;charset=utf-8"
@@ -35,7 +36,10 @@ const buildBlobAndSaveIt = (svg: SVGGraphicsElement): void => {
 }
 
 const downloadSvg = async (): Promise<void> => {
-    const {display} = components
+    const {display, root} = components
+
+    transferInputToDisplay(root, staffCodeConfig.callback)
+
     const unicodeSentence: Unicode & Sentence = (display.textContent || BLANK) as Unicode & Sentence
 
     const svg = await computeSvgFromInput(unicodeSentence)
