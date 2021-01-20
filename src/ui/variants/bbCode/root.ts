@@ -20,6 +20,7 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
 
     if (root.classList.contains("processed")) return
     root.classList.add("processed")
+    if (!inline) root.style.display = "inline-block"
 
     const input: HTMLTextAreaElement = root.querySelector(".sc-input") as HTMLTextAreaElement
     if (initialCodes) input.value = initialCodes as Io & Sentence
