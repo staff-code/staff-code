@@ -178,7 +178,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("works for the positions supplement", async (): Promise<void> => {
-            const inputSentence = "c7 /|\\ nt" as Io & Sentence
+            const inputSentence = "C7 /|\\ nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -233,6 +233,18 @@ describe("computeInputSentenceUnicode", (): void => {
             const expectedUnicode = "  　 　    　   " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "Fcl 24; up7 ntqrdn 13; up6 ntqrdn 13; Gcl 23; dn5 ntqrup 13; dn6 ntqrup 11;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
+
+        it("position sticks based on the pitch, not the vertical offset; if you set a pitch like C4 and then change clefs, it should still be C4 in the new clef, not whichever note is at the same position as the previous clef's C4", async (): Promise<void> => {
+            const inputSentence = "Fcl ; C4 nt ; Gcl ; nt" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "  　      " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "Fcl 24; up6 ntqrdn 13; Gcl 23; dn6 ntqrup 11;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })

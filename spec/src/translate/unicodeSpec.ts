@@ -1,7 +1,7 @@
 import {Io, Word} from "@sagittal/general"
 import {UnicodeLiteral} from "../../../src"
 import {CASE_DESENSITIZED_CODE_MAP, Code, computeUnicodeForCode, Unicode} from "../../../src/translate/codes"
-import {smarts} from "../../../src/translate/smarts"
+import {smarts} from "../../../src/translate"
 import {Clef} from "../../../src/translate/smarts/positionAndClef"
 import {getUnicode, shouldNotBeDisplayed} from "../../../src/translate/unicode"
 

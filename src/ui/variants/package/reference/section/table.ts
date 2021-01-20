@@ -20,6 +20,7 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
 
         // TODO, FEATURE IMPROVE, READY TO GO: ALSO STILL NEED TO RENAME FONT TO BRAVURA TEXT SC
         //  Though I'd like to get this to-do out of the code base and into the work planning post
+        //  Though now it seems like Dave might just do it himself
 
         const unicodeCell = row.insertCell()
         unicodeCell.innerHTML = unicode
