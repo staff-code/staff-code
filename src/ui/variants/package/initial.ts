@@ -34,7 +34,7 @@ const getStaffCodeCookie = (name: Initial): Maybe<string> => {
 
 const computeInitialCodes = (): Io & Sentence =>
     undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams((new URLSearchParams(window.location.search).get(Initial.CODES) || BLANK) as EncodedCode & Sentence)
-    || undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams((getStaffCodeCookie(Initial.CODES) || BLANK) as EncodedCode & Sentence)
+    || (getStaffCodeCookie(Initial.CODES) || BLANK) as EncodedCode & Sentence
     || DEFAULT_INITIAL_CODES
 
 const computeInitialLine = (): Multiplier<Em> =>
