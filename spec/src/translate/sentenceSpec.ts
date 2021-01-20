@@ -248,6 +248,8 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
+
+        // TODO: except that it's actually sticky position code; up5 should work like it used to, sticky by position
     })
 
     describe("*** Smart Advance ***", (): void => {

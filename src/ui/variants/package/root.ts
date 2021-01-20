@@ -1,6 +1,6 @@
-import {Maybe, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
+import {formatEm, Maybe, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
 import {BRAVURA_TEXT_BB} from "../../constants"
-import {buildDisplay} from "../../display"
+import {buildDisplay, MARGIN_SIZE} from "../../display"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 import {MONOSPACED_FONT} from "./constants"
@@ -73,6 +73,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
 
     const display = buildDisplay({font, initialLine, inline, initialSize})
     display.style.display = "inline-block"
+    display.style.margin = `${formatEm(MARGIN_SIZE)} 0` // todo: really need a package display method now...
     const displayWrapper = document.createElement("div")
     displayWrapper.style.flexShrink = "0"
     displayWrapper.appendChild(display)

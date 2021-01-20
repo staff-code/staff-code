@@ -41,6 +41,11 @@ interface DisplayOptions {
     initialLine: Multiplier<Em>,
 }
 
+interface InitialFontSizeOptions {
+    inline: boolean,
+    initialSize: Multiplier<Em>,
+}
+
 export {
     StaffCodeConfig,
     StaffCodeOptions,
@@ -48,4 +53,5 @@ export {
     UiOptions,
     InitialOptions,
     DisplayOptions,
+    InitialFontSizeOptions,
 }

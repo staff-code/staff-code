@@ -7,7 +7,7 @@ import {Initial} from "../types"
 const handleSizeSpinnerChange = (event: Event): void => {
     const target = event.target! as HTMLInputElement
     const size = parseFloat(target.value) as Multiplier<Em>
-    components.display.style.fontSize = `${formatEm(computeFontSize(size))}`
+    components.display.style.fontSize = formatEm(computeFontSize(size))
     setStaffCodeCookie(Initial.SIZE, JSON.stringify(size))
 }
 
