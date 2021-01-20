@@ -1,8 +1,8 @@
 import {Em, Multiplier, Px, Sentence, textToSvg, TextToSvgOptions} from "@sagittal/general"
-import {smarts, Unicode} from "../../../../translate"
-import {BRAVURA_TEXT_BB_OTF} from "../../../constants"
-import {computeFontSize} from "../font"
-import {components} from "../globals"
+import {smarts, Unicode} from "../../../../../translate"
+import {BRAVURA_TEXT_BB_OTF} from "../../../../constants"
+import {computeFontSize} from "../../font"
+import {components} from "../../globals"
 
 const emToPx = (em: Em): Px =>
     em * 16 as Px

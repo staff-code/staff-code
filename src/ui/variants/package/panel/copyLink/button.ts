@@ -1,4 +1,4 @@
-import {components} from "../globals"
+import {components} from "../../globals"
 import {handleCopyLinkClick} from "./handlers"
 
 const buildCopyLinkButton = (): HTMLButtonElement => {

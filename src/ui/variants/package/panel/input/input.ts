@@ -1,6 +1,6 @@
 import {doOnNextEventLoop, Ms} from "@sagittal/general"
-import {transferInputToDisplay} from "../../../transfer"
-import {components, staffCodeConfig} from "../globals"
+import {transferInputToDisplay} from "../../../../transfer"
+import {components, staffCodeConfig} from "../../globals"
 import {buildStaffCodeCallback} from "./callback"
 import {handleKeydown, handleKeyup} from "./handlers"
 

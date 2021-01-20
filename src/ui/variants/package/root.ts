@@ -1,15 +1,14 @@
-import {formatEm, Maybe, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
+import {Maybe, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
 import {BRAVURA_TEXT_BB} from "../../constants"
-import {buildDisplay, MARGIN_SIZE} from "../../display"
 import {transferInputToDisplay} from "../../transfer"
 import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 import {MONOSPACED_FONT} from "./constants"
-import {buildControls} from "./controls"
 import {applyCss} from "./css"
+import {buildPackageDisplayWrapper} from "./display"
 import {loadGoogleFont} from "./font"
 import {components, staffCodeConfig} from "./globals"
 import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "./initial"
-import {buildPackageInput} from "./input"
+import {buildPanel} from "./panel"
 import {buildReferenceWrapper} from "./reference"
 
 const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
@@ -61,23 +60,10 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
     components.root = root
     root.classList.add("staff-code")
 
-    const ui = document.createElement("span")
-    ui.classList.add("sc-ui")
-    root.appendChild(ui)
+    const panel = buildPanel()
+    root.appendChild(panel)
 
-    const input = buildPackageInput()
-    ui.appendChild(input)
-
-    const controls = buildControls()
-    ui.appendChild(controls)
-
-    const display = buildDisplay({font, initialLine, inline, initialSize})
-    display.style.display = "inline-block"
-    display.style.margin = `${formatEm(MARGIN_SIZE)} 0` // todo: really need a package display method now...
-    const displayWrapper = document.createElement("div")
-    displayWrapper.style.flexShrink = "0"
-    displayWrapper.appendChild(display)
-    components.display = display
+    const displayWrapper = buildPackageDisplayWrapper({font, initialLine, inline, initialSize})
     root.appendChild(displayWrapper)
 
     if (reference) {

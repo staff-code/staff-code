@@ -7,7 +7,7 @@ import {
     UI_FONT,
     UI_FONT_SIZE,
     UI_SPACING,
-} from "../constants"
+} from "../../constants"
 
 // tslint:disable-next-line comment-format
 // language=CSS

@@ -1,9 +1,9 @@
 import {BLANK, Io, Sentence} from "@sagittal/general"
-import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_REFERENCE_OPEN, DEFAULT_INITIAL_SIZE} from "../../../constants"
-import {components} from "../globals"
-import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "../human"
-import {isReferenceOpen} from "../reference"
-import {Initial} from "../types"
+import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_REFERENCE_OPEN, DEFAULT_INITIAL_SIZE} from "../../../../constants"
+import {components} from "../../globals"
+import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "../../human"
+import {isReferenceOpen} from "../../reference"
+import {Initial} from "../../types"
 
 const computeInitialCodesParam = (): string => {
     const encodedCodes = encodeURIComponent(

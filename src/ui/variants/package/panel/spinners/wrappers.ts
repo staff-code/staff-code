@@ -1,5 +1,5 @@
 import {Em, Max, Multiplier} from "@sagittal/general"
-import {Initial} from "../types"
+import {Initial} from "../../types"
 import {handleLineSpinnerChange, handleSizeSpinnerChange} from "./handlers"
 import {buildSpinnerWrapper} from "./spinners"
 

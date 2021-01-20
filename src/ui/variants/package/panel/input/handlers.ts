@@ -1,6 +1,6 @@
 import {BLANK, doOnNextEventLoop, Maybe, Ms} from "@sagittal/general"
-import {transferInputToDisplay} from "../../../transfer"
-import {components, staffCodeConfig} from "../globals"
+import {transferInputToDisplay} from "../../../../transfer"
+import {components, staffCodeConfig} from "../../globals"
 
 let keycodeWhichIsDown: Maybe<string> = undefined
 

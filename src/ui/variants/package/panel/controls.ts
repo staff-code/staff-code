@@ -1,6 +1,6 @@
+import {staffCodeConfig} from "../globals"
 import {buildCopyLinkButton} from "./copyLink"
 import {buildDownloadButton} from "./download"
-import {staffCodeConfig} from "./globals"
 import {buildLineSpinnerWrapper, buildSizeSpinnerWrapper} from "./spinners"
 
 const buildControls = (): HTMLSpanElement => {

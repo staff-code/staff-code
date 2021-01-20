@@ -15,15 +15,18 @@ const computeInitialFontSize = ({inline, initialSize}: InitialFontSizeOptions): 
 
 const buildDisplay = ({font, initialLine, inline, initialSize}: DisplayOptions): HTMLElement => {
     const display = document.createElement(inline ? "span" : "div")
-    if (inline) display.style.display = "inline-block"
+
     display.style.fontSize = computeInitialFontSize({inline, initialSize})
     display.style.lineHeight = JSON.stringify(initialLine)
-    if (!inline) {
-        display.style.padding = `0 ${formatEm(multiply(MARGIN_SIZE, HORIZONTAL_MARGIN_MULTIPLIER))}`
-    }
     display.style.fontFamily = font
     display.style.whiteSpace = "pre"
     display.style.color = "black"
+    if (inline) {
+        display.style.padding = `0 ${formatEm(multiply(MARGIN_SIZE, HORIZONTAL_MARGIN_MULTIPLIER))}`
+    } else {
+        display.style.display = "inline-block"
+    }
+
     display.classList.add("sc-display")
 
     return display

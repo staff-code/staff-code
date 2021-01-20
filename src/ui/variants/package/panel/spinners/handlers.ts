@@ -1,8 +1,8 @@
 import {Em, formatEm, Multiplier} from "@sagittal/general"
-import {computeFontSize} from "../font"
-import {components} from "../globals"
-import {setStaffCodeCookie} from "../initial"
-import {Initial} from "../types"
+import {computeFontSize} from "../../font"
+import {components} from "../../globals"
+import {setStaffCodeCookie} from "../../initial"
+import {Initial} from "../../types"
 
 const handleSizeSpinnerChange = (event: Event): void => {
     const target = event.target! as HTMLInputElement

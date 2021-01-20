@@ -1,5 +1,5 @@
 import {Link} from "@sagittal/general"
-import {WEB_APP_URL} from "../../../constants"
+import {WEB_APP_URL} from "../../../../constants"
 
 const computeBaseUrl = (location: Location): Link =>
     location.protocol + "//" + location.host as Link

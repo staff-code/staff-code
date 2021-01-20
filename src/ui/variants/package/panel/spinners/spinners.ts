@@ -1,6 +1,6 @@
 import {Em, lowerCaseToUpperCase, Max, Multiplier} from "@sagittal/general"
-import {components, staffCodeConfig} from "../globals"
-import {Initial} from "../types"
+import {components, staffCodeConfig} from "../../globals"
+import {Initial} from "../../types"
 
 const buildSpinnerWrapper = (
     initial: Initial,

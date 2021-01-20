@@ -1,6 +1,6 @@
 import {BLANK} from "@sagittal/general"
-import {WEB_APP_URL} from "../../../constants"
-import {components} from "../globals"
+import {WEB_APP_URL} from "../../../../constants"
+import {components} from "../../globals"
 import {codeRunningInStaffCodeWebApp} from "./app"
 import {computeInitialParams} from "./initial"
 

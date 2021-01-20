@@ -6,7 +6,7 @@ import {
     MONOSPACED_FONT_SIZE,
     STANDARD_BORDER,
     STANDARD_BORDER_RADIUS,
-} from "../constants"
+} from "../../constants"
 
 const ABOUT_THREE_LINES_HIGH_PX: Px = 60 as Px
 
