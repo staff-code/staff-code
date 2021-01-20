@@ -8,7 +8,6 @@ const prepareCodesToBeHumanReadableAsEncodedQueryParams = (
         .replace(/-/g, "--")
         .replace(/([^ \-]) (?=[^ \-]|$)/g, "$1-")
         .replace(/z/g, "zz")
-        .replace(/br;/g, "\n")
         .replace(/([^\nz])\n(?=[^\n]|$)/g, "$1z")
         .replace(/q/g, "qq")
         .replace(/([^;q]);(?=[^;q]|$)/g, "$1q") as EncodedCode & Sentence
@@ -19,7 +18,7 @@ const undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams = (
     encodedSentence
         .replace(/([^q])q(?=[^q]|$)/g, "$1;")
         .replace(/qq/g, "q")
-        .replace(/([^z])z(?=[^z]|$)/g, "$1br;")
+        .replace(/([^z])z(?=[^z]|$)/g, "$1\n")
         .replace(/zz/g, "z")
         .replace(/([^\-])-(?=[^\-]|$)/g, "$1 ")
         .replace(/--/g, "-") as Io & Sentence
