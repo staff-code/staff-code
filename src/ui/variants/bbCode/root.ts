@@ -21,8 +21,6 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
     if (root.classList.contains("processed")) return
     root.classList.add("processed")
 
-    console.log("do they make it this far? 2) setupBBCodeRoot", initialSize, initialLine)
-
     const input: HTMLTextAreaElement = root.querySelector(".sc-input") as HTMLTextAreaElement
     if (initialCodes) input.value = initialCodes as Io & Sentence
 

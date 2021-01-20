@@ -10,16 +10,10 @@ const computeInitialFontSize = ({inline, initialSize}: InitialFontSizeOptions): 
     const baseFontSize = inline ? INLINE_MODE_BASE_FONT_SIZE : BLOCK_MODE_BASE_FONT_SIZE
     const fontSize = multiply(baseFontSize, initialSize)
 
-    console.log("final font size", formatEm(fontSize), fontSize, baseFontSize, inline, initialSize)
-
     return formatEm(fontSize) as Css
 }
 
 const buildDisplay = ({font, initialLine, inline, initialSize}: DisplayOptions): HTMLElement => {
-    console.log("do they make it this far? 3) buildDisplay", initialSize, initialLine)
-
-    console.log("final line", JSON.stringify(initialLine))
-
     const display = document.createElement(inline ? "span" : "div")
     if (inline) display.style.display = "inline-block"
     display.style.fontSize = computeInitialFontSize({inline, initialSize})
