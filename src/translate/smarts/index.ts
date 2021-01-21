@@ -7,7 +7,7 @@ export {
     computeEndOfLineUnicodeClauseAndUpdateSmarts,
 } from "./advanceAndStave"
 export {INITIAL_SMARTS} from "./constants"
-export {isCommenting} from "./comments"
+export {computeIsCommentingAndUpdateSmarts} from "./comments"
 export {
     computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
     getUnicodeGivenClefAndPosition,

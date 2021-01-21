@@ -1,7 +1,7 @@
 import {Io, Word} from "@sagittal/general"
 import {smarts} from "./globals"
 
-const isCommenting = (input: Io & Word): boolean => {
+const computeIsCommentingAndUpdateSmarts = (input: Io & Word): boolean => {
     const wasCommenting = smarts.commenting
 
     if (input.match(/^{/)) {
@@ -18,5 +18,5 @@ const isCommenting = (input: Io & Word): boolean => {
 }
 
 export {
-    isCommenting,
+    computeIsCommentingAndUpdateSmarts,
 }

@@ -19,6 +19,10 @@ export {
     COMMAND_MAP,
     NOT_SMuFL_PITCH_COMMAND_MAP,
     NOT_SMuFL_MAP,
+    SMART_ADVANCE_COMMAND_CODE,
+    ADVANCE_TO_END_COMMAND_CODE,
+    SMART_STAVE_OFF_COMMAND_CODE,
+    SMART_STAVE_ON_COMMAND_CODE,
 } from "./notSmufl"
 export {SMuFL_MAP} from "./smufl"
 export {Unicode, Code, CaseDesensitized, Octals, UnicodeLiteral} from "./types"

@@ -5,9 +5,9 @@ import {
     CASE_DESENSITIZED_CODE_MAP,
     Code,
     computeUnicodeForCode,
-    POSITION_ALIASES_MAP,
     mergeAllCodeMapsIntoCaseDesensitizedCodeMap,
     MIDDLE_POSITION_AND_ABOVE_CONDITIONAL_NOTE_ALIASES_MAP,
+    POSITION_ALIASES_MAP,
     Unicode,
 } from "../../codes"
 import {Position, StemZone} from "./types"
