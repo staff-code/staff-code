@@ -1,6 +1,6 @@
 {
   "name": "staff-code",
-  "version": "1.0.183",
+  "version": "1.0.184",
   "main": "dist/package/cjs/src/index.js",
   "module": "dist/package/esm/src/esmIndex.js",
   "types": "dist/package/cjs/src/index.d.ts",
