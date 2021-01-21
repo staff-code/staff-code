@@ -92,7 +92,7 @@ describe("computeInputSentenceUnicode", (): void => {
         await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
     })
 
-    it("includes a space after fallen back input words so that when you have multiple in a row you can distinguish them           ", async (): Promise<void> => {
+    it("includes a space after unrecognized codes so that when you have multiple in a row you can distinguish them           ", async (): Promise<void> => {
         const inputSentence = "don't know what i'm doing" as Io & Sentence
 
         const actual = computeInputSentenceUnicode(inputSentence)
@@ -104,8 +104,8 @@ describe("computeInputSentenceUnicode", (): void => {
         expect(debugCodeSentence(actual)).toBe(expectedCodes)
     })
 
-    it("still supports codes with curlies, despite those being comment chars", async (): Promise<void> => {
-        const inputSentence = "Gcl ; .{ ; nt ; .} ; nt" as Io & Sentence
+    it("still supports codes with curlies, despite those being comment chars, and can even include them inside of comments as long as they aren't the first or last characters of a whitespace-separated word", async (): Promise<void> => {
+        const inputSentence = "Gcl ; .{ ; nt ; .} ; nt { lala '{' la '.}' lalala }" as Io & Sentence
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
@@ -237,7 +237,7 @@ describe("computeInputSentenceUnicode", (): void => {
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
-        it("position sticks based on the pitch, not the vertical offset; if you set a pitch like C4 and then change clefs, it should still be C4 in the new clef, not whichever note is at the same position as the previous clef's C4", async (): Promise<void> => {
+        it("when a pitch code (e.g. C4) is used, position sticks based on the pitch, not the vertical offset; if you set a pitch like C4 and then change clefs, it should still be C4 in the new clef, not whichever note is at the same position as the previous clef's C4", async (): Promise<void> => {
             const inputSentence = "Fcl ; C4 nt ; Gcl ; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
@@ -249,7 +249,19 @@ describe("computeInputSentenceUnicode", (): void => {
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
-        // TODO: except that it's actually sticky position code; up5 should work like it used to, sticky by position
+        it("in contrast, when a position code (e.g. up3) is used, position sticks based on the position offset, not the pitch", async (): Promise<void> => {
+            const inputSentence = "Fcl ; up6 nt ; Gcl ; nt" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "  　      " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "Fcl 24; up6 ntqrdn 13; Gcl 23; up6 ntqrdn 11;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
+
+        // TODO: CLEAN, READY TO GO: ADD A TEST THAT THE stpsrs<n> CODES ARE NOT SMART/STICKY
     })
 
     describe("*** Smart Advance ***", (): void => {
@@ -358,7 +370,7 @@ describe("computeInputSentenceUnicode", (): void => {
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
-        it("gives a default width of 0 to unknown codes (given as unicode literals)", async (): Promise<void> => {
+        it("gives a default width of 0 to unrecognized codes (given as unicode literals)", async (): Promise<void> => {
             const inputSentence = "U+5E78" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
@@ -369,7 +381,7 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
-        it("accepts unknown codes in other reasonable formats", async (): Promise<void> => {
+        it("accepts unrecognized codes in other reasonable formats", async (): Promise<void> => {
             expect(computeInputSentenceUnicode("U+5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
             expect(computeInputSentenceUnicode("u+5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
             expect(computeInputSentenceUnicode("U5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
@@ -378,7 +390,7 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeInputSentenceUnicode("\\u+5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
         })
 
-        it("accepts unknown codes with code points greater than 65535 (0xFFFF)", async (): Promise<void> => {
+        it("accepts unrecognized codes with code points greater than 65535 (0xFFFF)", async (): Promise<void> => {
             const inputSentence = "U+1D10B" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)

@@ -11,6 +11,5 @@ export {isCommenting} from "./comments"
 export {
     computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
     getUnicodeGivenClefAndPosition,
-    isPositionUnicode,
     isCommandifiedStaffUnicode,
 } from "./positionAndClef"

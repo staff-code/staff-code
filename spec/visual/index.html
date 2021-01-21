@@ -7,8 +7,8 @@
 <img src="./nd_if_the_last_word_is_a_break_(so_that_the_break_immediately_indicates_that_it_has_occurred,_by_taking_up_space_in_the_display).svg"/>
 <div>supports inline comments </div>
 <img src="./supports_inline_comments.svg"/>
-<div>still supports codes with curlies, despite those being comment chars </div>
-<img src="./still_supports_codes_with_curlies,_despite_those_being_comment_chars.svg"/>
+<div>still supports codes with curlies, despite those being comment chars, and can even include them inside of comments as long as they aren't the first or last characters of a whitespace-separated word </div>
+<img src="./_and_can_even_include_them_inside_of_comments_as_long_as_they_aren't_the_first_or_last_characters_of_a_whitespace-separated_word.svg"/>
 <div>is whitespace agnostic </div>
 <img src="./is_whitespace_agnostic.svg"/>
 <h1>Smart Position</h1>
@@ -31,8 +31,10 @@
 <img src="./change_depending_on_the_clef.svg"/>
 <div>clefs are smart and they stick until you change them (you can change from one to the other) </div>
 <img src="./clefs_are_smart_and_they_stick_until_you_change_them_(you_can_change_from_one_to_the_other).svg"/>
-<div>position sticks based on the pitch, not the vertical offset; if you set a pitch like C4 and then change clefs, it should still be C4 in the new clef, not whichever note is at the same position as the previous clef's C4 </div>
+<div>when a pitch code (e.g. C4) is used, position sticks based on the pitch, not the vertical offset; if you set a pitch like C4 and then change clefs, it should still be C4 in the new clef, not whichever note is at the same position as the previous clef's C4 </div>
 <img src="./d_then_change_clefs,_it_should_still_be_C4_in_the_new_clef,_not_whichever_note_is_at_the_same_position_as_the_previous_clef's_C4.svg"/>
+<div>in contrast, when a position code (e.g. up3) is used, position sticks based on the position offset, not the pitch </div>
+<img src="./in_contrast,_when_a_position_code_(e.g._up3)_is_used,_position_sticks_based_on_the_position_offset,_not_the_pitch.svg"/>
 <h1>Smart Advance</h1>
 <div>advances by the width computed for each glyph from the Bravura font lgln</div>
 <img src="./advances_by_the_width_computed_for_each_glyph_from_the_Bravura_font_lgln.svg"/>

@@ -4,9 +4,9 @@ import {ACCIDENTAL_ALIASES_MAP} from "./accidentals"
 import {LINE_BREAK_ALIASES_MAP} from "./advanceAndStave"
 import {BARLINE_ALIASES_MAP, BEAMS_ALIASES_MAP, REST_ALIASES_MAP, TIME_SIGNATURE_ALIASES_MAP} from "./basics"
 import {NOTE_ALIASES_MAP} from "./notes"
-import {CLEF_ALIASES_MAP, GENERIC_POSITION_ALIASES_MAP} from "./positionAndClef"
+import {CLEF_ALIASES_MAP} from "./positionAndClef"
 
-// Does not include the clef-conditional pitch aliases (e.g. "c4") or the position-conditional note aliases (e.g. "nt4")
+// Does not include the position-conditional note aliases (e.g. "nt4"); those will be mixed-in conditionally later
 const ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ...NOTE_ALIASES_MAP,
     ...BEAMS_ALIASES_MAP,
@@ -16,7 +16,6 @@ const ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ...CLEF_ALIASES_MAP,
     ...ACCIDENTAL_ALIASES_MAP,
     ...LINE_BREAK_ALIASES_MAP,
-    ...GENERIC_POSITION_ALIASES_MAP,
 }
 
 export {

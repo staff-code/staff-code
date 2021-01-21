@@ -1,13 +1,7 @@
-import {abs, RecordKey, Word} from "@sagittal/general"
-import {
-    BASS_CONDITIONAL_POSITION_ALIASES_MAP,
-    CASE_DESENSITIZED_CODE_MAP,
-    TREBLE_CONDITIONAL_POSITION_ALIASES_MAP,
-    Unicode,
-} from "../../codes"
+import {abs, BLANK, negative, Word} from "@sagittal/general"
+import {CaseDesensitized, CASE_DESENSITIZED_CODE_MAP, Code, NOT_SMuFL_POSITION_COMMAND_MAP, Unicode} from "../../codes"
 import {smarts} from "../globals"
-import {isPositionUnicode} from "./isUnicode"
-import {Clef, Pitch, Position} from "./types"
+import {Clef, Pitch, PitchOrPosition, Position} from "./types"
 
 const CLEF_PITCH_POSITIONS: Record<Clef, Record<Pitch, Position>> = {
     [Clef.TREBLE]: {
@@ -78,80 +72,13 @@ const CLEF_PITCH_POSITIONS: Record<Clef, Record<Pitch, Position>> = {
     } as Record<Pitch, Position>,
 }
 
-const CLEF_UNICODE_PITCHES: Record<Clef, Record<RecordKey<Unicode & Word>, Pitch>> = {
-    [Clef.TREBLE]: {
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["C7"]]: Pitch.C7,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["B6"]]: Pitch.B6,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["A6"]]: Pitch.A6,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["G6"]]: Pitch.G6,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["F6"]]: Pitch.F6,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["E6"]]: Pitch.E6,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["D6"]]: Pitch.D6,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["C6"]]: Pitch.C6,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["B5"]]: Pitch.B5,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["A5"]]: Pitch.A5,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["G5"]]: Pitch.G5,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["F5"]]: Pitch.F5,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["E5"]]: Pitch.E5,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["D5"]]: Pitch.D5,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["C5"]]: Pitch.C5,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["B4"]]: Pitch.B4,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["A4"]]: Pitch.A4,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["G4"]]: Pitch.G4,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["F4"]]: Pitch.F4,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["E4"]]: Pitch.E4,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["D4"]]: Pitch.D4,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["C4"]]: Pitch.C4,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["B3"]]: Pitch.B3,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["A3"]]: Pitch.A3,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["G3"]]: Pitch.G3,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["F3"]]: Pitch.F3,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["E3"]]: Pitch.E3,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["D3"]]: Pitch.D3,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["C3"]]: Pitch.C3,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["B2"]]: Pitch.B2,
-        [TREBLE_CONDITIONAL_POSITION_ALIASES_MAP["A2"]]: Pitch.A2,
-    },
-    [Clef.BASS]: {
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["E5"]]: Pitch.E5,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["D5"]]: Pitch.D5,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["C5"]]: Pitch.C5,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["B4"]]: Pitch.B4,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["A4"]]: Pitch.A4,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["G4"]]: Pitch.G4,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["F4"]]: Pitch.F4,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["E4"]]: Pitch.E4,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["D4"]]: Pitch.D4,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["C4"]]: Pitch.C4,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["B3"]]: Pitch.B3,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["A3"]]: Pitch.A3,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["G3"]]: Pitch.G3,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["F3"]]: Pitch.F3,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["E3"]]: Pitch.E3,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["D3"]]: Pitch.D3,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["C3"]]: Pitch.C3,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["B2"]]: Pitch.B2,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["A2"]]: Pitch.A2,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["G2"]]: Pitch.G2,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["F2"]]: Pitch.F2,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["E2"]]: Pitch.E2,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["D2"]]: Pitch.D2,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["C2"]]: Pitch.C2,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["B1"]]: Pitch.B1,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["A1"]]: Pitch.A1,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["G1"]]: Pitch.G1,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["F1"]]: Pitch.F1,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["E1"]]: Pitch.E1,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["D1"]]: Pitch.D1,
-        [BASS_CONDITIONAL_POSITION_ALIASES_MAP["C1"]]: Pitch.C1,
-    },
-}
+const computePitchPosition = (pitch: Pitch): Position =>
+    CLEF_PITCH_POSITIONS[smarts.clef][pitch]
 
 const computeSmartPosition = (): Position =>
-    CLEF_PITCH_POSITIONS[smarts.clef][smarts.pitch]
-
-const computeUnicodePitch = (unicode: Unicode & Word): Pitch =>
-    CLEF_UNICODE_PITCHES[smarts.clef][unicode]
+    smarts.pitchOrPosition === PitchOrPosition.PITCH ?
+        computePitchPosition(smarts.pitch) :
+        smarts.position
 
 const computeSmartPositionUnicode = (): Unicode & Word => {
     const position = computeSmartPosition()
@@ -161,12 +88,19 @@ const computeSmartPositionUnicode = (): Unicode & Word => {
     return CASE_DESENSITIZED_CODE_MAP[combiningStaffPositionCode]
 }
 
-const updateSmartPosition = (unicode: Unicode & Word): void => {
-    if (isPositionUnicode(unicode)) smarts.pitch = computeUnicodePitch(unicode)
-}
+const NOT_SMuFL_POSITION_COMMAND_CODES = Object.keys(NOT_SMuFL_POSITION_COMMAND_MAP)
+
+const isPositionCommandCode = (caseDesensitizedCode: Code & CaseDesensitized & Word): boolean =>
+    NOT_SMuFL_POSITION_COMMAND_CODES.includes(caseDesensitizedCode)
+
+const computePositionFromCode = (caseDesensitizedCode: Code & CaseDesensitized & Word): Position =>
+    caseDesensitizedCode.match("up") ?
+        parseInt(caseDesensitizedCode.replace("up", BLANK)) as Position :
+        negative(parseInt(caseDesensitizedCode.replace("dn", BLANK))) as Position
 
 export {
-    updateSmartPosition,
     computeSmartPosition,
     computeSmartPositionUnicode,
+    isPositionCommandCode,
+    computePositionFromCode,
 }

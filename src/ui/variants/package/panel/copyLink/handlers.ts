@@ -5,9 +5,6 @@ import {components, staffCodeConfig} from "../../globals"
 import {codeRunningInStaffCodeWebApp} from "./app"
 import {computeInitialParams} from "./initial"
 
-// TODO: I think you should force a translation — an update of the output 
-//  — as the first thing when the user clicks Copy or
-//  Download, in case the user just typed something but didn't end with a space or semicolon.
 const handleCopyLinkClick = (): void => {
     components.copyLinkMessage.classList.add("active")
     setTimeout((): void => components.copyLinkMessage.classList.remove("active"), 3000)

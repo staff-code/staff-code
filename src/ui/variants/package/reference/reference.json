@@ -19,7 +19,7 @@
       [
         "",
         "C1",
-        "move to the <u>C1</u> (1st-octave C) position"
+        "move and stick to the <u>C1</u> (1st-octave C) position"
       ],
       [
         "",
@@ -29,17 +29,17 @@
       [
         "",
         "B3",
-        "move to the <u>B3</u> position"
+        "move and stick to the <u>B3</u> position"
       ],
       [
         "",
         "C4",
-        "move to the <u>C4</u> (middle C) position"
+        "move and stick to the <u>C4</u> (middle C) position"
       ],
       [
         "",
         "D4",
-        "move to the <u>D4</u> position"
+        "move and stick to the <u>D4</u> position"
       ],
       [
         "",
@@ -49,7 +49,42 @@
       [
         "",
         "C7",
-        "move to the <u>C7</u> (7th-octave C) position"
+        "move and stick to the <u>C7</u> (7th-octave C) position"
+      ],
+      [
+        "",
+        "up15",
+        "move and stick to 15 positions above the middle staff position"
+      ],
+      [
+        "",
+        "...",
+        "..."
+      ],
+      [
+        "",
+        "up1",
+        "move and stick to 1 position above the middle staff position"
+      ],
+      [
+        "",
+        "up0",
+        "move and stick to the middle staff position"
+      ],
+      [
+        "",
+        "dn0",
+        "move and stick to 1 position below the middle staff position"
+      ],
+      [
+        "",
+        "...",
+        "..."
+      ],
+      [
+        "",
+        "dn15",
+        "move and stick to 15 positions below the middle staff position"
       ],
       [
         "",
@@ -15994,84 +16029,84 @@
   ],
   [
     "combiningStaffPositionsSupplement",
-    "Combing staff positions supplement",
+    "Combining staff positions supplement",
     "(not SMuFL)",
     "",
     "SMuFL does not allow staff positions corresponding to more than 2 leger lines. And it does not allow symbols on the middle staff line without advancing. So StaffCode adds the following additional positions.",
     [
       [
         "",
-        "up0",
+        "stpsrs0",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>0</u>"
       ],
       [
         "",
-        "up9",
+        "stpsrs9",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>9</u>"
       ],
       [
         "",
-        "up10",
+        "stpsrs10",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>10</u>"
       ],
       [
         "",
-        "up11",
+        "stpsrs11",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>11</u>"
       ],
       [
         "",
-        "up12",
+        "stpsrs12",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>12</u>"
       ],
       [
         "",
-        "up13",
+        "stpsrs13",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>13</u>"
       ],
       [
         "",
-        "up14",
+        "stpsrs14",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>14</u>"
       ],
       [
         "",
-        "up15",
+        "stpsrs15",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>15</u>"
       ],
       [
         "",
-        "dn9",
+        "stpslr9",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>9</u>"
       ],
       [
         "",
-        "dn10",
+        "stpslr10",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>10</u>"
       ],
       [
         "",
-        "dn11",
+        "stpslr11",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>11</u>"
       ],
       [
         "",
-        "dn12",
+        "stpslr12",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>12</u>"
       ],
       [
         "",
-        "dn13",
+        "stpslr13",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>13</u>"
       ],
       [
         "",
-        "dn14",
+        "stpslr14",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>14</u>"
       ],
       [
         "",
-        "dn15",
+        "stpslr15",
         "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>15</u>"
       ]
     ]

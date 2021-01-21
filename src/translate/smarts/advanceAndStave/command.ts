@@ -3,6 +3,13 @@ import {caseDesensitize} from "../../case"
 import {Code, COMMAND_MAP, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
+import {
+    computePitchFromCode,
+    computePositionFromCode,
+    isPitchCommandCode,
+    isPositionCommandCode,
+    PitchOrPosition,
+} from "../positionAndClef"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
 import {computeEndOfLineUnicodeClauseAndUpdateSmarts} from "./endOfLine"
 import {computeSpacing, isSpacingCode} from "./spacing"
@@ -38,7 +45,20 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
         smarts.staveOn = false
     } else if (isSpacingCode(caseDesensitizedCode)) {
         smarts.spacing = computeSpacing(caseDesensitizedCode)
+    } else if (isPitchCommandCode(caseDesensitizedCode)) {
+        smarts.pitch = computePitchFromCode(caseDesensitizedCode)
+        smarts.pitchOrPosition = PitchOrPosition.PITCH
+    } else if (isPositionCommandCode(caseDesensitizedCode)) {
+        smarts.position = computePositionFromCode(caseDesensitizedCode)
+        smarts.pitchOrPosition = PitchOrPosition.POSITION
     }
+
+    // TODO: CLEAN, READY TO GO: COMMAND TYPE
+    //  Add an extra type for `& Command` ? for command codes
+
+    // TODO: CLEAN, READY TO GO: SMARTS ORGANIZATION
+    //  Should I just rename ubiquitous things with "and" in them to "vertical" and "horizontal"?
+    //  A new complication has arisen, a distinction between pitch or position, that should affect module organization
 
     return commandUnicodeClause
 }

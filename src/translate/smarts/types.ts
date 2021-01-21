@@ -1,6 +1,6 @@
 import {Octals} from "../codes"
 import {SmartStave} from "./advanceAndStave"
-import {Clef, Pitch} from "./positionAndClef"
+import {Clef, Pitch, PitchOrPosition, Position} from "./positionAndClef"
 
 interface Smarts {
     advanceWidth: Octals,
@@ -13,6 +13,8 @@ interface Smarts {
     commenting: boolean,
     clef: Clef,
     pitch: Pitch,
+    position: Position,
+    pitchOrPosition: PitchOrPosition,
 }
 
 export {
