@@ -2,10 +2,9 @@ export {smarts} from "./globals"
 export {
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
     isManualAdvanceUnicode,
-    computeCommandUnicodeClauseAndUpdateSmarts,
-    isCommandCode,
     computeEndOfLineUnicodeClauseAndUpdateSmarts,
-} from "./advanceAndStave"
+} from "./horizontal"
+export {computeCommandUnicodeClauseAndUpdateSmarts, isCommandCode} from "./command"
 export {INITIAL_SMARTS} from "./constants"
 export {computeIsCommentingAndUpdateSmarts} from "./comments"
 export {
@@ -13,4 +12,4 @@ export {
     getUnicodeGivenClefAndPosition,
     isCommandifiedStaffUnicode,
     isPositionUnicode,
-} from "./positionAndClef"
+} from "./vertical"

@@ -1,12 +1,12 @@
 import {Octals} from "../codes"
-import {SmartStave} from "./advanceAndStave"
-import {Clef, Pitch, PitchOrPosition, Position} from "./positionAndClef"
+import {SmartStave} from "./horizontal"
 import {Smarts} from "./types"
+import {Clef, Pitch, PitchOrPosition, Position} from "./vertical"
 
 const INITIAL_SMARTS: Smarts = {
     commenting: false,
 
-    /* advance and stave */
+    /* horizontal */
 
     advanceWidth: 0 as Octals,
     manualAdvance: 0 as Octals,
@@ -16,7 +16,7 @@ const INITIAL_SMARTS: Smarts = {
     staveOn: false,
     stave: SmartStave.LINES_5,
 
-    /* position and clef */
+    /* vertical */
 
     clef: Clef.TREBLE,
     pitch: Pitch.B4,

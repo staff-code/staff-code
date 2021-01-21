@@ -5,7 +5,7 @@ const caseDesensitize = <T extends Code>(code: T): T & CaseDesensitized =>
     code.toLowerCase() as T & CaseDesensitized
 
 const computeCaseDesensitizedCodes = (
-    map: Record<Code & Word, Unicode & Word>
+    map: Record<Code & Word, Unicode & Word>,
 ): Array<Code & CaseDesensitized & Word> =>
     (Object.keys(map) as Array<Code & Word>).map(caseDesensitize)
 

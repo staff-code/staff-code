@@ -5,6 +5,6 @@ export {
     ADVANCE_TO_END_COMMAND_CODE,
     SMART_STAVE_OFF_COMMAND_CODE,
     SMART_STAVE_ON_COMMAND_CODE,
-} from "./advanceAndStave"
+} from "./horizontal"
 export {COMMAND_MAP} from "./codes"
-export {NOT_SMuFL_PITCH_COMMAND_MAP} from "./positionAndClef"
+export {NOT_SMuFL_PITCH_COMMAND_MAP} from "./vertical"

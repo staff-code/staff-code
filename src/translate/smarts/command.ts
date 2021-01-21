@@ -1,5 +1,5 @@
 import {Clause, Io, Word} from "@sagittal/general"
-import {caseDesensitize, computeCaseDesensitizedCodes} from "../../case"
+import {caseDesensitize, computeCaseDesensitizedCodes} from "../case"
 import {
     ADVANCE_TO_END_COMMAND_CODE,
     Code,
@@ -8,13 +8,16 @@ import {
     SMART_STAVE_OFF_COMMAND_CODE,
     SMART_STAVE_ON_COMMAND_CODE,
     Unicode,
-} from "../../codes"
-import {EMPTY_UNICODE} from "../../constants"
-import {smarts} from "../globals"
-import {computePitchFromCode, isPitchCommandCode, PitchOrPosition} from "../positionAndClef"
-import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
-import {computeEndOfLineUnicodeClauseAndUpdateSmarts} from "./endOfLine"
-import {computeSpacing, isSpacingCommandCode} from "./spacing"
+} from "../codes"
+import {EMPTY_UNICODE} from "../constants"
+import {smarts} from "./globals"
+import {
+    computeEndOfLineUnicodeClauseAndUpdateSmarts,
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
+    computeSpacing,
+    isSpacingCommandCode,
+} from "./horizontal"
+import {computePitchFromCode, isPitchCommandCode, PitchOrPosition} from "./vertical"
 
 const CASE_DESENSITIZED_COMMAND_CODES = computeCaseDesensitizedCodes(COMMAND_MAP)
 
@@ -51,10 +54,6 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
         smarts.pitch = computePitchFromCode(caseDesensitizedCode)
         smarts.pitchOrPosition = PitchOrPosition.PITCH
     }
-
-    // TODO: CLEAN, READY TO GO: SMARTS ORGANIZATION
-    //  Should I just rename ubiquitous things with "and" in them to "vertical" and "horizontal"?
-    //  A new complication has arisen, a distinction between pitch or position, that should affect module organization
 
     return commandUnicodeClause
 }

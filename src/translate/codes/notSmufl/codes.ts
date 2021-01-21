@@ -1,10 +1,10 @@
-import {NOT_SMuFL_LINE_BREAKS_MAP, NOT_SMuFL_MANUAL_ADVANCE_MAP} from "./advanceAndStave"
 import {COMMAND_MAP} from "./command"
+import {NOT_SMuFL_LINE_BREAKS_MAP, NOT_SMuFL_MANUAL_ADVANCE_MAP} from "./horizontal"
 import {
     NOT_SMUFL_LEGER_LINES_SUPPLEMENT_MAP,
     NOT_SMuFL_POSITIONS_SUPPLEMENT_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
-} from "./positionAndClef"
+} from "./vertical"
 
 const NOT_SMuFL_MAP = {
     ...NOT_SMuFL_LINE_BREAKS_MAP,

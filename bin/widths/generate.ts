@@ -11,7 +11,7 @@ const generateBravuraWidths = (): void => {
     const bravuraWidths = glyphNameEntries.reduce(computeBravuraGlyphWidth, {} as Record<RecordKey<Unicode>, Octals>)
 
     fs.writeFileSync(
-        "src/translate/smarts/advanceAndStave/bravuraWidths.json",
+        "src/translate/smarts/horizontal/bravuraWidths.json",
         JSON.stringify(bravuraWidths, undefined, 2),
     )
 }

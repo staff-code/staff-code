@@ -3,7 +3,10 @@ export {isManualAdvanceUnicode, isManualStaffUnicode} from "./isUnicode"
 export {computeUnicodeWidth} from "./width"
 export {SmartStave} from "./types"
 export {computeEndOfLineUnicodeClauseAndUpdateSmarts} from "./endOfLine"
-export {computeCommandUnicodeClauseAndUpdateSmarts, isCommandCode} from "./command"
+export {
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
+} from "./advanceOrBreak"
+export {computeSpacing, isSpacingCommandCode} from "./spacing"
 
 import bravuraWidthsJson from "./bravuraWidths.json"
 

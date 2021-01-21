@@ -1,7 +1,7 @@
 import {add, isUndefined, Word} from "@sagittal/general"
 import {Octals, Unicode} from "../../codes"
 import {bravuraWidths, smarts} from "../globals"
-import {isCommandifiedStaffUnicode} from "../positionAndClef"
+import {isCommandifiedStaffUnicode} from "../vertical"
 
 const computeUnicodeWidth = (unicode: Unicode & Word, {spacing = true}: {spacing?: boolean} = {}): Octals => {
     const bravuraWidth = bravuraWidths[unicode]

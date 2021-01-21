@@ -1,6 +1,6 @@
 import {Word} from "@sagittal/general"
 import {Code, computeUnicodeForCode, Unicode} from "../../codes"
-import {computeUnicodeWidth} from "../advanceAndStave"
+import {computeUnicodeWidth} from "../horizontal"
 import {
     MEDIUM_LEGER_LINE_UNICODE,
     MEDIUM_LEGER_LINE_WIDTH,

@@ -1,11 +1,11 @@
 import {isUndefined, Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
 import {smarts} from "../globals"
-import {computeSmartPosition, Position} from "../positionAndClef"
+import {computeSmartPitchOrSmartPositionPosition, Position} from "../vertical"
 import {takesLegerLine} from "./takes"
 
 const aboveOrBelowStave = (positionArgument?: Position): boolean => {
-    const position = isUndefined(positionArgument) ? computeSmartPosition() : positionArgument
+    const position = isUndefined(positionArgument) ? computeSmartPitchOrSmartPositionPosition() : positionArgument
 
     return position > 5 || position < -5
 }

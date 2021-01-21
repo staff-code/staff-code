@@ -7,7 +7,7 @@ import {
     Unicode,
 } from "../../../../../src/translate/codes"
 import {takesLegerLine} from "../../../../../src/translate/smarts/leger"
-import {canBePositioned} from "../../../../../src/translate/smarts/positionAndClef"
+import {canBePositioned} from "../../../../../src/translate/smarts/vertical"
 
 describe("takesLegerLine", (): void => {
     it("determines whether a glyph ever takes a leger line, regardless whether it might need one now", (): void => {

@@ -1,5 +1,5 @@
 import {formatPx} from "@sagittal/general"
-import {DARK_GREY, DARK_TAN, GREY, LIGHTER_TAN, LIGHT_GREY, LIGHT_TAN, MAX_APP_WIDTH, TAN} from "./constants"
+import {DARK_GREY, DARK_TAN, GREY, LIGHT_GREY, LIGHT_TAN, LIGHTER_TAN, MAX_APP_WIDTH, TAN} from "./constants"
 import {DISPLAY_CSS} from "./display"
 import {PANEL_CSS} from "./panel"
 import {REFERENCE_CSS} from "./reference"

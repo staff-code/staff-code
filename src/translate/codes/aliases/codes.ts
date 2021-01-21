@@ -1,10 +1,10 @@
 import {RecordKey, Word} from "@sagittal/general"
 import {Code, Unicode} from "../types"
 import {ACCIDENTAL_ALIASES_MAP} from "./accidentals"
-import {LINE_BREAK_ALIASES_MAP} from "./advanceAndStave"
 import {BARLINE_ALIASES_MAP, BEAMS_ALIASES_MAP, REST_ALIASES_MAP, TIME_SIGNATURE_ALIASES_MAP} from "./basics"
+import {LINE_BREAK_ALIASES_MAP} from "./horizontal"
 import {NOTE_ALIASES_MAP} from "./notes"
-import {CLEF_ALIASES_MAP, POSITION_ALIASES_MAP} from "./positionAndClef"
+import {CLEF_ALIASES_MAP, POSITION_ALIASES_MAP} from "./vertical"
 
 // Does not include the position-conditional note aliases (e.g. "nt4"); those will be mixed-in conditionally later
 const ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {

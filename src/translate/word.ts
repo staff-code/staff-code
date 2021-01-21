@@ -2,7 +2,8 @@ import {Clause, extendClause, Io, sumTexts, Word} from "@sagittal/general"
 import {Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
 import {
-    computeCommandUnicodeClauseAndUpdateSmarts, computeIsCommentingAndUpdateSmarts,
+    computeCommandUnicodeClauseAndUpdateSmarts,
+    computeIsCommentingAndUpdateSmarts,
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
     computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
     isCommandCode,

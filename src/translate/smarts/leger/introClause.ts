@@ -1,7 +1,7 @@
 import {BLANK, Clause, decrement, increment, isEven, sumTexts, Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
-import {computeSmartPosition} from "../positionAndClef"
+import {computeSmartPitchOrSmartPositionPosition} from "../vertical"
 import {computeLegerLineUnicode} from "./leger"
 import {aboveOrBelowStave, needsLegerLine} from "./needs"
 import {computePositionUnicode} from "./position"
@@ -10,7 +10,7 @@ const computeSmartLegerUnicodeIntroClause = (unicode: Unicode & Word): Unicode &
     const legerLineUnicode = computeLegerLineUnicode(unicode)
 
     let smartLegerUnicodeIntroClause = BLANK as Unicode & Clause
-    let position = computeSmartPosition()
+    let position = computeSmartPitchOrSmartPositionPosition()
     while (aboveOrBelowStave(position)) {
         if (isEven(position)) {
             smartLegerUnicodeIntroClause = sumTexts(
