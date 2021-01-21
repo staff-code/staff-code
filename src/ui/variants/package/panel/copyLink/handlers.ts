@@ -17,7 +17,7 @@ const handleCopyLinkClick = (): void => {
         history.pushState(undefined, BLANK, initialParams)
     }
 
-    navigator.clipboard.writeText(`${WEB_APP_URL}/${initialParams}`)
+    navigator.clipboard.writeText(initialParams === BLANK ? WEB_APP_URL : `${WEB_APP_URL}/${initialParams}`)
 }
 
 export {

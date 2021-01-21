@@ -1,16 +1,31 @@
 import {BLANK, Io, Sentence} from "@sagittal/general"
-import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_REFERENCE_OPEN, DEFAULT_INITIAL_SIZE} from "../../../../constants"
+import {
+    DEFAULT_INITIAL_CODES,
+    DEFAULT_INITIAL_LINE,
+    DEFAULT_INITIAL_REFERENCE_OPEN,
+    DEFAULT_INITIAL_SIZE,
+} from "../../../../constants"
 import {components} from "../../globals"
 import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "../../human"
 import {isReferenceOpen} from "../../reference"
 import {Initial} from "../../types"
 
+const DEFAULT_CODES_AS_PARAM = encodeURIComponent(
+    prepareCodesToBeHumanReadableAsEncodedQueryParams(DEFAULT_INITIAL_CODES),
+)
+
+const SINGLE_SPACE_IN_QUERY_PARAMS = "%20"
+
 const computeInitialCodesParam = (): string => {
-    const encodedCodes = encodeURIComponent(
+    let encodedCodes = encodeURIComponent(
         prepareCodesToBeHumanReadableAsEncodedQueryParams(components.input.value as Io & Sentence),
     )
 
-    return `&${Initial.CODES}=${encodedCodes}`
+    if (encodedCodes === BLANK) encodedCodes = SINGLE_SPACE_IN_QUERY_PARAMS
+
+    return encodedCodes === DEFAULT_CODES_AS_PARAM ?
+        BLANK :
+        `&${Initial.CODES}=${encodedCodes}`
 }
 
 const computeInitialSizeParam = (): string =>
@@ -43,7 +58,14 @@ const computeInitialParams = (): string => {
     const initialLineParam = computeInitialLineParam()
     const initialReferenceOpenParam = computeInitialReferenceOpenParam()
 
-    return `?${initialSizeParam}${initialLineParam}${initialReferenceOpenParam}${initialCodesParam}`
+    return (
+        initialSizeParam === BLANK
+        && initialLineParam === BLANK
+        && initialReferenceOpenParam === BLANK
+        && initialCodesParam === BLANK
+    )?
+        BLANK :
+        `?${initialSizeParam}${initialLineParam}${initialReferenceOpenParam}${initialCodesParam}`.replace("&", BLANK)
 }
 
 export {
