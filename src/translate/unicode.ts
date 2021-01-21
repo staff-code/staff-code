@@ -6,10 +6,13 @@ import {
     getUnicodeGivenClefAndPosition,
     isCommandifiedStaffUnicode,
     isManualAdvanceUnicode,
+    isPositionUnicode,
 } from "./smarts"
 
 const shouldNotBeDisplayed = (unicode: Unicode & Word): boolean =>
-    isManualAdvanceUnicode(unicode) || isCommandifiedStaffUnicode(unicode)
+    isPositionUnicode(unicode)
+    || isManualAdvanceUnicode(unicode)
+    || isCommandifiedStaffUnicode(unicode)
 
 const computeMaybeNotDisplayedUnicode = (unicode: Unicode & Word): Unicode & Word =>
     shouldNotBeDisplayed(unicode) ?

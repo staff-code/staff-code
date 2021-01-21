@@ -12,4 +12,5 @@ export {
     computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
     getUnicodeGivenClefAndPosition,
     isCommandifiedStaffUnicode,
+    isPositionUnicode,
 } from "./positionAndClef"

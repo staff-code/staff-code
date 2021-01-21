@@ -3,13 +3,7 @@ import {caseDesensitize} from "../../case"
 import {Code, COMMAND_MAP, Unicode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
-import {
-    computePitchFromCode,
-    computePositionFromCode,
-    isPitchCommandCode,
-    isPositionCommandCode,
-    PitchOrPosition,
-} from "../positionAndClef"
+import {computePitchFromCode, isPitchCommandCode, PitchOrPosition} from "../positionAndClef"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
 import {computeEndOfLineUnicodeClauseAndUpdateSmarts} from "./endOfLine"
 import {computeSpacing, isSpacingCode} from "./spacing"
@@ -48,9 +42,6 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
     } else if (isPitchCommandCode(caseDesensitizedCode)) {
         smarts.pitch = computePitchFromCode(caseDesensitizedCode)
         smarts.pitchOrPosition = PitchOrPosition.PITCH
-    } else if (isPositionCommandCode(caseDesensitizedCode)) {
-        smarts.position = computePositionFromCode(caseDesensitizedCode)
-        smarts.pitchOrPosition = PitchOrPosition.POSITION
     }
 
     // TODO: CLEAN, READY TO GO: COMMAND TYPE

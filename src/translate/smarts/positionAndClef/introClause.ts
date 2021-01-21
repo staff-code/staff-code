@@ -2,12 +2,13 @@ import {Clause, extendClause, Word} from "@sagittal/general"
 import {Unicode} from "../../codes"
 import {computeSmartLegerUnicodeIntroClauseAndUpdateSmarts} from "../leger"
 import {canBePositioned, computeSmartPosition, updateSmartClef} from "../positionAndClef"
-import {computeSmartPositionUnicode} from "./position"
+import {computeSmartPositionUnicode, updateSmartPosition} from "./position"
 
 const computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts = (
     unicode: Unicode & Word,
 ): Unicode & Clause => {
     updateSmartClef(unicode)
+    updateSmartPosition(unicode)
 
     let smartPositionAndSmartClefUnicodeIntroClause = computeSmartLegerUnicodeIntroClauseAndUpdateSmarts(unicode)
 
