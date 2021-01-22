@@ -20,11 +20,6 @@ const buildSectionTable = (sectionData: ReferenceRow[]): HTMLTableElement => {
         //  - Blocked because maybe Dave is going to handle the relocation of these? Or maybe it's part of scripting?
         //  Yeah, right, that's it. I'll still do it, but it will part of the FontForge phase
 
-        // TODO, FEATURE IMPROVE, BLOCKED: FONT REVISION; ALSO STILL NEED TO RENAME FONT TO BRAVURA TEXT SC
-        //  Though I'd like to get this to-do out of the code base and into the work planning post
-        //  Though now it seems like Dave might just do it himself
-        //  Alright, Dave has done it, but the file he shared has some parsing error
-
         const unicodeCell = row.insertCell()
         unicodeCell.innerHTML = unicode
         row.appendChild(unicodeCell)

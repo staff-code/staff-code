@@ -1,6 +1,6 @@
 import {Em, Multiplier, Px, Sentence, textToSvg, TextToSvgOptions} from "@sagittal/general"
 import {smarts, Unicode} from "../../../../../translate"
-import {BRAVURA_TEXT_BB_OTF} from "../../../../constants"
+import {BRAVURA_TEXT_SC_OTF} from "../../../../constants"
 import {computeFontSize} from "../../font"
 import {components} from "../../globals"
 
@@ -11,7 +11,7 @@ const computeSvgFromInput = async (unicodeSentence: Unicode & Sentence): Promise
     const line = parseFloat(components.lineSpinner.value) as Multiplier<Px>
     const fontSize = emToPx(computeFontSize(parseFloat(components.sizeSpinner.value) as Multiplier<Em>))
     const options = {
-        font: BRAVURA_TEXT_BB_OTF,
+        font: BRAVURA_TEXT_SC_OTF,
         line,
         fontSize,
         padding: smarts.spacing,

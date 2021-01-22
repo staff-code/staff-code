@@ -67,7 +67,7 @@ const REFERENCE_TABLE_CSS = `
 
     td:nth-child(1) {
         padding: 2px 5px;
-        font-family: Bravura Text BB;
+        font-family: Bravura Text SC;
         font-size: 1.6666em;
         width: 1.1111em;
         text-align: center;

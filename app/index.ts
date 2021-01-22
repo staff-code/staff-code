@@ -1,6 +1,6 @@
-import {loadFontsThen, setupPackageRoot} from "../src"
+import {loadFonts, setupPackageRoot} from "../src"
 
-loadFontsThen((): void => {
+loadFonts().then((): void => {
     const root: HTMLSpanElement = setupPackageRoot()
     document.body.appendChild(root)
 })

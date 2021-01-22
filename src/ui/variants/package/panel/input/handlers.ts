@@ -35,6 +35,19 @@ const handleKeydown = (event: KeyboardEvent): void => {
     }, 100 as Ms).then()
 }
 
+// TODO: BUG, READY TO GO: TRANSLATION DOES NOT ALWAYS OCCUR WHEN WANTED
+/*
+There are still a few cases where I make a change to the input, and expect it to update the output, but it does not:
+1. When I make a selection and hit the Delete key (as opposed to the "Backspace" key).
+2. When I make a selection and choose "Delete" from the right-click menu.
+3. After I make a deletion that updates correctly (using the Backspace key or "Cut" from the right-click menu),
+if I then choose "Undo" from the right-click menu (as opposed to Ctrl-Z).
+4. After I make a paste that updates correctly (using Ctrl-V or "Paste" in the right-click menu),
+if I then choose "Undo" from the right-click menu (as opposed to Ctrl-Z).
+5. After I click at the end of the input and backspace until the output updates,
+if I then attempt to undo (using either Ctrl-Z or "Undo from the right-click menu).
+ */
+
 const handleKeyup = (): void => {
     keycodeWhichIsDown = undefined
 }

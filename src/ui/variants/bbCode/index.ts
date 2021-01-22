@@ -1,7 +1,7 @@
-import {loadFontsThen} from "../../fonts"
+import {loadFonts} from "../../fonts"
 import {setupBBCodeStaffCode} from "./setup"
 
-loadFontsThen(setupBBCodeStaffCode)
+loadFonts().then(setupBBCodeStaffCode)
 
 // @ts-ignore
 // tslint:disable-next-line no-console

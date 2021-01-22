@@ -8,7 +8,7 @@ export {
     POSITION_ALIASES_MAP,
 } from "./aliases"
 export {CASE_DESENSITIZED_CODE_MAP, BASE_GLYPH_MAP} from "./codes"
-export {debugCode, debugCodeSentence} from "./code"
+export {debugCode, debugCodeSentence} from "./debug"
 export {computeUnicodeForCode} from "./unicode"
 export {computeUnicodeLiteral, isUnicodeLiteral, computeUnicodeFromUnicodeLiteral} from "./literal"
 export {
@@ -23,6 +23,18 @@ export {
     ADVANCE_TO_END_COMMAND_CODE,
     SMART_STAVE_OFF_COMMAND_CODE,
     SMART_STAVE_ON_COMMAND_CODE,
+    ADVANCE_10_OCTALS,
+    ADVANCE_11_OCTALS,
+    ADVANCE_12_OCTALS,
+    ADVANCE_13_OCTALS,
+    ADVANCE_14_OCTALS,
+    ADVANCE_15_OCTALS,
+    ADVANCE_16_OCTALS,
+    ADVANCE_1_OCTAL,
+    ADVANCE_3_OCTALS,
+    ADVANCE_5_OCTALS,
+    ADVANCE_7_OCTALS,
+    ADVANCE_9_OCTALS,
 } from "./notSmufl"
 export {SMuFL_MAP} from "./smufl"
 export {Unicode, Code, CaseDesensitized, Octals, UnicodeLiteral} from "./types"

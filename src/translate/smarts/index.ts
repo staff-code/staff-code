@@ -3,6 +3,7 @@ export {
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
     isManualAdvanceUnicode,
     computeEndOfLineUnicodeClauseAndUpdateSmarts,
+    collapseAdvances,
 } from "./horizontal"
 export {computeCommandUnicodeClauseAndUpdateSmarts, isCommandCode} from "./command"
 export {INITIAL_SMARTS} from "./constants"

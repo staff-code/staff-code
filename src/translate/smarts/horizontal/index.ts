@@ -2,6 +2,7 @@ export {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts} from 
 export {isManualAdvanceUnicode, isManualStaffUnicode} from "./isUnicode"
 export {computeUnicodeWidth} from "./width"
 export {SmartStave} from "./types"
+export {collapseAdvances} from "./collapse"
 export {computeEndOfLineUnicodeClauseAndUpdateSmarts} from "./endOfLine"
 export {
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,

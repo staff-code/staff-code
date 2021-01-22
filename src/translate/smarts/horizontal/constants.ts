@@ -8,8 +8,8 @@ const MANUAL_ADVANCE_UNICODES = Object.values(NOT_SMuFL_MANUAL_ADVANCE_MAP)
 const WIDTH_TO_ADVANCE_UNICODE_ARRAY: Array<Unicode & Word> =
     [EMPTY_UNICODE as Unicode & Word, ...MANUAL_ADVANCE_UNICODES]
 
-const MAX_ADVANCE_UNICODE = computeUnicodeForCode("24;" as Code & Word)
-const MAX_ADVANCE_WIDTH: Octals = 24 as Octals
+const MAX_ADVANCE_UNICODE = computeUnicodeForCode("80;" as Code & Word)
+const MAX_ADVANCE_WIDTH: Octals = 80 as Octals
 
 const NARROW_STAVE_WIDTH = 8 as Octals
 const NARROW_STAVE_WIDTH_ADVANCE = computeUnicodeForCode("8;" as Code & Word)

@@ -30,7 +30,7 @@ npm install staff-code
 Example usage:
 
 ```ts
-import {setupPackageRoot, loadFontsThen, StaffCodeOptions} from "staff-code"
+import {setupPackageRoot, loadFonts, StaffCodeOptions} from "staff-code"
 
 const callback = (inputSentence: string, unicodeSentence: string): any => {
     console.warn("user input:", inputSentence, "output unicode:", unicodeSentence)
@@ -52,17 +52,17 @@ const options: Partial<StaffCodeOptions> = {
         codes: "ston Fcl",      // default: "ston Gcl ; "
         referenceOpen: true     // default: false
     },
-    font: "Petaluma",           // default: "Bravura Text BB" (you'll have to move a custom font to assets/fonts)
+    font: "Petaluma",           // default: "Bravura Text SC" (you'll have to move a custom font to assets/fonts)
     callback,                   // default: undefined
 }
 
-loadFontsThen((): void => {
+loadFonts().then((): void => {
     const root: HTMLSpanElement = setupPackageRoot(options)
     document.body.appendChild(root)
 })
 ```
 
-The WOFF and OTF variants of the Bravura Text BB font are included in the package. You should serve them
+The WOFF and OTF variants of the Bravura Text SC font are included in the package. You should serve them
 at `assets/fonts/*` for them to be automatically picked up.
 
 The download button, reference, copy link button, size spinner, line spinner, and interactive mode are not made

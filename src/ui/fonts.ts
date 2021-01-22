@@ -1,25 +1,37 @@
-import {BRAVURA_TEXT_BB_OTF, BRAVURA_TEXT_BB_WOFF, WEB_APP_URL} from "./constants"
+import {BRAVURA_TEXT_SC, BRAVURA_TEXT_SC_OTF, BRAVURA_TEXT_SC_WOFF, WEB_APP_URL} from "./constants"
 
-const loadFontsThen = (fn: () => void): void => {
-    let fontsLoaded = false
-    const woff = new FontFace("Bravura Text BB", `url('${BRAVURA_TEXT_BB_WOFF}'), url('${WEB_APP_URL}/${BRAVURA_TEXT_BB_WOFF}')`)
-    woff.load().then((): void => {
-        document.fonts.add(woff)
-        if (!fontsLoaded) {
-            fn()
-            fontsLoaded = true
-        }
-    })
-    const otf = new FontFace("Bravura Text BB", `url('${BRAVURA_TEXT_BB_OTF}'), url('${WEB_APP_URL}/${BRAVURA_TEXT_BB_OTF}')`)
-    otf.load().then((): void => {
-        document.fonts.add(otf)
-        if (!fontsLoaded) {
-            fn()
-            fontsLoaded = true
-        }
+const loadFonts = (): Promise<void> => {
+    return new Promise((resolve: () => void, reject: () => void): void => {
+        const localWoff = new FontFace(BRAVURA_TEXT_SC, `url('${BRAVURA_TEXT_SC_WOFF}')`)
+        localWoff.load().then((): void => {
+            document.fonts.add(localWoff)
+            resolve()
+        }).catch((): void => {
+            const remoteWoff = new FontFace(BRAVURA_TEXT_SC, `url('${WEB_APP_URL}/${BRAVURA_TEXT_SC_WOFF}')`)
+            remoteWoff.load().then((): void => {
+                document.fonts.add(remoteWoff)
+                resolve()
+            }).catch((): void => {
+                reject()
+            })
+        })
+
+        const localOtf = new FontFace(BRAVURA_TEXT_SC, `url('${BRAVURA_TEXT_SC_OTF}')`)
+        localOtf.load().then((): void => {
+            document.fonts.add(localOtf)
+            resolve()
+        }).catch((): void => {
+            const remoteOtf = new FontFace(BRAVURA_TEXT_SC, `url('${WEB_APP_URL}/${BRAVURA_TEXT_SC_OTF}')`)
+            remoteOtf.load().then((): void => {
+                document.fonts.add(remoteOtf)
+                resolve()
+            }).catch((): void => {
+                reject()
+            })
+        })
     })
 }
 
 export {
-    loadFontsThen,
+    loadFonts,
 }

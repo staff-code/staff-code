@@ -1,5 +1,5 @@
 export {
-    transferInputToDisplay, setupPackageRoot, loadFontsThen, downloadSvg, StaffCodeOptions, StaffCodeCallback,
+    transferInputToDisplay, setupPackageRoot, loadFonts, downloadSvg, StaffCodeOptions, StaffCodeCallback,
 } from "./ui"
 export {
     computeUnicodeLiteral,

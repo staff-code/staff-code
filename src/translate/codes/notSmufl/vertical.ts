@@ -24,6 +24,7 @@ const NOT_SMuFL_POSITIONS_SUPPLEMENT_MAP: Record<RecordKey<Code & Word>, Unicode
 } as Record<Code & Word, Unicode & Word>
 
 const NOT_SMUFL_LEGER_LINES_SUPPLEMENT_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
+    // TODO: FEATURE IMPROVE, READY TO GO: UPDATE LEGER LINES WITH THEIR ACTUAL CODE POINTS AND CODES NOW
     "lgln8": EMPTY_UNICODE,
     "lgln10": EMPTY_UNICODE,
     "lgln12": EMPTY_UNICODE,
