@@ -4,6 +4,8 @@ export {
     isManualAdvanceUnicode,
     computeEndOfLineUnicodeClauseAndUpdateSmarts,
     collapseAdvances,
+    computeAdvanceUnicode,
+    computeUnicodeWidth,
 } from "./horizontal"
 export {computeCommandUnicodeClauseAndUpdateSmarts, isCommandCode} from "./command"
 export {INITIAL_SMARTS} from "./constants"

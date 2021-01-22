@@ -10,6 +10,7 @@ const LEGER_LINES_SUPPLEMENT_SECTION_ID = "legerLinesSupplement" as Id<Section>
 //  - And there's definitely some clean-up that could be done here with the explanations in two places,
 //  - And so much wasted "" space ending up in the final smufl reference,
 //  - And so much stuff that doesn't depend on smufl/bravura updates, yet need to remember to run script to regenerate
+//  - Note: generate-smufl-reference (emp. on smufl) is a bit of a misnomer ATM, but shouldn't be when we're done here
 
 // Temporary link, until a public post is ready.
 const INTRO_TO_STAFF_CODE_LINK: Link = "https://forum.sagittal.org/viewtopic.php?p=3192#p3192" as Link

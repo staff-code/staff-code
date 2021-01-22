@@ -97,10 +97,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "don't know what i'm doing " as Unicode & Sentence
+        const expectedUnicode = "d o n '  t  k n o w　 w　h a t  i  '  m   d o i  n g  " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes =
-            "?? ?? ?? ?? ?? sp ?? ?? ?? ?? sp ?? ?? ?? ?? sp ?? ?? ?? sp ?? ?? ?? ?? ?? sp" as Code & Sentence
+        const expectedCodes = "¿¿d?? 12; ¿¿o?? 11; ¿¿n?? 13; ¿¿'?? 6; ¿¿t?? 9; sp ¿¿k?? 13; ¿¿n?? 13; ¿¿o?? 11; ¿¿w?? 16; sp ¿¿w?? 16; ¿¿h?? 13; ¿¿a?? 12; ¿¿t?? 9; sp ¿¿i?? 8; ¿¿'?? 6; ¿¿m?? 18; sp ¿¿d?? 12; ¿¿o?? 11; ¿¿i?? 8; ¿¿n?? 13; ¿¿g?? 12; sp" as Code & Sentence
         expect(debugCodeSentence(actual)).toBe(expectedCodes)
     })
 
@@ -384,14 +383,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "幸" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "??" as Code & Sentence
+            const expectedCodes = "¿¿幸??" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
-
-        // TODO: FEATURE IMPROVE, READY TO GO: DEAL WITH UNRECOGNIZED CODES NOW THAT WE HAVE ASCII GLYPHS
-        //  Unrecognized codes now need some special treatment
-        //  See: https://forum.sagittal.org/viewtopic.php?p=3640#p3640
-        //  And: https://forum.sagittal.org/viewtopic.php?p=3640#p3640
 
         it("accepts unrecognized codes in other reasonable formats", async (): Promise<void> => {
             expect(computeInputSentenceUnicode("U+5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
@@ -409,7 +403,7 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "𝄋" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "??" as Code & Sentence
+            const expectedCodes = "¿¿𝄋??" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 

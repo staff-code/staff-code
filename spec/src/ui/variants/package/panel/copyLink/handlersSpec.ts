@@ -40,7 +40,7 @@ describe("handleCopyLinkClick", (): void => {
         expect(components.display.textContent).toBe(BLANK)
         handleCopyLinkClick()
 
-        expect(components.display.textContent).toBe("lalala  ")
+        expect(components.display.textContent).toBe("l  a l  a l  a   ")
     })
 
     it("sets the user's clipboard to a link to the web app with all the current configuration ready to initialize it                    ", (): void => {

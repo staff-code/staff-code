@@ -1,12 +1,15 @@
-import {Io, isUndefined, Word} from "@sagittal/general"
+import {Char, Io, isUndefined, SPACE, splitWord, sumTexts, Word} from "@sagittal/general"
 import {caseDesensitize} from "./case"
 import {Code, computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
 import {
+    computeAdvanceUnicode,
+    computeUnicodeWidth,
     getUnicodeGivenClefAndPosition,
     isCommandifiedStaffUnicode,
     isManualAdvanceUnicode,
     isPositionUnicode,
+    smarts,
 } from "./smarts"
 
 const shouldNotBeDisplayed = (unicode: Unicode & Word): boolean =>
@@ -19,8 +22,26 @@ const computeMaybeNotDisplayedUnicode = (unicode: Unicode & Word): Unicode & Wor
         EMPTY_UNICODE as Unicode & Word :
         unicode
 
-const computeUnrecognizedUnicode = (input: Io & Word): Unicode & Word =>
-    `${input} ` as Unicode & Word // The space is important to separate multiple unrecognized codes in a row.
+const computeUnrecognizedUnicode = (input: Io & Word): Unicode & Word => {
+    const staveOn = smarts.staveOn
+    smarts.staveOn = false
+
+    let unicodeWord = "" as Unicode & Word
+    splitWord(input).forEach((char: Io & Char): void => {
+        const charFallenBackAsUnicodeWord = char as string as Unicode & Word
+        unicodeWord = sumTexts(
+            unicodeWord,
+            charFallenBackAsUnicodeWord,
+            computeAdvanceUnicode(computeUnicodeWidth(charFallenBackAsUnicodeWord)) as Unicode as Unicode & Word,
+        )
+    })
+
+    smarts.staveOn = staveOn
+
+    unicodeWord = sumTexts(unicodeWord, SPACE as Unicode & Word) // To separate multiple unrecognized codes in a row.
+
+    return unicodeWord
+}
 
 const getUnicode = (input: Io & Word): Unicode & Word => {
     const caseDesensitizedCode = caseDesensitize(input as Code & Word)
