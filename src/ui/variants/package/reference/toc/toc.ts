@@ -14,7 +14,7 @@ const buildTocWrapper = (): HTMLDivElement => {
 
     const toc = document.createElement("ul")
     tocWrapper.appendChild(toc)
-    components.toc = toc
+    components.referenceToc = toc
 
     return tocWrapper
 }

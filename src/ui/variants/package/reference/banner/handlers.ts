@@ -12,12 +12,12 @@ const handleReferenceExpanderClick = async (): Promise<void> => {
     if (isReferenceOpen()) {
         closeReference()
         setStaffCodeCookie(Initial.REFERENCE_OPEN, "false")
-        referenceBanner.style.borderBottom = STANDARD_BORDER
+        referenceBanner!.style.borderBottom = STANDARD_BORDER
     } else {
         openReference()
         setStaffCodeCookie(Initial.REFERENCE_OPEN, "true")
-        referenceWrapper.style.cursor = "progress"
-        referenceExpander.style.cursor = "progress"
+        referenceWrapper!.style.cursor = "progress"
+        referenceExpander!.style.cursor = "progress"
         shouldRemoveBannerBorderAfterReferenceLoads = true
     }
 
@@ -25,21 +25,21 @@ const handleReferenceExpanderClick = async (): Promise<void> => {
         await import("../reference")
 
     if (shouldRemoveBannerBorderAfterReferenceLoads) {
-        referenceBanner.style.borderBottom = "none"
+        referenceBanner!.style.borderBottom = "none"
     }
 
     if (!isUndefined(components.reference)) {
-        referenceWrapper.style.cursor = "auto"
-        referenceExpander.style.cursor = "pointer"
+        referenceWrapper!.style.cursor = "auto"
+        referenceExpander!.style.cursor = "pointer"
 
         return
     }
 
     const reference = buildReference()
-    referenceWrapper.appendChild(reference)
+    referenceWrapper!.appendChild(reference)
 
-    referenceWrapper.style.cursor = "auto"
-    referenceExpander.style.cursor = "pointer"
+    referenceWrapper!.style.cursor = "auto"
+    referenceExpander!.style.cursor = "pointer"
 }
 
 export {

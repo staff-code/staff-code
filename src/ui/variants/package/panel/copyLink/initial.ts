@@ -9,6 +9,7 @@ import {components} from "../../globals"
 import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "../../human"
 import {isReferenceOpen} from "../../reference"
 import {Initial} from "../../types"
+import {getLine, getSize} from "../spinners"
 
 const DEFAULT_CODES_AS_PARAM = encodeURIComponent(
     prepareCodesToBeHumanReadableAsEncodedQueryParams(DEFAULT_INITIAL_CODES),
@@ -28,21 +29,21 @@ const computeInitialCodesParam = (): string => {
         `&${Initial.CODES}=${encodedCodes}`
 }
 
-const computeInitialSizeParam = (): string =>
-    (
-        !components.sizeSpinner
-        || components.sizeSpinner.value === JSON.stringify(DEFAULT_INITIAL_SIZE)
-    ) ?
-        BLANK :
-        `&${Initial.SIZE}=${components.sizeSpinner.value}`
+const computeInitialSizeParam = (): string => {
+    const size = getSize()
 
-const computeInitialLineParam = (): string =>
-    (
-        !components.lineSpinner
-        || components.lineSpinner.value === JSON.stringify(DEFAULT_INITIAL_LINE)
-    ) ?
+    return size === DEFAULT_INITIAL_SIZE ?
         BLANK :
-        `&${Initial.LINE}=${components.lineSpinner.value}`
+        `&${Initial.SIZE}=${size}`
+}
+
+const computeInitialLineParam = (): string => {
+    const line = getLine()
+
+    return line === DEFAULT_INITIAL_LINE ?
+        BLANK :
+        `&${Initial.LINE}=${line}`
+}
 
 const computeInitialReferenceOpenParam = (): string =>
     (
@@ -63,7 +64,7 @@ const computeInitialParams = (): string => {
         && initialLineParam === BLANK
         && initialReferenceOpenParam === BLANK
         && initialCodesParam === BLANK
-    )?
+    ) ?
         BLANK :
         `?${initialSizeParam}${initialLineParam}${initialReferenceOpenParam}${initialCodesParam}`.replace("&", BLANK)
 }

@@ -3,6 +3,7 @@ import {WEB_APP_URL} from "../../../../../../../src/ui/constants"
 import {components} from "../../../../../../../src/ui/variants/package/globals"
 import {handleCopyLinkClick} from "../../../../../../../src/ui/variants/package/panel/copyLink/handlers"
 import {mockDom} from "../../../../../../helpers/mockDom"
+import {setupBasicStaffCode} from "../../../../../../helpers/src/ui/variants/package/setup"
 
 describe("handleCopyLinkClick", (): void => {
     let writeTextSpy: jasmine.Spy
@@ -10,15 +11,7 @@ describe("handleCopyLinkClick", (): void => {
     const setupForHandleCopyLinkClick = ({url}: {url?: Link} = {}): void => {
         mockDom({url})
 
-        components.root = document.createElement("span")
-
-        components.input = document.createElement("textarea")
-        components.input.classList.add("sc-input")
-        components.root.appendChild(components.input)
-
-        components.display = document.createElement("div")
-        components.display.classList.add("sc-display")
-        components.root.appendChild(components.display)
+        setupBasicStaffCode()
 
         writeTextSpy = jasmine.createSpy()
         navigator.clipboard.writeText = writeTextSpy
@@ -33,9 +26,9 @@ describe("handleCopyLinkClick", (): void => {
 
         handleCopyLinkClick()
 
-        expect(components.copyLinkMessage.classList.contains("active")).toBeTruthy()
+        expect(components.copyLinkMessage!.classList.contains("active")).toBeTruthy()
         setTimeout((): void => {
-            expect(components.copyLinkMessage.classList.contains("active")).toBeFalsy()
+            expect(components.copyLinkMessage!.classList.contains("active")).toBeFalsy()
             done()
         }, 3100)
     })
