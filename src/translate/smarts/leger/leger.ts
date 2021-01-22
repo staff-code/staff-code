@@ -1,13 +1,6 @@
 import {Word} from "@sagittal/general"
-import {Code, computeUnicodeForCode, Unicode} from "../../codes"
+import {CASE_DESENSITIZED_CODE_MAP, Code, computeUnicodeForCode, Unicode} from "../../codes"
 import {computeUnicodeWidth} from "../horizontal"
-import {
-    MEDIUM_LEGER_LINE_UNICODE,
-    MEDIUM_LEGER_LINE_WIDTH,
-    NARROW_LEGER_LINE_UNICODE,
-    NARROW_LEGER_LINE_WIDTH,
-    WIDE_LEGER_LINE_UNICODE,
-} from "./constants"
 
 const EXCEPTION_LEGER_LINE_WIDTHS = {
     [computeUnicodeForCode("nt8up" as Code & Word)]: 11,
@@ -29,9 +22,9 @@ const computeLegerLineUnicode = (unicode: Unicode & Word): Unicode & Word => {
     const maybeExceptionLegerLineWidth = EXCEPTION_LEGER_LINE_WIDTHS[unicode]
     const width = maybeExceptionLegerLineWidth || computeUnicodeWidth(unicode, {spacing: false})
 
-    if (width > MEDIUM_LEGER_LINE_WIDTH) return WIDE_LEGER_LINE_UNICODE
-    if (width > NARROW_LEGER_LINE_WIDTH) return MEDIUM_LEGER_LINE_UNICODE
-    return NARROW_LEGER_LINE_UNICODE
+    if (width > 48) throw new Error(`No leger line is defined for a width > 48; this width was ${width}.`)
+
+    return CASE_DESENSITIZED_CODE_MAP[`lgln${width}`]
 }
 
 export {

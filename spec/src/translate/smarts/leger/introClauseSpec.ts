@@ -13,7 +13,7 @@ describe("computeSmartLegerUnicodeIntroClause", (): void => {
         smarts.pitchOrPosition = PitchOrPosition.PITCH
         const actual = computeSmartLegerUnicodeIntroClause(unicode)
 
-        const expected = ""
+        const expected = ""
         expect(actual).toBe(expected)
     })
 })

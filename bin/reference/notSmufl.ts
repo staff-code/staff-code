@@ -47,11 +47,20 @@ const COMMANDS_SECTION: Section = [
     ] as ReferenceRow[],
 ] as Section
 
-//  TODO: FEATURE IMPROVE, READY TO GO: REFERENCE TABLE RE-ORDER
-//   I note that to be consistent with the new Bravura Text SC font,
-//   We need to swap the order of the last two tables,
-//   Because I've put the 48 new leger lines from F3C0 to F3EF,
-//   And the 15 new CSPs from F3F0 to F3FE.
+const LEGER_LINES_SUPPLEMENT_SECTION: Section = [
+    LEGER_LINES_SUPPLEMENT_SECTION_ID,
+    "Leger lines supplement" as Name<Section>,
+    NOT_SMUFL,
+    "" as Link,
+    `SMuFL does not have suitable leger lines for all note and notehead symbols, so StaffCode adds the following. StaffCode will generate them automatically following <span>ston</span> (<u>st</u>aff <u>on</u>).` as Explanation,
+    [
+        ["", "lgln1", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e for <u>1</u> octal wide noteheads"],
+        ["", "lgln2", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e for <u>2</u> octal wide noteheads"],
+        ["", "lgln3", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e for <u>3</u> octal wide noteheads"],
+        ["", "...", "..."],
+        ["", "lgln48", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e for <u>48</u> octal wide noteheads"],
+    ] as ReferenceRow[],
+]
 
 const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION: Section = [
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
@@ -75,34 +84,6 @@ const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION: Section = [
         ["", "dn13", "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>13</u>"],
         ["", "dn14", "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>14</u>"],
         ["", "dn15", "<u>st</u>aff <u>p</u>o<u>s</u> <u>l</u>owe<u>r</u> <u>15</u>"],
-    ] as ReferenceRow[],
-]
-
-// TODO: FEATURE IMPROVE, READY TO GO: LEGER LINE REFERENCE TABLE UPDATES
-//  Feel free to elide the table of leger lines down to the rows for lgln1, lgln2, lgln3 ... lgln48,
-//  Since no one ever needs to insert these codes.
-//  And please change the mnemonics from "[u]l[/u]e[u]g[/u]er [u]l[/u]i[u]n[/u]e [u]<n>[/u] octals" to
-//  "[u]l[/u]e[u]g[/u]er [u]l[/u]i[u]n[/u]e for [u]<n>[/u] octal wide noteheads".
-
-const LEGER_LINES_SUPPLEMENT_SECTION: Section = [
-    LEGER_LINES_SUPPLEMENT_SECTION_ID,
-    "Leger lines supplement" as Name<Section>,
-    NOT_SMUFL,
-    "" as Link,
-    `SMuFL does not have suitable leger lines for all note and notehead symbols, so StaffCode adds the following. StaffCode will generate them automatically following <span>ston</span> (<u>st</u>aff <u>on</u>).` as Explanation,
-    [
-        ["", "lgln8", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>8</u> octals"],
-        ["", "lgln10", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>10</u> octals"],
-        ["", "lgln12", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>12</u> octals"],
-        ["", "lgln14", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>14</u> octals"],
-        ["", "lgln16", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>16</u> octals"],
-        ["", "lgln18", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>18</u> octals"],
-        ["", "lgln20", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>20</u> octals"],
-        ["", "lgln22", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>22</u> octals"],
-        ["", "lgln24", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>24</u> octals"],
-        ["", "lgln28", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>28</u> octals"],
-        ["", "lgln34", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>34</u> octals"],
-        ["", "lgln40", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e <u>40</u> octals"],
     ] as ReferenceRow[],
 ]
 

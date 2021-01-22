@@ -28,8 +28,8 @@ const generateSmuflReference = (): void => {
         return [sectionId, sectionName, parenthetical, sectionLink, explanation, sectionData]
     })
     sections.unshift(COMMANDS_SECTION)
-    sections.push(COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION)
     sections.push(LEGER_LINES_SUPPLEMENT_SECTION)
+    sections.push(COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION)
 
     fs.writeFileSync(
         "src/ui/variants/package/reference/reference.json",

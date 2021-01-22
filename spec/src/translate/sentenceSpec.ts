@@ -188,16 +188,6 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
-
-        it("ignores leger line supplements for now", async (): Promise<void> => {
-            const inputSentence = "lgln8" as Io & Sentence
-
-            const actual = computeInputSentenceUnicode(inputSentence)
-
-            expect(actual).toBe(EMPTY_UNICODE)
-            expect(debugCodeSentence(actual)).toBe(BLANK)
-            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
-        })
     })
 
     describe("*** Smart Clef ***", (): void => {
@@ -715,9 +705,9 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "    " as Unicode & Sentence
+            const expectedUnicode = "    " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "up6 /|\\ st16 13; up6 lgln up6 ntqrdn 3; st8 8;" as Code & Sentence
+            const expectedCodes = "up6 /|\\ st16 13; up6 lgln11 up6 ntqrdn 3; st8 8;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -727,9 +717,9 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "　" as Unicode & Sentence
+            const expectedUnicode = "　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "up6 lgln up7 ntqrdn st16 16;" as Code & Sentence
+            const expectedCodes = "up6 lgln11 up7 ntqrdn st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -739,9 +729,9 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "　" as Unicode & Sentence
+            const expectedUnicode = "　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "dn8 lgln dn6 lgln dn8 ntqrup st16 16;" as Code & Sentence
+            const expectedCodes = "dn8 lgln11 dn6 lgln11 dn8 ntqrup st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -751,52 +741,53 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "    " as Unicode & Sentence
+            const expectedUnicode = "    " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "st8 dn6 ntqrup st16 13; dn6 lgln dn6 ntqrup 3; st8 8;" as Code & Sentence
+            const expectedCodes = "st8 dn6 ntqrup st16 13; dn6 lgln11 dn6 ntqrup 3; st8 8;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
-        it("provides leger lines of the smallest size which is wider than the glyph they are for", async (): Promise<void> => {
+        it("provides leger lines of the smallest size which is wider than the glyph they are for, up to 48", async (): Promise<void> => {
             let actual
             let expectedUnicode
             let expectedCodes
 
-            // Width 6; gets leger line with width 7
+            // Width 6; gets lgln6
             actual = computeInputSentenceUnicode("ston A5 nhslvrensm" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "up6 lglnnr up6 nhslvrensm st8 8;"
+            expectedCodes = "up6 lgln6 up6 nhslvrensm st8 8;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
-            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "lglnnr")
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "lgln6")
 
-            // Width 11; gets leger line with width 13
+            // Width 11; gets lgln11
             actual = computeInputSentenceUnicode("ston A5 nt8dn" as Io & Sentence)
-            expectedUnicode = "　" as Unicode & Sentence
+            expectedUnicode = "　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "up6 lgln up6 nt8dn st16 16;"
+            expectedCodes = "up6 lgln11 up6 nt8dn st16 16;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
-            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "lgln")
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "lgln11")
 
-            // Width 19; gets leger line with width 20 (note that leger line width is not factored into smart advance)
+            // Width 15; gets lgln15 (note that leger line width is not factored into smart advance)
             actual = computeInputSentenceUnicode("ston A5 ntshqrmndbwh" as Io & Sentence)
-            expectedUnicode = "　" as Unicode & Sentence
+            expectedUnicode = "　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "up6 lglnwd up6 ntshqrmndbwh st16 16;"
+            expectedCodes = "up6 lgln15 up6 ntshqrmndbwh st16 16;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
-            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "lglnwd")
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "lglnwd15")
 
-            // Width 21; gets leger line with width 20, because that's as wide as we can go
+            // Width 21; gets lgln21
             actual = computeInputSentenceUnicode("ston A5 ntdbwh" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "up6 lglnwd up6 ntdbwh st24 24;"
+            expectedCodes = "up6 lgln21 up6 ntdbwh st24 24;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
-            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "beyond lglnwd")
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "lglnwd21")
         })
 
-        /* makes exceptions for upward notes with flags,
+        /*
+        makes exceptions for upward notes with flags,
         since their flags contribute to width which is irrelevant to the leger line
         (because the stem is on the right, and flags always go to the right,
         so that width is not part of the notehead, which the leger line is really for),
@@ -810,58 +801,58 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             //  has width 11, so it should receive a 13-wide medium leger line
 
             actual = computeInputSentenceUnicode("ston C4 nt8up" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "dn6 lgln dn6 nt8up st24 24;"
+            expectedCodes = "dn6 lgln11 dn6 nt8up st24 24;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "nt8up")
 
             actual = computeInputSentenceUnicode("ston C4 nt16up" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "dn6 lgln dn6 nt16up st24 24;"
+            expectedCodes = "dn6 lgln11 dn6 nt16up st24 24;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "nt16up")
 
             actual = computeInputSentenceUnicode("ston C4 nt32up" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "dn6 lgln dn6 nt32up st24 24;"
+            expectedCodes = "dn6 lgln11 dn6 nt32up st24 24;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "nt32up")
 
             actual = computeInputSentenceUnicode("ston C4 nt64up" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "dn6 lgln dn6 nt64up st24 24;"
+            expectedCodes = "dn6 lgln11 dn6 nt64up st24 24;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "nt64up")
 
             actual = computeInputSentenceUnicode("ston C4 nt128up" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "dn6 lgln dn6 nt128up st24 24;"
+            expectedCodes = "dn6 lgln11 dn6 nt128up st24 24;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "nt128up")
 
             actual = computeInputSentenceUnicode("ston C4 nt256up" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "dn6 lgln dn6 nt256up st24 24;"
+            expectedCodes = "dn6 lgln11 dn6 nt256up st24 24;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "nt256up")
 
             actual = computeInputSentenceUnicode("ston C4 nt512up" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "dn6 lgln dn6 nt512up st24 24;"
+            expectedCodes = "dn6 lgln11 dn6 nt512up st24 24;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "nt512up")
 
             actual = computeInputSentenceUnicode("ston C4 nt1024up" as Io & Sentence)
-            expectedUnicode = "  " as Unicode & Sentence
+            expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "dn6 lgln dn6 nt1024up st24 24;"
+            expectedCodes = "dn6 lgln11 dn6 nt1024up st24 24;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "nt1024up")
         })
