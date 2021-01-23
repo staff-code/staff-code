@@ -1,5 +1,7 @@
-import {Word} from "@sagittal/general"
-import {Code, computeUnicodeForCode} from "../../codes"
+import {Clause, Word} from "@sagittal/general"
+import {Code, computeUnicodeForCode, Unicode} from "../../codes"
+import {smarts} from "../globals"
+import {computeEndOfLineUnicodeClauseAndUpdateSmarts} from "./endOfLine"
 
 const LINES_1_STAVE_UNICODES = [
     computeUnicodeForCode("st1lnnr" as Code & Word),
@@ -42,6 +44,13 @@ const PLAINCHANT_STAVE_UNICODES = [
     computeUnicodeForCode("chstwd" as Code & Word),
 ]
 
+const computeSmartStaveOffUnicodeClauseAndUpdateSmarts = (): Unicode & Clause => {
+    const unicodeClause = computeEndOfLineUnicodeClauseAndUpdateSmarts()
+    smarts.staveOn = false
+
+    return unicodeClause
+}
+
 export {
     LINES_1_STAVE_UNICODES,
     LINES_2_STAVE_UNICODES,
@@ -51,4 +60,5 @@ export {
     LINES_6_STAVE_UNICODES,
     LUTE_STAVE_UNICODES,
     PLAINCHANT_STAVE_UNICODES,
+    computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
 }

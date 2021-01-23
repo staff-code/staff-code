@@ -4,7 +4,7 @@ import {Code, computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, Unicode} from 
 import {EMPTY_UNICODE} from "./constants"
 import {
     computeAdvanceUnicode,
-    computeEndOfLineUnicodeClauseAndUpdateSmarts,
+    computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
     computeUnicodeWidth,
     getUnicodeGivenClefAndPosition,
     isCommandifiedStaffUnicode,
@@ -24,10 +24,9 @@ const computeMaybeNotDisplayedUnicode = (unicode: Unicode & Word): Unicode & Wor
         unicode
 
 const computeUnrecognizedUnicode = (input: Io & Word): Unicode & Word => {
-    let unicodeWord = computeEndOfLineUnicodeClauseAndUpdateSmarts() as Unicode as Unicode & Word
-
     const staveOn = smarts.staveOn
-    smarts.staveOn = false
+
+    let unicodeWord = computeSmartStaveOffUnicodeClauseAndUpdateSmarts() as Unicode as Unicode & Word
 
     splitWord(input).forEach((char: Io & Char): void => {
         const charFallenBackAsUnicodeWord = char as string as Unicode & Word
