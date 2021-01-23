@@ -1,8 +1,6 @@
-import {doOnNextEventLoop, Ms} from "@sagittal/general"
-import {transferInputToDisplay} from "../../../../transfer"
 import {components, staffCodeConfig} from "../../globals"
 import {buildStaffCodeCallback} from "./callback"
-import {handleKeydown, handleKeyup} from "./handlers"
+import {handleInput, handleKeydown, handleKeyup} from "./handlers"
 
 const buildPackageInput = (): HTMLDivElement => {
     const {initial: {codes: initialCodes}, ui: {interactive}} = staffCodeConfig
@@ -28,16 +26,7 @@ const buildPackageInput = (): HTMLDivElement => {
 
         input.addEventListener("keydown", handleKeydown)
         input.addEventListener("keyup", handleKeyup)
-        input.addEventListener("paste", (): void => {
-            doOnNextEventLoop((): void => {
-                transferInputToDisplay(components.root, staffCodeConfig.callback)
-            }, 100 as Ms).then()
-        })
-        input.addEventListener("cut", (): void => {
-            doOnNextEventLoop((): void => {
-                transferInputToDisplay(components.root, staffCodeConfig.callback)
-            }, 100 as Ms).then()
-        })
+        input.addEventListener("input", handleInput)
 
         input.selectionStart = input.value.length
         input.selectionEnd = input.value.length

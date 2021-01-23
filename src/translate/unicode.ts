@@ -22,6 +22,9 @@ const computeMaybeNotDisplayedUnicode = (unicode: Unicode & Word): Unicode & Wor
         EMPTY_UNICODE as Unicode & Word :
         unicode
 
+// TODO: BUG, READY TO GO: UNRECOGNIZED CODES MESS WITH SMART STAVE
+//  See: https://forum.sagittal.org/viewtopic.php?p=3654#p3654
+
 const computeUnrecognizedUnicode = (input: Io & Word): Unicode & Word => {
     const staveOn = smarts.staveOn
     smarts.staveOn = false
