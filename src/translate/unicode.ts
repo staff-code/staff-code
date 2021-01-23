@@ -1,11 +1,10 @@
 import {Char, Io, isUndefined, SPACE, splitWord, sumTexts, Word} from "@sagittal/general"
 import {caseDesensitize} from "./case"
-import {Code, computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, Octals, Unicode} from "./codes"
+import {Code, computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
 import {
     computeAdvanceUnicode,
-    computeEndOfLineWidth,
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
+    computeEndOfLineUnicodeClauseAndUpdateSmarts,
     computeUnicodeWidth,
     getUnicodeGivenClefAndPosition,
     isCommandifiedStaffUnicode,
@@ -25,11 +24,7 @@ const computeMaybeNotDisplayedUnicode = (unicode: Unicode & Word): Unicode & Wor
         unicode
 
 const computeUnrecognizedUnicode = (input: Io & Word): Unicode & Word => {
-    let unicodeWord =
-        computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-            computeEndOfLineWidth(),
-        ) as Unicode as Unicode & Word
-    smarts.staveWidth = 0 as Octals
+    let unicodeWord = computeEndOfLineUnicodeClauseAndUpdateSmarts() as Unicode as Unicode & Word
 
     const staveOn = smarts.staveOn
     smarts.staveOn = false

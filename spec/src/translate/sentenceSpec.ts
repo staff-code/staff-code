@@ -376,6 +376,14 @@ describe("computeInputSentenceUnicode", (): void => {
         //  It's not all for naught, though, because you could keep the visual regression tests as tests of the SVG
         //  Generation, just a few of them I mean.
         //  - In which case you turn test randomization back on in Jasmine config
+        //  Examples for visual test
+        //  - multiline
+        //  - leger overhang left (using a "2;" as the solution)
+        //  - double barline at the end
+        //  - small line height
+        //  Maybe I should redesign them so there's a perma folder
+        //  And it renders them to a tmp folder
+        //  Compares, and fails if they change. snapshot tests basically
 
         it("gives a default width of 0 to unrecognized codes (given as unicode literals)", async (): Promise<void> => {
             const inputSentence = "U+5E78" as Io & Sentence
@@ -905,9 +913,9 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = " n t ; n t ; 　" as Unicode & Sentence
+            const expectedUnicode = "　n t ; n t ; 　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "ntqrdn st16 13; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ntqrdn st16 16;" as Code & Sentence
+            const expectedCodes = "ntqrdn st16 16; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ntqrdn st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -919,12 +927,18 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const expectedUnicode = " n t ; n t ;  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            // TODO: BUG, READY TO GO: STOF MODE SHOULD LOOK THE SAME AS STON, JUST W/O STAVES
+            // TODO: BUG, BLOCKED: STOF MODE SHOULD LOOK THE SAME AS STON, JUST W/O STAVES?
             //  I think this first thing should be a 16;
             //  B/C of how removing ston should just rip it out like a tablecloth keeping everything in its place.
+            //  - there should also probably be a test that captures how stof could have triggered this problem too
+            //  Blocked because waiting on Dave's thoughts
             const expectedCodes = "ntqrdn 13; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ntqrdn 13;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
+
+        // TODO: BUG, READY TO GO: DISAPPEARING UNRECOGNIZED CODES
+        //  A test for the fnord issue, the every-other unrecognized code
+        //  Disappearing is still an issue it seems, in some way shape or form
     })
 })

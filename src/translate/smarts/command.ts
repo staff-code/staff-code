@@ -46,6 +46,8 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_ON_COMMAND_CODE)) {
         smarts.staveOn = true
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_OFF_COMMAND_CODE)) {
+        // TODO: CLEAN, READY TO GO: FUNCTIONS PER COMMAND
+        //  I could actually factor out a stof function to save a line (the one below) in the unrecognized code function
         commandUnicodeClause = computeEndOfLineUnicodeClauseAndUpdateSmarts()
         smarts.staveOn = false
     } else if (isSpacingCommandCode(caseDesensitizedCode)) {

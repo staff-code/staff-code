@@ -15,7 +15,7 @@ import {Octals, Unicode} from "./codes"
 import {
     collapseAdvances,
     computeAdvanceUnicode,
-    computeEndOfLineUnicodeClauseAndUpdateSmarts, computeUnicodeWidth,
+    computeEndOfLineUnicodeClauseAndUpdateSmarts,
     INITIAL_SMARTS,
     smarts,
 } from "./smarts"
