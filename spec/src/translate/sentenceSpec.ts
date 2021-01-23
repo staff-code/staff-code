@@ -73,9 +73,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "   　\n " as Unicode & Sentence
+        const expectedUnicode = "   　\n " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; br; sp" as Code & Sentence
+        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; br; 1;" as Code & Sentence
         expect(debugCodeSentence(actual)).toBe(expectedCodes)
         await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
     })
@@ -97,10 +97,11 @@ describe("computeInputSentenceUnicode", (): void => {
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "d o n '  t  k n o w　 w　h a t  i  '  m   d o i  n g  " as Unicode & Sentence
+        const expectedUnicode = "d o n '  t　k n o w  w　h a t　i  '  m  d o i  n g  " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "¿¿d?? 12; ¿¿o?? 11; ¿¿n?? 13; ¿¿'?? 6; ¿¿t?? 9; sp ¿¿k?? 13; ¿¿n?? 13; ¿¿o?? 11; ¿¿w?? 16; sp ¿¿w?? 16; ¿¿h?? 13; ¿¿a?? 12; ¿¿t?? 9; sp ¿¿i?? 8; ¿¿'?? 6; ¿¿m?? 18; sp ¿¿d?? 12; ¿¿o?? 11; ¿¿i?? 8; ¿¿n?? 13; ¿¿g?? 12; sp" as Code & Sentence
+        const expectedCodes = "¿¿d?? 12; ¿¿o?? 11; ¿¿n?? 13; ¿¿'?? 6; ¿¿t?? 16; ¿¿k?? 13; ¿¿n?? 13; ¿¿o?? 11; ¿¿w?? 23; ¿¿w?? 16; ¿¿h?? 13; ¿¿a?? 12; ¿¿t?? 16; ¿¿i?? 8; ¿¿'?? 6; ¿¿m?? 25; ¿¿d?? 12; ¿¿o?? 11; ¿¿i?? 8; ¿¿n?? 13; ¿¿g?? 19;" as Code & Sentence
         expect(debugCodeSentence(actual)).toBe(expectedCodes)
+        await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
     })
 
     it("still supports codes with curlies, despite those being comment chars, and can even include them inside of comments as long as they aren't the first or last characters of a whitespace-separated word", async (): Promise<void> => {
@@ -895,6 +896,33 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             const expectedUnicode = "      " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "nt8up st24 20; ntqrdn 4; st8 8;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
+
+        it("when smart stave is on, and a code is unrecognized, it first finishes the smart stave, and then for that final space (the one for separating it from other unrecognized codes, but nice to have regardless) it turns smart stave back on, to ensure the next code appears on top of stave", async (): Promise<void> => {
+            const inputSentence = "ston nt ; nt; nt; nt ;" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = " n t ; n t ; 　" as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "ntqrdn st16 13; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ntqrdn st16 16;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
+
+        it("when smart stave is off, and a code is unrecognized, it behaves otherwise the same, with the same amount of spacing that is, but just no stave", async (): Promise<void> => {
+            const inputSentence = "nt ; nt; nt; nt ;" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = " n t ; n t ;  " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            // TODO: BUG, READY TO GO: STOF MODE SHOULD LOOK THE SAME AS STON, JUST W/O STAVES
+            //  I think this first thing should be a 16;
+            //  B/C of how removing ston should just rip it out like a tablecloth keeping everything in its place.
+            const expectedCodes = "ntqrdn 13; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ntqrdn 13;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })

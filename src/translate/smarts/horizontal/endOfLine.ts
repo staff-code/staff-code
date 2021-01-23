@@ -11,6 +11,8 @@ const computeEndOfLineWidth = (): Octals => {
 
 const computeEndOfLineUnicodeClauseAndUpdateSmarts = (): Unicode & Clause =>
     sumTexts(
+        // TODO: CLEAN, READY TO GO: COMMENT OR NAMED FUNCTION THESE END-OF-LINE THINGS
+        //  Because I cannot figure out why the hell they have to be this way now...
         computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
             computeEndOfLineWidth(),
         ),
@@ -21,4 +23,5 @@ const computeEndOfLineUnicodeClauseAndUpdateSmarts = (): Unicode & Clause =>
 
 export {
     computeEndOfLineUnicodeClauseAndUpdateSmarts,
+    computeEndOfLineWidth,
 }

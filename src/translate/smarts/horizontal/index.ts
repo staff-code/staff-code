@@ -4,7 +4,7 @@ export {computeUnicodeWidth} from "./width"
 export {computeAdvanceUnicode} from "./unicode"
 export {SmartStave} from "./types"
 export {collapseAdvances} from "./collapse"
-export {computeEndOfLineUnicodeClauseAndUpdateSmarts} from "./endOfLine"
+export {computeEndOfLineUnicodeClauseAndUpdateSmarts, computeEndOfLineWidth} from "./endOfLine"
 export {
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
 } from "./advanceOrBreak"

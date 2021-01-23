@@ -5,9 +5,6 @@ import {Code, Unicode} from "./types"
 import {computeUnicodeForCode} from "./unicode"
 
 const DEBUGGING_ONLY_ALIASES_MAP = {
-    // Space
-    "sp": " ",
-
     // Default staff type, by length, for easier arithmetic deciphering of test results
     "st8": computeUnicodeForCode("st5lnnr" as Code & Word),
     "st16": computeUnicodeForCode("st5ln" as Code & Word),

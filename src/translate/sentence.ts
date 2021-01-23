@@ -1,6 +1,7 @@
 import {
     BLANK,
     Clause,
+    extendSentence,
     finalChar,
     Io,
     NEWLINE,
@@ -10,8 +11,14 @@ import {
     sumTexts,
     Word,
 } from "@sagittal/general"
-import {Unicode} from "./codes"
-import {collapseAdvances, computeEndOfLineUnicodeClauseAndUpdateSmarts, INITIAL_SMARTS, smarts} from "./smarts"
+import {Octals, Unicode} from "./codes"
+import {
+    collapseAdvances,
+    computeAdvanceUnicode,
+    computeEndOfLineUnicodeClauseAndUpdateSmarts, computeUnicodeWidth,
+    INITIAL_SMARTS,
+    smarts,
+} from "./smarts"
 import {computeInputUnicodeClause} from "./word"
 
 const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io & Sentence =>
@@ -22,7 +29,7 @@ const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io 
 
 const ensureLineBreaksImmediatelyDisplay = (unicodeSentence: Unicode & Sentence): Unicode & Sentence =>
     finalChar(unicodeSentence) === NEWLINE ?
-        `${unicodeSentence} ` as Unicode & Sentence :
+        extendSentence(unicodeSentence, computeAdvanceUnicode(1 as Octals)) as Unicode & Sentence :
         unicodeSentence
 
 const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Sentence => {

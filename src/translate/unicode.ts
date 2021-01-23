@@ -1,9 +1,11 @@
 import {Char, Io, isUndefined, SPACE, splitWord, sumTexts, Word} from "@sagittal/general"
 import {caseDesensitize} from "./case"
-import {Code, computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, Unicode} from "./codes"
+import {Code, computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, Octals, Unicode} from "./codes"
 import {EMPTY_UNICODE} from "./constants"
 import {
     computeAdvanceUnicode,
+    computeEndOfLineWidth,
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
     computeUnicodeWidth,
     getUnicodeGivenClefAndPosition,
     isCommandifiedStaffUnicode,
@@ -22,14 +24,16 @@ const computeMaybeNotDisplayedUnicode = (unicode: Unicode & Word): Unicode & Wor
         EMPTY_UNICODE as Unicode & Word :
         unicode
 
-// TODO: BUG, READY TO GO: UNRECOGNIZED CODES MESS WITH SMART STAVE
-//  See: https://forum.sagittal.org/viewtopic.php?p=3654#p3654
-
 const computeUnrecognizedUnicode = (input: Io & Word): Unicode & Word => {
+    let unicodeWord =
+        computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+            computeEndOfLineWidth(),
+        ) as Unicode as Unicode & Word
+    smarts.staveWidth = 0 as Octals
+
     const staveOn = smarts.staveOn
     smarts.staveOn = false
 
-    let unicodeWord = "" as Unicode & Word
     splitWord(input).forEach((char: Io & Char): void => {
         const charFallenBackAsUnicodeWord = char as string as Unicode & Word
         unicodeWord = sumTexts(
@@ -39,9 +43,11 @@ const computeUnrecognizedUnicode = (input: Io & Word): Unicode & Word => {
         )
     })
 
+    unicodeWord = sumTexts( // To separate multiple unrecognized codes in a row, and ensure next glyph on stave if on.
+        unicodeWord,
+        computeAdvanceUnicode(computeUnicodeWidth(SPACE as Unicode & Word)) as Unicode as Unicode & Word,
+    )
     smarts.staveOn = staveOn
-
-    unicodeWord = sumTexts(unicodeWord, SPACE as Unicode & Word) // To separate multiple unrecognized codes in a row.
 
     return unicodeWord
 }

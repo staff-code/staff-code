@@ -20,6 +20,10 @@ const shouldPressedKeyTriggerTransfer = (): boolean =>
 const isCursorNotAtEndOfInput = (): boolean =>
     components.input.selectionStart < components.input.value.length
 
+// TODO: BUG, READY TO GO: INPUT HANDLER ISSUES
+//  - I think pasting over the entire thing is not triggering it for some reason
+//  - I also think it won't trigger if it happens to be the same length
+
 const shouldTransfer = (): boolean =>
     isChangeGreaterThanOneChar()
     || shouldPressedKeyTriggerTransfer()
