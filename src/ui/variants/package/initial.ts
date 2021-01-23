@@ -10,14 +10,11 @@ import {
 import {undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {EncodedCode, Initial} from "./types"
 
-// TODO: FEATURE IMPROVE, READY TO GO: DEAL WITH SOON-REJECTED COOKIE CODE
-//  See: https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite
-
 const setStaffCodeCookie = (name: Initial, value: string): void => {
     const date = new Date()
     date.setDate(date.getDate() + 7)
 
-    document.cookie = `staffcode_${name}=${(encodeURIComponent(value) || BLANK)}; expires=${date.toUTCString()}; path=/`
+    document.cookie = `staffcode_${name}=${(encodeURIComponent(value) || BLANK)}; expires=${date.toUTCString()}; SameSite=Strict; path=/`
 }
 
 const getStaffCodeCookie = (name: Initial): Maybe<string> => {
