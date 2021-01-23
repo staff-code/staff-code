@@ -1,17 +1,28 @@
-import {abs, doOnNextEventLoop, Maybe, Ms} from "@sagittal/general"
+import {abs, Char, doOnNextEventLoop, Io, isUndefined, Maybe, Ms, Sentence} from "@sagittal/general"
 import {transferInputToDisplay} from "../../../../transfer"
 import {components, staffCodeConfig} from "../../globals"
 
 // TODO, CLEAN, READY TO GO: GLOBALS FOR INPUT HANDLING
 let keycodeWhichIsDown: Maybe<string> = undefined
-let previousInputValueLength = 0
+let previousInputValue = "" as Io & Sentence
 
 const TRANSFER_TRIGGER_CODES = ["Space", "Enter", "Tab", "Semicolon", "Backspace"]
 
 const isChangeGreaterThanOneChar = (): boolean => {
-    const updatedInputValueLength = components.input.value.length
+    const updatedInputValue = components.input.value as Io & Sentence
 
-    return abs(previousInputValueLength - updatedInputValueLength) > 1
+    if (isUndefined(previousInputValue)) return true
+    if (abs(previousInputValue.length - updatedInputValue.length) > 2) return true
+
+    const previousInputChars = Array.from(previousInputValue) as Array<Io & Char>
+    const updatedInputChars = Array.from(updatedInputValue) as Array<Io & Char>
+
+    let differentCharCount = 0
+    updatedInputChars.forEach((word: Io & Char, index: number): void => {
+        if (word !== previousInputChars[index]) differentCharCount = differentCharCount + 1
+    })
+
+    return differentCharCount > 1
 }
 
 const shouldPressedKeyTriggerTransfer = (): boolean =>
@@ -19,10 +30,6 @@ const shouldPressedKeyTriggerTransfer = (): boolean =>
 
 const isCursorNotAtEndOfInput = (): boolean =>
     components.input.selectionStart < components.input.value.length
-
-// TODO: BUG, READY TO GO: INPUT HANDLER ISSUES
-//  - I think pasting over the entire thing is not triggering it for some reason
-//  - I also think it won't trigger if it happens to be the same length
 
 const shouldTransfer = (): boolean =>
     isChangeGreaterThanOneChar()
