@@ -2,7 +2,7 @@ import {BLANK} from "@sagittal/general"
 import {WEB_APP_URL} from "../../../../constants"
 import {transferInputToDisplay} from "../../../../transfer"
 import {components, staffCodeConfig} from "../../globals"
-import {codeRunningInStaffCodeWebApp} from "./app"
+import {CODE_RUNNING_IN_WEB_APP} from "./constants"
 import {computeInitialParams} from "./initial"
 
 const handleCopyLinkClick = (): void => {
@@ -13,7 +13,7 @@ const handleCopyLinkClick = (): void => {
 
     const initialParams = computeInitialParams()
 
-    if (codeRunningInStaffCodeWebApp()) {
+    if (CODE_RUNNING_IN_WEB_APP) {
         history.pushState(undefined, BLANK, initialParams)
     }
 
