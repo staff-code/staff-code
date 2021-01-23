@@ -1,15 +1,16 @@
-import {abs, Char, doOnNextEventLoop, Io, isUndefined, Maybe, Ms, Sentence} from "@sagittal/general"
-import {transferInputToDisplay} from "../../../../transfer"
+import {abs, Char, doOnNextEventLoop, Io, isUndefined, max, Maybe, Ms, Sentence} from "@sagittal/general"
+import {translateInputToDisplay} from "../../../../translate"
 import {components, staffCodeConfig} from "../../globals"
+import {getPreviousInputState, setPreviousInputState} from "./state"
 
-// TODO, CLEAN, READY TO GO: GLOBALS FOR INPUT HANDLING
 let keycodeWhichIsDown: Maybe<string> = undefined
-let previousInputValue = "" as Io & Sentence
 
-const TRANSFER_TRIGGER_CODES = ["Space", "Enter", "Tab", "Semicolon", "Backspace"]
+const TRANSLATE_TRIGGER_CODES = ["Space", "Enter", "Tab", "Semicolon", "Backspace"]
 
 const isChangeGreaterThanOneChar = (): boolean => {
     const updatedInputValue = components.input.value as Io & Sentence
+
+    const {value: previousInputValue} = getPreviousInputState()
 
     if (isUndefined(previousInputValue)) return true
     if (abs(previousInputValue.length - updatedInputValue.length) > 2) return true
@@ -17,24 +18,40 @@ const isChangeGreaterThanOneChar = (): boolean => {
     const previousInputChars = Array.from(previousInputValue) as Array<Io & Char>
     const updatedInputChars = Array.from(updatedInputValue) as Array<Io & Char>
 
-    let differentCharCount = 0
-    updatedInputChars.forEach((word: Io & Char, index: number): void => {
-        if (word !== previousInputChars[index]) differentCharCount = differentCharCount + 1
-    })
+    let charsToCheck = max(previousInputChars.length, updatedInputChars.length)
 
-    return differentCharCount > 1
+    let differentCharCount = 0
+    for (let index = 0; index < charsToCheck; index++) {
+        if (updatedInputChars[index] !== previousInputChars[index]) differentCharCount = differentCharCount + 1
+
+        if (differentCharCount > 1) {
+            return true
+        }
+    }
+
+    return false
 }
 
-const shouldPressedKeyTriggerTransfer = (): boolean =>
-    !!keycodeWhichIsDown && TRANSFER_TRIGGER_CODES.includes(keycodeWhichIsDown)
+const shouldPressedKeyTriggerTranslate = (): boolean =>
+    !!keycodeWhichIsDown && TRANSLATE_TRIGGER_CODES.includes(keycodeWhichIsDown)
 
 const isCursorNotAtEndOfInput = (): boolean =>
     components.input.selectionStart < components.input.value.length
 
-const shouldTransfer = (): boolean =>
-    isChangeGreaterThanOneChar()
-    || shouldPressedKeyTriggerTransfer()
-    || isCursorNotAtEndOfInput()
+const shouldTranslate = (): boolean => {
+    const changeIsGreaterThanOneChar = isChangeGreaterThanOneChar()
+    const pressedKeyShouldTriggerTranslate = shouldPressedKeyTriggerTranslate()
+    const cursorIsNotAtEndOfInput = isCursorNotAtEndOfInput()
+
+    const answer = changeIsGreaterThanOneChar
+        || pressedKeyShouldTriggerTranslate
+        || cursorIsNotAtEndOfInput
+
+    // tslint:disable-next-line
+    // console.warn("shouldTranslate?", answer, "because > 1 char selection?", changeIsGreaterThanOneChar, "triggering key code?", pressedKeyShouldTriggerTranslate, "NOT @ end of input?", cursorIsNotAtEndOfInput, "and what is the keydown?", keycodeWhichIsDown)
+
+    return answer
+}
 
 const handleKeydown = (event: KeyboardEvent): void => {
     if (event.code === keycodeWhichIsDown) return
@@ -46,10 +63,10 @@ const handleKeyup = (): void => {
 }
 
 const handleInput = (): void => {
-    if (shouldTransfer()) {
+    if (shouldTranslate()) {
         doOnNextEventLoop((): void => {
-            transferInputToDisplay(components.root, staffCodeConfig.callback)
-            previousInputValueLength = components.input.value.length
+            translateInputToDisplay(components.root, staffCodeConfig.callback)
+            setPreviousInputState()
         }, 100 as Ms).then()
     }
 }
@@ -57,6 +74,6 @@ const handleInput = (): void => {
 export {
     handleKeydown,
     handleKeyup,
-    shouldTransfer,
+    shouldTranslate,
     handleInput,
 }

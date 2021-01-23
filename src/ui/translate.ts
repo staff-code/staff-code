@@ -2,7 +2,7 @@ import {Io, Sentence} from "@sagittal/general"
 import {computeInputSentenceUnicode} from "../translate"
 import {StaffCodeCallback} from "./types"
 
-const transferInputToDisplay = (root: HTMLSpanElement, callback?: StaffCodeCallback): void => {
+const translateInputToDisplay = (root: HTMLSpanElement, callback?: StaffCodeCallback): void => {
     const input = root.querySelector(".sc-input") as HTMLTextAreaElement
     const display = root.querySelector(".sc-display") as HTMLElement
 
@@ -16,5 +16,5 @@ const transferInputToDisplay = (root: HTMLSpanElement, callback?: StaffCodeCallb
 }
 
 export {
-    transferInputToDisplay,
+    translateInputToDisplay,
 }

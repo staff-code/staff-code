@@ -1,17 +1,16 @@
 import {BLANK, Io, Maybe, Sentence, SPACE, Word} from "@sagittal/general"
 import {Code} from "../../../../../translate"
-import {transferInputToDisplay} from "../../../../transfer"
+import {translateInputToDisplay} from "../../../../translate"
 import {components, staffCodeConfig} from "../../globals"
-import {INPUT_PREVIOUS_POSITION_DATA_ATTRIBUTE, INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "./constants"
+import {getPreviousInputState, setPreviousInputState} from "../../panel"
 
 const insertCodeIntoInputAndSavePreviousState = (code: Code & Word): void => {
-    const {input, reference} = components
+    const {input} = components
+
+    setPreviousInputState()
 
     const previousValue = input.value
     let textCursorPosition = input.selectionStart
-
-    reference!.setAttribute(INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE, previousValue)
-    reference!.setAttribute(INPUT_PREVIOUS_POSITION_DATA_ATTRIBUTE, JSON.stringify(textCursorPosition))
 
     const upToSelection = previousValue.slice(0, textCursorPosition)
     const maybePrecedingBuffer = upToSelection[upToSelection.length - 1] === SPACE ? BLANK : SPACE
@@ -40,21 +39,18 @@ const handleReferenceInsert = (event: MouseEvent): void => {
     if (!code.length) return
     insertCodeIntoInputAndSavePreviousState(code)
 
-    transferInputToDisplay(components.root, staffCodeConfig.callback)
+    translateInputToDisplay(components.root, staffCodeConfig.callback)
 }
 
 const handleReferenceInsertUndo = (event: KeyboardEvent): void => {
     if (event.code === "KeyZ" && event.ctrlKey) {
-        let previousValue = components.reference!.getAttribute(INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE)
-        if (previousValue) {
-            let previousPosition = parseInt(
-                components.reference!.getAttribute(INPUT_PREVIOUS_POSITION_DATA_ATTRIBUTE) as string,
-            )
-            components.input.value = previousValue
-            components.input.selectionStart = previousPosition
-            components.input.selectionEnd = previousPosition
-            components.reference!.removeAttribute(INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE)
-            components.reference!.removeAttribute(INPUT_PREVIOUS_POSITION_DATA_ATTRIBUTE)
+        const {input} = components
+
+        const {value, position} = getPreviousInputState()
+        if (value) {
+            input.value = value
+            input.selectionStart = position
+            input.selectionEnd = position
         }
     }
 }

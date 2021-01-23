@@ -1,7 +1,7 @@
 import {Io, Maybe, Sentence} from "@sagittal/general"
 import {BRAVURA_TEXT_SC, DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../../constants"
 import {buildDisplay} from "../../display"
-import {transferInputToDisplay} from "../../transfer"
+import {translateInputToDisplay} from "../../translate"
 import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 
 const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}): void => {
@@ -28,7 +28,7 @@ const setupBBCodeRoot = (root: HTMLSpanElement, options: StaffCodeOptions = {}):
     const display = buildDisplay({font, initialLine, initialSize, inline})
     root.appendChild(display)
 
-    transferInputToDisplay(root, callback as Maybe<StaffCodeCallback>)
+    translateInputToDisplay(root, callback as Maybe<StaffCodeCallback>)
 }
 
 export {

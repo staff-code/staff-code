@@ -1,6 +1,6 @@
 import {Maybe, setAllPropertiesOfObjectOnAnother} from "@sagittal/general"
 import {BRAVURA_TEXT_SC} from "../../constants"
-import {transferInputToDisplay} from "../../transfer"
+import {translateInputToDisplay} from "../../translate"
 import {StaffCodeCallback, StaffCodeOptions} from "../../types"
 import {MONOSPACED_FONT} from "./constants"
 import {applyCss} from "./css"
@@ -8,7 +8,7 @@ import {buildPackageDisplayWrapper} from "./display"
 import {loadGoogleFont} from "./font"
 import {components, staffCodeConfig} from "./globals"
 import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "./initial"
-import {buildPanel} from "./panel"
+import {buildPanel, setPreviousInputState} from "./panel"
 import {buildReferenceWrapper} from "./reference"
 
 const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
@@ -71,7 +71,8 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
         root.appendChild(referenceExpander)
     }
 
-    transferInputToDisplay(root, callback as Maybe<StaffCodeCallback>)
+    translateInputToDisplay(root, callback as Maybe<StaffCodeCallback>)
+    setPreviousInputState()
 
     return root
 }

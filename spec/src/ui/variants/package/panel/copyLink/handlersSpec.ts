@@ -33,7 +33,7 @@ describe("handleCopyLinkClick", (): void => {
         }, 3100)
     })
 
-    it("transfers the input to the display, in case the last code the user types wasn't a whitespace", (): void => {
+    it("translates the input to the display, in case the last code the user types wasn't a whitespace", (): void => {
         setupForHandleCopyLinkClick()
         components.input.value = "lalala nt"
 
