@@ -9,20 +9,20 @@ const computeEndOfLineWidth = (): Octals => {
     return unspacedAdvance < 0 ? 0 as Octals : unspacedAdvance
 }
 
+const computeBasicallySmartAdvanceExceptWithoutSpacingSinceThereIsNothingToSpaceAgainst = (): Unicode & Clause =>
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+        computeEndOfLineWidth(),
+    )
+
+const computeWhateverAdvanceYouThenNeedToMakeItToTheEndOfTheStaveSegmentYouHaveLandedOn = (): Unicode & Clause =>
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+    smarts.staveWidth,
+)
+
 const computeEndOfLineUnicodeClauseAndUpdateSmarts = (): Unicode & Clause =>
     sumTexts(
-        // TODO: CLEAN, READY TO GO: COMMENT OR NAMED FUNCTION THESE END-OF-LINE THINGS
-        //  Because I cannot figure out why the hell they have to be this way now...
-        //  AKA "final advance", used by "stof", "br;", and at the end of a sentence
-        //  It first goes as far as the previous character's advance
-        //  (ignoring spacing, because there's nothing after it to space against)
-        //  And then goes to the end of whatever segment of staff you land on, having advanced that far
-        computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-            computeEndOfLineWidth(),
-        ),
-        computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-            smarts.staveWidth,
-        ),
+        computeBasicallySmartAdvanceExceptWithoutSpacingSinceThereIsNothingToSpaceAgainst(),
+        computeWhateverAdvanceYouThenNeedToMakeItToTheEndOfTheStaveSegmentYouHaveLandedOn(),
     )
 
 export {
