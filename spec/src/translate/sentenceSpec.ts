@@ -56,6 +56,18 @@ describe("computeInputSentenceUnicode", (): void => {
         await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
     })
 
+    it("is whitespace agnostic", async (): Promise<void> => {
+        const inputSentence = "D5           /|\\     \n  D5    \t     nt" as Io & Sentence
+
+        const actual = computeInputSentenceUnicode(inputSentence)
+
+        const expectedUnicode = " " as Unicode & Sentence
+        expect(actual).toBe(expectedUnicode)
+        const expectedCodes = "up2 /|\\ up2 ntqrdn 11;" as Code & Sentence
+        expect(debugCodeSentence(actual)).toBe(expectedCodes)
+        await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+    })
+
     it("supports multiple staves with a break", async (): Promise<void> => {
         const inputSentence = "ston Gcl ; nt br; nt" as Io & Sentence
 
@@ -80,52 +92,79 @@ describe("computeInputSentenceUnicode", (): void => {
         await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
     })
 
-    it("supports inline comments", async (): Promise<void> => {
-        const inputSentence = "ston Gcl ; {check this out} { and you can do a 2nd comment in a row too } nt br; {comment} nt" as Io & Sentence
+    describe("*** Comments ***", (): void => {
+        it("supports inline comments", async (): Promise<void> => {
+            const inputSentence = "ston Gcl ; {check this out} { and you can do a 2nd comment in a row too } nt br; {comment} nt" as Io & Sentence
 
-        const actual = computeInputSentenceUnicode(inputSentence)
+            const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "   　\n　" as Unicode & Sentence
-        expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; br; ntqrdn st16 16;" as Code & Sentence
-        expect(debugCodeSentence(actual)).toBe(expectedCodes)
-        await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+            const expectedUnicode = "   　\n　" as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; br; ntqrdn st16 16;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
+
+        it("still supports codes with curlies, despite those being comment chars, and can even include them inside of comments as long as they aren't the first or last characters of a whitespace-separated word", async (): Promise<void> => {
+            const inputSentence = "Gcl ; .{ ; nt ; .} ; nt { lala '{' la '.}' lalala }" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "        " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "Gcl 23; .{ 6; ntqrdn 13; .} 6; ntqrdn 11;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
     })
 
-    it("includes a space after unrecognized codes so that when you have multiple in a row you can distinguish them           ", async (): Promise<void> => {
-        const inputSentence = "don't know what i'm doing" as Io & Sentence
+    describe("*** Unrecognized codes ***", (): void => {
+        it("includes a space after unrecognized codes so that when you have multiple in a row you can distinguish them           ", async (): Promise<void> => {
+            const inputSentence = "don't know what i'm doing" as Io & Sentence
 
-        const actual = computeInputSentenceUnicode(inputSentence)
+            const actual = computeInputSentenceUnicode(inputSentence)
 
-        const expectedUnicode = "d o n '  t　k n o w  w　h a t　i  '  m  d o i  n g  " as Unicode & Sentence
-        expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "¿¿d?? 12; ¿¿o?? 11; ¿¿n?? 13; ¿¿'?? 6; ¿¿t?? 16; ¿¿k?? 13; ¿¿n?? 13; ¿¿o?? 11; ¿¿w?? 23; ¿¿w?? 16; ¿¿h?? 13; ¿¿a?? 12; ¿¿t?? 16; ¿¿i?? 8; ¿¿'?? 6; ¿¿m?? 25; ¿¿d?? 12; ¿¿o?? 11; ¿¿i?? 8; ¿¿n?? 13; ¿¿g?? 19;" as Code & Sentence
-        expect(debugCodeSentence(actual)).toBe(expectedCodes)
-        await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
-    })
+            const expectedUnicode = "d o n '  t　k n o w  w　h a t　i  '  m  d o i  n g  " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "¿¿d?? 12; ¿¿o?? 11; ¿¿n?? 13; ¿¿'?? 6; ¿¿t?? 16; ¿¿k?? 13; ¿¿n?? 13; ¿¿o?? 11; ¿¿w?? 23; ¿¿w?? 16; ¿¿h?? 13; ¿¿a?? 12; ¿¿t?? 16; ¿¿i?? 8; ¿¿'?? 6; ¿¿m?? 25; ¿¿d?? 12; ¿¿o?? 11; ¿¿i?? 8; ¿¿n?? 13; ¿¿g?? 19;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
 
-    it("still supports codes with curlies, despite those being comment chars, and can even include them inside of comments as long as they aren't the first or last characters of a whitespace-separated word", async (): Promise<void> => {
-        const inputSentence = "Gcl ; .{ ; nt ; .} ; nt { lala '{' la '.}' lalala }" as Io & Sentence
 
-        const actual = computeInputSentenceUnicode(inputSentence)
+        it("accepts unrecognized codes in other reasonable formats", async (): Promise<void> => {
+            expect(computeInputSentenceUnicode("U+5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
+            expect(computeInputSentenceUnicode("u+5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
+            expect(computeInputSentenceUnicode("U5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
+            expect(computeInputSentenceUnicode("u5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
+            expect(computeInputSentenceUnicode("\\u+5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
+            expect(computeInputSentenceUnicode("\\u+5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
+        })
 
-        const expectedUnicode = "        " as Unicode & Sentence
-        expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl 23; .{ 6; ntqrdn 13; .} 6; ntqrdn 11;" as Code & Sentence
-        expect(debugCodeSentence(actual)).toBe(expectedCodes)
-        await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
-    })
+        it("accepts unrecognized codes with code points greater than 65535 (0xFFFF)", async (): Promise<void> => {
+            const inputSentence = "U+1D10B" as Io & Sentence
 
-    it("is whitespace agnostic", async (): Promise<void> => {
-        const inputSentence = "D5           /|\\     \n  D5    \t     nt" as Io & Sentence
+            const actual = computeInputSentenceUnicode(inputSentence)
 
-        const actual = computeInputSentenceUnicode(inputSentence)
+            const expectedUnicode = "𝄋" as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "¿¿𝄋??" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+        })
 
-        const expectedUnicode = " " as Unicode & Sentence
-        expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "up2 /|\\ up2 ntqrdn 11;" as Code & Sentence
-        expect(debugCodeSentence(actual)).toBe(expectedCodes)
-        await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        it("well, this is really a regression test, but: it doesn't mysteriously throw away the first unrecognized code", async (): Promise<void> => {
+            const inputSentence = "ston Fcl fnord ; nt" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "  f  n o r d  　" as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "Fcl st24 24; ¿¿f?? 8; ¿¿n?? 13; ¿¿o?? 11; ¿¿r?? 10; ¿¿d?? 19; ntqrdn st16 16;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
+
+        // TODO, FEATURE IMPROVE, READY TO GO: ADD A LITTLE SPACE AT THE BEGINNING OF UNRECOGNIZED CODES
     })
 
     describe("*** Smart Position ***", (): void => {
@@ -393,26 +432,6 @@ describe("computeInputSentenceUnicode", (): void => {
             const expectedUnicode = "幸" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "¿¿幸??" as Code & Sentence
-            expect(debugCodeSentence(actual)).toBe(expectedCodes)
-        })
-
-        it("accepts unrecognized codes in other reasonable formats", async (): Promise<void> => {
-            expect(computeInputSentenceUnicode("U+5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
-            expect(computeInputSentenceUnicode("u+5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
-            expect(computeInputSentenceUnicode("U5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
-            expect(computeInputSentenceUnicode("u5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
-            expect(computeInputSentenceUnicode("\\u+5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
-            expect(computeInputSentenceUnicode("\\u+5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
-        })
-
-        it("accepts unrecognized codes with code points greater than 65535 (0xFFFF)", async (): Promise<void> => {
-            const inputSentence = "U+1D10B" as Io & Sentence
-
-            const actual = computeInputSentenceUnicode(inputSentence)
-
-            const expectedUnicode = "𝄋" as Unicode & Sentence
-            expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "¿¿𝄋??" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
         })
 
@@ -936,9 +955,5 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
-
-        // TODO: BUG, READY TO GO: DISAPPEARING UNRECOGNIZED CODES
-        //  A test for the fnord issue, the every-other unrecognized code
-        //  Disappearing is still an issue it seems, in some way shape or form
     })
 })

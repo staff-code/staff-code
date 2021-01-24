@@ -9,7 +9,8 @@ export {computeEndOfLineUnicodeClauseAndUpdateSmarts, computeEndOfLineWidth} fro
 export {
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
 } from "./advanceOrBreak"
-export {computeSpacing, isSpacingCommandCode} from "./spacing"
+export {computeSpacing} from "./spacing"
+export {isSpacingCommandCode} from "./isCode"
 
 import bravuraWidthsJson from "./bravuraWidths.json"
 

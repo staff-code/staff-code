@@ -6,19 +6,24 @@ import {
     computeIsCommentingAndUpdateSmarts,
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
     computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
+    computeUnrecognizedUnicodeClause,
     isCommandCode,
+    isUnrecognizedCode,
 } from "./smarts"
 import {computeMaybeNotDisplayedUnicode, getUnicode} from "./unicode"
 
 const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
-    if (computeIsCommentingAndUpdateSmarts(input)) return EMPTY_UNICODE as Unicode & Clause
-    if (isCommandCode(input)) {
+    if (computeIsCommentingAndUpdateSmarts(input)) {
+        return EMPTY_UNICODE as Unicode & Clause
+    } else if (isCommandCode(input)) {
         const inputUnicodeClause = computeCommandUnicodeClauseAndUpdateSmarts(input)
 
         // tslint:disable-next-line
         // console.warn(`${input} → ${debugCodeSentence(inputUnicodeClause as Unicode as Unicode & Sentence)}\nsmarts: ${stringify(smarts)}\n`)
 
         return inputUnicodeClause
+    } else if (isUnrecognizedCode(input)) {
+        return computeUnrecognizedUnicodeClause(input)
     }
 
     const unicode = getUnicode(input)

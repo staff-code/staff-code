@@ -1,9 +1,8 @@
 import {Clause, Io, Word} from "@sagittal/general"
-import {caseDesensitize, computeCaseDesensitizedCodes} from "../case"
+import {caseDesensitize} from "../case"
 import {
     ADVANCE_TO_END_COMMAND_CODE,
     Code,
-    COMMAND_MAP,
     SMART_ADVANCE_COMMAND_CODE,
     SMART_STAVE_OFF_COMMAND_CODE,
     SMART_STAVE_ON_COMMAND_CODE,
@@ -13,19 +12,9 @@ import {EMPTY_UNICODE} from "../constants"
 import {smarts} from "./globals"
 import {
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
-    computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
-    computeSpacing,
-    isSpacingCommandCode,
+    computeSmartStaveOffUnicodeClauseAndUpdateSmarts, computeSpacing, isSpacingCommandCode,
 } from "./horizontal"
 import {computePitchFromCode, isPitchCommandCode, PitchOrPosition} from "./vertical"
-
-const CASE_DESENSITIZED_COMMAND_CODES = computeCaseDesensitizedCodes(COMMAND_MAP)
-
-const isCommandCode = (input: Io & Word): boolean => {
-    const caseDesensitizedCode = caseDesensitize(input as Code & Word)
-
-    return CASE_DESENSITIZED_COMMAND_CODES.includes(caseDesensitizedCode)
-}
 
 const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
     let commandUnicodeClause: Unicode & Clause = EMPTY_UNICODE as Unicode & Clause
@@ -59,5 +48,4 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
 
 export {
     computeCommandUnicodeClauseAndUpdateSmarts,
-    isCommandCode,
 }

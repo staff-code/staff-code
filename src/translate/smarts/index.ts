@@ -10,7 +10,7 @@ export {
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
     computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
 } from "./horizontal"
-export {computeCommandUnicodeClauseAndUpdateSmarts, isCommandCode} from "./command"
+export {computeCommandUnicodeClauseAndUpdateSmarts} from "./command"
 export {INITIAL_SMARTS} from "./constants"
 export {computeIsCommentingAndUpdateSmarts} from "./comments"
 export {
@@ -19,3 +19,5 @@ export {
     isCommandifiedStaffUnicode,
     isPositionUnicode,
 } from "./vertical"
+export {computeUnrecognizedUnicodeClause, } from "./unrecognized"
+export {isCommandCode, isUnrecognizedCode} from "./isCode"

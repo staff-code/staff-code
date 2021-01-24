@@ -1,10 +1,8 @@
 import {RecordKey, Word} from "@sagittal/general"
-import {caseDesensitize, computeCaseDesensitizedCodes} from "../../case"
-import {CaseDesensitized, Code, NOT_SMuFL_PITCH_COMMAND_MAP} from "../../codes"
+import {caseDesensitize} from "../../case"
+import {CaseDesensitized, Code} from "../../codes"
 import {smarts} from "../globals"
 import {Clef, Pitch} from "./types"
-
-const CASE_DESENSITIZED_NOT_SMuFL_PITCH_COMMAND_CODES = computeCaseDesensitizedCodes(NOT_SMuFL_PITCH_COMMAND_MAP)
 
 const CLEF_CODE_PITCHES = {
     [Clef.TREBLE]: {
@@ -104,10 +102,6 @@ const CLEF_CASE_DESENSITIZED_CODE_PITCHES: Record<Clef, Record<RecordKey<Code & 
 const computePitchFromCode = (caseDesensitizedCode: Code & CaseDesensitized & Word): Pitch =>
     CLEF_CASE_DESENSITIZED_CODE_PITCHES[smarts.clef][caseDesensitizedCode]
 
-const isPitchCommandCode = (caseDesensitizedCode: Code & CaseDesensitized & Word): boolean =>
-    CASE_DESENSITIZED_NOT_SMuFL_PITCH_COMMAND_CODES.includes(caseDesensitizedCode)
-
 export {
-    isPitchCommandCode,
     computePitchFromCode,
 }

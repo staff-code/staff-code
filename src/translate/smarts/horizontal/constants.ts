@@ -1,5 +1,13 @@
 import {Word} from "@sagittal/general"
-import {Code, computeUnicodeForCode, NOT_SMuFL_MANUAL_ADVANCE_MAP, Octals, Unicode} from "../../codes"
+import {computeCaseDesensitizedCodes} from "../../case"
+import {
+    Code,
+    computeUnicodeForCode,
+    NOT_SMuFL_MANUAL_ADVANCE_MAP,
+    NOT_SMuFL_SMART_SPACING_COMMAND_MAP,
+    Octals,
+    Unicode,
+} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 
 const BREAK_UNICODE = computeUnicodeForCode("br;" as Code & Word)
@@ -20,6 +28,8 @@ const MEDIUM_STAVE_WIDTH_ADVANCE = computeUnicodeForCode("16;" as Code & Word)
 const WIDE_STAVE_WIDTH = 24 as Octals
 const WIDE_STAVE_WIDTH_ADVANCE = computeUnicodeForCode("24;" as Code & Word)
 
+const CASE_DESENSITIZED_SPACING_CODES = computeCaseDesensitizedCodes(NOT_SMuFL_SMART_SPACING_COMMAND_MAP)
+
 export {
     BREAK_UNICODE,
     WIDTH_TO_ADVANCE_UNICODE_ARRAY,
@@ -32,4 +42,5 @@ export {
     MEDIUM_STAVE_WIDTH_ADVANCE,
     WIDE_STAVE_WIDTH,
     WIDE_STAVE_WIDTH_ADVANCE,
+    CASE_DESENSITIZED_SPACING_CODES,
 }
