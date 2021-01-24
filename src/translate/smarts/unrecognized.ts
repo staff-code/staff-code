@@ -1,5 +1,18 @@
-import {Char, Clause, Io, SPACE, splitWord, sumTexts, Word} from "@sagittal/general"
-import {Unicode} from "../codes"
+import {
+    ceil,
+    Char,
+    Clause,
+    Decimal,
+    divide,
+    Divisor,
+    floor,
+    Io,
+    SPACE,
+    splitWord,
+    sumTexts,
+    Word,
+} from "@sagittal/general"
+import {Octals, Unicode} from "../codes"
 import {smarts} from "./globals"
 import {
     computeAdvanceUnicode,
@@ -7,11 +20,8 @@ import {
     computeUnicodeWidth,
 } from "./horizontal"
 
-const computeUnrecognizedUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
-    const staveOn = smarts.staveOn
-
-    let unicodeClause = computeSmartStaveOffUnicodeClauseAndUpdateSmarts()
-
+const computeUnrecognizedUnicodeClause = (input: Io & Word): Unicode & Clause => {
+    let unicodeClause = "" as Unicode & Clause
     splitWord(input).forEach((char: Io & Char): void => {
         const charFallenBackAsUnicodeWord = char as string as Unicode & Word
         unicodeClause = sumTexts(
@@ -21,10 +31,23 @@ const computeUnrecognizedUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unic
         )
     })
 
-    unicodeClause = sumTexts( // To separate multiple unrecognized codes in a row, and ensure next glyph on stave if on.
-        unicodeClause,
-        computeAdvanceUnicode(computeUnicodeWidth(SPACE as Unicode & Word)),
+    return unicodeClause
+}
+
+const computeUnrecognizedUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
+    const staveOn = smarts.staveOn
+
+    const spaceWidth = divide(computeUnicodeWidth(SPACE as Unicode & Word), 2 as Divisor<Octals>)
+    const biggerHalfOfSpaceWidth = ceil(spaceWidth) as Octals & Decimal<{integer: true}>
+    const smallerHalfOfSpaceWidth = floor(spaceWidth) as Octals & Decimal<{integer: true}>
+
+    const unicodeClause = sumTexts(
+        computeSmartStaveOffUnicodeClauseAndUpdateSmarts(),
+        computeAdvanceUnicode(biggerHalfOfSpaceWidth),
+        computeUnrecognizedUnicodeClause(input),
+        computeAdvanceUnicode(smallerHalfOfSpaceWidth),
     )
+
     smarts.staveOn = staveOn
 
     return unicodeClause

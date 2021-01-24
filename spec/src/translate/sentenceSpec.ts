@@ -124,9 +124,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "d o n '  t　k n o w  w　h a t　i  '  m  d o i  n g  " as Unicode & Sentence
+            const expectedUnicode = "  d o n '  t　k n o w  w　h a t　i  '  m  d o i  n g " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "¿¿d?? 12; ¿¿o?? 11; ¿¿n?? 13; ¿¿'?? 6; ¿¿t?? 16; ¿¿k?? 13; ¿¿n?? 13; ¿¿o?? 11; ¿¿w?? 23; ¿¿w?? 16; ¿¿h?? 13; ¿¿a?? 12; ¿¿t?? 16; ¿¿i?? 8; ¿¿'?? 6; ¿¿m?? 25; ¿¿d?? 12; ¿¿o?? 11; ¿¿i?? 8; ¿¿n?? 13; ¿¿g?? 19;" as Code & Sentence
+            const expectedCodes = "4; ¿¿d?? 12; ¿¿o?? 11; ¿¿n?? 13; ¿¿'?? 6; ¿¿t?? 16; ¿¿k?? 13; ¿¿n?? 13; ¿¿o?? 11; ¿¿w?? 23; ¿¿w?? 16; ¿¿h?? 13; ¿¿a?? 12; ¿¿t?? 16; ¿¿i?? 8; ¿¿'?? 6; ¿¿m?? 25; ¿¿d?? 12; ¿¿o?? 11; ¿¿i?? 8; ¿¿n?? 13; ¿¿g?? 15;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -157,14 +157,12 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "  f  n o r d  　" as Unicode & Sentence
+            const expectedUnicode = "  f  n o r d 　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Fcl st24 24; ¿¿f?? 8; ¿¿n?? 13; ¿¿o?? 11; ¿¿r?? 10; ¿¿d?? 19; ntqrdn st16 16;" as Code & Sentence
+            const expectedCodes = "Fcl st24 28; ¿¿f?? 8; ¿¿n?? 13; ¿¿o?? 11; ¿¿r?? 10; ¿¿d?? 15; ntqrdn st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
-
-        // TODO, FEATURE IMPROVE, READY TO GO: ADD A LITTLE SPACE AT THE BEGINNING OF UNRECOGNIZED CODES
     })
 
     describe("*** Smart Position ***", (): void => {
@@ -932,9 +930,9 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "　n t ; n t ; 　" as Unicode & Sentence
+            const expectedUnicode = "  n t ; n t ; 　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "ntqrdn st16 16; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ntqrdn st16 16;" as Code & Sentence
+            const expectedCodes = "ntqrdn st16 20; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 10; ntqrdn st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -944,9 +942,9 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = " n t ; n t ;  " as Unicode & Sentence
+            const expectedUnicode = "  n t ; n t ;  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "ntqrdn 13; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ntqrdn 13;" as Code & Sentence
+            const expectedCodes = "ntqrdn 17; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 10; ntqrdn 13;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             await saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
