@@ -12,7 +12,9 @@ import {EMPTY_UNICODE} from "../constants"
 import {smarts} from "./globals"
 import {
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
-    computeSmartStaveOffUnicodeClauseAndUpdateSmarts, computeSpacing, isSpacingCommandCode,
+    computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
+    computeSpacing,
+    isSpacingCommandCode,
 } from "./horizontal"
 import {computePitchFromCode, isPitchCommandCode, PitchOrPosition} from "./vertical"
 

@@ -1,4 +1,4 @@
-import {Clause, extendClause, Io, sumTexts, Word} from "@sagittal/general"
+import {Clause, Io, sumTexts, Word} from "@sagittal/general"
 import {Unicode} from "./codes"
 import {
     computeCommandUnicodeClauseAndUpdateSmarts,
@@ -26,7 +26,7 @@ const computeGlyphUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & C
 
     const displayUnicode = computeMaybeNotDisplayedUnicode(unicode)
 
-    return extendClause(introClauseUnicode, displayUnicode) as Unicode & Clause
+    return sumTexts(introClauseUnicode, displayUnicode as Unicode) as Unicode & Clause
 }
 
 const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {

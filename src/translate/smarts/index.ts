@@ -19,5 +19,5 @@ export {
     isCommandifiedStaffUnicode,
     isPositionUnicode,
 } from "./vertical"
-export {computeUnrecognizedUnicodeClauseAndUpdateSmarts, } from "./unrecognized"
+export {computeUnrecognizedUnicodeClauseAndUpdateSmarts} from "./unrecognized"
 export {isCommandCode, isUnrecognizedCode} from "./isCode"

@@ -16,8 +16,8 @@ const computeBasicallySmartAdvanceExceptWithoutSpacingSinceThereIsNothingToSpace
 
 const computeWhateverAdvanceYouThenNeedToMakeItToTheEndOfTheStaveSegmentYouHaveLandedOn = (): Unicode & Clause =>
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-    smarts.staveWidth,
-)
+        smarts.staveWidth,
+    )
 
 const computeEndOfLineUnicodeClauseAndUpdateSmarts = (): Unicode & Clause =>
     sumTexts(

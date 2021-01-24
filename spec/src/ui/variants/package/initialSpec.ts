@@ -1,6 +1,7 @@
 import {Em, Io, Link, Multiplier, Sentence} from "@sagittal/general"
 import {
-    computeInitialCodes, computeInitialLine,
+    computeInitialCodes,
+    computeInitialLine,
     computeInitialReferenceOpen,
     computeInitialSize,
 } from "../../../../../src/ui/variants/package/initial"

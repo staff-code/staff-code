@@ -1,7 +1,6 @@
 import {
     BLANK,
     Clause,
-    extendSentence,
     finalChar,
     Io,
     NEWLINE,
@@ -29,7 +28,7 @@ const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io 
 
 const ensureLineBreaksImmediatelyDisplay = (unicodeSentence: Unicode & Sentence): Unicode & Sentence =>
     finalChar(unicodeSentence) === NEWLINE ?
-        extendSentence(unicodeSentence, computeAdvanceUnicode(1 as Octals)) as Unicode & Sentence :
+        sumTexts(unicodeSentence, computeAdvanceUnicode(1 as Octals) as Unicode) as Unicode & Sentence :
         unicodeSentence
 
 const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Sentence => {

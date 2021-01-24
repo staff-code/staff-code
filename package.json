@@ -35,7 +35,7 @@
     "generate-version": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/version/generate.ts"
   },
   "devDependencies": {
-    "@sagittal/general": "^1.0.107",
+    "@sagittal/general": "^1.0.108",
     "@types/css-font-loading-module": "0.0.4",
     "@types/jasmine": "^3.6.3",
     "@types/jsdom": "^16.2.6",
@@ -43,7 +43,7 @@
     "buffer": "^6.0.3",
     "copy-webpack-plugin": "^7.0.0",
     "favicons": "^6.2.0",
-    "favicons-webpack-plugin": "^5.0.0-alpha.7",
+    "favicons-webpack-plugin": "^5.0.0-alpha.10",
     "html-webpack-plugin": "^5.0.0-beta.6",
     "ignore-not-found-export-webpack-plugin": "^1.0.1",
     "jasmine": "^3.6.4",
