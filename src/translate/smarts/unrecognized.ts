@@ -7,7 +7,7 @@ import {
     computeUnicodeWidth,
 } from "./horizontal"
 
-const computeUnrecognizedUnicodeClause = (input: Io & Word): Unicode & Clause => {
+const computeUnrecognizedUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
     const staveOn = smarts.staveOn
 
     let unicodeClause = computeSmartStaveOffUnicodeClauseAndUpdateSmarts()
@@ -31,5 +31,5 @@ const computeUnrecognizedUnicodeClause = (input: Io & Word): Unicode & Clause =>
 }
 
 export {
-    computeUnrecognizedUnicodeClause,
+    computeUnrecognizedUnicodeClauseAndUpdateSmarts,
 }

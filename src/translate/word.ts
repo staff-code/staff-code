@@ -1,31 +1,18 @@
 import {Clause, extendClause, Io, sumTexts, Word} from "@sagittal/general"
 import {Unicode} from "./codes"
-import {EMPTY_UNICODE} from "./constants"
 import {
     computeCommandUnicodeClauseAndUpdateSmarts,
-    computeIsCommentingAndUpdateSmarts,
+    computeCommentingUnicodeClauseAndUpdateSmarts,
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
     computeSmartPositionAndSmartClefUnicodeIntroClauseAndUpdateSmarts,
-    computeUnrecognizedUnicodeClause,
+    computeUnrecognizedUnicodeClauseAndUpdateSmarts,
     isCommandCode,
+    isCommenting,
     isUnrecognizedCode,
 } from "./smarts"
 import {computeMaybeNotDisplayedUnicode, getUnicode} from "./unicode"
 
-const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
-    if (computeIsCommentingAndUpdateSmarts(input)) {
-        return EMPTY_UNICODE as Unicode & Clause
-    } else if (isCommandCode(input)) {
-        const inputUnicodeClause = computeCommandUnicodeClauseAndUpdateSmarts(input)
-
-        // tslint:disable-next-line
-        // console.warn(`${input} → ${debugCodeSentence(inputUnicodeClause as Unicode as Unicode & Sentence)}\nsmarts: ${stringify(smarts)}\n`)
-
-        return inputUnicodeClause
-    } else if (isUnrecognizedCode(input)) {
-        return computeUnrecognizedUnicodeClause(input)
-    }
-
+const computeGlyphUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
     const unicode = getUnicode(input)
 
     const smartAdvanceAndSmartStaveUnicodeIntroClause: Unicode & Clause =
@@ -38,12 +25,20 @@ const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
     )
 
     const displayUnicode = computeMaybeNotDisplayedUnicode(unicode)
-    const inputUnicodeClause = extendClause(introClauseUnicode, displayUnicode) as Unicode & Clause
 
-    // tslint:disable-next-line
-    // console.warn(`${input} → ${debugCodeSentence(inputUnicodeClause as Unicode as Unicode & Sentence)}\nsmarts: ${stringify(smarts)}\n`)
+    return extendClause(introClauseUnicode, displayUnicode) as Unicode & Clause
+}
 
-    return inputUnicodeClause
+const computeInputUnicodeClause = (input: Io & Word): Unicode & Clause => {
+    if (isCommenting(input)) {
+        return computeCommentingUnicodeClauseAndUpdateSmarts(input)
+    } else if (isCommandCode(input)) {
+        return computeCommandUnicodeClauseAndUpdateSmarts(input)
+    } else if (isUnrecognizedCode(input)) {
+        return computeUnrecognizedUnicodeClauseAndUpdateSmarts(input)
+    } else {
+        return computeGlyphUnicodeClauseAndUpdateSmarts(input)
+    }
 }
 
 export {

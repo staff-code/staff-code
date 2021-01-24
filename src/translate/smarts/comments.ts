@@ -1,22 +1,18 @@
-import {Io, Word} from "@sagittal/general"
+import {Clause, Io, Word} from "@sagittal/general"
+import {Unicode} from "../codes"
+import {EMPTY_UNICODE} from "../constants"
 import {smarts} from "./globals"
 
-const computeIsCommentingAndUpdateSmarts = (input: Io & Word): boolean => {
-    const wasCommenting = smarts.commenting
+const isCommenting = (input: Io & Word): boolean =>
+    smarts.commenting || !!input.match(/^{/)
 
-    if (input.match(/^{/)) {
-        if (input.match(/}$/)) {
-            return true
-        } else {
-            smarts.commenting = true
-        }
-    } else if (input.match(/}$/)) {
-        smarts.commenting = false
-    }
+const computeCommentingUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
+    smarts.commenting = !input.match(/}$/)
 
-    return wasCommenting || smarts.commenting
+    return EMPTY_UNICODE as Unicode & Clause
 }
 
 export {
-    computeIsCommentingAndUpdateSmarts,
+    isCommenting,
+    computeCommentingUnicodeClauseAndUpdateSmarts,
 }
