@@ -29,7 +29,7 @@ const EXCEPTION_WIDTHS: Record<RecordKey<Unicode>, Octals> = {
     [computeGlyphUnicode("luteStaff6LinesNarrow" as Name<Unicode>)]: 0 as Octals,
 }
 
-// TODO: FIX END-OF-LINE FLOORED WIDTHS
+// TODO: FEATURE IMPROVE, READY TO GO: FIX END-OF-LINE FLOORED WIDTHS
 /*
 But there's a more serious problem at the right-hand end. Try Download image for:
 https://staffcode.org/?codes=ston-enq-bldb
