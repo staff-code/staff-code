@@ -19,7 +19,7 @@ const buildDisplay = ({font, initialLine, inline, initialSize}: DisplayOptions):
     display.style.fontSize = computeInitialFontSize({inline, initialSize})
     display.style.lineHeight = JSON.stringify(initialLine)
     display.style.fontFamily = font
-    display.style.whiteSpace = "pre"
+    display.style.whiteSpace = "pre" // Otherwise, line breaks don't work.
     display.style.color = "black"
     if (inline) {
         display.style.padding = `0 ${formatEm(multiply(MARGIN_SIZE, HORIZONTAL_MARGIN_MULTIPLIER))}`

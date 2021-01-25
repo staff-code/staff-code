@@ -1,4 +1,5 @@
 import {formatPx} from "@sagittal/general"
+import {BRAVURA_TEXT_SC} from "../../../../constants"
 import {MONOSPACED_FONT, MONOSPACED_FONT_SIZE, STANDARD_BORDER} from "../../constants"
 
 // tslint:disable-next-line comment-format
@@ -67,7 +68,7 @@ const REFERENCE_TABLE_CSS = `
 
     td:nth-child(1) {
         padding: 2px 5px;
-        font-family: Bravura Text SC;
+        font-family: ${BRAVURA_TEXT_SC};
         font-size: 1.6666em;
         width: 1.1111em;
         text-align: center;

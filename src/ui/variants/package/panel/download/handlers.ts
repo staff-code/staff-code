@@ -8,15 +8,6 @@ import {computeSvgFromInput} from "./vectorize"
 const DOWNLOAD_FILENAME: string = "staffCode.svg"
 const TYPE = "image/svg+xml;charset=utf-8"
 
-const cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled = (
-    svg: SVGGraphicsElement,
-): SVGGraphicsElement => {
-    const clonedSvg = svg.cloneNode(true) as SVGGraphicsElement
-    clonedSvg.classList.add("sc-cloned-svg")
-
-    return clonedSvg
-}
-
 const buildBlobAndSaveIt = (svg: SVGGraphicsElement): void => {
     const outerHTML = svg.outerHTML
     const blob = new Blob([outerHTML], {type: TYPE})
@@ -46,9 +37,7 @@ const downloadSvg = async (): Promise<void> => {
 
     const svg = await computeSvgFromInput(unicodeSentence)
 
-    const clonedSvg = cloneANonHiddenSoItCanBeSeenButNotAddedToDOMSvgNowThatItHasBeenScaled(svg)
-
-    buildBlobAndSaveIt(clonedSvg)
+    buildBlobAndSaveIt(svg)
 }
 
 export {

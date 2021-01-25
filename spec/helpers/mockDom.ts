@@ -11,6 +11,22 @@ const mockDom = ({url}: {url?: Link} = {}): void => {
     globalThis.navigator.clipboard = {}
 }
 
+const unmockDom = (): void => {
+    // @ts-ignore
+    globalThis.window = undefined
+    // @ts-ignore
+    globalThis.document = undefined
+    // @ts-ignore
+    globalThis.navigator = undefined
+    // @ts-ignore
+    globalThis.history = undefined
+}
+
+afterEach((): void => {
+    unmockDom()
+})
+
 export {
     mockDom,
+    unmockDom,
 }
