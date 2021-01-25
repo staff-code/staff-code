@@ -1,4 +1,6 @@
-import {BLANK, Filename, Html, Sentence} from "@sagittal/general"
+// tslint:disable comment-format
+
+import {BLANK, Filename, Html, NEWLINE, Sentence} from "@sagittal/general"
 import * as fs from "fs"
 import sanitize from "sanitize-filename"
 import {Unicode} from "../../../../../../../src"
@@ -10,12 +12,33 @@ import CustomReporterResult = jasmine.CustomReporterResult
 const thisJasmine = jasmine as unknown as {currentTest: jasmine.CustomReporterResult}
 
 const SVG_VISUAL_TEST_DIR = "spec/visual/svg"
+const SVG_VISUAL_TEST_INDEX = `${SVG_VISUAL_TEST_DIR}/index.html`
+
+const computeSnapshotTestName = (currentTest: CustomReporterResult): string =>
+    sanitize(currentTest.fullName.replace(/computeSvgStringFromInput /, BLANK))
+
+const computeSnapshotFileName = (snapshotTestName: string): Filename =>
+    snapshotTestName.replace(/ /g, "_") as Filename
+
+const updateSnapshot = (svgString: Html, currentTest: CustomReporterResult): void => {
+    const snapshotTestName = computeSnapshotTestName(currentTest)
+    const snapshotFileName = computeSnapshotFileName(snapshotTestName)
+
+    fs.writeFileSync(`${SVG_VISUAL_TEST_DIR}/${snapshotFileName}.svg`, svgString)
+    fs.appendFileSync(SVG_VISUAL_TEST_INDEX, `<div>${snapshotTestName}</div>` + NEWLINE)
+    fs.appendFileSync(SVG_VISUAL_TEST_INDEX, `<img src="./${snapshotFileName}.svg"/>` + NEWLINE)
+}
+
+const readSnapshot = (currentTest: CustomReporterResult): Html => {
+    const snapshotTestName = computeSnapshotTestName(currentTest)
+    const snapshotFileName = computeSnapshotFileName(snapshotTestName)
+
+    return fs
+        .readFileSync(`${SVG_VISUAL_TEST_DIR}/${snapshotFileName}.svg` as Filename, {encoding: "utf8"})
+        .replace(/\r/g, BLANK) as Html
+}
 
 describe("computeSvgStringFromInput", (): void => {
-    // This is the material you might want if you need to add more tests.
-    /*
-    const SVG_VISUAL_TEST_INDEX = `${SVG_VISUAL_TEST_DIR}/index.html`
-
     beforeAll((): void => {
         fs.rmdirSync(SVG_VISUAL_TEST_DIR, {recursive: true})
         fs.mkdirSync(SVG_VISUAL_TEST_DIR)
@@ -26,29 +49,12 @@ describe("computeSvgStringFromInput", (): void => {
         fs.appendFileSync(SVG_VISUAL_TEST_INDEX, "</body>" + NEWLINE)
     })
 
-    const saveVisualRegressionSpecSvg = (svgString: Html, currentTest: CustomReporterResult): void => {
-        const testName = currentTest.fullName.replace(/computeSvgStringFromInput /, BLANK)
-        let fileName = sanitize(testName).replace(/ /g, "_")
-        fs.writeFileSync(`${SVG_VISUAL_TEST_DIR}/${fileName}.svg`, svgString)
-        fs.appendFileSync(SVG_VISUAL_TEST_INDEX, `<div>${testName}</div>` + NEWLINE)
-        fs.appendFileSync(SVG_VISUAL_TEST_INDEX, `<img src="./${fileName}.svg"/>` + NEWLINE)
-    }
-    */
-
-    const readSnapshot = (currentTest: CustomReporterResult): Html => {
-        const testName = currentTest.fullName.replace(/computeSvgStringFromInput /, BLANK)
-        let fileName = sanitize(testName).replace(/ /g, "_")
-
-        return fs
-            .readFileSync(`${SVG_VISUAL_TEST_DIR}/${fileName}.svg` as Filename, {encoding: "utf8"})
-            .replace(/\r/g, BLANK) as Html
-    }
-
     it("works for multiline StaffCodes", async (): Promise<void> => {
         const unicodeSentence = "   　\n　" as Unicode & Sentence
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
 
+        // updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
     })
@@ -58,19 +64,17 @@ describe("computeSvgStringFromInput", (): void => {
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
 
+        // updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
     })
 
-    // TODO: FEATURE IMPROVE, READY TO GO: BETTER SOLUTION THAN PADDING
-    //  For the same reason that CSS styling wasn't working elsewhere, that I posted about on the forum recently
-    //  Padding should never have been the proper solution. You should instead have it shift everybody down by that
-    //  And over by that, and add to the height and width by 2x that
     it("works for a double barline at the end", async (): Promise<void> => {
         const unicodeSentence = "　    " as Unicode & Sentence
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
 
+        // updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
     })
@@ -85,6 +89,7 @@ describe("computeSvgStringFromInput", (): void => {
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
 
+        // updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
     })

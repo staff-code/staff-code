@@ -35,7 +35,7 @@
     "generate-version": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/version/generate.ts"
   },
   "devDependencies": {
-    "@sagittal/general": "^1.0.109",
+    "@sagittal/general": "^1.0.110",
     "@types/css-font-loading-module": "0.0.4",
     "@types/jasmine": "^3.6.3",
     "@types/jsdom": "^16.2.6",

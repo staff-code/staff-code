@@ -15,6 +15,19 @@ const SENTENCE_VISUAL_SPEC_INDEX = `${SENTENCE_VISUAL_SPEC_DIR}/index.html`
 
 let currentDescribe = ""
 
+const saveVisualRegressionSpecSvg = (actual: Unicode & Sentence, currentTest: CustomReporterResult, subTest: string = BLANK): void => {
+    const fullName = `${currentTest.fullName} ${subTest}`.replace(/computeInputSentenceUnicode /, BLANK)
+    const describe = fullName.match(/\*\*\* (.*) \*\*\*/)
+    if (describe && describe[1] !== currentDescribe) {
+        currentDescribe = describe[1]
+        fs.appendFileSync(SENTENCE_VISUAL_SPEC_INDEX, `<h1>${currentDescribe}</h1>` + NEWLINE)
+    }
+    const testName = fullName.replace(`*** ${currentDescribe} *** `, BLANK)
+
+    fs.appendFileSync(SENTENCE_VISUAL_SPEC_INDEX, `<div>${testName}</div>` + NEWLINE)
+    fs.appendFileSync(SENTENCE_VISUAL_SPEC_INDEX, `<div style="font-family: ${BRAVURA_TEXT_SC}; font-size: 2.5em; line-height: 2; white-space: pre;">${actual}</div>` + NEWLINE)
+}
+
 describe("computeInputSentenceUnicode", (): void => {
     beforeAll((): void => {
         fs.rmdirSync(SENTENCE_VISUAL_SPEC_DIR, {recursive: true})
@@ -25,19 +38,6 @@ describe("computeInputSentenceUnicode", (): void => {
     afterAll((): void => {
         fs.appendFileSync(SENTENCE_VISUAL_SPEC_INDEX, "</body>" + NEWLINE)
     })
-
-    const saveVisualRegressionSpecSvg = (actual: Unicode & Sentence, currentTest: CustomReporterResult, subTest: string = BLANK): void => {
-        const fullName = `${currentTest.fullName} ${subTest}`.replace(/computeInputSentenceUnicode /, BLANK)
-        const describe = fullName.match(/\*\*\* (.*) \*\*\*/)
-        if (describe && describe[1] !== currentDescribe) {
-            currentDescribe = describe[1]
-            fs.appendFileSync(SENTENCE_VISUAL_SPEC_INDEX, `<h1>${currentDescribe}</h1>` + NEWLINE)
-        }
-        const testName = fullName.replace(`*** ${currentDescribe} *** `, BLANK)
-
-        fs.appendFileSync(SENTENCE_VISUAL_SPEC_INDEX, `<div>${testName}</div>` + NEWLINE)
-        fs.appendFileSync(SENTENCE_VISUAL_SPEC_INDEX, `<div style="font-family: ${BRAVURA_TEXT_SC}; font-size: 2.5em; line-height: 2; white-space: pre;">${actual}</div>` + NEWLINE)
-    }
 
     it("basically works", (): void => {
         const inputSentence = "D5 /|\\ D5 nt" as Io & Sentence
