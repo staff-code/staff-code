@@ -9,6 +9,8 @@ import {computeSvgStringFromInput} from "../../../../../../../src/ui/variants/pa
 import {mockDom, unmockDom} from "../../../../../../helpers/mockDom"
 import CustomReporterResult = jasmine.CustomReporterResult
 
+const UPDATE = false
+
 const thisJasmine = jasmine as unknown as {currentTest: jasmine.CustomReporterResult}
 
 const SVG_VISUAL_TEST_DIR = "spec/visual/svg"
@@ -40,12 +42,14 @@ const readSnapshot = (currentTest: CustomReporterResult): Html => {
 
 describe("computeSvgStringFromInput", (): void => {
     beforeAll((): void => {
+        if (!UPDATE) return
         fs.rmdirSync(SVG_VISUAL_TEST_DIR, {recursive: true})
         fs.mkdirSync(SVG_VISUAL_TEST_DIR)
         fs.writeFileSync(SVG_VISUAL_TEST_INDEX, "<body>" + NEWLINE)
     })
 
     afterAll((): void => {
+        if (!UPDATE) return
         fs.appendFileSync(SVG_VISUAL_TEST_INDEX, "</body>" + NEWLINE)
     })
 
@@ -54,7 +58,7 @@ describe("computeSvgStringFromInput", (): void => {
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
 
-        // updateSnapshot(actual, thisJasmine.currentTest)
+        if (UPDATE) updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
     })
@@ -64,7 +68,7 @@ describe("computeSvgStringFromInput", (): void => {
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
 
-        // updateSnapshot(actual, thisJasmine.currentTest)
+        if (UPDATE) updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
     })
@@ -74,7 +78,7 @@ describe("computeSvgStringFromInput", (): void => {
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
 
-        // updateSnapshot(actual, thisJasmine.currentTest)
+        if (UPDATE) updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
     })
@@ -89,7 +93,7 @@ describe("computeSvgStringFromInput", (): void => {
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
 
-        // updateSnapshot(actual, thisJasmine.currentTest)
+        if (UPDATE) updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
     })
