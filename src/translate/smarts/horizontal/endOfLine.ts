@@ -19,6 +19,8 @@ const computeWhateverAdvanceYouThenNeedToMakeItToTheEndOfTheStaveSegmentYouHaveL
         smarts.staveWidth,
     )
 
+// TODO: CLEAN, READY TO GO: RENAME END-OF-LINE ADVANCE TO ADVANCE-TO-END-OF-INK
+//  See: https://forum.sagittal.org/viewtopic.php?p=3683#p3683
 const computeEndOfLineUnicodeClauseAndUpdateSmarts = (): Unicode & Clause =>
     sumTexts(
         computeBasicallySmartAdvanceExceptWithoutSpacingSinceThereIsNothingToSpaceAgainst(),

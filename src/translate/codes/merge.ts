@@ -25,6 +25,28 @@ const mergeAllCodeMapsIntoCaseDesensitizedCodeMap = (
     return mergedAndCaseDesensitizedMaps
 }
 
+const mergeCodeMapsCheckingForCaseDesensitizedConflictsButWithoutCaseDesensitizing = (
+    ...maps: Array<Record<RecordKey<Code & Word>, Unicode & Word>>
+): Record<RecordKey<Code & Word>, Unicode & Word> => {
+    const mergedMaps = {} as Record<RecordKey<Code & Word>, Unicode & Word>
+
+    maps.forEach((map: Record<RecordKey<Code & Word>, Unicode & Word>): void => {
+        const mapEntries = Object.entries(map) as Array<[unknown, Unicode & Word]> as
+            Array<[Code & Word, Unicode & Word]>
+
+        mapEntries.forEach(([code, unicode]: [Code & Word, Unicode & Word]): void => {
+            const caseDesensitizedCode = caseDesensitize(code)
+            if (!isUndefined(mergedMaps[caseDesensitizedCode])) {
+                throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteral(mergedMaps[caseDesensitizedCode])} and code point ${computeUnicodeLiteral(unicode)}. If ${computeUnicodeLiteral(EMPTY_UNICODE as Unicode & Word)}, it is probably used for a StaffCode command.`)
+            }
+            mergedMaps[code] = unicode
+        })
+    })
+
+    return mergedMaps
+}
+
 export {
     mergeAllCodeMapsIntoCaseDesensitizedCodeMap,
+    mergeCodeMapsCheckingForCaseDesensitizedConflictsButWithoutCaseDesensitizing,
 }

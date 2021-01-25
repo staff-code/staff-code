@@ -28,6 +28,8 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
                 smarts.advanceWidth,
             )
+    // TODO: CLEAN, READY TO GO: RENAME ADVANCE-TO-END TO PLACE-AGAINST-END-OF-STAFF
+    //  See: https://forum.sagittal.org/viewtopic.php?p=3683#p3683
     } else if (caseDesensitizedCode === caseDesensitize(ADVANCE_TO_END_COMMAND_CODE)) {
         smarts.advanceToEnd = true
         commandUnicodeClause =
@@ -37,6 +39,8 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_ON_COMMAND_CODE)) {
         smarts.staveOn = true
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_OFF_COMMAND_CODE)) {
+        // TODO: BUG, READY TO GO: STOF SHOULD BE NOOP WHEN ALREADY STOF
+        //  See: https://forum.sagittal.org/viewtopic.php?p=3678#p3678
         commandUnicodeClause = computeSmartStaveOffUnicodeClauseAndUpdateSmarts()
     } else if (isSpacingCommandCode(caseDesensitizedCode)) {
         smarts.spacing = computeSpacing(caseDesensitizedCode)

@@ -1,6 +1,9 @@
 import {RecordKey, Word} from "@sagittal/general"
 import {ALIASES_MAP} from "./aliases"
-import {mergeAllCodeMapsIntoCaseDesensitizedCodeMap} from "./merge"
+import {
+    mergeAllCodeMapsIntoCaseDesensitizedCodeMap,
+    mergeCodeMapsCheckingForCaseDesensitizedConflictsButWithoutCaseDesensitizing,
+} from "./merge"
 import {
     COMMAND_MAP,
     NOT_SMUFL_LEGER_LINES_SUPPLEMENT_MAP,
@@ -15,14 +18,15 @@ import {CaseDesensitized, Code, Unicode} from "./types"
 // See: https://forum.sagittal.org/viewtopic.php?f=17&t=436&p=3172#word-types
 
 // Base glyphs means not aliased glyphs.
-const BASE_GLYPH_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
-    ...SMuFL_MAP,
-    ...NOT_SMuFL_LINE_BREAKS_MAP,
-    ...NOT_SMuFL_POSITIONS_SUPPLEMENT_MAP,
-    ...NOT_SMUFL_LEGER_LINES_SUPPLEMENT_MAP,
-    ...NOT_SMuFL_ZERO_POSITION_MAP,
-    ...NOT_SMuFL_MANUAL_ADVANCE_MAP,
-}
+const BASE_GLYPH_MAP: Record<RecordKey<Code & Word>, Unicode & Word> =
+    mergeCodeMapsCheckingForCaseDesensitizedConflictsButWithoutCaseDesensitizing(
+        SMuFL_MAP,
+        NOT_SMuFL_LINE_BREAKS_MAP,
+        NOT_SMuFL_POSITIONS_SUPPLEMENT_MAP,
+        NOT_SMUFL_LEGER_LINES_SUPPLEMENT_MAP,
+        NOT_SMuFL_ZERO_POSITION_MAP,
+        NOT_SMuFL_MANUAL_ADVANCE_MAP,
+    )
 
 const CASE_DESENSITIZED_CODE_MAP: Record<RecordKey<Code & CaseDesensitized & Word>, Unicode & Word> =
     mergeAllCodeMapsIntoCaseDesensitizedCodeMap(
