@@ -2,6 +2,7 @@ import {BLANK, Link, onlyRunInCi} from "@sagittal/general"
 import {WEB_APP_URL} from "../../../../../../../src/ui/constants"
 import {components} from "../../../../../../../src/ui/variants/package/globals"
 import {handleCopyLinkClick} from "../../../../../../../src/ui/variants/package/panel/copyLink/handlers"
+import {INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "../../../../../../../src/ui/variants/package/panel/input/constants"
 import {mockDom} from "../../../../../../helpers/mockDom"
 import {setupBasicStaffCode} from "../../../../../../helpers/src/ui/variants/package/setup"
 
@@ -41,6 +42,16 @@ describe("handleCopyLinkClick", (): void => {
         handleCopyLinkClick()
 
         expect(components.display.textContent).toBe("  l  a l  a l  a  ")
+    })
+
+    it("also saves the state of the input", (): void => {
+        setupForHandleCopyLinkClick()
+        components.input.value = "lalala nt"
+
+        expect(components.input.getAttribute(INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE)).toBeNull()
+        handleCopyLinkClick()
+
+        expect(components.input.getAttribute(INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE)).toBe("lalala nt")
     })
 
     it("sets the user's clipboard to a link to the web app with all the current configuration ready to initialize it                    ", (): void => {
