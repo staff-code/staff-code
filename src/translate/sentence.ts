@@ -13,8 +13,8 @@ import {
 import {Octals, Unicode} from "./codes"
 import {
     collapseAdvances,
+    computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts,
     computeAdvanceUnicode,
-    computeEndOfLineUnicodeClauseAndUpdateSmarts,
     INITIAL_SMARTS,
     smarts,
 } from "./smarts"
@@ -43,8 +43,8 @@ const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Se
     let unicodeSentence = unicodeClauses.join(BLANK) as Unicode & Sentence
     unicodeSentence = ensureLineBreaksImmediatelyDisplay(unicodeSentence)
 
-    const endOfLineUnicodeClause = computeEndOfLineUnicodeClauseAndUpdateSmarts()
-    unicodeSentence = sumTexts(unicodeSentence, endOfLineUnicodeClause as Unicode as Unicode & Sentence)
+    const advanceToEndOfInkUnicodeClause = computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts()
+    unicodeSentence = sumTexts(unicodeSentence, advanceToEndOfInkUnicodeClause as Unicode as Unicode & Sentence)
 
     return collapseAdvances(unicodeSentence)
 }

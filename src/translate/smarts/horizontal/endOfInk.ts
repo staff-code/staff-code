@@ -3,7 +3,7 @@ import {Octals, Unicode} from "../../codes"
 import {smarts} from "../globals"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
 
-const computeEndOfLineWidth = (): Octals => {
+const computeAdvanceToEndOfInkWidth = (): Octals => {
     const unspacedAdvance = subtract(smarts.advanceWidth, smarts.spacing)
 
     return unspacedAdvance < 0 ? 0 as Octals : unspacedAdvance
@@ -11,7 +11,7 @@ const computeEndOfLineWidth = (): Octals => {
 
 const computeBasicallySmartAdvanceExceptWithoutSpacingSinceThereIsNothingToSpaceAgainst = (): Unicode & Clause =>
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-        computeEndOfLineWidth(),
+        computeAdvanceToEndOfInkWidth(),
     )
 
 const computeWhateverAdvanceYouThenNeedToMakeItToTheEndOfTheStaveSegmentYouHaveLandedOn = (): Unicode & Clause =>
@@ -19,15 +19,13 @@ const computeWhateverAdvanceYouThenNeedToMakeItToTheEndOfTheStaveSegmentYouHaveL
         smarts.staveWidth,
     )
 
-// TODO: CLEAN, READY TO GO: RENAME END-OF-LINE ADVANCE TO ADVANCE-TO-END-OF-INK
-//  See: https://forum.sagittal.org/viewtopic.php?p=3683#p3683
-const computeEndOfLineUnicodeClauseAndUpdateSmarts = (): Unicode & Clause =>
+const computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts = (): Unicode & Clause =>
     sumTexts(
         computeBasicallySmartAdvanceExceptWithoutSpacingSinceThereIsNothingToSpaceAgainst(),
         computeWhateverAdvanceYouThenNeedToMakeItToTheEndOfTheStaveSegmentYouHaveLandedOn(),
     )
 
 export {
-    computeEndOfLineUnicodeClauseAndUpdateSmarts,
-    computeEndOfLineWidth,
+    computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts,
+    computeAdvanceToEndOfInkWidth,
 }

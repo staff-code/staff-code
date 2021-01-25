@@ -1,8 +1,8 @@
 import {Clause, Io, Word} from "@sagittal/general"
 import {caseDesensitize} from "../case"
 import {
-    ADVANCE_TO_END_COMMAND_CODE,
     Code,
+    PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE,
     SMART_ADVANCE_COMMAND_CODE,
     SMART_STAVE_OFF_COMMAND_CODE,
     SMART_STAVE_ON_COMMAND_CODE,
@@ -11,6 +11,7 @@ import {
 import {EMPTY_UNICODE} from "../constants"
 import {smarts} from "./globals"
 import {
+    computePlaceAgainstEndOfStaffAdvanceUnicodeClauseAndUpdateSmarts,
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
     computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
     computeSpacing,
@@ -28,14 +29,8 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
             computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
                 smarts.advanceWidth,
             )
-    // TODO: CLEAN, READY TO GO: RENAME ADVANCE-TO-END TO PLACE-AGAINST-END-OF-STAFF
-    //  See: https://forum.sagittal.org/viewtopic.php?p=3683#p3683
-    } else if (caseDesensitizedCode === caseDesensitize(ADVANCE_TO_END_COMMAND_CODE)) {
-        smarts.advanceToEnd = true
-        commandUnicodeClause =
-            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-                smarts.advanceWidth,
-            )
+    } else if (caseDesensitizedCode === caseDesensitize(PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE)) {
+        commandUnicodeClause = computePlaceAgainstEndOfStaffAdvanceUnicodeClauseAndUpdateSmarts()
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_ON_COMMAND_CODE)) {
         smarts.staveOn = true
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_OFF_COMMAND_CODE)) {

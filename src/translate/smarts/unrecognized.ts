@@ -14,7 +14,11 @@ import {
 } from "@sagittal/general"
 import {Octals, Unicode} from "../codes"
 import {smarts} from "./globals"
-import {computeAdvanceUnicode, computeEndOfLineUnicodeClauseAndUpdateSmarts, computeUnicodeWidth} from "./horizontal"
+import {
+    computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts,
+    computeAdvanceUnicode,
+    computeUnicodeWidth,
+} from "./horizontal"
 
 const computeUnrecognizedUnicodeClause = (input: Io & Word): Unicode & Clause => {
     let unicodeClause = "" as Unicode & Clause
@@ -37,7 +41,7 @@ const computeUnrecognizedUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unic
     const biggerHalfOfSpaceWidth = ceil(spaceWidth) as Octals & Decimal<{integer: true}>
     const smallerHalfOfSpaceWidth = floor(spaceWidth) as Octals & Decimal<{integer: true}>
 
-    let unicodeClause = computeEndOfLineUnicodeClauseAndUpdateSmarts()
+    let unicodeClause = computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts()
     smarts.staveOn = false
 
     unicodeClause = sumTexts(

@@ -2,11 +2,11 @@ export {smarts} from "./globals"
 export {
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
     isManualAdvanceUnicode,
-    computeEndOfLineUnicodeClauseAndUpdateSmarts,
+    computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts,
     collapseAdvances,
     computeAdvanceUnicode,
     computeUnicodeWidth,
-    computeEndOfLineWidth,
+    computeAdvanceToEndOfInkWidth,
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
     computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
 } from "./horizontal"
