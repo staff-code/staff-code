@@ -126,7 +126,6 @@ describe("computeInputSentenceUnicode", (): void => {
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
-
         it("accepts unrecognized codes in other reasonable formats", (): void => {
             expect(computeInputSentenceUnicode("U+5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
             expect(computeInputSentenceUnicode("u+5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
@@ -155,6 +154,18 @@ describe("computeInputSentenceUnicode", (): void => {
             const expectedUnicode = "  f  n o r d 　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "Fcl st24 28; ¿¿f?? 8; ¿¿n?? 13; ¿¿o?? 11; ¿¿r?? 10; ¿¿d?? 15; ntqrdn st16 16;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
+
+        it("spaces things unrecognized codes away from recognized codes even when Smart Stave is off", (): void => {
+            const inputSentence = "nt unrec ntup" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = " u n r e c  " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "ntqrdn 15; ¿¿u?? 13; ¿¿n?? 13; ¿¿r?? 10; ¿¿e?? 11; ¿¿c?? 13; ntqrup 11;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -925,6 +936,18 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             const expectedUnicode = "  n t ; n t ;  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "ntqrdn 17; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 10; ntqrdn 13;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
+
+        it("the stof command is a noop when Smart Stave is not on", (): void => {
+            const inputSentence = "nt stof nt" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = " " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "ntqrdn ntqrdn 11;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })

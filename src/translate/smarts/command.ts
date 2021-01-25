@@ -39,8 +39,6 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_ON_COMMAND_CODE)) {
         smarts.staveOn = true
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_OFF_COMMAND_CODE)) {
-        // TODO: BUG, READY TO GO: STOF SHOULD BE NOOP WHEN ALREADY STOF
-        //  See: https://forum.sagittal.org/viewtopic.php?p=3678#p3678
         commandUnicodeClause = computeSmartStaveOffUnicodeClauseAndUpdateSmarts()
     } else if (isSpacingCommandCode(caseDesensitizedCode)) {
         smarts.spacing = computeSpacing(caseDesensitizedCode)

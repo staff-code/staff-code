@@ -1,5 +1,6 @@
 import {Clause, Word} from "@sagittal/general"
 import {Code, computeUnicodeForCode, Unicode} from "../../codes"
+import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {computeEndOfLineUnicodeClauseAndUpdateSmarts} from "./endOfLine"
 
@@ -45,6 +46,8 @@ const PLAINCHANT_STAVE_UNICODES = [
 ]
 
 const computeSmartStaveOffUnicodeClauseAndUpdateSmarts = (): Unicode & Clause => {
+    if (!smarts.staveOn) return EMPTY_UNICODE as Unicode & Clause
+
     const unicodeClause = computeEndOfLineUnicodeClauseAndUpdateSmarts()
     smarts.staveOn = false
 
