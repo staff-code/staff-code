@@ -1,4 +1,4 @@
-// tslint:disable comment-format
+// tslint:disable comment-format max-line-length
 
 import {BLANK, Filename, Html, NEWLINE, Sentence} from "@sagittal/general"
 import * as fs from "fs"
@@ -98,8 +98,13 @@ describe("computeSvgStringFromInput", (): void => {
         expect(actual).toBe(expected)
     })
 
-    // TODO, CLEAN, READY TO GO: LIGATURE TEST
-    //  One expectation per category that should have a CSP ligature,
-    //  Because otherwise whether that unicode character actually does what it claims to do won't be caught,
-    //  Such as what's currently the case with the new leger lines
+    it("can vertically position various types of glyphs on stave lines (not all of these work yet)", async (): Promise<void> => {
+        const unicodeSentence = "                                　" as Unicode & Sentence
+
+        const actual = await computeSvgStringFromInput(unicodeSentence)
+
+        if (UPDATE) updateSnapshot(actual, thisJasmine.currentTest)
+        const expected = readSnapshot(thisJasmine.currentTest)
+        expect(actual).toBe(expected)
+    })
 })
