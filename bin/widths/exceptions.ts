@@ -1,4 +1,4 @@
-import {Name, RecordKey} from "@sagittal/general"
+import {Name, Px, RecordKey} from "@sagittal/general"
 import {computeUnicodeFromUnicodeLiteral, Octals, Unicode, UnicodeLiteral} from "../../src"
 import {computeGlyphUnicode} from "../glyphUnicode"
 
@@ -28,17 +28,6 @@ const EXCEPTION_WIDTHS: Record<RecordKey<Unicode>, Octals> = {
     [computeGlyphUnicode("luteStaff6LinesWide" as Name<Unicode>)]: 0 as Octals,
     [computeGlyphUnicode("luteStaff6LinesNarrow" as Name<Unicode>)]: 0 as Octals,
 }
-
-// TODO: FEATURE IMPROVE, READY TO GO: FIX END-OF-LINE FLOORED WIDTHS
-/*
-But there's a more serious problem at the right-hand end. Try Download image for:
-https://staffcode.org/?codes=ston-enq-bldb
-
-The second barline is cut down to about half its width.
-It would be good if you could come up with a solution for that.
-It is clearly a consequence of the special case we instituted for barlines where we set their width to the
-floor() instead of the round(), so that we wouldn't see ugly bits of shaft projecting to the right of a final barline.
-*/
 
 const FLOORED_WIDTHS = ([
     "U+E030",
