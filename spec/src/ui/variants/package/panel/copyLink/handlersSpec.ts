@@ -41,7 +41,7 @@ describe("handleCopyLinkClick", (): void => {
         expect(components.display.textContent).toBe(BLANK)
         handleCopyLinkClick()
 
-        expect(components.display.textContent).toBe("  l  a l  a l  a  ")
+        expect(components.display.textContent).toBe("  l  a l  a l  a  ")
     })
 
     it("also saves the state of the input", (): void => {

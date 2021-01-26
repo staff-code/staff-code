@@ -119,9 +119,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "  d o n '  t　k n o w  w　h a t　i  '  m  d o i  n g " as Unicode & Sentence
+            const expectedUnicode = "  d  o n  ' t k  n  o w w h  a t i  ' m　d  o i  n  g " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "4; ¿¿d?? 12; ¿¿o?? 11; ¿¿n?? 13; ¿¿'?? 6; ¿¿t?? 16; ¿¿k?? 13; ¿¿n?? 13; ¿¿o?? 11; ¿¿w?? 23; ¿¿w?? 16; ¿¿h?? 13; ¿¿a?? 12; ¿¿t?? 16; ¿¿i?? 8; ¿¿'?? 6; ¿¿m?? 25; ¿¿d?? 12; ¿¿o?? 11; ¿¿i?? 8; ¿¿n?? 13; ¿¿g?? 15;" as Code & Sentence
+            const expectedCodes = "2; ¿¿d?? 8; ¿¿o?? 7; ¿¿n?? 8; ¿¿'?? 3; ¿¿t?? 9; ¿¿k?? 8; ¿¿n?? 8; ¿¿o?? 7; ¿¿w?? 14; ¿¿w?? 10; ¿¿h?? 8; ¿¿a?? 7; ¿¿t?? 9; ¿¿i?? 4; ¿¿'?? 3; ¿¿m?? 16; ¿¿d?? 8; ¿¿o?? 7; ¿¿i?? 4; ¿¿n?? 8; ¿¿g?? 9;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -151,21 +151,21 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "  f  n o r d 　" as Unicode & Sentence
+            const expectedUnicode = "  f  n  o r  d 　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Fcl st24 28; ¿¿f?? 8; ¿¿n?? 13; ¿¿o?? 11; ¿¿r?? 10; ¿¿d?? 15; ntqrdn st16 16;" as Code & Sentence
+            const expectedCodes = "Fcl st24 26; ¿¿f?? 4; ¿¿n?? 8; ¿¿o?? 7; ¿¿r?? 6; ¿¿d?? 10; ntqrdn st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
-        it("spaces things unrecognized codes away from recognized codes even when Smart Stave is off", (): void => {
+        it("spaces unrecognized codes away from recognized codes even when Smart Stave is off", (): void => {
             const inputSentence = "nt unrec ntup" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = " u n r e c  " as Unicode & Sentence
+            const expectedUnicode = " u  n  r  e c   " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "ntqrdn 15; ¿¿u?? 13; ¿¿n?? 13; ¿¿r?? 10; ¿¿e?? 11; ¿¿c?? 13; ntqrup 11;" as Code & Sentence
+            const expectedCodes = "ntqrdn 13; ¿¿u?? 8; ¿¿n?? 8; ¿¿r?? 6; ¿¿e?? 7; ¿¿c?? 8; ntqrup 11;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -921,9 +921,9 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "  n t ; n t ; 　" as Unicode & Sentence
+            const expectedUnicode = "  n  t ;  n  t ;  　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "ntqrdn st16 20; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 10; ntqrdn st16 16;" as Code & Sentence
+            const expectedCodes = "ntqrdn st16 18; ¿¿n?? 8; ¿¿t?? 5; ¿¿;?? 8; ¿¿n?? 8; ¿¿t?? 5; ¿¿;?? 6; ntqrdn st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -933,9 +933,9 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
-            const expectedUnicode = "  n t ; n t ;  " as Unicode & Sentence
+            const expectedUnicode = " n  t ;  n  t ;   " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "ntqrdn 17; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 14; ¿¿n?? 13; ¿¿t?? 9; ¿¿;?? 10; ntqrdn 13;" as Code & Sentence
+            const expectedCodes = "ntqrdn 15; ¿¿n?? 8; ¿¿t?? 5; ¿¿;?? 8; ¿¿n?? 8; ¿¿t?? 5; ¿¿;?? 6; ntqrdn 13;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
