@@ -17,6 +17,13 @@ module.exports = {
                     transpileOnly: true,
                 },
             },
+            {
+                test: /\.(otf|woff)$/,
+                loader: "file-loader",
+                options: {
+                    name: '[name].[contenthash].[ext]',
+                }
+            }
         ],
     },
 }
