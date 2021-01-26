@@ -6,20 +6,22 @@ import {INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "../../../../../../../src/ui/v
 import {mockDom} from "../../../../../../helpers/mockDom"
 import {setupBasicStaffCode} from "../../../../../../helpers/src/ui/variants/package/setup"
 
+let writeTextSpy: jasmine.Spy
+
+const setupForHandleCopyLinkClick = ({url}: {url?: Link} = {}): void => {
+    mockDom({url})
+    // @ts-ignore
+    globalThis.navigator.clipboard = {}
+
+    setupBasicStaffCode()
+
+    writeTextSpy = jasmine.createSpy()
+    navigator.clipboard.writeText = writeTextSpy
+
+    components.copyLinkMessage = document.createElement("div")
+}
+
 describe("handleCopyLinkClick", (): void => {
-    let writeTextSpy: jasmine.Spy
-
-    const setupForHandleCopyLinkClick = ({url}: {url?: Link} = {}): void => {
-        mockDom({url})
-
-        setupBasicStaffCode()
-
-        writeTextSpy = jasmine.createSpy()
-        navigator.clipboard.writeText = writeTextSpy
-
-        components.copyLinkMessage = document.createElement("div")
-    }
-
     it("activates the copy link message for a few seconds", async (done: DoneFn): Promise<void> => {
         onlyRunInCi()
 

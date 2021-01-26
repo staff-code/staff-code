@@ -12,18 +12,10 @@ const buildBlobAndSaveIt = (svg: SVGGraphicsElement): void => {
     const outerHTML = svg.outerHTML
     const blob = new Blob([outerHTML], {type: TYPE})
 
-    const reader = new FileReader()
-    reader.onload = (): void => {
-        window.location.href = reader.result as string
-    }
-    reader.readAsDataURL(blob)
-
-    const fileURL = URL.createObjectURL(blob)
     const a = document.createElement("a")
-    a.href = fileURL
+    a.href = URL.createObjectURL(blob)
     a.target = "_blank"
     a.download = DOWNLOAD_FILENAME
-    document.body.appendChild(a)
     a.click()
 }
 
