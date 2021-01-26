@@ -1,6 +1,6 @@
 {
   "name": "staff-code",
-  "version": "1.0.200",
+  "version": "1.0.201",
   "main": "dist/package/cjs/src/index.js",
   "module": "dist/package/esm/src/esmIndex.js",
   "types": "dist/package/cjs/src/index.d.ts",
@@ -41,6 +41,7 @@
     "@types/jsdom": "^16.2.6",
     "@types/node": "^14.14.22",
     "buffer": "^6.0.3",
+    "copy-webpack-plugin": "^7.0.0",
     "favicons": "^6.2.0",
     "favicons-webpack-plugin": "^5.0.0-alpha.11",
     "file-loader": "^6.2.0",
