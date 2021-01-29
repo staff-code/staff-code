@@ -15,28 +15,28 @@ import {BRAVURA_TEXT_SC, BRAVURA_TEXT_SC_OTF, BRAVURA_TEXT_SC_WOFF, WEB_APP_URL}
 
 const loadFonts = (): Promise<void> => {
     return new Promise((resolve: () => void, reject: () => void): void => {
-        const localWoff = new FontFace(BRAVURA_TEXT_SC, `url('${bravuraTextScWoff}`)
-        localWoff.load().then((): void => {
-            document.fonts.add(localWoff)
+        const webpackContentHashedWoffForApp = new FontFace(BRAVURA_TEXT_SC, `url('${bravuraTextScWoff}`)
+        webpackContentHashedWoffForApp.load().then((): void => {
+            document.fonts.add(webpackContentHashedWoffForApp)
             resolve()
         }).catch((): void => {
-            const remoteWoff = new FontFace(BRAVURA_TEXT_SC, `url('${WEB_APP_URL}/${BRAVURA_TEXT_SC_WOFF}')`)
-            remoteWoff.load().then((): void => {
-                document.fonts.add(remoteWoff)
+            const notContentHashedWoffForPackageOrBBCode = new FontFace(BRAVURA_TEXT_SC, `url('${BRAVURA_TEXT_SC_WOFF}')`)
+            notContentHashedWoffForPackageOrBBCode.load().then((): void => {
+                document.fonts.add(notContentHashedWoffForPackageOrBBCode)
                 resolve()
             }).catch((): void => {
                 reject()
             })
         })
 
-        const localOtf = new FontFace(BRAVURA_TEXT_SC, `url('${bravuraTextScOtf}`)
-        localOtf.load().then((): void => {
-            document.fonts.add(localOtf)
+        const webpackContentHashedOtfForApp = new FontFace(BRAVURA_TEXT_SC, `url('${bravuraTextScOtf}`)
+        webpackContentHashedOtfForApp.load().then((): void => {
+            document.fonts.add(webpackContentHashedOtfForApp)
             resolve()
         }).catch((): void => {
-            const remoteOtf = new FontFace(BRAVURA_TEXT_SC, `url('${WEB_APP_URL}/${BRAVURA_TEXT_SC_OTF}')`)
-            remoteOtf.load().then((): void => {
-                document.fonts.add(remoteOtf)
+            const notContentHashedOtfForPackageOrBBCode = new FontFace(BRAVURA_TEXT_SC, `url('${BRAVURA_TEXT_SC_OTF}')`)
+            notContentHashedOtfForPackageOrBBCode.load().then((): void => {
+                document.fonts.add(notContentHashedOtfForPackageOrBBCode)
                 resolve()
             }).catch((): void => {
                 reject()
