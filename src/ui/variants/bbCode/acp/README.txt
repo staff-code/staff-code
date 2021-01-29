@@ -1,5 +1,8 @@
 StaffCode installation instructions
 
+- Download https://staffcode.org/assets/fonts/BravuraTextBB.otf, https://staffcode.org/assets/fonts/BravuraTextBB.woff, and https://staffcode.org/staffCode.js.
+- Drag `BravuraTextBB.otf` and `BravuraTextBB.woff` to your `assets/fonts` folder, along with any other fonts your users may wish to use. SMuFL-compliant fonts will not work out of the box; a non-trivial amount of modification to a font is required to work with StaffCode.
+- Drag `staffCode.js` to your `assets/javascripts` folder.
 - In Admin Control Panel -> Posting -> BBCodes click "Add a new BBCode". This one is for the block mode.
 - Fill in the BBCode usage field with:
 
