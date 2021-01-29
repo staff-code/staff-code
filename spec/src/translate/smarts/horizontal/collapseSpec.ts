@@ -1,5 +1,5 @@
 import {Sentence} from "@sagittal/general"
-import {Unicode} from "../../../../../src"
+import {Unicode} from "../../../../../src/translate"
 import {collapseAdvances} from "../../../../../src/translate/smarts"
 
 describe("collapseAdvances", (): void => {

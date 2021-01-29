@@ -2,8 +2,7 @@
 
 import {BLANK, Io, NEWLINE, Sentence} from "@sagittal/general"
 import * as fs from "fs"
-import {Code, computeInputSentenceUnicode, Unicode} from "../../../src"
-import {EMPTY_UNICODE} from "../../../src/translate"
+import {Code, computeInputSentenceUnicode, EMPTY_UNICODE, Unicode} from "../../../src/translate"
 import {debugCodeSentence} from "../../../src/translate/codes"
 import {BRAVURA_TEXT_SC, BRAVURA_TEXT_SC_OTF} from "../../../src/ui/constants"
 import CustomReporterResult = jasmine.CustomReporterResult

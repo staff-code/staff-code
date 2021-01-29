@@ -1,6 +1,11 @@
 import {Word} from "@sagittal/general"
-import {computeUnicodeFromUnicodeLiteral, computeUnicodeLiteral, Unicode, UnicodeLiteral} from "../../../../src"
-import {EMPTY_UNICODE} from "../../../../src/translate"
+import {
+    computeUnicodeFromUnicodeLiteral,
+    computeUnicodeLiteral,
+    EMPTY_UNICODE,
+    Unicode,
+    UnicodeLiteral,
+} from "../../../../src/translate"
 import {Code, computeUnicodeForCode} from "../../../../src/translate/codes"
 
 describe("computeUnicodeLiteral", (): void => {

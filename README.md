@@ -104,10 +104,3 @@ then processes this data into a form where it can be consumed by StaffCode's `sr
 same. This is so the project can be used isomorphically (in both Node and the browser). The two packages are exposed
 as `main` and `module`, respectively. `sideEffects: false` has been marked in `package.json` to allow the ESM version to
 be tree-shaken by consumers.
-
-StaffCode uses two different strategies for font loading. For the `app`, it uses `file-loader` to pass assets
-through `webpack` so that they can be content hashed, so if the font ever changes, GitHub Pages does not cache it.
-The `package` and `bbCode` variants use the same code to load fonts, so as long as they are placed in `assets/fonts`, it
-will find them locally, even in the absence of a content hash. However, both the `package` and `bbCode` variants are
-allowed to fall back to requesting the font from the web `app`'s server, for which purpose the web `app` must also
-present the fonts at a reliable, not-cached URL. For this strategy, StaffCode uses the `copy-webpack-plugin`.

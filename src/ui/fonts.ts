@@ -1,12 +1,14 @@
 // tslint:disable no-reaching-imports
 
+// @ts-ignore
+import bravuraTextScOtf from "../../assets/fonts/BravuraTextSC.otf"
+// @ts-ignore
+import bravuraTextScWoff from "../../assets/fonts/BravuraTextSC.woff"
 import {BRAVURA_TEXT_SC, BRAVURA_TEXT_SC_OTF, BRAVURA_TEXT_SC_WOFF, WEB_APP_URL} from "./constants"
 
 const loadFonts = (): Promise<void> => {
-    return new Promise(async (resolve: () => void, reject: () => void): Promise<void> => {
-        // @ts-ignore
-        const localWoffUrl = await import(`../../assets/fonts/BravuraTextSC.woff`)
-        const localWoff = new FontFace(BRAVURA_TEXT_SC, `url('${localWoffUrl.default}`)
+    return new Promise((resolve: () => void, reject: () => void): void => {
+        const localWoff = new FontFace(BRAVURA_TEXT_SC, `url('${bravuraTextScWoff}`)
         localWoff.load().then((): void => {
             document.fonts.add(localWoff)
             resolve()
@@ -20,9 +22,7 @@ const loadFonts = (): Promise<void> => {
             })
         })
 
-        // @ts-ignore
-        const localOtfUrl = await import(`../../assets/fonts/BravuraTextSC.otf`)
-        const localOtf = new FontFace(BRAVURA_TEXT_SC, `url('${localOtfUrl.default}`)
+        const localOtf = new FontFace(BRAVURA_TEXT_SC, `url('${bravuraTextScOtf}`)
         localOtf.load().then((): void => {
             document.fonts.add(localOtf)
             resolve()
