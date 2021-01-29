@@ -1,4 +1,5 @@
-import {Octals, Unicode} from "../../src"
+// tslint:disable-next-line no-reaching-imports
+import {Octals, Unicode} from "../../src/translate"
 
 const ASCII_WIDTHS = {
     " ": 2,

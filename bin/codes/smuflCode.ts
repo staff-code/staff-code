@@ -1,5 +1,6 @@
 import {BLANK, Name, SPACE, Word} from "@sagittal/general"
-import {Code, Unicode} from "../../src"
+// tslint:disable-next-line no-reaching-imports
+import {Code, Unicode} from "../../src/translate"
 import {separateWordsBySpaces} from "../separate"
 import {computeGlyphNameWordAbbreviation} from "./glyphNameWordAbbreviation"
 

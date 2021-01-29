@@ -1,5 +1,6 @@
 import {Name, RecordKey, Word} from "@sagittal/general"
-import {Unicode, UnicodeLiteral} from "../src"
+// tslint:disable-next-line no-reaching-imports
+import {Unicode, UnicodeLiteral} from "../src/translate"
 
 type GlyphDatum = {codepoint: UnicodeLiteral & Word}
 

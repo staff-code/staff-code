@@ -1,5 +1,6 @@
 import {Decimal, floor, isUndefined, Name, RecordKey, round, Word} from "@sagittal/general"
-import {computeUnicodeLiteral, Octals, Unicode} from "../../src"
+// tslint:disable-next-line no-reaching-imports
+import {computeUnicodeLiteral, Octals, Unicode} from "../../src/translate"
 import {GlyphDatum} from "../types"
 import {EXCEPTION_WIDTHS, FLOORED_WIDTHS} from "./exceptions"
 import {boundingBoxEntries, smuflUnicodes} from "./globals"

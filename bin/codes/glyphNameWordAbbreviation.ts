@@ -1,5 +1,6 @@
 import {Abbreviation, BLANK, isUndefined, Name, Word} from "@sagittal/general"
-import {Unicode} from "../../src"
+// tslint:disable-next-line no-reaching-imports
+import {Unicode} from "../../src/translate"
 import {EXCEPTION_WORD_ENTRIES} from "./exceptions"
 
 const removeVowelsAndVowelSoundCharSequencesBesidesFirstChar = (

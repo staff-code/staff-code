@@ -1,5 +1,12 @@
 // tslint:disable no-reaching-imports
 
+// In order to make these font files content-hashable, passing through webpack as imports instead of copy-webpack-plugin
+// I have essentially created a module here which can only be handled with webpack. So it breaks when running the tests.
+// And it also breaks when running scripts in the bin/ folder. Basically, anything in Node, through tsc / ts-node, can't
+// Handle this module. And I can't figure out how to short-circuit it. So instead I just dance around it, avoiding
+// Importing whenever I can, by simply importing from ...src/translate instead of ...src (and tslint-disabling, for the
+// No-reaching-imports rule.
+
 // @ts-ignore
 import bravuraTextScOtf from "../../assets/fonts/BravuraTextSC.otf"
 // @ts-ignore

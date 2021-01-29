@@ -1,5 +1,6 @@
-import {Name, Px, RecordKey} from "@sagittal/general"
-import {computeUnicodeFromUnicodeLiteral, Octals, Unicode, UnicodeLiteral} from "../../src"
+import {Name, RecordKey} from "@sagittal/general"
+// tslint:disable-next-line no-reaching-imports
+import {computeUnicodeFromUnicodeLiteral, Octals, Unicode, UnicodeLiteral} from "../../src/translate"
 import {computeGlyphUnicode} from "../glyphUnicode"
 
 const EXCEPTION_WIDTHS: Record<RecordKey<Unicode>, Octals> = {

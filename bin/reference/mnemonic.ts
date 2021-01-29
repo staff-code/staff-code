@@ -1,5 +1,6 @@
 import {Char, Count, increment, Index, joinWords, Name, SPACE, splitWord, Word} from "@sagittal/general"
-import {Code, Unicode} from "../../src"
+// tslint:disable-next-line no-reaching-imports
+import {Code, Unicode} from "../../src/translate"
 import {computeSmuflCode, fixSmuflCapitalizationIssue, updateEhejipn} from "../codes"
 import {separateWordsBySpacesForMnemonic} from "../separate"
 import {shouldBold} from "./bold"

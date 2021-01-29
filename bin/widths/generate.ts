@@ -1,6 +1,7 @@
 import {Name, RecordKey} from "@sagittal/general"
 import * as fs from "fs"
-import {Octals, Unicode} from "../../src"
+// tslint:disable-next-line no-reaching-imports
+import {Octals, Unicode} from "../../src/translate"
 import {glyphNames} from "../globals"
 import {GlyphDatum} from "../types"
 import {ASCII_WIDTHS} from "./ascii"

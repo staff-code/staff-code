@@ -1,5 +1,6 @@
 import {Name, Word} from "@sagittal/general"
-import {computeUnicodeFromUnicodeLiteral, Unicode} from "../src"
+// tslint:disable-next-line no-reaching-imports
+import {computeUnicodeFromUnicodeLiteral, Unicode} from "../src/translate"
 import {glyphNames} from "./globals"
 import {GlyphDatum} from "./types"
 

@@ -1,5 +1,6 @@
 import {Name} from "@sagittal/general"
-import {Unicode} from "../../src"
+// tslint:disable-next-line no-reaching-imports
+import {Unicode} from "../../src/translate"
 import {computeSmuflCode} from "../codes"
 import {computeGlyphUnicode} from "../glyphUnicode"
 import {computeMnemonic} from "./mnemonic"
