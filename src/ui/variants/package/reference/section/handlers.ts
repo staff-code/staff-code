@@ -4,6 +4,9 @@ import {translateInputToDisplay} from "../../../../translate"
 import {components, staffCodeConfig} from "../../globals"
 import {getPreviousInputState, setPreviousInputState} from "../../panel"
 
+// TODO: FEATURE IMPROVE, READY TO GO: INSERT FINESSE
+//  Inserting codes shouldn't add a space after a return carriage
+
 const insertCodeIntoInputAndSavePreviousState = (code: Code & Word): void => {
     const {input} = components
 
