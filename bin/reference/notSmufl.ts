@@ -10,10 +10,10 @@ import {Explanation, ReferenceRow, Section} from "./types"
 
 // TODO: I guess we should add trcl, bscl, alcl, tncl as built-in macros combining an up0 or up2 with a Gcl, Fcl or Ccl,
 //  To be listed in the StaffCode commands section.
-
-// TODO: Maybe we should redundantly also list the conventional sharp, flat and natural in the
+//  - Maybe we should redundantly also list the conventional sharp, flat and natural in the
 //  "StaffCode commands" table in the Ref, just so all the stuff a new user needs for basic notation is there
 //  (when they are given "ston Gcl ;" as a starter).
+//  - Call this whole section "basics"
 
 const COMMANDS_SECTION: Section = [
     COMMANDS_SECTION_ID,
