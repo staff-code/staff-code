@@ -7,6 +7,10 @@ import {getPreviousInputState, setPreviousInputState} from "../../panel"
 // TODO: FEATURE IMPROVE, READY TO GO: INSERT FINESSE
 //  Inserting codes shouldn't add a space after a return carriage
 
+// TODO: INSERT PREVIEW
+//  It might be a bit hard to do, but maybe I could make the words appear in the input where you would insert
+//  Them, as a sort of greyed-out preview. Any interest in that?
+
 const insertCodeIntoInputAndSavePreviousState = (code: Code & Word): void => {
     const {input} = components
 

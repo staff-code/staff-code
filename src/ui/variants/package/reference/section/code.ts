@@ -9,6 +9,15 @@ import {
 import {LIGHT_GREY} from "../../constants"
 import {EMPTY_CODE_CELL} from "./constants"
 
+// TODO: ALIASES BUG
+//  We have ".b" as the click-to-insert code for flat, in the Ref.
+//  That just seems like a straight bug that needs fixing.
+//  Same problem with natural and double-flat. Sharp and double-sharp are OK.
+//  - Oh. That's because of the bit where I thought sorting codes with non-alphabetical chars first would
+//  Solve all the problems. We know now that they don't, due to the complexity of the sagittal alias sorting
+//  Desires. So, I'll probably just need to undo that bit and make all the exceptions hardcoded.
+//  Probably simpler than what I had to do to make it work now with some semblance of pattern to it.
+
 const ALIASES_FOR_REFERENCE_MAP = JSON.parse(JSON.stringify(ALIASES_MAP))
 
 const SAGITTAL_SECONDARY_SAGISPEAK_ALIAS_CODES =

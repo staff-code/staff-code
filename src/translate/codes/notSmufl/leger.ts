@@ -1,6 +1,8 @@
 import {RecordKey, Word} from "@sagittal/general"
 import {Code, Unicode} from "../types"
 
+// TODO: temporarily revert leger lines until font actually supports these?
+
 const NOT_SMUFL_LEGER_LINES_SUPPLEMENT_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*U+F3C0*/"lgln1": "",
     /*U+F3C1*/"lgln2": "",
