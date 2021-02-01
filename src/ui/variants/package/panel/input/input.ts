@@ -2,7 +2,7 @@ import {components, staffCodeConfig} from "../../globals"
 import {buildStaffCodeCallback} from "./callback"
 import {handleInput, handleKeydown, handleKeyup} from "./handlers"
 
-// TODO: BLINKING CURSOR
+// TODO: FEATURE IMPROVE, DO NOT DO: BLINKING CURSOR
 //  But I'm not super into the blinking-cursor-only-right-after-the-CSP idea,
 //  Even though I think I suggested something like that myself a while back.
 //  It's just that... the CSP is still "on" even after that first position.
@@ -12,6 +12,7 @@ import {handleInput, handleKeydown, handleKeyup} from "./handlers"
 //  Which might help coax people into understanding advance, too, if they saw that after they inserted
 //  A notehead, the cursor was still on the left side of it, so it would be obvious if they typed
 //  Something else right now they'd be typing over it.
+//  - Okay he says not to do it
 
 const buildPackageInput = (): HTMLDivElement => {
     const {initial: {codes: initialCodes}, ui: {interactive}} = staffCodeConfig

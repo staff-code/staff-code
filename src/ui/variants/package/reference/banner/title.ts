@@ -4,10 +4,14 @@ import versionJson from "./version.json"
 // @ts-ignore
 const VERSION = versionJson.version
 
-// TODO: extract the about to its own module, I'd say
-//  Then put the link FIRST
+// TODO: CLEAN, READY TO GO: EXTRACT ABOUT TO ITS OWN MODULE
+
+// TODO: FEATURE IMPROVE, READY TO GO: "ABOUT" COPY
+//  Put the link FIRST
 //  Sure. Perhaps also with a blank line between it and the rest of it,
 //  To further help it pop out at the user.
+//  Dave agrees with that now.
+
 const STAFF_CODE_ABOUT = `
 StaffCode version ${VERSION}<br>
 by Douglas Blumeyer<br>

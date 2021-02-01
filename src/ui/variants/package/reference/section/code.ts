@@ -9,7 +9,7 @@ import {
 import {LIGHT_GREY} from "../../constants"
 import {EMPTY_CODE_CELL} from "./constants"
 
-// TODO: ALIASES BUG
+// TODO: BUG, READY TO GO: ALIASES WRONG FOR CONVENTIONAL ACCIDENTALS
 //  We have ".b" as the click-to-insert code for flat, in the Ref.
 //  That just seems like a straight bug that needs fixing.
 //  Same problem with natural and double-flat. Sharp and double-sharp are OK.

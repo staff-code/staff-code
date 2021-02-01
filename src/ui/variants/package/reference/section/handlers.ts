@@ -4,12 +4,13 @@ import {translateInputToDisplay} from "../../../../translate"
 import {components, staffCodeConfig} from "../../globals"
 import {getPreviousInputState, setPreviousInputState} from "../../panel"
 
-// TODO: FEATURE IMPROVE, READY TO GO: INSERT FINESSE
+// TODO: FEATURE IMPROVE, READY TO GO: INSERT FINESSE W/R/T NEWLINES
 //  Inserting codes shouldn't add a space after a return carriage
 
-// TODO: INSERT PREVIEW
+// TODO: FEATURE IMPROVE, DO NOT DO: INSERT PREVIEW
 //  It might be a bit hard to do, but maybe I could make the words appear in the input where you would insert
 //  Them, as a sort of greyed-out preview. Any interest in that?
+//  He says no interest whatsoever. Ooooohhhh but I still really want to try it.
 
 const insertCodeIntoInputAndSavePreviousState = (code: Code & Word): void => {
     const {input} = components
