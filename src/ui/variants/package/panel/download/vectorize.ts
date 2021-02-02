@@ -1,6 +1,8 @@
 import {Html, Multiplier, Px, Sentence, textToSvg, TextToSvgOptions} from "@sagittal/general"
+// tslint:disable no-reaching-imports
+// @ts-ignore
+import bravuraTextScOtf from "../../../../../../assets/fonts/BravuraTextSC.otf"
 import {smarts, Unicode} from "../../../../../translate"
-import {BRAVURA_TEXT_SC_OTF} from "../../../../constants"
 import {getLine} from "../spinners"
 import {computeFontSizeForTextToSvg} from "./font"
 
@@ -10,7 +12,7 @@ const computeSvgStringFromInput = (unicodeSentence: Unicode & Sentence): Promise
     const line = getLine() as Multiplier as Multiplier<Px>
     const fontSize = computeFontSizeForTextToSvg()
     const options = {
-        font: BRAVURA_TEXT_SC_OTF,
+        font: bravuraTextScOtf,
         line,
         fontSize,
         padding: smarts.spacing,

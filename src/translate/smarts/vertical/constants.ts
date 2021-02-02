@@ -1,8 +1,8 @@
 import {Count, RecordKey, Word} from "@sagittal/general"
 import {
     BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
-    CaseDesensitized,
     CASE_DESENSITIZED_CODE_MAP,
+    CaseDesensitized,
     Code,
     computeUnicodeForCode,
     mergeAllCodeMapsIntoCaseDesensitizedCodeMap,

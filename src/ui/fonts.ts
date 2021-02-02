@@ -11,7 +11,7 @@
 import bravuraTextScOtf from "../../assets/fonts/BravuraTextSC.otf"
 // @ts-ignore
 import bravuraTextScWoff from "../../assets/fonts/BravuraTextSC.woff"
-import {BRAVURA_TEXT_SC, BRAVURA_TEXT_SC_OTF, BRAVURA_TEXT_SC_WOFF, WEB_APP_URL} from "./constants"
+import {BRAVURA_TEXT_SC, BRAVURA_TEXT_SC_OTF, BRAVURA_TEXT_SC_WOFF} from "./constants"
 
 const loadFonts = (): Promise<void> => {
     return new Promise((resolve: () => void, reject: () => void): void => {
