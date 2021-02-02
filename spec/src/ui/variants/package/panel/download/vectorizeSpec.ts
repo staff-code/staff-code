@@ -53,7 +53,7 @@ describe("computeSvgStringFromInput", (): void => {
         fs.appendFileSync(SVG_VISUAL_TEST_INDEX, "</body>" + NEWLINE)
     })
 
-    it("works for multiline StaffCodes", async (): Promise<void> => {
+    it("works for multiline StaffCodes", async (done: DoneFn): Promise<void> => {
         const unicodeSentence = "   　\n　" as Unicode & Sentence
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
@@ -61,9 +61,10 @@ describe("computeSvgStringFromInput", (): void => {
         if (UPDATE) updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
+        done()
     })
 
-    it("leger left overhang cut off unless you add manual advance at the start like this", async (): Promise<void> => {
+    it("leger left overhang cut off unless you add manual advance at the start like this", async (done: DoneFn): Promise<void> => {
         const unicodeSentence = " 　" as Unicode & Sentence
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
@@ -71,9 +72,10 @@ describe("computeSvgStringFromInput", (): void => {
         if (UPDATE) updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
+        done()
     })
 
-    it("works for a double barline at the end", async (): Promise<void> => {
+    it("works for a double barline at the end", async (done: DoneFn): Promise<void> => {
         const unicodeSentence = "　    " as Unicode & Sentence
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
@@ -81,9 +83,10 @@ describe("computeSvgStringFromInput", (): void => {
         if (UPDATE) updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
+        done()
     })
 
-    it("for a small line height, it may look a little weird", async (): Promise<void> => {
+    it("for a small line height, it may look a little weird", async (done: DoneFn): Promise<void> => {
         mockDom()
         components.lineSpinner = document.createElement("input")
         components.lineSpinner.value = "1"
@@ -96,9 +99,10 @@ describe("computeSvgStringFromInput", (): void => {
         if (UPDATE) updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
+        done()
     })
 
-    it("can vertically position various types of glyphs on stave lines (not all of these work yet)", async (): Promise<void> => {
+    it("can vertically position various types of glyphs on stave lines (not all of these work yet)", async (done: DoneFn): Promise<void> => {
         const unicodeSentence = "                                　" as Unicode & Sentence
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
@@ -106,5 +110,6 @@ describe("computeSvgStringFromInput", (): void => {
         if (UPDATE) updateSnapshot(actual, thisJasmine.currentTest)
         const expected = readSnapshot(thisJasmine.currentTest)
         expect(actual).toBe(expected)
+        done()
     })
 })

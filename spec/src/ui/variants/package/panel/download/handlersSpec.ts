@@ -19,23 +19,25 @@ describe("downloadSvg", (): void => {
         setupBasicStaffCode()
     }
 
-    it("translates the input to the display, in case the last code the user types wasn't a whitespace", (): void => {
+    it("translates the input to the display, in case the last code the user types wasn't a whitespace                      ", async (done: DoneFn): Promise<void> => {
         setupForDownloadSvg()
         components.input.value = "lalala nt"
 
         expect(components.display.textContent).toBe(BLANK)
-        downloadSvg()
+        await downloadSvg()
 
         expect(components.display.textContent).toBe("  l  a l  a l  a  ")
+        done()
     })
 
-    it("also saves the state of the input", (): void => {
+    it("also saves the state of the input", async (done: DoneFn): Promise<void> => {
         setupForDownloadSvg()
         components.input.value = "lalala nt"
 
         expect(components.input.getAttribute(INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE)).toBeNull()
-        downloadSvg()
+        await downloadSvg()
 
         expect(components.input.getAttribute(INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE)).toBe("lalala nt")
+        done()
     })
 })

@@ -27,6 +27,8 @@ const downloadSvg = async (): Promise<void> => {
 
     const unicodeSentence: Unicode & Sentence = (display.textContent || BLANK) as Unicode & Sentence
 
+    if (process?.env?.TEST_MODE) return
+
     const svg = await computeSvgFromInput(unicodeSentence)
 
     buildBlobAndSaveIt(svg)
