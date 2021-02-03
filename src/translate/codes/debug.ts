@@ -1,5 +1,5 @@
 import {joinWords, Sentence, Word} from "@sagittal/general"
-import {ACCIDENTAL_ALIASES_MAP, LINE_BREAK_ALIASES_MAP, POSITION_ALIASES_MAP} from "./aliases"
+import {ACCIDENTAL_ALIASES_MAP, POSITION_ALIASES_MAP} from "./aliases"
 import {BASE_GLYPH_MAP} from "./codes"
 import {Code, Unicode} from "./types"
 import {computeUnicodeForCode} from "./unicode"
@@ -9,12 +9,14 @@ const DEBUGGING_ONLY_ALIASES_MAP = {
     "st8": computeUnicodeForCode("st5lnnr" as Code & Word),
     "st16": computeUnicodeForCode("st5ln" as Code & Word),
     "st24": computeUnicodeForCode("st5lnwd" as Code & Word),
+
+    // Newline
+    "nl": "\n",
 }
 
 const BASE_GLYPH_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {
     ...DEBUGGING_ONLY_ALIASES_MAP,
     ...ACCIDENTAL_ALIASES_MAP,
-    ...LINE_BREAK_ALIASES_MAP,
     ...POSITION_ALIASES_MAP,
     ...BASE_GLYPH_MAP,
 }
@@ -42,11 +44,11 @@ const collapseAdvancesForDebugging = (codes: Array<Code & Word>): Array<Code & W
 
     let currentAdvance = 0
     codes.forEach((code: Code & Word): void => {
-        const advanceMatch = code.match(/(\d+);/)
+        const advanceMatch = code.match(/^(\d+)$/)
         if (advanceMatch) {
             currentAdvance = currentAdvance + parseInt(advanceMatch[1])
         } else if (currentAdvance > 0) {
-            codesWithAdvancesCollapsed.push(`${currentAdvance};` as Code & Word)
+            codesWithAdvancesCollapsed.push(JSON.stringify(currentAdvance) as Code & Word)
             currentAdvance = 0
             codesWithAdvancesCollapsed.push(code)
         } else {
@@ -54,7 +56,7 @@ const collapseAdvancesForDebugging = (codes: Array<Code & Word>): Array<Code & W
         }
     })
     if (currentAdvance > 0) {
-        codesWithAdvancesCollapsed.push(`${currentAdvance};` as Code & Word)
+        codesWithAdvancesCollapsed.push(JSON.stringify(currentAdvance) as Code & Word)
     }
 
     return codesWithAdvancesCollapsed

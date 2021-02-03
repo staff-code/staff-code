@@ -3,7 +3,6 @@ import {mergeCodeMapsCheckingForCaseDesensitizedConflictsButWithoutCaseDesensiti
 import {Code, Unicode} from "../types"
 import {ACCIDENTAL_ALIASES_MAP} from "./accidentals"
 import {BARLINE_ALIASES_MAP, BEAMS_ALIASES_MAP, REST_ALIASES_MAP, TIME_SIGNATURE_ALIASES_MAP} from "./basics"
-import {LINE_BREAK_ALIASES_MAP} from "./horizontal"
 import {NOTE_ALIASES_MAP} from "./notes"
 import {CLEF_ALIASES_MAP, POSITION_ALIASES_MAP} from "./vertical"
 
@@ -17,7 +16,6 @@ const ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> =
         TIME_SIGNATURE_ALIASES_MAP,
         CLEF_ALIASES_MAP,
         ACCIDENTAL_ALIASES_MAP,
-        LINE_BREAK_ALIASES_MAP,
         POSITION_ALIASES_MAP,
     )
 

@@ -158,27 +158,27 @@
       ],
       [
         "",
-        "en;",
+        "en",
         "<u>en</u>d-of-staff advance"
       ],
       [
         "",
-        "br;",
-        "line <u>br</u>eak advance"
+        "nl",
+        "<u>n</u>ew <u>l</u>ine advance"
       ],
       [
         "",
-        "1;",
+        "1",
         "<u>1</u> octal advance"
       ],
       [
         "",
-        "2;",
+        "2",
         "<u>2</u> octals advance"
       ],
       [
         "",
-        "3;",
+        "3",
         "<u>3</u> octals advance"
       ],
       [
@@ -188,7 +188,7 @@
       ],
       [
         "",
-        "24;",
+        "24",
         "<u>24</u> octals advance"
       ]
     ]

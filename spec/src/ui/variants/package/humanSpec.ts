@@ -5,8 +5,8 @@ import {
 } from "../../../../../src/ui/variants/package/human"
 import {EncodedCode} from "../../../../../src/ui/variants/package/types"
 
-const inputSentence = "ston nt ;\nnt8  ; cdsq - br; ;;  -  - -  .-  .- .-  .- .z|" as Io & Sentence
-const encodedSentence = "ston-nt-qznt8  q-cdsqq -- brq-;;  --  -- --  .--  .-- .--  .-- .zz|" as EncodedCode & Sentence
+const inputSentence = "ston nt ;\nnt8  ; cdsq - nl ;;  -  - -  .-  .- .-  .- .z|" as Io & Sentence
+const encodedSentence = "ston-nt-qznt8  q-cdsqq -- nl-;;  --  -- --  .--  .-- .--  .-- .zz|" as EncodedCode & Sentence
 
 describe("prepareCodesToBeHumanReadableAsEncodedQueryParams", (): void => {
     it("prepares the codes to be readable when used as query params", (): void => {

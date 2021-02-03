@@ -67,7 +67,7 @@ describe("handleCopyLinkClick", (): void => {
 
     it("does not include the trailing slash if the initial params are blank", (): void => {
         setupForHandleCopyLinkClick()
-        components.input.value = "ston Gcl ; "
+        components.input.value = "ston Gcl; "
 
         handleCopyLinkClick()
 

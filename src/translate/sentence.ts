@@ -21,8 +21,9 @@ import {
 } from "./smarts"
 import {computeInputUnicodeClause} from "./word"
 
-const collapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io & Sentence =>
+const bufferSemicolonsAndCollapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io & Sentence =>
     inputSentence
+        .replace(/;/g, " ; ")
         .replace(/<br>/g, SPACE)
         .replace(/\s+/g, SPACE)
         .trim() as Io & Sentence
@@ -38,7 +39,7 @@ const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Se
 
     setAllPropertiesOfObjectOnAnother({objectToChange: smarts, objectWithProperties: INITIAL_SMARTS})
 
-    let inputs = collapseAllWhitespacesToSingleSpaces(inputSentence).split(SPACE) as Array<Io & Word>
+    let inputs = bufferSemicolonsAndCollapseAllWhitespacesToSingleSpaces(inputSentence).split(SPACE) as Array<Io & Word>
     inputs = processMacros(inputs)
 
     const unicodeClauses: Array<Unicode & Clause> = inputs.map(computeInputUnicodeClause)

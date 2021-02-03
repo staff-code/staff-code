@@ -7,7 +7,6 @@ export {
     computeAdvanceUnicode,
     computeUnicodeWidth,
     computeAdvanceToEndOfInkWidth,
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
     computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
 } from "./horizontal"
 export {computeCommandUnicodeClauseAndUpdateSmarts} from "./command"

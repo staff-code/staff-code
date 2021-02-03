@@ -2,14 +2,11 @@ export {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts} from 
 export {isManualAdvanceUnicode, isManualStaffUnicode} from "./isUnicode"
 export {computeUnicodeWidth} from "./width"
 export {computeAdvanceUnicode} from "./unicode"
-export {SmartStave} from "./types"
+export {SmartStave, AltAdvance} from "./types"
 export {collapseAdvances} from "./collapse"
 export {computeSmartStaveOffUnicodeClauseAndUpdateSmarts} from "./stave"
-export {computePlaceAgainstEndOfStaffAdvanceUnicodeClauseAndUpdateSmarts} from "./placeAgainstEndOfStaff"
+export {computeSmartAdvanceUnicodeClauseAndUpdateSmarts} from "./smart"
 export {computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts, computeAdvanceToEndOfInkWidth} from "./endOfInk"
-export {
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
-} from "./advanceOrBreak"
 export {computeSpacing} from "./spacing"
 export {isSpacingCommandCode} from "./isCode"
 

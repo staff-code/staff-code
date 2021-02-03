@@ -9,6 +9,15 @@ enum SmartStave {
     LUTE = "LUTE",
 }
 
+enum AltAdvance {
+    NONE,
+    NEWLINE,
+    PLACE_AGAINST_END_OF_STAFF,
+    RIGHT_ALIGN,
+    CENTER_ALIGN,
+}
+
 export {
     SmartStave,
+    AltAdvance,
 }

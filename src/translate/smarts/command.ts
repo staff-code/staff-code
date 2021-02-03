@@ -2,7 +2,8 @@ import {Clause, Io, Word} from "@sagittal/general"
 import {caseDesensitize} from "../case"
 import {
     Code,
-    PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE,
+    SET_NEWLINE_ADVANCE_COMMAND_CODE,
+    SET_PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE,
     SMART_ADVANCE_COMMAND_CODE,
     SMART_STAVE_OFF_COMMAND_CODE,
     SMART_STAVE_ON_COMMAND_CODE,
@@ -11,8 +12,8 @@ import {
 import {EMPTY_UNICODE} from "../constants"
 import {smarts} from "./globals"
 import {
-    computePlaceAgainstEndOfStaffAdvanceUnicodeClauseAndUpdateSmarts,
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
+    AltAdvance,
+    computeSmartAdvanceUnicodeClauseAndUpdateSmarts,
     computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
     computeSpacing,
     isSpacingCommandCode,
@@ -25,12 +26,11 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
     const caseDesensitizedCode = caseDesensitize(input as Code & Word)
 
     if (caseDesensitizedCode === caseDesensitize(SMART_ADVANCE_COMMAND_CODE)) {
-        commandUnicodeClause =
-            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
-                smarts.advanceWidth,
-            )
-    } else if (caseDesensitizedCode === caseDesensitize(PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE)) {
-        commandUnicodeClause = computePlaceAgainstEndOfStaffAdvanceUnicodeClauseAndUpdateSmarts()
+        commandUnicodeClause = computeSmartAdvanceUnicodeClauseAndUpdateSmarts()
+    } else if (caseDesensitizedCode === caseDesensitize(SET_NEWLINE_ADVANCE_COMMAND_CODE)) {
+        smarts.altAdvance = AltAdvance.NEWLINE
+    } else if (caseDesensitizedCode === caseDesensitize(SET_PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE)) {
+        smarts.altAdvance = AltAdvance.PLACE_AGAINST_END_OF_STAFF
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_ON_COMMAND_CODE)) {
         smarts.staveOn = true
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_OFF_COMMAND_CODE)) {

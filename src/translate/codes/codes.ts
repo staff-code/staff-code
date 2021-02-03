@@ -7,7 +7,6 @@ import {
 import {
     COMMAND_MAP,
     NOT_SMUFL_LEGER_LINES_SUPPLEMENT_MAP,
-    NOT_SMuFL_LINE_BREAKS_MAP,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
     NOT_SMuFL_POSITIONS_SUPPLEMENT_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
@@ -21,7 +20,6 @@ import {CaseDesensitized, Code, Unicode} from "./types"
 const BASE_GLYPH_MAP: Record<RecordKey<Code & Word>, Unicode & Word> =
     mergeCodeMapsCheckingForCaseDesensitizedConflictsButWithoutCaseDesensitizing(
         SMuFL_MAP,
-        NOT_SMuFL_LINE_BREAKS_MAP,
         NOT_SMuFL_POSITIONS_SUPPLEMENT_MAP,
         NOT_SMUFL_LEGER_LINES_SUPPLEMENT_MAP,
         NOT_SMuFL_ZERO_POSITION_MAP,

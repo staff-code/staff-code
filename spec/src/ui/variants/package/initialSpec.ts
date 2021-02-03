@@ -9,33 +9,33 @@ import {mockDom} from "../../../../helpers/mockDom"
 
 describe("computeInitialCodes", (): void => {
     it("decodes them from the query params if available", (): void => {
-        const url = "https://staffcode.org/?codes=ston-nt-qznt8" as Link
+        const url = "https://staffcode.org/?codes=ston-ntqznt8" as Link
         mockDom({url})
 
         const actual = computeInitialCodes()
 
-        const expected = "ston nt ;\nnt8" as Io & Sentence
+        const expected = "ston nt;\nnt8" as Io & Sentence
         expect(actual).toBe(expected)
     })
 
     it("takes them from the cookies if available", (): void => {
         mockDom()
-        document.cookie = `staffcode_codes=ston%20nt%20%3B%0Ant16; SameSite=Strict; path=/`
+        document.cookie = `staffcode_codes=ston%20nt%3B%0Ant16; SameSite=Strict; path=/`
 
         const actual = computeInitialCodes()
 
-        const expected = "ston nt ;\nnt16" as Io & Sentence
+        const expected = "ston nt;\nnt16" as Io & Sentence
         expect(actual).toBe(expected)
     })
 
     it("if both query params and cookies are available, takes from the query params", (): void => {
-        const url = "https://staffcode.org/?codes=ston-nt-qznt8" as Link
+        const url = "https://staffcode.org/?codes=ston-ntqznt8" as Link
         mockDom({url})
         document.cookie = `staffcode_codes=ston%20nt%20%3B%0Ant16; SameSite=Strict; path=/`
 
         const actual = computeInitialCodes()
 
-        const expected = "ston nt ;\nnt8" as Io & Sentence
+        const expected = "ston nt;\nnt8" as Io & Sentence
         expect(actual).toBe(expected)
     })
 
@@ -44,7 +44,7 @@ describe("computeInitialCodes", (): void => {
 
         const actual = computeInitialCodes()
 
-        const expected = "ston Gcl ; " as Io & Sentence
+        const expected = "ston Gcl; " as Io & Sentence
         expect(actual).toBe(expected)
     })
 })

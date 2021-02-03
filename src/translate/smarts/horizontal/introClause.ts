@@ -5,7 +5,7 @@ import {smarts} from "../globals"
 import {updateSmartAdvance} from "./advance"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
 import {computeAdvanceToEndIntroClauseAndUpdateSmarts} from "./advanceToEnd"
-import {BREAK_UNICODE} from "./constants"
+import {NEWLINE_UNICODE} from "./constants"
 import {computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts} from "./endOfInk"
 import {isManualAdvanceUnicode} from "./isUnicode"
 import {computeManualAdvanceWidth} from "./manualAdvance"
@@ -33,9 +33,6 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
                 manualAdvanceWidth,
                 {manual: true},
             )
-    } else if (unicode === BREAK_UNICODE) {
-        smartAdvanceAndSmartStaveUnicodeIntroClause = computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts()
-        smarts.advanceToEnd = false
     } else if (smarts.staveOn && LINES_1_STAVE_UNICODES.includes(unicode)) {
         smarts.stave = SmartStave.LINES_1
     } else if (smarts.staveOn && LINES_2_STAVE_UNICODES.includes(unicode)) {
