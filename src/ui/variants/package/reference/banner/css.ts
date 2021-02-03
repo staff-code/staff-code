@@ -88,7 +88,7 @@ const REFERENCE_BANNER_CSS = `
 
     .sc-about-trigger {
         position: fixed;
-        margin: -25px -6px;
+        margin: -37px -6px;
         height: 30px;
         width: 80px;
     }
