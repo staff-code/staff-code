@@ -4,8 +4,8 @@ import {translateInputToDisplay} from "../../../../translate"
 import {components, staffCodeConfig} from "../../globals"
 import {getPreviousInputState, setPreviousInputState} from "../../panel"
 
-// TODO: FEATURE IMPROVE, READY TO GO: INSERT FINESSE W/R/T NEWLINES
-//  Inserting codes shouldn't add a space after a return carriage
+const isWhitespaceOrUndefinedAlready = (maybeChar: Maybe<string>): boolean =>
+    !maybeChar || !!maybeChar.match(/\s/)
 
 const insertCodeIntoInputAndSavePreviousState = (code: Code & Word): void => {
     const {input} = components
@@ -16,9 +16,9 @@ const insertCodeIntoInputAndSavePreviousState = (code: Code & Word): void => {
     let textCursorPosition = input.selectionStart
 
     const upToSelection = previousValue.slice(0, textCursorPosition)
-    const maybePrecedingBuffer = upToSelection[upToSelection.length - 1] === SPACE ? BLANK : SPACE
+    const maybePrecedingBuffer = isWhitespaceOrUndefinedAlready(upToSelection[upToSelection.length - 1]) ? BLANK : SPACE
     const afterSelection = previousValue.slice(textCursorPosition)
-    const maybeSucceedingBuffer = afterSelection[0] === SPACE ? BLANK : SPACE
+    const maybeSucceedingBuffer = isWhitespaceOrUndefinedAlready(afterSelection[0]) ? BLANK : SPACE
 
     input.value = `${upToSelection}${maybePrecedingBuffer}${code}${maybeSucceedingBuffer}${afterSelection}` as
         Io & Sentence
