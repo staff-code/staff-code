@@ -1,73 +1,12 @@
-import {BLANK, cleanArray, computeKeyPath, isUndefined, RecordKey, shallowClone, sort, Word} from "@sagittal/general"
-import {
-    ALIASES_MAP,
-    Code,
-    SAGITTAL_COMMA_NAME_ALIASES_MAP,
-    SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP,
-    Unicode,
-} from "../../../../../translate"
+import {BLANK, computeKeyPath, isUndefined, RecordKey, sort, Word} from "@sagittal/general"
+import {Code, Unicode} from "../../../../../translate"
 import {LIGHT_GREY} from "../../constants"
 import {EMPTY_CODE_CELL} from "./constants"
-
-// TODO: BUG, READY TO GO: ALIASES WRONG FOR CONVENTIONAL ACCIDENTALS
-//  We have ".b" as the click-to-insert code for flat, in the Ref.
-//  That just seems like a straight bug that needs fixing.
-//  Same problem with natural and double-flat. Sharp and double-sharp are OK.
-//  - Oh. That's because of the bit where I thought sorting codes with non-alphabetical chars first would
-//  Solve all the problems. We know now that they don't, due to the complexity of the sagittal alias sorting
-//  Desires. So, I'll probably just need to undo that bit and make all the exceptions hardcoded.
-//  Probably simpler than what I had to do to make it work now with some semblance of pattern to it.
-
-const ALIASES_FOR_REFERENCE_MAP = JSON.parse(JSON.stringify(ALIASES_MAP))
-
-const SAGITTAL_SECONDARY_SAGISPEAK_ALIAS_CODES =
-    Object.keys(SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP) as Array<Code & Word>
-SAGITTAL_SECONDARY_SAGISPEAK_ALIAS_CODES.forEach((key: Code & Word): void => {
-    delete ALIASES_FOR_REFERENCE_MAP[key]
-})
-
-const ALIASES_ENTRIES = Object.entries(ALIASES_FOR_REFERENCE_MAP) as Array<[Code & Word, Unicode & Word]>
-
-const reorderAliasesSuchThatAnyWithNonAlphabeticalCharsComeFirst = (unicodeAliases: Array<Code & Word>): void => {
-    const indexOfCodeWithNonAlphabeticalChars =
-        unicodeAliases.findIndex((unicodeAlias: Code & Word): boolean => !!unicodeAlias.match(/[^\w]/))
-    if (indexOfCodeWithNonAlphabeticalChars !== -1) {
-        const originalUnicodeAliases = shallowClone(unicodeAliases)
-        cleanArray(unicodeAliases)
-        const aliasesOriginallyBeforeAliasWithNonAlphabeticalChars =
-            originalUnicodeAliases.slice(0, indexOfCodeWithNonAlphabeticalChars)
-        const aliasesOriginallyAfterAliasWithNonAlphabeticalChars =
-            originalUnicodeAliases.slice(indexOfCodeWithNonAlphabeticalChars + 1)
-        const unicodeAliasWithNonAlphabeticalChars = originalUnicodeAliases[indexOfCodeWithNonAlphabeticalChars]
-        unicodeAliases.push(
-            unicodeAliasWithNonAlphabeticalChars,
-            ...aliasesOriginallyBeforeAliasWithNonAlphabeticalChars,
-            ...aliasesOriginallyAfterAliasWithNonAlphabeticalChars,
-        )
-    }
-}
-
-const reorderAliasesSuchThatSagittalCommaNameAliasesComeFinal = (unicodeAliases: Array<Code & Word>): void => {
-    const indexOfSagittalCommaNameAlias =
-        unicodeAliases.findIndex((unicodeAlias: Code & Word): boolean => {
-            return Object.keys(SAGITTAL_COMMA_NAME_ALIASES_MAP).includes(unicodeAlias)
-        })
-    if (indexOfSagittalCommaNameAlias !== -1) {
-        const originalUnicodeAliases = shallowClone(unicodeAliases)
-        cleanArray(unicodeAliases)
-        const aliasesBeforeSagittalCommaNameAlias =
-            originalUnicodeAliases.slice(0, indexOfSagittalCommaNameAlias)
-        const aliasesAfterSagittalCommaNameAlias =
-            originalUnicodeAliases.slice(indexOfSagittalCommaNameAlias + 1)
-        const sagittalCommaNameAlias = originalUnicodeAliases[indexOfSagittalCommaNameAlias]
-
-        unicodeAliases.push(
-            ...aliasesBeforeSagittalCommaNameAlias,
-            ...aliasesAfterSagittalCommaNameAlias,
-            sagittalCommaNameAlias,
-        )
-    }
-}
+import {
+    ALIASES_ENTRIES,
+    reorderAliasesSuchThatSagittalAsciiAliasesComeFirst,
+    reorderAliasesSuchThatSagittalCommaNameAliasesComeFinal,
+} from "./sagittal"
 
 const UNICODES_ALIASES = ALIASES_ENTRIES.reduce(
     (
@@ -83,7 +22,8 @@ const UNICODES_ALIASES = ALIASES_ENTRIES.reduce(
         unicodeAliases.push(code)
 
         sort(unicodeAliases, {by: computeKeyPath("length")})
-        reorderAliasesSuchThatAnyWithNonAlphabeticalCharsComeFirst(unicodeAliases)
+
+        reorderAliasesSuchThatSagittalAsciiAliasesComeFirst(unicodeAliases)
         reorderAliasesSuchThatSagittalCommaNameAliasesComeFinal(unicodeAliases)
 
         return unicodesAliases
