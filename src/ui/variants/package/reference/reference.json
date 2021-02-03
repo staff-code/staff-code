@@ -1,7 +1,7 @@
 [
   [
-    "commands",
-    "StaffCode commands",
+    "basics",
+    "StaffCode basics",
     "",
     "https://forum.sagittal.org/viewtopic.php?p=3192#p3192",
     "\"Auto stem direction\" means stem down for middle line and above, otherwise stem up.",
@@ -52,27 +52,47 @@
         "move to the <u>C7</u> (7th-octave C) position"
       ],
       [
-        "",
+        "",
+        "acfl",
+        "<u>a</u><u>c</u>cidental <u>f</u><u>l</u>at"
+      ],
+      [
+        "",
+        "acnt",
+        "<u>a</u><u>c</u>cidental <u>n</u>a<u>t</u>ural"
+      ],
+      [
+        "",
+        "acsh",
+        "<u>a</u><u>c</u>cidental <u>s</u><u>h</u>arp"
+      ],
+      [
+        "",
+        "nt1",
+        "<u>n</u>o<u>t</u>e 1/<u>1</u>"
+      ],
+      [
+        "",
         "nt2",
         "<u>n</u>o<u>t</u>e 1/<u>2</u> (with auto stem direction)"
       ],
       [
-        "",
+        "",
         "nt4",
         "<u>n</u>o<u>t</u>e 1/<u>4</u> (with auto stem direction)"
       ],
       [
-        "",
+        "",
         "nt8",
         "<u>n</u>o<u>t</u>e 1/<u>8</u> (with auto stem direction)"
       ],
       [
-        "",
+        "",
         "nt16",
         "<u>n</u>o<u>t</u>e 1/<u>16</u> (with auto stem direction)"
       ],
       [
-        "",
+        "",
         "nt32",
         "<u>n</u>o<u>t</u>e 1/<u>32</u> (with auto stem direction)"
       ],
@@ -82,9 +102,29 @@
         "..."
       ],
       [
-        "",
+        "",
         "nt1024",
         "<u>n</u>o<u>t</u>e 1/<u>1024</u> (with auto stem direction)"
+      ],
+      [
+        "",
+        "trcl",
+        "<u>tr</u>eble <u>cl</u>ef"
+      ],
+      [
+        "",
+        "bscl",
+        "<u>b</u>a<u>s</u>s <u>cl</u>ef"
+      ],
+      [
+        "",
+        "alcl",
+        "<u>al</u>to <u>cl</u>ef"
+      ],
+      [
+        "",
+        "tncl",
+        "<u>t</u>e<u>n</u>or <u>cl</u>ef"
       ],
       [
         "",

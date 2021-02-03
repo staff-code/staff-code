@@ -11,6 +11,7 @@ import {
     Word,
 } from "@sagittal/general"
 import {Octals, Unicode} from "./codes"
+import {processMacros} from "./macros"
 import {
     collapseAdvances,
     computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts,
@@ -37,7 +38,8 @@ const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Se
 
     setAllPropertiesOfObjectOnAnother({objectToChange: smarts, objectWithProperties: INITIAL_SMARTS})
 
-    const inputs = collapseAllWhitespacesToSingleSpaces(inputSentence).split(SPACE) as Array<Io & Word>
+    let inputs = collapseAllWhitespacesToSingleSpaces(inputSentence).split(SPACE) as Array<Io & Word>
+    inputs = processMacros(inputs)
 
     const unicodeClauses: Array<Unicode & Clause> = inputs.map(computeInputUnicodeClause)
     let unicodeSentence = unicodeClauses.join(BLANK) as Unicode & Sentence

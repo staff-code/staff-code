@@ -1,7 +1,7 @@
 import {Id, Link} from "@sagittal/general"
 import {Section} from "./types"
 
-const COMMANDS_SECTION_ID = "commands" as Id<Section>
+const BASICS_SECTION_ID = "basics" as Id<Section>
 const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID = "combiningStaffPositionsSupplement" as Id<Section>
 const LEGER_LINES_SUPPLEMENT_SECTION_ID = "legerLinesSupplement" as Id<Section>
 
@@ -17,7 +17,7 @@ const LEGER_LINES_SUPPLEMENT_SECTION_ID = "legerLinesSupplement" as Id<Section>
 const INTRO_TO_STAFF_CODE_LINK: Link = "https://forum.sagittal.org/viewtopic.php?p=3192#p3192" as Link
 
 export {
-    COMMANDS_SECTION_ID,
+    BASICS_SECTION_ID,
     INTRO_TO_STAFF_CODE_LINK,
     LEGER_LINES_SUPPLEMENT_SECTION_ID,
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,

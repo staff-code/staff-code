@@ -1,7 +1,7 @@
 import {BLANK, camelCaseToKebabCase, Id, Name} from "@sagittal/general"
 import {
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
-    COMMANDS_SECTION_ID,
+    BASICS_SECTION_ID,
     Explanation,
     LEGER_LINES_SUPPLEMENT_SECTION_ID,
     Parenthetical,
@@ -28,7 +28,7 @@ const buildSectionIntro = (
     }
 
     const sectionSmuflLink = document.createElement("a")
-    sectionSmuflLink.textContent = sectionId === COMMANDS_SECTION_ID ?
+    sectionSmuflLink.textContent = sectionId === BASICS_SECTION_ID ?
         "Introduction to StaffCode" :
         (
             sectionId === LEGER_LINES_SUPPLEMENT_SECTION_ID

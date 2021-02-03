@@ -1,4 +1,5 @@
 import {isUndefined} from "@sagittal/general"
+import {BASICS_SECTION_ID} from "../../../../../../bin"
 import {STANDARD_BORDER} from "../../constants"
 import {components} from "../../globals"
 import {setStaffCodeCookie} from "../../initial"
@@ -20,7 +21,7 @@ const openReference = async (): Promise<void> => {
     }
 
     components.referenceBanner!.style.borderBottom = "none"
-    window.location.href = "#commands"
+    window.location.href = `#${BASICS_SECTION_ID}`
 }
 
 const closeReference = (): void => {

@@ -1,7 +1,7 @@
 import {Link, Name} from "@sagittal/general"
 import {
+    BASICS_SECTION_ID,
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
-    COMMANDS_SECTION_ID,
     INTRO_TO_STAFF_CODE_LINK,
     LEGER_LINES_SUPPLEMENT_SECTION_ID,
 } from "./constants"
@@ -15,14 +15,10 @@ import {Explanation, Parenthetical, ReferenceRow, Section} from "./types"
 //  Or maybe you could do it that way?
 //  If you're going to take a pass to add space around semis,
 //  You could find these too and replace them with code sequences
-//  - Maybe we should redundantly also list the conventional sharp, flat and natural in the
-//  "StaffCode commands" table in the Ref, just so all the stuff a new user needs for basic notation is there
-//  (when they are given "ston Gcl ;" as a starter).
-//  - Call this whole section "basics"
 
-const COMMANDS_SECTION: Section = [
-    COMMANDS_SECTION_ID,
-    "StaffCode commands" as Name<Section>,
+const BASICS_SECTION: Section = [
+    BASICS_SECTION_ID,
+    "StaffCode basics" as Name<Section>,
     "" as Parenthetical,
     INTRO_TO_STAFF_CODE_LINK,
     `"Auto stem direction" means stem down for middle line and above, otherwise stem up.` as Explanation,
@@ -36,13 +32,21 @@ const COMMANDS_SECTION: Section = [
         ["", "D4", "move to the <u>D4</u> position"],
         ["", "...", "..."],
         ["", "C7", "move to the <u>C7</u> (7th-octave C) position"],
-        ["", "nt2", "<u>n</u>o<u>t</u>e 1/<u>2</u> (with auto stem direction)"],
-        ["", "nt4", "<u>n</u>o<u>t</u>e 1/<u>4</u> (with auto stem direction)"],
-        ["", "nt8", "<u>n</u>o<u>t</u>e 1/<u>8</u> (with auto stem direction)"],
-        ["", "nt16", "<u>n</u>o<u>t</u>e 1/<u>16</u> (with auto stem direction)"],
-        ["", "nt32", "<u>n</u>o<u>t</u>e 1/<u>32</u> (with auto stem direction)"],
+        ["", "acfl", "<u>a</u><u>c</u>cidental <u>f</u><u>l</u>at"],
+        ["", "acnt", "<u>a</u><u>c</u>cidental <u>n</u>a<u>t</u>ural"],
+        ["", "acsh", "<u>a</u><u>c</u>cidental <u>s</u><u>h</u>arp"],
+        ["", "nt1", "<u>n</u>o<u>t</u>e 1/<u>1</u>"],
+        ["", "nt2", "<u>n</u>o<u>t</u>e 1/<u>2</u> (with auto stem direction)"],
+        ["", "nt4", "<u>n</u>o<u>t</u>e 1/<u>4</u> (with auto stem direction)"],
+        ["", "nt8", "<u>n</u>o<u>t</u>e 1/<u>8</u> (with auto stem direction)"],
+        ["", "nt16", "<u>n</u>o<u>t</u>e 1/<u>16</u> (with auto stem direction)"],
+        ["", "nt32", "<u>n</u>o<u>t</u>e 1/<u>32</u> (with auto stem direction)"],
         ["", "...", "..."],
-        ["", "nt1024", "<u>n</u>o<u>t</u>e 1/<u>1024</u> (with auto stem direction)"],
+        ["", "nt1024", "<u>n</u>o<u>t</u>e 1/<u>1024</u> (with auto stem direction)"],
+        ["", "trcl", "<u>tr</u>eble <u>cl</u>ef"],
+        ["", "bscl", "<u>b</u>a<u>s</u>s <u>cl</u>ef"],
+        ["", "alcl", "<u>al</u>to <u>cl</u>ef"],
+        ["", "tncl", "<u>t</u>e<u>n</u>or <u>cl</u>ef"],
         ["", "sp0", "set <u>sp</u>acing <u>0</u> octals"],
         ["", "sp1", "set <u>sp</u>acing <u>1</u> octal"],
         ["", "sp2", "set <u>sp</u>acing <u>2</u> octals (default)"],
@@ -100,7 +104,7 @@ const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION: Section = [
 ]
 
 export {
-    COMMANDS_SECTION,
+    BASICS_SECTION,
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION,
     LEGER_LINES_SUPPLEMENT_SECTION,
 }

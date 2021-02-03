@@ -4,7 +4,7 @@ import {computeExplanation} from "./explanations"
 import {smuflRanges} from "./globals"
 import {
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION,
-    COMMANDS_SECTION,
+    BASICS_SECTION,
     LEGER_LINES_SUPPLEMENT_SECTION,
 } from "./notSmufl"
 import {computeParenthetical} from "./parentheticals"
@@ -27,7 +27,7 @@ const generateSmuflReference = (): void => {
 
         return [sectionId, sectionName, parenthetical, sectionLink, explanation, sectionData]
     })
-    sections.unshift(COMMANDS_SECTION)
+    sections.unshift(BASICS_SECTION)
     sections.push(LEGER_LINES_SUPPLEMENT_SECTION)
     sections.push(COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION)
 

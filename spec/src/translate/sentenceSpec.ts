@@ -86,6 +86,20 @@ describe("computeInputSentenceUnicode", (): void => {
         saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
     })
 
+    describe("*** Macros ***", (): void => {
+        it("converts clef macros correctly", (): void => {
+            const inputSentence = "trcl" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "  " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "Gcl 21;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
+    })
+
     describe("*** Comments ***", (): void => {
         it("supports inline comments", (): void => {
             const inputSentence = "ston Gcl ; {check this out} { and you can do a 2nd comment in a row too } nt br; {comment} nt" as Io & Sentence
