@@ -5,8 +5,7 @@ import {
     INTRO_TO_STAFF_CODE_LINK,
     LEGER_LINES_SUPPLEMENT_SECTION_ID,
 } from "./constants"
-import {NOT_SMUFL} from "./parentheticals"
-import {Explanation, ReferenceRow, Section} from "./types"
+import {Explanation, Parenthetical, ReferenceRow, Section} from "./types"
 
 // TODO: FEATURE IMPROVE, READY TO GO: BASICS SECTION FOR REFERENCE
 //  I guess we should add trcl, bscl, alcl, tncl as built-in macros combining an up0 or up2 with a Gcl, Fcl or Ccl,
@@ -24,7 +23,7 @@ import {Explanation, ReferenceRow, Section} from "./types"
 const COMMANDS_SECTION: Section = [
     COMMANDS_SECTION_ID,
     "StaffCode commands" as Name<Section>,
-    NOT_SMUFL,
+    "" as Parenthetical,
     INTRO_TO_STAFF_CODE_LINK,
     `"Auto stem direction" means stem down for middle line and above, otherwise stem up.` as Explanation,
     [
@@ -63,7 +62,7 @@ const COMMANDS_SECTION: Section = [
 const LEGER_LINES_SUPPLEMENT_SECTION: Section = [
     LEGER_LINES_SUPPLEMENT_SECTION_ID,
     "Leger lines supplement" as Name<Section>,
-    NOT_SMUFL,
+    "" as Parenthetical,
     "" as Link,
     `SMuFL does not have suitable leger lines for all note and notehead symbols, so StaffCode adds the following. StaffCode will generate them automatically following <span>ston</span> (<u>st</u>aff <u>on</u>).` as Explanation,
     [
@@ -78,7 +77,7 @@ const LEGER_LINES_SUPPLEMENT_SECTION: Section = [
 const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION: Section = [
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
     "Combining staff positions supplement" as Name<Section>,
-    NOT_SMUFL,
+    "" as Parenthetical,
     "" as Link,
     `SMuFL does not allow staff positions corresponding to more than 2 leger lines. And it does not allow symbols on the middle staff line without advancing. So StaffCode adds the following additional positions.` as Explanation,
     [

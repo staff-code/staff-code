@@ -5,13 +5,7 @@ const buildTocWrapper = (): HTMLDivElement => {
     const tocWrapper = document.createElement("div")
 
     const tocTitle = document.createElement("h3")
-    // TODO: FEATURE IMPROVE, READY TO GO: REDO SECTION TITLES TO AVOID "SMUFL"
-    //  I like "Symbol categories" (instead of SMuFL sections")
-    //  Keep the (not SMuFL) parentheticals, and the "SMuFL" in the reference links, though?
-    //  I'm worried because if it opens right onto the commands,
-    //  Then there's still going to be the word "SMuFL" on the page the first thing you open the reference.
-    //  - Get rid of all "(not SMuFL)"s. Keep the "SMuFL reference" links. Keep the "SMuFL does not have ..."s.
-    tocTitle.innerHTML = "SMuFL sections"
+    tocTitle.innerHTML = "Symbol categories"
     tocWrapper.appendChild(tocTitle)
 
     const instructions = document.createElement("span")

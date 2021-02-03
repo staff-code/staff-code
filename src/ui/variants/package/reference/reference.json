@@ -2,7 +2,7 @@
   [
     "commands",
     "StaffCode commands",
-    "(not SMuFL)",
+    "",
     "https://forum.sagittal.org/viewtopic.php?p=3192#p3192",
     "\"Auto stem direction\" means stem down for middle line and above, otherwise stem up.",
     [
@@ -15995,7 +15995,7 @@
   [
     "legerLinesSupplement",
     "Leger lines supplement",
-    "(not SMuFL)",
+    "",
     "",
     "SMuFL does not have suitable leger lines for all note and notehead symbols, so StaffCode adds the following. StaffCode will generate them automatically following <span>ston</span> (<u>st</u>aff <u>on</u>).",
     [
@@ -16029,7 +16029,7 @@
   [
     "combiningStaffPositionsSupplement",
     "Combining staff positions supplement",
-    "(not SMuFL)",
+    "",
     "",
     "SMuFL does not allow staff positions corresponding to more than 2 leger lines. And it does not allow symbols on the middle staff line without advancing. So StaffCode adds the following additional positions.",
     [
