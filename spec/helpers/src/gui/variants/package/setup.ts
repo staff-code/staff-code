@@ -1,0 +1,17 @@
+import {components} from "../../../../../../src/gui/variants/package/globals"
+
+const setupBasicStaffCode = (): void => {
+    components.root = document.createElement("span")
+
+    components.input = document.createElement("textarea")
+    components.input.classList.add("sc-input")
+    components.root.appendChild(components.input)
+
+    components.display = document.createElement("div")
+    components.display.classList.add("sc-display")
+    components.root.appendChild(components.display)
+}
+
+export {
+    setupBasicStaffCode,
+}

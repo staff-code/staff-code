@@ -37,18 +37,18 @@ cp assets/fonts/* dist/bbCode
 
 npm run build-bbcode
 
-cp src/ui/variants/bbCode/acp/README.txt dist/bbCode
-STAFF_BBCODE_USAGE=$(<src/ui/variants/bbCode/acp/staff/bbCodeUsage.txt)
+cp src/gui/variants/bbCode/acp/README.txt dist/bbCode
+STAFF_BBCODE_USAGE=$(<src/gui/variants/bbCode/acp/staff/bbCodeUsage.txt)
 sed -i "s@{{STAFF_BBCODE_USAGE}}@${STAFF_BBCODE_USAGE}@g" dist/bbCode/README.txt
-STAFF_HTML_REPLACEMENT=$(<src/ui/variants/bbCode/acp/staff/htmlReplacement.html)
+STAFF_HTML_REPLACEMENT=$(<src/gui/variants/bbCode/acp/staff/htmlReplacement.html)
 sed -i "s@{{STAFF_HTML_REPLACEMENT}}@${STAFF_HTML_REPLACEMENT//$'\n'/'\n'}@g" dist/bbCode/README.txt
-STAFF_HELP_LINE=$(<src/ui/variants/bbCode/acp/staff/helpLine.txt)
+STAFF_HELP_LINE=$(<src/gui/variants/bbCode/acp/staff/helpLine.txt)
 sed -i "s@{{STAFF_HELP_LINE}}@${STAFF_HELP_LINE}@g" dist/bbCode/README.txt
-SC_BBCODE_USAGE=$(<src/ui/variants/bbCode/acp/sc/bbCodeUsage.txt)
+SC_BBCODE_USAGE=$(<src/gui/variants/bbCode/acp/sc/bbCodeUsage.txt)
 sed -i "s@{{SC_BBCODE_USAGE}}@${SC_BBCODE_USAGE}@g" dist/bbCode/README.txt
-SC_HTML_REPLACEMENT=$(<src/ui/variants/bbCode/acp/sc/htmlReplacement.html)
+SC_HTML_REPLACEMENT=$(<src/gui/variants/bbCode/acp/sc/htmlReplacement.html)
 sed -i "s@{{SC_HTML_REPLACEMENT}}@${SC_HTML_REPLACEMENT//$'\n'/'\n'}@g" dist/bbCode/README.txt
-SC_HELP_LINE=$(<src/ui/variants/bbCode/acp/sc/helpLine.txt)
+SC_HELP_LINE=$(<src/gui/variants/bbCode/acp/sc/helpLine.txt)
 sed -i "s@{{SC_HELP_LINE}}@${SC_HELP_LINE}@g" dist/bbCode/README.txt
 
 pushd dist/bbCode

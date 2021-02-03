@@ -1,6 +1,6 @@
 export {
     translateInputToDisplay, setupPackageRoot, loadFonts, downloadSvg, StaffCodeOptions, StaffCodeCallback,
-} from "./ui"
+} from "./gui"
 export {
     computeUnicodeLiteral,
     Octals,

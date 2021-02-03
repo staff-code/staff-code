@@ -1,0 +1,57 @@
+import {Em, FontName, Io, Multiplier, Sentence} from "@sagittal/general"
+import {Unicode} from "../translate"
+
+type StaffCodeCallback = (inputSentence: Io & Sentence, unicodeSentence: Unicode & Sentence) => any
+
+interface StaffCodeConfig {
+    gui: GuiOptions,
+    initial: InitialOptions,
+    font: FontName,
+    callback: StaffCodeCallback,
+}
+
+type StaffCodeOptions = Partial<{
+    gui: Partial<GuiOptions>,
+    initial: Partial<InitialOptions>,
+    font: FontName,
+    callback: StaffCodeCallback,
+}>
+
+interface GuiOptions {
+    interactive: boolean,
+    inline: boolean,
+    downloadButton: boolean,
+    copyLinkButton: boolean,
+    sizeSpinner: boolean,
+    lineSpinner: boolean,
+    reference: boolean,
+}
+
+interface InitialOptions {
+    codes: Io & Sentence,
+    size: Multiplier<Em>,
+    line: Multiplier<Em>,
+    referenceOpen: boolean,
+}
+
+interface DisplayOptions {
+    inline: boolean,
+    font: FontName,
+    initialSize: Multiplier<Em>,
+    initialLine: Multiplier<Em>,
+}
+
+interface InitialFontSizeOptions {
+    inline: boolean,
+    initialSize: Multiplier<Em>,
+}
+
+export {
+    StaffCodeConfig,
+    StaffCodeOptions,
+    StaffCodeCallback,
+    GuiOptions,
+    InitialOptions,
+    DisplayOptions,
+    InitialFontSizeOptions,
+}
