@@ -1,4 +1,4 @@
-import {components} from "../../../../../../src/gui/variants/package/globals"
+import {components} from "../../../../../../src/ui/variants/package/globals"
 
 const setupBasicStaffCode = (): void => {
     components.root = document.createElement("span")

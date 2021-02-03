@@ -1,6 +1,6 @@
 import {Link} from "@sagittal/general"
-import {WEB_APP_URL} from "../../../../../../../src/gui/constants"
-import {codeRunningInStaffCodeWebApp} from "../../../../../../../src/gui/variants/package/panel/copyLink/app"
+import {WEB_APP_URL} from "../../../../../../../src/ui/constants"
+import {codeRunningInStaffCodeWebApp} from "../../../../../../../src/ui/variants/package/panel/copyLink/app"
 import {mockDom} from "../../../../../../helpers/mockDom"
 
 describe("codeRunningInStaffCodeWebApp", (): void => {

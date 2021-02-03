@@ -1,10 +1,10 @@
 import {BLANK, Link, onlyRunInCi} from "@sagittal/general"
-import {WEB_APP_URL} from "../../../../../../../src/gui/constants"
-import {components} from "../../../../../../../src/gui/variants/package/globals"
-import {handleCopyLinkClick} from "../../../../../../../src/gui/variants/package/panel/copyLink/handlers"
-import {INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "../../../../../../../src/gui/variants/package/panel/input/constants"
+import {WEB_APP_URL} from "../../../../../../../src/ui/constants"
+import {components} from "../../../../../../../src/ui/variants/package/globals"
+import {handleCopyLinkClick} from "../../../../../../../src/ui/variants/package/panel/copyLink/handlers"
+import {INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "../../../../../../../src/ui/variants/package/panel/input/constants"
 import {mockDom} from "../../../../../../helpers/mockDom"
-import {setupBasicStaffCode} from "../../../../../../helpers/src/gui/variants/package/setup"
+import {setupBasicStaffCode} from "../../../../../../helpers/src/ui/variants/package/setup"
 
 let writeTextSpy: jasmine.Spy
 

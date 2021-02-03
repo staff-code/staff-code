@@ -32,7 +32,7 @@ const generateSmuflReference = (): void => {
     sections.push(COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION)
 
     fs.writeFileSync(
-        "src/gui/variants/package/reference/reference.json",
+        "src/ui/variants/package/reference/reference.json",
         JSON.stringify(sections, undefined, 2),
     )
 }

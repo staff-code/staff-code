@@ -1,9 +1,9 @@
 import {BLANK, Link} from "@sagittal/general"
-import {downloadSvg} from "../../../../../../../src/gui/variants"
-import {components} from "../../../../../../../src/gui/variants/package/globals"
-import {INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "../../../../../../../src/gui/variants/package/panel/input/constants"
+import {downloadSvg} from "../../../../../../../src/ui/variants"
+import {components} from "../../../../../../../src/ui/variants/package/globals"
+import {INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "../../../../../../../src/ui/variants/package/panel/input/constants"
 import {mockDom} from "../../../../../../helpers/mockDom"
-import {setupBasicStaffCode} from "../../../../../../helpers/src/gui/variants/package/setup"
+import {setupBasicStaffCode} from "../../../../../../helpers/src/ui/variants/package/setup"
 
 describe("downloadSvg", (): void => {
     const setupForDownloadSvg = ({url}: {url?: Link} = {}): void => {

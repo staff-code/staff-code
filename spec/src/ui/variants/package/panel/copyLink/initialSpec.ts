@@ -1,5 +1,5 @@
-import {components} from "../../../../../../../src/gui/variants/package/globals"
-import {computeInitialParams} from "../../../../../../../src/gui/variants/package/panel/copyLink/initial"
+import {components} from "../../../../../../../src/ui/variants/package/globals"
+import {computeInitialParams} from "../../../../../../../src/ui/variants/package/panel/copyLink/initial"
 import {mockDom} from "../../../../../../helpers/mockDom"
 
 describe("computeInitialParams", (): void => {

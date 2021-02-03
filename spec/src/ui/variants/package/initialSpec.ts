@@ -4,7 +4,7 @@ import {
     computeInitialLine,
     computeInitialReferenceOpen,
     computeInitialSize,
-} from "../../../../../src/gui/variants/package/initial"
+} from "../../../../../src/ui/variants/package/initial"
 import {mockDom} from "../../../../helpers/mockDom"
 
 describe("computeInitialCodes", (): void => {

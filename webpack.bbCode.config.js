@@ -7,7 +7,7 @@ const {version} = require("./package.json")
 module.exports = {
     ...common,
     mode: "production",
-    entry: "./src/gui/variants/bbCode/index.ts",
+    entry: "./src/ui/variants/bbCode/index.ts",
     output: {
         path: path.resolve(__dirname, "dist/bbCode"),
         filename: "staffCode.js",

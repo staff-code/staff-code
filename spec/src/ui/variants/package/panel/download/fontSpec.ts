@@ -1,6 +1,6 @@
 import {Px} from "@sagittal/general"
-import {components} from "../../../../../../../src/gui/variants/package/globals"
-import {computeFontSizeForTextToSvg} from "../../../../../../../src/gui/variants/package/panel/download/font"
+import {components} from "../../../../../../../src/ui/variants/package/globals"
+import {computeFontSizeForTextToSvg} from "../../../../../../../src/ui/variants/package/panel/download/font"
 import {mockDom} from "../../../../../../helpers/mockDom"
 
 describe("computeFontSizeForTextToSvg", (): void => {
