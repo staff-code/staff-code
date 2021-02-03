@@ -7,15 +7,6 @@ import {
 } from "./constants"
 import {Explanation, Parenthetical, ReferenceRow, Section} from "./types"
 
-// TODO: FEATURE IMPROVE, READY TO GO: BASICS SECTION FOR REFERENCE
-//  I guess we should add trcl, bscl, alcl, tncl as built-in macros combining an up0 or up2 with a Gcl, Fcl or Ccl,
-//  To be listed in the StaffCode commands section.
-//  For now, the clefs wouldn't actually get positioned, but you could go ahead and add all this
-//  Not literally as macros translating to other codes
-//  Or maybe you could do it that way?
-//  If you're going to take a pass to add space around semis,
-//  You could find these too and replace them with code sequences
-
 const BASICS_SECTION: Section = [
     BASICS_SECTION_ID,
     "StaffCode basics" as Name<Section>,
