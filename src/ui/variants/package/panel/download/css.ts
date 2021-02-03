@@ -1,5 +1,5 @@
 import {formatEm, formatPx} from "@sagittal/general"
-import {DARK_TAN, STANDARD_BORDER_RADIUS, TAN, GUI_FONT, GUI_FONT_SIZE} from "../../constants"
+import {DARK_TAN, GUI_FONT, GUI_FONT_SIZE, STANDARD_BORDER_RADIUS, TAN} from "../../constants"
 
 // tslint:disable-next-line comment-format
 // language=CSS

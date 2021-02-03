@@ -1,6 +1,7 @@
 import {formatEm, formatPx} from "@sagittal/general"
 import {
-    APP_MARGIN, DARK_GREY,
+    APP_MARGIN,
+    DARK_GREY,
     DARK_TAN,
     GUI_FONT,
     GUI_FONT_SIZE,
@@ -48,7 +49,7 @@ const REFERENCE_EXPANDER_CSS = `
         color: ${DARK_GREY} !important;
         z-index: 9999;
     }
-    
+
     .sc-reference-expander:hover .sc-expander-tooltip {
         display: block;
     }
@@ -123,7 +124,7 @@ const REFERENCE_BANNER_CSS = `
         margin-right: ${formatPx(APP_MARGIN)};
         min-height: 1.5em;
     }
-    
+
     ${REFERENCE_BACK_TO_TOP_CSS}
     ${REFERENCE_EXPANDER_CSS}
     ${REFERENCE_TITLE_AND_ABOUT_CSS}

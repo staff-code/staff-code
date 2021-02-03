@@ -5,18 +5,18 @@ const NOT_SMuFL_LINE_BREAKS_MAP: Record<RecordKey<Code & Word>, Unicode & Word> 
     /*U+000A*/"lnfd": "\n",
 } as Record<Code & Word, Unicode & Word>
 
-/*U+200A*/const ADVANCE_1_OCTAL = " "       //  HAIR SPACE
-/*U+2006*/const ADVANCE_3_OCTALS = " "      //  SIX-PER-EM SPACE
-/*U+2009*/const ADVANCE_5_OCTALS = " "      //  THIN SPACE
-/*U+205F*/const ADVANCE_7_OCTALS = " "      //  MEDIUM MATHEMATICAL SPACE [MMSP]
-/*U+2005*/const ADVANCE_9_OCTALS = " "      //  FOUR-PER-EM SPACE {mid space}
-/*U+2008*/const ADVANCE_10_OCTALS = " "     //  PUNCTUATION SPACE
-/*U+2004*/const ADVANCE_11_OCTALS = " "     //  THREE-PER-EM SPACE {thick space}
-/*U+2000*/const ADVANCE_12_OCTALS = " "     //  EN QUAD
-/*U+2002*/const ADVANCE_13_OCTALS = " "     //  EN SPACE {nut}
-/*U+2001*/const ADVANCE_14_OCTALS = " "     //  EM QUAD {mutton quad}
-/*U+2003*/const ADVANCE_15_OCTALS = " "     //  EM SPACE {mutton}
-/*U+3000*/const ADVANCE_16_OCTALS = "　"     //  IDEOGRAPHIC SPACE
+const ADVANCE_1_OCTAL = " "       //  U+200A HAIR SPACE
+const ADVANCE_3_OCTALS = " "      //  U+2006 SIX-PER-EM SPACE
+const ADVANCE_5_OCTALS = " "      //  U+2009 THIN SPACE
+const ADVANCE_7_OCTALS = " "      //  U+205F MEDIUM MATHEMATICAL SPACE [MMSP]
+const ADVANCE_9_OCTALS = " "      //  U+2005 FOUR-PER-EM SPACE {mid space}
+const ADVANCE_10_OCTALS = " "     //  U+2008 PUNCTUATION SPACE
+const ADVANCE_11_OCTALS = " "     //  U+2004 THREE-PER-EM SPACE {thick space}
+const ADVANCE_12_OCTALS = " "     //  U+2000 EN QUAD
+const ADVANCE_13_OCTALS = " "     //  U+2002 EN SPACE {nut}
+const ADVANCE_14_OCTALS = " "     //  U+2001 EM QUAD {mutton quad}
+const ADVANCE_15_OCTALS = " "     //  U+2003 EM SPACE {mutton}
+const ADVANCE_16_OCTALS = "　"     //  U+3000 IDEOGRAPHIC SPACE
 
 const NOT_SMuFL_MANUAL_ADVANCE_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "1;": ADVANCE_1_OCTAL,
