@@ -12,13 +12,7 @@ const buildReferenceWrapper = (): HTMLDivElement => {
     referenceWrapper.appendChild(referenceBanner)
 
     if (initialReferenceOpen) {
-        import("./reference")
-            .then(({buildReference}: {buildReference: () => HTMLDivElement}): void => {
-                openReference()
-                const reference = buildReference()
-                referenceWrapper.appendChild(reference)
-                referenceBanner.style.borderBottom = "none"
-            })
+        openReference().then()
     }
 
     return referenceWrapper
