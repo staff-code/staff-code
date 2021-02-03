@@ -1,8 +1,10 @@
 import {handleReferenceExpanderClick} from "./handlers"
 
-// TODO: FEATURE IMPROVE, READY TO GO: MAKE INTRO TELL ABOUT CLICKING IN THE REFERENCE
-//  I could also add a tooltip to the reference, letting you know you can open it to get insertable codes.
-//  Yes Dave agrees now
+const REFERENCE_EXPANDER_TOOLTIP = `
+Open for a list of all<br>
+available musical symbols<br>
+which you can click to insert.
+`
 
 const buildReferenceExpander = (): HTMLSpanElement => {
     const referenceExpander = document.createElement("span")
@@ -16,6 +18,11 @@ const buildReferenceExpander = (): HTMLSpanElement => {
     const referenceExpanderText = document.createElement("span")
     referenceExpanderText.textContent = "Reference"
     referenceExpander.appendChild(referenceExpanderText)
+
+    const referenceExpanderTooltip = document.createElement("span")
+    referenceExpanderTooltip.classList.add("sc-expander-tooltip")
+    referenceExpanderTooltip.innerHTML = REFERENCE_EXPANDER_TOOLTIP
+    referenceExpander.appendChild(referenceExpanderTooltip)
 
     return referenceExpander
 }
