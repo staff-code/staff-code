@@ -65,7 +65,7 @@ describe("computeSvgStringFromInput", (): void => {
     })
 
     it("leger left overhang cut off unless you add manual advance at the start like this", async (done: DoneFn): Promise<void> => {
-        const unicodeSentence = " 　" as Unicode & Sentence
+        const unicodeSentence = "　" as Unicode & Sentence
 
         const actual = await computeSvgStringFromInput(unicodeSentence)
 
