@@ -33,7 +33,7 @@ const BASICS_SECTION: Section = [
         ["", "nt16", "<u>n</u>o<u>t</u>e 1/<u>16</u> (with auto stem direction)"],
         ["", "nt32", "<u>n</u>o<u>t</u>e 1/<u>32</u> (with auto stem direction)"],
         ["", "...", "..."],
-        ["", "nt1024", "<u>n</u>o<u>t</u>e 1/<u>1024</u> (with auto stem direction)"],
+        ["", "nt1024", "<u>n</u>o<u>t</u>e 1/<u>1024</u> (with auto stem direction)"],
         ["", "trcl", "<u>tr</u>eble <u>cl</u>ef"],
         ["", "bscl", "<u>b</u>a<u>s</u>s <u>cl</u>ef"],
         ["", "alcl", "<u>al</u>to <u>cl</u>ef"],
