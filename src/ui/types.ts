@@ -25,6 +25,7 @@ interface GuiOptions {
     sizeSpinner: boolean,
     lineSpinner: boolean,
     reference: boolean,
+    imageSelect: boolean,
 }
 
 interface InitialOptions {
@@ -32,6 +33,12 @@ interface InitialOptions {
     size: Multiplier<Em>,
     line: Multiplier<Em>,
     referenceOpen: boolean,
+    imageType: ImageType,
+}
+
+enum ImageType {
+    SVG = "svg",
+    PNG = "png",
 }
 
 interface DisplayOptions {
@@ -51,7 +58,7 @@ export {
     StaffCodeOptions,
     StaffCodeCallback,
     GuiOptions,
-    InitialOptions,
+    ImageType,
     DisplayOptions,
     InitialFontSizeOptions,
 }

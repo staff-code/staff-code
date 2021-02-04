@@ -1,6 +1,8 @@
 import {Em, Io, Link, Multiplier, Sentence} from "@sagittal/general"
+import {ImageType} from "../../../../../src/ui/types"
 import {
     computeInitialCodes,
+    computeInitialImageType,
     computeInitialLine,
     computeInitialReferenceOpen,
     computeInitialSize,
@@ -167,6 +169,48 @@ describe("computeInitialLine", (): void => {
         const actual = computeInitialLine()
 
         const expected = 2 as Multiplier<Em>
+        expect(actual).toBe(expected)
+    })
+})
+
+describe("computeInitialImageType", (): void => {
+    it("decodes them from the query params if available", (): void => {
+        const url = "https://staffcode.org/?image-type=png" as Link
+        mockDom({url})
+
+        const actual = computeInitialImageType()
+
+        const expected = ImageType.PNG
+        expect(actual).toBe(expected)
+    })
+
+    it("takes them from the cookies if available", (): void => {
+        mockDom()
+        document.cookie = `staffcode_image-type=png; SameSite=Strict; path=/`
+
+        const actual = computeInitialImageType()
+
+        const expected = ImageType.PNG
+        expect(actual).toBe(expected)
+    })
+
+    it("if both query params and cookies are available, takes from the query params", (): void => {
+        const url = "https://staffcode.org/?image-type=svg" as Link
+        mockDom({url})
+        document.cookie = `staffcode_image-type=png; SameSite=Strict; path=/`
+
+        const actual = computeInitialImageType()
+
+        const expected = ImageType.SVG
+        expect(actual).toBe(expected)
+    })
+
+    it("if neither query params nor cookies are available, defaults to 2", (): void => {
+        mockDom()
+
+        const actual = computeInitialImageType()
+
+        const expected = ImageType.SVG
         expect(actual).toBe(expected)
     })
 })

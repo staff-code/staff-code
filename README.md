@@ -41,16 +41,18 @@ const options: Partial<StaffCodeOptions> = {
         inline: true,           // default: false (whether the display appears as a <span> or a <div>)
         interactive: false,     // default: true (whether a textarea input for instantly changing the display appears)
         downloadButton: false,  // default: true (whether a download button for a vectorized SVG appears)
+        imageSelect: false,     // default: true (whether radio buttons to choose between SVG and PNG format appears)
         copyLinkButton: false,  // default: true (whether a button to add query params to the URL for the current codes and then copy the link)
         sizeSpinner: false,     // default: true (whether a numeric spinner appears to adjust the size)
         lineSpinner: false,     // default: true (whether a numeric spinner appears to adjust the line height)
-        reference: false        // default: true (whether an expandable reference which you can click to insert codes appears)
+        reference: false,       // default: true (whether an expandable reference which you can click to insert codes appears)
     },
     initial: {
         size: 1.3,              // default: 1 (the overall scaling, via the font-size attribute)
         line: 1.5,              // default: 2 (affects the spacing of staves, via the line-height attribute)
         codes: "ston Fcl",      // default: "ston Gcl; "
-        referenceOpen: true     // default: false
+        referenceOpen: true,    // default: false
+        imageType: "png",       // default: "svg"
     },
     font: "Petaluma",           // default: "Bravura Text SC" (you'll have to move a custom font to assets/fonts)
     callback,                   // default: undefined

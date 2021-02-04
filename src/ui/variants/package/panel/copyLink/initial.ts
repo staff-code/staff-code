@@ -1,6 +1,7 @@
 import {BLANK, Io, Sentence} from "@sagittal/general"
 import {
     DEFAULT_INITIAL_CODES,
+    DEFAULT_INITIAL_IMAGE_TYPE,
     DEFAULT_INITIAL_LINE,
     DEFAULT_INITIAL_REFERENCE_OPEN,
     DEFAULT_INITIAL_SIZE,
@@ -9,6 +10,7 @@ import {components} from "../../globals"
 import {prepareCodesToBeHumanReadableAsEncodedQueryParams} from "../../human"
 import {isReferenceOpen} from "../../reference"
 import {Initial} from "../../types"
+import {getImageType} from "../download"
 import {getLine, getSize} from "../spinners"
 
 const DEFAULT_CODES_AS_PARAM = encodeURIComponent(
@@ -45,6 +47,14 @@ const computeInitialLineParam = (): string => {
         `&${Initial.LINE}=${line}`
 }
 
+const computeInitialImageTypeParam = (): string => {
+    const imageType = getImageType()
+
+    return imageType === DEFAULT_INITIAL_IMAGE_TYPE ?
+        BLANK :
+        `&${Initial.IMAGE_TYPE}=${imageType}`
+}
+
 const computeInitialReferenceOpenParam = (): string =>
     (
         !components.referenceWrapper
@@ -54,19 +64,21 @@ const computeInitialReferenceOpenParam = (): string =>
         `&${Initial.REFERENCE_OPEN}=true`
 
 const computeInitialParams = (): string => {
-    const initialCodesParam = computeInitialCodesParam()
     const initialSizeParam = computeInitialSizeParam()
     const initialLineParam = computeInitialLineParam()
+    const initialImageTypeParam = computeInitialImageTypeParam()
     const initialReferenceOpenParam = computeInitialReferenceOpenParam()
+    const initialCodesParam = computeInitialCodesParam()
 
     return (
         initialSizeParam === BLANK
         && initialLineParam === BLANK
+        && initialImageTypeParam === BLANK
         && initialReferenceOpenParam === BLANK
         && initialCodesParam === BLANK
     ) ?
         BLANK :
-        `?${initialSizeParam}${initialLineParam}${initialReferenceOpenParam}${initialCodesParam}`.replace("&", BLANK)
+        `?${initialSizeParam}${initialLineParam}${initialImageTypeParam}${initialReferenceOpenParam}${initialCodesParam}`.replace("&", BLANK)
 }
 
 export {

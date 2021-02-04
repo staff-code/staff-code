@@ -8,7 +8,6 @@ describe("computeInitialParams", (): void => {
     })
 
     it("returns an empty string when all GUI components are at default settings, and the only GUI component which exists is the display", (): void => {
-
         components.input = document.createElement("textarea")
         components.input.value = "ston Gcl; "
 
@@ -32,6 +31,12 @@ describe("computeInitialParams", (): void => {
 
         components.referenceWrapper = document.createElement("div")
 
+        components.imageSelect = document.createElement("select")
+        const svgImageOption = document.createElement("option")
+        svgImageOption.value = "svg"
+        svgImageOption.selected = true
+        components.imageSelect.appendChild(svgImageOption)
+
         const actual = computeInitialParams()
 
         const expected = "" as string
@@ -53,9 +58,15 @@ describe("computeInitialParams", (): void => {
         components.referenceWrapper = document.createElement("div")
         components.referenceWrapper.classList.add("open")
 
+        components.imageSelect = document.createElement("select")
+        const svgImageOption = document.createElement("option")
+        svgImageOption.value = "png"
+        svgImageOption.selected = true
+        components.imageSelect.appendChild(svgImageOption)
+
         const actual = computeInitialParams()
 
-        const expected = "?size=1.13&line=2.09&reference-open=true&codes=ston-Gclq-nt" as string
+        const expected = "?size=1.13&line=2.09&image-type=png&reference-open=true&codes=ston-Gclq-nt" as string
         expect(actual).toBe(expected)
     })
 

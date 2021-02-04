@@ -7,7 +7,13 @@ import {applyCss} from "./css"
 import {buildPackageDisplayWrapper} from "./display"
 import {loadGoogleFont} from "./font"
 import {components, staffCodeConfig} from "./globals"
-import {computeInitialCodes, computeInitialLine, computeInitialReferenceOpen, computeInitialSize} from "./initial"
+import {
+    computeInitialCodes,
+    computeInitialImageType,
+    computeInitialLine,
+    computeInitialReferenceOpen,
+    computeInitialSize,
+} from "./initial"
 import {buildPanel, setPreviousInputState} from "./panel"
 import {buildReferenceWrapper} from "./reference"
 
@@ -17,6 +23,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
             inline = false,
             interactive = true,
             downloadButton = true,
+            imageSelect = true,
             copyLinkButton = true,
             sizeSpinner = true,
             lineSpinner = true,
@@ -27,6 +34,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
             size: initialSize = computeInitialSize(),
             line: initialLine = computeInitialLine(),
             referenceOpen = computeInitialReferenceOpen(),
+            imageType = computeInitialImageType(),
         } = {},
         font = BRAVURA_TEXT_SC,
         callback,
@@ -37,6 +45,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
                 inline,
                 interactive,
                 downloadButton,
+                imageSelect,
                 copyLinkButton,
                 sizeSpinner,
                 lineSpinner,
@@ -47,6 +56,7 @@ const setupPackageRoot = (options: StaffCodeOptions = {}): HTMLSpanElement => {
                 size: initialSize,
                 line: initialLine,
                 referenceOpen,
+                imageType,
             },
             font,
             callback,

@@ -3,10 +3,12 @@
 import {BLANK, Em, Io, Maybe, Multiplier, Sentence} from "@sagittal/general"
 import {
     DEFAULT_INITIAL_CODES,
+    DEFAULT_INITIAL_IMAGE_TYPE,
     DEFAULT_INITIAL_LINE,
     DEFAULT_INITIAL_REFERENCE_OPEN,
     DEFAULT_INITIAL_SIZE,
 } from "../../constants"
+import {ImageType} from "../../types"
 import {undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams} from "./human"
 import {EncodedCode, Initial} from "./types"
 
@@ -53,10 +55,18 @@ const computeInitialReferenceOpen = (): boolean =>
     || getStaffCodeCookie(Initial.REFERENCE_OPEN) === "true"
     || DEFAULT_INITIAL_REFERENCE_OPEN
 
+const computeInitialImageType = (): ImageType =>
+    (
+        new URLSearchParams(window.location.search).get(Initial.IMAGE_TYPE)
+        || getStaffCodeCookie(Initial.IMAGE_TYPE)
+        || DEFAULT_INITIAL_IMAGE_TYPE
+    ) as ImageType
+
 export {
     computeInitialCodes,
     setStaffCodeCookie,
     computeInitialLine,
     computeInitialSize,
     computeInitialReferenceOpen,
+    computeInitialImageType,
 }

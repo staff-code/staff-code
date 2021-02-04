@@ -1,9 +1,11 @@
 import {BLANK, Filename, Html, Link, Sentence} from "@sagittal/general"
 import {Unicode} from "../../../../../translate"
 import {translateInputToDisplay} from "../../../../translate"
+import {ImageType} from "../../../../types"
 import {components, staffCodeConfig} from "../../globals"
 import {setPreviousInputState} from "../input"
 import {convertSvgToPng} from "./rasterize"
+import {getImageType} from "./value"
 import {computeSvgStringFromInput} from "./vectorize"
 
 const SVG_TYPE = "image/svg+xml;charset=utf-8"
@@ -25,11 +27,7 @@ const saveDataUrl = (url: Link, filename: Filename): void => {
     a.click()
 }
 
-const downloadSvg = async (): Promise<void> => {
-    await downloadSvgOrPng()
-}
-
-const downloadSvgOrPng = async (downloadAsPng: boolean = false): Promise<void> => {
+const downloadImage = async (imageType: ImageType = getImageType()): Promise<void> => {
     const {display, root} = components
 
     translateInputToDisplay(root, staffCodeConfig.callback)
@@ -42,7 +40,7 @@ const downloadSvgOrPng = async (downloadAsPng: boolean = false): Promise<void> =
     const svgString = await computeSvgStringFromInput(unicodeSentence)
     const svgDataUrl = buildSvgDataUrl(svgString)
 
-    if (downloadAsPng) {
+    if (imageType === ImageType.PNG) {
         const pngDataUrl = await convertSvgToPng(svgString, svgDataUrl)
 
         saveDataUrl(pngDataUrl, PNG_DOWNLOAD_FILENAME)
@@ -52,5 +50,5 @@ const downloadSvgOrPng = async (downloadAsPng: boolean = false): Promise<void> =
 }
 
 export {
-    downloadSvg,
+    downloadImage,
 }

@@ -3,6 +3,7 @@ enum Initial {
     SIZE = "size",
     LINE = "line",
     REFERENCE_OPEN = "reference-open",
+    IMAGE_TYPE = "image-type",
 }
 
 type EncodedCode = string & {_EncodedCode: boolean}
@@ -20,6 +21,7 @@ interface Components {
     referenceExpanderToolip?: HTMLSpanElement,
     referenceBanner?: HTMLSpanElement,
     copyLinkMessage?: HTMLDivElement,
+    imageSelect?: HTMLSelectElement,
 }
 
 export {

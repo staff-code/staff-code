@@ -1,5 +1,5 @@
 import {formatEm, formatPx} from "@sagittal/general"
-import {DARK_TAN, GUI_FONT, GUI_FONT_SIZE, STANDARD_BORDER_RADIUS, TAN} from "../../constants"
+import {DARK_TAN, GUI_FONT, GUI_FONT_SIZE, STANDARD_BORDER, STANDARD_BORDER_RADIUS, TAN} from "../../constants"
 
 // tslint:disable-next-line comment-format
 // language=CSS
@@ -41,6 +41,13 @@ const DOWNLOAD_CSS = `
         position: relative;
         top: 0;
         left: 0;
+    }
+
+    select {
+        border: ${STANDARD_BORDER};
+        border-radius: ${formatPx(STANDARD_BORDER_RADIUS)};
+        box-sizing: border-box;
+        margin-left: 12px;
     }
 `
 

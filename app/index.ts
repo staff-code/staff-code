@@ -16,6 +16,6 @@ gtag('config', 'G-QY3J3V3JGZ');
 document.head.appendChild(googleAnalyticsTag2)
 
 loadFonts().then((): void => {
-    const root: HTMLSpanElement = setupPackageRoot()
+    const root: HTMLSpanElement = setupPackageRoot({gui: {imageSelect: false}})
     document.body.appendChild(root)
 })

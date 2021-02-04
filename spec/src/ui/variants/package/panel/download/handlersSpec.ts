@@ -1,11 +1,11 @@
 import {BLANK, Link} from "@sagittal/general"
-import {downloadSvg} from "../../../../../../../src/ui/variants"
+import {downloadImage} from "../../../../../../../src/ui/variants"
 import {components} from "../../../../../../../src/ui/variants/package/globals"
 import {INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "../../../../../../../src/ui/variants/package/panel/input/constants"
 import {mockDom} from "../../../../../../helpers/mockDom"
 import {setupBasicStaffCode} from "../../../../../../helpers/src/ui/variants/package/setup"
 
-describe("downloadSvg", (): void => {
+describe("downloadImage", (): void => {
     const setupForDownloadSvg = ({url}: {url?: Link} = {}): void => {
         mockDom({url})
         // @ts-ignore
@@ -24,7 +24,7 @@ describe("downloadSvg", (): void => {
         components.input.value = "lalala nt"
 
         expect(components.display.textContent).toBe(BLANK)
-        await downloadSvg()
+        await downloadImage()
 
         expect(components.display.textContent).toBe("  l  a l  a l  a  ")
         done()
@@ -35,7 +35,7 @@ describe("downloadSvg", (): void => {
         components.input.value = "lalala nt"
 
         expect(components.input.getAttribute(INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE)).toBeNull()
-        await downloadSvg()
+        await downloadImage()
 
         expect(components.input.getAttribute(INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE)).toBe("lalala nt")
         done()
