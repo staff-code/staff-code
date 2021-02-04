@@ -1,15 +1,15 @@
 import {Em, Multiplier} from "@sagittal/general"
-import {DEFAULT_INITIAL_LINE, DEFAULT_INITIAL_SIZE} from "../../../../constants"
 import {components} from "../../globals"
+import {computeInitialLine, computeInitialSize} from "../../initial"
 
 const getLine = (): Multiplier<Em> =>
     !components.lineSpinner ?
-        DEFAULT_INITIAL_LINE :
+        computeInitialLine() :
         parseFloat(components.lineSpinner.value) as Multiplier<Em>
 
 const getSize = (): Multiplier<Em> =>
     !components.sizeSpinner ?
-        DEFAULT_INITIAL_SIZE :
+        computeInitialSize() :
         parseFloat(components.sizeSpinner.value) as Multiplier<Em>
 
 export {

@@ -20,6 +20,8 @@ const setStaffCodeCookie = (name: Initial, value: string): void => {
 }
 
 const getStaffCodeCookie = (name: Initial): Maybe<string> => {
+    if (!document) return undefined
+
     const cookieName = `staffcode_${name}=`
     const cookies = document.cookie.split(";")
 
@@ -35,29 +37,28 @@ const getStaffCodeCookie = (name: Initial): Maybe<string> => {
 }
 
 const computeInitialCodes = (): Io & Sentence =>
-    undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams((new URLSearchParams(window.location.search).get(Initial.CODES) || BLANK) as EncodedCode & Sentence)
+    undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams((window && new URLSearchParams(window.location.search).get(Initial.CODES) || BLANK) as EncodedCode & Sentence)
     || (getStaffCodeCookie(Initial.CODES) || BLANK) as EncodedCode & Sentence
     || DEFAULT_INITIAL_CODES
 
 const computeInitialLine = (): Multiplier<Em> =>
-    parseFloat(new URLSearchParams(window.location.search).get(Initial.LINE) || BLANK) as Multiplier<Em>
+    parseFloat(window && new URLSearchParams(window.location.search).get(Initial.LINE) || BLANK) as Multiplier<Em>
     || parseFloat(getStaffCodeCookie(Initial.LINE) || BLANK) as Multiplier<Em>
     || DEFAULT_INITIAL_LINE
 
-
 const computeInitialSize = (): Multiplier<Em> =>
-    parseFloat(new URLSearchParams(window.location.search).get(Initial.SIZE) || BLANK) as Multiplier<Em>
+    parseFloat(window && new URLSearchParams(window.location.search).get(Initial.SIZE) || BLANK) as Multiplier<Em>
     || parseFloat(getStaffCodeCookie(Initial.SIZE) || BLANK) as Multiplier<Em>
     || DEFAULT_INITIAL_SIZE
 
 const computeInitialReferenceOpen = (): boolean =>
-    new URLSearchParams(window.location.search).get(Initial.REFERENCE_OPEN) === "true"
+    window && new URLSearchParams(window.location.search).get(Initial.REFERENCE_OPEN) === "true"
     || getStaffCodeCookie(Initial.REFERENCE_OPEN) === "true"
     || DEFAULT_INITIAL_REFERENCE_OPEN
 
 const computeInitialImageType = (): ImageType =>
     (
-        new URLSearchParams(window.location.search).get(Initial.IMAGE_TYPE)
+        window && new URLSearchParams(window.location.search).get(Initial.IMAGE_TYPE)
         || getStaffCodeCookie(Initial.IMAGE_TYPE)
         || DEFAULT_INITIAL_IMAGE_TYPE
     ) as ImageType

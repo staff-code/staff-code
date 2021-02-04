@@ -1,10 +1,10 @@
-import {DEFAULT_INITIAL_IMAGE_TYPE} from "../../../../constants"
 import {ImageType} from "../../../../types"
 import {components} from "../../globals"
+import {computeInitialImageType} from "../../initial"
 
 const getImageType = (): ImageType =>
     !components.imageSelect ?
-        DEFAULT_INITIAL_IMAGE_TYPE :
+        computeInitialImageType() :
         components.imageSelect.value as ImageType
 
 export {
