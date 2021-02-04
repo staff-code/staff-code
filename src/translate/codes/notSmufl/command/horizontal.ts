@@ -28,17 +28,6 @@ const SET_PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE = "en" as Command & Co
 const SET_RIGHT_ALIGN_ADVANCE_COMMAND_CODE = "rt" as Command & Code & Word
 const SET_CENTER_ALIGN_ADVANCE_COMMAND_CODE = "cn" as Command & Code & Word
 
-// TODO, FEATURE IMPROVE, READY TO GO: WHITESPACE-UNNECESSITIZATION OF THE SEMICOLON
-//  ...let's not have codes <n>; br; en; rt; cn;
-//  But instead define codes <n> br en rt cn which simply set state variables that tell the next semicolon what to do.
-//  Any other code will clear that state so the semicolon does its standard (left aligned) smart advance.
-//  So those <n> br en rt cn codes are useless unless followed by a semicolon.
-//  So we still tell the user that the codes are <n>; br; en; rt; cn;.
-//  No need to tell them that they could put a space before the semicolon and it would still work.
-//  - There is an ordinary code "br" for "brace", so we should change br; to nl;
-//  (newline, unless you can think of a better code).
-//  - Then you can have a first pass where you replace all semicolons in the input with <space><semicolon><space>.
-
 const NOT_SMuFL_SMART_ADVANCE_COMMAND_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     [SMART_ADVANCE_COMMAND_CODE]: EMPTY_UNICODE,
     [SET_NEWLINE_ADVANCE_COMMAND_CODE]: EMPTY_UNICODE,
