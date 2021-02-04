@@ -14,7 +14,7 @@ const BASICS_SECTION: Section = [
     INTRO_TO_STAFF_CODE_LINK,
     `"Auto stem direction" means stem down for middle line and above, otherwise stem up.` as Explanation,
     [
-        ["", "ston", "<u>st</u>aff <u>on</u>"],
+        ["", "ston", "<u>st</u>aff <u>on</u>"],
         ["", "stof", "<u>st</u>aff <u>of</u>f (default)"],
         ["", "C1", "move to the <u>C1</u> (1st-octave C) position"],
         ["", "...", "..."],
