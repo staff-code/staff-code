@@ -1,5 +1,5 @@
 import {BLANK, Io, Maybe, Sentence, SPACE, Word} from "@sagittal/general"
-import {Code} from "../../../../../translate"
+import {Code, SMART_ADVANCE_COMMAND_CODE} from "../../../../../translate"
 import {translateInputToDisplay} from "../../../../translate"
 import {components, staffCodeConfig} from "../../globals"
 import {getPreviousInputState, setPreviousInputState} from "../../panel"
@@ -16,7 +16,10 @@ const insertCodeIntoInputAndSavePreviousState = (code: Code & Word): void => {
     let textCursorPosition = input.selectionStart
 
     const upToSelection = previousValue.slice(0, textCursorPosition)
-    const maybePrecedingBuffer = isWhitespaceOrUndefinedAlready(upToSelection[upToSelection.length - 1]) ? BLANK : SPACE
+    const maybePrecedingBuffer =
+        code === SMART_ADVANCE_COMMAND_CODE || isWhitespaceOrUndefinedAlready(upToSelection[upToSelection.length - 1]) ?
+            BLANK :
+            SPACE
     const afterSelection = previousValue.slice(textCursorPosition)
     const maybeSucceedingBuffer = isWhitespaceOrUndefinedAlready(afterSelection[0]) ? BLANK : SPACE
 
