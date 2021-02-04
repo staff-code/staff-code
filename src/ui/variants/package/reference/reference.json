@@ -7,7 +7,7 @@
     "\"Auto stem direction\" means stem down for middle line and above, otherwise stem up.",
     [
       [
-        "",
+        "",
         "ston",
         "<u>st</u>aff <u>on</u>"
       ],
@@ -15,96 +15,6 @@
         "",
         "stof",
         "<u>st</u>aff <u>of</u>f (default)"
-      ],
-      [
-        "",
-        "C1",
-        "move to the <u>C1</u> (1st-octave C) position"
-      ],
-      [
-        "",
-        "...",
-        "..."
-      ],
-      [
-        "",
-        "B3",
-        "move to the <u>B3</u> position"
-      ],
-      [
-        "",
-        "C4",
-        "move to the <u>C4</u> (middle C) position"
-      ],
-      [
-        "",
-        "D4",
-        "move to the <u>D4</u> position"
-      ],
-      [
-        "",
-        "...",
-        "..."
-      ],
-      [
-        "",
-        "C7",
-        "move to the <u>C7</u> (7th-octave C) position"
-      ],
-      [
-        "",
-        "acfl",
-        "<u>a</u><u>c</u>cidental <u>f</u><u>l</u>at"
-      ],
-      [
-        "",
-        "acnt",
-        "<u>a</u><u>c</u>cidental <u>n</u>a<u>t</u>ural"
-      ],
-      [
-        "",
-        "acsh",
-        "<u>a</u><u>c</u>cidental <u>s</u><u>h</u>arp"
-      ],
-      [
-        "",
-        "nt1",
-        "<u>n</u>o<u>t</u>e 1/<u>1</u>"
-      ],
-      [
-        "",
-        "nt2",
-        "<u>n</u>o<u>t</u>e 1/<u>2</u> (with auto stem direction)"
-      ],
-      [
-        "",
-        "nt4",
-        "<u>n</u>o<u>t</u>e 1/<u>4</u> (with auto stem direction)"
-      ],
-      [
-        "",
-        "nt8",
-        "<u>n</u>o<u>t</u>e 1/<u>8</u> (with auto stem direction)"
-      ],
-      [
-        "",
-        "nt16",
-        "<u>n</u>o<u>t</u>e 1/<u>16</u> (with auto stem direction)"
-      ],
-      [
-        "",
-        "nt32",
-        "<u>n</u>o<u>t</u>e 1/<u>32</u> (with auto stem direction)"
-      ],
-      [
-        "",
-        "...",
-        "..."
-      ],
-      [
-        "",
-        "nt1024",
-        "<u>n</u>o<u>t</u>e 1/<u>1024</u> (with auto stem direction)"
       ],
       [
         "",
@@ -125,6 +35,136 @@
         "",
         "tncl",
         "<u>t</u>e<u>n</u>or <u>cl</u>ef"
+      ],
+      [
+        "",
+        "C7",
+        "move to the <u>C7</u> (7th-octave C) position"
+      ],
+      [
+        "",
+        "...",
+        "..."
+      ],
+      [
+        "",
+        "D4",
+        "move to the <u>D4</u> position"
+      ],
+      [
+        "",
+        "C4",
+        "move to the <u>C4</u> (middle C) position"
+      ],
+      [
+        "",
+        "B3",
+        "move to the <u>B3</u> position"
+      ],
+      [
+        "",
+        "...",
+        "..."
+      ],
+      [
+        "",
+        "C1",
+        "move to the <u>C1</u> (1st-octave C) position"
+      ],
+      [
+        "",
+        "nt1",
+        "<u>n</u>o<u>t</u>e <u>wh</u>ole"
+      ],
+      [
+        "",
+        "nt2",
+        "<u>n</u>o<u>t</u>e 1/<u>2</u> (with auto stem direction)"
+      ],
+      [
+        "",
+        "nt4",
+        "<u>n</u>o<u>t</u>e 1/<u>4</u> (with auto stem direction)"
+      ],
+      [
+        "",
+        "nt8",
+        "<u>n</u>o<u>t</u>e 1/<u>8</u> (with auto stem direction)"
+      ],
+      [
+        "",
+        "nt16",
+        "<u>n</u>o<u>t</u>e 1/<u>16</u> (with auto stem direction)"
+      ],
+      [
+        "",
+        "nt32",
+        "<u>n</u>o<u>t</u>e 1/<u>32</u> (with auto stem direction)"
+      ],
+      [
+        "",
+        "...",
+        "..."
+      ],
+      [
+        "",
+        "nt1024",
+        "<u>n</u>o<u>t</u>e 1/<u>1024</u> (with auto stem direction)"
+      ],
+      [
+        "",
+        "acfl",
+        "<u>a</u><u>c</u>cidental <u>f</u><u>l</u>at"
+      ],
+      [
+        "",
+        "acnt",
+        "<u>a</u><u>c</u>cidental <u>n</u>a<u>t</u>ural"
+      ],
+      [
+        "",
+        "acsh",
+        "<u>a</u><u>c</u>cidental <u>s</u><u>h</u>arp"
+      ],
+      [
+        "",
+        ";",
+        "advance (by max symbol width plus spacing)"
+      ],
+      [
+        "",
+        "en;",
+        "<u>en</u>d-of-staff advance"
+      ],
+      [
+        "",
+        "nl;",
+        "<u>n</u>ew<u>l</u>ine advance"
+      ],
+      [
+        "",
+        "1;",
+        "<u>1</u> octal advance"
+      ],
+      [
+        "",
+        "2;",
+        "<u>2</u> octals advance"
+      ],
+      [
+        "",
+        "3;",
+        "<u>3</u> octals advance"
+      ],
+      [
+        "",
+        "...",
+        "..."
+      ],
+      [
+        "",
+        "24;",
+        "<u>24</u> octals advance"
       ],
       [
         "",
@@ -150,46 +190,6 @@
         "",
         "sp7",
         "set <u>sp</u>acing <u>7</u> octals"
-      ],
-      [
-        "",
-        ";",
-        "advance (by max symbol width plus spacing)"
-      ],
-      [
-        "",
-        "en",
-        "<u>en</u>d-of-staff advance"
-      ],
-      [
-        "",
-        "nl",
-        "<u>n</u>ew <u>l</u>ine advance"
-      ],
-      [
-        "",
-        "1",
-        "<u>1</u> octal advance"
-      ],
-      [
-        "",
-        "2",
-        "<u>2</u> octals advance"
-      ],
-      [
-        "",
-        "3",
-        "<u>3</u> octals advance"
-      ],
-      [
-        "",
-        "...",
-        "..."
-      ],
-      [
-        "",
-        "24",
-        "<u>24</u> octals advance"
       ]
     ]
   ],
