@@ -26,7 +26,7 @@ const BASICS_SECTION: Section = [
         ["", "acfl", "<u>a</u><u>c</u>cidental <u>f</u><u>l</u>at"],
         ["", "acnt", "<u>a</u><u>c</u>cidental <u>n</u>a<u>t</u>ural"],
         ["", "acsh", "<u>a</u><u>c</u>cidental <u>s</u><u>h</u>arp"],
-        ["", "nt1", "<u>n</u>o<u>t</u>e 1/<u>1</u>"],
+        ["", "nt1", "<u>n</u>o<u>t</u>e <u>wh</u>ole"],
         ["", "nt2", "<u>n</u>o<u>t</u>e 1/<u>2</u> (with auto stem direction)"],
         ["", "nt4", "<u>n</u>o<u>t</u>e 1/<u>4</u> (with auto stem direction)"],
         ["", "nt8", "<u>n</u>o<u>t</u>e 1/<u>8</u> (with auto stem direction)"],
