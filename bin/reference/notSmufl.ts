@@ -40,7 +40,7 @@ const BASICS_SECTION: Section = [
         ["", "acsh", "<u>a</u><u>c</u>cidental <u>s</u><u>h</u>arp"],
         ["", ";", "advance (by max symbol width plus spacing)"],
         ["", "en;", "<u>en</u>d-of-staff advance"],
-        ["", "nl;", "<u>n</u>ew <u>l</u>ine advance"],
+        ["", "nl;", "<u>n</u>ew<u>l</u>ine advance"],
         ["", "1;", "<u>1</u> octal advance"],
         ["", "2;", "<u>2</u> octals advance"],
         ["", "3;", "<u>3</u> octals advance"],
