@@ -57,6 +57,10 @@ const REFERENCE_EXPANDER_CSS = `
     .sc-reference-wrapper.open .sc-reference-expander:hover .sc-expander-tooltip {
         display: none;
     }
+
+    .sc-reference-expander:hover .sc-expander-tooltip:empty {
+        display: none;
+    }
 `
 
 // tslint:disable-next-line comment-format

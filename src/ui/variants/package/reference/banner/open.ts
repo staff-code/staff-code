@@ -20,6 +20,8 @@ const openReference = async (): Promise<void> => {
         components.referenceWrapper!.appendChild(reference)
     }
 
+    components.referenceExpanderToolip!.textContent = ""
+
     components.referenceBanner!.style.borderBottom = "none"
     window.location.href = `#${BASICS_SECTION_ID}`
 }

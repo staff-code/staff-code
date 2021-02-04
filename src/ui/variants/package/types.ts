@@ -17,6 +17,7 @@ interface Components {
     referenceToc?: HTMLUListElement,
     referenceWrapper?: HTMLDivElement,
     referenceExpander?: HTMLSpanElement,
+    referenceExpanderToolip?: HTMLSpanElement,
     referenceBanner?: HTMLSpanElement,
     copyLinkMessage?: HTMLDivElement,
 }

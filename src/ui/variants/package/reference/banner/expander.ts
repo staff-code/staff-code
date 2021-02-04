@@ -1,3 +1,4 @@
+import {components} from "../../globals"
 import {handleReferenceExpanderClick} from "./handlers"
 
 const REFERENCE_EXPANDER_TOOLTIP = `
@@ -22,6 +23,7 @@ const buildReferenceExpander = (): HTMLSpanElement => {
     const referenceExpanderTooltip = document.createElement("span")
     referenceExpanderTooltip.classList.add("sc-expander-tooltip")
     referenceExpanderTooltip.innerHTML = REFERENCE_EXPANDER_TOOLTIP
+    components.referenceExpanderToolip = referenceExpanderTooltip
     referenceExpander.appendChild(referenceExpanderTooltip)
 
     return referenceExpander
