@@ -36,20 +36,6 @@ const computeSvgStringFromInput = async (unicodeSentence: Unicode & Sentence): P
     return textToSvg(unicodeSentence, options)
 }
 
-const parseSvgFromSvgString = (svgString: Html): SVGGraphicsElement => {
-    const svgParser = new DOMParser()
-    const svgDocument = svgParser.parseFromString(svgString, "text/html")
-
-    return svgDocument.firstChild as SVGGraphicsElement
-}
-
-const computeSvgFromInput = async (unicodeSentence: Unicode & Sentence): Promise<SVGGraphicsElement> => {
-    const svgString = await computeSvgStringFromInput(unicodeSentence)
-
-    return parseSvgFromSvgString(svgString)
-}
-
 export {
     computeSvgStringFromInput,
-    computeSvgFromInput,
 }
