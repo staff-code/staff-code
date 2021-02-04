@@ -20,7 +20,6 @@ const computeSmartAdvanceUnicodeClauseAndUpdateSmarts = (): Unicode & Clause => 
                 smarts.advanceWidth,
             )
     }
-    smarts.altAdvance = AltAdvance.NONE
 
     return commandUnicodeClause
 }

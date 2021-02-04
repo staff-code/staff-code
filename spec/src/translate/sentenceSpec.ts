@@ -74,7 +74,7 @@ describe("computeInputSentenceUnicode", (): void => {
         saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
     })
 
-    it("supports multiple staves with a break", (): void => {
+    it("supports multiple staves with a newline", (): void => {
         const inputSentence = "ston Gcl; nt nl; nt" as Io & Sentence
 
         const actual = computeInputSentenceUnicode(inputSentence)
@@ -86,7 +86,7 @@ describe("computeInputSentenceUnicode", (): void => {
         saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
     })
 
-    it("adds a space at the end if the last word is a break (so that the break immediately indicates that it has occurred, by taking up space in the display)", (): void => {
+    it("adds a space at the end if the last word is a newline (so that the newline immediately indicates that it has occurred, by taking up space in the display)", (): void => {
         const inputSentence = "ston Gcl; nt nl;" as Io & Sentence
 
         const actual = computeInputSentenceUnicode(inputSentence)
@@ -665,7 +665,7 @@ ntqrdn st16 13 ntqrdn 3 st16 10 ntqrdn 6 st8 7 ntqrdn 1 st16 12 ntqrdn 4 st16 9 
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
-        it("the advance-to-end code is canceled by a line break", (): void => {
+        it("the advance-to-end code is canceled by a newline", (): void => {
             const inputSentence = "ston nt en; nl; bl; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
@@ -694,6 +694,17 @@ ntqrdn st16 13 ntqrdn 3 st16 10 ntqrdn 6 st8 7 ntqrdn 1 st16 12 ntqrdn 4 st16 9 
             const expectedUnicode = "　   "
             expect(actual).toBe(expectedUnicode)
             const expectedCodes = "ntqrdn st16 16 st16 12 blsn 4"
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
+
+        it("if the newline code (nl) is not immediately followed by a smart advance code (a semicolon) then it has no effect, even if a smart advance does occur soon thereafter", (): void => {
+            const inputSentence = "ston nt nl bl ;" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+            const expectedUnicode = "　"
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "ntqrdn blsn st16 16"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })

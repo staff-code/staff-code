@@ -1,6 +1,7 @@
 import {Clause, Io, sumTexts, Word} from "@sagittal/general"
 import {Unicode} from "./codes"
 import {
+    AltAdvance,
     computeCommandUnicodeClauseAndUpdateSmarts,
     computeCommentingUnicodeClauseAndUpdateSmarts,
     computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts,
@@ -9,6 +10,7 @@ import {
     isCommandCode,
     isCommenting,
     isUnrecognizedCode,
+    smarts,
 } from "./smarts"
 import {computeMaybeNotDisplayedUnicode, getUnicode} from "./unicode"
 
@@ -25,6 +27,8 @@ const computeGlyphUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & C
     )
 
     const displayUnicode = computeMaybeNotDisplayedUnicode(unicode)
+
+    smarts.altAdvance = AltAdvance.NONE
 
     return sumTexts(introClauseUnicode, displayUnicode as Unicode) as Unicode & Clause
 }
