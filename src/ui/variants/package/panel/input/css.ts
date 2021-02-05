@@ -28,7 +28,7 @@ const INPUT_CSS = `
         display: inherit;
     }
 
-    .sc-input-border-wrapper:focus {
+    .sc-input-border-wrapper:focus-within {
         border-color: ${LIGHT_TAN};
     }
 

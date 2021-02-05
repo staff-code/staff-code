@@ -17,6 +17,7 @@ const SPINNER_CSS = `
     }
 
     .sc-spinner input {
+        outline: none;
         width: 3em;
         border: ${STANDARD_BORDER};
         border-radius: ${formatPx(STANDARD_BORDER_RADIUS)};
@@ -24,7 +25,7 @@ const SPINNER_CSS = `
     }
 
     .sc-spinner input:focus {
-        outline-color: ${LIGHT_TAN};
+        border-color: ${LIGHT_TAN};
     }
 `
 
