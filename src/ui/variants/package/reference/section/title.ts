@@ -36,6 +36,7 @@ const buildSectionIntro = (
         ) ?
             "" :
             "SMuFL reference"
+    // TODO: update to latest instead of gitbook
     sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/gitbook/tables/${camelCaseToKebabCase(sectionId)}`
     sectionSmuflLink.target = "_blank"
     sectionIntro.appendChild(sectionSmuflLink)

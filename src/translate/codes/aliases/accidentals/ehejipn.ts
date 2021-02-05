@@ -5,6 +5,8 @@ import {Code, Unicode} from "../../types"
 // See: https://w3c.github.io/smufl/gitbook/tables/extended-helmholtz-ellis-accidentals-just-intonation.html
 // All EHEJIPN staffCodes start with a dot (full-stop). Unicodes are successive below.
 
+// TODO: working on a proposal for revision to these
+
 const EHEJIPN_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     ".bbv": SMuFL_MAP["acdbflonardn"],
     ".bv": SMuFL_MAP["acflonardn"],

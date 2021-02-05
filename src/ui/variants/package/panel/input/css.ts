@@ -10,6 +10,9 @@ import {
 
 const ABOUT_THREE_LINES_HIGH_PX: Px = 60 as Px
 
+// TODO: Oh, I just noticed that the border of the input doesn't
+//  Light up when you're interacting with it, like the spinners do.
+
 // tslint:disable-next-line comment-format
 // language=CSS
 const INPUT_CSS = `

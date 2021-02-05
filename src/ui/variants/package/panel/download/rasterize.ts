@@ -1,5 +1,7 @@
 import {Html, Link} from "@sagittal/general"
 
+const OFFSET_FOR_CLEANER_STAFF_LINES_AT_SIZE_1 = 0.5
+
 const convertSvgToPng = (svgString: Html, svgDataUrl: Link): Promise<Link> => {
     return new Promise((resolve: (pngDataUrl: Link) => void): void => {
         try {
@@ -15,7 +17,7 @@ const convertSvgToPng = (svgString: Html, svgDataUrl: Link): Promise<Link> => {
 
             const img = new Image
             img.onload = (): void => {
-                ctx.drawImage(img, 0, 0)
+                ctx.drawImage(img, 0, OFFSET_FOR_CLEANER_STAFF_LINES_AT_SIZE_1)
 
                 URL.revokeObjectURL(svgDataUrl)
 
