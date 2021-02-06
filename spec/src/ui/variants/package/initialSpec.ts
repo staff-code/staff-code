@@ -91,12 +91,12 @@ describe("computeInitialReferenceOpen", (): void => {
 
 describe("computeInitialSize", (): void => {
     it("decodes them from the query params if available", (): void => {
-        const url = "https://staffcode.org/?size=1.13" as Link
+        const url = "https://staffcode.org/?size=1.12" as Link
         mockDom({url})
 
         const actual = computeInitialSize()
 
-        const expected = 1.13 as Multiplier<Em>
+        const expected = 1.12 as Multiplier<Em>
         expect(actual).toBe(expected)
     })
 
@@ -111,13 +111,13 @@ describe("computeInitialSize", (): void => {
     })
 
     it("if both query params and cookies are available, takes from the query params", (): void => {
-        const url = "https://staffcode.org/?size=1.13" as Link
+        const url = "https://staffcode.org/?size=1.12" as Link
         mockDom({url})
         document.cookie = `staffcode_size=0.9; SameSite=Strict; path=/`
 
         const actual = computeInitialSize()
 
-        const expected = 1.13 as Multiplier<Em>
+        const expected = 1.12 as Multiplier<Em>
         expect(actual).toBe(expected)
     })
 

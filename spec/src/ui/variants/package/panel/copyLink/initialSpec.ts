@@ -50,7 +50,7 @@ describe("computeInitialParams", (): void => {
         components.input.value = "ston Gcl; nt"
 
         components.sizeSpinner = document.createElement("input")
-        components.sizeSpinner.value = "1.13"
+        components.sizeSpinner.value = "1.12"
 
         components.lineSpinner = document.createElement("input")
         components.lineSpinner.value = "2.09"
@@ -66,7 +66,7 @@ describe("computeInitialParams", (): void => {
 
         const actual = computeInitialParams()
 
-        const expected = "?size=1.13&line=2.09&image-type=png&reference-open=true&codes=ston-Gclq-nt" as string
+        const expected = "?size=1.12&line=2.09&image-type=png&reference-open=true&codes=ston-Gclq-nt" as string
         expect(actual).toBe(expected)
     })
 
