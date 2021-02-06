@@ -1,1 +1,1 @@
-Convert staffCodes into a music notation figure: [staff]ston Gcl; F4 nt[/staff]
+Convert staffCodes into a music notation figure: [staff]ston Gcl ; F4 nt[/staff]
