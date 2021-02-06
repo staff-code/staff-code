@@ -3,6 +3,9 @@ import versionJson from "./version.json"
 
 const VERSION = versionJson.version
 
+// TODO: But maybe we should still have a separate link explicitly to the subforum (for SC feedback),
+//  Even if the Introduction post was inside it, just to make it clear and inviting.
+
 const STAFF_CODE_ABOUT = `
 <a target="_blank" href="${INTRO_TO_STAFF_CODE_LINK}">Introduction to StaffCode</a><br>
 <br>

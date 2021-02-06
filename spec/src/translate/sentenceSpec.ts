@@ -100,6 +100,9 @@ describe("computeInputSentenceUnicode", (): void => {
 
     describe("*** Macros ***", (): void => {
         it("converts clef macros correctly", (): void => {
+            // TODO: replace all Gcl with trcl, but the problem with the sticky stpsrs vs up
+            //  Dave is suggesting maybe just have all clefs reset position to 0 to delete all those tests and fancy
+            //  Code about smart pitch vs smart position?
             const inputSentence = "trcl" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
@@ -677,6 +680,7 @@ ntqrdn st16 13 ntqrdn 3 st16 10 ntqrdn 6 st8 7 ntqrdn 1 st16 12 ntqrdn 4 st16 9 
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
+        // TODO: "14" instead of "14;". fix manual advances
         it("the advance-to-end code can be adjusted with manual advance", (): void => {
             const inputSentence = "ston nt en; 1 bl" as Io & Sentence
 

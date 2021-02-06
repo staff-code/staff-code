@@ -1,6 +1,7 @@
 import {formatEm, formatPx, Px} from "@sagittal/general"
 import {MARGIN_SIZE} from "../../../display"
 
+// TODO: Yes. Please change it to 0.75px.
 const OFFSET_FOR_CLEANER_DISPLAY = -0.25 as Px
 
 // tslint:disable-next-line comment-format
