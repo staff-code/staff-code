@@ -1,7 +1,7 @@
 import {BLANK, camelCaseToKebabCase, Id, Name} from "@sagittal/general"
 import {
-    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
     BASICS_SECTION_ID,
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
     Explanation,
     LEGER_LINES_SUPPLEMENT_SECTION_ID,
     Parenthetical,
@@ -35,6 +35,8 @@ const buildSectionIntro = (
             || sectionId === COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID
         ) ?
             "" :
+            // TODO: I just noticed the link to the Sims accidentals is broken.
+            //  Maybe I need to better handle special chars in those links.
             "SMuFL reference"
     sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/latest/tables/${camelCaseToKebabCase(sectionId)}`
     sectionSmuflLink.target = "_blank"
