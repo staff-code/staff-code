@@ -1,6 +1,8 @@
 # StaffCode
 
-converts simple text codes into Unicode which in the Bravura Text font displays as sheet music
+Convert simple text codes into Unicode, which in a specialized font displays as sheet music.
+
+For questions or feedback, visit https://forum.sagittal.org/viewforum.php?f=22.
 
 ```
 ston Gcl ; d5 /|\ ; nt;

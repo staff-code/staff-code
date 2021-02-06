@@ -99,13 +99,13 @@ const REFERENCE_TITLE_AND_ABOUT_CSS = `
         font-size: ${formatEm(GUI_FONT_SIZE)};
         padding: 1.5em;
         position: fixed;
-        margin: -135px -103px;
+        margin: -142px -103px;
         z-index: 9999;
     }
 
     .sc-about-trigger {
         position: fixed;
-        margin: -25px -6px;
+        margin: -32px -6px;
         height: 30px;
         width: 80px;
     }

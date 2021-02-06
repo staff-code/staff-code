@@ -3,9 +3,6 @@ import versionJson from "./version.json"
 
 const VERSION = versionJson.version
 
-// TODO: But maybe we should still have a separate link explicitly to the subforum (for SC feedback),
-//  Even if the Introduction post was inside it, just to make it clear and inviting.
-
 const STAFF_CODE_ABOUT = `
 <a target="_blank" href="${INTRO_TO_STAFF_CODE_LINK}">Introduction to StaffCode</a><br>
 <br>
@@ -14,6 +11,7 @@ by Douglas Blumeyer<br>
 and Dave Keenan.<br>
 A product of the <a target="_blank" href="https://sagittal.org/">Sagittal</a><br>
 microtonal notation project.<br>
+<a target="_blank" href="https://forum.sagittal.org/viewforum.php?f=22">Questions or feedback?</a>
 `
 
 const buildSiteAboutTriggeringScrim = (): HTMLDivElement => {
