@@ -19,7 +19,7 @@ import {
     computeSpacing,
     isSpacingCommandCode,
 } from "./horizontal"
-import {computePitchFromCode, isPitchCommandCode, PitchOrPosition} from "./vertical"
+import {computePositionFromPitchCommandCode, isPitchCommandCode} from "./vertical"
 
 const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode & Clause => {
     let commandUnicodeClause: Unicode & Clause = EMPTY_UNICODE as Unicode & Clause
@@ -39,8 +39,7 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
     } else if (isSpacingCommandCode(caseDesensitizedCode)) {
         smarts.spacing = computeSpacing(caseDesensitizedCode)
     } else if (isPitchCommandCode(caseDesensitizedCode)) {
-        smarts.pitch = computePitchFromCode(caseDesensitizedCode)
-        smarts.pitchOrPosition = PitchOrPosition.PITCH
+        smarts.position = computePositionFromPitchCommandCode(caseDesensitizedCode)
     }
 
     return commandUnicodeClause

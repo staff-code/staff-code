@@ -1,8 +1,8 @@
-import {BLANK, negative, RecordKey, Word} from "@sagittal/general"
-import {CaseDesensitized, Code, computeUnicodeForCode, Unicode} from "../../codes"
+import {abs, BLANK, negative, RecordKey, Word} from "@sagittal/general"
+import {CaseDesensitized, CASE_DESENSITIZED_CODE_MAP, Code, computeUnicodeForCode, Unicode} from "../../codes"
 import {smarts} from "../globals"
 import {isPositionUnicode} from "./isUnicode"
-import {PitchOrPosition, Position} from "./types"
+import {Position} from "./types"
 
 const UNICODE_POSITIONS: Record<RecordKey<Unicode & Word>, Position> = {
     [computeUnicodeForCode("stpsrs15" as Code & Word)]: 15,
@@ -49,11 +49,18 @@ const computeUnicodePosition = (unicode: Unicode & Word): Position =>
 const updateSmartPosition = (unicode: Unicode & Word): void => {
     if (isPositionUnicode(unicode)) {
         smarts.position = computeUnicodePosition(unicode)
-        smarts.pitchOrPosition = PitchOrPosition.POSITION
     }
+}
+
+const computeSmartPositionUnicode = (): Unicode & Word => {
+    const direction = smarts.position < 0 ? "lr" : "rs"
+    const combiningStaffPositionCode = `stps${direction}${abs(smarts.position)}`
+
+    return CASE_DESENSITIZED_CODE_MAP[combiningStaffPositionCode]
 }
 
 export {
     computePositionFromCode,
     updateSmartPosition,
+    computeSmartPositionUnicode,
 }

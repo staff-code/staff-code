@@ -56,15 +56,9 @@ enum Pitch {
     C1,
 }
 
-enum PitchOrPosition {
-    PITCH,
-    POSITION,
-}
-
 export {
     Clef,
     Pitch,
     Position,
     StemZone,
-    PitchOrPosition,
 }
