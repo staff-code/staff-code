@@ -9,8 +9,6 @@ export {downloadImage} from "./panel"
 //  Dave is suggesting maybe just have all clefs reset position to 0 to delete all those tests and fancy
 //  Code about smart pitch vs smart position?
 
-// TODO: "14" instead of "14;". fix manual advances
-
 // TODO: CLEAN, READY TO GO: REFINE RELATIONSHIP BETWEEN BIN/ & SRC/ W/R/T EXCEPTIONS, PARENTHETICALS, LINKS
 //  Perhaps these should also include their text, to spare from that one exception for the commands?
 //  - And there's definitely some clean-up that could be done here with the explanations in two places,

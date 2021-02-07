@@ -685,6 +685,17 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
+
+        it("allows codes which contain advance codes", (): void => {
+            const inputSentence = "en;n nnl;" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+            const expectedUnicode = "  e n  ;  n n  n  l  ;  "
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "2; ¿¿e?? 7; ¿¿n?? 8; ¿¿;?? 4; ¿¿n?? 12; ¿¿n?? 8; ¿¿n?? 8; ¿¿l?? 4; ¿¿;?? 6;"
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
     })
 
     describe("*** Smart Stave ***", (): void => {
