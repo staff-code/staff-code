@@ -11,11 +11,11 @@ const buildReferenceBanner = (): HTMLDivElement => {
     components.referenceExpander = referenceExpander
     referenceBanner.appendChild(referenceExpander)
 
-    const backToTopLink = document.createElement("a")
-    backToTopLink.classList.add("sc-back-to-top")
-    backToTopLink.href = "#top"
-    backToTopLink.textContent = "Back to top"
-    referenceBanner.appendChild(backToTopLink)
+    const backToTopAnchor = document.createElement("a")
+    backToTopAnchor.classList.add("sc-back-to-top")
+    backToTopAnchor.href = "#top"
+    backToTopAnchor.textContent = "Back to top"
+    referenceBanner.appendChild(backToTopAnchor)
 
     const siteTitle = buildSiteTitle()
     referenceBanner.appendChild(siteTitle)

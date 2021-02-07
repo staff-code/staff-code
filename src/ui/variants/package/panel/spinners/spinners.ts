@@ -1,4 +1,4 @@
-import {Em, lowerCaseToUpperCase, Max, Multiplier} from "@sagittal/general"
+import {Em, lowerCaseToSentenceCase, Max, Multiplier} from "@sagittal/general"
 import {components, staffCodeConfig} from "../../globals"
 import {Initial} from "../../types"
 
@@ -11,7 +11,7 @@ const buildSpinnerWrapper = (
     spinnerWrapper.classList.add("sc-spinner")
 
     const spinnerLabel = document.createElement("label")
-    spinnerLabel.textContent = lowerCaseToUpperCase(initial)
+    spinnerLabel.textContent = lowerCaseToSentenceCase(initial)
     spinnerLabel.setAttribute("for", initial)
 
     const spinner = document.createElement("input")

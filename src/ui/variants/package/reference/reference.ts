@@ -11,9 +11,9 @@ const buildReference = (): HTMLDivElement => {
     components.reference = reference
     referenceBorderWrapper.appendChild(reference)
 
-    const topLink = document.createElement("a")
-    topLink.id = "top"
-    reference.appendChild(topLink)
+    const topAnchor = document.createElement("a")
+    topAnchor.id = "top"
+    reference.appendChild(topAnchor)
 
     const tocTitleWrapper = buildTocWrapper()
     reference.appendChild(tocTitleWrapper)

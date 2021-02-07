@@ -1,10 +1,10 @@
-import {INTRO_TO_STAFF_CODE_LINK} from "../../../../../../bin"
+import {INTRODUCTION_TO_STAFF_CODE_LINK} from "../../../../../../bin"
 import versionJson from "./version.json"
 
 const VERSION = versionJson.version
 
 const STAFF_CODE_ABOUT = `
-<a target="_blank" href="${INTRO_TO_STAFF_CODE_LINK}">Introduction to StaffCode</a><br>
+<a target="_blank" href="${INTRODUCTION_TO_STAFF_CODE_LINK}">Introduction to StaffCode</a><br>
 <br>
 StaffCode version ${VERSION}<br>
 by Douglas Blumeyer<br>

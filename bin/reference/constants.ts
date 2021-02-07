@@ -14,11 +14,11 @@ const LEGER_LINES_SUPPLEMENT_SECTION_ID = "legerLinesSupplement" as Id<Section>
 //  - Also, the ASCII widths don't need to be in there, with the bravura widths
 
 // Temporary link, until a public post is ready.
-const INTRO_TO_STAFF_CODE_LINK: Link = "https://forum.sagittal.org/viewtopic.php?p=3192#p3192" as Link
+const INTRODUCTION_TO_STAFF_CODE_LINK: Link = "https://forum.sagittal.org/viewtopic.php?p=3192#p3192" as Link
 
 export {
     BASICS_SECTION_ID,
-    INTRO_TO_STAFF_CODE_LINK,
+    INTRODUCTION_TO_STAFF_CODE_LINK,
     LEGER_LINES_SUPPLEMENT_SECTION_ID,
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
 }

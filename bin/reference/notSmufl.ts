@@ -2,7 +2,7 @@ import {Link, Name} from "@sagittal/general"
 import {
     BASICS_SECTION_ID,
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
-    INTRO_TO_STAFF_CODE_LINK,
+    INTRODUCTION_TO_STAFF_CODE_LINK,
     LEGER_LINES_SUPPLEMENT_SECTION_ID,
 } from "./constants"
 import {Explanation, Parenthetical, ReferenceRow, Section} from "./types"
@@ -11,7 +11,7 @@ const BASICS_SECTION: Section = [
     BASICS_SECTION_ID,
     "StaffCode basics" as Name<Section>,
     "" as Parenthetical,
-    INTRO_TO_STAFF_CODE_LINK,
+    INTRODUCTION_TO_STAFF_CODE_LINK,
     `"Auto stem direction" means stem down for middle line and above, otherwise stem up.` as Explanation,
     [
         ["", "ston", "<u>st</u>aff <u>on</u>"],

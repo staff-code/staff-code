@@ -5,10 +5,10 @@ import {buildSectionTable} from "./table"
 import {buildSectionTitle} from "./title"
 
 const appendSection = (section: Section): void => {
-    const [sectionId, sectionName, parenthetical, sectionLink, explanation, sectionData] = section
+    const [sectionId, sectionName, parenthetical, sectionInfoLink, explanation, sectionData] = section
     const {reference, referenceToc} = components
 
-    const sectionTitle = buildSectionTitle(sectionId, sectionName, parenthetical, sectionLink, explanation)
+    const sectionTitle = buildSectionTitle(sectionId, sectionName, parenthetical, sectionInfoLink, explanation)
     reference!.appendChild(sectionTitle)
 
     const table = buildSectionTable(sectionData)

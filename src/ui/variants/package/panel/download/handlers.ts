@@ -20,11 +20,11 @@ const buildSvgDataUrl = (svgString: Html): Link => {
 }
 
 const saveDataUrl = (url: Link, filename: Filename): void => {
-    const a = document.createElement("a")
-    a.href = url
-    a.target = "_blank"
-    a.download = filename
-    a.click()
+    const dummyAnchor = document.createElement("a")
+    dummyAnchor.href = url
+    dummyAnchor.target = "_blank"
+    dummyAnchor.download = filename
+    dummyAnchor.click()
 }
 
 const downloadImage = async (imageType: ImageType = getImageType()): Promise<void> => {

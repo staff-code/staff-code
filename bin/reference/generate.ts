@@ -21,11 +21,11 @@ const generateSmuflReference = (): void => {
         const sectionId = rangeName
         const sectionName = description
         const parenthetical = computeParenthetical(sectionId)
-        const sectionLink = "" as Link
+        const sectionInfoLink = "" as Link
         const explanation = computeExplanation(sectionId)
         const sectionData = glyphNames.map(computeSectionDatum)
 
-        return [sectionId, sectionName, parenthetical, sectionLink, explanation, sectionData]
+        return [sectionId, sectionName, parenthetical, sectionInfoLink, explanation, sectionData]
     })
     sections.unshift(BASICS_SECTION)
     sections.push(LEGER_LINES_SUPPLEMENT_SECTION)

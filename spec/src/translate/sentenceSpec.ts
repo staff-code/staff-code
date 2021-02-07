@@ -489,7 +489,6 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("supports manual advance amounts", (): void => {
-            // TODO: manual advance... semi or not?
             const inputSentence = "ston D5 /|\\ 14 nt 17" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)

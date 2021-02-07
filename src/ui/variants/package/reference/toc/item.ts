@@ -8,10 +8,10 @@ const buildTocItem = (
 ): HTMLLIElement => {
     const tocItem = document.createElement("li")
 
-    const tocLink = document.createElement("a")
-    tocLink.href = `#${sectionId}`
-    tocLink.textContent = parenthetical ? `${sectionName} ${parenthetical}` : sectionName
-    tocItem.appendChild(tocLink)
+    const tocAnchor = document.createElement("a")
+    tocAnchor.href = `#${sectionId}`
+    tocAnchor.textContent = parenthetical ? `${sectionName} ${parenthetical}` : sectionName
+    tocItem.appendChild(tocAnchor)
 
     return tocItem
 }

@@ -1,4 +1,4 @@
-import {BLANK, camelCaseToKebabCase, Id, Name} from "@sagittal/general"
+import {BLANK, Id, Link, Name, sentenceCaseToKebabCase} from "@sagittal/general"
 import {
     BASICS_SECTION_ID,
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
@@ -8,11 +8,47 @@ import {
     Section,
 } from "../../../../../../bin"
 
+const replaceDiacriticizedCharsWithUndiacriticizedCounterparts = (str: string): string =>
+    str.normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+
+const computeSectionInfoLink = (sectionInfoLink: Link, sectionName: Name<Section>): Link => {
+    if (sectionInfoLink) return sectionInfoLink
+
+    const processedSectionName = replaceDiacriticizedCharsWithUndiacriticizedCounterparts(
+        sentenceCaseToKebabCase(sectionName),
+    )
+        .replace(/[()]/g, "")
+
+    return `https://w3c.github.io/smufl/latest/tables/${processedSectionName}` as Link
+}
+
+const buildSectionInfoAnchor = (
+    sectionId: Id<Section>,
+    sectionName: Name<Section>,
+    parenthetical: Parenthetical,
+    sectionInfoLink: Link,
+): HTMLAnchorElement => {
+    const sectionInfoAnchor = document.createElement("a")
+    sectionInfoAnchor.textContent = sectionId === BASICS_SECTION_ID ?
+        "Introduction to StaffCode" :
+        (
+            sectionId === LEGER_LINES_SUPPLEMENT_SECTION_ID
+            || sectionId === COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID
+        ) ?
+            "" :
+            "SMuFL reference"
+    sectionInfoAnchor.href = computeSectionInfoLink(sectionInfoLink, sectionName)
+    sectionInfoAnchor.target = "_blank"
+
+    return sectionInfoAnchor
+}
+
 const buildSectionIntro = (
     sectionId: Id<Section>,
     sectionName: Name<Section>,
     parenthetical: Parenthetical,
-    sectionLink: string,
+    sectionInfoLink: Link,
 ): HTMLDivElement => {
     const sectionIntro = document.createElement("div")
     sectionIntro.classList.add("sc-section-intro")
@@ -27,20 +63,8 @@ const buildSectionIntro = (
         sectionIntro.appendChild(sectionParenthetical)
     }
 
-    const sectionSmuflLink = document.createElement("a")
-    sectionSmuflLink.textContent = sectionId === BASICS_SECTION_ID ?
-        "Introduction to StaffCode" :
-        (
-            sectionId === LEGER_LINES_SUPPLEMENT_SECTION_ID
-            || sectionId === COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID
-        ) ?
-            "" :
-            // TODO: I just noticed the link to the Sims accidentals is broken.
-            //  Maybe I need to better handle special chars in those links.
-            "SMuFL reference"
-    sectionSmuflLink.href = sectionLink || `https://w3c.github.io/smufl/latest/tables/${camelCaseToKebabCase(sectionId)}`
-    sectionSmuflLink.target = "_blank"
-    sectionIntro.appendChild(sectionSmuflLink)
+    const sectionInfoAnchor = buildSectionInfoAnchor(sectionId, sectionName, parenthetical, sectionInfoLink)
+    sectionIntro.appendChild(sectionInfoAnchor)
 
     return sectionIntro
 }
@@ -49,7 +73,7 @@ const buildSectionTitle = (
     sectionId: Id<Section>,
     sectionName: Name<Section>,
     parenthetical: Parenthetical,
-    sectionLink: string,
+    sectionInfoLink: Link,
     explanation: Explanation,
 ): HTMLDivElement => {
     const sectionTitle = document.createElement("div")
@@ -60,7 +84,7 @@ const buildSectionTitle = (
     sectionAnchor.id = sectionId
     sectionTitle.appendChild(sectionAnchor)
 
-    const sectionIntro = buildSectionIntro(sectionId, sectionName, parenthetical, sectionLink)
+    const sectionIntro = buildSectionIntro(sectionId, sectionName, parenthetical, sectionInfoLink)
     sectionTitle.appendChild(sectionIntro)
 
     if (explanation !== BLANK) {
@@ -75,4 +99,5 @@ const buildSectionTitle = (
 
 export {
     buildSectionTitle,
+    computeSectionInfoLink,
 }
