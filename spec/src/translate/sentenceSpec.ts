@@ -662,13 +662,13 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
-        it("allows codes which contain advance codes", (): void => {
-            const inputSentence = "en;n nnl;" as Io & Sentence
+        it("allows codes which end in digits or other advance codes to be immediately followed by the semicolon without a space", (): void => {
+            const inputSentence = "trfn1;nhnl;wgcren;arblrt;tmsgcn;nl;nt xen;" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
-            const expectedUnicode = "  e n  ;  n n  n  l  ;  "
+            const expectedUnicode = "      　\n x e n "
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "2; ¿¿e?? 7; ¿¿n?? 8; ¿¿;?? 4; ¿¿n?? 12; ¿¿n?? 8; ¿¿n?? 8; ¿¿l?? 4; ¿¿;?? 6;"
+            const expectedCodes = "trfn1 7; nhnl 2; wgcren 7; arblrt 19; tmsgcn 16; nl; ntqrdn 13; ¿¿x?? 7; ¿¿e?? 7; ¿¿n?? 10;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
