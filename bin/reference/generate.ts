@@ -2,11 +2,7 @@ import {computeKeyPath, Id, Link, sort} from "@sagittal/general"
 import * as fs from "fs"
 import {computeExplanation} from "./explanations"
 import {smuflRanges} from "./globals"
-import {
-    BASICS_SECTION,
-    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION,
-    LEGER_LINES_SUPPLEMENT_SECTION,
-} from "./notSmufl"
+import {BASICS_SECTION, COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION, LEGER_LINES_SUPPLEMENT_SECTION} from "./notSmufl"
 import {computeParenthetical} from "./parentheticals"
 import {computeSectionDatum} from "./row"
 import {Section, SmuflRangeDatum} from "./types"

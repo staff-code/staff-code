@@ -5,8 +5,6 @@ import {smarts} from "../globals"
 import {updateSmartAdvance} from "./advance"
 import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
 import {computeAdvanceToEndIntroClauseAndUpdateSmarts} from "./advanceToEnd"
-import {NEWLINE_UNICODE} from "./constants"
-import {computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts} from "./endOfInk"
 import {isManualAdvanceUnicode} from "./isUnicode"
 import {computeManualAdvanceWidth} from "./manualAdvance"
 import {
