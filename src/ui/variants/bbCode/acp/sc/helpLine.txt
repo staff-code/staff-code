@@ -1,1 +1,1 @@
-Convert staffCodes into inline music notation: [sc]/|[/sc]
+Convert staffCodes into inline music notation: [sc]/|[/sc] or [sc=line-height]/|[/sc]
