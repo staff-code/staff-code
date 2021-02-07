@@ -23,7 +23,17 @@ import {computeInputUnicodeClause} from "./word"
 
 const bufferSemicolonsAndCollapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io & Sentence =>
     inputSentence
+        .replace(/(\d+);/g, "$1\x07")
+        .replace(/en;/g, "en\x07")
+        .replace(/nl;/g, "nl\x07")
+        .replace(/rt;/g, "rt\x07")
+        .replace(/cn;/g, "cn\x07")
         .replace(/;/g, " ; ")
+        .replace(/cn\x07/g, "cn;")
+        .replace(/rt\x07/g, "rt;")
+        .replace(/nl\x07/g, "nl;")
+        .replace(/en\x07/g, "en;")
+        .replace(/(\d+)\x07/g, "$1;")
         .replace(/<br>/g, SPACE)
         .replace(/\s+/g, SPACE)
         .trim() as Io & Sentence

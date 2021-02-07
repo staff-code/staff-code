@@ -8,7 +8,6 @@ export {
     computeUnicodeWidth,
     computeAdvanceToEndOfInkWidth,
     computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
-    AltAdvance,
 } from "./horizontal"
 export {computeCommandUnicodeClauseAndUpdateSmarts} from "./command"
 export {INITIAL_SMARTS} from "./constants"

@@ -2,8 +2,8 @@ import {Clause, Io, Word} from "@sagittal/general"
 import {caseDesensitize} from "../case"
 import {
     Code,
-    SET_NEWLINE_ADVANCE_COMMAND_CODE,
-    SET_PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE,
+    NEWLINE_ADVANCE_COMMAND_CODE,
+    PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE,
     SMART_ADVANCE_COMMAND_CODE,
     SMART_STAVE_OFF_COMMAND_CODE,
     SMART_STAVE_ON_COMMAND_CODE,
@@ -12,7 +12,8 @@ import {
 import {EMPTY_UNICODE} from "../constants"
 import {smarts} from "./globals"
 import {
-    AltAdvance,
+    computeNewlineAdvanceUnicodeClauseAndUpdateSmarts,
+    computePlaceAgainstEndOfStaffAdvanceUnicodeClauseAndUpdateSmarts,
     computeSmartAdvanceUnicodeClauseAndUpdateSmarts,
     computeSmartStaveOffUnicodeClauseAndUpdateSmarts,
     computeSpacing,
@@ -27,24 +28,19 @@ const computeCommandUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unicode &
 
     if (caseDesensitizedCode === caseDesensitize(SMART_ADVANCE_COMMAND_CODE)) {
         commandUnicodeClause = computeSmartAdvanceUnicodeClauseAndUpdateSmarts()
-        smarts.altAdvance = AltAdvance.NONE
-    } else if (caseDesensitizedCode === caseDesensitize(SET_NEWLINE_ADVANCE_COMMAND_CODE)) {
-        smarts.altAdvance = AltAdvance.NEWLINE
-    } else if (caseDesensitizedCode === caseDesensitize(SET_PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE)) {
-        smarts.altAdvance = AltAdvance.PLACE_AGAINST_END_OF_STAFF
+    } else if (caseDesensitizedCode === caseDesensitize(NEWLINE_ADVANCE_COMMAND_CODE)) {
+        commandUnicodeClause = computeNewlineAdvanceUnicodeClauseAndUpdateSmarts()
+    } else if (caseDesensitizedCode === caseDesensitize(PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE)) {
+        commandUnicodeClause = computePlaceAgainstEndOfStaffAdvanceUnicodeClauseAndUpdateSmarts()
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_ON_COMMAND_CODE)) {
         smarts.staveOn = true
-        smarts.altAdvance = AltAdvance.NONE
     } else if (caseDesensitizedCode === caseDesensitize(SMART_STAVE_OFF_COMMAND_CODE)) {
         commandUnicodeClause = computeSmartStaveOffUnicodeClauseAndUpdateSmarts()
-        smarts.altAdvance = AltAdvance.NONE
     } else if (isSpacingCommandCode(caseDesensitizedCode)) {
         smarts.spacing = computeSpacing(caseDesensitizedCode)
-        smarts.altAdvance = AltAdvance.NONE
     } else if (isPitchCommandCode(caseDesensitizedCode)) {
         smarts.pitch = computePitchFromCode(caseDesensitizedCode)
         smarts.pitchOrPosition = PitchOrPosition.PITCH
-        smarts.altAdvance = AltAdvance.NONE
     }
 
     return commandUnicodeClause

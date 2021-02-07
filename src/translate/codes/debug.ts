@@ -11,7 +11,7 @@ const DEBUGGING_ONLY_ALIASES_MAP = {
     "st24": computeUnicodeForCode("st5lnwd" as Code & Word),
 
     // Newline
-    "nl": "\n",
+    "nl;": "\n",
 }
 
 const BASE_GLYPH_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {
@@ -44,11 +44,11 @@ const collapseAdvancesForDebugging = (codes: Array<Code & Word>): Array<Code & W
 
     let currentAdvance = 0
     codes.forEach((code: Code & Word): void => {
-        const advanceMatch = code.match(/^(\d+)$/)
+        const advanceMatch = code.match(/(\d+);/)
         if (advanceMatch) {
             currentAdvance = currentAdvance + parseInt(advanceMatch[1])
         } else if (currentAdvance > 0) {
-            codesWithAdvancesCollapsed.push(JSON.stringify(currentAdvance) as Code & Word)
+            codesWithAdvancesCollapsed.push(`${currentAdvance};` as Code & Word)
             currentAdvance = 0
             codesWithAdvancesCollapsed.push(code)
         } else {
@@ -56,7 +56,7 @@ const collapseAdvancesForDebugging = (codes: Array<Code & Word>): Array<Code & W
         }
     })
     if (currentAdvance > 0) {
-        codesWithAdvancesCollapsed.push(JSON.stringify(currentAdvance) as Code & Word)
+        codesWithAdvancesCollapsed.push(`${currentAdvance};` as Code & Word)
     }
 
     return codesWithAdvancesCollapsed

@@ -1,5 +1,5 @@
 import {Octals} from "../codes"
-import {AltAdvance, SmartStave} from "./horizontal"
+import {SmartStave} from "./horizontal"
 import {Clef, Pitch, PitchOrPosition, Position} from "./vertical"
 
 interface Smarts {
@@ -29,11 +29,25 @@ interface Smarts {
     nl{  -> nl;
     en{  -> en;
     <n>{ -> <n>;[/pre]
+
+    I suggest, instead of the trailing left curly, we use a character that a user simply can't use in any code,
+    because they can't even type it, i.e. \x07 = \u0007, the old BEL character,
+    intended to ring a physical bell on a teletype.
+    It has an even shorter escape code in C, namely \a where the "a" stands for "alarm"
+    because "b" is used for "backspace". But I see that Javascript has (quite reasonably) dropped that escape code.
+
+    <n>; -> <n>\x07
+    en;  -> en\x07
+    nl;  -> nl\x07
+    ;    -> ␣;␣
+    nl\x07  -> nl;
+    en\x07  -> en;
+    <n>\x07 -> <n>;
+
+    All the patterns above, except the semicolon, must be surrounded by whitespace.
+
+    Might as well do the same for rt; and cn; while you're at it — ready for when they get implemented.
     */
-    //  What if we just did the pass where we replace all the ";" with " ; "
-    //  And then make a pass where we replace all " nl ; " with " nl; ", etc.
-    //  Maybe that would be more straightforward?
-    altAdvance: AltAdvance,
 
     /* vertical */
 

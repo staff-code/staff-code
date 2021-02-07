@@ -15,7 +15,6 @@ import {
 import {Octals, Unicode} from "../codes"
 import {smarts} from "./globals"
 import {
-    AltAdvance,
     computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts,
     computeAdvanceUnicode,
     computeUnicodeWidth,
@@ -53,7 +52,6 @@ const computeUnrecognizedUnicodeClauseAndUpdateSmarts = (input: Io & Word): Unic
     )
 
     smarts.staveOn = staveOn
-    smarts.altAdvance = AltAdvance.NONE
 
     return unicodeClause
 }
