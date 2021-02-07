@@ -9,7 +9,7 @@ module.exports = {
         watchContentBase: true,
         contentBase: "dist",
         watchOptions: {
-            ignored: /node_modules/,
+            ignored: ["node_modules", "spec"],
         },
     },
 }
