@@ -1,7 +1,7 @@
 import {Octals} from "../codes"
 import {SmartStave} from "./horizontal"
 import {Smarts} from "./types"
-import {Clef, Position} from "./vertical"
+import {Clef, MIDDLE_STAFF_POSITION} from "./vertical"
 
 const INITIAL_SMARTS: Smarts = {
     commenting: false,
@@ -19,7 +19,7 @@ const INITIAL_SMARTS: Smarts = {
     /* vertical */
 
     clef: Clef.TREBLE,
-    position: 0 as Position,
+    position: MIDDLE_STAFF_POSITION,
 }
 
 export {

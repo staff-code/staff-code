@@ -1,8 +1,9 @@
 import {Count, RecordKey, Word} from "@sagittal/general"
 import {
     BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
-    CASE_DESENSITIZED_CODE_MAP,
     CaseDesensitized,
+    CASE_DESENSITIZED_CODE_MAP,
+    CLEF_ALIASES_MAP,
     Code,
     computeUnicodeForCode,
     mergeAllCodeMapsIntoCaseDesensitizedCodeMap,
@@ -11,6 +12,8 @@ import {
     Unicode,
 } from "../../codes"
 import {Position, StemZone} from "./types"
+
+const MIDDLE_STAFF_POSITION = 0 as Position
 
 const TREBLE_UNICODE = computeUnicodeForCode("Gcl" as Code & Word)
 const BASS_UNICODE = computeUnicodeForCode("Fcl" as Code & Word)
@@ -37,4 +40,5 @@ export {
     CONDITIONAL_ALIAS_ENHANCED_CASE_DESENSITIZED_CODE_MAP,
     MAX_POSITIONS_AWAY_FROM_MIDDLE_STAVE_LINE,
     POSITION_UNICODES,
+    MIDDLE_STAFF_POSITION,
 }

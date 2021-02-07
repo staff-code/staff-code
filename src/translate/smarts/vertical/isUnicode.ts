@@ -10,7 +10,11 @@ const isPositionUnicode = (unicode: Unicode & Word): boolean =>
 const isCommandifiedStaffUnicode = (unicode: Unicode & Word): boolean =>
     smarts.staveOn && isManualStaffUnicode(unicode)
 
+const isClefUnicode = (unicode: Unicode & Word): boolean =>
+    unicode >= "\uE050" && unicode <= "\uE07F"
+
 export {
     isPositionUnicode,
     isCommandifiedStaffUnicode,
+    isClefUnicode,
 }

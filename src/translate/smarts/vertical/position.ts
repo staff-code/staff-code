@@ -1,7 +1,8 @@
 import {abs, BLANK, negative, RecordKey, Word} from "@sagittal/general"
 import {CaseDesensitized, CASE_DESENSITIZED_CODE_MAP, Code, computeUnicodeForCode, Unicode} from "../../codes"
 import {smarts} from "../globals"
-import {isPositionUnicode} from "./isUnicode"
+import {MIDDLE_STAFF_POSITION} from "./constants"
+import {isClefUnicode, isPositionUnicode} from "./isUnicode"
 import {Position} from "./types"
 
 const UNICODE_POSITIONS: Record<RecordKey<Unicode & Word>, Position> = {
@@ -49,6 +50,8 @@ const computeUnicodePosition = (unicode: Unicode & Word): Position =>
 const updateSmartPosition = (unicode: Unicode & Word): void => {
     if (isPositionUnicode(unicode)) {
         smarts.position = computeUnicodePosition(unicode)
+    } else if (isClefUnicode(unicode)) {
+        smarts.position = MIDDLE_STAFF_POSITION
     }
 }
 

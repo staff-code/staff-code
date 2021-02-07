@@ -282,6 +282,18 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
+
+        it("a new clef resets the position to middle staff", (): void => {
+            const inputSentence = "Fcl ; C4 nt ; Gcl ; nt" as Io & Sentence
+
+            const actual = computeInputSentenceUnicode(inputSentence)
+
+            const expectedUnicode = "      " as Unicode & Sentence
+            expect(actual).toBe(expectedUnicode)
+            const expectedCodes = "Fcl 24; up6 ntqrdn 13; Gcl 23; ntqrdn 11;" as Code & Sentence
+            expect(debugCodeSentence(actual)).toBe(expectedCodes)
+            saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
+        })
     })
 
     describe("*** Smart Advance ***", (): void => {
