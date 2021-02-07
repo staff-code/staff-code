@@ -46,7 +46,7 @@ describe("computeInitialCodes", (): void => {
 
         const actual = computeInitialCodes()
 
-        const expected = "ston Gcl ; " as Io & Sentence
+        const expected = "ston trcl ; " as Io & Sentence
         expect(actual).toBe(expected)
     })
 })

@@ -63,25 +63,25 @@ describe("computeInputSentenceUnicode", (): void => {
     })
 
     it("supports multiple staves with a newline", (): void => {
-        const inputSentence = "ston Gcl ; nt nl; nt" as Io & Sentence
+        const inputSentence = "ston trcl ; nt nl; nt" as Io & Sentence
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
         const expectedUnicode = "   　\n　" as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; nl; ntqrdn st16 16;" as Code & Sentence
+        const expectedCodes = "trcl st24 23; ntqrdn 1; st16 16; nl; ntqrdn st16 16;" as Code & Sentence
         expect(debugCodeSentence(actual)).toBe(expectedCodes)
         saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
     })
 
     it("adds a space at the end if the last word is a newline (so that the newline immediately indicates that it has occurred, by taking up space in the display)", (): void => {
-        const inputSentence = "ston Gcl ; nt nl;" as Io & Sentence
+        const inputSentence = "ston trcl ; nt nl;" as Io & Sentence
 
         const actual = computeInputSentenceUnicode(inputSentence)
 
         const expectedUnicode = "   　\n " as Unicode & Sentence
         expect(actual).toBe(expectedUnicode)
-        const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; nl; 1;" as Code & Sentence
+        const expectedCodes = "trcl st24 23; ntqrdn 1; st16 16; nl; 1;" as Code & Sentence
         expect(debugCodeSentence(actual)).toBe(expectedCodes)
         saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
     })
@@ -94,7 +94,7 @@ describe("computeInputSentenceUnicode", (): void => {
 
             const expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Gcl 21;" as Code & Sentence
+            const expectedCodes = "trcl 21;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -102,25 +102,25 @@ describe("computeInputSentenceUnicode", (): void => {
 
     describe("*** Comments ***", (): void => {
         it("supports inline comments", (): void => {
-            const inputSentence = "ston Gcl ; {check this out} { and you can do a 2nd comment in a row too } nt nl; {comment} nt" as Io & Sentence
+            const inputSentence = "ston trcl ; {check this out} { and you can do a 2nd comment in a row too } nt nl; {comment} nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = "   　\n　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; nl; ntqrdn st16 16;" as Code & Sentence
+            const expectedCodes = "trcl st24 23; ntqrdn 1; st16 16; nl; ntqrdn st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
         it("still supports codes with curlies, despite those being comment chars, and can even include them inside of comments as long as they aren't the first or last characters of a whitespace-separated word", (): void => {
-            const inputSentence = "Gcl ; .{ ; nt ; .} ; nt { lala '{' la '.}' lalala }" as Io & Sentence
+            const inputSentence = "trcl ; .{ ; nt ; .} ; nt { lala '{' la '.}' lalala }" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = "        " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Gcl 23; .{ 6; ntqrdn 13; .} 6; ntqrdn 11;" as Code & Sentence
+            const expectedCodes = "trcl 23; .{ 6; ntqrdn 13; .} 6; ntqrdn 11;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -160,13 +160,13 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("well, this is really a regression test, but: it doesn't mysteriously throw away the first unrecognized code", (): void => {
-            const inputSentence = "ston Fcl fnord ; nt" as Io & Sentence
+            const inputSentence = "ston bscl fnord ; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = "  f  n  o r  d 　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Fcl st24 26; ¿¿f?? 4; ¿¿n?? 8; ¿¿o?? 7; ¿¿r?? 6; ¿¿d?? 10; ntqrdn st16 16;" as Code & Sentence
+            const expectedCodes = "bscl st24 26; ¿¿f?? 4; ¿¿n?? 8; ¿¿o?? 7; ¿¿r?? 6; ¿¿d?? 10; ntqrdn st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -260,37 +260,37 @@ describe("computeInputSentenceUnicode", (): void => {
         })
 
         it("change depending on the clef", (): void => {
-            const inputSentence = "Fcl ; D4 nt" as Io & Sentence
+            const inputSentence = "bscl ; D4 nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = "   " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Fcl 24; up7 ntqrdn 11;" as Code & Sentence
+            const expectedCodes = "bscl 24; up7 ntqrdn 11;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
         it("clefs are smart and they stick until you change them (you can change from one to the other)", (): void => {
-            const inputSentence = "Fcl ; D4 nt ; C4 nt ; Gcl ; D4 nt ; C4 nt" as Io & Sentence
+            const inputSentence = "bscl ; D4 nt ; C4 nt ; trcl ; D4 nt ; C4 nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = "        " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Fcl 24; up7 ntqrdn 13; up6 ntqrdn 13; Gcl 23; dn5 ntqrup 13; dn6 ntqrup 11;" as Code & Sentence
+            const expectedCodes = "bscl 24; up7 ntqrdn 13; up6 ntqrdn 13; trcl 23; dn5 ntqrup 13; dn6 ntqrup 11;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
         it("a new clef resets the position to middle staff", (): void => {
-            const inputSentence = "Fcl ; C4 nt ; Gcl ; nt" as Io & Sentence
+            const inputSentence = "bscl ; C4 nt ; trcl ; nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = "      " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Fcl 24; up6 ntqrdn 13; Gcl 23; ntqrdn 11;" as Code & Sentence
+            const expectedCodes = "bscl 24; up6 ntqrdn 13; trcl 23; ntqrdn 11;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
@@ -312,12 +312,12 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "lgln")
 
-            actual = computeInputSentenceUnicode("Gcl" as Io & Sentence)
+            actual = computeInputSentenceUnicode("trcl" as Io & Sentence)
             expectedUnicode = "  " as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            expectedCodes = "Gcl 21;"
+            expectedCodes = "trcl 21;"
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
-            saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "Gcl")
+            saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest, "trcl")
 
             actual = computeInputSentenceUnicode("ntdbwh" as Io & Sentence)
             expectedUnicode = "  " as Unicode & Sentence
@@ -700,13 +700,13 @@ ntqrdn st16 13; ntqrdn 3; st16 10; ntqrdn 6; st8 7; ntqrdn 1; st16 12; ntqrdn 4;
         })
 
         it("can be turned off and on, and upon turning it off, it advances you to the end of the stave it has already laid down", (): void => {
-            const inputSentence = "ston Gcl ; nt ; stof nt ; nt ; ston nt" as Io & Sentence
+            const inputSentence = "ston trcl ; nt ; stof nt ; nt ; ston nt" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)
 
             const expectedUnicode = "   　  　" as Unicode & Sentence
             expect(actual).toBe(expectedUnicode)
-            const expectedCodes = "Gcl st24 23; ntqrdn 1; st16 16; ntqrdn 13; ntqrdn 13; ntqrdn st16 16;" as Code & Sentence
+            const expectedCodes = "trcl st24 23; ntqrdn 1; st16 16; ntqrdn 13; ntqrdn 13; ntqrdn st16 16;" as Code & Sentence
             expect(debugCodeSentence(actual)).toBe(expectedCodes)
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })

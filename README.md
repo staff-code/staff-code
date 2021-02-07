@@ -5,7 +5,7 @@ Convert simple text codes into Unicode, which in a specialized font displays as 
 For questions or feedback, visit https://forum.sagittal.org/viewforum.php?f=22.
 
 ```
-ston Gcl ; d5 /|\ ; nt;
+ston trcl ; d5 /|\ ; nt;
 ```
 
 <img src="/github/readme.svg"/>
@@ -52,7 +52,7 @@ const options: Partial<StaffCodeOptions> = {
     initial: {
         size: 1.3,              // default: 1 (the overall scaling, via the font-size attribute)
         line: 1.5,              // default: 2 (affects the spacing of staves, via the line-height attribute)
-        codes: "ston Fcl ; ",   // default: "ston Gcl ; "
+        codes: "ston bscl ; ",  // default: "ston trcl ; "
         referenceOpen: true,    // default: false
         imageType: "png",       // default: "svg"
     },

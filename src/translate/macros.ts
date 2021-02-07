@@ -1,10 +1,10 @@
 import {Io, isUndefined, RecordKey, Word} from "@sagittal/general"
 
 const MACRO_INPUTS: Record<RecordKey<Io & Word>, Array<Io & Word>> = {
-    "trcl": ["up0", "Gcl"],
-    "bscl": ["up0", "Fcl"],
-    "alcl": ["up0", "Ccl"],
-    "tncl": ["up2", "Ccl"],
+    "trcl": ["stpsrs0", "Gcl"],
+    "bscl": ["stpsrs0", "Fcl"],
+    "alcl": ["stpsrs0", "Ccl"],
+    "tncl": ["stpsrs2", "Ccl"],
 } as Record<Io & Word, Array<Io & Word>>
 
 const processMacros = (inputs: Array<Io & Word>): Array<Io & Word> => {

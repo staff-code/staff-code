@@ -12,6 +12,10 @@ const DEBUGGING_ONLY_ALIASES_MAP = {
 
     // Newline
     "nl;": "\n",
+
+    // Clefs
+    "trcl": computeUnicodeForCode("Gcl" as Code & Word),
+    "bscl": computeUnicodeForCode("Fcl" as Code & Word),
 }
 
 const BASE_GLYPH_MAP_WITH_PREFERRED_ALIASES_FOR_DEBUGGING = {

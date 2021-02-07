@@ -9,7 +9,7 @@ describe("computeInitialParams", (): void => {
 
     it("returns an empty string when all GUI components are at default settings, and the only GUI component which exists is the display", (): void => {
         components.input = document.createElement("textarea")
-        components.input.value = "ston Gcl ; "
+        components.input.value = "ston trcl ; "
 
         const actual = computeInitialParams()
 
@@ -21,7 +21,7 @@ describe("computeInitialParams", (): void => {
         mockDom()
 
         components.input = document.createElement("textarea")
-        components.input.value = "ston Gcl ; "
+        components.input.value = "ston trcl ; "
 
         components.sizeSpinner = document.createElement("input")
         components.sizeSpinner.value = "1"
@@ -47,7 +47,7 @@ describe("computeInitialParams", (): void => {
         mockDom()
 
         components.input = document.createElement("textarea")
-        components.input.value = "ston Gcl; nt"
+        components.input.value = "ston trcl ; nt"
 
         components.sizeSpinner = document.createElement("input")
         components.sizeSpinner.value = "1.12"
@@ -66,7 +66,7 @@ describe("computeInitialParams", (): void => {
 
         const actual = computeInitialParams()
 
-        const expected = "?size=1.12&line=2.09&image-type=png&reference-open=true&codes=ston-Gclq-nt" as string
+        const expected = "?size=1.12&line=2.09&image-type=png&reference-open=true&codes=ston-trcl-q-nt" as string
         expect(actual).toBe(expected)
     })
 
