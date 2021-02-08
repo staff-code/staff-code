@@ -18,11 +18,17 @@ const REST_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
 // See: https://w3c.github.io/smufl/gitbook/tables/beamed-groups-of-notes.html
 const BEAMS_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "ntbmst": SMuFL_MAP["txblntshsm"],
-    "ntbm8": SMuFL_MAP["txblntlnsm"],
+    "ntbmstln": SMuFL_MAP["txblntlnsm"],
+    "ntbm8": SMuFL_MAP["txblntfr8shsm"],
+    "ntbm8ln": SMuFL_MAP["txblntfr8lnsm"],
     "ntbm16": SMuFL_MAP["txblntfr16shsm"],
+    "ntbm16ln": SMuFL_MAP["txblntfr16lnsm"],
     "bm8": SMuFL_MAP["txcn8bmshsm"],
+    "bm8ln": SMuFL_MAP["txcn8bmlnsm"],
     "bm16": SMuFL_MAP["txcn16bmshsm"],
+    "bm16ln": SMuFL_MAP["txcn16bmlnsm"],
     "txtp3": SMuFL_MAP["txtp3shsm"],
+    "txtp3ln": SMuFL_MAP["txtp3lnsm"],
 } as Record<Code & Word, Unicode & Word>
 
 const BARLINE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
