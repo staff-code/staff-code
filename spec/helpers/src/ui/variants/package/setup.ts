@@ -1,6 +1,6 @@
 import {components} from "../../../../../../src/ui/variants/package/globals"
 
-const setupBasicStaffCode = (): void => {
+const setupBasicStaffCodePackageVariantForTest = (): void => {
     components.root = document.createElement("span")
 
     components.input = document.createElement("textarea")
@@ -13,5 +13,5 @@ const setupBasicStaffCode = (): void => {
 }
 
 export {
-    setupBasicStaffCode,
+    setupBasicStaffCodePackageVariantForTest,
 }

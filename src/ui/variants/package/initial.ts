@@ -70,4 +70,5 @@ export {
     computeInitialSize,
     computeInitialReferenceOpen,
     computeInitialImageType,
+    getStaffCodeCookie,
 }

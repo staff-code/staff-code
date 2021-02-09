@@ -4,7 +4,7 @@ import {components} from "../../../../../../../src/ui/variants/package/globals"
 import {handleCopyLinkClick} from "../../../../../../../src/ui/variants/package/panel/copyLink/handlers"
 import {INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "../../../../../../../src/ui/variants/package/panel/input/constants"
 import {mockDom} from "../../../../../../helpers/mockDom"
-import {setupBasicStaffCode} from "../../../../../../helpers/src/ui/variants/package/setup"
+import {setupBasicStaffCodePackageVariantForTest} from "../../../../../../helpers/src/ui/variants/package/setup"
 
 let writeTextSpy: jasmine.Spy
 
@@ -13,7 +13,7 @@ const setupForHandleCopyLinkClick = ({url}: {url?: Link} = {}): void => {
     // @ts-ignore
     globalThis.navigator.clipboard = {}
 
-    setupBasicStaffCode()
+    setupBasicStaffCodePackageVariantForTest()
 
     writeTextSpy = jasmine.createSpy()
     navigator.clipboard.writeText = writeTextSpy

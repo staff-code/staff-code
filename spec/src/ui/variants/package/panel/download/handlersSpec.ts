@@ -3,7 +3,7 @@ import {downloadImage} from "../../../../../../../src/ui/variants"
 import {components} from "../../../../../../../src/ui/variants/package/globals"
 import {INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "../../../../../../../src/ui/variants/package/panel/input/constants"
 import {mockDom} from "../../../../../../helpers/mockDom"
-import {setupBasicStaffCode} from "../../../../../../helpers/src/ui/variants/package/setup"
+import {setupBasicStaffCodePackageVariantForTest} from "../../../../../../helpers/src/ui/variants/package/setup"
 
 describe("downloadImage", (): void => {
     const setupForDownloadSvg = ({url}: {url?: Link} = {}): void => {
@@ -16,7 +16,7 @@ describe("downloadImage", (): void => {
             send(): void {
             }
         }
-        setupBasicStaffCode()
+        setupBasicStaffCodePackageVariantForTest()
     }
 
     it("translates the input to the display, in case the last code the user types wasn't a whitespace                      ", async (done: DoneFn): Promise<void> => {

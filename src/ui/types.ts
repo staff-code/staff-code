@@ -7,7 +7,7 @@ interface StaffCodeConfig {
     gui: GuiOptions,
     initial: InitialOptions,
     font: FontName,
-    callback: StaffCodeCallback,
+    callback?: StaffCodeCallback,
 }
 
 type StaffCodeOptions = Partial<{
