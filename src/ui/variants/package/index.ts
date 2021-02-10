@@ -1,9 +1,7 @@
 export {setupPackageRoot} from "./root"
 export {downloadImage} from "./panel"
 
-// TODO: CLEAN, READY TO GO: TEST MORE GUI HELPER METHODS
-//  You should just go through everything that looks unit testable and backfill them
-//  `panel/input`, `panel/spinners`, and `reference/*` is what remains to be done
+// TODO: CLEAN, READY TO GO: TEST REFERENCE HELPER METHODS
 
 // TODO: CLEAN, READY TO GO: REFINE RELATIONSHIP BETWEEN BIN/ & SRC/ W/R/T EXCEPTIONS, PARENTHETICALS, LINKS
 //  Perhaps these should also include their text, to spare from that one exception for the commands?
