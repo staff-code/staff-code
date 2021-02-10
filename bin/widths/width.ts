@@ -1,4 +1,4 @@
-import {isUndefined, Name, RecordKey, Unicode, Word} from "@sagittal/general"
+import {computeUnicodeLiteralFromUnicode, isUndefined, Name, RecordKey, Unicode, Word} from "@sagittal/general"
 import {GlyphDatum} from "../types"
 import {boundingBoxEntries, smuflUnicodes} from "./globals"
 import {BoundingBox, EighthOctals} from "./types"
@@ -14,7 +14,7 @@ const computeBravuraGlyphEighthOctalWidth = (
     [glyphName, glyphDatum]: [Name<Unicode>, GlyphDatum],
 ): Record<RecordKey<Unicode>, EighthOctals> => {
     const existingUnicode = smuflUnicodes.find((unicode: Unicode & Word): boolean =>
-        computeUnicodeLiteral(unicode) === glyphDatum.codepoint)
+        computeUnicodeLiteralFromUnicode(unicode) === glyphDatum.codepoint)
     if (isUndefined(existingUnicode)) {
         // tslint:disable-next-line
         // console.warn(`Did not find existing unicode in SMuFL data for glyph name ${glyphName} with ${stringify(glyphData)} `)
