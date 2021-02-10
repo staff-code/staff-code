@@ -15,7 +15,7 @@ const REST_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "rs": SMuFL_MAP["rsqr"],
 } as Record<Code & Word, Unicode & Word>
 
-// See: https://w3c.github.io/smufl/gitbook/tables/beamed-groups-of-notes.html
+// See: https://w3c.github.io/smufl/latest/tables/beamed-groups-of-notes.html
 const BEAMS_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "ntbmst": SMuFL_MAP["txblntshsm"],
     "ntbmstln": SMuFL_MAP["txblntlnsm"],

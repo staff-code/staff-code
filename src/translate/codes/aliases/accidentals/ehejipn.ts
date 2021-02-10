@@ -2,7 +2,7 @@ import {RecordKey, Unicode, Word} from "@sagittal/general"
 import {Code} from "../../../../../bin"
 import {SMuFL_MAP} from "../../smufl"
 
-// See: https://w3c.github.io/smufl/gitbook/tables/extended-helmholtz-ellis-accidentals-just-intonation.html
+// See: https://w3c.github.io/smufl/latest/tables/extended-helmholtz-ellis-accidentals-just-intonation.html
 // All EHEJIPN staffCodes start with a dot (full-stop). Unicodes are successive below.
 
 const EHEJIPN_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
@@ -78,7 +78,7 @@ const EHEJIPN_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & W
     ".77": SMuFL_MAP["accmrs47qr"],
 
     // For convenience of EHEJIPN users, conventional accidentals with dots at the start of their codes
-    // See: https://w3c.github.io/smufl/gitbook/tables/standard-accidentals-12-edo.html
+    // See: https://w3c.github.io/smufl/latest/tables/standard-accidentals-12-edo.html
     ".bb": SMuFL_MAP["acdbfl"],
     ".b": SMuFL_MAP["acfl"],
     ".n": SMuFL_MAP["acnt"],

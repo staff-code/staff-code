@@ -19,7 +19,7 @@ const EXCEPTION_LEGER_LINE_WIDTHS: Record<RecordKey<Unicode & Word>, Octals> = {
     [computeUnicodeForCode("nt256up" as Code & Word)]: 11 as Octals,
     [computeUnicodeForCode("nt512up" as Code & Word)]: 11 as Octals,
     [computeUnicodeForCode("nt1024up" as Code & Word)]: 11 as Octals,
-    // See: https://w3c.github.io/smufl/gitbook/tables/round-and-square-noteheads.html
+    // See: https://w3c.github.io/smufl/latest/tables/round-and-square-noteheads.html
     [computeUnicodeForCode("nhrnblsllg" as Code & Word)]: 16 as Octals,
     [computeUnicodeForCode("nhrnwtsllg" as Code & Word)]: 16 as Octals,
     [computeUnicodeForCode("nhrnblsl" as Code & Word)]: 8 as Octals,

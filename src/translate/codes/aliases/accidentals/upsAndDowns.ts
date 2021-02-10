@@ -2,7 +2,7 @@ import {RecordKey, Unicode, Word} from "@sagittal/general"
 import {Code} from "../../../../../bin"
 import {SMuFL_MAP} from "../../smufl"
 
-// See: https://w3c.github.io/smufl/gitbook/tables/arrows-and-arrowheads.html
+// See: https://w3c.github.io/smufl/latest/tables/arrows-and-arrowheads.html
 
 const UPS_AND_DOWNS_ACCIDENTAL_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "^": SMuFL_MAP["acupandnup"],
