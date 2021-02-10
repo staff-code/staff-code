@@ -1,10 +1,10 @@
 import {Name, RecordKey, Unicode, UnicodeLiteral, Word} from "@sagittal/general"
 
-type GlyphDatum = {codepoint: UnicodeLiteral & Word}
+type GlyphDatum = {codepoint: UnicodeLiteral & Word, alternateCodepoint?: UnicodeLiteral & Word}
 
-type SmuflGlyphNames = Record<RecordKey<Name<Unicode>>, GlyphDatum>
+type GlyphData = Record<RecordKey<Name<Unicode>>, GlyphDatum>
 
 export {
-    SmuflGlyphNames,
+    GlyphData,
     GlyphDatum,
 }

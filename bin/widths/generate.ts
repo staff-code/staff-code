@@ -1,14 +1,14 @@
 import {Name, RecordKey, Unicode} from "@sagittal/general"
 import * as fs from "fs"
-import {glyphNames} from "../globals"
+import {glyphData} from "../globals"
 import {GlyphDatum} from "../types"
 import {EighthOctals} from "./types"
 import {computeBravuraGlyphEighthOctalWidth} from "./width"
 
 const generateBravuraWidths = (): void => {
-    const glyphNameEntries = Object.entries(glyphNames) as Array<[Name<Unicode>, GlyphDatum]>
+    const glyphDataEntries = Object.entries(glyphData) as Array<[Name<Unicode>, GlyphDatum]>
 
-    const bravuraEighthOctalWidths = glyphNameEntries
+    const bravuraEighthOctalWidths = glyphDataEntries
         .reduce(computeBravuraGlyphEighthOctalWidth, {} as Record<RecordKey<Unicode>, EighthOctals>)
 
     fs.writeFileSync(

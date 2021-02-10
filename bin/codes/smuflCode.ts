@@ -19,7 +19,7 @@ const fixSmuflCapitalizationIssue = (glyphName: Name<Unicode>): Name<Unicode> =>
 
 const updateEhejipn = (glyphName: Name<Unicode>): Name<Unicode> =>
     glyphName
-        .replace(/23Limit29LimitComma/, "23LimitComma") as Name<Unicode>
+        .replace(/23Limit29LimitComma/, "23LimitComma") as Name<Unicode> // todo: perhaps I should extract these?
 
 const computeSmuflCode = (glyphName: Name<Unicode>): Code & Word => {
     const words = separateWordsBySpaces(replaceOrdinals(fixSmuflCapitalizationIssue(updateEhejipn(glyphName))))

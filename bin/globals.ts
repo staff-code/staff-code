@@ -1,12 +1,12 @@
 import {BLANK} from "@sagittal/general"
 import * as fs from "fs"
-import {SmuflGlyphNames} from "./types"
+import {GlyphData} from "./types"
 
-const glyphNames = JSON.parse(
+const glyphData = JSON.parse(
     fs.readFileSync("vendor/glyphnames.json", {encoding: "utf8"})
         .replace(/\r/g, BLANK),
-) as SmuflGlyphNames
+) as GlyphData
 
 export {
-    glyphNames,
+    glyphData,
 }
