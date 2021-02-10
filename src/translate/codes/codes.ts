@@ -1,4 +1,5 @@
-import {RecordKey, Word} from "@sagittal/general"
+import {CaseDesensitized, RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../bin"
 import {ALIASES_MAP} from "./aliases"
 import {
     mergeAllCodeMapsIntoCaseDesensitizedCodeMap,
@@ -12,7 +13,6 @@ import {
     NOT_SMuFL_ZERO_POSITION_MAP,
 } from "./notSmufl"
 import {SMuFL_MAP} from "./smufl"
-import {CaseDesensitized, Code, Unicode} from "./types"
 
 // See: https://forum.sagittal.org/viewtopic.php?f=17&t=436&p=3172#word-types
 

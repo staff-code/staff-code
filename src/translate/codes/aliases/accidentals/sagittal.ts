@@ -1,7 +1,7 @@
-import {RecordKey, Word} from "@sagittal/general"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../../bin"
 import {mergeCodeMapsCheckingForCaseDesensitizedConflictsButWithoutCaseDesensitizing} from "../../merge"
 import {SMuFL_MAP} from "../../smufl"
-import {Code, Unicode} from "../../types"
 
 const SAGITTAL_LONG_ASCII_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "|(": SMuFL_MAP["acsg5V7klup"],

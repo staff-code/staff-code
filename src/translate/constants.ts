@@ -1,5 +1,4 @@
-import {BLANK} from "@sagittal/general"
-import {Unicode} from "./codes"
+import {BLANK, Unicode} from "@sagittal/general"
 
 const EMPTY_UNICODE: Unicode = BLANK as Unicode
 

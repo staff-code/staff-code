@@ -1,7 +1,6 @@
-import {Name} from "@sagittal/general"
+import {Name, Unicode} from "@sagittal/general"
 import {Mnemonic} from "../../../bin/reference"
 import {computeMnemonic} from "../../../bin/reference/mnemonic"
-import {Unicode} from "../../../src"
 
 describe("computeMnemonic", (): void => {
     it("creates a mnemonic from the glyph name, splitting words and bolding those which are used in the code             ", (): void => {

@@ -1,7 +1,5 @@
-import {Char, Count, increment, Index, joinWords, Name, SPACE, splitWord, Word} from "@sagittal/general"
-// tslint:disable-next-line no-reaching-imports
-import {Code, Unicode} from "../../src/translate"
-import {computeSmuflCode, fixSmuflCapitalizationIssue, updateEhejipn} from "../codes"
+import {Char, Count, increment, Index, joinWords, Name, SPACE, splitWord, Unicode, Word} from "@sagittal/general"
+import {Code, computeSmuflCode, fixSmuflCapitalizationIssue, updateEhejipn} from "../codes"
 import {separateWordsBySpacesForMnemonic} from "../separate"
 import {shouldBold} from "./bold"
 import {computeCaseModifiedGlyphNameWord} from "./case"

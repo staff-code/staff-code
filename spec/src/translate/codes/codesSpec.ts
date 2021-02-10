@@ -1,5 +1,6 @@
 import {Word} from "@sagittal/general"
-import {CASE_DESENSITIZED_CODE_MAP, Code} from "../../../../src/translate/codes"
+import {Code} from "../../../../bin"
+import {CASE_DESENSITIZED_CODE_MAP} from "../../../../src/translate/codes"
 
 describe("CASE_DESENSITIZED_CODE_MAP", (): void => {
     const codes = Object.keys(CASE_DESENSITIZED_CODE_MAP) as Array<Code & Word>

@@ -1,28 +1,18 @@
-import {Decimal, floor, isUndefined, Name, RecordKey, round, Word} from "@sagittal/general"
-// tslint:disable-next-line no-reaching-imports
-import {computeUnicodeLiteral, Octals, Unicode} from "../../src/translate"
+import {isUndefined, Name, RecordKey, Unicode, Word} from "@sagittal/general"
 import {GlyphDatum} from "../types"
-import {EXCEPTION_WIDTHS, FLOORED_WIDTHS} from "./exceptions"
 import {boundingBoxEntries, smuflUnicodes} from "./globals"
-import {BoundingBox} from "./types"
+import {BoundingBox, EighthOctals} from "./types"
 
-const computeBravuraWidth = (
+const computeBravuraEighthOctalWidth = (
     existingUnicode: Unicode & Word,
     [_, {bBoxNE: [x, y]}]: [Name<Unicode>, BoundingBox],
-): Octals => {
-    const computedWidth = FLOORED_WIDTHS.includes(existingUnicode) ?
-        floor(x * 8) as Octals & Decimal<{integer: true}> :
-        round(x * 8) as Octals
+): EighthOctals =>
+    x as EighthOctals
 
-    const exceptionWidth = EXCEPTION_WIDTHS[existingUnicode]
-
-    return isUndefined(exceptionWidth) ? computedWidth : exceptionWidth
-}
-
-const computeBravuraGlyphWidth = (
-    bravuraWidths: Record<RecordKey<Unicode>, Octals>,
+const computeBravuraGlyphEighthOctalWidth = (
+    bravuraWidths: Record<RecordKey<Unicode>, EighthOctals>,
     [glyphName, glyphDatum]: [Name<Unicode>, GlyphDatum],
-): Record<RecordKey<Unicode>, Octals> => {
+): Record<RecordKey<Unicode>, EighthOctals> => {
     const existingUnicode = smuflUnicodes.find((unicode: Unicode & Word): boolean =>
         computeUnicodeLiteral(unicode) === glyphDatum.codepoint)
     if (isUndefined(existingUnicode)) {
@@ -39,17 +29,17 @@ const computeBravuraGlyphWidth = (
         // console.warn(`Did not find existing width in Bravura metadata for glyph name ${glyphName} with ${stringify(glyphData)} `)
         return bravuraWidths
     }
-    const width: Octals = computeBravuraWidth(existingUnicode, bravuraDatum)
+    const eighthOctalWidth: EighthOctals = computeBravuraEighthOctalWidth(existingUnicode, bravuraDatum)
 
     // tslint:disable-next-line
     // console.warn(`################### ${glyphName}: ${computedWidth} vs ${existingWidth} (Δ ${abs(computedWidth - existingWidth)})`)
 
     return {
         ...bravuraWidths,
-        [existingUnicode]: width,
+        [existingUnicode]: eighthOctalWidth,
     }
 }
 
 export {
-    computeBravuraGlyphWidth,
+    computeBravuraGlyphEighthOctalWidth,
 }

@@ -1,5 +1,4 @@
-import {Word} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {Unicode, Word} from "@sagittal/general"
 import {smarts} from "../globals"
 import {isManualStaffUnicode} from "../horizontal"
 import {POSITION_UNICODES} from "./constants"

@@ -1,7 +1,5 @@
-import {BLANK, Name} from "@sagittal/general"
+import {BLANK, Name, Unicode} from "@sagittal/general"
 import * as fs from "fs"
-// tslint:disable-next-line no-reaching-imports
-import {Unicode} from "../../src/translate"
 import {computeGlyphUnicodes} from "../glyphUnicode"
 import {BoundingBox, BravuraMetadata} from "./types"
 

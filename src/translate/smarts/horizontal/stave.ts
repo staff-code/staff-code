@@ -1,5 +1,6 @@
-import {Clause, Word} from "@sagittal/general"
-import {Code, computeUnicodeForCode, Unicode} from "../../codes"
+import {Clause, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
+import {computeUnicodeForCode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts} from "./endOfInk"

@@ -1,5 +1,4 @@
-import {Clause, sumTexts} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {Clause, sumTexts, Unicode} from "@sagittal/general"
 import {smarts} from "../globals"
 import {computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts} from "./endOfInk"
 

@@ -1,6 +1,5 @@
-import {Char, Count, Html, Id, Index, Link, Name, Word} from "@sagittal/general"
-// tslint:disable-next-line no-reaching-imports
-import {Code, Unicode} from "../../src/translate"
+import {Char, Count, Html, Id, Index, Link, Name, Unicode, Word} from "@sagittal/general"
+import {Code} from "../codes"
 
 type ReferenceRow = [Unicode & Word, Code & Word, Mnemonic]
 

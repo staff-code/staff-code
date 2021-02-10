@@ -1,9 +1,8 @@
-import {Clause, Word} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {Clause, Unicode, Word} from "@sagittal/general"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {updateSmartAdvance} from "./advance"
-import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
+import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrNewline} from "./advanceOrNewline"
 import {computeAdvanceToEndIntroClauseAndUpdateSmarts} from "./advanceToEnd"
 import {isManualAdvanceUnicode} from "./isUnicode"
 import {computeManualAdvanceWidth} from "./manualAdvance"
@@ -27,7 +26,7 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmarts = (
     if (isManualAdvanceUnicode(unicode)) {
         const manualAdvanceWidth = computeManualAdvanceWidth(unicode)
         smartAdvanceAndSmartStaveUnicodeIntroClause =
-            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+            computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrNewline(
                 manualAdvanceWidth,
                 {manual: true},
             )

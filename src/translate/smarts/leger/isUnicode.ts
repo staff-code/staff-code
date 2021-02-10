@@ -1,5 +1,4 @@
-import {Word} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {Unicode, Word} from "@sagittal/general"
 
 const isManualLegerLineUnicode = (unicode: Unicode & Word): boolean =>
     unicode >= "\uE022" && unicode <= "\uE024"

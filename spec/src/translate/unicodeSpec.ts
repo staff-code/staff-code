@@ -1,6 +1,6 @@
-import {Io, Word} from "@sagittal/general"
-import {Code, UnicodeLiteral} from "../../../src/translate"
-import {CASE_DESENSITIZED_CODE_MAP, computeUnicodeForCode, Unicode} from "../../../src/translate/codes"
+import {Io, Unicode, UnicodeLiteral, Word} from "@sagittal/general"
+import {Code} from "../../../bin"
+import {CASE_DESENSITIZED_CODE_MAP, computeUnicodeForCode} from "../../../src/translate/codes"
 import {getUnicode, shouldNotBeDisplayed} from "../../../src/translate/unicode"
 
 describe("getUnicode", (): void => {

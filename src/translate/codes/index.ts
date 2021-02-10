@@ -10,7 +10,6 @@ export {
 export {CASE_DESENSITIZED_CODE_MAP, BASE_GLYPH_MAP} from "./codes"
 export {debugCode, debugCodeSentence} from "./debug"
 export {computeUnicodeForCode} from "./unicode"
-export {computeUnicodeLiteral, isUnicodeLiteral, computeUnicodeFromUnicodeLiteral} from "./literal"
 export {
     NOT_SMuFL_SMART_SPACING_COMMAND_MAP,
     NOT_SMuFL_ZERO_POSITION_MAP,
@@ -38,5 +37,4 @@ export {
     ADVANCE_9_OCTALS,
 } from "./notSmufl"
 export {SMuFL_MAP} from "./smufl"
-export {Unicode, Code, CaseDesensitized, Octals, UnicodeLiteral} from "./types"
 export {mergeAllCodeMapsIntoCaseDesensitizedCodeMap} from "./merge"

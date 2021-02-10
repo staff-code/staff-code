@@ -1,6 +1,6 @@
-import {RecordKey, Word} from "@sagittal/general"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../../bin"
 import {SMuFL_MAP} from "../../smufl"
-import {Code, Unicode} from "../../types"
 
 // See: https://w3c.github.io/smufl/gitbook/tables/arrows-and-arrowheads.html
 

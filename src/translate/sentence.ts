@@ -8,32 +8,33 @@ import {
     setAllPropertiesOfObjectOnAnother,
     SPACE,
     sumTexts,
+    Unicode,
     Word,
 } from "@sagittal/general"
-import {Octals, Unicode} from "./codes"
 import {processMacros} from "./macros"
 import {
     collapseAdvances,
     computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts,
     computeAdvanceUnicode,
     INITIAL_SMARTS,
+    Octals,
     smarts,
 } from "./smarts"
 import {computeInputUnicodeClause} from "./word"
 
 const bufferSemicolonsAndCollapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io & Sentence => {
-    const temporarilyReplaceActualAdvanceCodesWithSemicolonsSoTheyDontGetBrokenApart = inputSentence
+    const temporarilyReplaceActualAdvanceCodesWithSemicolonsSoTheyDontGetSeparated = inputSentence
         .replace(/(^|\s|;)(\d+);/g, "$1$2\x07 ")
         .replace(/(^|\s|;)en;/g, "$1en\x07 ")
         .replace(/(^|\s|;)nl;/g, "$1nl\x07 ")
         .replace(/(^|\s|;)rt;/g, "$1rt\x07 ")
         .replace(/(^|\s|;)cn;/g, "$1cn\x07 ")
 
-    const breakApartSemicolonsThatTouchNonAdvanceCodes =
-        temporarilyReplaceActualAdvanceCodesWithSemicolonsSoTheyDontGetBrokenApart
+    const separateSemicolonsThatWereNotPartOfActualAdvanceCodes =
+        temporarilyReplaceActualAdvanceCodesWithSemicolonsSoTheyDontGetSeparated
             .replace(/;/g, " ; ")
 
-    const restoreSemicolonsToActualAdvanceCodes = breakApartSemicolonsThatTouchNonAdvanceCodes
+    const restoreSemicolonsToActualAdvanceCodes = separateSemicolonsThatWereNotPartOfActualAdvanceCodes
         .replace(/cn\x07/g, "cn;")
         .replace(/rt\x07/g, "rt;")
         .replace(/nl\x07/g, "nl;")
@@ -46,9 +47,11 @@ const bufferSemicolonsAndCollapseAllWhitespacesToSingleSpaces = (inputSentence: 
         .trim() as Io & Sentence
 }
 
-const ensureLineBreaksImmediatelyDisplay = (unicodeSentence: Unicode & Sentence): Unicode & Sentence =>
+const UNICODE_TO_ENSURE_IMMEDIATE_VISIBILITY_OF_NEWLINE = computeAdvanceUnicode(1 as Octals) as Unicode
+
+const ensureImmediateVisibilityOfNewline = (unicodeSentence: Unicode & Sentence): Unicode & Sentence =>
     finalChar(unicodeSentence) === NEWLINE ?
-        sumTexts(unicodeSentence, computeAdvanceUnicode(1 as Octals) as Unicode) as Unicode & Sentence :
+        sumTexts(unicodeSentence, UNICODE_TO_ENSURE_IMMEDIATE_VISIBILITY_OF_NEWLINE) as Unicode & Sentence :
         unicodeSentence
 
 const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Sentence => {
@@ -62,7 +65,7 @@ const computeInputSentenceUnicode = (inputSentence: Io & Sentence): Unicode & Se
 
     const unicodeClauses: Array<Unicode & Clause> = inputs.map(computeInputUnicodeClause)
     let unicodeSentence = unicodeClauses.join(BLANK) as Unicode & Sentence
-    unicodeSentence = ensureLineBreaksImmediatelyDisplay(unicodeSentence)
+    unicodeSentence = ensureImmediateVisibilityOfNewline(unicodeSentence)
 
     const advanceToEndOfInkUnicodeClause = computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts()
     unicodeSentence = sumTexts(unicodeSentence, advanceToEndOfInkUnicodeClause as Unicode as Unicode & Sentence)

@@ -1,5 +1,6 @@
 import {BLANK, Io, Maybe, Sentence, SPACE, Word} from "@sagittal/general"
-import {Code, SMART_ADVANCE_COMMAND_CODE} from "../../../../../translate"
+import {Code} from "../../../../../../bin"
+import {SMART_ADVANCE_COMMAND_CODE} from "../../../../../translate"
 import {translateInputToDisplay} from "../../../../translate"
 import {components, staffCodeConfig} from "../../globals"
 import {getPreviousInputState, setPreviousInputState} from "../../panel"

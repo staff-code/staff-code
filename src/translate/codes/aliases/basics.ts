@@ -1,6 +1,6 @@
-import {RecordKey, Word} from "@sagittal/general"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
 import {SMuFL_MAP} from "../smufl"
-import {Code, Unicode} from "../types"
 
 const TIME_SIGNATURE_ALIASES_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "tmnm": SMuFL_MAP["tmsgcmnm"],

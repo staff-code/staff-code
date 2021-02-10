@@ -1,5 +1,5 @@
-import {Filename, Html, Multiplier, Px, Sentence, textToSvg, TextToSvgOptions} from "@sagittal/general"
-import {smarts, Unicode} from "../../../../../translate"
+import {Filename, Html, Multiplier, Px, Sentence, textToSvg, TextToSvgOptions, Unicode} from "@sagittal/general"
+import {smarts} from "../../../../../translate"
 import {BRAVURA_TEXT_SC_OTF} from "../../../../constants"
 import {getLine} from "../spinners"
 import {computeFontSizeForTextToSvg} from "./font"

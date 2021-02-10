@@ -1,8 +1,14 @@
-import {isUndefined, RecordKey, Word} from "@sagittal/general"
-import {caseDesensitize} from "../case"
+import {
+    caseDesensitize,
+    CaseDesensitized,
+    computeUnicodeLiteralFromUnicode,
+    isUndefined,
+    RecordKey,
+    Unicode,
+    Word,
+} from "@sagittal/general"
+import {Code} from "../../../bin"
 import {EMPTY_UNICODE} from "../constants"
-import {computeUnicodeLiteral} from "./literal"
-import {CaseDesensitized, Code, Unicode} from "./types"
 
 const mergeAllCodeMapsIntoCaseDesensitizedCodeMap = (
     ...maps: Array<Record<RecordKey<Code & Word>, Unicode & Word>>
@@ -16,7 +22,7 @@ const mergeAllCodeMapsIntoCaseDesensitizedCodeMap = (
         mapEntries.forEach(([code, unicode]: [Code & Word, Unicode & Word]): void => {
             const caseDesensitizedCode = caseDesensitize(code)
             if (!isUndefined(mergedAndCaseDesensitizedMaps[caseDesensitizedCode])) {
-                throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteral(mergedAndCaseDesensitizedMaps[caseDesensitizedCode])} and code point ${computeUnicodeLiteral(unicode)}. If ${computeUnicodeLiteral(EMPTY_UNICODE as Unicode & Word)}, it is probably used for a StaffCode command.`)
+                throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteralFromUnicode(mergedAndCaseDesensitizedMaps[caseDesensitizedCode])} and code point ${computeUnicodeLiteralFromUnicode(unicode)}. If ${computeUnicodeLiteralFromUnicode(EMPTY_UNICODE as Unicode & Word)}, it is probably used for a StaffCode command.`)
             }
             mergedAndCaseDesensitizedMaps[caseDesensitizedCode] = unicode
         })
@@ -37,7 +43,7 @@ const mergeCodeMapsCheckingForCaseDesensitizedConflictsButWithoutCaseDesensitizi
         mapEntries.forEach(([code, unicode]: [Code & Word, Unicode & Word]): void => {
             const caseDesensitizedCode = caseDesensitize(code)
             if (!isUndefined(mergedMaps[caseDesensitizedCode])) {
-                throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteral(mergedMaps[caseDesensitizedCode])} and code point ${computeUnicodeLiteral(unicode)}. If ${computeUnicodeLiteral(EMPTY_UNICODE as Unicode & Word)}, it is probably used for a StaffCode command.`)
+                throw new Error(`duplicate code: ${code} maps to both code point ${computeUnicodeLiteralFromUnicode(mergedMaps[caseDesensitizedCode])} and code point ${computeUnicodeLiteralFromUnicode(unicode)}. If ${computeUnicodeLiteralFromUnicode(EMPTY_UNICODE as Unicode & Word)}, it is probably used for a StaffCode command.`)
             }
             mergedMaps[code] = unicode
         })

@@ -1,6 +1,4 @@
-import {Abbreviation, Name, Word} from "@sagittal/general"
-// tslint:disable-next-line no-reaching-imports
-import {Unicode} from "../../src/translate"
+import {Abbreviation, Name, Unicode, Word} from "@sagittal/general"
 
 const EXCEPTION_WORDS: Record<Name<Unicode> & Word, Abbreviation<Unicode> & Word> = {
     arrowhead: "ah",    // Arrow	ar	27x

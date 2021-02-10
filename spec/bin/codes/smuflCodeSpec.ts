@@ -1,6 +1,5 @@
-import {Name, Word} from "@sagittal/general"
-import {computeSmuflCode} from "../../../bin/codes"
-import {Code, Unicode} from "../../../src"
+import {Name, Unicode, Word} from "@sagittal/general"
+import {Code, computeSmuflCode} from "../../../bin/codes"
 
 describe("computeSmuflCode", (): void => {
     it("generally reduces every word in the SMuFL glyph name down to the first two letters, with vowels removed           ", (): void => {

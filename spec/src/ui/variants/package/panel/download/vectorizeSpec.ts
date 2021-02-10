@@ -1,9 +1,8 @@
 // tslint:disable comment-format max-line-length
 
-import {BLANK, Filename, Html, NEWLINE, Sentence} from "@sagittal/general"
+import {BLANK, Filename, Html, NEWLINE, Sentence, Unicode} from "@sagittal/general"
 import * as fs from "fs"
 import sanitize from "sanitize-filename"
-import {Unicode} from "../../../../../../../src/translate"
 import {components} from "../../../../../../../src/ui/variants/package/globals"
 import {computeSvgStringFromInput} from "../../../../../../../src/ui/variants/package/panel/download/vectorize"
 import {mockDom, unmockDom} from "../../../../../../helpers/mockDom"

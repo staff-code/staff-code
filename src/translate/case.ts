@@ -1,8 +1,5 @@
-import {Word} from "@sagittal/general"
-import {CaseDesensitized, Code, Unicode} from "./codes"
-
-const caseDesensitize = <T extends Code>(code: T): T & CaseDesensitized =>
-    code.toLowerCase() as T & CaseDesensitized
+import {caseDesensitize, CaseDesensitized, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../bin"
 
 const computeCaseDesensitizedCodes = (
     map: Record<Code & Word, Unicode & Word>,
@@ -10,6 +7,5 @@ const computeCaseDesensitizedCodes = (
     (Object.keys(map) as Array<Code & Word>).map(caseDesensitize)
 
 export {
-    caseDesensitize,
     computeCaseDesensitizedCodes,
 }

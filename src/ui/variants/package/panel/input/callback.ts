@@ -1,5 +1,4 @@
-import {Io, Maybe, Sentence} from "@sagittal/general"
-import {Unicode} from "../../../../../translate"
+import {Io, Maybe, Sentence, Unicode} from "@sagittal/general"
 import {StaffCodeCallback} from "../../../../types"
 import {setStaffCodeCookie} from "../../initial"
 import {Initial} from "../../types"

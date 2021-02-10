@@ -1,7 +1,7 @@
-import {Clause, subtract, sumTexts} from "@sagittal/general"
-import {Octals, Unicode} from "../../codes"
+import {Clause, subtract, sumTexts, Unicode} from "@sagittal/general"
 import {smarts} from "../globals"
-import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
+import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrNewline} from "./advanceOrNewline"
+import {Octals} from "./types"
 
 const computeAdvanceToEndOfInkWidth = (): Octals => {
     const unspacedAdvance = subtract(smarts.advanceWidth, smarts.spacing)
@@ -10,12 +10,12 @@ const computeAdvanceToEndOfInkWidth = (): Octals => {
 }
 
 const computeBasicallySmartAdvanceExceptWithoutSpacingSinceThereIsNothingToSpaceAgainst = (): Unicode & Clause =>
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrNewline(
         computeAdvanceToEndOfInkWidth(),
     )
 
 const computeWhateverAdvanceYouThenNeedToMakeItToTheEndOfTheStaveSegmentYouHaveLandedOn = (): Unicode & Clause =>
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrNewline(
         smarts.staveWidth,
     )
 

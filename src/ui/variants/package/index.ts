@@ -10,3 +10,8 @@ export {downloadImage} from "./panel"
 //  - And so much stuff that doesn't depend on smufl/bravura updates, yet need to remember to run script to regenerate
 //  - Note: generate-smufl-reference (emp. on smufl) is a bit of a misnomer ATM, but shouldn't be when we're done here
 //  - Also, the ASCII widths don't need to be in there, with the bravura widths
+
+// TODO: FYI, the priority reference sections could be found by presence of "alternateCodepoint"
+//  In case you want to make that an automated rather than a hardcoded check
+
+// TODO:   cookieFlags: 'max-age=7200;secure;samesite=none' need to set that stuff for Google Analytics now

@@ -1,5 +1,4 @@
-import {Clause, Io, Word} from "@sagittal/general"
-import {Unicode} from "../codes"
+import {Clause, Io, Unicode, Word} from "@sagittal/general"
 import {EMPTY_UNICODE} from "../constants"
 import {smarts} from "./globals"
 

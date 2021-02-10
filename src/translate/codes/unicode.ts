@@ -1,7 +1,6 @@
-import {isUndefined, Word} from "@sagittal/general"
-import {caseDesensitize} from "../case"
+import {caseDesensitize, isUndefined, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../bin"
 import {CASE_DESENSITIZED_CODE_MAP} from "./codes"
-import {Code, Unicode} from "./types"
 
 const computeUnicodeForCode = (code: Code & Word): Unicode & Word => {
     const caseDesensitizedCode = caseDesensitize(code)

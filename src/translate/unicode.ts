@@ -1,6 +1,13 @@
-import {Io, isUndefined, Word} from "@sagittal/general"
-import {caseDesensitize} from "./case"
-import {Code, computeUnicodeFromUnicodeLiteral, isUnicodeLiteral, Unicode} from "./codes"
+import {
+    caseDesensitize,
+    computeUnicodeFromUnicodeLiteral,
+    Io,
+    isUndefined,
+    isUnicodeLiteral,
+    Unicode,
+    Word,
+} from "@sagittal/general"
+import {Code} from "../../bin"
 import {EMPTY_UNICODE} from "./constants"
 import {
     getUnicodeGivenClefAndPosition,

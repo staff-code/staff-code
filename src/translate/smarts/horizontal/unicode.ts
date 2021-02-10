@@ -1,7 +1,7 @@
-import {Clause, subtract, sumTexts} from "@sagittal/general"
-import {Octals, Unicode} from "../../codes"
+import {Clause, subtract, sumTexts, Unicode} from "@sagittal/general"
 import {EMPTY_UNICODE} from "../../constants"
 import {MAX_ADVANCE_UNICODE, MAX_ADVANCE_WIDTH, WIDTH_TO_ADVANCE_UNICODE_ARRAY} from "./constants"
+import {Octals} from "./types"
 
 const computeAdvanceUnicode = (width: Octals): Unicode & Clause => {
     let remainingWidth = width

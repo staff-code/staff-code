@@ -1,9 +1,9 @@
-import {add, Clause, subtract, sumTexts, Word} from "@sagittal/general"
-import {Octals, Unicode} from "../../codes"
+import {add, Clause, subtract, sumTexts, Unicode, Word} from "@sagittal/general"
 import {smarts} from "../globals"
 import {updateSmartAdvance} from "./advance"
-import {MEDIUM_STAVE_UNICODES, NARROW_STAVE_UNICODES, WIDE_STAVE_UNICODES} from "./advanceOrBreak"
+import {MEDIUM_STAVE_UNICODES, NARROW_STAVE_UNICODES, WIDE_STAVE_UNICODES} from "./advanceOrNewline"
 import {MEDIUM_STAVE_WIDTH, NARROW_STAVE_WIDTH, WIDE_STAVE_WIDTH} from "./constants"
+import {Octals} from "./types"
 import {computeAdvanceUnicode} from "./unicode"
 import {computeUnicodeWidth} from "./width"
 

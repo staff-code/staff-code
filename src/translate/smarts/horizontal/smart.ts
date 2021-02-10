@@ -1,10 +1,9 @@
-import {Clause} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {Clause, Unicode} from "@sagittal/general"
 import {smarts} from "../globals"
-import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak} from "./advanceOrBreak"
+import {computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrNewline} from "./advanceOrNewline"
 
 const computeSmartAdvanceUnicodeClauseAndUpdateSmarts = (): Unicode & Clause =>
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak(
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrNewline(
         smarts.advanceWidth,
     )
 

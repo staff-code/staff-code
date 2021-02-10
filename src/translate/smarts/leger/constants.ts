@@ -1,5 +1,7 @@
 import {Word} from "@sagittal/general"
-import {Code, computeUnicodeForCode, Octals} from "../../codes"
+import {Code} from "../../../../bin"
+import {computeUnicodeForCode} from "../../codes"
+import {Octals} from "../horizontal"
 
 const NARROW_LEGER_LINE_UNICODE = computeUnicodeForCode("lglnnr" as Code & Word)
 const MEDIUM_LEGER_LINE_UNICODE = computeUnicodeForCode("lgln" as Code & Word)

@@ -1,11 +1,6 @@
-import {Word} from "@sagittal/general"
-import {
-    CASE_DESENSITIZED_CODE_MAP,
-    CaseDesensitized,
-    Code,
-    computeUnicodeForCode,
-    Unicode,
-} from "../../../../../src/translate/codes"
+import {CaseDesensitized, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../../bin"
+import {CASE_DESENSITIZED_CODE_MAP, computeUnicodeForCode} from "../../../../../src/translate/codes"
 import {takesLegerLine} from "../../../../../src/translate/smarts/leger"
 import {canBePositioned} from "../../../../../src/translate/smarts/vertical"
 

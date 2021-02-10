@@ -1,5 +1,5 @@
-import {BLANK, computeKeyPath, isUndefined, RecordKey, sort, Word} from "@sagittal/general"
-import {Code, Unicode} from "../../../../../translate"
+import {BLANK, computeKeyPath, isUndefined, RecordKey, sort, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../../../bin"
 import {LIGHT_GREY} from "../../constants"
 import {EMPTY_CODE_CELL} from "./constants"
 import {

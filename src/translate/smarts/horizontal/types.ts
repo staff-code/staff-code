@@ -1,3 +1,5 @@
+import {Px} from "@sagittal/general"
+
 enum SmartStave {
     LINES_1 = "LINES_1",
     LINES_2 = "LINES_2",
@@ -9,6 +11,9 @@ enum SmartStave {
     LUTE = "LUTE",
 }
 
+type Octals = Px & {_OctalsBrand: boolean}
+
 export {
     SmartStave,
+    Octals,
 }

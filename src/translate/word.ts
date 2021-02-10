@@ -1,5 +1,4 @@
-import {Clause, Io, sumTexts, Word} from "@sagittal/general"
-import {Unicode} from "./codes"
+import {Clause, Io, sumTexts, Unicode, Word} from "@sagittal/general"
 import {
     computeCommandUnicodeClauseAndUpdateSmarts,
     computeCommentingUnicodeClauseAndUpdateSmarts,

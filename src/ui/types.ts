@@ -1,5 +1,4 @@
-import {Em, FontName, Io, Multiplier, Sentence} from "@sagittal/general"
-import {Unicode} from "../translate"
+import {Em, FontName, Io, Multiplier, Sentence, Unicode} from "@sagittal/general"
 
 type StaffCodeCallback = (inputSentence: Io & Sentence, unicodeSentence: Unicode & Sentence) => any
 

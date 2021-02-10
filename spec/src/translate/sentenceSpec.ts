@@ -1,8 +1,9 @@
 // tslint:disable max-line-length
 
-import {BLANK, Io, NEWLINE, Sentence} from "@sagittal/general"
+import {BLANK, Io, NEWLINE, Sentence, Unicode} from "@sagittal/general"
 import * as fs from "fs"
-import {Code, computeInputSentenceUnicode, EMPTY_UNICODE, Unicode} from "../../../src/translate"
+import {Code} from "../../../bin"
+import {computeInputSentenceUnicode, EMPTY_UNICODE} from "../../../src/translate"
 import {debugCodeSentence} from "../../../src/translate/codes"
 import {BRAVURA_TEXT_SC, BRAVURA_TEXT_SC_OTF} from "../../../src/ui/constants"
 import CustomReporterResult = jasmine.CustomReporterResult
@@ -126,7 +127,7 @@ describe("computeInputSentenceUnicode", (): void => {
         })
     })
 
-    describe("*** Unrecognized codes ***", (): void => {
+    describe("*** Unrecognized and Unicode literal codes ***", (): void => {
         it("includes a space after unrecognized codes so that when you have multiple in a row you can distinguish them           ", (): void => {
             const inputSentence = "don't know what i'm doing" as Io & Sentence
 
@@ -139,7 +140,7 @@ describe("computeInputSentenceUnicode", (): void => {
             saveVisualRegressionSpecSvg(actual, thisJasmine.currentTest)
         })
 
-        it("accepts unrecognized codes in other reasonable formats", (): void => {
+        it("accepts Unicode literals as codes, in various formats", (): void => {
             expect(computeInputSentenceUnicode("U+5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
             expect(computeInputSentenceUnicode("u+5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
             expect(computeInputSentenceUnicode("U5E78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
@@ -148,7 +149,7 @@ describe("computeInputSentenceUnicode", (): void => {
             expect(computeInputSentenceUnicode("\\u+5e78" as Io & Sentence)).toBe("幸" as Unicode & Sentence)
         })
 
-        it("accepts unrecognized codes with code points greater than 65535 (0xFFFF)", (): void => {
+        it("accepts Unicode literals with code points greater than 65535 (0xFFFF)", (): void => {
             const inputSentence = "U+1D10B" as Io & Sentence
 
             const actual = computeInputSentenceUnicode(inputSentence)

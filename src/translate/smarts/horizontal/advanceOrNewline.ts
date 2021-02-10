@@ -1,5 +1,6 @@
-import {Clause, subtract, sumTexts, Word} from "@sagittal/general"
-import {Code, computeUnicodeForCode, Octals, Unicode} from "../../codes"
+import {Clause, subtract, sumTexts, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
+import {computeUnicodeForCode} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {
@@ -10,7 +11,7 @@ import {
     WIDE_STAVE_WIDTH,
     WIDE_STAVE_WIDTH_ADVANCE,
 } from "./constants"
-import {SmartStave} from "./types"
+import {Octals, SmartStave} from "./types"
 import {computeAdvanceUnicode} from "./unicode"
 
 const NARROW_STAVE_UNICODES: Record<SmartStave, Unicode & Word> = {
@@ -46,7 +47,7 @@ const WIDE_STAVE_UNICODES: Record<SmartStave, Unicode & Word> = {
     [SmartStave.PLAINCHANT]: computeUnicodeForCode("chstwd" as Code & Word),
 }
 
-const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak = (
+const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrNewline = (
     width: Octals,
     {manual = false}: {manual?: boolean} = {},
 ): Unicode & Clause => {
@@ -124,7 +125,7 @@ const computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAnd
 }
 
 export {
-    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrBreak,
+    computeSmartAdvanceAndSmartStaveUnicodeIntroClauseAndUpdateSmartAdvanceAndSmartStaveForAdvanceOrNewline,
     NARROW_STAVE_UNICODES,
     MEDIUM_STAVE_UNICODES,
     WIDE_STAVE_UNICODES,

@@ -1,6 +1,4 @@
-import {Name, SPACE} from "@sagittal/general"
-// tslint:disable-next-line no-reaching-imports
-import {Unicode} from "../src/translate"
+import {Name, SPACE, Unicode} from "@sagittal/general"
 
 const separateWordsBySpaces = (glyphName: Name<Unicode>): Name<Unicode> =>
     glyphName

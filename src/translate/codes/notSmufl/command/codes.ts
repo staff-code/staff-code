@@ -1,6 +1,6 @@
-import {RecordKey, Word} from "@sagittal/general"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../../bin"
 import {mergeCodeMapsCheckingForCaseDesensitizedConflictsButWithoutCaseDesensitizing} from "../../merge"
-import {Code, Unicode} from "../../types"
 import {NOT_SMuFL_DEFINE_CUSTOM_COMMAND_MAP} from "./custom"
 import {NOT_SMuFL_GROUP_COMMAND_MAP} from "./group"
 import {

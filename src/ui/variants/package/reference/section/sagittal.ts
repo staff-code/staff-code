@@ -1,10 +1,9 @@
-import {cleanArray, shallowClone, Word} from "@sagittal/general"
+import {cleanArray, shallowClone, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../../../bin"
 import {
     ALIASES_MAP,
-    Code,
     SAGITTAL_COMMA_NAME_ALIASES_MAP,
     SAGITTAL_SECONDARY_SAGISPEAK_ALIASES_MAP,
-    Unicode,
 } from "../../../../../translate"
 
 const ALIASES_FOR_REFERENCE_MAP = JSON.parse(JSON.stringify(ALIASES_MAP))

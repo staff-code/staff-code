@@ -1,25 +1,19 @@
-import {Name, RecordKey} from "@sagittal/general"
+import {Name, RecordKey, Unicode} from "@sagittal/general"
 import * as fs from "fs"
-// tslint:disable-next-line no-reaching-imports
-import {Octals, Unicode} from "../../src/translate"
 import {glyphNames} from "../globals"
 import {GlyphDatum} from "../types"
-import {ASCII_WIDTHS} from "./ascii"
-import {computeBravuraGlyphWidth} from "./width"
+import {EighthOctals} from "./types"
+import {computeBravuraGlyphEighthOctalWidth} from "./width"
 
 const generateBravuraWidths = (): void => {
     const glyphNameEntries = Object.entries(glyphNames) as Array<[Name<Unicode>, GlyphDatum]>
 
-    let bravuraWidths = glyphNameEntries.reduce(computeBravuraGlyphWidth, {} as Record<RecordKey<Unicode>, Octals>)
-
-    bravuraWidths = {
-        ...bravuraWidths,
-        ...ASCII_WIDTHS,
-    }
+    const bravuraEighthOctalWidths = glyphNameEntries
+        .reduce(computeBravuraGlyphEighthOctalWidth, {} as Record<RecordKey<Unicode>, EighthOctals>)
 
     fs.writeFileSync(
-        "src/translate/smarts/horizontal/bravuraWidths.json",
-        JSON.stringify(bravuraWidths, undefined, 2),
+        "src/translate/smarts/horizontal/bravuraEighthOctalWidths.json",
+        JSON.stringify(bravuraEighthOctalWidths, undefined, 2),
     )
 }
 

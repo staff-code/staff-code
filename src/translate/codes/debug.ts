@@ -1,7 +1,7 @@
-import {joinWords, Sentence, Word} from "@sagittal/general"
+import {joinWords, Sentence, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../bin"
 import {ACCIDENTAL_ALIASES_MAP, POSITION_ALIASES_MAP} from "./aliases"
 import {BASE_GLYPH_MAP} from "./codes"
-import {Code, Unicode} from "./types"
 import {computeUnicodeForCode} from "./unicode"
 
 const DEBUGGING_ONLY_ALIASES_MAP = {

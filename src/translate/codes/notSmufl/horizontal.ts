@@ -1,5 +1,5 @@
-import {RecordKey, Word} from "@sagittal/general"
-import {Code, Unicode} from "../types"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
 
 const ADVANCE_1_OCTAL = " "       //  U+200A HAIR SPACE
 const ADVANCE_3_OCTALS = " "      //  U+2006 SIX-PER-EM SPACE

@@ -1,5 +1,4 @@
-import {BLANK, Clause, decrement, increment, isEven, sumTexts, Word} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {BLANK, Clause, decrement, increment, isEven, sumTexts, Unicode, Word} from "@sagittal/general"
 import {EMPTY_UNICODE} from "../../constants"
 import {smarts} from "../globals"
 import {computeLegerLineUnicode} from "./leger"

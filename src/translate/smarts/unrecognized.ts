@@ -10,14 +10,14 @@ import {
     SPACE,
     splitWord,
     sumTexts,
+    Unicode,
     Word,
 } from "@sagittal/general"
-import {Octals, Unicode} from "../codes"
 import {smarts} from "./globals"
 import {
     computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts,
     computeAdvanceUnicode,
-    computeUnicodeWidth,
+    computeUnicodeWidth, Octals,
 } from "./horizontal"
 
 const computeUnrecognizedUnicodeClause = (input: Io & Word): Unicode & Clause => {

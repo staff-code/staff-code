@@ -1,6 +1,7 @@
-import {RecordKey, Word} from "@sagittal/general"
-import {CASE_DESENSITIZED_CODE_MAP, Code, computeUnicodeForCode, Octals, Unicode} from "../../codes"
-import {computeUnicodeWidth} from "../horizontal"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
+import {CASE_DESENSITIZED_CODE_MAP, computeUnicodeForCode} from "../../codes"
+import {computeUnicodeWidth, Octals} from "../horizontal"
 import {
     MEDIUM_LEGER_LINE_UNICODE,
     MEDIUM_LEGER_LINE_WIDTH,

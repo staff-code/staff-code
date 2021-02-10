@@ -1,6 +1,4 @@
-import {Name, Word} from "@sagittal/general"
-// tslint:disable-next-line no-reaching-imports
-import {Unicode} from "../../src/translate"
+import {Name, Unicode, Word} from "@sagittal/general"
 import {MatchesCaseAgnosticParameters} from "./types"
 
 const matchesCaseAgnostic = ({glyphNameChar, code, codeIndex}: MatchesCaseAgnosticParameters): boolean =>

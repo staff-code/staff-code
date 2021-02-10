@@ -1,5 +1,6 @@
-import {abs, BLANK, negative, RecordKey, Word} from "@sagittal/general"
-import {CASE_DESENSITIZED_CODE_MAP, CaseDesensitized, Code, computeUnicodeForCode, Unicode} from "../../codes"
+import {abs, BLANK, CaseDesensitized, negative, RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
+import {CASE_DESENSITIZED_CODE_MAP, computeUnicodeForCode} from "../../codes"
 import {smarts} from "../globals"
 import {MIDDLE_STAFF_POSITION} from "./constants"
 import {isClefUnicode, isPositionUnicode} from "./isUnicode"

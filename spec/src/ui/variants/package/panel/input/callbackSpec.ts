@@ -1,5 +1,4 @@
-import {Io, noop, Sentence} from "@sagittal/general"
-import {Unicode} from "../../../../../../../src"
+import {Io, noop, Sentence, Unicode} from "@sagittal/general"
 import {getStaffCodeCookie} from "../../../../../../../src/ui/variants/package/initial"
 import {buildStaffCodeCallback} from "../../../../../../../src/ui/variants/package/panel/input/callback"
 import {Initial} from "../../../../../../../src/ui/variants/package/types"

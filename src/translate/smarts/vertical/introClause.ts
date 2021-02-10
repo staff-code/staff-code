@@ -1,5 +1,4 @@
-import {Clause, sumTexts, Word} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {Clause, sumTexts, Unicode, Word} from "@sagittal/general"
 import {smarts} from "../globals"
 import {computeSmartLegerUnicodeIntroClauseAndUpdateSmarts} from "../leger"
 import {canBePositioned, updateSmartClef} from "../vertical"

@@ -1,5 +1,4 @@
-import {max, Word} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {max, Unicode, Word} from "@sagittal/general"
 import {smarts} from "../globals"
 import {computeUnicodeWidth} from "./width"
 

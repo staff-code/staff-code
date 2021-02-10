@@ -1,6 +1,4 @@
-import {Name} from "@sagittal/general"
-// tslint:disable-next-line no-reaching-imports
-import {Unicode} from "../../src/translate"
+import {Name, Unicode} from "@sagittal/general"
 
 const rejoinSagittalCommaNames = (glyphNameWord: Name<Unicode>): Name<Unicode> =>
     glyphNameWord

@@ -1,13 +1,11 @@
-import {Clause, Io, Word} from "@sagittal/general"
-import {caseDesensitize} from "../case"
+import {caseDesensitize, Clause, Io, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../bin"
 import {
-    Code,
     NEWLINE_ADVANCE_COMMAND_CODE,
     PLACE_AGAINST_END_OF_STAFF_ADVANCE_COMMAND_CODE,
     SMART_ADVANCE_COMMAND_CODE,
     SMART_STAVE_OFF_COMMAND_CODE,
     SMART_STAVE_ON_COMMAND_CODE,
-    Unicode,
 } from "../codes"
 import {EMPTY_UNICODE} from "../constants"
 import {smarts} from "./globals"

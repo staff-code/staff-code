@@ -1,14 +1,12 @@
-import {Count, RecordKey, Word} from "@sagittal/general"
+import {CaseDesensitized, Count, RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
 import {
     BELOW_MIDDLE_POSITION_CONDITIONAL_NOTE_ALIASES_MAP,
     CASE_DESENSITIZED_CODE_MAP,
-    CaseDesensitized,
-    Code,
     computeUnicodeForCode,
     mergeAllCodeMapsIntoCaseDesensitizedCodeMap,
     MIDDLE_POSITION_AND_ABOVE_CONDITIONAL_NOTE_ALIASES_MAP,
     POSITION_ALIASES_MAP,
-    Unicode,
 } from "../../codes"
 import {Position, StemZone} from "./types"
 

@@ -8,3 +8,5 @@ export {
     LEGER_LINES_SUPPLEMENT_SECTION_ID,
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
 } from "./reference"
+export {EighthOctals} from "./widths"
+export {Code} from "./codes"

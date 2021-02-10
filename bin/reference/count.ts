@@ -1,6 +1,4 @@
-import {Char, Name, Word} from "@sagittal/general"
-// tslint:disable-next-line no-reaching-imports
-import {Unicode} from "../../src/translate"
+import {Char, Name, Unicode, Word} from "@sagittal/general"
 
 const isNumericChar = (glyphNameChar: Name<Unicode> & Char): boolean =>
     !!glyphNameChar.match(/\d/)

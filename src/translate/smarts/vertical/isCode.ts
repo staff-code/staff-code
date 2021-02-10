@@ -1,6 +1,7 @@
-import {Word} from "@sagittal/general"
+import {CaseDesensitized, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
 import {computeCaseDesensitizedCodes} from "../../case"
-import {CaseDesensitized, Code, NOT_SMuFL_PITCH_COMMAND_MAP} from "../../codes"
+import {NOT_SMuFL_PITCH_COMMAND_MAP} from "../../codes"
 
 const CASE_DESENSITIZED_NOT_SMuFL_PITCH_COMMAND_CODES = computeCaseDesensitizedCodes(NOT_SMuFL_PITCH_COMMAND_MAP)
 

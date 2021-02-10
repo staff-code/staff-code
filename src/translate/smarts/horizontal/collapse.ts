@@ -1,4 +1,4 @@
-import {add, BLANK, RecordKey, Sentence, Word} from "@sagittal/general"
+import {add, BLANK, RecordKey, Sentence, Unicode, Word} from "@sagittal/general"
 import {
     ADVANCE_10_OCTALS,
     ADVANCE_11_OCTALS,
@@ -12,9 +12,8 @@ import {
     ADVANCE_5_OCTALS,
     ADVANCE_7_OCTALS,
     ADVANCE_9_OCTALS,
-    Octals,
-    Unicode,
 } from "../../codes"
+import {Octals} from "./types"
 import {computeAdvanceUnicode} from "./unicode"
 
 const PRIMITIVE_ADVANCE_UNICODES_TO_OCTALS: Record<RecordKey<Unicode & Word>, Octals> = {

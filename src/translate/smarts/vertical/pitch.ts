@@ -1,6 +1,5 @@
-import {RecordKey, Word} from "@sagittal/general"
-import {caseDesensitize} from "../../case"
-import {CaseDesensitized, Code} from "../../codes"
+import {caseDesensitize, CaseDesensitized, RecordKey, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
 import {smarts} from "../globals"
 import {Clef, Pitch, Position} from "./types"
 

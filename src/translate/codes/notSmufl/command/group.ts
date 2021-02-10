@@ -1,6 +1,6 @@
-import {RecordKey, Word} from "@sagittal/general"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../../bin"
 import {EMPTY_UNICODE} from "../../../constants"
-import {Code, Unicode} from "../../types"
 
 // Not used yet. To be dealt with in the second pass on StaffCode.
 

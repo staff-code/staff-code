@@ -1,5 +1,6 @@
-import {Word} from "@sagittal/general"
-import {Code, computeUnicodeForCode, Unicode} from "../../codes"
+import {Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
+import {computeUnicodeForCode} from "../../codes"
 import {MAX_POSITIONS_AWAY_FROM_MIDDLE_STAVE_LINE, Position} from "../vertical"
 
 const POSITION_UNICODES = [

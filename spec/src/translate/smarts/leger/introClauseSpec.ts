@@ -1,6 +1,7 @@
 import {Word} from "@sagittal/general"
+import {Code} from "../../../../../bin"
 import {smarts} from "../../../../../src/translate"
-import {Code, computeUnicodeForCode} from "../../../../../src/translate/codes"
+import {computeUnicodeForCode} from "../../../../../src/translate/codes"
 import {computeSmartLegerUnicodeIntroClause} from "../../../../../src/translate/smarts/leger/introClause"
 import {Position} from "../../../../../src/translate/smarts/vertical"
 

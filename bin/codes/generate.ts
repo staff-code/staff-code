@@ -1,10 +1,9 @@
-import {Name, RecordKey, Word} from "@sagittal/general"
+import {computeUnicodeFromUnicodeLiteral, Name, RecordKey, Unicode, Word} from "@sagittal/general"
 import * as fs from "fs"
-// tslint:disable-next-line no-reaching-imports
-import {Code, computeUnicodeFromUnicodeLiteral, Unicode} from "../../src/translate"
 import {glyphNames} from "../globals"
 import {GlyphDatum} from "../types"
 import {computeSmuflCode} from "./smuflCode"
+import {Code} from "./types"
 
 const generateSmuflMap = (): Record<RecordKey<Code & Word>, Unicode & Word> => {
     const glyphNameEntries = Object.entries(glyphNames) as Array<[Name<Unicode>, GlyphDatum]>

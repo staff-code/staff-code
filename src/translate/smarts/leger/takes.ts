@@ -1,5 +1,4 @@
-import {Word} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {Unicode, Word} from "@sagittal/general"
 import {
     isIndividualNotesOrBeamedGroupsOfNotesUnicode,
     isMedievalRenaissanceMensuralIndividualNotesUnicode,

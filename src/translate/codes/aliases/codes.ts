@@ -1,6 +1,6 @@
-import {RecordKey, Word} from "@sagittal/general"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
 import {mergeCodeMapsCheckingForCaseDesensitizedConflictsButWithoutCaseDesensitizing} from "../merge"
-import {Code, Unicode} from "../types"
 import {ACCIDENTAL_ALIASES_MAP} from "./accidentals"
 import {BARLINE_ALIASES_MAP, BEAMS_ALIASES_MAP, REST_ALIASES_MAP, TIME_SIGNATURE_ALIASES_MAP} from "./basics"
 import {NOTE_ALIASES_MAP} from "./notes"

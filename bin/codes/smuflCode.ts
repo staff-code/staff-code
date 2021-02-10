@@ -1,8 +1,7 @@
-import {BLANK, Name, SPACE, Word} from "@sagittal/general"
-// tslint:disable-next-line no-reaching-imports
-import {Code, Unicode} from "../../src/translate"
+import {BLANK, Name, SPACE, Unicode, Word} from "@sagittal/general"
 import {separateWordsBySpaces} from "../separate"
 import {computeGlyphNameWordAbbreviation} from "./glyphNameWordAbbreviation"
+import {Code} from "./types"
 
 const replaceOrdinals = (glyphName: Name<Unicode>): Name<Unicode> =>
     glyphName

@@ -1,5 +1,4 @@
-import {isUndefined, Word} from "@sagittal/general"
-import {Unicode} from "../../codes"
+import {isUndefined, Unicode, Word} from "@sagittal/general"
 import {smarts} from "../globals"
 import {Position} from "../vertical"
 import {takesLegerLine} from "./takes"

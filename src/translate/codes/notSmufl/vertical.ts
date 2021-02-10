@@ -1,5 +1,5 @@
-import {RecordKey, Word} from "@sagittal/general"
-import {Code, Unicode} from "../types"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
 
 const NOT_SMuFL_ZERO_POSITION_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     /*U+F3F0*/"stpsrs0": "",

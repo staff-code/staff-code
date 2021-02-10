@@ -4,7 +4,7 @@ export {computeUnicodeWidth} from "./width"
 export {computeAdvanceUnicode} from "./unicode"
 export {computeNewlineAdvanceUnicodeClauseAndUpdateSmarts} from "./newline"
 export {computePlaceAgainstEndOfStaffAdvanceUnicodeClauseAndUpdateSmarts} from "./placeAgainstEndOfStaff"
-export {SmartStave} from "./types"
+export {SmartStave, Octals} from "./types"
 export {collapseAdvances} from "./collapse"
 export {computeSmartStaveOffUnicodeClauseAndUpdateSmarts} from "./stave"
 export {computeSmartAdvanceUnicodeClauseAndUpdateSmarts} from "./smart"
@@ -12,6 +12,7 @@ export {computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts, computeAdvanceToEn
 export {computeSpacing} from "./spacing"
 export {isSpacingCommandCode} from "./isCode"
 
-import bravuraWidthsJson from "./bravuraWidths.json"
+import bravuraEighthOctalWidthsJson from "./bravuraEighthOctalWidths.json"
 
-export {bravuraWidthsJson}
+export {bravuraEighthOctalWidthsJson}
+

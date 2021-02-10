@@ -1,11 +1,9 @@
-import {Name, RecordKey} from "@sagittal/general"
-// tslint:disable-next-line no-reaching-imports
-import {Unicode} from "../../src/translate"
+import {Name, RecordKey, Unicode} from "@sagittal/general"
 
-type EighthOctal = number & {_EighthOctalBrand: boolean}
+type EighthOctals = number & {_EighthOctalBrand: boolean}
 
 interface BoundingBox {
-    bBoxNE: EighthOctal[]
+    bBoxNE: EighthOctals[]
 }
 
 interface BravuraMetadata {
@@ -15,5 +13,5 @@ interface BravuraMetadata {
 export {
     BravuraMetadata,
     BoundingBox,
-    EighthOctal,
+    EighthOctals,
 }

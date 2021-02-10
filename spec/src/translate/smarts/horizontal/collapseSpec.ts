@@ -1,5 +1,4 @@
-import {Sentence} from "@sagittal/general"
-import {Unicode} from "../../../../../src/translate"
+import {Sentence, Unicode} from "@sagittal/general"
 import {collapseAdvances} from "../../../../../src/translate/smarts"
 
 describe("collapseAdvances", (): void => {

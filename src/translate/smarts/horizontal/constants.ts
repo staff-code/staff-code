@@ -1,17 +1,14 @@
-import {Word} from "@sagittal/general"
+import {Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
 import {computeCaseDesensitizedCodes} from "../../case"
 import {
-    Code,
     computeUnicodeForCode,
     NEWLINE_ADVANCE_COMMAND_CODE,
     NOT_SMuFL_MANUAL_ADVANCE_MAP,
     NOT_SMuFL_SMART_SPACING_COMMAND_MAP,
-    Octals,
-    Unicode,
 } from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
-
-const NEWLINE_UNICODE = computeUnicodeForCode(NEWLINE_ADVANCE_COMMAND_CODE)
+import {Octals} from "./types"
 
 const MANUAL_ADVANCE_UNICODES = Object.values(NOT_SMuFL_MANUAL_ADVANCE_MAP)
 const WIDTH_TO_ADVANCE_UNICODE_ARRAY: Array<Unicode & Word> =
@@ -32,7 +29,6 @@ const WIDE_STAVE_WIDTH_ADVANCE = computeUnicodeForCode("24;" as Code & Word)
 const CASE_DESENSITIZED_SPACING_CODES = computeCaseDesensitizedCodes(NOT_SMuFL_SMART_SPACING_COMMAND_MAP)
 
 export {
-    NEWLINE_UNICODE,
     WIDTH_TO_ADVANCE_UNICODE_ARRAY,
     MANUAL_ADVANCE_UNICODES,
     MAX_ADVANCE_UNICODE,

@@ -1,5 +1,4 @@
-import {Octals} from "../codes"
-import {SmartStave} from "./horizontal"
+import {Octals, SmartStave} from "./horizontal"
 import {Smarts} from "./types"
 import {Clef, MIDDLE_STAFF_POSITION} from "./vertical"
 

@@ -1,6 +1,6 @@
-import {RecordKey, Word} from "@sagittal/general"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../../bin"
 import {EMPTY_UNICODE} from "../../../constants"
-import {Code, Unicode} from "../../types"
 import {Command} from "./types"
 
 const SMART_STAVE_ON_COMMAND_CODE = "ston" as Command & Code & Word

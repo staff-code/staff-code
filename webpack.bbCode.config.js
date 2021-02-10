@@ -17,6 +17,8 @@ module.exports = {
         // instead of `export {}` and `import {}`. This might ignore some things I want. But I just don't feel like
         // doing all that work right now. And I feel like I should be able to just use `import {}` and `export {}`.
         // Maybe it's just an issue that `webpack` will fix eventually.
+        // Also now anytime I run `npm i` or `npm upgrade` I have to remember to pass `--legacy-peer-deps` flag,
+        // Because having upgraded to npm 7, it no longer ignores peer deps, and this plugin asks for Webpack 4.
         new IgnoreNotFoundExportPlugin(),
         new webpack.DefinePlugin({
             __VERSION__: JSON.stringify(version)

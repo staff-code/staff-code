@@ -1,5 +1,4 @@
-import {BLANK, Filename, Html, Link, Sentence} from "@sagittal/general"
-import {Unicode} from "../../../../../translate"
+import {BLANK, Filename, Html, Link, Sentence, Unicode} from "@sagittal/general"
 import {translateInputToDisplay} from "../../../../translate"
 import {ImageType} from "../../../../types"
 import {components, staffCodeConfig} from "../../globals"

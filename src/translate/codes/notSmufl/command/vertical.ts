@@ -1,6 +1,6 @@
-import {RecordKey, Word} from "@sagittal/general"
+import {RecordKey, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../../bin"
 import {EMPTY_UNICODE} from "../../../constants"
-import {Code, Unicode} from "../../types"
 
 const NOT_SMuFL_PITCH_COMMAND_MAP: Record<RecordKey<Code & Word>, Unicode & Word> = {
     "C7": EMPTY_UNICODE,

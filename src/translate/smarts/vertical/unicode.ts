@@ -1,5 +1,5 @@
-import {isNegative, Word} from "@sagittal/general"
-import {CaseDesensitized, Code, Unicode} from "../../codes"
+import {CaseDesensitized, isNegative, Unicode, Word} from "@sagittal/general"
+import {Code} from "../../../../bin"
 import {smarts} from "../globals"
 import {CONDITIONAL_ALIAS_ENHANCED_CASE_DESENSITIZED_CODE_MAP} from "./constants"
 import {StemZone} from "./types"
