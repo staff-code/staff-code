@@ -3,9 +3,9 @@
 import {BLANK, Io, NEWLINE, Sentence, Unicode} from "@sagittal/general"
 import * as fs from "fs"
 import {Code} from "../../../bin"
+import {BRAVURA_TEXT_SC, BRAVURA_TEXT_SC_OTF} from "../../../src"
 import {computeInputSentenceUnicode, EMPTY_UNICODE} from "../../../src/translate"
 import {debugCodeSentence} from "../../../src/translate/codes"
-import {BRAVURA_TEXT_SC, BRAVURA_TEXT_SC_OTF} from "../../../src/ui/constants"
 import CustomReporterResult = jasmine.CustomReporterResult
 
 const thisJasmine = jasmine as unknown as {currentTest: jasmine.CustomReporterResult}

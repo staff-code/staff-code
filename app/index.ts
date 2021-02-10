@@ -1,4 +1,5 @@
-import {loadFonts, setupPackageRoot} from "../src"
+import {setupPackageRoot} from "../src"
+import {loadFonts} from "../webpack"
 
 const googleAnalyticsTag1 = document.createElement("script")
 googleAnalyticsTag1.async = true

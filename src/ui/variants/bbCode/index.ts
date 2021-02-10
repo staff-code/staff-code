@@ -1,4 +1,4 @@
-import {loadFonts} from "../../fonts"
+import {loadFonts} from "../../../../webpack"
 import {setupBBCodeStaffCode} from "./setup"
 
 loadFonts().then(setupBBCodeStaffCode)

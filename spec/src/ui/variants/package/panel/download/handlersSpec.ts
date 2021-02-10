@@ -1,5 +1,5 @@
 import {BLANK, Link} from "@sagittal/general"
-import {downloadImage} from "../../../../../../../src/ui/variants"
+import {downloadImage} from "../../../../../../../src"
 import {components} from "../../../../../../../src/ui/variants/package/globals"
 import {INPUT_PREVIOUS_VALUE_DATA_ATTRIBUTE} from "../../../../../../../src/ui/variants/package/panel/input/constants"
 import {mockDom} from "../../../../../../helpers/mockDom"
