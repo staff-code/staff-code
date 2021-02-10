@@ -12,7 +12,9 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
-gtag('config', 'G-QY3J3V3JGZ');
+gtag('config', 'G-QY3J3V3JGZ', {
+  cookie_flags: 'max-age=7200;secure;samesite=none'
+});
 `
 document.head.appendChild(googleAnalyticsTag2)
 
