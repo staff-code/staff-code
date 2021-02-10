@@ -1,9 +1,9 @@
 import {isUndefined} from "@sagittal/general"
-import {BASICS_SECTION_ID} from "../../../../../../bin"
 import {STANDARD_BORDER} from "../../constants"
 import {components} from "../../globals"
 import {setStaffCodeCookie} from "../../initial"
 import {Initial} from "../../types"
+import {BASICS_NOT_SMuFL_SECTION_ID} from "../section"
 
 const isReferenceOpen = (): boolean =>
     !!components.referenceWrapper && components.referenceWrapper.classList.contains("open")
@@ -23,7 +23,7 @@ const openReference = async (): Promise<void> => {
     components.referenceExpanderToolip!.textContent = ""
 
     components.referenceBanner!.style.borderBottom = "none"
-    window.location.href = `#${BASICS_SECTION_ID}`
+    window.location.href = `#${BASICS_NOT_SMuFL_SECTION_ID}`
 }
 
 const closeReference = (): void => {

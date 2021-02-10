@@ -1,4 +1,4 @@
-import {INTRODUCTION_TO_STAFF_CODE_LINK} from "../../../../../../bin"
+import {INTRODUCTION_TO_STAFF_CODE_LINK} from "../section"
 import versionJson from "./version.json"
 
 const VERSION = versionJson.version

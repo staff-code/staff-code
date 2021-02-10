@@ -1,15 +1,12 @@
-import {Char, Count, Html, Id, Index, Link, Name, Unicode, Word} from "@sagittal/general"
+import {Char, Count, Html, Id, Index, Name, Unicode, Word} from "@sagittal/general"
 import {Code} from "../codes"
 
 type ReferenceRow = [Unicode & Word, Code & Word, Mnemonic]
 
 type Mnemonic = Html & {_MnemonicBrand: boolean}
 
-type Explanation = Html & {_ExpanationBrand: boolean}
-type Parenthetical = string & {_ParentheticalBrand: boolean}
-
 // @ts-ignore
-type Section = [Id<Section>, Name<Section>, Parenthetical, Link, Explanation, ReferenceRow[]]
+type Section = [Id<Section>, Name<Section>, ReferenceRow[]]
 
 interface SmuflRangeDatum {
     description: Name<Section>,
@@ -33,9 +30,7 @@ export {
     Section,
     SmuflRangeDatum,
     SmuflRanges,
-    Explanation,
     Mnemonic,
-    Parenthetical,
     MatchesCaseAgnosticParameters,
     ShouldBoldParameters,
 }

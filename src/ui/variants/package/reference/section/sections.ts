@@ -1,10 +1,16 @@
 import {Id} from "@sagittal/general"
-import {BASICS_SECTION_ID, Section} from "../../../../../../bin"
+import {Section} from "../../../../../../bin"
 import referenceJson from "../reference.json"
+import {BASICS_NOT_SMuFL_SECTION_ID} from "./constants"
+import {
+    BASICS_NOT_SMuFL_SECTION,
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION,
+    LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION,
+} from "./notSmufl"
 import {appendSection} from "./section"
 
 const PRIORITY_SECTION_IDS: Array<Id<Section>> = [
-    BASICS_SECTION_ID,
+    BASICS_NOT_SMuFL_SECTION_ID,
     "staffBracketsAndDividers",
     "staves",
     "barlines",
@@ -42,6 +48,10 @@ const isPrioritySection = ([sectionId]: Section): boolean =>
 
 const appendSections = (): void => {
     const sections = referenceJson as Section[]
+
+    sections.unshift(BASICS_NOT_SMuFL_SECTION)
+    sections.push(LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION)
+    sections.push(COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION)
 
     const prioritySections = [] as Section[]
     const otherSections = [] as Section[]

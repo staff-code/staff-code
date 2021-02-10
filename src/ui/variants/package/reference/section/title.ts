@@ -1,44 +1,18 @@
-import {BLANK, Id, Link, Name, sentenceCaseToKebabCase} from "@sagittal/general"
-import {
-    BASICS_SECTION_ID,
-    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
-    Explanation,
-    LEGER_LINES_SUPPLEMENT_SECTION_ID,
-    Parenthetical,
-    Section,
-} from "../../../../../../bin"
-
-const replaceDiacriticizedCharsWithUndiacriticizedCounterparts = (str: string): string =>
-    str.normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-
-const computeSectionInfoLink = (sectionInfoLink: Link, sectionName: Name<Section>): Link => {
-    if (sectionInfoLink) return sectionInfoLink
-
-    const processedSectionName = replaceDiacriticizedCharsWithUndiacriticizedCounterparts(
-        sentenceCaseToKebabCase(sectionName),
-    )
-        .replace(/[()]/g, "")
-
-    return `https://w3c.github.io/smufl/latest/tables/${processedSectionName}` as Link
-}
+import {BLANK, Id, Name} from "@sagittal/general"
+import {Section} from "../../../../../../bin"
+import {computeExplanation} from "./explanations"
+import {computeSectionInfoLinkAndTextContent} from "./infoLinks"
+import {computeParenthetical} from "./parentheticals"
 
 const buildSectionInfoAnchor = (
     sectionId: Id<Section>,
     sectionName: Name<Section>,
-    parenthetical: Parenthetical,
-    sectionInfoLink: Link,
 ): HTMLAnchorElement => {
     const sectionInfoAnchor = document.createElement("a")
-    sectionInfoAnchor.textContent = sectionId === BASICS_SECTION_ID ?
-        "Introduction to StaffCode" :
-        (
-            sectionId === LEGER_LINES_SUPPLEMENT_SECTION_ID
-            || sectionId === COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID
-        ) ?
-            "" :
-            "SMuFL reference"
-    sectionInfoAnchor.href = computeSectionInfoLink(sectionInfoLink, sectionName)
+
+    const {text, link} = computeSectionInfoLinkAndTextContent(sectionId, sectionName)
+    sectionInfoAnchor.textContent = text
+    sectionInfoAnchor.href = link
     sectionInfoAnchor.target = "_blank"
 
     return sectionInfoAnchor
@@ -47,8 +21,6 @@ const buildSectionInfoAnchor = (
 const buildSectionIntro = (
     sectionId: Id<Section>,
     sectionName: Name<Section>,
-    parenthetical: Parenthetical,
-    sectionInfoLink: Link,
 ): HTMLDivElement => {
     const sectionIntro = document.createElement("div")
     sectionIntro.classList.add("sc-section-intro")
@@ -57,13 +29,14 @@ const buildSectionIntro = (
     sectionHeading.textContent = sectionName
     sectionIntro.appendChild(sectionHeading)
 
+    const parenthetical = computeParenthetical(sectionId)
     if (parenthetical !== BLANK) {
         const sectionParenthetical = document.createElement("span")
         sectionParenthetical.textContent = parenthetical
         sectionIntro.appendChild(sectionParenthetical)
     }
 
-    const sectionInfoAnchor = buildSectionInfoAnchor(sectionId, sectionName, parenthetical, sectionInfoLink)
+    const sectionInfoAnchor = buildSectionInfoAnchor(sectionId, sectionName)
     sectionIntro.appendChild(sectionInfoAnchor)
 
     return sectionIntro
@@ -72,9 +45,6 @@ const buildSectionIntro = (
 const buildSectionTitle = (
     sectionId: Id<Section>,
     sectionName: Name<Section>,
-    parenthetical: Parenthetical,
-    sectionInfoLink: Link,
-    explanation: Explanation,
 ): HTMLDivElement => {
     const sectionTitle = document.createElement("div")
     sectionTitle.classList.add("sc-section-title")
@@ -84,9 +54,10 @@ const buildSectionTitle = (
     sectionAnchor.id = sectionId
     sectionTitle.appendChild(sectionAnchor)
 
-    const sectionIntro = buildSectionIntro(sectionId, sectionName, parenthetical, sectionInfoLink)
+    const sectionIntro = buildSectionIntro(sectionId, sectionName)
     sectionTitle.appendChild(sectionIntro)
 
+    const explanation = computeExplanation(sectionId)
     if (explanation !== BLANK) {
         const explanationDiv = document.createElement("div")
         explanationDiv.classList.add("sc-section-explanation")
@@ -99,5 +70,5 @@ const buildSectionTitle = (
 
 export {
     buildSectionTitle,
-    computeSectionInfoLink,
+    computeSectionInfoLinkAndTextContent,
 }

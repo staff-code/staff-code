@@ -1,18 +1,19 @@
-import {Link, Name} from "@sagittal/general"
 import {
-    BASICS_SECTION_ID,
-    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
-    INTRODUCTION_TO_STAFF_CODE_LINK,
-    LEGER_LINES_SUPPLEMENT_SECTION_ID,
+    ReferenceRow,
+    Section,
+} from "../../../../../../bin"
+import {
+    BASICS_NOT_SMuFL_SECTION_ID,
+    BASICS_NOT_SMuFL_SECTION_NAME,
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION_ID,
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION_NAME,
+    LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION_ID,
+    LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION_NAME,
 } from "./constants"
-import {Explanation, Parenthetical, ReferenceRow, Section} from "./types"
 
-const BASICS_SECTION: Section = [
-    BASICS_SECTION_ID,
-    "StaffCode basics" as Name<Section>,
-    "" as Parenthetical,
-    INTRODUCTION_TO_STAFF_CODE_LINK,
-    `"Auto stem direction" means stem down for middle line and above, otherwise stem up.` as Explanation,
+const BASICS_NOT_SMuFL_SECTION: Section = [
+    BASICS_NOT_SMuFL_SECTION_ID,
+    BASICS_NOT_SMuFL_SECTION_NAME,
     [
         ["", "ston", "<u>st</u>aff <u>on</u>"],
         ["", "stof", "<u>st</u>aff <u>of</u>f (default)"],
@@ -54,12 +55,9 @@ const BASICS_SECTION: Section = [
     ] as ReferenceRow[],
 ] as Section
 
-const LEGER_LINES_SUPPLEMENT_SECTION: Section = [
-    LEGER_LINES_SUPPLEMENT_SECTION_ID,
-    "Leger lines supplement" as Name<Section>,
-    "" as Parenthetical,
-    "" as Link,
-    `SMuFL does not have suitable leger lines for all note and notehead symbols, so StaffCode adds the following. StaffCode will generate them automatically following <span>ston</span> (<u>st</u>aff <u>on</u>).` as Explanation,
+const LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION: Section = [
+    LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION_ID,
+    LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION_NAME,
     [
         ["", "lgln1", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e for <u>1</u> octal wide noteheads"],
         ["", "lgln2", "<u>l</u>e<u>g</u>er <u>l</u>i<u>n</u>e for <u>2</u> octal wide noteheads"],
@@ -69,12 +67,9 @@ const LEGER_LINES_SUPPLEMENT_SECTION: Section = [
     ] as ReferenceRow[],
 ]
 
-const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION: Section = [
-    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION_ID,
-    "Combining staff positions supplement" as Name<Section>,
-    "" as Parenthetical,
-    "" as Link,
-    `SMuFL does not allow staff positions corresponding to more than 2 leger lines. And it does not allow symbols on the middle staff line without advancing. So StaffCode adds the following additional positions.` as Explanation,
+const COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION: Section = [
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION_ID,
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION_NAME,
     [
         ["", "up0", "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>0</u>"],
         ["", "up9", "<u>st</u>aff <u>p</u>o<u>s</u> <u>r</u>ai<u>s</u>e <u>9</u>"],
@@ -95,7 +90,7 @@ const COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION: Section = [
 ]
 
 export {
-    BASICS_SECTION,
-    COMBINING_STAFF_POSITIONS_SUPPLEMENT_SECTION,
-    LEGER_LINES_SUPPLEMENT_SECTION,
+    BASICS_NOT_SMuFL_SECTION,
+    COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION,
+    LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION,
 }
