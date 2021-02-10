@@ -13,10 +13,7 @@ import {undoPreparationOfCodesToBeHumanReadableAsEncodedQueryParams} from "./hum
 import {EncodedCode, Initial} from "./types"
 
 const setStaffCodeCookie = (name: Initial, value: string): void => {
-    const date = new Date()
-    date.setDate(date.getDate() + 7)
-
-    document.cookie = `staffcode_${name}=${(encodeURIComponent(value) || BLANK)}; expires=${date.toUTCString()}; SameSite=Strict; path=/`
+    document.cookie = `staffcode_${name}=${(encodeURIComponent(value) || BLANK)}; Max-Age=604800; SameSite=Strict; path=/`
 }
 
 const getStaffCodeCookie = (name: Initial): Maybe<string> => {

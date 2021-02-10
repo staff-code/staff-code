@@ -28,7 +28,7 @@ describe("getSize", (): void => {
 
     it("takes them from the cookies if available", (): void => {
         mockDom()
-        document.cookie = `staffcode_size=0.9; SameSite=Strict; path=/`
+        document.cookie = `staffcode_size=0.9`
 
         const actual = getSize()
 
@@ -42,7 +42,7 @@ describe("getSize", (): void => {
         const sizeSpinner = document.createElement("input")
         sizeSpinner.value = "1.7"
         components.sizeSpinner = sizeSpinner
-        document.cookie = `staffcode_size=0.9; SameSite=Strict; path=/`
+        document.cookie = `staffcode_size=0.9`
 
         const actual = getSize()
 
@@ -85,7 +85,7 @@ describe("getLine", (): void => {
 
     it("takes them from the cookies if available", (): void => {
         mockDom()
-        document.cookie = `staffcode_line=1.9; SameSite=Strict; path=/`
+        document.cookie = `staffcode_line=1.9`
 
         const actual = getLine()
 
@@ -99,7 +99,7 @@ describe("getLine", (): void => {
         const lineSpinner = document.createElement("input")
         lineSpinner.value = "1.7"
         components.lineSpinner = lineSpinner
-        document.cookie = `staffcode_line=1.9; SameSite=Strict; path=/`
+        document.cookie = `staffcode_line=1.9`
 
         const actual = getLine()
 
