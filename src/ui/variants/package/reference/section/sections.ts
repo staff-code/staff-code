@@ -1,16 +1,50 @@
 import {Id} from "@sagittal/general"
 import {Section} from "../../../../../../bin"
+import {BASICS_NOT_SMuFL_SECTION_ID} from "./constants"
 import {
     BASICS_NOT_SMuFL_SECTION,
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION,
     LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION,
 } from "./notSmufl"
-import priorityJson from "./priority.json"
 import referenceJson from "./reference.json"
 import {appendSection} from "./section"
 
+const PRIORITY_SECTION_IDS: Array<Id<Section>> = [
+    BASICS_NOT_SMuFL_SECTION_ID,
+    "staffBracketsAndDividers",
+    "staves",
+    "barlines",
+    "repeats",
+    "clefs",
+    "timeSignatures",
+    "noteheads",
+    "slashNoteheads",
+    "noteClusters",
+    "individualNotes",
+    "beamedGroupsOfNotes",
+    "stems",
+    "tremolos",
+    "flags",
+    "standardAccidentals12Edo",
+    "articulation",
+    "holdsAndPauses",
+    "rests",
+    "barRepeats",
+    "octaves",
+    "dynamics",
+    "commonOrnaments",
+    "otherBaroqueOrnaments",
+    "combiningStrokesForTrillsAndMordents",
+    "precomposedTrillsAndMordents",
+    "brassTechniques",
+    "windTechniques",
+    "stringTechniques",
+    "pluckedTechniques",
+    "keyboardTechniques",
+] as Array<Id<Section>>
+
 const isPrioritySection = ([sectionId]: Section): boolean =>
-    (priorityJson as Array<Id<Section>>).includes(sectionId)
+    PRIORITY_SECTION_IDS.includes(sectionId)
 
 const appendSections = (): void => {
     const sections = referenceJson as Section[]
