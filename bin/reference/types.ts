@@ -21,7 +21,7 @@ interface MatchesCaseAgnosticParameters {
     codeIndex: Index<Code & Char>
 }
 
-interface ShouldBoldParameters extends MatchesCaseAgnosticParameters {
+interface ShouldMnemonicizeParameters extends MatchesCaseAgnosticParameters {
     codeCharsAlreadyMatchedByThisMnemonicWord: Count<Code & Char>,
 }
 
@@ -32,5 +32,5 @@ export {
     SmuflRanges,
     Mnemonic,
     MatchesCaseAgnosticParameters,
-    ShouldBoldParameters,
+    ShouldMnemonicizeParameters,
 }

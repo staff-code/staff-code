@@ -1,11 +1,20 @@
-import {Char, Count, increment, Index, joinWords, Name, SPACE, splitWord, Unicode, Word} from "@sagittal/general"
+import {BLANK, Char, Count, increment, Index, joinWords, Name, SPACE, splitWord, Unicode, Word} from "@sagittal/general"
 import {Code, computeSmuflCode, fixSmuflCapitalizationIssue, updateEhejipn} from "../codes"
 import {separateWordsBySpacesForMnemonic} from "../separate"
-import {shouldBold} from "./bold"
-import {computeCaseModifiedGlyphNameWord} from "./case"
-import {shouldCountAgainstBoldedCharAllotmentForWord} from "./count"
+import {computeCaseModifiedGlyphNameWord, matchesCaseAgnostic} from "./case"
+import {shouldCountAgainstMnemonicizedCharAllotmentForWord} from "./count"
 import {rejoinSagittalCommaNames, unjoinTabClefs} from "./exceptions"
-import {Mnemonic} from "./types"
+import {Mnemonic, ShouldMnemonicizeParameters} from "./types"
+
+const shouldMnemonicize = ({
+    glyphNameChar,
+    code,
+    codeIndex,
+    codeCharsAlreadyMatchedByThisMnemonicWord,
+}: ShouldMnemonicizeParameters): boolean =>
+    codeIndex < code.length
+    && matchesCaseAgnostic({glyphNameChar, code, codeIndex})
+    && codeCharsAlreadyMatchedByThisMnemonicWord < 2
 
 const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
     const code = computeSmuflCode(glyphName)
@@ -21,10 +30,10 @@ const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
         let mnemonicWord = "" as Mnemonic & Word
         let codeCharsAlreadyMatchedByThisMnemonicWord = 0 as Count<Code & Char>
         splitWord(caseModifiedGlyphNameWord).forEach((glyphNameChar: Name<Unicode> & Char): void => {
-            if (shouldBold({glyphNameChar, code, codeIndex, codeCharsAlreadyMatchedByThisMnemonicWord})) {
+            if (shouldMnemonicize({glyphNameChar, code, codeIndex, codeCharsAlreadyMatchedByThisMnemonicWord})) {
                 mnemonicWord = `${mnemonicWord}<u>${glyphNameChar}</u>` as Mnemonic & Word
                 codeIndex = increment(codeIndex)
-                if (shouldCountAgainstBoldedCharAllotmentForWord(glyphNameChar, caseModifiedGlyphNameWord)) {
+                if (shouldCountAgainstMnemonicizedCharAllotmentForWord(glyphNameChar, caseModifiedGlyphNameWord)) {
                     codeCharsAlreadyMatchedByThisMnemonicWord = increment(codeCharsAlreadyMatchedByThisMnemonicWord)
                 }
             } else {
@@ -35,7 +44,7 @@ const computeMnemonic = (glyphName: Name<Unicode>): Mnemonic => {
         return mnemonicWord
     })
 
-    return joinWords(...mnemonicWords) as Mnemonic
+    return joinWords(...mnemonicWords).replace(/<\/u><u>/g, BLANK) as Mnemonic
 }
 
 export {

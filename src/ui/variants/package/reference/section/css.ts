@@ -1,6 +1,6 @@
 import {formatPx} from "@sagittal/general"
 import {BRAVURA_TEXT_SC} from "../../../../constants"
-import {MONOSPACED_FONT, MONOSPACED_FONT_SIZE, STANDARD_BORDER} from "../../constants"
+import {LIGHT_GREY, LIGHTER_GREY, MONOSPACED_FONT, MONOSPACED_FONT_SIZE, STANDARD_BORDER} from "../../constants"
 
 // tslint:disable-next-line comment-format
 // language=CSS
@@ -89,6 +89,11 @@ const REFERENCE_TABLE_CSS = `
     td:nth-child(3) {
         border: ${STANDARD_BORDER};
         padding: 0 3px;
+    }
+
+    td:nth-child(3) u {
+        text-decoration: none;
+        background: ${LIGHTER_GREY};
     }
 `
 

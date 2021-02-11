@@ -8,7 +8,7 @@ const isOrdinalNumericWord = (glyphNameWord: Name<Unicode> & Word): boolean =>
     || !!glyphNameWord.match(/\d+nd$/)
     || !!glyphNameWord.match(/\d+rd$/)
 
-const shouldCountAgainstBoldedCharAllotmentForWord = (
+const shouldCountAgainstMnemonicizedCharAllotmentForWord = (
     glyphNameChar: Name<Unicode> & Char,
     glyphNameWord: Name<Unicode> & Word,
 ): boolean =>
@@ -19,5 +19,5 @@ const shouldCountAgainstBoldedCharAllotmentForWord = (
     || !isNumericChar(glyphNameChar)
 
 export {
-    shouldCountAgainstBoldedCharAllotmentForWord,
+    shouldCountAgainstMnemonicizedCharAllotmentForWord,
 }

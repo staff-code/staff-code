@@ -5,7 +5,7 @@ const LIGHT_TAN = "#DEC89C"
 const TAN = "#C99A68"
 const DARK_TAN = "#B37E43"
 
-const LIGHTER_GREY = "#aaa996"
+const LIGHTER_GREY = "#E3E2DC"
 const LIGHT_GREY = "#94937D"
 const GREY = "#6C6B59"
 const DARK_GREY = "#333333"
