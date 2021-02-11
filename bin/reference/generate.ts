@@ -19,7 +19,7 @@ const generateSmuflReference = (): void => {
     })
 
     fs.writeFileSync(
-        "src/ui/variants/package/reference/reference.json",
+        "src/ui/variants/package/reference/section/reference.json",
         JSON.stringify(sections, undefined, 2),
     )
 }
