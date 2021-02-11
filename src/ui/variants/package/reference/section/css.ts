@@ -92,8 +92,7 @@ const REFERENCE_TABLE_CSS = `
     }
 
     td:nth-child(3) u {
-        text-decoration: none;
-        background: ${LIGHTER_GREY};
+        text-decoration-skip-ink: none;
     }
 `
 
