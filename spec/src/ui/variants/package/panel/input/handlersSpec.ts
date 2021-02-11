@@ -86,7 +86,7 @@ describe("shouldTranslate", (): void => {
         setPreviousInputState()
         components.input.value = "13 chars long?"
         components.input.selectionStart = 14
-        const event = {code: "Slash"} as KeyboardEvent // ? = Shift + Slash
+        const event = {code: "Slash", shiftKey: true} as KeyboardEvent
         handleKeydown(event)
 
         const actual = shouldTranslate()
@@ -110,10 +110,10 @@ describe("shouldTranslate", (): void => {
     it("is true with any false condition and any true condition", (): void => {
         components.input.value = "13 chars long"
         setPreviousInputState()
-        components.input.value = "13 chars ?"           // Change amount:   would trigger. that's all it takes.
-        const event = {code: "Slash"} as KeyboardEvent  // Key down:        wouldn't trigger
+        components.input.value = "13 chars ?"                           // Change amount:   would trigger. enough to do.
+        const event = {code: "Slash", shiftKey: true} as KeyboardEvent  // Key down:        wouldn't trigger
         handleKeydown(event)
-        components.input.selectionStart = 10            // Cursor position: wouldn't trigger
+        components.input.selectionStart = 10                            // Cursor position: wouldn't trigger
 
         const actual = shouldTranslate()
 

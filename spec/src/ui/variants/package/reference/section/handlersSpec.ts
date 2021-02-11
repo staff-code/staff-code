@@ -1,32 +1,36 @@
 import {Maybe, Sentence, Unicode, Word} from "@sagittal/general"
+import {Key} from "readline"
 import {Code} from "../../../../../../../bin"
 import {debugCodeSentence, SMART_ADVANCE_COMMAND_CODE} from "../../../../../../../src/translate/codes"
 import {components} from "../../../../../../../src/ui/variants/package/globals"
 import {getPreviousInputState} from "../../../../../../../src/ui/variants/package/panel"
-import {handleReferenceInsert} from "../../../../../../../src/ui/variants/package/reference/section"
+import {
+    handleReferenceInsert,
+    handleReferenceInsertUndo,
+} from "../../../../../../../src/ui/variants/package/reference/section"
 import {mockDom} from "../../../../../../helpers/mockDom"
 import {setupBasicStaffCodePackageVariantForTest} from "../../../../../../helpers/src/ui/variants/package/setup"
 
-describe("handleReferenceInsert", (): void => {
-    const buildInsertionEvent = (code: Code & Word = "nhsqbllg" as Code & Word): MouseEvent => ({
-        composedPath: (): HTMLElement[] => ([
-            {tagName: "U"},
-            {tagName: "TD"},
-            {
-                tagName: "TR",
-                children: [
-                    {tagName: "TD" /*glyph cell*/},
-                    {
-                        tagName: "TD", getAttribute: (attributeName: string): Maybe<Code & Word> => {
-                            return attributeName === "sc-code" ? code : undefined
-                        },
+const buildInsertionEvent = (code: Code & Word = "nhsqbllg" as Code & Word): MouseEvent => ({
+    composedPath: (): HTMLElement[] => ([
+        {tagName: "U"},
+        {tagName: "TD"},
+        {
+            tagName: "TR",
+            children: [
+                {tagName: "TD" /*glyph cell*/},
+                {
+                    tagName: "TD", getAttribute: (attributeName: string): Maybe<Code & Word> => {
+                        return attributeName === "sc-code" ? code : undefined
                     },
-                    {tagName: "TD" /*mnemonic cell*/},
-                ],
-            } as unknown as HTMLElement & ParentNode,
-        ] as HTMLElement[]),
-    }) as unknown as MouseEvent
+                },
+                {tagName: "TD" /*mnemonic cell*/},
+            ],
+        } as unknown as HTMLElement & ParentNode,
+    ] as HTMLElement[]),
+}) as unknown as MouseEvent
 
+describe("handleReferenceInsert", (): void => {
     beforeEach((): void => {
         mockDom()
         setupBasicStaffCodePackageVariantForTest()
@@ -128,5 +132,39 @@ describe("handleReferenceInsert", (): void => {
         handleReferenceInsert(buildInsertionEvent(SMART_ADVANCE_COMMAND_CODE))
 
         expect(components.input.value).toBe("13 chars; long")
+    })
+})
+
+describe("handleReferenceInsertUndo", (): void => {
+    it("if it's a CTRL+Z, reverts the input to whatever it was before the last insert", (): void => {
+        mockDom()
+        setupBasicStaffCodePackageVariantForTest()
+        components.input.value = "13 chars long"
+        components.input.selectionStart = 5
+        const event = {ctrlKey: true, code: "KeyZ"} as KeyboardEvent
+
+        handleReferenceInsert(buildInsertionEvent())
+
+        expect(components.input.value).toBe("13 ch nhsqbllg ars long")
+
+        handleReferenceInsertUndo(event)
+
+        expect(components.input.value).toBe("13 chars long")
+    })
+
+    it("otherwise, it does nothing", (): void => {
+        mockDom()
+        setupBasicStaffCodePackageVariantForTest()
+        components.input.value = "13 chars long"
+        components.input.selectionStart = 5
+        const event = {ctrlKey: true, code: "KeyV"} as KeyboardEvent
+
+        handleReferenceInsert(buildInsertionEvent())
+
+        expect(components.input.value).toBe("13 ch nhsqbllg ars long")
+
+        handleReferenceInsertUndo(event)
+
+        expect(components.input.value).toBe("13 ch nhsqbllg ars long")
     })
 })
