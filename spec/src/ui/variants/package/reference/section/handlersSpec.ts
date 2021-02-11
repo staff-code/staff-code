@@ -51,9 +51,9 @@ describe("handleReferenceInsert", (): void => {
 
     it("updates the display if the part of the reference that was clicked is a section row; it updates it with the data from the code cell of that row", (): void => {
         handleReferenceInsert(buildInsertionEvent())
-        const actual = debugCodeSentence(components.display.textContent as Unicode & Sentence)
+        const actualDisplayText = debugCodeSentence(components.display.textContent as Unicode & Sentence)
 
-        expect(actual).toBe("nhsqbllg 16;")
+        expect(actualDisplayText).toBe("nhsqbllg 16;")
     })
 
     it("saves the previous input value and text cursor position within the input", (): void => {

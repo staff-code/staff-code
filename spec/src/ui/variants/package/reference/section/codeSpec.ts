@@ -23,10 +23,10 @@ describe("setupCodeCell", (): void => {
         const code = "ntqrup" as Code & Word
 
         setupCodeCell(codeCell, unicode, code)
-        const actual = codeCell.getAttribute("sc-code")
+        const actualInsertionCode = codeCell.getAttribute("sc-code")
 
-        const expected = "ntqrup"
-        expect(actual).toBe(expected)
+        const expectedInsertionCode = "ntqrup"
+        expect(actualInsertionCode).toBe(expectedInsertionCode)
     })
 
     it("when the code cell is indicated to be empty with the special ellipses code, i.e. it is not intended to insert anything into the display when clicked (such as placeholder rows eliding continuua of codes) sets its attribute — the one which is read by the insertion handler — to blank", (): void => {
@@ -35,10 +35,10 @@ describe("setupCodeCell", (): void => {
         const code = "..." as Code & Word
 
         setupCodeCell(codeCell, unicode, code)
-        const actual = codeCell.getAttribute("sc-code")
+        const actualInsertionCode = codeCell.getAttribute("sc-code")
 
-        const expected = BLANK
-        expect(actual).toBe(expected)
+        const expectedInsertionCode = BLANK
+        expect(actualInsertionCode).toBe(expectedInsertionCode)
     })
 
     it("when the code is one of a couple special exceptions, this happens", (): void => {
