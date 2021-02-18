@@ -3,6 +3,8 @@ import versionJson from "./version.json"
 
 const VERSION = versionJson.version
 
+// TODO: rename from "microtonal notation project" per whatever we settle on w/r/t to "pitch notation"
+//  Or perhaps even "pitch language".
 const STAFF_CODE_ABOUT = `
 <a target="_blank" href="${INTRODUCTION_TO_STAFF_CODE_LINK}">Introduction to StaffCode</a><br>
 <br>
