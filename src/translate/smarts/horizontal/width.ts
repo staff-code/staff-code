@@ -30,6 +30,13 @@ const EXCEPTION_WIDTHS: Record<RecordKey<Unicode>, Octals> = {
     "": 0 as Octals,   // U+EBA0 luteStaff6Lines
     "": 0 as Octals,   // U+EBA1 luteStaff6LinesWide
     "": 0 as Octals,   // U+EBA2 luteStaff6LinesNarrow
+
+    // TODO: remove the following exceptions if the error in `bravura_widths.json` is corrected;
+    //  See: https://github.com/steinbergmedia/bravura/issues/39#issuecomment-784357601
+    "": 3 as Octals,   // U+E3F9 accSagittal1TinaDown
+    "": 3 as Octals,   // U+E3F8 accSagittal1TinaUp
+    "": 7 as Octals,   // U+E3F7 accSagittal2MinasDown
+    "": 7 as Octals,   // U+E3F6 accSagittal2MinasUp
 }
 
 const FLOORED_WIDTH_UNICODES: Array<Unicode & Word> = [
