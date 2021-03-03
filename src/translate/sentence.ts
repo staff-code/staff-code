@@ -23,15 +23,16 @@ import {
 import {computeInputUnicodeClause} from "./word"
 
 const bufferSemicolonsAndCollapseAllWhitespacesToSingleSpaces = (inputSentence: Io & Sentence): Io & Sentence => {
-    const temporarilyReplaceActualAdvanceCodesWithSemicolonsSoTheyDontGetSeparated = inputSentence
+    const temporarilyReplaceActualAdvanceCodesWithTmpAltSemicolonsSoTheyDontGetSeparated = inputSentence
         .replace(/(^|\s|;)(\d+);/g, "$1$2\x07 ")
-        .replace(/(^|\s|;)en;/g, "$1en\x07 ")
-        .replace(/(^|\s|;)nl;/g, "$1nl\x07 ")
-        .replace(/(^|\s|;)rt;/g, "$1rt\x07 ")
-        .replace(/(^|\s|;)cn;/g, "$1cn\x07 ")
+        .replace(/(^|\s|;)(\d+)((?=;))/g, "$1$2\x07 ")
+        .replace(/(^|\s|;)en(?=;)/g, "$1en\x07 ")
+        .replace(/(^|\s|;)nl(?=;)/g, "$1nl\x07 ")
+        .replace(/(^|\s|;)rt(?=;)/g, "$1rt\x07 ")
+        .replace(/(^|\s|;)cn(?=;)/g, "$1cn\x07 ")
 
     const separateSemicolonsThatWereNotPartOfActualAdvanceCodes =
-        temporarilyReplaceActualAdvanceCodesWithSemicolonsSoTheyDontGetSeparated
+        temporarilyReplaceActualAdvanceCodesWithTmpAltSemicolonsSoTheyDontGetSeparated
             .replace(/;/g, " ; ")
 
     const restoreSemicolonsToActualAdvanceCodes = separateSemicolonsThatWereNotPartOfActualAdvanceCodes
