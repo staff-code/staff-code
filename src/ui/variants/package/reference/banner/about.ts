@@ -1,4 +1,4 @@
-import {INTRODUCTION_TO_STAFF_CODE_LINK} from "../section"
+import {INTRODUCTION_TO_STAFF_CODE_LINK, STAFF_CODE_SUBFORUM_LINK} from "../section"
 import versionJson from "./version.json"
 
 const VERSION = versionJson.version
@@ -11,7 +11,7 @@ by Douglas Blumeyer<br>
 and Dave Keenan.<br>
 A product of the <a target="_blank" href="https://sagittal.org/">Sagittal</a><br>
 microtonal notation project.<br>
-<a target="_blank" href="https://forum.sagittal.org/viewforum.php?f=22">Questions or feedback?</a>
+<a target="_blank" href="${STAFF_CODE_SUBFORUM_LINK}">Questions or feedback?</a>
 `
 
 const buildSiteAboutTriggeringScrim = (): HTMLDivElement => {

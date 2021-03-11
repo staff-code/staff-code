@@ -1,5 +1,5 @@
 export {REFERENCE_SECTION_CSS} from "./css"
 export {appendSections} from "./sections"
-export {BASICS_NOT_SMuFL_SECTION_ID, INTRODUCTION_TO_STAFF_CODE_LINK} from "./constants"
+export {BASICS_NOT_SMuFL_SECTION_ID, INTRODUCTION_TO_STAFF_CODE_LINK, STAFF_CODE_SUBFORUM_LINK} from "./constants"
 export {computeParenthetical} from "./parentheticals"
 export {handleReferenceInsert, handleReferenceInsertUndo} from "./handlers"

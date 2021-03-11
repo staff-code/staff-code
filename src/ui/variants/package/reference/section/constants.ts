@@ -14,8 +14,8 @@ const COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION_NAME =
 const LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION_NAME =
     "Leger lines supplement" as Name<Section>
 
-// Temporary link, until a public post is ready.
-const INTRODUCTION_TO_STAFF_CODE_LINK: Link = "https://forum.sagittal.org/viewtopic.php?p=3192#p3192" as Link
+const INTRODUCTION_TO_STAFF_CODE_LINK: Link = "https://forum.sagittal.org/viewtopic.php?f=23&t=519" as Link
+const STAFF_CODE_SUBFORUM_LINK: Link = "https://forum.sagittal.org/viewforum.php?f=22" as Link
 
 export {
     EMPTY_CODE_CELL,
@@ -26,4 +26,5 @@ export {
     COMBINING_STAFF_POSITIONS_SUPPLEMENT_NOT_SMuFL_SECTION_NAME,
     LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION_NAME,
     INTRODUCTION_TO_STAFF_CODE_LINK,
+    STAFF_CODE_SUBFORUM_LINK,
 }

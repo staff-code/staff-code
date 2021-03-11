@@ -15,7 +15,7 @@ describe("computeSectionInfoLinkAndTextContent", (): void => {
         const actual = computeSectionInfoLinkAndTextContent(sectionId, sectionName)
 
         const expected = {
-            link: "https://forum.sagittal.org/viewtopic.php?p=3192#p3192" as Link,
+            link: "https://forum.sagittal.org/viewtopic.php?f=23&t=519" as Link,
             text: "Introduction to StaffCode",
         }
         expect(actual).toEqual(expected)
