@@ -17,7 +17,8 @@ import {smarts} from "./globals"
 import {
     computeAdvanceToEndOfInkUnicodeClauseAndUpdateSmarts,
     computeAdvanceUnicode,
-    computeUnicodeWidth, Octals,
+    computeUnicodeWidth,
+    Octals,
 } from "./horizontal"
 
 const computeUnrecognizedUnicodeClause = (input: Io & Word): Unicode & Clause => {

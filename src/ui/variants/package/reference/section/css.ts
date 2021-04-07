@@ -1,6 +1,6 @@
 import {formatPx} from "@sagittal/general"
 import {BRAVURA_TEXT_SC} from "../../../../constants"
-import {LIGHT_GREY, LIGHTER_GREY, MONOSPACED_FONT, MONOSPACED_FONT_SIZE, STANDARD_BORDER} from "../../constants"
+import {MONOSPACED_FONT, MONOSPACED_FONT_SIZE, STANDARD_BORDER} from "../../constants"
 
 // tslint:disable-next-line comment-format
 // language=CSS

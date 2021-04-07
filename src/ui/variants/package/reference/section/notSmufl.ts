@@ -1,7 +1,4 @@
-import {
-    ReferenceRow,
-    Section,
-} from "../../../../../../bin"
+import {ReferenceRow, Section} from "../../../../../../bin"
 import {
     BASICS_NOT_SMuFL_SECTION_ID,
     BASICS_NOT_SMuFL_SECTION_NAME,

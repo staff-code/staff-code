@@ -1,12 +1,7 @@
 import {Unicode, Word} from "@sagittal/general"
 import {Code} from "../../../../bin"
 import {computeCaseDesensitizedCodes} from "../../case"
-import {
-    computeUnicodeForCode,
-    NEWLINE_ADVANCE_COMMAND_CODE,
-    NOT_SMuFL_MANUAL_ADVANCE_MAP,
-    NOT_SMuFL_SMART_SPACING_COMMAND_MAP,
-} from "../../codes"
+import {computeUnicodeForCode, NOT_SMuFL_MANUAL_ADVANCE_MAP, NOT_SMuFL_SMART_SPACING_COMMAND_MAP} from "../../codes"
 import {EMPTY_UNICODE} from "../../constants"
 import {Octals} from "./types"
 

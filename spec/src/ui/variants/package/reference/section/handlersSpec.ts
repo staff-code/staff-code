@@ -1,5 +1,4 @@
 import {Maybe, Sentence, Unicode, Word} from "@sagittal/general"
-import {Key} from "readline"
 import {Code} from "../../../../../../../bin"
 import {debugCodeSentence, SMART_ADVANCE_COMMAND_CODE} from "../../../../../../../src/translate/codes"
 import {components} from "../../../../../../../src/ui/variants/package/globals"

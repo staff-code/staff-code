@@ -3,7 +3,8 @@ import {Section} from "../../../../../../../bin"
 import {BASICS_NOT_SMuFL_SECTION_ID} from "../../../../../../../src/ui/variants/package/reference/section"
 import {
     BASICS_NOT_SMuFL_SECTION_NAME,
-    LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION_ID, LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION_NAME,
+    LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION_ID,
+    LEGER_LINES_SUPPLEMENT_NOT_SMuFL_SECTION_NAME,
 } from "../../../../../../../src/ui/variants/package/reference/section/constants"
 import {computeSectionInfoLinkAndTextContent} from "../../../../../../../src/ui/variants/package/reference/section/title"
 
