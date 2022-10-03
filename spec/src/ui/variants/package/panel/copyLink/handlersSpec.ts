@@ -1,4 +1,4 @@
-import {BLANK, Link, onlyRunInCi} from "@sagittal/general"
+import {BLANK, Link, slowTestOnlyRunInFullSuite} from "@sagittal/general"
 import {WEB_APP_URL} from "../../../../../../../src/ui/constants"
 import {components} from "../../../../../../../src/ui/variants/package/globals"
 import {handleCopyLinkClick} from "../../../../../../../src/ui/variants/package/panel/copyLink/handlers"
@@ -23,7 +23,7 @@ const setupForHandleCopyLinkClick = ({url}: {url?: Link} = {url: WEB_APP_URL}): 
 
 describe("handleCopyLinkClick", (): void => {
     it("activates the copy link message for a few seconds", async (): Promise<void> => {
-        onlyRunInCi()
+        slowTestOnlyRunInFullSuite()
 
         setupForHandleCopyLinkClick()
 

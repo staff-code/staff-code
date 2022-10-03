@@ -23,10 +23,10 @@
     "build-package-esm": "tsc --module esnext --outDir dist/package/esm",
     "deploy": "sh bin/deploy.sh",
     "profile": "node --prof -r ts-node/register/transpile-only --max-old-space-size=131072 [[script.ts]] && node --prof-process isolate-*.log > processed.txt && rm isolate-*.log",
-    "test": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine",
-    "test-names": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine --ci=false --names=true",
-    "test-ci": "node -r ts-node/register node_modules/jasmine/bin/jasmine --ci=true",
-    "test-ci-names": "node -r ts-node/register node_modules/jasmine/bin/jasmine --ci=true --names=true",
+    "test": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine --full=false --names=false",
+    "test-names": "node -r ts-node/register/transpile-only node_modules/jasmine/bin/jasmine --full=false --names=true",
+    "test-full": "node -r ts-node/register node_modules/jasmine/bin/jasmine --full=true --names=false",
+    "test-full-names": "node -r ts-node/register node_modules/jasmine/bin/jasmine --full=true --names=true",
     "tmp": "node -r ts-node/register/transpile-only --max-old-space-size=131072 spec/helpers/shared/tmp/tmp.ts",
     "generate-smufl-map": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/codes/generate.ts",
     "generate-bravura-widths": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/widths/generate.ts",
@@ -34,7 +34,7 @@
     "generate-version": "node -r ts-node/register/transpile-only --max-old-space-size=131072 bin/version/generate.ts"
   },
   "devDependencies": {
-    "@sagittal/general": "^1.0.119",
+    "@sagittal/general": "^1.0.120",
     "@types/css-font-loading-module": "0.0.7",
     "@types/jasmine": "^4.3.0",
     "@types/jsdom": "^20.0.0",
