@@ -13,6 +13,7 @@ module.exports = {
         path: path.resolve(__dirname, "dist/app"),
         chunkFilename: "[name].[contenthash].js",
         filename: "main.[contenthash].js",
+        assetModuleFilename: "[name].[contenthash].[ext]",
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -22,5 +23,8 @@ module.exports = {
         new FaviconsWebpackPlugin("./assets/favicon.png"),
         new webpack.ProvidePlugin({process: "process/browser"}),
         new IgnoreNotFoundExportPlugin(),
+        new webpack.DefinePlugin({
+            "process.env.NODE_ENV": JSON.stringify("development"),
+        }),
     ],
 }

@@ -130,7 +130,7 @@ describe("handleInput", (): void => {
         setupBasicStaffCodePackageVariantForTest()
     })
 
-    it("does nothing if it should not update", async (done: DoneFn): Promise<void> => {
+    it("does nothing if it should not update", (done: DoneFn): void => {
         components.input.value = "13 chars long"
         setPreviousInputState()
 
@@ -141,7 +141,7 @@ describe("handleInput", (): void => {
         }, DOUBLE_THE_TIME_IT_SHOULD_ACTUALLY_TAKE_IN_THE_APP_TO_BE_SAFE).then()
     })
 
-    it("translates the input to the display if it should update", async (done: DoneFn): Promise<void> => {
+    it("translates the input to the display if it should update", (done: DoneFn): void => {
         components.input.value = "13 chars long"
         setPreviousInputState()
         const event = {code: "Space"} as KeyboardEvent

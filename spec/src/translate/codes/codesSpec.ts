@@ -18,7 +18,7 @@ describe("CASE_DESENSITIZED_CODE_MAP", (): void => {
         })
     })
 
-    describe("double-quotes", (): void => {
+    it("double-quotes", (): void => {
         codes.forEach((code: Code & Word): void => {
             if (code[0] === `"`) {
                 fail(`code ${code} starts with a '\"' but that initial character is reserved for beginning annotations/lyrics`)

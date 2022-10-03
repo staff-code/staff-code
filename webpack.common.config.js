@@ -19,10 +19,7 @@ module.exports = {
             },
             {
                 test: /\.(otf|woff)$/,
-                loader: "file-loader",
-                options: {
-                    name: '[name].[contenthash].[ext]',
-                }
+                type: 'asset/resource'
             }
         ],
     },

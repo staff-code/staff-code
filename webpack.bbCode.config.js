@@ -11,6 +11,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist/bbCode"),
         filename: "staffCode.js",
+        assetModuleFilename: "[name].[contenthash].[ext]",
     },
     plugins: [
         // The alternative is to switch all types, besides enums, to use `export type {}` and `import type {}`

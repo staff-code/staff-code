@@ -8,7 +8,7 @@ import {setupBasicStaffCodePackageVariantForTest} from "../../../../../../helper
 
 let writeTextSpy: jasmine.Spy
 
-const setupForHandleCopyLinkClick = ({url}: {url?: Link} = {}): void => {
+const setupForHandleCopyLinkClick = ({url}: {url?: Link} = {url: WEB_APP_URL}): void => {
     mockDom({url})
     // @ts-ignore
     globalThis.navigator.clipboard = {}
@@ -22,7 +22,7 @@ const setupForHandleCopyLinkClick = ({url}: {url?: Link} = {}): void => {
 }
 
 describe("handleCopyLinkClick", (): void => {
-    it("activates the copy link message for a few seconds", async (done: DoneFn): Promise<void> => {
+    it("activates the copy link message for a few seconds", async (): Promise<void> => {
         onlyRunInCi()
 
         setupForHandleCopyLinkClick()
@@ -30,10 +30,8 @@ describe("handleCopyLinkClick", (): void => {
         handleCopyLinkClick()
 
         expect(components.copyLinkMessage!.classList.contains("active")).toBeTruthy()
-        setTimeout((): void => {
-            expect(components.copyLinkMessage!.classList.contains("active")).toBeFalsy()
-            done()
-        }, 3100)
+        await new Promise(r => setTimeout(r, 3100));
+        expect(components.copyLinkMessage!.classList.contains("active")).toBeFalsy()
     })
 
     it("translates the input to the display, in case the last code the user types wasn't a whitespace", (): void => {

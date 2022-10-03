@@ -77,7 +77,7 @@ curl -u $(git config user.email):${GITHUB_ACCESS_TOKEN} \
 npm run build-package
 npm publish --access public
 
-# publish app
+# publish app (it's a GitHub page)
 
 npm run build-app
 pushd dist/app || exit
@@ -88,4 +88,4 @@ pushd dist/app || exit
   git push
 popd || exit
 
-echo Package published, bbCode released, and app deployed. Please commit, and if necessary, update the Sagittal forum config for bbCodes using the scripts-forum repo.
+echo "Package published, bbCode released, and app deployed. Please commit, and if necessary, update the Sagittal forum config for bbCodes using the scripts-forum repo."

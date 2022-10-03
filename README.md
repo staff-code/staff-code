@@ -90,12 +90,15 @@ If using JetBrains IDE, you can Alt+Enter inside the strings of CSS and choose "
 
 ## deployment
 
-`npm run deploy` builds both the `bbCode` and `package` variants of StaffCode, as well as the web `app`.
+`npm run deploy` builds both the `bbCode` and `package` variants of StaffCode, as well as the web `app`, before
+deploying all three of these.
 
 The web `app` and the `bbCode` variant are bundled by `webpack`, while `tsc` is used to simply transpile the `package`.
 
 The BBCode variant is published to GitHub as a release, with the contents of the `dist/bbCode` folder archived and
 uploaded as an asset thereof.
+
+The app is a GitHub page. Note that `dist/app` is a submodule for that.
 
 You may need to install `wget` and `jq` in order to deploy. Chocolatey is good for this sort of thing. I
 used `choco install wget` while running my terminal as an administrator.

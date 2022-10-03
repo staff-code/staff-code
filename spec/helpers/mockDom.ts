@@ -1,7 +1,8 @@
 import {Link} from "@sagittal/general"
 import {JSDOM} from "jsdom"
+import {WEB_APP_URL} from "../../src/ui/constants"
 
-const mockDom = ({url}: {url?: Link} = {}): void => {
+const mockDom = ({url}: {url?: Link} = {url: WEB_APP_URL}): void => {
     globalThis.window = new JSDOM("", {url}).window as unknown as Window & typeof globalThis
 
     globalThis.document = globalThis.window.document

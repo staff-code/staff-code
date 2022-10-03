@@ -6,16 +6,16 @@ import {Code} from "../../../bin"
 import {BRAVURA_TEXT_SC, BRAVURA_TEXT_SC_OTF} from "../../../src"
 import {computeInputSentenceUnicode, EMPTY_UNICODE} from "../../../src/translate"
 import {debugCodeSentence} from "../../../src/translate/codes"
-import CustomReporterResult = jasmine.CustomReporterResult
+import SpecResult = jasmine.SpecResult
 
-const thisJasmine = jasmine as unknown as {currentTest: jasmine.CustomReporterResult}
+const thisJasmine = jasmine as unknown as {currentTest: jasmine.SpecResult}
 
 const SENTENCE_VISUAL_SPEC_DIR = "spec/visual/sentence"
 const SENTENCE_VISUAL_SPEC_INDEX = `${SENTENCE_VISUAL_SPEC_DIR}/index.html`
 
 let currentDescribe = ""
 
-const saveVisualRegressionSpecSvg = (actual: Unicode & Sentence, currentTest: CustomReporterResult, subTest: string = BLANK): void => {
+const saveVisualRegressionSpecSvg = (actual: Unicode & Sentence, currentTest: SpecResult, subTest: string = BLANK): void => {
     const fullName = `${currentTest.fullName} ${subTest}`.replace(/computeInputSentenceUnicode /, BLANK)
     const describe = fullName.match(/\*\*\* (.*) \*\*\*/)
     if (describe && describe[1] !== currentDescribe) {
@@ -30,7 +30,7 @@ const saveVisualRegressionSpecSvg = (actual: Unicode & Sentence, currentTest: Cu
 
 describe("computeInputSentenceUnicode", (): void => {
     beforeAll((): void => {
-        fs.rmdirSync(SENTENCE_VISUAL_SPEC_DIR, {recursive: true})
+        fs.rmSync(SENTENCE_VISUAL_SPEC_DIR, {recursive: true})
         fs.mkdirSync(SENTENCE_VISUAL_SPEC_DIR)
         fs.writeFileSync(SENTENCE_VISUAL_SPEC_INDEX, `<head><style>@font-face{font-family: ${BRAVURA_TEXT_SC}; src: url('../../../${BRAVURA_TEXT_SC_OTF}')}</style></head><body>` + NEWLINE)
     })

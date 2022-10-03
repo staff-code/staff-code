@@ -1,6 +1,7 @@
 import {Abbreviation, Name, Unicode, Word} from "@sagittal/general"
 
 const EXCEPTION_WORDS: Record<Name<Unicode> & Word, Abbreviation<Unicode> & Word> = {
+    // @ts-ignore
     arrowhead: "ah",    // Arrow	ar	27x
     barline: "bl",      // Brace, brass, bracket	br, br, br	13x
     bow: "bo",          // Vowel digraph	ow	25x
