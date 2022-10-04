@@ -10,8 +10,6 @@ For questions or feedback, visit https://forum.sagittal.org/viewforum.php?f=22.
 ston trcl ; d5 /|\ ; nt;
 ```
 
-<img src="/github/readme.svg"/>
-
 ## use
 
 StaffCode can be used in three ways:
