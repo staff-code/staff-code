@@ -1,3 +1,5 @@
+![test](https://github.com/staff-code/staff-code/actions/workflows/test.yml/badge.svg)
+
 # StaffCode
 
 Convert simple text codes into Unicode, which in a specialized font displays as sheet music.
