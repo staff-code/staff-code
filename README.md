@@ -81,10 +81,15 @@ Visit `https://staffcode.org` and have fun!
 
 ## development
 
-After cloning, don't forget to `cd` into `dist` and `git checkout main`. There's probably a way I could do a recursive
-submodule initiation, like I did on other big projects, but I'm too lazy.
+When cloning, use:
 
-Use `npm start` to run a local version of the web app.
+```shell
+git clone --recurse-submodules git@github.com:staff-code/staff-code.git
+cd staff-code
+git submodule foreach git checkout main
+```
+
+After `npm i` of course, use `npm start` to run a local version of the web app.
 
 If using JetBrains IDE, you can Alt+Enter inside the strings of CSS and choose "Inject Language > CSS".
 
