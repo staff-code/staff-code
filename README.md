@@ -100,7 +100,7 @@ uploaded as an asset thereof.
 
 The app is a GitHub page. Note that `dist/app` is a submodule for that.
 
-You may need to install `wget` and `jq` in order to deploy. Homebrew or Chocolatey are good for this sort of thing, 
+You may need to install `wget`, `7z`, and `jq` in order to deploy. Homebrew or Chocolatey are good for this sort of thing, 
 depending on your OS. I used `choco install wget` on Windows while running my terminal as an administrator.
 
 Additional dependencies (besides `node_modules`) are located in the `vendor` directory. These are on key JSON data files
