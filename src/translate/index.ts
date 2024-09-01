@@ -8,3 +8,4 @@ export {
 } from "./codes"
 export {smarts} from "./smarts"
 export {EMPTY_UNICODE} from "./constants"
+export {computeCodeWordWidth} from "./width"

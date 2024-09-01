@@ -100,8 +100,8 @@ uploaded as an asset thereof.
 
 The app is a GitHub page. Note that `dist/app` is a submodule for that.
 
-You may need to install `wget` and `jq` in order to deploy. Chocolatey is good for this sort of thing. I
-used `choco install wget` while running my terminal as an administrator.
+You may need to install `wget` and `jq` in order to deploy. Homebrew or Chocolatey are good for this sort of thing, 
+depending on your OS. I used `choco install wget` on Windows while running my terminal as an administrator.
 
 Additional dependencies (besides `node_modules`) are located in the `vendor` directory. These are on key JSON data files
 from Bravura and SMuFL. As a first step of each deploy, these dependencies are updated. The code in the `bin` directory
