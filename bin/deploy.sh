@@ -37,6 +37,7 @@ cp assets/fonts/* dist/bbCode
 
 npm run build-bbcode
 
+mkdir -p dist/bbCode
 cp src/ui/variants/bbCode/acp/README.txt dist/bbCode
 STAFF_BBCODE_USAGE=$(<src/ui/variants/bbCode/acp/staff/bbCodeUsage.txt)
 sed -i "s@{{STAFF_BBCODE_USAGE}}@${STAFF_BBCODE_USAGE}@g" dist/bbCode/README.txt
