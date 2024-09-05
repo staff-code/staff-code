@@ -2,6 +2,15 @@
 
 set -e
 
+echo "If this deploy updates the Bravura Text SC font, please verify that you have: "
+echo "  (1) modified CSP ligature outlines as well as non-ligature outlines"
+echo "  (2) converted the .otf file output by FontForge so that it will work on the web as both .otf and .woff" 
+echo "      (a) using transfonter.org to convert the .otf to .woff"
+echo "      (b) using cloudconvert.com to convert that .woff back .otf"
+echo "      (c) using cloudconvert.com to convert that .otf back to .woff"
+echo "See this and the following post for add'l details: https://forum.sagittal.org/viewtopic.php?p=4947#p4947"
+read -r
+
 # update code with resources from SMuFL and Bravura
 
 rm vendor/glyphnames.json || true
