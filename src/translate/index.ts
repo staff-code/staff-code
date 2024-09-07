@@ -1,4 +1,4 @@
-export {computeInputSentenceUnicode} from "./sentence"
+export { computeInputSentenceUnicode } from "./sentence"
 export {
     debugCode,
     ALIASES_MAP,
@@ -6,6 +6,6 @@ export {
     SAGITTAL_COMMA_NAME_ALIASES_MAP,
     SMART_ADVANCE_COMMAND_CODE,
 } from "./codes"
-export {smarts} from "./smarts"
-export {EMPTY_UNICODE} from "./constants"
-export {computeCodeWordWidth} from "./width"
+export { smarts, Octals } from "./smarts"
+export { EMPTY_UNICODE } from "./constants"
+export { computeCodewordWidth } from "./width"

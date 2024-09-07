@@ -8,4 +8,5 @@ export {
     BRAVURA_TEXT_SC_OTF,
     BRAVURA_TEXT_SC_WOFF,
 } from "./ui"
-export {computeInputSentenceUnicode, computeCodeWordWidth} from "./translate"
+export { computeInputSentenceUnicode, computeCodewordWidth, Octals } from "./translate"
+export { Code } from "../bin"
