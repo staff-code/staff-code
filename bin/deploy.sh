@@ -11,6 +11,12 @@ echo "      (c) using cloudconvert.com to convert that .otf back to .woff"
 echo "See this and the following post for add'l details: https://forum.sagittal.org/viewtopic.php?p=4947#p4947"
 read -r
 
+# We don't have the means to [i]automatically [/i]generate working .otf and .woff from that .sfd. 
+# We can only do it manually using FontForge and two font conversion websites. 
+# And FontForge will readily create an .sfd from an .otf just by opening the .otf. 
+# So we think of the .otf as the source, but we keep the .woff in the repo and accept the danger of it getting out of sync with the .otf,
+#  so that we avoid the convoluted manual process needed to generate it, in cases where the .otf hasn't changed. 
+
 # update code with resources from SMuFL and Bravura
 
 rm vendor/glyphnames.json || true
